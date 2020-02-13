@@ -3,6 +3,7 @@
  * Copyright 2013-2019 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-resume/blob/master/LICENSE)
  */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
 body {
   font-family: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -23,10 +24,18 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  font-weight: 700;
+  font-family: 'open sans', sans-serif;
+  font-weight: 100;
   text-transform: uppercase;
   color: #343a40;
+}
+
+.name {
+  font-family: 'open sans', sans-serif;
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #343a40;
+  letter-spacing: 18px;
 }
 
 h1 {
@@ -49,9 +58,16 @@ p.lead {
 
 .subheading {
   text-transform: uppercase;
-  font-weight: 500;
-  font-family: 'Saira Extra Condensed', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  font-size: 1.5rem;
+  font-weight: lighter;
+  font-family: 'open sans', sans-serif;
+  font-size: 1.2rem;
+
+}
+
+.student {
+  padding-left: 10px;
+  letter-spacing: 12px;
+  color: #aaa;
 }
 
 .social-icons a {
@@ -72,7 +88,7 @@ p.lead {
 }
 
 .social-icons a:hover {
-  background-color: #BD5D38;
+  background-color: #32292F;
 }
 
 .dev-icons {
@@ -80,7 +96,7 @@ p.lead {
 }
 
 .dev-icons .list-inline-item i:hover {
-  color: #BD5D38;
+  color: #32292F;
 }
 
 #sideNav .navbar-nav .nav-item .nav-link {
@@ -90,7 +106,7 @@ p.lead {
 }
 
 #sideNav .navbar-toggler:focus {
-  outline-color: #d48a6e;
+  outline-color: #32292F;
 }
 
 @media (min-width: 992px) {
@@ -160,17 +176,17 @@ section.resume-section .resume-item .resume-date {
 }
 
 .bg-primary {
-  background-color: #BD5D38 !important;
+  background-color: #32292F !important;
 }
 
 .text-primary {
-  color: #BD5D38 !important;
+  color: #32292F !important;
 }
 
 a {
-  color: #BD5D38;
+  color: #32292F;
 }
 
 a:hover, a:focus, a:active {
-  color: #824027;
+  color: #99E1D9;
 }
