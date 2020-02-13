@@ -30,6 +30,17 @@ h6 {
   color: #343a40;
 }
 
+.portfolio img{
+  width: 400px;
+  margin-bottom: 10px;
+  height: auto;
+  display: block;
+}
+
+a.portfolio {
+  margin-bottom: 100px !important;
+}
+
 .name {
   font-family: 'open sans', sans-serif;
   font-weight: 100;
