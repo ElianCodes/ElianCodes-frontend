@@ -8980,9 +8980,6 @@ h1, h2, h3, h4, h5,
     -webkit-transition: all 0.3s ease;
     -ms-transition: all 0.3s ease;
     transition: all 0.3s ease; }
-    @media (max-width: 767.98px) {
-      .project .overlay {
-        opacity: .2; } }
   .project .text {
     max-width: 80%;
     z-index: 1;
@@ -9004,7 +9001,7 @@ h1, h2, h3, h4, h5,
       font-weight: 600; }
     @media (max-width: 767.98px) {
       .project .text {
-        opacity: 1; }
+        opacity: 0; }
         .project .text span {
           color: rgba(255, 255, 255, 0.8); } }
   .project:hover .overlay, .project:focus .overlay {
