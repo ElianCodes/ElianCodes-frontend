@@ -5,7 +5,7 @@
 				<div class="col-md-6 col-lg-6 d-flex">
 					<div class="img-about img d-flex align-items-stretch">
 						<div class="overlay"></div>
-						<div class="img d-flex align-self-stretch align-items-center" style="background-image:url(images/about2.jpg); border-radius: 50%; transform: scale(0.7)"></div>
+						<div class="img d-flex align-self-stretch align-items-center" :style="{ 'background-image': 'url(./images/about' + (Math.floor(Math.random() * 2) + 2) + '.png)', 'Border-radius': '50%', 'transform': 'scale(0.7)'}"></div>
 					</div>
 				</div>
 				<div class="col-md-6 col-lg-6 pl-md-5 py-5">
@@ -32,6 +32,6 @@
 
 <script>
 export default {
-	name: 'About'
+  name: 'About',
 }
 </script>
