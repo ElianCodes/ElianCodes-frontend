@@ -1,6 +1,6 @@
 <template>
 	<li class="ftco-animate">
-		<a :href="social.link" target="_blank">
+		<a :href="social.link" target="_blank" class="socialIcon">
 			<span :class="social.icon" />
 		</a>
 	</li>

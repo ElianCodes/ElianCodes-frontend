@@ -5,6 +5,20 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+a.socialIcon:hover {
+   background-color: gray;
+}
+
+a.contactItem {
+  margin-top: -20px;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+ a.contactItem:hover{
+  background-color: gray; 
+ }
+
  a.organisationLink {
    color: black;
 
