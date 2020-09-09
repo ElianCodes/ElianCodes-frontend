@@ -9,10 +9,16 @@
       </div>
       <div class="row no-gutters">
         <Project
-          v-for="item in projectList"
+          v-for="item in projectsToShow"
           :key="item.id"
           v-bind:project='item'
         />
+      </div>
+      <div class="row" v-if="projectList.length > 6">
+        <div class="w50 mx-auto mt-5">
+          <a v-on:click="pagination(-1)" class="pagination">&lt;</a>
+          <a v-on:click="pagination(1)" class="pagination">&gt;</a>
+        </div>
       </div>
     </div>
   </section>
@@ -24,19 +30,34 @@ import Project from './projects/Project'
 export default {
   name: 'Projects',
   components: {
-    Project
+    Project,
   },
   data () {
     return {
+      currentPage: 1,
       projectList: [
-        { id: 0, tag: "Front-End in React", category: "Webdevelopment", img: "https://i.imgur.com/wHSkKUQ.jpg", link: "https://www.jinsscoutsmerchtem.be" },
-        { id: 1, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/Uhtabjz.jpg", link: "https://www.stijnbogemans.be" },
-        { id: 2, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/cVqUkmp.jpeg", link: "https://www.evaderidder.com" },
-        { id: 3, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/LEwsMh5.jpg", link: "https://www.kalathea.be" },
-        { id: 4, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/vc6oAlJ.jpg", link: "https://www.lartgalerie.be" },
-        { id: 5, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/8dQG2QY.jpg", link: "https://www.sportify.be" },
+        { id: 5, tag: "Front-End in React", category: "Webdevelopment", img: "https://i.imgur.com/wHSkKUQ.jpg", link: "https://www.jinsscoutsmerchtem.be" },
+        { id: 4, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/Uhtabjz.jpg", link: "https://www.stijnbogemans.be" },
+        { id: 3, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/cVqUkmp.jpeg", link: "https://www.evaderidder.com" },
+        { id: 2, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/LEwsMh5.jpg", link: "https://www.kalathea.be" },
+        { id: 1, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/vc6oAlJ.jpg", link: "https://www.lartgalerie.be" },
+        { id: 0, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/8dQG2QY.jpg", link: "https://www.sportify.be" },
       ]
     }
-  }
+  },
+  computed: {
+    projectsToShow (){ return this.projectList.slice(0 + (this.currentPage - 1) * 6, 6 * this.currentPage);}
+  },
+  methods: {
+    pagination: function(add) {
+      this.currentPage += add;
+      if(this.currentPage <= 0){
+        this.currentPage = this.projectList.length % 6 + 1;
+      }
+      else if(this.currentPage > this.projectList.length % 6 + 1){
+        this.currentPage = 1;
+      }
+    }
+  },
 }
 </script>

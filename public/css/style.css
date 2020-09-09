@@ -10,6 +10,15 @@
 
  }
 
+ a.pagination {
+   background-color: rgba(0, 0, 0, 0);
+   border: none;
+   display: inline-block;
+   font-size: 3rem;
+   cursor: pointer;
+   height: 100%;
+ }
+
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
