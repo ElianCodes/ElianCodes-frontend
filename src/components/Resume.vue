@@ -32,7 +32,7 @@ export default {
       resumeItems: [
         { title: "Experience", id: "experience", type: "items",
           items: [
-            //{ id: 0, title: "Full Stack software engineer", date: "2020-current", company: "vBridge", link: "https://www.vbridge.eu", icon: "flaticon-web-design"}
+            { id: 0, title: "Full Stack software engineer", date: "2020-current", company: "vBridge", link: "https://www.vbridge.eu", icon: "flaticon-web-design"}
           ]
         },
         { title: "Education", id: "education", type: "items",
