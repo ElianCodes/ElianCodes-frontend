@@ -7,13 +7,7 @@
 					<div class="text text-center">
 						<span class="subheading">Hello, I'm</span>
 						<h1>Elian Van Cutsem</h1>
-						<h2>I'm a 
-							<span
-								class="txt-rotate"
-								data-period="2000"
-								data-rotate='[ "Front-End Engineer.", "Web Designer.", "Developer.", "UI/UX designer.", "Full Stack Developer.", "Software Engineer." ]'>
-							</span>
-						</h2>
+            <Subtitle />
 					</div>
 				</div>
 			</div>
@@ -27,7 +21,12 @@
 </template>
 
 <script>
+import Subtitle from "@/components/Subtitle";
+
 export default {
-	name: 'Overlay'
+	name: 'Overlay',
+  components: {
+    Subtitle
+  }
 }
 </script>
