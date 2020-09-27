@@ -4,7 +4,7 @@
       <div class="row no-gutters justify-content-center pb-5">
         <div class="col-md-12 heading-section text-center ftco-animate">
           <h2 class="mb-4">Projects</h2>
-          <p>These are some of my latest projects</p>
+          <p class="text-dark">These are some of my latest projects</p>
         </div>
       </div>
       <div class="row no-gutters">

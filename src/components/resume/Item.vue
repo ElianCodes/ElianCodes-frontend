@@ -6,7 +6,7 @@
     <div class="text pl-3">
       <span class="date">{{item.date}}</span>
       <h2>{{item.title}}</h2>
-      <span class="position"><a class="organisationLink" target="_blank" :href="item.link">{{item.company}}</a></span>
+      <span class="position"><a class="organisationLink" target="_blank" rel="noreferrer" :href="item.link">{{item.company}}</a></span>
     </div>
   </div>
 </template>

@@ -13,13 +13,13 @@
 						<div class="col-md-12 heading-section ftco-animate">
 							<h1 class="big">About</h1>
 							<h2 class="mb-4">About Me</h2>
-							<p>
+							<p class="text-dark">
 								I've been studying Computer Science for almost 2 years now. I'm still learning lots of new technologies
                 and skills everyday. I'm trying to better my skills by building websites for friends and family and
                 trying out fun projects. Mostly I'm building websites for clients through technologies like WordPress,
                 but I'm still learning <a v-for="item in resumeItems" :key="item.name">{{item.name}}, </a> probably way more.
 							</p>
-							<ul class="about-info mt-4 px-md-0 px-2">
+							<ul class="about-info mt-4 px-md-0 px-2 text-dark">
 								<li class="d-flex"><span>Name:</span> <span>Elian Van Cutsem</span></li>
 								<li class="d-flex"><span>Date of birth:</span> <span>July 09, 1999</span></li>
 								<li class="d-flex"><span>Location:</span> <span>Ghent, Belgium</span></li>
