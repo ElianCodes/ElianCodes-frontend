@@ -36,6 +36,12 @@ export default {
             { id: 2, title: "Graphic Design", date: "2013-2014", company: "VISO Mariakerke", link: "https://www.viso.be", icon: "flaticon-ux-design"}
           ]
         },
+        { title: "Certificates", id: "certificates", type: "items",
+          items: [
+            { id: 1, title: "Cisco CCNA2", date: "December 2019", company: "Odisee", link: "https://www.odisee.be", icon: "flaticon-analysis"},
+            { id: 0, title: "Cisco CCNA1", date: "December 2018", company: "Odisee", link: "https://www.odisee.be", icon: "flaticon-analysis"}
+          ]
+        },
         { title: "Skills", id: "skills", type: "skills",
           items: [
             {name: "JavaScript"}, {name: "Vue.js"}, {name: "Laravel"},
