@@ -2,6 +2,15 @@ language: node_js
 node_js:
   - "stable"
 before_script:
-  - npm install
+  - yarn install
 script:
-  - npm run build
+  - yarn build
+deploy:
+  provider: pages
+  skip-cleanup: true
+  local_dir: docs/
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  target_branch: gh-pages
+  on:
+    branch: master
