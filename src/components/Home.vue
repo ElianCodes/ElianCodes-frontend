@@ -43,12 +43,12 @@ export default {
             {name: "PHP"}, {name: "WordPress"}, {name: "C#"},
             {name: "Java"}, {name: "Python"}, {name: "Flutter"},
             {name: "Arduino"}, {name: "NoSQL"}, {name: "Relational databases / SQL"},
-            {name: "Linux"}, {name: "Docker"}
+            {name: "Linux"}, {name: "Docker"}, {name: "Tailwind"}
           ]
         },
         { title: "Learning", id: "learning", type: "skills", items: [
-            {name: "TypeScript"}, {name: "ASP.NET"}, {name: "Tailwind"}, {name: "React.js"},
-            {name: "Node.js"}, {name: "Express.js"}
+            {name: "ASP.NET"}, {name: "React.js"}, {name: "Node.js"},
+            {name: "Express.js"}, {name: "Spring"}, {name: "Maven"}
           ]
         },
       ]
