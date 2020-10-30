@@ -1,4 +1,6 @@
 language: node_js
+dist: xenial
+os: linux
 node_js:
   - "stable"
 before_script:
@@ -6,11 +8,11 @@ before_script:
 script:
   - yarn build
 deploy:
+  strategy: git
   provider: pages
-  skip-cleanup: true
   local_dir: docs/
-  github-token: $GITHUB_TOKEN
-  keep-history: true
+  token: $GITHUB_TOKEN
+  keep_history: true
   target_branch: gh-pages
   on:
     branch: master
