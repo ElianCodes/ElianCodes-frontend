@@ -51,6 +51,10 @@ export default {
             {name: "Express.js"}, {name: "Spring"}, {name: "Maven"}
           ]
         },
+        { title: "Want to learn", id: "wantToLearn", type: "skills", items: [
+            {name: "Svelte"}, {name: "Angular"},
+          ]
+        },
       ]
     }
   }

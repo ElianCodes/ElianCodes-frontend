@@ -36,6 +36,8 @@ export default {
     return {
       currentPage: 1,
       projectList: [
+        { id: 7, tag: "Front-end in wix", category: "webdevelopment", img: "https://i.imgur.com/EgL9lFc.jpeg", link: "https://www.cambussa.be" },
+        { id: 6, tag: "Back-end in Symfony", category: "Api development", img: "https://i.imgur.com/MA0lOJi.jpeg", link: "https://seidi-clothing.com/webshop/index.php" },
         { id: 5, tag: "Front-End in React", category: "Webdevelopment", img: "https://i.imgur.com/wHSkKUQ.jpg", link: "https://www.jinsscoutsmerchtem.be" },
         { id: 4, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/Uhtabjz.jpg", link: "https://www.stijnbogemans.be" },
         { id: 3, tag: "Webdesign & wordpress", category: "Webdevelopment", img: "https://i.imgur.com/cVqUkmp.jpeg", link: "https://www.evaderidder.com" },
