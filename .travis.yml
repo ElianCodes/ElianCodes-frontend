@@ -7,9 +7,9 @@ script:
   - yarn build
 deploy:
   provider: pages
-  local_dir: docs
+  skip_cleanup: true
   github-token: $GITHUB_TOKEN
-  keep-history: true
   target_branch: gh-pages
+  local_dir: docs
   on:
     branch: master
