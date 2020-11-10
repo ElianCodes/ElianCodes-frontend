@@ -7,7 +7,7 @@ script:
   - yarn build
 deploy:
   provider: pages
-  local_dir: docs/
+  local_dir: docs
   github-token: $GITHUB_TOKEN
   keep-history: true
   target_branch: gh-pages
