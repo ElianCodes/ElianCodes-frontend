@@ -1,6 +1,7 @@
 <template>
   <section class="welcome">
-    <h1 class="title">Elian Van Cutsem</h1>
+    <h2 class="hidden">Who am i?</h2>
+    <p class="title">Elian Van Cutsem</p>
       <vue-typed-js
        :strings="titles"
        :smartBackspace="true"

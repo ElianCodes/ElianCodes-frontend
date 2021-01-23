@@ -1,16 +1,17 @@
 <template>
 	<section class="ftco-section ftco-no-pb goto-here" id="resume-section">
+    <h2 class="hidden">Resume</h2>
 		<div class="container">
 			<div class="row">
 				<ResumeNavigation 
-                    v-bind:items="resumeItems"
-                />
+          v-bind:items="resumeItems"
+        />
 				<div class="col-md-9">
-                    <ResumeItem 
-                        v-for="item in resumeItems"
-                        :key="item.id"
-                        v-bind:item="item"
-                    />
+          <ResumeItem 
+            v-for="item in resumeItems"
+            :key="item.id"
+            v-bind:item="item"
+          />
 				</div>
 			</div>
 		</div>

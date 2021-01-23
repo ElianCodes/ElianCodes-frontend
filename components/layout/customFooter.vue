@@ -10,6 +10,7 @@
         </p>
       </div>
       <hr />
+      <p>This website was made with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>, <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a> and <a target="_blank" href="https://getbootstrap.com/">Bootstrap</a></p>
       <div class="d-flex justify-content-between">
         <div class="copyright">
           <h3 class="hidden">Copyright information</h3>

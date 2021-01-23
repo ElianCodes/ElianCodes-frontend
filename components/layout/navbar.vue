@@ -2,6 +2,7 @@
   <nav>
     <h2 class="hidden">Navigation</h2>
     <b-navbar toggleable="md" type="light">
+      <h2 class="hidden">Main Navigation</h2>
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>

@@ -1,6 +1,7 @@
 <template>
   <div class="col-md-3">
     <nav id="navi">
+      <h3 class="hidden">Resume navigation</h3>
       <ul>
         <li
           v-for="item in items"

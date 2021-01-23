@@ -1,5 +1,6 @@
 <template>
   <main>
+    <h1 class="hidden">Elian Van Cutsem</h1>
     <welcome />
     <about :resumeItems="resumeItems[3].items" />
     <resume :resumeItems="resumeItems" />
@@ -36,7 +37,7 @@ export default {
             {name: "PHP"}, {name: "WordPress"}, {name: "C#"},
             {name: "Java"}, {name: "Python"}, {name: "Flutter"},
             {name: "Arduino"}, {name: "NoSQL"}, {name: "Relational databases / SQL"},
-            {name: "Linux"}, {name: "Docker"}, {name: "Tailwind"}
+            {name: "Linux"}, {name: "Docker"}, {name: "TailwindCSS"}, {name: "Nuxt.js"}
           ]
         },
         { title: "Learning", id: "learning", type: "skills", items: [

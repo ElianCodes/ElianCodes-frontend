@@ -1,7 +1,7 @@
 <template>
   <div class="col-md-6 animate-box">
     <div class="progress-wrap ftco-animate">
-      <h3>{{item.name}}</h3>
+      <p>{{item.name}}</p>
     </div>
   </div>
 </template>
