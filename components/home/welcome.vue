@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <section class="welcome">
     <h1 class="title">Elian Van Cutsem</h1>
       <vue-typed-js
        :strings="titles"
@@ -8,7 +8,7 @@
       >
       <p class="subtitle mx-auto">I'm a <span class="typing"></span></p>
     </vue-typed-js>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -43,5 +43,14 @@ export default {
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
+}
+.welcome {
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 </style>

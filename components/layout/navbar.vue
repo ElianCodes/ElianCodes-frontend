@@ -1,10 +1,15 @@
 <template>
   <nav>
     <h2 class="hidden">Navigation</h2>
-    <ul>
-      <li><nuxt-link to="/">Home</nuxt-link></li>
-      <li><nuxt-link to="/projects">Projects</nuxt-link></li>
-    </ul>
+    <b-navbar toggleable="md" type="light">
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item><nuxt-link to="/"><span class="navlink">Home</span></nuxt-link></b-nav-item>
+          <b-nav-item><nuxt-link to="/projects"><span class="navlink">Projects</span></nuxt-link></b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
   </nav>
 </template>
 
@@ -14,6 +19,14 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.navlink {
+  color: black;
+}
+.navlink:hover {
+  transition: ease-in-out;
+  transition-duration: 300ms;
+  color: black;
+  text-decoration: none;
+}
 </style>
