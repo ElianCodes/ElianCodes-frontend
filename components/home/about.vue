@@ -37,6 +37,7 @@
 
 export default {
   name: "about",
+  props: ["resumeItems"],
   data() {
     return {
       image: 2
