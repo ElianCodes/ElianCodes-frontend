@@ -2,6 +2,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  router: {
+    base: "/"
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Elian Van Cutsem',
@@ -35,6 +39,19 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    ['nuxt-fontawesome', { 
+      imports: [
+        //import whole set
+        {
+          set: '@fortawesome/free-solid-svg-icons',
+          icons: ['fas']
+        },
+        {
+          set: '@fortawesome/free-brands-svg-icons',
+          icons: ['fab']
+        },
+      ]
+    }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

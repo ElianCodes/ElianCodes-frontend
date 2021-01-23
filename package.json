@@ -11,11 +11,16 @@
     "lint": "yarn lint:js"
   },
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
     "@nuxt/typescript-runtime": "^2.0.1",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.2",
-    "nuxt": "^2.14.12"
+    "nuxt": "^2.14.12",
+    "nuxt-fontawesome": "^0.4.0",
+    "typed.js": "^2.0.11",
+    "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {
     "@nuxt/types": "^2.14.12",
