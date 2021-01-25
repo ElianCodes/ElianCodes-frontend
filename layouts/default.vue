@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import GoToTop from '~/components/layout/go-to-top'
+import GoToTop from '~/components/layout/go-to-top.vue'
 
 export default {
   name: 'DefaultLayout',
