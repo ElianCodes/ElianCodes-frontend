@@ -5,16 +5,24 @@
       <div>
         <h3 class="text-white">Have a question?</h3>
         <p>
-          <font-awesome-icon :icon="['fas', 'envelope']"  />
+          <font-awesome-icon :icon="['fas', 'envelope']" />
           <a href="mailto:elianvancutsem@gmail.com">elianvancutsem@gmail.com</a>
         </p>
       </div>
       <hr />
-      <p>This website was made with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>, <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a> and <a target="_blank" href="https://getbootstrap.com/">Bootstrap</a></p>
+      <p>
+        This website was made with
+        <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
+        <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>
+        and <a target="_blank" href="https://getbootstrap.com/">Bootstrap</a>
+      </p>
       <div class="d-flex justify-content-between">
         <div class="copyright">
           <h3 class="hidden">Copyright information</h3>
-          <p>&copy;<a href="http://www.elianvancutsem.com">Elian Van Cutsem</a>, Writing code since 2014</p>
+          <p>
+            &copy;<a href="http://www.elianvancutsem.com">Elian Van Cutsem</a>,
+            Writing code since 2014
+          </p>
         </div>
         <div class="socials">
           <h3 class="hidden">Social links</h3>
@@ -35,12 +43,12 @@
 
 <script>
 export default {
-  name: 'custom-footer'
+  name: 'custom-footer',
 }
 </script>
 
 <style scoped>
-.socials a{
+.socials a {
   background-color: #1A1A1A;
   color: #7A7A7A;
   margin: 0 20px;
@@ -61,7 +69,7 @@ export default {
   height: 35px;
   width: auto;
 }
-.footer { 
+.footer {
   margin: 0 200px;
 }
 footer {
@@ -74,10 +82,10 @@ hr {
 }
 .copyright {
   display: flex;
-  align-items: center;  
+  align-items: center;
 }
 .copyright p{
-  margin-bottom: 0;  
+  margin-bottom: 0;
 }
 .copyright a{
   color: #7A7A7A;

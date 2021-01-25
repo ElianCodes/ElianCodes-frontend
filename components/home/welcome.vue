@@ -2,11 +2,7 @@
   <section class="welcome">
     <h2 class="hidden">Who am i?</h2>
     <p class="title">Elian Van Cutsem</p>
-      <vue-typed-js
-       :strings="titles"
-       :smartBackspace="true"
-       :loop="true"
-      >
+    <vue-typed-js :strings="titles" :smart-backspace="true" :loop="true">
       <p class="subtitle mx-auto">I'm a <span class="typing"></span></p>
     </vue-typed-js>
   </section>
@@ -14,16 +10,24 @@
 
 <script>
 import VueTypedJs from 'vue-typed-js'
-import Vue from 'vue';
+import Vue from 'vue'
 
 Vue.use(VueTypedJs)
 export default {
-  name: 'welcome',
+  name: 'Welcome',
   data() {
     return {
-      "titles": ["Webdeveloper", "Full-Stack developer", "Back-end developer", "Front-end engineer", "Front-end developer", "Software engineer", "Software developer"]
+      titles: [
+        'Webdeveloper',
+        'Full-Stack developer',
+        'Back-end developer',
+        'Front-end engineer',
+        'Front-end developer',
+        'Software engineer',
+        'Software developer',
+      ],
     }
-  }
+  },
 }
 </script>
 

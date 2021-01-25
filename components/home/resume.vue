@@ -1,21 +1,15 @@
 <template>
-	<section class="ftco-section ftco-no-pb goto-here" id="resume-section">
+  <section id="resume-section" class="ftco-section ftco-no-pb goto-here">
     <h2 class="hidden">Resume</h2>
-		<div class="container">
-			<div class="row">
-				<ResumeNavigation 
-          v-bind:items="resumeItems"
-        />
-				<div class="col-md-9">
-          <ResumeItem 
-            v-for="item in resumeItems"
-            :key="item.id"
-            v-bind:item="item"
-          />
-				</div>
-			</div>
-		</div>
-	</section>
+    <div class="container">
+      <div class="row">
+        <ResumeNavigation :items="resumeItems" />
+        <div class="col-md-9">
+          <ResumeItem v-for="item in resumeItems" :key="item.id" :item="item" />
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -26,8 +20,8 @@ export default {
   name: 'Resume',
   components: {
     ResumeNavigation,
-    ResumeItem
+    ResumeItem,
   },
-  props: ["resumeItems"],
+  props: ['resumeItems'],
 }
 </script>

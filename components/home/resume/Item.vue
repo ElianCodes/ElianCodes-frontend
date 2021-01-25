@@ -4,20 +4,26 @@
       <span :class="item.icon"></span>
     </div>
     <div class="text pl-3">
-      <span class="date">{{item.date}}</span>
-      <h4>{{item.title}}</h4>
-      <span class="position"><a class="organisationLink" target="_blank" rel="noreferrer" :href="item.link">{{item.company}}</a></span>
+      <span class="date">{{ item.date }}</span>
+      <h4>{{ item.title }}</h4>
+      <span class="position"
+        ><a
+          class="organisationLink"
+          target="_blank"
+          rel="noreferrer"
+          :href="item.link"
+          >{{ item.company }}</a
+        ></span
+      >
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "experienceItem",
-  props: ["item"]
+  name: 'ExperienceItem',
+  props: ['item'],
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
