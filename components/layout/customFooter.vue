@@ -16,7 +16,7 @@
         <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>
         and <a target="_blank" href="https://getbootstrap.com/">Bootstrap</a>
       </p>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex flex-column flex-md-row justify-content-lg-between">
         <div class="copyright">
           <h3 class="hidden">Copyright information</h3>
           <p>
@@ -27,13 +27,13 @@
         <div class="socials">
           <h3 class="hidden">Social links</h3>
           <a target="_blank" href="https://github.com/elianvancutsem">
-            <font-awesome-icon class="icon" :icon="['fab', 'github']"  />
+            <font-awesome-icon class="icon" :icon="['fab', 'github']" />
           </a>
           <a target="_blank" href="https://twitter.com/vancutsemelian">
-            <font-awesome-icon class="icon" :icon="['fab', 'twitter']"  />
+            <font-awesome-icon class="icon" :icon="['fab', 'twitter']" />
           </a>
           <a target="_blank" href="https://www.linkedin.com/in/elianvancutsem/">
-            <font-awesome-icon class="icon" :icon="['fab', 'linkedin-in']"  />
+            <font-awesome-icon class="icon" :icon="['fab', 'linkedin-in']" />
           </a>
         </div>
       </div>
@@ -43,21 +43,21 @@
 
 <script>
 export default {
-  name: 'custom-footer',
+  name: 'CustomFooter',
 }
 </script>
 
 <style scoped>
 .socials a {
-  background-color: #1A1A1A;
-  color: #7A7A7A;
+  background-color: #1a1a1a;
+  color: #7a7a7a;
   margin: 0 20px;
   height: 60px;
   width: 60px;
   display: inline-flex;
   border-radius: 100%;
 }
-.socials a:hover{
+.socials a:hover {
   color: white;
   transition: ease-in-out;
   transition-duration: 300ms;
@@ -73,27 +73,43 @@ export default {
   margin: 0 200px;
 }
 footer {
-  color: #7A7A7A;
+  color: #7a7a7a;
   background-color: black;
-  padding: 100px 0
+  padding: 100px 0;
 }
 hr {
-  background-color: #7A7A7A;
+  background-color: #7a7a7a;
 }
 .copyright {
   display: flex;
   align-items: center;
 }
-.copyright p{
+.copyright p {
   margin-bottom: 0;
 }
-.copyright a{
-  color: #7A7A7A;
+.copyright a {
+  color: #7a7a7a;
 }
-.copyright a:hover{
+.copyright a:hover {
   color: white;
   transition: ease-in-out;
   transition-duration: 300ms;
   text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .copyright a:hover {
+    color: green;
+  }
+  .footer {
+    margin: 20px;
+  }
+  .copyright {
+    display: flex;
+  }
+  .socials {
+    margin-top: 20px;
+    display: flex;
+  }
 }
 </style>

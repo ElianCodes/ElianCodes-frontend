@@ -1,5 +1,5 @@
 <template>
-  <nav class="d-flex mx-3 w-100">
+  <nav class="d-flex flex-wrap mx-3 w-100" v-if="articles.length > 0">
     <b-card
       v-for="article in articles.reverse()"
       :key="article.slug"
@@ -26,6 +26,9 @@
       </b-button>
     </b-card>
   </nav>
+  <div v-else class="d-flex justify-content-center my-5">
+    <b-spinner variant="success" label="Spinning"></b-spinner>
+  </div>
 </template>
 
 <script>

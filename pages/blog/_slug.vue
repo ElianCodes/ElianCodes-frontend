@@ -3,7 +3,10 @@
     <h1>{{ article.title }}</h1>
     <p>{{ article.description }}</p>
     <nuxt-content :document="article" />
-    <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
+    <div>
+      <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
+      <nuxt-link to="/blog">Back to blog</nuxt-link>
+    </div>
   </article>
 </template>
 

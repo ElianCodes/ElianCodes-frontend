@@ -60,7 +60,7 @@ export default {
   props: ['resumeItems'],
   data() {
     return {
-      image: 2,
+      image: Math.floor(Math.random() * 2) + 2,
     }
   },
 }
