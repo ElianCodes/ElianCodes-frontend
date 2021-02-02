@@ -1,5 +1,5 @@
 <template>
-  <section id="resume-section" class="ftco-section ftco-no-pb goto-here">
+  <section id="resume-section" class="mb-5 ftco-section ftco-no-pb goto-here">
     <h2 class="hidden">Resume</h2>
     <div class="container">
       <div class="row">

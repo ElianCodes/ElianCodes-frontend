@@ -40,6 +40,7 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     '@nuxt/content',
+    '@nuxtjs/feed',
     ['nuxt-fontawesome', {
       imports: [
         //import whole set
@@ -54,6 +55,45 @@ export default {
       ]
     }]
   ],
+
+  feed() {
+    const baseUrlArticles = 'https://elianvancutsem.github.io/blog'
+    const baseLinkFeedArticles = '/feed/blog'
+    const feedFormats = {
+      rss: { type: 'rss2', file: 'rss.xml' },
+      json: { type: 'json1', file: 'feed.json' },
+    }
+    const { $content } = require('@nuxt/content')
+
+    const createFeedArticles = async function (feed) {
+      feed.options = {
+        title: "Elian's blog",
+        description: 'I write about technology, coding and way more',
+        link: baseUrlArticles,
+      }
+      const articles = await $content('articles').fetch()
+
+      articles.forEach((article) => {
+        const url = `${baseUrlArticles}/${article.slug}`
+
+        feed.addItem({
+          title: article.title,
+          id: url,
+          link: url,
+          date: article.published,
+          description: article.summary,
+          content: article.summary,
+          author: article.authors,
+        })
+      })
+    }
+
+    return Object.values(feedFormats).map(({ file, type }) => ({
+      path: `${baseLinkFeedArticles}/${file}`,
+      type: type,
+      create: createFeedArticles,
+    }))
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
