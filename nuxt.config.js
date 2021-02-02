@@ -6,6 +6,8 @@ export default {
     base: "/"
   },
 
+  loading: true,
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Elian Van Cutsem',

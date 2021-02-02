@@ -1,18 +1,22 @@
 <template>
-  <nav class="d-flex mx-3">
+  <nav class="d-flex mx-3 w-100">
     <b-card
       v-for="article in articles.reverse()"
+      :key="article.slug"
       :title="article.title"
       :img-src="article.imgUrl"
       :img-alt="article.title"
       img-top
       tag="article"
       style="max-width: 20rem;"
-      class="mb-2 ml-2"
+      class="mb-2 ml-4 w-25"
     >
       <b-card-text>
-        article.summary
-        <p>{{ formatDate(article.updatedAt) }}</p>
+        {{ article.description }}<br />
+        <hr />
+        {{ article.longDescription }}
+        <br />
+        <p>Written on {{ formatDate(article.createdAt) }}</p>
       </b-card-text>
 
       <b-button variant="primary">
@@ -33,7 +37,7 @@ export default {
     }
   },
   async fetch() {
-    this.articles = await this.$content('articles').fetch()
+    this.articles = await this.$content('articles').sortBy('createdAt').fetch()
   },
   methods: {
     formatDate(date) {
