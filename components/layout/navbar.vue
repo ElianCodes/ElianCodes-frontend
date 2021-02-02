@@ -16,6 +16,11 @@
               ><span class="navlink">Projects</span></nuxt-link
             ></b-nav-item
           >
+          <b-nav-item>
+            <nuxt-link to="/blog"
+              ><span class="navlink">Blog</span></nuxt-link
+            ></b-nav-item
+          >
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>

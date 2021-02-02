@@ -39,7 +39,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
-    ['nuxt-fontawesome', { 
+    '@nuxt/content',
+    ['nuxt-fontawesome', {
       imports: [
         //import whole set
         {
