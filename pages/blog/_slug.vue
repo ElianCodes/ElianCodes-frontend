@@ -2,8 +2,8 @@
   <article class="mt-5 mx-5">
     <h1>{{ article.title }}</h1>
     <p>{{ article.description }}</p>
-    <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
     <nuxt-content :document="article" />
+    <p>Article last updated: {{ formatDate(article.updatedAt) }}</p>
   </article>
 </template>
 
