@@ -9,7 +9,7 @@
       img-top
       tag="article"
       style="max-width: 20rem"
-      class="mb-2 ml-4 w-25"
+      class="mb-2 ml-md-4 w-100 w-md-25"
     >
       <b-card-text>
         {{ article.description }}<br />

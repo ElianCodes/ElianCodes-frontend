@@ -10,7 +10,7 @@
           </p>
         </div>
       </div>
-      <div class="w-100 mx-5 d-flex flex-wrap justify-content-around">
+      <div class="w-100 mx-md-5 d-flex flex-wrap justify-content-around">
         <b-card
           v-for="item in projectsToShow"
           :key="item.id"
@@ -19,7 +19,7 @@
           text-variant="dark"
           :title="item.title"
           :sub-title="item.tag"
-          class="w-25 mx-2 mb-4"
+          class="w-100 w-md-25 mx-0 mx-md-2 mb-4"
         >
         </b-card>
       </div>
