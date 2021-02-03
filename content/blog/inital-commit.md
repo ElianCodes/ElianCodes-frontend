@@ -41,7 +41,9 @@ It pre-configures an API where you can fetch your posts by a global variable `$c
 
 ### Nuxt/feed
 
-To fulfill al the requirements for school, I also had to add a RSS feed to my blog. I'm a big fan of the [Feedly](<https://feedly.com/>) platform (which is a RSS-feed reader). So I googled some more on how to pair Nuxt and RSS. Also this was well documented in exactly how I needed it to be. It's just in the [nuxt content integrations section](<https://content.nuxtjs.org/integrations#nuxtjsfeed>) in the documentation. This was somewhat more complicated, but still very easy since it's so well documented. You basically install the `@nuxtjs/feed` module and configure it in the `nuxt.config.js` file. I only needed the XML version, but even more formats are supported (JSON, for instance).
+To fulfill al the requirements for school, I also had to add a RSS feed to my blog. I'm a big fan of the [Feedly](<https://feedly.com/>) platform (which is a RSS-feed reader). So I googled some more on how to pair Nuxt and RSS. Also this was well documented in exactly how I needed it to be. It's just in the [nuxt content integrations section](<https://content.nuxtjs.org/integrations#nuxtjsfeed>) in the documentation. This was somewhat more complicated, but still very easy since it's so well documented. You basically install the `@nuxtjs/feed` module and configure it in the `nuxt.config.js` file. I only needed the RSS XML version, but even more formats are supported (JSON, for instance).
+
+Something that took some more research was displaying the content correct in the RSS feed. I could just input the whole static html as the content, but that looked really off since it also inserted the header and footer in the content. So I decided to take the raw .md contents as the content, only then to discover that most RSS feeders didn't display it right, so I then installed the `marked` NPM package and converted it to HTML, now it looks like I wanted it to.
 
 ## Conclusion
 

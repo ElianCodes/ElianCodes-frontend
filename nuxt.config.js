@@ -1,3 +1,5 @@
+const marked = require('marked')
+
 let posts = []
 
 const constructFeedItem = (post, dir, hostname) => {
@@ -7,8 +9,9 @@ const constructFeedItem = (post, dir, hostname) => {
     id: post.slug,
     link: url,
     description: post.description,
-    content: post.bodyPlainText,
+    content: marked(post.bodyPlainText),
     created: post.created,
+    author: post.author,
   }
 }
 

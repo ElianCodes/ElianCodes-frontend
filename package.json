@@ -19,6 +19,7 @@
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.8.2",
+    "marked": "^1.2.8",
     "nuxt": "^2.14.12",
     "nuxt-fontawesome": "^0.4.0",
     "typed.js": "^2.0.11",
