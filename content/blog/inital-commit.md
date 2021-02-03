@@ -14,7 +14,7 @@ So, next week I'm about to start my journey as a Full-stack software engineer at
 
 ## Setting up Nuxt
 
-setting up Nuxt was actually really easy. I just searched for the [official Nuxt documentation](<https://nuxtjs.org/docs/2.x/get-started/installation>), turns out to be a very good documented framework (not that I expected something else since the [Vue documentation](<https://v3.vuejs.org/guide) is the best I've ever seen).
+setting up Nuxt was actually really easy. I just searched for the [official Nuxt documentation](<https://nuxtjs.org/docs/2.x/get-started/installation>), turns out to be a very good documented framework (not that I expected something else since the [Vue documentation](<https://v3.vuejs.org/guide>) is the best I've ever seen).
 
 On the homepage of the Nuxt documentation there's a very simple guide that takes you trough the whole setup. It's just a few command since it uses the `create nuxt-app` command to setup the basic template app. From there I kind of figured the rest out by scrolling through the documentation.
 
