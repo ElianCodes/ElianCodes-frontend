@@ -4,10 +4,11 @@
     class="ftco-about img ftco-section ftco-no-pt ftco-no-pb"
   >
     <div class="container">
-      <div class="row d-flex no-gutters">
-        <div class="col-md-6 col-lg-6">
+      <div class="d-flex flex-column flex-md-row justify-content-between">
+        <div class="col-md-6 col-lg-6 d-flex justify-content-center">
           <img
-            :style="{ 'Border-radius': '50%', width: '25rem', height: 'auto' }"
+            class="m-auto"
+            :style="{ 'Border-radius': '50%', width: '75%', height: 'auto' }"
             :src="require(`~/assets/about/about${image}.png`)"
             alt="Elian's avatar"
           />

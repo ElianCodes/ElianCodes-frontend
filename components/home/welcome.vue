@@ -1,10 +1,16 @@
 <template>
-  <section class="welcome">
+  <section
+    class="container d-flex flex-column justify-content-center vh-100"
+  >
     <h2 class="hidden">Who am i?</h2>
-    <p class="title">Elian Van Cutsem</p>
-    <vue-typed-js :strings="titles" :smart-backspace="true" :loop="true">
-      <p class="subtitle mx-auto">I'm a <span class="typing"></span></p>
-    </vue-typed-js>
+    <div>
+      <p class="no-wrap display-4 text-center">Elian Van Cutsem</p>
+      <vue-typed-js :strings="titles" :smart-backspace="true" :loop="true">
+        <p class="subtitle text-muted text-center mx-auto">
+          I'm a <span class="typing"></span>
+        </p>
+      </vue-typed-js>
+    </div>
   </section>
 </template>
 
@@ -35,27 +41,16 @@ export default {
 .title {
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
   font-weight: 300;
-  font-size: 100px;
+  font-size: 4rem;
   color: #35495e;
-  letter-spacing: 1px;
 }
 
 .subtitle {
   font-weight: 300;
-  font-size: 42px;
+  font-size: 2.4rem;
   color: #526488;
   word-spacing: 5px;
   padding-bottom: 15px;
-}
-.welcome {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 </style>
