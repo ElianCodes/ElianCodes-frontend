@@ -1,14 +1,14 @@
 <template>
-  <nav class="d-flex flex-wrap mx-3 w-100" v-if="articles.length > 0">
+  <nav class="d-flex flex-wrap mx-3 w-100">
     <b-card
-      v-for="article in articles.reverse()"
+      v-for="article in articles"
       :key="article.slug"
       :title="article.title"
       :img-src="article.imgUrl"
       :img-alt="article.title"
       img-top
       tag="article"
-      style="max-width: 20rem;"
+      style="max-width: 20rem"
       class="mb-2 ml-4 w-25"
     >
       <b-card-text>
@@ -26,9 +26,6 @@
       </b-button>
     </b-card>
   </nav>
-  <div v-else class="d-flex justify-content-center my-5">
-    <b-spinner variant="success" label="Spinning"></b-spinner>
-  </div>
 </template>
 
 <script>
@@ -40,7 +37,7 @@ export default {
     }
   },
   async fetch() {
-    this.articles = await this.$content('articles').sortBy('createdAt', 'desc').fetch()
+    this.articles = await this.$content('blog').sortBy('createdAt').fetch()
   },
   methods: {
     formatDate(date) {

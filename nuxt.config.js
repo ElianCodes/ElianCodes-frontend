@@ -1,31 +1,22 @@
-const fs = require('fs').promises
-const path = require('path')
-
 let posts = []
 
-const constructFeedItem = async (post, dir, hostname) => {
-  // note the path used here, we are using a dummy page with an empty layout in order to not send that data along with our other content
-  const filePath = path.join(__dirname, `dist/blog/${post.slug}/index.html`)
-  const content = await fs.readFile(filePath, 'utf8')
+const constructFeedItem = (post, dir, hostname) => {
   const url = `${hostname}/${dir}/${post.slug}`
   return {
     title: post.title,
     id: url,
     link: url,
     description: post.description,
-    content: content,
+    content: post.bodyPlainText,
   }
 }
 
 const create = async (feed, args) => {
-  const [filePath, ext] = args
-  const hostname =
-    process.NODE_ENV === 'production'
-      ? 'https://elianvancutsem.github.io'
-      : 'http://localhost:3000'
+  const [filePath, ext] = args;
+  const hostname = process.NODE_ENV === 'production' ? 'https://my-production-domain.com' : 'http://localhost:3000';
   feed.options = {
-    title: "Elian's blog",
-    description: 'Blog Stuff!',
+    title: "My Blog",
+    description: "Blog Stuff!",
     link: `${hostname}/feed.${ext}`,
   }
   const { $content } = require('@nuxt/content')
@@ -63,6 +54,14 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        document.bodyPlainText = document.text
+      }
+    },
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [],
 
@@ -84,28 +83,38 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxt/content',
     '@nuxtjs/feed',
-    ['nuxt-fontawesome', {
-      imports: [
-        {
-          set: '@fortawesome/free-solid-svg-icons',
-          icons: ['fas']
-        },
-        {
-          set: '@fortawesome/free-brands-svg-icons',
-          icons: ['fab']
-        },
-      ]
-    }]
+    [
+      'nuxt-fontawesome',
+      {
+        imports: [
+          {
+            set: '@fortawesome/free-solid-svg-icons',
+            icons: ['fas'],
+          },
+          {
+            set: '@fortawesome/free-brands-svg-icons',
+            icons: ['fab'],
+          },
+        ],
+      },
+    ],
   ],
   feed: [
     {
       path: '/feed.xml',
       create,
-      cacheTime: 1000 * 60 * 15,
       type: 'rss2',
-      data: ['articles', 'xml'],
+      data: ['blog', 'xml'],
     },
   ],
+
+  generate: {
+    async ready() {
+      const { $content } = require('@nuxt/content')
+      const files = await $content().only(['slug']).fetch()
+      console.log(files)
+    },
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
