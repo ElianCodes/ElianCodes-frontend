@@ -110,6 +110,12 @@ export default {
       type: 'rss2',
       data: ['blog', 'xml'],
     },
+    {
+      path: '/feed.json',
+      create,
+      type: 'json1',
+      data: ['blog', 'json'],
+    },
   ],
 
   generate: {
