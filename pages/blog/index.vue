@@ -40,7 +40,7 @@ export default {
     }
   },
   async fetch() {
-    this.articles = await this.$content('articles').sortBy('createdAt').fetch()
+    this.articles = await this.$content('articles').sortBy('createdAt', 'desc').fetch()
   },
   methods: {
     formatDate(date) {

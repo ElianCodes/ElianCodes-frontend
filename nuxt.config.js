@@ -1,9 +1,50 @@
+const fs = require('fs').promises
+const path = require('path')
+
+let posts = []
+
+const constructFeedItem = async (post, dir, hostname) => {
+  // note the path used here, we are using a dummy page with an empty layout in order to not send that data along with our other content
+  const filePath = path.join(__dirname, `dist/blog/${post.slug}/index.html`)
+  const content = await fs.readFile(filePath, 'utf8')
+  const url = `${hostname}/${dir}/${post.slug}`
+  return {
+    title: post.title,
+    id: url,
+    link: url,
+    description: post.description,
+    content: content,
+  }
+}
+
+const create = async (feed, args) => {
+  const [filePath, ext] = args
+  const hostname =
+    process.NODE_ENV === 'production'
+      ? 'https://elianvancutsem.github.io'
+      : 'http://localhost:3000'
+  feed.options = {
+    title: "Elian's blog",
+    description: 'Blog Stuff!',
+    link: `${hostname}/feed.${ext}`,
+  }
+  const { $content } = require('@nuxt/content')
+  if (posts === null || posts.length === 0)
+    posts = await $content(filePath).fetch()
+
+  for (const post of posts) {
+    const feedItem = await constructFeedItem(post, filePath, hostname)
+    feed.addItem(feedItem)
+  }
+  return feed
+}
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
   router: {
-    base: "/"
+    base: '/',
   },
 
   loading: true,
@@ -45,7 +86,6 @@ export default {
     '@nuxtjs/feed',
     ['nuxt-fontawesome', {
       imports: [
-        //import whole set
         {
           set: '@fortawesome/free-solid-svg-icons',
           icons: ['fas']
@@ -57,45 +97,15 @@ export default {
       ]
     }]
   ],
-
-  feed() {
-    const baseUrlArticles = 'https://elianvancutsem.github.io/blog'
-    const baseLinkFeedArticles = '/feed/blog'
-    const feedFormats = {
-      rss: { type: 'rss2', file: 'rss.xml' },
-      json: { type: 'json1', file: 'feed.json' },
-    }
-    const { $content } = require('@nuxt/content')
-
-    const createFeedArticles = async function (feed) {
-      feed.options = {
-        title: "Elian's blog",
-        description: 'I write about technology, coding and way more',
-        link: baseUrlArticles,
-      }
-      const articles = await $content('articles').fetch()
-
-      articles.forEach((article) => {
-        const url = `${baseUrlArticles}/${article.slug}`
-
-        feed.addItem({
-          title: article.title,
-          id: url,
-          link: url,
-          date: article.published,
-          description: article.summary,
-          content: article.summary,
-          author: article.authors,
-        })
-      })
-    }
-
-    return Object.values(feedFormats).map(({ file, type }) => ({
-      path: `${baseLinkFeedArticles}/${file}`,
-      type: type,
-      create: createFeedArticles,
-    }))
-  },
+  feed: [
+    {
+      path: '/feed.xml',
+      create,
+      cacheTime: 1000 * 60 * 15,
+      type: 'rss2',
+      data: ['articles', 'xml'],
+    },
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
