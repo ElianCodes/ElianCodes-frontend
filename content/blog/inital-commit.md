@@ -1,6 +1,6 @@
 ---
 title: 🎉 Initial commit
-createdAt: 2020-03-02 18:11:57
+createdAt: 2020-02-03 18:11:57
 author:
   name: Elian van Cutsem
 description: Building my website and blog with Nuxt
