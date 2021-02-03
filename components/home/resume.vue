@@ -22,6 +22,11 @@ export default {
     ResumeNavigation,
     ResumeItem,
   },
-  props: ['resumeItems'],
+  props: {
+    resumeItems: {
+      type: Array,
+      required: true,
+    },
+  },
 }
 </script>

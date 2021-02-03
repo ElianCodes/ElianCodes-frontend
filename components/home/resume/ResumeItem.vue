@@ -31,7 +31,12 @@ export default {
     Item,
     Skill,
   },
-  props: ['item'],
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 </script>
 

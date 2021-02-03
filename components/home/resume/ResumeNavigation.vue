@@ -16,7 +16,12 @@
 <script>
 export default {
   name: 'ResumeNavigation',
-  props: ['items'],
+  props: {
+    items: {
+      type: Array,
+      required: true,
+    },
+  },
 }
 </script>
 

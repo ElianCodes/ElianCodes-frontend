@@ -57,7 +57,12 @@
 <script>
 export default {
   name: 'About',
-  props: ['resumeItems'],
+  props: {
+    resumeItems: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       image: Math.floor(Math.random() * 2) + 2,

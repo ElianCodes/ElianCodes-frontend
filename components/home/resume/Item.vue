@@ -22,7 +22,12 @@
 <script>
 export default {
   name: 'ExperienceItem',
-  props: ['item'],
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 </script>
 

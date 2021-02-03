@@ -9,6 +9,11 @@
 <script>
 export default {
   name: 'Skill',
-  props: ['item'],
+  props: {
+    item: {
+      type: Object,
+      required: true,
+    },
+  },
 }
 </script>

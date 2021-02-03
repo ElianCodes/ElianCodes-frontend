@@ -11,8 +11,6 @@ const constructFeedItem = (post, dir, hostname) => {
     image: post.imgUrl,
     description: post.description,
     content: marked(post.bodyPlainText),
-    created: post.createdAt,
-    pubDate: post.createdAt,
     author: post.author,
   }
 }
@@ -27,7 +25,7 @@ const create = async (feed, args) => {
   }
   const { $content } = require('@nuxt/content')
   if (posts === null || posts.length === 0)
-    posts = await $content(filePath).fetch()
+    posts = await $content(filePath).sortBy('createdAt', 'desc').fetch()
 
   for (const post of posts) {
     const feedItem = await constructFeedItem(post, filePath, hostname)
@@ -119,14 +117,6 @@ export default {
       data: ['blog', 'json'],
     },
   ],
-
-  generate: {
-    async ready() {
-      const { $content } = require('@nuxt/content')
-      const files = await $content().only(['slug']).fetch()
-      console.log(files)
-    },
-  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},

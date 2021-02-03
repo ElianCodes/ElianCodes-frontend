@@ -20,7 +20,12 @@
 <script>
 export default {
   name: 'Project',
-  props: ['project'],
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
+  },
   computed: {
     style() {
       return 'background-image: url(' + this.project.img + ')'
