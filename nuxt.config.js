@@ -8,9 +8,11 @@ const constructFeedItem = (post, dir, hostname) => {
     title: post.title,
     id: post.slug,
     link: url,
+    image: post.imgUrl,
     description: post.description,
     content: marked(post.bodyPlainText),
-    created: post.created,
+    created: post.createdAt,
+    pubDate: post.createdAt,
     author: post.author,
   }
 }

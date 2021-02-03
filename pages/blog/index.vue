@@ -16,7 +16,7 @@
         <hr />
         {{ article.longDescription }}
         <br />
-        <p>Written on {{ formatDate(article.created) }}</p>
+        <p>Written on {{ formatDate(article.createdAt) }}</p>
       </b-card-text>
 
       <b-button variant="primary">
