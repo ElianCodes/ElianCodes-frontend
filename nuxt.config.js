@@ -4,19 +4,20 @@ const constructFeedItem = (post, dir, hostname) => {
   const url = `${hostname}/${dir}/${post.slug}`
   return {
     title: post.title,
-    id: url,
+    id: post.slug,
     link: url,
     description: post.description,
     content: post.bodyPlainText,
+    created: post.created,
   }
 }
 
 const create = async (feed, args) => {
-  const [filePath, ext] = args;
-  const hostname = process.NODE_ENV === 'production' ? 'https://my-production-domain.com' : 'http://localhost:3000';
+  const [filePath, ext] = args
+  const hostname = 'https://elianvancutsem.github.io' // 'http://localhost:3000'
   feed.options = {
-    title: "My Blog",
-    description: "Blog Stuff!",
+    title: "Elian Van Cutsem's blog",
+    description: 'Welcome to my blog. I write about technology and coding.',
     link: `${hostname}/feed.${ext}`,
   }
   const { $content } = require('@nuxt/content')

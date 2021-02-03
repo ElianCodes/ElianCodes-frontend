@@ -16,7 +16,7 @@
         <hr />
         {{ article.longDescription }}
         <br />
-        <p>Written on {{ formatDate(article.createdAt) }}</p>
+        <p>Written on {{ formatDate(article.created) }}</p>
       </b-card-text>
 
       <b-button variant="primary">
@@ -42,7 +42,7 @@ export default {
   methods: {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+      return new Date(date).toLocaleDateString('be', options)
     },
   },
 }
