@@ -3,7 +3,7 @@
     <div class="container-fluid px-md-0">
       <div class="row no-gutters justify-content-center pb-5">
         <div class="col-md-12 heading-section text-center ftco-animate">
-          <h2 class="mb-4">Personal Projects</h2>
+          <h1 class="mb-4">Personal Projects</h1>
           <p class="text-dark">
             Next to working at vBridge and studying, I have a lot of other
             projects going on. You can find some below.

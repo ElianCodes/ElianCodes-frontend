@@ -112,6 +112,9 @@ export default {
       ],
     }
   },
+  head: {
+    title: 'Elian Van Cutsem | Home',
+  },
 }
 </script>
 
