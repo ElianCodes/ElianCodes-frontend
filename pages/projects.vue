@@ -95,6 +95,16 @@ export default {
       ],
     }
   },
+  head: {
+    title: "Elian Van Cutsem's projects",
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: 'on this page you can find some of the projects I worked on.',
+      },
+    ],
+  },
   computed: {
     projectsToShow() {
       return this.projectList.slice(

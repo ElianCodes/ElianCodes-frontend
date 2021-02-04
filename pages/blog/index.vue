@@ -28,6 +28,9 @@
 <script>
 export default {
   name: 'Blog',
+  head: {
+    title: "Elian Van Cutsem's blog",
+  },
   data() {
     return {
       articles: [],

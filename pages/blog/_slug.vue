@@ -12,10 +12,21 @@
 
 <script>
 export default {
+  name: 'Article',
   async asyncData({ $content, params }) {
     const article = await $content('blog', params.slug).fetch()
 
     return { article }
+  },
+  head: {
+    title: "Elian Van Cutsem's blog | " + this.article.title,
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content: this.article.longDescription,
+      },
+    ],
   },
   methods: {
     formatDate(date) {
