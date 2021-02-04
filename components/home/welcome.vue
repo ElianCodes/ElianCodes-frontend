@@ -1,9 +1,9 @@
 <template>
-  <section class="d-flex flex-column justify-content-center welcome">
+  <section class="d-flex flex-column justify-content-center align-items-center welcome">
     <h2 class="hidden">Who am i?</h2>
     <div>
       <vue-typed-js :strings="titles" :smart-backspace="true" :loop="true">
-        <p class="text-center mx-auto display-4 mb-5">
+        <p class="text-center mx-2 mb-5 title">
           I'm a <span class="typing"></span>
         </p>
       </vue-typed-js>
@@ -67,6 +67,15 @@ export default {
   height: 90vh;
 }
 
+.title {
+  font-size: 4rem;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 1.6rem;
+  }
+}
 .arrow-down {
   color: #cccccc;
 }
