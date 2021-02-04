@@ -87,6 +87,7 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxt/content',
     '@nuxtjs/feed',
+    '@nuxtjs/sitemap',
     ['nuxt-canonical', { baseUrl: 'https://elianvancutsem.github.io' }],
     [
       'nuxt-fontawesome',
@@ -118,6 +119,11 @@ export default {
       data: ['blog', 'json'],
     },
   ],
+
+  sitemap: {
+    hostname: 'https://elianvancutsem.github.io',
+    trailingSlash: true,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
