@@ -2,19 +2,17 @@
   <main>
     <h1 class="hidden">Elian Van Cutsem</h1>
     <welcome />
-    <about :resume-items="resumeItems[3].items" />
-    <resume :resume-items="resumeItems" />
+    <about :resume-items="resumeItems" />
   </main>
 </template>
 
 <script lang="ts">
 import welcome from '~/components/home/welcome.vue'
 import about from '~/components/home/about.vue'
-import resume from '~/components/home/resume.vue'
 
 export default {
   name: 'Home',
-  components: { welcome, about, resume },
+  components: { welcome, about },
   data() {
     return {
       resumeItems: [
@@ -29,7 +27,7 @@ export default {
               date: '2020-current',
               company: 'vBridge',
               link: 'https://www.vbridge.eu',
-              icon: 'flaticon-web-design',
+              icon: 'coffee',
             },
           ],
         },
@@ -44,7 +42,7 @@ export default {
               date: '2018-current',
               company: 'Odisee',
               link: 'https://www.odisee.be',
-              icon: 'flaticon-innovation',
+              icon: 'university',
             },
             {
               id: 1,
@@ -52,7 +50,7 @@ export default {
               date: '2014-2018',
               company: 'VISO Mariakerke',
               link: 'https://www.viso.be',
-              icon: 'flaticon-ideas',
+              icon: 'school',
             },
             {
               id: 2,
@@ -60,7 +58,7 @@ export default {
               date: '2013-2014',
               company: 'VISO Mariakerke',
               link: 'https://www.viso.be',
-              icon: 'flaticon-ux-design',
+              icon: 'school',
             },
           ],
         },

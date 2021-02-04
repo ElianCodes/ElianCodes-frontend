@@ -25,6 +25,7 @@
     "nuxt-canonical": "^1.0.6",
     "nuxt-fontawesome": "^0.4.0",
     "typed.js": "^2.0.11",
+    "v-owl-carousel": "^1.0.8",
     "vue-typed-js": "^0.1.2"
   },
   "devDependencies": {

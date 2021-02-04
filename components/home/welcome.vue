@@ -1,7 +1,5 @@
 <template>
-  <section
-    class="d-flex flex-column justify-content-center vh-100"
-  >
+  <section class="d-flex flex-column justify-content-center welcome">
     <h2 class="hidden">Who am i?</h2>
     <div>
       <vue-typed-js :strings="titles" :smart-backspace="true" :loop="true">
@@ -10,13 +8,25 @@
         </p>
       </vue-typed-js>
       <div class="d-flex justify-content-center mb-5">
-        <a target="_blank" class="text-dark mx-2 h3" href="https://github.com/elianvancutsem">
+        <a
+          target="_blank"
+          class="text-dark mx-2 h3"
+          href="https://github.com/elianvancutsem"
+        >
           <font-awesome-icon :icon="['fab', 'github']" />
         </a>
-        <a target="_blank" class="h3 mx-2 text-dark" href="https://twitter.com/vancutsemelian">
+        <a
+          target="_blank"
+          class="h3 mx-2 text-dark"
+          href="https://twitter.com/vancutsemelian"
+        >
           <font-awesome-icon :icon="['fab', 'twitter']" />
         </a>
-        <a target="_blank" class="h3 mx-2 text-dark" href="https://www.linkedin.com/in/elianvancutsem/">
+        <a
+          target="_blank"
+          class="h3 mx-2 text-dark"
+          href="https://www.linkedin.com/in/elianvancutsem/"
+        >
           <font-awesome-icon :icon="['fab', 'linkedin-in']" />
         </a>
       </div>
@@ -54,10 +64,7 @@ export default {
 
 <style scoped>
 .welcome {
-  background-image: url('~assets/background/background.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+  height: 90vh;
 }
 
 .arrow-down {
