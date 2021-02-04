@@ -16,8 +16,8 @@
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
           <b-nav-item>
-            <nuxt-link to="#about-section"
-              ><span class="navlink">About</span></nuxt-link
+            <nuxt-link to="/"
+              ><span class="navlink">Home</span></nuxt-link
             ></b-nav-item
           >
           <b-nav-item>
