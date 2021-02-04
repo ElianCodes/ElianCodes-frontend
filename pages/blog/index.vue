@@ -29,6 +29,16 @@
 <script>
 export default {
   name: 'Blog',
+  data() {
+    return {
+      articles: [],
+    }
+  },
+  async fetch() {
+    this.articles = await this.$content('blog')
+      .sortBy('createdAt', 'desc')
+      .fetch()
+  },
   head: {
     title: "Elian Van Cutsem's blog",
     meta: [
@@ -39,16 +49,6 @@ export default {
           'Welcome to my blog. Here I write about technology and my passion for programming.',
       },
     ],
-  },
-  data() {
-    return {
-      articles: [],
-    }
-  },
-  async fetch() {
-    this.articles = await this.$content('blog')
-      .sortBy('createdAt', 'desc')
-      .fetch()
   },
   methods: {
     formatDate(date) {

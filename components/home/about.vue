@@ -74,10 +74,10 @@
                       <p class="mb-0">{{ item.date }}</p>
                       <p class="mb-0">
                         {{ item.title }} @<a
-                        :href="item.link"
-                        target="_blank"
-                      >{{ item.company }}</a
-                      >
+                          :href="item.link"
+                          target="_blank"
+                          >{{ item.company }}</a
+                        >
                       </p>
                     </div>
                   </div>

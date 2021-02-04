@@ -25,7 +25,7 @@ export default {
           'Full-stack software engineer @vBridge | My online portfolio and CV. I also write about technology and programming.',
       },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 }
 </script>

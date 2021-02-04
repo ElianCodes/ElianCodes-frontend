@@ -1,8 +1,11 @@
 ---
 title: 🎉 Initial commit
-createdAt: 2020-02-03 18:11:57
-author:
-  name: Elian van Cutsem
+createdAt: 02/03/2020 18:11
+author: "Elian Van Cutsem"
+tags:
+  - Nuxt
+  - JavaScript
+  - Blog
 description: Building my website and blog with Nuxt
 imgUrl: https://madewithnetwork.ams3.cdn.digitaloceanspaces.com/spatie-space-production/3075/nuxtjs-2.jpg
 longDescription: This week I've recreated my website and blog with Nuxt and Bootstrap, in this post I describe how it all came together.

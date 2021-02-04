@@ -11,7 +11,10 @@
         <b-navbar-brand>Elian Van Cutsem</b-navbar-brand>
       </nuxt-link>
 
-      <b-navbar-toggle class="custom-toggler" target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-toggle
+        class="custom-toggler"
+        target="nav-collapse"
+      ></b-navbar-toggle>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
