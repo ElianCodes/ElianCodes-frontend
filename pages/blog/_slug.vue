@@ -18,16 +18,6 @@ export default {
 
     return { article }
   },
-  head: {
-    title: "Elian Van Cutsem's blog | " + this.article.title,
-    meta: [
-      {
-        hid: 'description',
-        name: 'description',
-        content: this.article.longDescription,
-      },
-    ],
-  },
   methods: {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
