@@ -21,8 +21,10 @@
         </a>
       </div>
     </div>
-    <div class="d-flex justify-content-center mt-5 text-muted">
-      <font-awesome-icon :icon="['fas', 'arrow-down']" />
+    <div class="d-flex justify-content-center mt-5">
+      <a href="#about-section" class="arrow-down">
+        <font-awesome-icon :icon="['fas', 'arrow-down']" />
+      </a>
     </div>
   </section>
 </template>
@@ -56,5 +58,14 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+
+.arrow-down {
+  color: #cccccc;
+}
+
+.arrow-down:hover {
+  color: #000;
+  transition: color 500ms;
 }
 </style>
