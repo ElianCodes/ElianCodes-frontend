@@ -21,6 +21,7 @@
     "core-js": "^3.8.2",
     "marked": "^1.2.8",
     "nuxt": "^2.14.12",
+    "nuxt-canonical": "^1.0.6",
     "nuxt-fontawesome": "^0.4.0",
     "typed.js": "^2.0.11",
     "vue-typed-js": "^0.1.2"
