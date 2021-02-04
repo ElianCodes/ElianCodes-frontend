@@ -34,4 +34,8 @@ export default {
 .hidden {
   display: none;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 </style>

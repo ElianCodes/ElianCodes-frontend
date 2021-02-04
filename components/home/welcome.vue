@@ -1,15 +1,28 @@
 <template>
   <section
-    class="container d-flex flex-column justify-content-center vh-100"
+    class="d-flex flex-column justify-content-center vh-100"
   >
     <h2 class="hidden">Who am i?</h2>
     <div>
-      <p class="no-wrap display-4 text-center">Elian Van Cutsem</p>
       <vue-typed-js :strings="titles" :smart-backspace="true" :loop="true">
-        <p class="subtitle text-muted text-center mx-auto">
+        <p class="text-center mx-auto display-4 mb-5">
           I'm a <span class="typing"></span>
         </p>
       </vue-typed-js>
+      <div class="d-flex justify-content-center mb-5">
+        <a target="_blank" class="text-dark mx-2 h3" href="https://github.com/elianvancutsem">
+          <font-awesome-icon :icon="['fab', 'github']" />
+        </a>
+        <a target="_blank" class="h3 mx-2 text-dark" href="https://twitter.com/vancutsemelian">
+          <font-awesome-icon :icon="['fab', 'twitter']" />
+        </a>
+        <a target="_blank" class="h3 mx-2 text-dark" href="https://www.linkedin.com/in/elianvancutsem/">
+          <font-awesome-icon :icon="['fab', 'linkedin-in']" />
+        </a>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center mt-5 text-muted">
+      <font-awesome-icon :icon="['fas', 'arrow-down']" />
     </div>
   </section>
 </template>
@@ -37,20 +50,11 @@ export default {
 }
 </script>
 
-<style>
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 300;
-  font-size: 4rem;
-  color: #35495e;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 2.4rem;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+<style scoped>
+.welcome {
+  background-image: url('~assets/background/background.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 </style>
