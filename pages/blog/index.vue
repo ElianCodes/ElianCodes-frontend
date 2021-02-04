@@ -1,5 +1,5 @@
 <template>
-  <nav class="d-flex flex-wrap mx-3 w-100">
+  <nav class="d-flex flex-wrap justify-content-center justify-content-md-start my-5">
     <h1 class="hidden">Elian's blog</h1>
     <b-card
       v-for="article in articles"
@@ -10,7 +10,7 @@
       img-top
       tag="article"
       style="max-width: 20rem"
-      class="mb-2 ml-md-4 w-100 w-md-25"
+      class="mb-2 mt-5 w-100 w-md-25 ml-md-5"
     >
       <b-card-text>
         {{ article.description }}<br />
