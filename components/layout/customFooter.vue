@@ -27,7 +27,7 @@
       <a
         target="_blank"
         class="d-flex mx-2 justify-content-center align-items-center text-dark icon rounded-circle"
-        href="https://www.linkedin.com/in/elianvancutsem/"
+        href="mailto:elianvancutsem@gmail.com"
       >
         <font-awesome-icon class="icon-inner" :icon="['fas', 'envelope']" />
       </a>
