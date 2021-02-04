@@ -18,12 +18,9 @@
         <br />
         <p>Written on {{ formatDate(article.createdAt) }}</p>
       </b-card-text>
-
-      <b-button variant="primary">
-        <nuxt-link class="text-white" :to="'/blog/' + article.slug">
-          Read article
-        </nuxt-link>
-      </b-button>
+      <nuxt-link class="text-white" :to="'/blog/' + article.slug">
+        <b-button variant="primary"> Read article </b-button>
+      </nuxt-link>
     </b-card>
   </nav>
 </template>
