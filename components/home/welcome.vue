@@ -1,5 +1,7 @@
 <template>
-  <section class="d-flex flex-column justify-content-center align-items-center welcome">
+  <section
+    class="d-flex flex-column justify-content-center align-items-center welcome"
+  >
     <h2 class="hidden">Who am i?</h2>
     <div>
       <vue-typed-js :strings="titles" :smart-backspace="true" :loop="true">
