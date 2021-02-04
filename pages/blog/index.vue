@@ -1,5 +1,6 @@
 <template>
   <nav class="d-flex flex-wrap mx-3 w-100">
+    <h1 class="hidden">Elian's blog</h1>
     <b-card
       v-for="article in articles"
       :key="article.slug"
@@ -30,6 +31,14 @@ export default {
   name: 'Blog',
   head: {
     title: "Elian Van Cutsem's blog",
+    meta: [
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Welcome to my blog. Here I write about technology and my passion for programming.',
+      },
+    ],
   },
   data() {
     return {

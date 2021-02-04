@@ -87,6 +87,7 @@ export default {
     'bootstrap-vue/nuxt',
     '@nuxt/content',
     '@nuxtjs/feed',
+    ['nuxt-canonical', { baseUrl: 'https://elianvancutsem.github.io' }],
     [
       'nuxt-fontawesome',
       {

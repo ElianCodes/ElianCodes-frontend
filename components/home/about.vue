@@ -16,8 +16,8 @@
         <div class="col-md-6 col-lg-6 pl-md-5 py-5">
           <div class="row justify-content-start pb-3">
             <div class="col-md-12 heading-section ftco-animate">
-              <h1 class="big">About</h1>
-              <h2 class="mb-4">About Me</h2>
+              <h2 class="big">About</h2>
+              <h3 class="mb-4">About Me</h3>
               <p class="text-dark">
                 I've been studying Computer Science for almost 2 years now. I'm
                 still learning lots of new technologies and skills everyday. I'm
