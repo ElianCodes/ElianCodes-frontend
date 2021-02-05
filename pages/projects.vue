@@ -1,9 +1,9 @@
 <template>
-  <section id="projects-section" class="ftco-section ftco-project w-100">
+  <section id="projects-section" class="ftco-section ftco-project w-100 mt-5">
     <div class="container-fluid px-md-0">
       <div class="row no-gutters justify-content-center pb-5">
         <div class="col-md-12 heading-section text-center ftco-animate">
-          <h1 class="mb-4">Personal Projects</h1>
+          <h1 class="mb-4 mt-5">Personal Projects</h1>
           <p class="text-dark">
             Next to working at vBridge and studying, I have a lot of other
             projects going on. You can find some below.

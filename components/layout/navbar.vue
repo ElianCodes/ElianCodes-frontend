@@ -5,7 +5,7 @@
       fixed="top"
       toggleable="md"
       type="light"
-      class="mx-2 px-md-5 d-flex justify-content-between bg-white"
+      class="px-md-5 d-flex justify-content-between bg-white shadow p-3 mb-3"
     >
       <nuxt-link to="/">
         <b-navbar-brand>Elian Van Cutsem</b-navbar-brand>
