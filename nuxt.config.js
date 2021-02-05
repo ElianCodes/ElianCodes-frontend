@@ -13,7 +13,7 @@ const constructFeedItem = (post, dir, hostname) => {
     category: [],
     description: post.description,
     content: marked(post.bodyPlainText),
-    author: post.author,
+    author: { name: post.author },
   }
   post.tags.forEach((category) => item.category.push({ name: category }))
   return item
@@ -26,14 +26,8 @@ const create = async (feed, args) => {
     title: "Elian Van Cutsem's blog",
     description: 'Welcome to my blog. I write about technology and coding.',
     link: `${hostname}`,
-    category: [
-      { name: 'development' },
-      { name: 'software' },
-      { name: 'programming' },
-      { name: 'coding' },
-      { name: 'web' },
-      { name: 'IT' },
-    ],
+    ttl: 30,
+    image: "https://elianvancutsem.github.io/_nuxt/img/about3.2bc7a4e.png",
   }
   const { $content } = require('@nuxt/content')
   if (posts === null || posts.length === 0)
