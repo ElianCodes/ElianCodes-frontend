@@ -25,7 +25,7 @@ const create = async (feed, args) => {
   feed.options = {
     title: "Elian Van Cutsem's blog",
     description: 'Welcome to my blog. I write about technology and coding.',
-    link: `${hostname}/feed.${ext}`,
+    link: `${hostname}`,
     category: [
       { name: 'development' },
       { name: 'software' },
