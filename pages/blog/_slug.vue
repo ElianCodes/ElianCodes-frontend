@@ -1,5 +1,5 @@
 <template>
-  <article class="mt-5 mx-5">
+  <article class="mx-5">
     <h1>{{ article.title }}</h1>
     <p>{{ article.description }}</p>
     <nuxt-content :document="article" />
@@ -28,6 +28,9 @@ export default {
 </script>
 
 <style scoped>
+article {
+  margin-top: 100px;
+}
 .nuxt-content h2 {
   font-weight: bold;
   font-size: 28px;
