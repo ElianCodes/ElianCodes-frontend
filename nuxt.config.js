@@ -37,6 +37,19 @@ const create = async (feed, args) => {
     const feedItem = await constructFeedItem(post, filePath, hostname)
     feed.addItem(feedItem)
   }
+
+  feed.addCategory('Nuxt.js')
+  feed.addCategory('IT')
+  feed.addCategory('programming')
+  feed.addCategory('Coding')
+  feed.addCategory('Full-stack')
+
+  feed.addContributor({
+    name: 'Elian Van Cutsem',
+    email: 'elianvancutsem@gmail.com',
+    link: 'http://elianvancutsem.com/'
+  })
+
   return feed
 }
 
