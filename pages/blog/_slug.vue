@@ -23,10 +23,15 @@ export default {
       title: this.article.title,
       meta: [
         { hid: 'description', name: 'description', content: this.article.description },
+        { hid: 'og:locale', property: 'og:locale', content: "en_US" },
+        { hid: 'og:type', property: 'og:type', content: "website" },
         { hid: 'og:title', property: 'og:title', content: this.article.title },
         { hid: 'og:description', property: 'og:description', content: this.article.description },
         { hid: 'twitter:title', name: 'twitter:title', content: this.article.title },
-        { hid: 'twitter:description', name: 'twitter:description', content: this.article.description }
+        { hid: 'twitter:card', name: 'twitter:card', content: this.article.description },
+        { hid: 'twitter:image', name: 'twitter:image', content: this.article.imgUrl },
+        { hid: 'twitter:description', name: 'twitter:description', content: this.article.longDescription },
+        { hid: 'twitter:site', name: 'twitter:site', content: '@vancutsemelian' }
       ]
     }
   },

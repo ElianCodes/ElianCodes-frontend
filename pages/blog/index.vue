@@ -19,7 +19,7 @@
         <br />
         <p>Written on {{ formatDate(article.createdAt) }}</p>
       </b-card-text>
-      <nuxt-link class="text-white" :to="'/blog/' + article.slug">
+      <nuxt-link class="text-white" :to="'/blog/' + article.slug +  '/'">
         <b-button variant="primary"> Read article </b-button>
       </nuxt-link>
     </b-card>
