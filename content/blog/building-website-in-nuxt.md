@@ -1,6 +1,6 @@
 ---
 title: 🎉 Initial commit
-createdAt: 02/03/2020 18:11
+createdAt: 02/03/2021 18:11
 author: "Elian Van Cutsem"
 tags:
   - Nuxt

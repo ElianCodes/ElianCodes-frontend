@@ -113,7 +113,7 @@ export default {
   ],
   feed: [
     {
-      path: '/feed.xml',
+      path: '/blog.xml',
       create,
       type: 'rss2',
       data: ['blog', 'xml'],
@@ -123,6 +123,12 @@ export default {
       create,
       type: 'json1',
       data: ['blog', 'json'],
+    },
+    {
+      path: '/feed.xml',
+      create,
+      type: 'atom1',
+      data: ['blog', 'atom'],
     },
   ],
 
