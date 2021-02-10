@@ -5,7 +5,7 @@
     <nuxt-content :document="article" />
     <div>
       <p>Article written on: {{ formatDate(article.createdAt) }}</p>
-      <nuxt-link to="/blog" class="mb-5">Back to blog</nuxt-link>
+      <nuxt-link to="/blog/" class="mb-5">Back to blog</nuxt-link>
     </div>
   </article>
 </template>
