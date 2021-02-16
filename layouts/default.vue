@@ -9,10 +9,11 @@
 
 <script lang="ts">
 import GoToTop from '~/components/layout/go-to-top.vue'
+import navbar from '~/components/layout/navbar.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { GoToTop },
+  components: { GoToTop , navbar},
   head: {
     title: 'Elian Van Cutsem',
     meta: [
