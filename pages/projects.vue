@@ -35,6 +35,14 @@ export default {
       currentPage: 1,
       projectList: [
         {
+          id: 9,
+          title: 'scoutsjuventa.be',
+          tag: 'Front-end & custom CSS',
+          category: 'webdevelopment',
+          img: 'https://i.imgur.com/M6MsjJy.png',
+          link: 'https://www.scoutsjuventa.be',
+        },
+        {
           id: 8,
           title: 'degrill.be',
           tag: 'Webdesign & wordpress',
