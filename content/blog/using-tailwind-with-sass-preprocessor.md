@@ -51,7 +51,7 @@ I tought of a way to just compile the `tailwind.scss` file into a compiled `tail
   },
 ```
 
-out of the box this does work for the basics, but still the nested classes were not working, so I now could follow [the documentation](<https://github.com/postcss/postcss#usage>) and add the plugigs to the `postcss.config.js`
+out of the box this does work for the basics, but still the nested classes were not working, so I now could follow [the documentation](<https://github.com/postcss/postcss#usage>) and add the plugins to the `postcss.config.js`
 
 ```javascript
 //postcss.config.js
