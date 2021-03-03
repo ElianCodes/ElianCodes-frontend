@@ -31,13 +31,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.hidden {
-  display: none;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-</style>

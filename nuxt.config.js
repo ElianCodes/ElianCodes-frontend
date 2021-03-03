@@ -86,10 +86,17 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: [
+  ],
+
+  tailwindcss: {
+    cssPath: '~/assets/scss/tailwind.scss',
+    configPath: 'tailwind.config.js',
+    exposeConfig: false
+  },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: './plugins/vue-owl-carousel.js', ssr: false }],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -98,12 +105,13 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/tailwindcss',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
+    //'bootstrap-vue/nuxt',
     '@nuxt/content',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
