@@ -19,7 +19,7 @@
     "@nuxtjs/sitemap": "^2.4.0",
     "bootstrap": "^4.5.3",
     "bootstrap-vue": "^2.21.2",
-    "core-js": "^3.9.0",
+    "core-js": "^3.9.1",
     "marked": "^2.0.0",
     "nuxt": "^2.15.2",
     "nuxt-canonical": "^1.0.6",
