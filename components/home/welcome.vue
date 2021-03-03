@@ -66,7 +66,7 @@ export default {
 
 <style scoped>
 .welcome {
-  height: 90vh;
+  height: 80vh;
 }
 
 .title {
