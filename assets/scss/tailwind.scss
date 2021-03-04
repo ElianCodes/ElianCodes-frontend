@@ -1,3 +1,46 @@
+/* Tailwind base */
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;&display=swap');
+
+/* Custom Components */
+.nav-title {
+    font-family: Rubik, sans-serif;
+    @apply text-3xl leading-8;
+}
+
+.home-background {
+    background: linear-gradient(90deg, #FFF 50%, #6ee7b7 50%);
+    @apply h-screen;
+}
+
+.title {
+    font-family: Rubik, sans-serif;
+    @apply text-5xl font-bold leading-10 my-12;
+}
+
+.subtitle {
+    font-family: Rubik, sans-serif;
+    @apply text-4xl leading-10 font-normal mb-8;
+}
+
+.regular-text {
+    font-family: Roboto, sans-serif;
+    @apply text-xl font-normal text-justify;
+}
+
+.regular-text a{
+    @apply text-green-600;
+}
+
+.footer-text {
+    @apply text-gray-500
+}
+
+.footer-text a{
+    @apply text-green-500
+}

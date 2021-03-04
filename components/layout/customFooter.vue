@@ -35,9 +35,10 @@
     <p class="text-muted my-4">
       This website was made with
       <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
-      <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>
-      and <a target="_blank" href="https://getbootstrap.com/">Bootstrap</a>
+      <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
+      <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️
     </p>
+    <a>Subscribe to the RSS feed</a>
     <div class="text-muted mb-5">
       <h3 class="hidden">Copyright information</h3>
       <p>
@@ -56,14 +57,5 @@ export default {
 </script>
 
 <style scoped>
-a.icon {
-  border: 1px solid #ccc;
-  width: 42px;
-  height: 42px;
-}
 
-a.icon:hover {
-  border: 1px solid #000;
-  transition: border 500ms;
-}
 </style>

@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <navbar />
+  <div class="home-background relative h-screen">
     <Nuxt />
-    <go-to-top />
-    <custom-footer />
+    <section class="mx-12 bottom-12 absolute">
+      <p class="footer-text">Website created with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
+      <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
+      <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️</p>
+    </section>
   </div>
 </template>
 
