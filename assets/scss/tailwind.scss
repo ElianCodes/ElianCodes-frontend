@@ -20,7 +20,7 @@
 
 .title {
     font-family: Rubik, sans-serif;
-    @apply text-5xl font-bold leading-10 my-12;
+    @apply text-5xl font-bold leading-10 my-8;
 }
 
 .subtitle {
@@ -33,6 +33,11 @@
     @apply text-xl font-normal text-justify;
 }
 
+.text-whisper {
+    font-family: Rubik, sans-serif;
+    @apply text-4xl leading-3 mt-10 text-white font-bold mb-8;
+}
+
 .regular-text a {
     @apply text-green-600;
 }
@@ -43,4 +48,21 @@
 
 .footer-text a {
     @apply text-green-500
+}
+
+nav.menu-links {
+    @apply flex flex-col justify-center py-8 gap-8 mx-12;
+
+    a {
+        @apply flex cursor-pointer justify-start items-end;
+
+        .background-text {
+            font-family: 'Times New Roman', Times, serif;
+            @apply ml-12 relative text-green-50 pb-4 text-9xl;
+        }
+
+        .link-text {
+            @apply absolute border-b-2 pb-4 pl-12;
+        }
+    }
 }

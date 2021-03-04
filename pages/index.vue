@@ -23,6 +23,16 @@
               <font-awesome-icon class="w-12 h-12" size="6x" :icon="['fab', 'linkedin-in']" />
             </a>
           </section>
+          <transition name="fadeWhisper" mode="out-in">
+            <div v-if="showWhisper" class="flex flex-col text-white items-center mt-8">
+              <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+              </svg>
+              <p class="text-whisper">
+                Follow me here
+              </p>
+            </div>
+          </transition>
         </div>
       </section>
     </main>
@@ -35,11 +45,22 @@ export default {
   head: {
     title: 'Elian Van Cutsem | Home',
   },
+  data () {
+    return {
+      showWhisper: false
+    }
+  },
+  mounted () {
+    this.showWhisper = true
+  }
 }
 </script>
 
 <style>
-.links {
-  padding-top: 15px;
+.fadeWhisper-enter-active {
+  transition: opacity 30s;
+}
+.fadeWhisper-enter {
+  opacity: 0;
 }
 </style>
