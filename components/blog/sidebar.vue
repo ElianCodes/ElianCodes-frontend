@@ -52,6 +52,9 @@
             </li>
           </ul>
         </nav>
+        <section class="ml-6 text-sm bottom-12 absolute">
+          <p class="footer-text">Website created by <nuxt-link to="/">Elian Van Cutsem</nuxt-link>.</p>
+        </section>
       </aside>
 </template>
 

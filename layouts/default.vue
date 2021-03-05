@@ -1,17 +1,17 @@
 <template>
   <div class="home-background relative h-screen">
     <navbar v-bind:menuOpened="menuOpened" @closeMenu="closeMenu"/>
-    <div v-if="!menuOpened">
+    <div v-if="!menuOpened" class="bg-green-300 md:bg-transparent">
       <nav class="flex justify-between mx-12 pt-12">
-        <nuxt-link to="/" class="nav-title">Elian Van Cutsem</nuxt-link>
+        <nuxt-link to="/" class="nav-title text-white">Elian Van Cutsem</nuxt-link>
         <a class="text-white cursor-pointer" v-on:click="menuOpened = true">
-          <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg class="w-6 h-6 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </a>
       </nav>
       <Nuxt />
-      <section class="mx-12 bottom-12 absolute">
+      <section class="md:mx-12 md:my-0 w-full">
         <p class="footer-text">Website created with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
         <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
         <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️</p>

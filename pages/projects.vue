@@ -30,6 +30,7 @@
 <script>
 export default {
   name: 'Projects',
+  layout: 'projects',
   data() {
     return {
       currentPage: 1,
