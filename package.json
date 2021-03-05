@@ -17,6 +17,8 @@
     "@nuxt/typescript-runtime": "^2.0.2",
     "@nuxtjs/feed": "^2.0.0",
     "@nuxtjs/sitemap": "^2.4.0",
+    "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.9.1",
     "marked": "^2.0.0",
     "nuxt": "^2.15.2",

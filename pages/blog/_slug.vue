@@ -1,22 +1,32 @@
 <template>
-  <article class="mx-5">
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.description }}</p>
-    <nuxt-content :document="article" />
-    <div>
-      <p>Article written on: {{ formatDate(article.createdAt) }}</p>
-      <nuxt-link to="/blog/" class="mb-5">Back to blog</nuxt-link>
-    </div>
-  </article>
+  <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last" tabindex="0">
+    <article class="mb-8">
+      <nuxt-content class="mx-auto prose max-w-80 prose-green" :document="article" />
+    </article>
+  </main>
 </template>
 
 <script>
+import sidebar from '~/components/blog/sidebar.vue'
+
 export default {
+  components: { sidebar },
   name: 'Article',
+  data() {
+    return {
+      articles: [],
+    }
+  },
   async asyncData({ $content, params }) {
     const article = await $content('blog', params.slug).fetch()
 
     return { article }
+  },
+  layout: 'blog',
+  async fetch() {
+    this.articles = await this.$content('blog')
+      .sortBy('createdAt', 'desc')
+      .fetch()
   },
   head() {
     return {
@@ -41,22 +51,14 @@ export default {
       return new Date(date).toLocaleDateString('en', options)
     },
   },
+  transition: {
+    name: "blogpost",
+    mode: "out-in"
+  }
 }
 </script>
 
 <style scoped>
-article {
-  margin-top: 100px;
-}
-.nuxt-content h2 {
-  font-weight: bold;
-  font-size: 28px;
-}
-.nuxt-content h3 {
-  font-weight: bold;
-  font-size: 22px;
-}
-.nuxt-content p {
-  margin-bottom: 20px;
-}
+  .blogpost-enter-active, .blogpost-leave-active { transition: opacity .5s; }
+  .blogpost-enter, .blogpost-leave-active { opacity: 0; }
 </style>

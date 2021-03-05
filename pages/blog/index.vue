@@ -1,39 +1,23 @@
 <template>
-  <nav class="d-flex flex-wrap justify-content-center justify-content-md-start my-5">
-    <h1 class="hidden">Elian's blog</h1>
-    <b-card
-      v-for="article in articles"
-      :key="article.slug"
-      :title="article.title"
-      :img-src="article.imgUrl"
-      :img-alt="article.title"
-      img-top
-      tag="article"
-      style="max-width: 20rem"
-      class="mb-2 mt-5 w-100 w-md-25 ml-md-5"
-    >
-      <b-card-text>
-        {{ article.description }}<br />
-        <hr />
-        {{ article.longDescription }}
-        <br />
-        <p>Written on {{ formatDate(article.createdAt) }}</p>
-      </b-card-text>
-      <nuxt-link class="text-white" :to="'/blog/' + article.slug +  '/'">
-        <b-button variant="primary"> Read article </b-button>
-      </nuxt-link>
-    </b-card>
-  </nav>
+  <main class="w-full h-full z-0 overflow-y-auto focus:outline-none">
+    <article class="flex justify-center h-full items-center">
+      <p>No Article Selected</p>
+    </article>
+  </main>
 </template>
 
 <script>
+import sidebar from '~/components/blog/sidebar.vue'
+
 export default {
+  components: { sidebar },
   name: 'Blog',
   data() {
     return {
       articles: [],
     }
   },
+  layout: 'blog',
   async fetch() {
     this.articles = await this.$content('blog')
       .sortBy('createdAt', 'desc')
@@ -52,8 +36,8 @@ export default {
   },
   methods: {
     formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
+      const options = { year: 'numeric', month: 'short', day: 'numeric' }
+      return new Date(date).toLocaleDateString('be', options)
     },
   },
 }

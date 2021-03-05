@@ -1,67 +1,60 @@
 <template>
-  <div>
-    <h2 class="hidden">Navigation</h2>
-    <b-navbar
-      fixed="top"
-      toggleable="md"
-      type="light"
-      class="px-md-5 d-flex justify-content-between bg-white shadow p-3 mb-3"
-    >
-      <nuxt-link to="/">
-        <b-navbar-brand>Elian Van Cutsem</b-navbar-brand>
-      </nuxt-link>
-
-      <b-navbar-toggle
-        class="custom-toggler"
-        target="nav-collapse"
-      ></b-navbar-toggle>
-
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
-          <b-nav-item>
-            <nuxt-link to="/"
-              ><span class="navlink">Home</span></nuxt-link
-            ></b-nav-item
-          >
-          <hr />
-          <b-nav-item>
-            <nuxt-link to="/projects/"
-              ><span class="navlink">Projects</span></nuxt-link
-            ></b-nav-item
-          >
-          <hr />
-          <b-nav-item>
-            <nuxt-link to="/blog/"
-              ><span class="navlink">Blog</span></nuxt-link
-            ></b-nav-item
-          >
-        </b-navbar-nav>
-      </b-collapse>
-    </b-navbar>
-  </div>
+  <transition name="fade" mode="out-in" v-if="menuOpened">
+    <section class="bg-white w-screen h-screen" v-on:keyup.esc="$emit('closeMenu', false)">
+      <nav class="flex justify-between mx-12 pt-12">
+        <a v-on:click="closeMenuAndRoute('/')" class="nav-title cursor-pointer">Elian Van Cutsem</a>
+        <a class="text-black cursor-pointer" v-on:click="$emit('closeMenu', false)">
+          <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </a>
+      </nav>
+      <nav class="menu-links">
+        <a v-on:click="closeMenuAndRoute('/')">
+          <p class="background-text">About Me</p>
+          <p class="link-text">About Me</p>
+        </a>
+        <a v-on:click="closeMenuAndRoute('/projects')">
+          <p class="background-text">Projects</p>
+          <p class="link-text">Projects</p>
+        </a>
+        <a v-on:click="closeMenuAndRoute('/blog')">
+          <p class="background-text">Blog</p>
+          <p class="link-text">Blog</p>
+        </a>
+      </nav>
+    </section>
+  </transition>
 </template>
 
 <script>
 export default {
   name: 'Navbar',
+  props: [ 'menuOpened' ],
+  methods: {
+    closeMenuAndRoute(to) {
+      this.$emit('closeMenu', false)
+      this.$router.push({path: to})
+    },
+  },
 }
 </script>
 
 <style scoped>
-hr {
-  color: #cccccc;
-  margin: 0;
+
+.fade-enter-active{
+  animation: bounce-in .5s;
 }
-.custom-toggler {
-  color: black;
+.fade-leave-active {
+  animation: bounce-in .5s reverse;
 }
-.navlink {
-  color: black;
-}
-.navlink:hover {
-  transition: ease-in-out;
-  transition-duration: 300ms;
-  color: black;
-  text-decoration: none;
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 </style>

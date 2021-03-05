@@ -35,7 +35,7 @@
 
 .text-whisper {
     font-family: Rubik, sans-serif;
-    @apply text-4xl leading-3 mt-10 text-white font-bold mb-8;
+    @apply text-4xl leading-3 mt-10 text-white font-bold mb-8 select-none;
 }
 
 .regular-text a {
@@ -58,7 +58,7 @@ nav.menu-links {
 
         .background-text {
             font-family: 'Times New Roman', Times, serif;
-            @apply ml-12 relative text-green-50 pb-4 text-9xl;
+            @apply ml-12 relative text-green-50 pb-4 text-9xl select-none;
         }
 
         .link-text {
