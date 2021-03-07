@@ -1,17 +1,20 @@
 <template>
-  <section id="projects-section" class="ftco-section ftco-project w-100 mt-5">
-    <div class="container-fluid px-md-0">
-      <div class="row no-gutters justify-content-center pb-5">
-        <div class="col-md-12 heading-section text-center ftco-animate">
-          <h1 class="mb-4 mt-5">Personal Projects</h1>
-          <p class="text-dark">
-            Next to working at vBridge and studying, I have a lot of other
-            projects going on. You can find some below.
-          </p>
+  <section id="projects-section" class="mx-12">
+    <div class="mt-5">
+      <!--<div class="">
+        <h1 class="mb-4 mt-5">Personal Projects</h1>
+        <p class="">
+          Next to working at vBridge and studying, I have a lot of other
+          projects going on. You can find some below.
+        </p>
+      </div>-->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div v-for="item in projectsToShow" :key="item.id">
+          <img :src="item.img" :alt="item.title"/>
+          <h3 class="mt-4">{{ item.title }}</h3>
+          <p class="mt-2">{{ item.tag }}</p>
         </div>
-      </div>
-      <div class="mx-md-5 d-flex flex-wrap justify-content-around">
-        <b-card
+        <!--<b-card
           v-for="item in projectsToShow"
           :key="item.id"
           :img-src="item.img"
@@ -21,7 +24,7 @@
           :sub-title="item.tag"
           class="mx-0 mx-md-2 mb-4 w-sm-100 w-md-25"
         >
-        </b-card>
+        </b-card>-->
       </div>
     </div>
   </section>
