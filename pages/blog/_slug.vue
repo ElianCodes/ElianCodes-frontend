@@ -33,7 +33,7 @@ export default {
   },
   layout: 'blog',
   async fetch() {
-    this.articles = await this.$content('blog')
+    this.articles = await this.$nuxt.$content('blog')
       .sortBy('createdAt', 'desc')
       .fetch()
   },

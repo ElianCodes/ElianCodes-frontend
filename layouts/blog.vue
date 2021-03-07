@@ -26,31 +26,7 @@
   </section>
 </template>
 
-<script>
-import sidebar from '~/components/blog/sidebar.vue'
-import Darkmode from '~/components/layout/darkmode.vue';
-import Navbar from '~/components/layout/navbar.vue';
-
-export default {
-  components: { sidebar, Navbar, Darkmode},
-  data() {
-    return {
-      menuOpened: false,
-      showNavBar: true
-    }
-  },
-  methods: {
-    closeMenu(close) {
-      this.menuOpened = close
-    },
-    toggleNavBar(value) {
-      this.showNavBar = value
-    }
-  },
-  created() {
-    this.showNavBar = this.$nuxt.$route.path === '/blog' ? true : false
-  }
-}
+<script lang="ts" src="./blog.component.ts">
 </script>
 
 <style scoped>

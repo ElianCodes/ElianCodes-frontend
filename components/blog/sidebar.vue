@@ -57,38 +57,5 @@
       </aside>
 </template>
 
-<script>
-export default {
-  name: 'Sidebar',
-  data() {
-    return {
-      rawArticles: [],
-      articles: [],
-      searchfield: ''
-    }
-  },
-  async asyncData({ $content, params }) {
-    const article = await $content('blog', params.slug).fetch()
-
-    return { article }
-  },
-  watch: {
-    searchfield: function(){
-      this.articles = this.rawArticles.filter(article => article.title.toLowerCase().includes(this.searchfield.toLowerCase()))
-    }
-  },
-  layout: 'blog',
-  async fetch() {
-    this.rawArticles = await this.$content('blog')
-      .sortBy('createdAt', 'desc')
-      .fetch()
-    this.articles = this.rawArticles
-  },
-  methods: {
-    formatDate(date) {
-      const options = { year: 'numeric', month: 'long', day: 'numeric' }
-      return new Date(date).toLocaleDateString('en', options)
-    },
-  }
-}
+<script lang="ts" src="./sidebar.component.ts">
 </script>
