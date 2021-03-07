@@ -9,6 +9,10 @@
           <p class="regular-text">
             My name is Elian Van Cutsem. I'm a Student and software engineer from belgium. On my personal site you'll find more info about myself and my projects. At the moment I'm doing an internship <a href="https://vbridge.eu" target="_blank">@vBridge</a> while finishing my Computer Science degree <a href="https://odisee.be/en" target="_blank">@Odisee</a>. I'm still learning lots of new technologies and skills everyday. On this site I try to blog about my findings and experiences and show off some projects I worked on.
           </p>
+           <p class="footer-text mt-8 hidden md:block">Website created with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
+            <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
+            <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️
+          </p>
         </div>
         <div class="mt-8 md:mt-0 flex flex-col items-center">
           <img class="rounded-full w-96" src="~/assets/about/about3.png">
@@ -35,6 +39,7 @@
           </transition>
         </div>
       </section>
+     
     </main>
 </template>
 

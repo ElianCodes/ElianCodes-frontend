@@ -35,7 +35,7 @@
 
 .text-whisper {
     font-family: Rubik, sans-serif;
-    @apply text-xl mt-8 md:text-4xl leading-3 md:mt-10 text-white font-bold mb-8 select-none;
+    @apply text-xl mt-5 md:text-4xl leading-3 md:mt-10 text-white font-bold mb-8 select-none;
 }
 
 .regular-text a {
@@ -43,7 +43,7 @@
 }
 
 .footer-text {
-    @apply text-gray-100 md:text-gray-500 md:text-left text-center text-xs md:text-base mb-4 md:mb-0; 
+    @apply md:text-gray-500 md:text-left text-center text-xs md:text-base mb-4 md:mb-0; 
 }
 
 .footer-text a {

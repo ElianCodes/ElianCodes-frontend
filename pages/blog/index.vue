@@ -1,8 +1,5 @@
 <template>
-  <main class="hidden md:inline w-full h-full z-0 overflow-y-auto focus:outline-none">
-    <article class="flex justify-center h-full items-center">
-      <p>No Article Selected</p>
-    </article>
+  <main class="hidden md:inline max-w-80 h-full z-0 overflow-y-auto focus:outline-none">
   </main>
 </template>
 

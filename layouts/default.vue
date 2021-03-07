@@ -11,11 +11,6 @@
         </a>
       </nav>
       <Nuxt />
-      <section class="md:mx-12 md:my-0 w-full">
-        <p class="footer-text">Website created with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
-        <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
-        <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️</p>
-      </section>
     </div>
   </div>
 </template>
