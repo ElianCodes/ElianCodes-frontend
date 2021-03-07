@@ -1,5 +1,5 @@
 <template>
-  <transition name="fade" mode="out-in" v-if="menuOpened">
+  <transition name="fade" mode="out-in" v-if="this.menuOpened">
     <section class="bg-white dark:bg-black w-screen h-screen" v-on:keyup.esc="$emit('closeMenu', false)">
       <nav class="flex justify-between mx-12 pt-12">
         <a v-on:click="closeMenuAndRoute('/')" class="nav-title cursor-pointer text-black dark:text-gray-200">Elian Van Cutsem</a>
@@ -25,17 +25,7 @@
   </transition>
 </template>
 
-<script>
-export default {
-  name: 'Navbar',
-  props: [ 'menuOpened' ],
-  methods: {
-    closeMenuAndRoute(to) {
-      this.$emit('closeMenu', false)
-      this.$router.push({path: to})
-    },
-  },
-}
+<script lang="ts" src="./navbar.component.ts">
 </script>
 
 <style scoped>

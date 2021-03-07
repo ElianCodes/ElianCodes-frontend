@@ -23,7 +23,10 @@
     "marked": "^2.0.0",
     "nuxt": "^2.15.2",
     "nuxt-canonical": "^1.0.6",
-    "nuxt-fontawesome": "^0.4.0"
+    "nuxt-fontawesome": "^0.4.0",
+    "vue": "^2.6.12",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "8.4.2"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.2",
@@ -40,7 +43,6 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.7.0",
     "fibers": "^5.0.0",
-    "nuxt-vite": "^0.0.28",
     "postcss": "^7.0.35",
     "prettier": "^2.2.1",
     "sass": "^1.32.8",
