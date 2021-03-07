@@ -24,7 +24,8 @@ html.dark {
     @apply bg-gray-800;
 
     .home-background {
-        @apply h-screen bg-gray-800;
+        background: none;
+        @apply h-screen bg-gray-800 #{!important};
     }
 }
 

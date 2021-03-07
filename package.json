@@ -7,7 +7,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "lint:js": "eslint --ext \".js,.vue,.ts\" --ignore-path .gitignore .",
     "lint": "yarn lint:js"
   },
   "dependencies": {
@@ -24,14 +24,13 @@
     "nuxt": "^2.15.2",
     "nuxt-canonical": "^1.0.6",
     "nuxt-fontawesome": "^0.4.0",
-    "vue": "^2.6.12",
-    "vue-class-component": "^7.2.6",
-    "vue-property-decorator": "8.4.2"
+    "nuxt-property-decorator": "^2.9.1",
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.2",
     "@nuxt/typescript-build": "^2.0.6",
-    "@nuxtjs/eslint-config-typescript": "^5.0.0",
+    "@nuxtjs/eslint-config-typescript": "^6.0.0",
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/tailwindcss": "^3.4.2",
     "@tailwindcss/postcss7-compat": "^2.0.3",

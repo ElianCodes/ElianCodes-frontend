@@ -1,10 +1,30 @@
 const marked = require('marked')
 
-let posts = []
+let posts: any[] = []
 
-const constructFeedItem = (post, dir, hostname) => {
+interface author {
+  name: string
+}
+
+interface category {
+  name: string
+}
+
+interface item {
+  title: string
+  id: string
+  link: string
+  image: string
+  date: Date
+  category: category[]
+  description: string
+  content: string
+  author: author
+}
+
+const constructFeedItem = (post: any, dir: any, hostname: any) => {
   const url = `${hostname}/${dir}/${post.slug}`
-  const item = {
+  const item: item = {
     title: post.title,
     id: post.slug,
     link: url,
@@ -15,11 +35,11 @@ const constructFeedItem = (post, dir, hostname) => {
     content: marked(post.bodyPlainText),
     author: { name: post.author },
   }
-  post.tags.forEach((category) => item.category.push({ name: category }))
+  post.tags.forEach((category: any) => item.category.push({ name: category }))
   return item
 }
 
-const create = async (feed, args) => {
+const create = async (feed: any, args: any) => {
   const [filePath, ext] = args
   const hostname = 'https://elianvancutsem.github.io' // 'http://localhost:3000'
   feed.options = {
@@ -78,7 +98,7 @@ export default {
   },
 
   hooks: {
-    'content:file:beforeInsert': (document) => {
+    'content:file:beforeInsert': (document: any) => {
       if (document.extension === '.md') {
         document.bodyPlainText = document.text
       }
@@ -91,7 +111,7 @@ export default {
 
   tailwindcss: {
     cssPath: '~/assets/scss/tailwind.scss',
-    configPath: 'tailwind.config.js',
+    configPath: 'tailwind.config.ts',
     exposeConfig: false
   },
 

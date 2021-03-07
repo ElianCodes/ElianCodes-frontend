@@ -8,9 +8,6 @@ module.exports = {
       './plugins/**/*.{js,ts}',
       './nuxt.config.{js,ts}'
     ],
-    options: {
-      safelist: ['dark'], //specific classes
-    },
   },
   darkMode: 'class',
   theme: {

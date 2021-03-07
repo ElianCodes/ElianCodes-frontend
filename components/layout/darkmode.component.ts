@@ -1,4 +1,4 @@
-import { Vue, Prop, Component } from 'vue-property-decorator'
+import { Vue, Component } from 'nuxt-property-decorator'
 
 @Component
 export default class Darkmode extends Vue {
