@@ -7,14 +7,20 @@ module.exports = {
       './pages/**/*.vue',
       './plugins/**/*.{js,ts}',
       './nuxt.config.{js,ts}'
-    ]
+    ],
+    options: {
+      safelist: ['dark'], //specific classes
+    },
   },
-  darkMode: false, // or 'media' or 'class'
+  darkMode: 'class',
   theme: {
     extend: {},
   },
   variants: {
-    extend: {},
+    typography: ["responsive", "dark"],
+    extend: {
+      backgroundColor: ['dark', 'responsive'],
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

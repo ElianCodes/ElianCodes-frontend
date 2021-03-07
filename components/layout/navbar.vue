@@ -1,9 +1,9 @@
 <template>
   <transition name="fade" mode="out-in" v-if="menuOpened">
-    <section class="bg-white w-screen h-screen" v-on:keyup.esc="$emit('closeMenu', false)">
+    <section class="bg-white dark:bg-black w-screen h-screen" v-on:keyup.esc="$emit('closeMenu', false)">
       <nav class="flex justify-between mx-12 pt-12">
-        <a v-on:click="closeMenuAndRoute('/')" class="nav-title cursor-pointer text-black">Elian Van Cutsem</a>
-        <a class="text-black cursor-pointer" v-on:click="$emit('closeMenu', false)">
+        <a v-on:click="closeMenuAndRoute('/')" class="nav-title cursor-pointer text-black dark:text-gray-200">Elian Van Cutsem</a>
+        <a class="text-black dark:text-green-500 cursor-pointer" v-on:click="$emit('closeMenu', false)">
           <svg class="w-6 h-6 md:w-12 sm:h-12 " fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </a>
       </nav>

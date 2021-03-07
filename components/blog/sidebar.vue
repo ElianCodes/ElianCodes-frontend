@@ -2,8 +2,8 @@
     <!-- xl:order-first xl:flex xl:flex-col flex-shrink-0 -->
     <aside class="w-full z-0 md:w-96 md:border-r border-gray-200">
         <div class="pr-6 pt-6 pb-4">
-          <h2 class="text-lg font-medium text-gray-900">Latest articles</h2>
-          <p class="mt-1 text-sm text-gray-600">
+          <h2 class="text-lg font-medium text-gray-900 dark:text-gray-200">Latest articles</h2>
+          <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
             Search in {{ rawArticles.length }} articles
           </p>
           <form class="mt-6 flex space-x-4">
@@ -17,7 +17,7 @@
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                   </svg>
                 </div>
-                <input type="search" v-model="searchfield" name="search" id="search" class="focus:ring-green-500 focus:border-green-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" placeholder="Search">
+                <input type="search" v-model="searchfield" name="search" id="search" class="focus:ring-green-500 focus:border-green-500 block w-full pl-10 sm:text-sm border-gray-300 dark:bg-gray-700 rounded-md" placeholder="Search">
               </div>
             </div>
             <!--<button class="inline-flex justify-center px-3.5 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
@@ -32,7 +32,7 @@
         <nav class="flex-1 min-h-0 relative overflow-y-auto" aria-label="Directory">
           <ul class="relative z-0 divide-y divide-gray-200">
             <li v-for="article in articles" v-bind:key="article.id">
-              <div class="relative pr-6 py-5 flex items-center space-x-3 hover:bg-gray-50 focus-within:ring-2 focus-within:ring-inset focus-within:ring-pink-500">
+              <div class="relative pr-6 py-5 flex items-center space-x-3 hover:bg-gray-50 dark:hover:bg-gray-700 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
                 <div class="flex-shrink-0">
                   <img class="h-10 w-10 rounded-full" src="~/assets/about/about3.png" alt="Author of article">
                 </div>
@@ -40,10 +40,10 @@
                   <nuxt-link :to="'/blog/' + article.slug " class="focus:outline-none">
                     <!-- Extend touch target to entire panel -->
                     <span class="absolute inset-0" aria-hidden="true"></span>
-                    <p class="text-sm font-medium text-gray-900">
+                    <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                       {{ article.title }}
                     </p>
-                    <p class="text-sm text-gray-500 truncate">
+                    <p class="text-sm text-gray-500 dark:text-gray-300 truncate">
                       Posted <time>{{ formatDate(article.createdAt) }}</time>
                     </p>
                   </nuxt-link>

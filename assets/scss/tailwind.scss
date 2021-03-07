@@ -10,40 +10,50 @@
 /* Custom Components */
 .nav-title {
     font-family: Rubik, sans-serif;
-    @apply text-xl md:text-3xl md:text-black md:leading-8;
+    @apply text-xl md:text-3xl md:text-black dark:text-gray-200 md:leading-8;
 }
 
-.home-background {
-    background: linear-gradient(90deg, #FFF 50%, #6ee7b7 50%);
-    @apply h-screen;
+html {
+    .home-background {
+        background: linear-gradient(90deg, #FFF 50%, #6ee7b7 50%);
+        @apply h-screen;
+    }
+}
+
+html.dark {
+    @apply bg-gray-800;
+
+    .home-background {
+        @apply h-screen bg-gray-800;
+    }
 }
 
 .title {
     font-family: Rubik, sans-serif;
-    @apply text-5xl font-bold text-white md:text-black leading-10 my-8;
+    @apply text-5xl font-bold text-white md:text-black dark:text-gray-200 leading-10 my-8;
 }
 
 .subtitle {
     font-family: Rubik, sans-serif;
-    @apply text-4xl leading-10 text-gray-100 md:text-gray-500 font-normal mb-8;
+    @apply text-4xl leading-10 text-gray-100 md:text-gray-500 dark:text-gray-400 font-normal mb-8;
 }
 
 .regular-text {
     font-family: Roboto, sans-serif;
-    @apply text-xl font-normal text-white md:text-black text-justify;
+    @apply text-xl font-normal text-white md:text-black dark:text-gray-300 text-justify;
 }
 
 .text-whisper {
     font-family: Rubik, sans-serif;
-    @apply text-xl mt-5 md:text-4xl leading-3 md:mt-10 text-white font-bold mb-8 select-none;
+    @apply text-xl mt-5 md:text-4xl leading-3 md:mt-10 text-white dark:text-gray-200 font-bold mb-8 select-none;
 }
 
 .regular-text a {
-    @apply text-gray-100 md:text-green-600;
+    @apply text-gray-100 md:text-green-600 dark:text-green-300;
 }
 
 .footer-text {
-    @apply md:text-gray-500 md:text-left text-center text-xs md:text-base mb-4 md:mb-0; 
+    @apply md:text-gray-500 dark:text-gray-300 md:text-left text-center text-xs md:text-base mb-4 md:mb-0; 
 }
 
 .footer-text a {
@@ -58,11 +68,30 @@ nav.menu-links {
 
         .background-text {
             font-family: 'Times New Roman', Times, serif;
-            @apply ml-12 relative text-green-50 pb-4 text-5xl md:text-9xl select-none;
+            @apply ml-12 relative text-green-50 dark:text-gray-900 pb-4 text-5xl md:text-9xl select-none;
         }
 
         .link-text {
-            @apply absolute border-b-2 pb-4 pl-12;
+            @apply absolute dark:text-gray-200 border-b-2 pb-4 pl-12;
         }
+    }
+}
+
+.nuxt-content-container {
+    h1, h2 {
+        @apply dark:text-gray-200;
+    }
+
+    p {
+        @apply dark:text-gray-300;
+    }
+
+    code {
+        @apply dark:text-gray-300;
+    }
+
+    pre {
+        text-shadow: none !important;
+        @apply dark:bg-gray-700;
     }
 }
