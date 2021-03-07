@@ -1,5 +1,6 @@
 <template>
-    <aside class="hidden xl:order-first xl:flex xl:flex-col flex-shrink-0 w-96 border-r border-gray-200">
+    <!-- xl:order-first xl:flex xl:flex-col flex-shrink-0 -->
+    <aside class="w-full z-0 md:w-96 md:border-r border-gray-200">
         <div class="pr-6 pt-6 pb-4">
           <h2 class="text-lg font-medium text-gray-900">Latest articles</h2>
           <p class="mt-1 text-sm text-gray-600">

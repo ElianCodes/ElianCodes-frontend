@@ -10,11 +10,12 @@
           </svg>
         </a>
       </nav>
-      <div class="h-screen flex overflow-hidden bg-white">
+      <div class="flex overflow-hidden">
         <div class="flex flex-col min-w-0 flex-1 overflow-hidden mx-12">
-          <div class="flex-1 z-0 flex overflow-hidden">
-            <nuxt />
-            <sidebar />
+          <div class="flex-1 flex flex-row overflow-hidden">
+            <sidebar v-if="this.$nuxt.$route.path === '/blog'" class="block md:hidden" />
+            <sidebar class="hidden md:block" />
+            <nuxt class="z-50"/>
           </div>
         </div>
       </div>
@@ -22,7 +23,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
 import sidebar from '~/components/blog/sidebar.vue'
 import Navbar from '~/components/layout/navbar.vue';
 
@@ -30,14 +31,21 @@ export default {
   components: { sidebar, Navbar },
   data() {
     return {
-      menuOpened: false
+      menuOpened: false,
+      showNavBar: true
     }
   },
   methods: {
-    closeMenu(close: boolean) {
+    closeMenu(close) {
       this.menuOpened = close
+    },
+    toggleNavBar(value) {
+      this.showNavBar = value
     }
   },
+  created() {
+    this.showNavBar = this.$nuxt.$route.path === '/blog' ? true : false
+  }
 }
 </script>
 

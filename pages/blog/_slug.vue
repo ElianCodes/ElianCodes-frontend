@@ -1,5 +1,14 @@
 <template>
-  <main class="flex-1 relative z-0 overflow-y-auto focus:outline-none xl:order-last" tabindex="0">
+  <main class="flex-1 z-50 overflow-y-auto focus:outline-none" tabindex="0">
+    <nav class="flex md:hidden items-start py-3" aria-label="Breadcrumb">
+      <nuxt-link to="/blog" v-on:click="$emit('toggleNavBar', true) " class="inline-flex items-center space-x-3 text-sm font-medium text-gray-900">
+        <!-- Heroicon name: solid/chevron-left -->
+        <svg class="-ml-2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span>All articles</span>
+      </nuxt-link>
+    </nav>
     <article class="mb-8">
       <nuxt-content class="mx-auto prose max-w-80 prose-green" :document="article" />
     </article>
