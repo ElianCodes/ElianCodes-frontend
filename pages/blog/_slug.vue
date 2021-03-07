@@ -1,22 +1,41 @@
 <template>
-  <article class="mx-5">
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.description }}</p>
-    <nuxt-content :document="article" />
-    <div>
-      <p>Article written on: {{ formatDate(article.createdAt) }}</p>
-      <nuxt-link to="/blog/" class="mb-5">Back to blog</nuxt-link>
-    </div>
-  </article>
+  <main class="flex-1 z-50 overflow-y-auto focus:outline-none" tabindex="0">
+    <nav class="flex md:hidden items-start py-3" aria-label="Breadcrumb">
+      <nuxt-link to="/blog" v-on:click="$emit('toggleNavBar', true) " class="inline-flex items-center space-x-3 text-sm font-medium text-gray-900">
+        <!-- Heroicon name: solid/chevron-left -->
+        <svg class="-ml-2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clip-rule="evenodd" />
+        </svg>
+        <span>All articles</span>
+      </nuxt-link>
+    </nav>
+    <article class="mb-8">
+      <nuxt-content class="mx-auto prose max-w-80 prose-green" :document="article" />
+    </article>
+  </main>
 </template>
 
 <script>
+import sidebar from '~/components/blog/sidebar.vue'
+
 export default {
+  components: { sidebar },
   name: 'Article',
+  data() {
+    return {
+      articles: [],
+    }
+  },
   async asyncData({ $content, params }) {
     const article = await $content('blog', params.slug).fetch()
 
     return { article }
+  },
+  layout: 'blog',
+  async fetch() {
+    this.articles = await this.$content('blog')
+      .sortBy('createdAt', 'desc')
+      .fetch()
   },
   head() {
     return {
@@ -41,22 +60,14 @@ export default {
       return new Date(date).toLocaleDateString('en', options)
     },
   },
+  transition: {
+    name: "blogpost",
+    mode: "out-in"
+  }
 }
 </script>
 
 <style scoped>
-article {
-  margin-top: 100px;
-}
-.nuxt-content h2 {
-  font-weight: bold;
-  font-size: 28px;
-}
-.nuxt-content h3 {
-  font-weight: bold;
-  font-size: 22px;
-}
-.nuxt-content p {
-  margin-bottom: 20px;
-}
+  .blogpost-enter-active, .blogpost-leave-active { transition: opacity .5s; }
+  .blogpost-enter, .blogpost-leave-active { opacity: 0; }
 </style>

@@ -1,20 +1,36 @@
 <template>
-  <div>
-    <navbar />
-    <Nuxt />
-    <go-to-top />
-    <custom-footer />
+  <div class="home-background relative h-screen">
+    <navbar v-bind:menuOpened="menuOpened" @closeMenu="closeMenu"/>
+    <div v-if="!menuOpened" class="bg-green-300 md:bg-transparent">
+      <nav class="flex justify-between mx-12 pt-12">
+        <nuxt-link to="/" class="nav-title text-white">Elian Van Cutsem</nuxt-link>
+        <a class="text-white cursor-pointer" v-on:click="menuOpened = true">
+          <svg class="w-6 h-6 md:w-12 md:h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </a>
+      </nav>
+      <Nuxt />
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import GoToTop from '~/components/layout/go-to-top.vue'
+<script>
 import navbar from '~/components/layout/navbar.vue'
-import customFooter from '~/components/layout/customFooter.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { GoToTop , navbar, customFooter},
+  components: { navbar },
+  data () {
+    return {
+      menuOpened: false
+    }
+  },
+  methods: {
+    closeMenu(close) {
+      this.menuOpened = close
+    }
+  },
   head: {
     title: 'Elian Van Cutsem',
     meta: [
@@ -32,12 +48,13 @@ export default {
 }
 </script>
 
-<style>
-.hidden {
-  display: none;
+<style scoped>
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
 }
-
-html {
-  scroll-behavior: smooth;
+.page-enter,
+.page-leave-to {
+  opacity: 0;
 }
 </style>
