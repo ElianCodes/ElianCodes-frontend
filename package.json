@@ -20,7 +20,7 @@
     "@tailwindcss/forms": "^0.2.1",
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.9.1",
-    "marked": "^2.0.0",
+    "marked": "^2.0.1",
     "nuxt": "^2.15.2",
     "nuxt-canonical": "^1.0.6",
     "nuxt-fontawesome": "^0.4.0",
