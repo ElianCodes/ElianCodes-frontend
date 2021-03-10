@@ -23,7 +23,10 @@ export default class Sidebar extends Vue {
     }
 
     formatDate(date: string): string {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' }
-        return new Date(date).toLocaleDateString('en', options)
+        return new Date(date).toLocaleDateString('en', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+          })
     }
 }
