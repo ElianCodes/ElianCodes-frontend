@@ -8,12 +8,12 @@ tags:
   - Front-end
 description: Using Sass as a tailwind preprocessor
 imgUrl: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png
-longDescription: Found myself struggeling with tailwind config with sass preprocessor, so I figured I'd share a solution
+longDescription: Found myself struggling with tailwind config with sass preprocessor, so I figured I'd share a solution
 ---
 
 # Using Sass as a tailwindCSS preprocessor
 
-Today I fiddeled around with Tailwind @apply classes. I previously posted about a darkmode in combination with @apply classes and damn it goes well together. But I discovered a problem and got stuck on it for a while. It seems that when you're using tailwind without PostCSS 8, it doesn't compile the nested classes. So I searched for a fix.
+Today I fiddled around with Tailwind @apply classes. I previously posted about a darkmode in combination with @apply classes and damn it goes well together. But I discovered a problem and got stuck on it for a while. It seems that when you're using tailwind without PostCSS 8, it doesn't compile the nested classes. So I searched for a fix.
 
 It seems that the [TailwindCSS documentation](<https://tailwindcss.com/docs/using-with-preprocessors>) has a page dedicated to this and it solves the problem in an ideal situation. But the codebase I used didn't use Postcss, so I had to find a workaround.
 
