@@ -41,13 +41,13 @@ const constructFeedItem = (post: any, dir: any, hostname: any) => {
 
 const create = async (feed: any, args: any) => {
   const [filePath, ext] = args
-  const hostname = 'https://elianvancutsem.github.io' // 'http://localhost:3000'
+  const hostname = 'https://www.elianvancutsem.com' // 'http://localhost:3000'
   feed.options = {
     title: "Elian Van Cutsem's blog",
     description: 'Welcome to my blog. I write about technology and coding.',
     link: `${hostname}`,
     ttl: 30,
-    image: "https://elianvancutsem.github.io/_nuxt/img/about3.2bc7a4e.png",
+    image: "~/assets/about/about3.png",
   }
   const { $content } = require('@nuxt/content')
   if (posts === null || posts.length === 0)
@@ -135,7 +135,7 @@ export default {
     '@nuxt/content',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
-    ['nuxt-canonical', { baseUrl: 'https://elianvancutsem.github.io' }],
+    ['nuxt-canonical', { baseUrl: 'https://www.elianvancutsem.com' }],
     [
       'nuxt-fontawesome',
       {
@@ -174,7 +174,7 @@ export default {
   ],
 
   sitemap: {
-    hostname: 'https://elianvancutsem.github.io',
+    hostname: 'https://www.elianvancutsem.com',
     trailingSlash: true,
   },
 
