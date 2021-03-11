@@ -94,5 +94,9 @@ nav.menu-links {
     pre {
         text-shadow: none !important;
         @apply dark:bg-gray-700;
+        
+        .operator {
+            @apply dark:bg-gray-700;
+        }
     }
 }

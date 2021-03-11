@@ -81,7 +81,11 @@ export default {
     base: '/',
   },
 
-  loading: true,
+  loading: {
+    color: '#6ee7b7',
+    height: '4px',
+    failedColor: 'b91c1c'
+  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
