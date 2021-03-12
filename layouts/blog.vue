@@ -16,8 +16,8 @@
       <div class="flex overflow-hidden">
         <div class="flex flex-col min-w-0 flex-1 overflow-hidden mx-12">
           <div class="flex-1 flex flex-row overflow-hidden">
-            <sidebar v-if="this.$nuxt.$route.path === '/blog'" class="block md:hidden" />
-            <sidebar class="hidden md:block" />
+            <sidebar v-if="this.$nuxt.$route.path === '/blog'" class="block lg:hidden" />
+            <sidebar class="hidden lg:block" />
             <nuxt class="z-50"/>
           </div>
         </div>

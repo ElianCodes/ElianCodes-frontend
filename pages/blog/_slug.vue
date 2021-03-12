@@ -1,6 +1,6 @@
 <template>
   <main class="flex-1 z-50 overflow-y-auto focus:outline-none" tabindex="0">
-    <nav class="flex md:hidden items-start py-3" aria-label="Breadcrumb">
+    <nav class="flex lg:hidden items-start py-3" aria-label="Breadcrumb">
       <nuxt-link to="/blog" v-on:click="$emit('toggleNavBar', true) " class="inline-flex items-center space-x-3 text-sm font-medium text-gray-900">
         <!-- Heroicon name: solid/chevron-left -->
         <svg class="-ml-2 h-5 w-5 text-gray-400 dark:text-gray-300" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -10,7 +10,7 @@
       </nuxt-link>
     </nav>
     <article class="mb-8">
-      <nuxt-content class="mx-auto prose max-w-80 prose-green" :document="article" />
+      <nuxt-content class="mx-auto prose max-w-96 prose-green" :document="article" />
     </article>
   </main>
 </template>
