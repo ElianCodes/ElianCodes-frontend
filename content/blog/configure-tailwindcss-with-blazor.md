@@ -16,13 +16,13 @@ longDescription: I started a WASM Blazor project and wanted to use TailwindCSS, 
 
 I had to make a project for school with [Blazor WASM](<https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor>) and I wanted to use [TailwindCSS](<https://tailwindcss.com>) with it. A new Blazor project is quickly setup, but it uses [Bootstrap](<https://getbootstrap.com/>) out of the box, so how do we configure it to use TailwindCSS?
 
-A little heads up. It's not that easy, if you plan on using the basics, you could also use the [CDN](<https://tailwindcss.com/docs/installation#using-tailwind-via-cdn>), but if you plan on using more advanced features in the configuration like to using Sass and `@apply` classes or purging, it's worth it to find a solution.
+A little heads up. It's not that easy, if you plan on using the basics, you could also use the [CDN](<https://tailwindcss.com/docs/installation#using-tailwind-via-cdn>), but if you plan on using more advanced features in the configuration like using [Sass](<https://sass-lang.com/>) and `@apply` classes or purging, it's worth it to find a solution.
 
 ## Starting a new Blazor project.
 
-Starting a new blazor project is very easy to do. First we have to install the dotnet SDK, which can be done easily [here](<https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/install>). It's a very straight forward process.
+Starting a new blazor project is very easy to do. First, we have to install the dotnet SDK, which can be done easily [here](<https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/install>). It's a very straight forward process.
 
-After that we can bootstrap the default Blazor WASM template by running
+After that, we can bootstrap the default Blazor WASM template by running
 
 ```bash
 dotnet new blazorserver -o yourAmazingApp --no-https
@@ -46,7 +46,7 @@ We can create a little local project with Yarn and use that to download our node
 
 ### Adding the package.json file
 
-We create a folder called `assets` in our root directory of our `.csproj`. in that folder we can run `npm init` or `yarn init`. For the rest of this post I'll use Yarn, but feel free to use NPM, it should also work.
+We create a folder called `assets` in our root directory of our `.csproj`. in that folder, we can run `npm init` or `yarn init`. For the rest of this post I'll use Yarn, but feel free to use NPM, it should also work.
 
 so when we initialize a `package.json` file we can add some dependencies. Below are some I used, but if you're not using Sass, you can leave out some.
 
@@ -81,7 +81,7 @@ Now we have our dependencies installed, we can create some configuration files.
 
 #### postcss.config.js
 
-the `postcss.config.js` file is used to process tailwind to our custom stylesheet. Here it also import some other things, but feel free to only add `require('tailwindcss')`.
+the `postcss.config.js` file is used to process tailwind to our custom stylesheet. Here it also imports some other things, but feel free to only add `require('tailwindcss')`.
 
 ```js
 module.exports = {
@@ -96,7 +96,7 @@ module.exports = {
 
 #### webpack.config.js
 
-In the `webpack.config.js` file we basically tell webpack to take our raw  `/assets/scss/tailwind.scss` file and compile it to a `main.css` file and add it to the `wwwroot/css/` folder
+In the `webpack.config.js` file we basically tell Webpack to take our raw  `/assets/scss/tailwind.scss` file and compile it to a `main.css` file and add it to the `wwwroot/css/` folder
 
 ```js
 const path = require('path');
@@ -150,7 +150,7 @@ module.exports = {
 
 ## Configure Blazor to use TailwindCSS
 
-So now we have our compiled `main.css` file, but it won't trigger when we build or run our dotnet project. For that we have to create a seperate file called `assets.targets` which will tell our dotnet project to trigger the `package.json` build scripts.
+So now we have our compiled `main.css` file, but it won't trigger when we build or run our dotnet project. For that, we have to create a separate file called `assets.targets` which will tell our dotnet project to trigger the `package.json` build scripts.
 
 ```xml
 <Project>
@@ -196,7 +196,7 @@ now add the build scripts in `package.json` and we're pretty much done.
   },
 ```
 
-from this point on we can use Tailwind in any way we want. First we have to add it to our project by modifying our `.csproj` file.
+from this point on we can use Tailwind in any way we want. First, we have to add it to our project by modifying our `.csproj` file.
 
 `yourAwesomeProject.csproj`
 ```xml
@@ -210,7 +210,7 @@ from this point on we can use Tailwind in any way we want. First we have to add 
 
 ## Run your project
 
-voila! Now everytime you run `dotnet build` or debug your project. The scripts will be ran or at least checked. If everything goes correct, you should see the `main.css` file in your `/wwwroot/css` folder!
+voila! Now every time you run `dotnet build` or debug your project. The scripts will run or at least checked. If everything goes correct, you should see the `main.css` file in your `/wwwroot/css` folder!
 
 Now we can include and use it in our markup
 
