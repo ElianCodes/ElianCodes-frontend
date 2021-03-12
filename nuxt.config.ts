@@ -130,6 +130,7 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -180,6 +181,10 @@ export default {
   sitemap: {
     hostname: 'https://www.elianvancutsem.com',
     trailingSlash: true,
+  },
+
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
