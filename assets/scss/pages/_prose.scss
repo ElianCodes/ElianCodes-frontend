@@ -7,10 +7,14 @@
         @apply dark:text-gray-300;
     }
 
+    code::before, code::after {
+        content: "";
+    }
+
     code {
         @apply dark:text-gray-300;
     }
-
+    
     pre {
         text-shadow: none !important;
         @apply dark:bg-gray-700;
