@@ -3,6 +3,7 @@ import { Vue, Component } from 'nuxt-property-decorator'
 @Component
 export default class Darkmode extends Vue {
     public activeTheme: string = 'system'
+    public classes = ""
 
     activateSystem(): void {
         localStorage.theme = 'system'
@@ -43,5 +44,7 @@ export default class Darkmode extends Vue {
         } else {
             this.activateLightMode();
         }
+        console.log(this.$nuxt.$route.path == '/')
+        this.classes = this.$nuxt.$route.path == '/' ? "text-white" : "text-green-500"
     }
 }
