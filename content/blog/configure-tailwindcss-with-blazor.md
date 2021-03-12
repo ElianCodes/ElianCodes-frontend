@@ -16,7 +16,7 @@ longDescription: I started a WASM Blazor project and wanted to use TailwindCSS, 
 
 I had to make a project for school with [Blazor WASM](<https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor>) and I wanted to use [TailwindCSS](<https://tailwindcss.com>) with it. A new Blazor project is quickly setup, but it uses [Bootstrap](<https://getbootstrap.com/>) out of the box, so how do we configure it to use TailwindCSS?
 
-A little heads up. It's not that easy, if you plan on using the basics, you could also use the [CDN](<https://tailwindcss.com/docs/installation#using-tailwind-via-cdn>), but since I like to use Sass and `@apply` classes I decided it was worth it to find a solution.
+A little heads up. It's not that easy, if you plan on using the basics, you could also use the [CDN](<https://tailwindcss.com/docs/installation#using-tailwind-via-cdn>), but if you plan on using more advanced features in the configuration like to using Sass and `@apply` classes or purging, it's worth it to find a solution.
 
 ## Starting a new Blazor project.
 
@@ -56,7 +56,6 @@ so when we initialize a `package.json` file we can add some dependencies. Below 
     "webpack-fix-style-only-entries": "^0.5.1",
     "autoprefixer": "^10.2.4",
     "css-loader": "^3.2.0",
-    "html-loader": "^0.5.5",
     "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss": "^8.2.6",

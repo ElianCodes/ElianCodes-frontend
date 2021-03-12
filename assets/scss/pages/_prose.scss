@@ -1,0 +1,22 @@
+.prose {
+    h1, h2, h3, h4, h5, h6 {
+        @apply dark:text-gray-200;
+    }
+
+    p {
+        @apply dark:text-gray-300;
+    }
+
+    code {
+        @apply dark:text-gray-300;
+    }
+
+    pre {
+        text-shadow: none !important;
+        @apply dark:bg-gray-700;
+        
+        .operator {
+            @apply dark:bg-gray-700;
+        }
+    }
+}

@@ -8,6 +8,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;&display=swap');
 
 /* Custom Components */
+@import "./pages/prose";
+
 .nav-title {
     font-family: Rubik, sans-serif;
     @apply text-xl md:text-3xl md:text-black dark:text-gray-200 md:leading-8;
@@ -74,29 +76,6 @@ nav.menu-links {
 
         .link-text {
             @apply absolute dark:text-gray-200 border-b-2 pb-4 pl-12;
-        }
-    }
-}
-
-.prose {
-    h1, h2 {
-        @apply dark:text-gray-200;
-    }
-
-    p {
-        @apply dark:text-gray-300;
-    }
-
-    code {
-        @apply dark:text-gray-300;
-    }
-
-    pre {
-        text-shadow: none !important;
-        @apply dark:bg-gray-700;
-        
-        .operator {
-            @apply dark:bg-gray-700;
         }
     }
 }
