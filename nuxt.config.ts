@@ -73,6 +73,15 @@ const create = async (feed: any, args: any) => {
   return feed
 }
 
+const fillRoutes = async () => {
+  const { $content } = require('@nuxt/content')
+  const posts = await $content('blog').only(["path"])
+        .sortBy('createdAt', 'desc')
+        .fetch()
+  return posts.map((post: any) => (post.path === "/index" ? "/" : post.path));
+
+}
+
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -120,7 +129,9 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: [
+    '~/plugins/gtag.js'
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -130,7 +141,6 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
-    '@nuxtjs/google-analytics'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -179,12 +189,15 @@ export default {
   ],
 
   sitemap: {
-    hostname: 'https://www.elianvancutsem.com',
+    hostname: process.env.URL,
     trailingSlash: true,
-  },
-
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID
+    exclude: [
+      '/index.component',
+      '/projects.component',
+    ],
+    routes(){
+      return fillRoutes()
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
