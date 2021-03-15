@@ -1,0 +1,24 @@
+.blog-footer {
+    @apply mx-auto prose mt-12 flex justify-between items-center bg-green-300 dark:bg-green-500 px-4 py-2 rounded-full text-white;
+    
+    .like {
+        @apply relative;
+
+        button {
+            @apply focus:outline-none;
+        }
+
+        span {
+            @apply absolute font-bold whitespace-nowrap inset-y-0 mt-3 ml-2 self-center text-base;
+        }
+    }
+
+    svg {
+        @apply w-8 h-8 text-white;
+    }
+
+}
+
+.blog-action {
+    @apply hover:bg-green-500 dark:hover:bg-green-300 rounded-full p-2 transition ease-in-out duration-300 flex justify-center items-center
+}

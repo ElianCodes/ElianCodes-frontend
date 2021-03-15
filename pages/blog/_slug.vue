@@ -11,15 +11,17 @@
     </nav>
     <article class="mb-8">
       <nuxt-content class="mx-auto prose max-w-96 prose-green" :document="article" />
+      <article-footer />
     </article>
   </main>
 </template>
 
 <script>
+import ArticleFooter from '~/components/blog/articleFooter.vue';
 import sidebar from '~/components/blog/sidebar.vue'
 
 export default {
-  components: { sidebar },
+  components: { sidebar, ArticleFooter },
   name: 'Article',
   data() {
     return {

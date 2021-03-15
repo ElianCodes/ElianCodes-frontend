@@ -20,12 +20,12 @@
     "@tailwindcss/typography": "^0.4.0",
     "core-js": "^3.9.1",
     "marked": "^2.0.1",
+    "numeral": "^2.0.6",
     "nuxt": "^2.15.3",
     "nuxt-canonical": "^1.0.6",
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-property-decorator": "^2.9.1",
-    "vue": "^2.6.12",
-    "vue-gtag": "^1.11.0"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",
