@@ -8,7 +8,7 @@ tags:
   - JIT
   - CSS
 description: What is TailwindCSS JIT and how to use it.
-imgUrl: https://res.cloudinary.com/redfern-web/image/upload/v1598516539/redfern-dev/png/valet.png
+imgUrl: https://raw.githubusercontent.com/tailwindlabs/tailwindcss-jit/master/.github/logo.svg
 longDescription: TailwindCSS just released a new feature @tailwindcss/jit. In this post I explain what it is and how to use it.
 ---
 
