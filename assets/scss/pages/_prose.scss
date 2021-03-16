@@ -23,4 +23,16 @@
             @apply dark:bg-gray-700;
         }
     }
+
+    table {
+        @apply dark:text-gray-300;
+
+        th {
+            @apply dark:text-gray-200;
+        }
+    }
+
+    ul li {
+        @apply dark:text-gray-400;
+    }
 }
