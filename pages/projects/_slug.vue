@@ -1,0 +1,4 @@
+<template>
+    <article>
+    </article>
+</template>

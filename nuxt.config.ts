@@ -73,13 +73,13 @@ const create = async (feed: any, args: any) => {
   return feed
 }
 
-const fillRoutes = async () => {
+const fillRoutes = async (feed: string[]) => {
   const { $content } = require('@nuxt/content')
-  const posts = await $content('blog').only(["path"])
+  let posts: any[] = []
+  await feed.forEach(feed => $content(feed).only(["path"])
         .sortBy('createdAt', 'desc')
-        .fetch()
+        .fetch().then((data: any) => data.map((post: any) => posts.push(post))))
   return posts.map((post: any) => (post.path === "/index" ? "/" : post.path));
-
 }
 
 export default {
@@ -241,7 +241,7 @@ export default {
     hostname: 'https://elian.codes',
     trailingSlash: true,
     routes(){
-      return fillRoutes()
+      return fillRoutes(['blog', 'projects'])
     }
   },
 
