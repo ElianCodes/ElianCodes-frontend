@@ -1600,10 +1600,10 @@
     minimatch "^3.0.4"
     sitemap "^4.1.1"
 
-"@nuxtjs/tailwindcss@^4.0.0":
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-4.0.0.tgz#5650d673c2068da52e87b515af98ecc69a596957"
-  integrity sha512-MYUdKpc1RFzD894ZJIcI4FBqlDupE+RsmlNoyaUAeXyEv7PJ6YNgWkHu/g38/LJ7CqruABB5Gd8eYTGtYf0j+g==
+"@nuxtjs/tailwindcss@^4.0.1":
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/@nuxtjs/tailwindcss/-/tailwindcss-4.0.1.tgz#bbe30118f4d66f4c6d751f69a31668af8b0163c1"
+  integrity sha512-FMmCrma9O8NSIi6gPVFMre8d2JKTSMzBV8LidQg/s/yhrmZydcz15Ys2vXh/TDZbr5pUhXiffJnsh3ZbdvIwFw==
   dependencies:
     "@nuxt/postcss8" "^1.1.3"
     "@tailwindcss/jit" "^0.1.1"
@@ -1614,7 +1614,7 @@
     defu "^3.2.2"
     postcss "^8.2.8"
     postcss-custom-properties "^11.0.0"
-    postcss-nested "^5.0.5"
+    postcss-nesting "^7.0.1"
     tailwind-config-viewer "^1.5.0"
     tailwindcss "^2.0.3"
     ufo "^0.6.10"
@@ -8441,14 +8441,7 @@ postcss-nested@^4:
     postcss "^7.0.32"
     postcss-selector-parser "^6.0.2"
 
-postcss-nested@^5.0.5:
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/postcss-nested/-/postcss-nested-5.0.5.tgz#f0a107d33a9fab11d7637205f5321e27223e3603"
-  integrity sha512-GSRXYz5bccobpTzLQZXOnSOfKl6TwVr5CyAQJUPub4nuRJSOECK5AqurxVgmtxP48p0Kc/ndY/YyS1yqldX0Ew==
-  dependencies:
-    postcss-selector-parser "^6.0.4"
-
-postcss-nesting@^7.0.0:
+postcss-nesting@^7.0.0, postcss-nesting@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-7.0.1.tgz#b50ad7b7f0173e5b5e3880c3501344703e04c052"
   integrity sha512-FrorPb0H3nuVq0Sff7W2rnc3SmIcruVC6YwpcS+k687VxyxO33iE1amna7wHuRVzM8vfiYofXSBHNAZ3QhLvYg==
