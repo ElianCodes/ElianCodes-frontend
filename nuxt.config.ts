@@ -126,7 +126,8 @@ export default {
     cssPath: '~/assets/scss/tailwind.scss',
     configPath: 'tailwind.config.ts',
     exposeConfig: false,
-    jit: true
+    jit: true,
+    viewer: false
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

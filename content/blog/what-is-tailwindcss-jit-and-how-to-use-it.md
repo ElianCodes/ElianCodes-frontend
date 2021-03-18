@@ -101,11 +101,28 @@ module.exports = {
 
 Depending on your specific situation you might need to change a few other things.
 
+[I also wrote a blogpost on how to use JIT with Nuxtjs](<https://www.elianvancutsem.com/blog/add-tailwind-jit-to-your-nuxt-js-site/>).
+
 In my specific situation this is how @tailwindcss/jit affected my development process:
+
+Work project:
 
 |package|compiling time|compiled filesize|
 |:--|:-:|:-:|
 |TailwindCSS|25328ms|918KiB|
 |@tailwindcss/jit|10295ms|84KiB|
 
-sidenote: @tailwindcss/jit is compatible with Nuxt, but not yet with SCSS and Nuxt, so I'll have to wait a bit longer or find a workaround to start using it on this site.
+on this very website:
+
+|package|run|side|compiling time|
+|:--|:-:|:-:|:-:|
+|TailwindCSS|1st|client|28.73s|
+|TailwindCSS|1st|server|24.58s|
+|TailwindCSS|2nd|client|18.31s|
+|TailwindCSS|2nd|server|15.60s|
+|@tailwindcss/jit|1st|client|10.07s|
+|@tailwindcss/jit|1st|server|9.19s|
+|@tailwindcss/jit|2nd|client|4.98s|
+|@tailwindcss/jit|2nd|server|4.22s|
+
+this was measured on 1st and 2nd run with viewer option disabled
