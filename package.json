@@ -34,8 +34,6 @@
     "@nuxtjs/eslint-module": "^3.0.2",
     "@nuxtjs/google-analytics": "^2.4.0",
     "@nuxtjs/tailwindcss": "^4.0.1",
-    "@tailwindcss/postcss7-compat": "^2.0.3",
-    "autoprefixer": "^9.8.6",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -43,11 +41,9 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-vue": "^7.7.0",
     "fibers": "^5.0.0",
-    "postcss": "^7.0.35",
+    "postcss": "^8.2.8",
+    "postcss-easy-import": "^3.0.0",
     "prettier": "^2.2.1",
-    "sass": "^1.32.8",
-    "sass-loader": "10",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.3",
-    "vue-typed-js": "0.1.2"
+    "sass": "^1.32.8"
   }
 }

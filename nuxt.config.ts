@@ -125,7 +125,8 @@ export default {
   tailwindcss: {
     cssPath: '~/assets/scss/tailwind.scss',
     configPath: 'tailwind.config.ts',
-    exposeConfig: false
+    exposeConfig: false,
+    jit: true
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -205,5 +206,12 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    postcss: {
+      plugins: {
+        'postcss-easy-import': { prefix: '_', extensions: ['.css', '.scss'] },
+        'postcss-nested': {},
+      },
+    }
+  },
 }
