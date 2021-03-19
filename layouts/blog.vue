@@ -26,12 +26,13 @@
   </section>
 </template>
 
-<script lang="ts">
+<script>
+import Vue from 'vue'
 import Navbar from '~/components/layout/navbar.vue';
 import Darkmode from '~/components/layout/darkmode.vue';
 import Sidebar from '~/components/blog/sidebar.vue'
 
-export default {
+export default Vue.extend({
   components: {
     Navbar, Darkmode, Sidebar
   },
@@ -42,17 +43,17 @@ export default {
     }
   },
   methods: {
-    /*closeMenu (close: boolean) {
+    closeMenu (close) {
       this.menuOpened = close
     },
-    toggleNavBar (value: boolean) {
+    toggleNavBar (value) {
       this.showNavBar = value
-    }*/
+    }
   },
   created() {
     this.showNavBar = this.$nuxt.$route.path === '/blog' ? true : false
   }
-}
+})
 </script>
 
 <style scoped>

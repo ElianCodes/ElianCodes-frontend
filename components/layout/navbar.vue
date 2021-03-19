@@ -26,18 +26,18 @@
 </template>
 
 <script lang="ts">
-export default {
+import Vue from 'vue'
+
+export default Vue.extend({
   name: 'navbar',
   props: [ 'menuOpened' ],
   methods: {
-    /*
-    closeMenuAndRoute (path: string) {
+    closeMenuAndRoute (path: any) {
       this.$emit('closeMenu', false)
       this.$router.push({path: path})
-      console.log(path)
-    }*/
+    }
   }
-}
+})
 </script>
 
 <style scoped>
