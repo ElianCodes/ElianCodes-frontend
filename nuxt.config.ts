@@ -141,8 +141,9 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxtjs/google-analytics',
-    '@nuxt/typescript-build',
+    //'@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
+    'nuxt-vite'
   ],
 
   googleAnalytics: {
@@ -195,7 +196,7 @@ export default {
   ],
 
   sitemap: {
-    hostname: process.env.URL,
+    hostname: 'https://elianvancutsem.com',
     trailingSlash: true,
     exclude: [
       '/index.component',

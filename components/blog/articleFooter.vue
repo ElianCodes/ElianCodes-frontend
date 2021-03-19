@@ -23,7 +23,31 @@
   </div>
 </template>
 
-<script lang="ts" src="./articleFooter.component.ts">
+<script lang="ts">
+const numeral = require('numeral');
+
+export default {
+  name: 'articleFooter',
+  data: {
+    likes:  997,
+    tweetLink: "https://twitter.com/intent/tweet?text=Just read an article by @vancutsemelian. https://elian.codes" + $nuxt.$route.path
+  },
+  methods: {
+    /*
+    addLike(): void {
+      this.likes = this.likes + 1
+    }*/
+  },
+  computed: {
+    formattedLikes: function () {
+      if(this.likes < 1000){
+        return numeral(this.likes).format('0 a');
+      } else {
+        return numeral(this.likes).format('0.0 a');
+      }
+    }
+  }
+}
 </script>
 
 <style>

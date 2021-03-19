@@ -25,7 +25,19 @@
   </transition>
 </template>
 
-<script lang="ts" src="./navbar.component.ts">
+<script lang="ts">
+export default {
+  name: 'navbar',
+  props: [ 'menuOpened' ],
+  methods: {
+    /*
+    closeMenuAndRoute (path: string) {
+      this.$emit('closeMenu', false)
+      this.$router.push({path: path})
+      console.log(path)
+    }*/
+  }
+}
 </script>
 
 <style scoped>

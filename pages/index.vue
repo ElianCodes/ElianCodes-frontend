@@ -43,7 +43,23 @@
     </main>
 </template>
 
-<script lang="ts" src="./index.component.ts">
+<script lang="ts">
+export default {
+  name: 'Home',
+  head: {
+    title: 'Elian Van Cutsem | Home',
+  },
+  data () {
+    return {
+      showWhisper: false
+    }
+  },
+  methods: {
+    mounted () {
+      this.showWhisper = true
+    }
+  }
+}
 </script>
 
 <style>
