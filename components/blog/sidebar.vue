@@ -57,5 +57,37 @@
       </aside>
 </template>
 
-<script lang="ts" src="./sidebar.component.ts">
+<script lang="ts">
+import { IContentDocument } from '@nuxt/content/types/content'
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'sidebar',
+  layout: 'blog',
+  data () {
+    return {
+      rawArticles: [] as IContentDocument | IContentDocument[],
+      articles: [] as IContentDocument | IContentDocument[],
+      searchfield: '' as string
+    }
+  },
+  watch: {
+    searchfield: function() {
+      this.articles = this.rawArticles.filter((article: IContentDocument) => article.title.toLowerCase().includes(this.searchfield.toLowerCase()))
+    }
+  },
+  methods: {
+    formatDate(date: Date) {
+      return new Date(date).toLocaleDateString('en', {
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })
+    }
+  },
+  async fetch() {
+    this.rawArticles = await this.$content('blog').sortBy('createdAt', 'desc').fetch()
+    this.articles = this.rawArticles
+  }
+})
 </script>

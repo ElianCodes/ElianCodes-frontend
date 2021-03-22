@@ -25,7 +25,19 @@
   </transition>
 </template>
 
-<script lang="ts" src="./navbar.component.ts">
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
+  name: 'navbar',
+  props: [ 'menuOpened' ],
+  methods: {
+    closeMenuAndRoute (path: any) {
+      this.$emit('closeMenu', false)
+      this.$router.push({path: path})
+    }
+  }
+})
 </script>
 
 <style scoped>
