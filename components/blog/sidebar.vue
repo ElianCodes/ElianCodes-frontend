@@ -42,9 +42,14 @@
                     <p class="text-sm font-medium text-gray-900 dark:text-gray-200">
                       {{ article.title }}
                     </p>
-                    <p class="text-sm text-gray-500 dark:text-gray-300 truncate">
-                      Posted <time>{{ formatDate(article.createdAt) }}</time>
-                    </p>
+                    <div class="flex justify-between text-sm text-gray-500 dark:text-gray-300 truncate">
+                      <p>
+                        Posted <time>{{ formatDate(article.createdAt) }}</time>
+                      </p>
+                      <p>
+                        {{ calculateTimeToRead(article.bodyPlainText) }} min read
+                      </p>
+                    </div>
                   </nuxt-link>
                 </div>
               </div>
@@ -82,7 +87,10 @@ export default Vue.extend({
           year: 'numeric',
           month: 'long',
           day: 'numeric'
-        })
+      })
+    },
+    calculateTimeToRead(text: string): number {
+      return Math.round(text.split(' ').length / 130)
     }
   },
   async fetch() {
