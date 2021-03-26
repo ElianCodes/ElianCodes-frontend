@@ -1555,6 +1555,10 @@
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/@szmarczak/http-timer/-/http-timer-4.0.5.tgz#bfbd50211e9dfa51ba07da58a14cdfd333205152"
   integrity sha512-PyRA9sm1Yayuj5OIoJ1hGt2YISX45w9WcFbh6ddT0Z/0yaFxOtGLInr4jUfU1EAFVs0Yfyfev4RNwBlUaHdlDQ==
+"@tailwindcss/forms@^0.3.0":
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/forms/-/forms-0.3.0.tgz#d854dceeac69173b0003eff6950f272d338d0f93"
+  integrity sha512-qobVmX9IVHSNVmsqLW4XS9ruw1Ql0Ha8mlNtNyfR3nt0AW91wjgKOt/pPCt9qqbv0q/uVu2KhKvvrZBf+nCwWg==
   dependencies:
     defer-to-connect "^2.0.0"
 
