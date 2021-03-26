@@ -104,6 +104,7 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
+      { name: "monetization", content: "$ilp.uphold.com/gH9RGFW9ijRA" },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Elian Van Cutsem' },
     ],
