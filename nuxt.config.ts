@@ -173,6 +173,14 @@ export default {
       twitterCreator: 'vancutsemelian'
     }
   },
+  
+  googleFonts: {
+    families: {
+      Roboto: [400],
+      Rubik: [400, 700]
+    },
+    display: 'swap'
+  },
 
   googleFonts: {
     families: {
