@@ -148,11 +148,20 @@ export default {
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID
   },
+  
+  googleFonts: {
+    families: {
+      Roboto: [400],
+      Rubik: [400, 700]
+    },
+    display: 'swap'
+  },
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     '@nuxt/content',
+    '@nuxtjs/google-fonts',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
     ['nuxt-canonical', { baseUrl: 'https://www.elianvancutsem.com' }],
