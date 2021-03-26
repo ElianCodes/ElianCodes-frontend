@@ -35,4 +35,9 @@
     ul li {
         @apply dark:text-gray-400;
     }
+    
+    .token.string {
+        background: none !important;
+        @apply bg-transparent;
+    }
 }
