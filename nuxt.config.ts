@@ -41,7 +41,7 @@ const constructFeedItem = (post: any, dir: any, hostname: any) => {
 
 const create = async (feed: any, args: any) => {
   const [filePath, ext] = args
-  const hostname = 'https://www.elianvancutsem.com' // 'http://localhost:3000'
+  const hostname = 'https://www.elian.codes'
   feed.options = {
     title: "Elian Van Cutsem's blog",
     description: 'Welcome to my blog. I write about technology and coding.',
@@ -67,7 +67,7 @@ const create = async (feed: any, args: any) => {
   feed.addContributor({
     name: 'Elian Van Cutsem',
     email: 'elianvancutsem@gmail.com',
-    link: 'http://elianvancutsem.com/'
+    link: 'http://elian.codes/'
   })
 
   return feed
@@ -112,7 +112,7 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'icons/favicon.png' },
       { rel: 'manifest', href: '/manifest.json'},
-      { rel: 'alternate', type: 'application/rss+xml', href: 'https://elianvancutsem.com/blog.xml' }
+      { rel: 'alternate', type: 'application/rss+xml', href: 'https://elian.codes/blog.xml' }
     ],
   },
 
@@ -170,7 +170,7 @@ export default {
     '@nuxtjs/google-fonts',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
-    ['nuxt-canonical', { baseUrl: 'https://www.elianvancutsem.com' }],
+    ['nuxt-canonical', { baseUrl: 'https://www.elian.codes' }],
     [
       'nuxt-fontawesome',
       {
@@ -209,7 +209,7 @@ export default {
   ],
 
   sitemap: {
-    hostname: 'https://elianvancutsem.com',
+    hostname: 'https://elian.codes',
     trailingSlash: true,
     routes(){
       return fillRoutes()
