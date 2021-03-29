@@ -1,0 +1,21 @@
+{
+    "short_name": "Elian Van Cutsem",
+    "name": "Elian Van Cutsem | Portfolio & Blog",
+    "icons": [
+      {
+        "src": "/icons/192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/icons/512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#6ee7b7",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#6ee7b7"
+  }

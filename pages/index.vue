@@ -7,23 +7,23 @@
             I'm a Webdeveloper
           </p>
           <p class="regular-text">
-            My name is Elian Van Cutsem. I'm a Student and software engineer from belgium. On my personal site you'll find more info about myself and my projects. At the moment I'm doing an internship <a href="https://vbridge.eu" target="_blank">@vBridge</a> while finishing my Computer Science degree <a href="https://odisee.be/en" target="_blank">@Odisee</a>. I'm still learning lots of new technologies and skills everyday. On this site I try to blog about my findings and experiences and show off some projects I worked on.
+            My name is Elian Van Cutsem. I'm a Student and software engineer from belgium. On my personal site you'll find more info about myself and my projects. At the moment I'm doing an internship <a href="https://vbridge.eu" target="_blank" rel="noreferrer">@vBridge</a> while finishing my Computer Science degree <a href="https://odisee.be/en" target="_blank" rel="noreferrer">@Odisee</a>. I'm still learning lots of new technologies and skills everyday. On this site I try to blog about my findings and experiences and show off some projects I worked on.
           </p>
-           <p class="footer-text mt-8 hidden md:block">Website created with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
-            <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
-            <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️
+           <p class="footer-text mt-8 hidden md:block">Website created with <a target="_blank" rel="noreferrer" href="https://nuxtjs.org/">Nuxt</a>,
+            <a target="_blank" rel="noreferrer" href="https://www.typescriptlang.org/">Typescript</a>,
+            <a target="_blank" rel="noreferrer" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️
           </p>
         </div>
         <div class="mt-8 md:mt-0 flex flex-col items-center">
-          <img class="rounded-full w-96" src="~/assets/about/about3.png">
+          <img height="400" width="400" class="rounded-full w-96" src="~/assets/about/about3.png" alt="Elian Van Cutsem">
           <section class="text-white md:mt-24 mt-8 flex gap-4 justify-center">
-            <a href="https://github.com/elianvancutsem" target="_blank">
+            <a href="https://github.com/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Github">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'github']" />
             </a>
-            <a href="https://twitter.com/vancutsemelian" target="_blank">
+            <a href="https://twitter.com/vancutsemelian" target="_blank" rel="noreferrer" title="vancutsemelian on Twitter">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'twitter']" />
             </a>
-            <a href="https://linkedin.com/in/elianvancutsem" target="_blank">
+            <a href="https://linkedin.com/in/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Linkedin">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'linkedin-in']" />
             </a>
           </section>

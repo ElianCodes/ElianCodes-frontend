@@ -104,11 +104,15 @@ export default {
     },
     meta: [
       { charset: 'utf-8' },
-      { name: "monetization", content: "$ilp.uphold.com/gH9RGFW9ijRA" },
+      { name: 'monetization', content: '$ilp.uphold.com/gH9RGFW9ijRA' },
+      { name: 'theme-color', content: '#6ee7b7' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Elian Van Cutsem' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: 'icons/favicon.png' },
+      { rel: 'manifest', href: '/manifest.json'}
+    ],
   },
 
   hooks: {
