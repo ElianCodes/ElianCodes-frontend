@@ -170,6 +170,7 @@ export default {
     '@nuxtjs/google-fonts',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
     ['nuxt-canonical', { baseUrl: 'https://www.elian.codes' }],
     [
       'nuxt-fontawesome',
