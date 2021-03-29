@@ -111,7 +111,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: 'icons/favicon.png' },
-      { rel: 'manifest', href: '/manifest.json'}
+      { rel: 'manifest', href: '/manifest.json'},
+      { rel: 'alternate', type: 'application/rss+xml', href: 'https://elianvancutsem.com/blog.xml' }
     ],
   },
 
