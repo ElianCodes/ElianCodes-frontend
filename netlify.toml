@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "https://elianvancutsem.com"
+  to = "https://elian.codes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.elianvancutsem.com"
+  to = "https://www.elian.codes"
+  status = 301
+  force = true
