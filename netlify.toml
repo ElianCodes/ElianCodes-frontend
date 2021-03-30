@@ -21,6 +21,30 @@
   to = "https://www.elian.codes/:splat"
   status = 301
   force = true
+  
+  [[redirects]]
+  from = "https://elianvancutsem.me"
+  to = "https://elian.codes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.elianvancutsem.me"
+  to = "https://www.elian.codes"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://elianvancutsem.me/*"
+  to = "https://elian.codes/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.elianvancutsem.me/*"
+  to = "https://www.elian.codes/:splat"
+  status = 301
+  force = true
 
 [[redirects]]
   from = "/index.html"
