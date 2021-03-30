@@ -9,3 +9,13 @@ tags:
   - Prestashop
 imgUrl: https://i.imgur.com/MA0lOJi.jpeg
 ---
+
+# Seidi Clothing
+
+[seidi-clothing.com](<https://seidi-clothing.com>)
+
+## Technologies used
+
+- Prestashop
+- PHP
+- WordPress

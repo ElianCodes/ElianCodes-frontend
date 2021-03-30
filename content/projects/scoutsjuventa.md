@@ -8,3 +8,13 @@ tags:
   - Twig
 imgUrl: https://i.imgur.com/M6MsjJy.png
 ---
+
+# Scouts Juventa Merchtem
+
+[scoutsjuventa.be](<https://scoutsjuventa.be>)
+
+## Technologies used
+
+- Twig
+- PHP
+- JavaScript

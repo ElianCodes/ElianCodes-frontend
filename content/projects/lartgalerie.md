@@ -6,3 +6,13 @@ tags:
   - WordPress
 imgUrl: https://i.imgur.com/vc6oAlJ.jpg
 ---
+
+# L'artgalerie
+
+[lartgalerie.be](<https://lartgalerie.be>)
+
+## Technologies used
+
+- Wordpress
+- PHP
+- JavaScript

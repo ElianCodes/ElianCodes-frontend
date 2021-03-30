@@ -7,3 +7,13 @@ tags:
   - Front-end
 imgUrl: https://i.imgur.com/wHSkKUQ.jpg
 ---
+
+# Jins Scouts Juventa Merchtem
+
+[jinsscoutsmerchtem.be](<https://jinsscoutsmerchtem.be>)
+
+## Technologies used
+
+- React
+- Bootstrap
+- JavaScript

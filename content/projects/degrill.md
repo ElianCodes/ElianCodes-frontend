@@ -7,3 +7,13 @@ tags:
   - Wordpress
 imgUrl: https://i.imgur.com/7ixAE5E.jpg
 ---
+
+# De Grill
+
+[de-grill.be](<https://de-grill.be>)
+
+## Technologies used
+
+- Wordpress
+- Elementor
+- JavaScript

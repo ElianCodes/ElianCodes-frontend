@@ -6,3 +6,13 @@ tags:
   - Wordpress
 imgUrl: https://i.imgur.com/Uhtabjz.jpg
 ---
+
+# Stijn Bogemans
+
+[stijnbogemans.be](<https://stijnbogemans.be>)
+
+## Technologies used
+
+- WordPress
+- Elementor
+- PHP
