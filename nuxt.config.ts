@@ -103,16 +103,14 @@ export default {
       lang: 'en',
     },
     meta: [
-      { charset: 'utf-8' },
       { name: 'monetization', content: '$ilp.uphold.com/gH9RGFW9ijRA' },
       { name: 'theme-color', content: '#6ee7b7' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'Elian Van Cutsem' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: 'icons/favicon.png' },
-      { rel: 'manifest', href: '/manifest.json'},
-      { rel: 'alternate', type: 'application/rss+xml', href: 'https://elian.codes/blog.xml' }
+      { rel: 'alternate', type: 'application/rss+xml', href: 'https://elian.codes/blog.xml' },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ],
   },
 
@@ -149,12 +147,33 @@ export default {
     '@nuxtjs/google-analytics',
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/pwa'
   ],
 
   googleAnalytics: {
     id: process.env.GOOGLE_ANALYTICS_ID
   },
   
+  pwa: {
+    manifest: {
+      name: 'Elian Van Cutsem | Portfolio & Blog',
+      short_name: 'Elian Van Cutsem',
+      description: 'Elian Van Cutsem | Webdevelopment, Programmer and IT Generalist',
+      start_url: '/blog',
+      background_color: '#6ee7b7',
+      scope: '/',
+      theme_color: '#6ee7b7'
+    },
+    icon: {
+      targetDir: 'icons',
+      fileName: 'favicon.png'
+    },
+    meta: {
+      author: 'Elian Van Cutsem',
+      twitterCreator: 'vancutsemelian'
+    }
+  },
+
   googleFonts: {
     families: {
       Roboto: [400],
@@ -170,6 +189,7 @@ export default {
     '@nuxtjs/google-fonts',
     '@nuxtjs/feed',
     '@nuxtjs/sitemap',
+    '@nuxtjs/meta',
     '@nuxtjs/robots',
     ['nuxt-canonical', { baseUrl: 'https://www.elian.codes' }],
     [
