@@ -6,7 +6,7 @@
 
 [[redirects]]
   from = "https://www.elianvancutsem.com"
-  to = "https://www.elian.codes"
+  to = "https://elian.codes"
   status = 301
   force = true
 
@@ -18,7 +18,7 @@
 
 [[redirects]]
   from = "https://www.elianvancutsem.com/*"
-  to = "https://www.elian.codes/:splat"
+  to = "https://elian.codes/:splat"
   status = 301
   force = true
   
@@ -30,19 +30,19 @@
 
 [[redirects]]
   from = "https://www.elianvancutsem.me"
-  to = "https://www.elian.codes"
+  to = "https://elian.codes"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://elianvancutsem.me/*"
-  to = "https://elian.codes/:splat"
+  to = "https://codes/:splat"
   status = 301
   force = true
 
 [[redirects]]
   from = "https://www.elianvancutsem.me/*"
-  to = "https://www.elian.codes/:splat"
+  to = "https://elian.codes/:splat"
   status = 301
   force = true
   
@@ -54,7 +54,7 @@
 
 [[redirects]]
   from = "https://www.elian.coffee"
-  to = "https://www.elian.codes"
+  to = "https://elian.codes"
   status = 301
   force = true
 
@@ -66,7 +66,7 @@
 
 [[redirects]]
   from = "https://www.elian.coffee/*"
-  to = "https://www.elian.codes/:splat"
+  to = "https://elian.codes/:splat"
   status = 301
   force = true
 
