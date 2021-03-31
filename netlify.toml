@@ -71,6 +71,30 @@
   force = true
 
 [[redirects]]
+  from = "https://elian.blog"
+  to = "https://elian.codes/blog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.elian.blog"
+  to = "https://elian.codes/blog/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://elian.blog/*"
+  to = "https://elian.codes/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.elian.blog/*"
+  to = "https://elian.codes/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/index.html"
   to = "/"
   status = 301
