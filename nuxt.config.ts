@@ -23,7 +23,7 @@ interface item {
 }
 
 const constructFeedItem = (post: any, dir: any, hostname: any) => {
-  const url = `${hostname}/${dir}/${post.slug}`
+  const url = `${hostname}/${dir}/${post.slug}/`
   const item: item = {
     title: post.title,
     id: post.slug,
@@ -45,9 +45,9 @@ const create = async (feed: any, args: any) => {
   feed.options = {
     title: "Elian Van Cutsem's blog",
     description: 'Welcome to my blog. I write about technology and coding.',
-    link: `${hostname}`,
+    link: `${hostname}/`,
     ttl: 30,
-    image: "~/assets/about/about3.png",
+    image: "https://www.elian.codes/favicon.png",
   }
   const { $content } = require('@nuxt/content')
   if (posts === null || posts.length === 0)
