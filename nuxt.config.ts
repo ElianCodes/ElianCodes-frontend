@@ -67,7 +67,7 @@ const create = async (feed: any, args: any) => {
   feed.addContributor({
     name: 'Elian Van Cutsem',
     email: 'elianvancutsem@gmail.com',
-    link: 'http://elian.codes/'
+    link: 'http://www.elian.codes/'
   })
 
   return feed
@@ -109,7 +109,7 @@ export default {
       { hid: 'description', name: 'description', content: 'Elian Van Cutsem' },
     ],
     link: [
-      { rel: 'alternate', type: 'application/rss+xml', href: 'https://elian.codes/blog.xml' },
+      { rel: 'alternate', type: 'application/rss+xml', href: 'https://www.elian.codes/blog.xml' },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }
     ],
   },
@@ -230,7 +230,7 @@ export default {
   ],
 
   sitemap: {
-    hostname: 'https://elian.codes',
+    hostname: 'https://www.elian.codes',
     trailingSlash: true,
     routes(){
       return fillRoutes(['blog', 'projects'])
