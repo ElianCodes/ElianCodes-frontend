@@ -212,6 +212,7 @@ export default {
       },
     ],
   ],
+
   feed: [
     {
       path: '/blog.xml',
@@ -239,6 +240,13 @@ export default {
     routes(){
       return fillRoutes(['blog', 'projects'])
     }
+  },
+
+  robots: {
+    UserAgent: '*',
+    Sitemap: 'https://www.elian.codes/sitemap.xml',
+    Host: 'https://www.elian.codes/'
+
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
