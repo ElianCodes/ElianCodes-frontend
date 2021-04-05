@@ -140,6 +140,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/analytics.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -148,15 +149,11 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    '@nuxtjs/google-analytics',
+    //'@nuxtjs/google-analytics',
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/pwa'
   ],
-
-  googleAnalytics: {
-    id: process.env.GOOGLE_ANALYTICS_ID
-  },
   
   pwa: {
     manifest: {
