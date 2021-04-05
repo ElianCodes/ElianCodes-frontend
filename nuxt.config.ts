@@ -134,7 +134,6 @@ export default {
     cssPath: '~/assets/scss/tailwind.scss',
     configPath: 'tailwind.config.ts',
     exposeConfig: false,
-    jit: true,
     viewer: false
   },
 

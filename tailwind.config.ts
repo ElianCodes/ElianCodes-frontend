@@ -1,4 +1,5 @@
 module.exports = {
+  mode: 'jit',
   purge: {
     enabled: true,
     content: [
@@ -8,9 +9,6 @@ module.exports = {
       './plugins/**/*.{js,ts}',
       './nuxt.config.{js,ts}'
     ],
-    options: {
-      safeList: ['dark']
-    }
   },
   darkMode: 'class',
   theme: {
