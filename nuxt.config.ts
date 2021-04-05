@@ -149,12 +149,16 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
-    //'@nuxtjs/google-analytics',
+    '@nuxtjs/google-analytics',
     '@nuxt/typescript-build',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/pwa'
   ],
-  
+
+  googleAnalytics: {
+    id: process.env.GOOGLE_ANALYTICS_ID
+  },
+
   pwa: {
     manifest: {
       name: 'Elian Van Cutsem | Portfolio & Blog',
