@@ -3,8 +3,15 @@
   </main>
 </template>
 
-<script lang="ts">
+<script>
 export default {
-  layout: 'blog'
+  layout: 'blog',
+  methods: {
+    track () {
+      this.$gtag.pageview({
+        page_path: '/blog/',
+      })
+    },
+  },
 }
 </script>

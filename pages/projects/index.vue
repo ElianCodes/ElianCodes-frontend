@@ -22,6 +22,13 @@ export default {
       projects: []
     }
   },
+  methods: {
+    track () {
+      this.$gtag.pageview({
+        page_path: '/projects/',
+      })
+    },
+  },
   head: {
       title: "Elian Van Cutsem's projects",
       meta: [

@@ -16,7 +16,7 @@
                     <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
                   </svg>
                 </div>
-                <input type="text" v-model="searchfield" name="search" id="search" class="py-2 focus:ring-green-500 focus:border-green-500 block w-full pl-10 sm:text-sm border-gray-300 dark:bg-gray-700 rounded-md" placeholder="Search">
+                <input type="text" v-model="searchfield" name="search" id="search" class="py-2 dark:text-white focus:ring-green-500 focus:border-green-500 block w-full pl-10 sm:text-sm border-gray-300 dark:bg-gray-700 rounded-md" placeholder="Search">
               </div>
             </div>
             <!--<button class="inline-flex justify-center px-3.5 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-pink-500">
@@ -78,6 +78,10 @@ export default Vue.extend({
   },
   watch: {
     searchfield: function() {
+      this.$gtag.event('search', {
+        'event_category': 'engagement',
+        'event_label': 'search_term',
+      })
       this.articles = this.rawArticles.filter((article: IContentDocument) => article.title.toLowerCase().includes(this.searchfield.toLowerCase()))
     }
   },

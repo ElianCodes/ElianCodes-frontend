@@ -61,6 +61,11 @@ export default {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
       return new Date(date).toLocaleDateString('en', options)
     },
+    track () {
+      this.$gtag.pageview({
+        page_path: '/blog/' + this.article.slug,
+      })
+    },
   },
   transition: {
     name: "blogpost",

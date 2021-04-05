@@ -33,6 +33,10 @@ export default Vue.extend({
   props: [ 'menuOpened' ],
   methods: {
     closeMenuAndRoute (path: any) {
+      this.$gtag.event('route_via_menu', {
+        'event_category': 'engagement',
+        'event_label': 'use_menu',
+      })
       this.$emit('closeMenu', false)
       this.$router.push({path: path})
     }

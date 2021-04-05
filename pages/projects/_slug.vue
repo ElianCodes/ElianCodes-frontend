@@ -28,11 +28,15 @@
 <script>
 export default {
     layout: 'projects',
-
     async asyncData({ $content, params }) {
       const article = await $content('projects', params.slug).fetch()
       return { article }
-  },
+    },
+    track () {
+      this.$gtag.pageview({
+        page_path: '/projects/' + this.article.slug,
+      })
+    },
 }
 </script>
 

@@ -17,13 +17,13 @@
         <div class="mt-8 md:mt-0 flex flex-col items-center">
           <img height="400" width="400" class="rounded-full w-96" src="~/assets/about/about3.png" alt="Elian Van Cutsem">
           <section class="text-white md:mt-24 mt-8 flex gap-4 justify-center">
-            <a href="https://github.com/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Github">
+            <a href="https://github.com/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Github" v-on:click="trackOutgoing('github')">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'github']" />
             </a>
-            <a href="https://twitter.com/vancutsemelian" target="_blank" rel="noreferrer" title="vancutsemelian on Twitter">
+            <a href="https://twitter.com/vancutsemelian" target="_blank" rel="noreferrer" title="vancutsemelian on Twitter" v-on:click="trackOutgoing('twitter')">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'twitter']" />
             </a>
-            <a href="https://linkedin.com/in/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Linkedin">
+            <a href="https://linkedin.com/in/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Linkedin" v-on:click="trackOutgoing('linkedin')">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'linkedin-in']" />
             </a>
           </section>
@@ -54,6 +54,17 @@ export default Vue.extend({
     }
   },
   methods: {
+    track () {
+      this.$gtag.pageview({
+        page_path: '/',
+      })
+    },
+    trackOutgoing (value: string) {
+      this.$gtag.event('link_to_socials', {
+        'event_category': 'engagement',
+        'event_label': value,
+      })
+    },
     mounted () {
       this.showWhisper = true
     }

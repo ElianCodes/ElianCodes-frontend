@@ -18,6 +18,13 @@
 <script>
 export default {
   name: 'tip',
-  layout: 'projects'
+  layout: 'projects',
+  methods: {
+    track () {
+      this.$gtag.pageview({
+        page_path: '/tip/',
+      })
+    },
+  }
 }
 </script>
