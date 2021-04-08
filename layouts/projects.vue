@@ -16,8 +16,13 @@
             <Nuxt />
             <section class="mx-12 mt-12">
                 <p class="footer-text">Website created with <a target="_blank" href="https://nuxtjs.org/">Nuxt</a>,
-                <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
-                <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️</p>
+                  <a target="_blank" href="https://www.typescriptlang.org/">Typescript</a>,
+                  <a target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> and 
+                  <nuxt-link to="/coffee/" v-on:click="coffeeClicked">
+                    <span v-if="this.$route.path === '/coffee/'">🍵</span>
+                    <span v-else>☕️</span>
+                  </nuxt-link>
+                </p>
             </section>
         </div>
     </section>
@@ -38,7 +43,13 @@ export default {
   methods: {
     closeMenu(close) {
       this.menuOpened = close
-    }
+    },
+    coffeeClicked () {
+      this.$gtag.event('link_to_socials', {
+        'event_category': 'engagement',
+        'event_label': 'Coffee',
+      })
+    },
   },
   head: {
     title: 'Elian Van Cutsem | projects',

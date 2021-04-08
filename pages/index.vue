@@ -11,7 +11,8 @@
           </p>
            <p class="footer-text mt-8 hidden md:block">Website created with <a target="_blank" rel="noreferrer" href="https://nuxtjs.org/">Nuxt</a>,
             <a target="_blank" rel="noreferrer" href="https://www.typescriptlang.org/">Typescript</a>,
-            <a target="_blank" rel="noreferrer" href="https://tailwindcss.com/">TailwindCSS</a> and ☕️
+            <a target="_blank" rel="noreferrer" href="https://tailwindcss.com/">TailwindCSS</a> and 
+            <nuxt-link to="/coffee/" v-on:click="coffeeClicked">☕️</nuxt-link>
           </p>
         </div>
         <div class="mt-8 md:mt-0 flex flex-col items-center">
@@ -57,6 +58,12 @@ export default Vue.extend({
     track () {
       this.$gtag.pageview({
         page_path: '/',
+      })
+    },
+    coffeeClicked () {
+      this.$gtag.event('link_to_socials', {
+        'event_category': 'engagement',
+        'event_label': 'Coffee',
       })
     },
     trackOutgoing (value: string) {
