@@ -28,7 +28,7 @@
     "nuxt-fontawesome": "^0.4.0",
     "nuxt-property-decorator": "^2.9.1",
     "vue": "^2.6.12",
-    "vue-gtag": "^1.12.0"
+    "vue-gtag": "^1.14.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.15.3",
