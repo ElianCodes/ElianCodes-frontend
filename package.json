@@ -50,7 +50,7 @@
     "fibers": "^5.0.0",
     "postcss": "^8.2.10",
     "postcss-easy-import": "^3.0.0",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.0",
     "sass": "^1.32.8"
   }
 }
