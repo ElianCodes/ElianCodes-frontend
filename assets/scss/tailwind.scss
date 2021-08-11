@@ -38,6 +38,9 @@ html.dark {
 .subtitle {
     font-family: Rubik, sans-serif;
     @apply text-4xl leading-10 text-gray-100 md:text-gray-500 dark:text-gray-400 font-normal mb-8;
+    a {
+        @apply text-green-300 dark:text-green-400;
+    }
 }
 
 .regular-text {

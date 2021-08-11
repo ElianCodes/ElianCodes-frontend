@@ -4,10 +4,10 @@
         <div class="flex flex-col md:mr-24">
           <h1 class="title">👋 Hello</h1>
           <p class="subtitle">
-            I'm a Webdeveloper
+            Software Engineer <a href="https://vbridge.eu" target="_blank" rel="noreferrer">@vBridge</a>
           </p>
           <p class="regular-text">
-            My name is Elian Van Cutsem. I'm a Student and software engineer from belgium. On my personal site you'll find more info about myself and my projects. At the moment I'm doing an internship <a href="https://vbridge.eu" target="_blank" rel="noreferrer">@vBridge</a> while finishing my Computer Science degree <a href="https://odisee.be/en" target="_blank" rel="noreferrer">@Odisee</a>. I'm still learning lots of new technologies and skills everyday. On this site I try to blog about my findings and experiences and show off some projects I worked on.
+            My name is Elian Van Cutsem. I'm a Software Engineer while finishing my Computer Science degree <a href="https://odisee.be/en" target="_blank" rel="noreferrer">@Odisee</a>. On this website you'll find some projects I did as well as some articles I occassionally write on my <a href="/blog">blog</a>.
           </p>
            <p class="footer-text mt-8 hidden md:block">Website created with <a target="_blank" rel="noreferrer" href="https://nuxtjs.org/">Nuxt</a>,
             <a target="_blank" rel="noreferrer" href="https://www.typescriptlang.org/">Typescript</a>,
