@@ -195,6 +195,7 @@ export default {
     '@nuxtjs/sitemap',
     '@nuxtjs/meta',
     '@nuxtjs/robots',
+    '@nuxtjs/google-adsense',
     ['nuxt-canonical', { baseUrl: 'https://www.elian.codes' }],
     [
       'nuxt-fontawesome',
@@ -247,6 +248,10 @@ export default {
     Sitemap: 'https://www.elian.codes/sitemap.xml',
     Host: 'https://www.elian.codes/'
 
+  },
+
+  'google-adsense': {
+    id: 'ca-pub-2412726879520600'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
