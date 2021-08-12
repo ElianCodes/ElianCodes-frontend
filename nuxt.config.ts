@@ -251,7 +251,7 @@ export default {
   },
 
   'google-adsense': {
-    id: 'ca-pub-2412726879520600'
+    id: 'ca-pub-4472038053216899'
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
