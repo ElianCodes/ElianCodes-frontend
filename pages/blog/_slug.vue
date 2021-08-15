@@ -12,6 +12,7 @@
     <article class="my-16">
       <nuxt-content class="mx-auto prose max-w-96 prose-green" :document="article" />
       <article-footer />
+      <adsbygoogle />
     </article>
   </main>
 </template>

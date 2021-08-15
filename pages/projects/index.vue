@@ -9,6 +9,9 @@
             <p class="mt-2 dark:text-gray-300">{{ project.description }}</p>
           </nuxt-link>
         </div>
+        <div>
+          <adsbygoogle />
+        </div>
       </div>
     </div>
   </section>
