@@ -8,7 +8,7 @@ tags:
   - deployment
   - programming
 description: Using Surge.sh to quickly deploy a static site
-imgUrl: https://res.cloudinary.com/practicaldev/image/fetch/s--6UR1thm7--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/fbcv71kd73re1b9bvl0i.png
+imgUrl: https://thepracticaldev.s3.amazonaws.com/i/fbcv71kd73re1b9bvl0i.png
 longDescription: Deploying a static site is made very easy and free by Surge.sh, in this article I explain how it works, what it is and why you should use it.
 ---
 
