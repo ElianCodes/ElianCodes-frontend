@@ -12,6 +12,6 @@ ENV PORT=8080
 
 RUN yarn create-env
 RUN yarn build
-RUN yarn generate
+#RUN yarn generate
 
 CMD [ "yarn", "start" ]
