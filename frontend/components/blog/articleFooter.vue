@@ -38,7 +38,7 @@ export default Vue.extend({
   data() {
     return {
       likes: 997 as number,
-      tweetLink: "https://twitter.com/intent/tweet?text=Just read an article by @vancutsemelian. https://elian.codes" + this.$nuxt.$route.path
+      tweetLink: "https://twitter.com/intent/tweet?text=Just read an article by @HTMELian. https://elian.codes" + this.$nuxt.$route.path
     }
   },
   methods: {

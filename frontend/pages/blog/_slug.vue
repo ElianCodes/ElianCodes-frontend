@@ -53,7 +53,7 @@ export default {
         { hid: 'twitter:card', name: 'twitter:card', content: this.article.description },
         { hid: 'twitter:image', name: 'twitter:image', content: this.article.imgUrl },
         { hid: 'twitter:description', name: 'twitter:description', content: this.article.longDescription },
-        { hid: 'twitter:site', name: 'twitter:site', content: '@vancutsemelian' }
+        { hid: 'twitter:site', name: 'twitter:site', content: '@HTMELian' }
       ]
     }
   },

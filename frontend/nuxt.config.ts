@@ -174,7 +174,7 @@ export default {
     },
     meta: {
       author: 'Elian Van Cutsem',
-      twitterCreator: 'vancutsemelian'
+      twitterCreator: 'HTMELian'
     }
   },
 

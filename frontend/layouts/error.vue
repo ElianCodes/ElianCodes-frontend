@@ -19,6 +19,9 @@ export default {
       required: true,
     },
   },
-  layout: 'projects'
+  layout: 'projects',
+  head: {
+    title: 'Elian Van Cutsem | OhOh that\'s an error',
+  }
 }
 </script>

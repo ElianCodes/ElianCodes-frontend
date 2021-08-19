@@ -21,7 +21,7 @@
             <a href="https://github.com/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Github" v-on:click="trackOutgoing('github')">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'github']" />
             </a>
-            <a href="https://twitter.com/vancutsemelian" target="_blank" rel="noreferrer" title="vancutsemelian on Twitter" v-on:click="trackOutgoing('twitter')">
+            <a href="https://twitter.com/HTMELian" target="_blank" rel="noreferrer" title="HTMELian on Twitter" v-on:click="trackOutgoing('twitter')">
               <font-awesome-icon class="w-7 h-7 md:w-12 md:h-12" size="6x" :icon="['fab', 'twitter']" />
             </a>
             <a href="https://linkedin.com/in/elianvancutsem" target="_blank" rel="noreferrer" title="elianvancutsem on Linkedin" v-on:click="trackOutgoing('linkedin')">
@@ -78,6 +78,53 @@ export default Vue.extend({
   },
   head: {
     title: 'Elian Van Cutsem | Home',
+    meta: [
+      {
+        hid: 'twitter:title',
+        name: 'twitter:title',
+        content: 'Elian Van Cutsem | Home'
+      },
+      {
+        hid: 'twitter:description',
+        name: 'twitter:description',
+        content: 'Full-stack software engineer @vBridge | My online portfolio and CV. I also write about technology and programming.',
+      },
+      {
+        hid: 'twitter:image',
+        name: 'twitter:image',
+        content: 'https://pbs.twimg.com/profile_images/1303397227382046726/CrMgr6x0_400x400.jpg'
+      },
+      {
+        hid: 'twitter:image:alt',
+        name: 'twitter:image:alt',
+        content: 'Elian van Cutsem'
+      },
+      {
+        hid: 'og:title',
+        property: 'og:title',
+        content: 'Elian Van Cutsem | Home'
+      },
+      {
+        hid: 'og:description',
+        property: 'og:description',
+        content: 'Full-stack software engineer @vBridge | My online portfolio and CV. I also write about technology and programming.',
+      },
+      {
+        hid: 'og:image',
+        property: 'og:image',
+        content: 'https://pbs.twimg.com/profile_images/1303397227382046726/CrMgr6x0_400x400.jpg'
+      },
+      {
+        hid: 'og:image:secure_url',
+        property: 'og:image:secure_url',
+        content: 'https://www.elian.codes/'
+      },
+      {
+        hid: 'og:image:alt',
+        property: 'og:image:alt',
+        content: 'Elian Van Cutsem'
+      }
+    ]
   }
 })
 </script>
