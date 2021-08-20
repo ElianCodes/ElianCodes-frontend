@@ -29,9 +29,10 @@ export default {
       articles: [],
     }
   },
-  async asyncData({ $content, params }) {
-    const article = await $content('blog', params.slug).fetch()
-
+  async asyncData({ error, $content, params }) {
+    const article = await $content('blog', params.slug).fetch().catch((err) => {
+      error({ statusCode: 404, message: 'Page not found' })
+    })
     return { article }
   },
   layout: 'blog',
@@ -40,7 +41,7 @@ export default {
       .sortBy('createdAt', 'desc')
       .fetch()
   },
-  head() {
+  /*head() {
     return {
       title: this.article.title,
       meta: [
@@ -56,7 +57,7 @@ export default {
         { hid: 'twitter:site', name: 'twitter:site', content: '@HTMELian' }
       ]
     }
-  },
+  },*/
   methods: {
     formatDate(date) {
       const options = { year: 'numeric', month: 'long', day: 'numeric' }
