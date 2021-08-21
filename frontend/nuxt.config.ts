@@ -51,7 +51,7 @@ const create = async (feed: any, args: any) => {
   }
   const { $content } = require('@nuxt/content')
   if (posts === null || posts.length === 0)
-    posts = await $content(filePath).sortBy('createdAt', 'desc').fetch()
+    posts = await $content(filePath).sortBy('createdAt', 'desc').limit(5).fetch()
 
   for (const post of posts) {
     const feedItem = await constructFeedItem(post, filePath, hostname)
