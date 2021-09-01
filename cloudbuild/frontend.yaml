@@ -1,37 +1,18 @@
 steps:
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - build
-      - '-t'
-      - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
-      - '.'
-      - '-f'
-      - Dockerfile
-    dir: frontend
-    id: 'Build container'
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['install']
+    dir: 'frontend'
 
-  - name: gcr.io/cloud-builders/docker
-    args:
-      - push
-      - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
-    dir: frontend
-    id: 'Push container'
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['create-env']
+    env:
+      - 'GOOGLE_ANALYTICS_ID=${_GOOGLE_ANALYTICS_ID}'
+    dir: 'frontend'
 
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk:slim'
-    args:
-      - run
-      - services
-      - update
-      - $_SERVICE_NAME
-      - '--platform=managed'
-      - '--image=$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
-      - >-
-        --labels=managed-by=gcp-cloud-build-deploy-cloud-run,commit-sha=$COMMIT_SHA,gcb-build-id=$BUILD_ID,gcb-trigger-id=$_TRIGGER_ID,$_LABELS
-      - '--region=$_DEPLOY_REGION'
-      - '--quiet'
-    dir: frontend
-    id: Deploy
-    entrypoint: gcloud
-images:
-  - '$_GCR_HOSTNAME/$PROJECT_ID/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA'
-timeout: 4600s
+  - name: 'gcr.io/cloud-builders/yarn'
+    args: ['generate']
+    dir: 'frontend'
+
+  - name: gcr.io/cloud-builders/gsutil
+    args: ["-m", "rsync", "-r", "-c", "-d", "./dist/", "gs://www.elian.codes"]
+    dir: 'frontend'
