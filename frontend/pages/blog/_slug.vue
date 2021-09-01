@@ -11,7 +11,7 @@
     </nav>
     <article class="my-16">
       <nuxt-content class="mx-auto prose max-w-96 prose-green" :document="article" />
-      <article-footer />
+      <article-footer :author="article.author" :authorLink="article.authorLink == null ? 'https://www.elian.codes' : article.authorLink" />
       <adsbygoogle />
     </article>
   </main>

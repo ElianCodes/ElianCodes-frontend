@@ -33,7 +33,7 @@
             <li v-for="article in articles" v-bind:key="article.id">
               <div class="relative pr-6 py-5 flex items-center space-x-3 hover:bg-gray-50 dark:hover:bg-gray-700 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-500">
                 <div class="flex-shrink-0">
-                  <img class="h-10 w-10 rounded-full" src="~/assets/about/about3.png" alt="Author of article">
+                  <img class="h-10 w-10 rounded-full" :src="getAuthorImage(article.author)" alt="Author of article">
                 </div>
                 <div class="flex-1 min-w-0">
                   <nuxt-link :to="'/blog/' + article.slug " class="focus:outline-none">
@@ -86,6 +86,9 @@ export default Vue.extend({
     }
   },
   methods: {
+    getAuthorImage(articleAuthor: string){
+      return '/authors/' + articleAuthor.replaceAll(' ', '_').toLowerCase() + '.png'
+    },
     formatDate(date: Date) {
       return new Date(date).toLocaleDateString('en', {
           year: 'numeric',

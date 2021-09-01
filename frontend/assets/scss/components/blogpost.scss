@@ -1,4 +1,4 @@
-.blog-footer {
+.blog-footer  {
     @apply mx-auto prose mt-12 flex justify-between items-center bg-green-300 dark:bg-green-500 px-4 py-2 rounded-full text-white;
     
     .like {
@@ -17,6 +17,13 @@
         @apply w-8 h-8 text-white;
     }
 
+}
+
+.blog-author {
+    @apply mx-auto prose mt-12 flex justify-start items-center text-gray-900 dark:text-white;
+    a {
+        @apply text-green-300 dark:text-green-400 no-underline
+    }
 }
 
 .blog-action {
