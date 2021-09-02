@@ -4,10 +4,13 @@
         <div class="flex flex-col md:mr-24">
           <h1 class="title">👋 Hello</h1>
           <p class="subtitle">
-            Software Engineer <a href="https://vbridge.eu" target="_blank" rel="noreferrer">@vBridge</a>
+            Software Engineer <a href="https://www.vbridge.eu" target="_blank" rel="noreferrer">@vBridge</a>
           </p>
           <p class="regular-text">
-            My name is Elian Van Cutsem. I'm a Software Engineer while finishing my Computer Science degree <a href="https://odisee.be/en" target="_blank" rel="noreferrer">@Odisee</a>. On this website you'll find some projects I did as well as some articles I occassionally write on my <a href="/blog">blog</a>.
+            Software Engineer <a href="https://www.vbridge.eu" target="_blank">@vBridge</a> by day 🧑‍💻<br/>
+            Blogger & web enthusiast by night (while also trying to be a good boyfriend 🍷). <br /><br />
+            My 💖 for the web was first sparked in 2016 when I decided to build a simple website to display the photo's I took at the time, there was no way back! I'm mainly focused on front-end development, but still a full-stack developer at heart (I just love to fiddle with everything I guess).<br /><br/>
+            In 2020 I discovered cloud and serverless development, that really peeked my interest further and made me the curious developer I am today.
           </p>
            <p class="footer-text mt-8 hidden md:block">Website created with <a target="_blank" rel="noreferrer" href="https://nuxtjs.org/">Nuxt</a>,
             <a target="_blank" rel="noreferrer" href="https://www.typescriptlang.org/">Typescript</a>,
