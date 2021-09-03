@@ -18,12 +18,12 @@ a {
 
 /* HEADER */
 header nav {
-    @apply flex justify-between items-start;
+    @apply flex justify-between items-start z-50;
     a.home {
         @apply text-3xl font-normal;
     }
     ul {
-        @apply absolute right-12 flex flex-col items-end gap-2;    
+        @apply z-50 absolute right-12 flex flex-col items-end gap-2;    
     }
 }
 
@@ -122,5 +122,16 @@ main.error {
     }
     p {
         @apply text-4xl;
+    }
+}
+
+/* COMING SOON PAGES */
+section.coming-soon {
+    @apply flex-1 flex flex-col gap-8 justify-center items-center;
+    h2 {
+        @apply text-5xl font-medium;
+    }
+    p {
+        @apply text-lg;
     }
 }

@@ -1,29 +1,7 @@
 ---
-// Component Imports
-import BaseHead from '../components/layout/BaseHead.astro';
-import DefaultHeader from '../components/layout/DefaultHeader.astro';
-import DefaultFooter from '../components/layout/DefaultFooter.astro';
-import IntroSection from '../components/sections/IntroSection.astro';
-import HeroSection from '../components/sections/HeroSection.astro';
-
-const title = 'Elian Van Cutsem | This page is coming soon!';
-const description = 'Page coming soon!';
-const permalink = 'https://www.elian.codes/';
-
-const githubUsername = 'ElianVanCutsem'
-const twitterUsername = 'HTMELian'
-const linkedInUsername = 'elianvancutsem'
+const {title} = Astro.props
 ---
-<html lang="en" class="index-bg">
-  <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
-  </head>
-  <body>
-    <DefaultHeader textMenu={true} menuColor={'text-white'} />
-    <main class="index">
-      <IntroSection />
-      <HeroSection githubUsername={githubUsername} linkedInUsername={linkedInUsername} twitterUsername={twitterUsername}/>
-    </main>
-    <DefaultFooter />
-  </body>
-</html>
+<section class="coming-soon" data-aos="fade-up">
+    <h2>{title}</h2>
+    <p>is coming soon!</p>
+</section>

@@ -5,17 +5,19 @@ import DefaultHeader from '../components/layout/DefaultHeader.astro';
 import DefaultFooter from '../components/layout/DefaultFooter.astro';
 import IntroSection from '../components/sections/IntroSection.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
+import ComingSoon from '../components/ComingSoon.astro';
 
 const title = 'Elian Van Cutsem | This page is coming soon!';
 const description = 'Page is coming soon!';
 const permalink = 'https://www.elian.codes/certifications';
 ---
-<html lang="en" class="index-bg">
+<html lang="en">
   <head>
     <BaseHead title={title} description={description} permalink={permalink} />
   </head>
   <body>
-    <DefaultHeader textMenu={true} menuColor={'text-white'} />
+    <DefaultHeader textMenu={true} />
+    <ComingSoon title={'Certifications'} />
     <DefaultFooter />
   </body>
 </html>
