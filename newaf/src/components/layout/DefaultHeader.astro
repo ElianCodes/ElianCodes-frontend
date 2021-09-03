@@ -23,14 +23,14 @@ const getMenuColor = (): string => {
     <h1><a href="/" title="home" class={`home ${getLogoColor()}`}>Elian Van Cutsem</a></h1>
     { textMenu ? (
       aosEnabled ? (
-        <ul>
+        <ul class="textMenu">
           <li data-aos="fade-left" data-aos-delay="100"><a href="/" class={getMenuColor()}>Home</a></li>
           <li data-aos="fade-left" data-aos-delay="150"><a href="/blog" class={getMenuColor()}>Blog</a></li>
           <li data-aos="fade-left" data-aos-delay="200"><a href="/projects" class={getMenuColor()}>Projects</a></li>
           <li data-aos="fade-left" data-aos-delay="250"><a href="/certifications" class={getMenuColor()}>Certifications</a></li>
         </ul>
       ) : (
-        <ul>
+        <ul class="textMenu"l>
           <li><a href="/" class={getMenuColor()}>Home</a></li>
           <li><a href="/blog" class={getMenuColor()}>Blog</a></li>
           <li><a href="/projects" class={getMenuColor()}>Projects</a></li>
