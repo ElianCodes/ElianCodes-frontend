@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
     mode: 'jit',
     purge: {
@@ -12,6 +14,9 @@ module.exports = {
       extend: {
         animation: {
           'spin-slow': 'spin 3s linear infinite',
+        },
+        colors: {
+          'primary': colors.green[300],
         }
       },
     },

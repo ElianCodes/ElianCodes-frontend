@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GlOBAL SETTINGS */
+html {
+    @apply h-full;
+}
+
+body {
+    font-family: 'rubik', sans-serif;
+    @apply px-12 pt-12 text-gray-900 min-h-full flex flex-col;
+}
+
+a {
+    @apply text-primary;
+}
+
+/* HEADER */
+header nav {
+    @apply flex justify-between items-start;
+    a.home {
+        @apply text-3xl font-normal;
+    }
+    ul {
+        @apply absolute right-12 flex flex-col items-end gap-2;    
+    }
+}
+
+/* INDEX */
+html.index-bg {
+    background: linear-gradient(90deg, #FFF 50%, theme('colors.primary') 50%);
+}
+
+main.index {
+   @apply flex gap-24 flex-1 justify-between items-center; 
+}
+
+section.intro {
+    @apply flex-1;
+    h2 {
+        @apply text-5xl font-bold;
+    }
+    p.subtitle {
+        @apply my-8 text-gray-500 font-normal text-4xl;;
+    }
+    div.text {
+        @apply text-xl;
+        p {
+            @apply my-4;
+        }
+    }
+}
+
+section.hero {
+    @apply flex-1 flex flex-col justify-center items-center;
+    figure {
+        @apply p-16;
+        img {
+            @apply w-96 h-auto;
+        }
+        figcaption {
+            @apply sr-only;
+        }
+    }
+    ul {
+        @apply w-96 flex justify-around items-center gap-8;
+        a {
+            @apply text-white;
+        }
+
+        img {
+            @apply h-12 w-auto;
+        }
+    }
+}
+
+/* FOOTER */
+footer {
+    @apply py-6;
+}
+
+/* ERROR PAGE */
+
+main.error {
+    @apply flex flex-col justify-center items-center flex-1;
+    h2 {
+        @apply text-primary text-9xl font-bold p-8;
+    }
+    p {
+        @apply text-4xl;
+    }
+}
