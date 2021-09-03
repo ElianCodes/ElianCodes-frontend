@@ -10,9 +10,9 @@ const title = 'Elian Van Cutsem | Home';
 const description = 'Software Engineer @vBridge BV';
 const permalink = 'https://www.elian.codes/';
 
-//let allPosts = Astro.fetchContent('./articles/*.md');
-//allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-
+const githubUsername = 'ElianVanCutsem'
+const twitterUsername = 'HTMELian'
+const linkedInUsername = 'elianvancutsem'
 ---
 <html lang="en" class="index-bg">
   <head>
@@ -22,7 +22,7 @@ const permalink = 'https://www.elian.codes/';
     <DefaultHeader textMenu={true} menuColor={'text-white'} />
     <main class="index">
       <IntroSection />
-      <HeroSection />
+      <HeroSection githubUsername={githubUsername} linkedInUsername={linkedInUsername} twitterUsername={twitterUsername}/>
     </main>
     <DefaultFooter />
   </body>

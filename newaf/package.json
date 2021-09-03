@@ -14,5 +14,8 @@
     "@tailwindcss/typography": "^0.4.1",
     "astro": "^0.20.4",
     "tailwindcss": "^2.2.9"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6"
   }
 }

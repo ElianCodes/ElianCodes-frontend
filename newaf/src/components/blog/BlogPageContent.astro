@@ -1,0 +1,15 @@
+---
+export interface Props {
+  title: string;
+  author: string;
+  publishDate: string;
+  heroImage: string;
+}
+
+const { title, author, publishDate, heroImage, alt } = Astro.props;
+---
+<section class="blogpost">
+    <article class="prose">
+        <slot />
+    </article>
+</section>

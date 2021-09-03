@@ -3,28 +3,40 @@ export interface Props {
   textMenu: boolean;
   menuColor: string;
   logoColor: string;
+  aosEnabled: boolean;
 }
 
-const { textMenu, logoColor, menuColor } = Astro.props;
+const { textMenu, logoColor, menuColor, aosEnabled } = Astro.props;
 
-const getLogoColor = () => {
+const getLogoColor = (): string => {
   return logoColor == null ? 'text-primary' : logoColor
 }
 
-const getMenuColor = () => {
+const getMenuColor = (): string => {
   return menuColor == null ? 'text-primary' : menuColor
 }
+
+
 ---
 <header>
   <nav>
     <h1><a href="/" title="home" class={`home ${getLogoColor()}`}>Elian Van Cutsem</a></h1>
     { textMenu ? (
-    <ul>
-      <li><a href="/" class={getMenuColor()}>Home</a></li>
-      <li><a href="/blog" class={getMenuColor()}>Blog</a></li>
-      <li><a href="/projects" class={getMenuColor()}>Projects</a></li>
-      <li><a href="/certifications" class={getMenuColor()}>Certifications</a></li>
-    </ul>
+      aosEnabled ? (
+        <ul>
+          <li data-aos="fade-left" data-aos-delay="100"><a href="/" class={getMenuColor()}>Home</a></li>
+          <li data-aos="fade-left" data-aos-delay="150"><a href="/blog" class={getMenuColor()}>Blog</a></li>
+          <li data-aos="fade-left" data-aos-delay="200"><a href="/projects" class={getMenuColor()}>Projects</a></li>
+          <li data-aos="fade-left" data-aos-delay="250"><a href="/certifications" class={getMenuColor()}>Certifications</a></li>
+        </ul>
+      ) : (
+        <ul>
+          <li><a href="/" class={getMenuColor()}>Home</a></li>
+          <li><a href="/blog" class={getMenuColor()}>Blog</a></li>
+          <li><a href="/projects" class={getMenuColor()}>Projects</a></li>
+          <li><a href="/certifications" class={getMenuColor()}>Certifications</a></li>
+        </ul>
+      )
     ) : null }
   </nav>
 </header>
