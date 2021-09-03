@@ -4,6 +4,7 @@ import BaseHead from '../components/layout/BaseHead.astro';
 import DefaultHeader from '../components/layout/DefaultHeader.astro';
 import DefaultFooter from '../components/layout/DefaultFooter.astro';
 import BlogPageContent from '../components/blog/BlogPageContent.astro';
+import BlogScripts from '../components/layout/BlogScripts.astro';
 
 const {content} = Astro.props;
 const {author, createdAt, description, longDescription} = content;
@@ -20,5 +21,6 @@ const {author, createdAt, description, longDescription} = content;
       </BlogPageContent>
     </main>
     <DefaultFooter />
+    <BlogScripts />
   </body>
 </html>

@@ -4,6 +4,7 @@ import BaseHead from '../../components/layout/BaseHead.astro';
 import DefaultHeader from '../../components/layout/DefaultHeader.astro';
 import DefaultFooter from '../../components/layout/DefaultFooter.astro';
 import BlogOverview from '../../components/blog/BlogOverview.astro';
+import BlogScripts from '../../components/layout/BlogScripts.astro';
 
 const title = 'Elian Van Cutsem | Blog';
 const description = 'Software Engineer @vBridge BV';
@@ -22,5 +23,6 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
       <BlogOverview articles={allPosts} />
     </main>
     <DefaultFooter />
+    <BlogScripts />
   </body>
 </html>
