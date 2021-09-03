@@ -11,6 +11,7 @@ description: Add your blogposts to your Github README
 imgUrl: https://docs.github.com/assets/images/help/repository/profile-with-readme.png
 longDescription: Github profile README's are a very cool and personal way to tell something about yourself. One of the downsides to this is that it depends on a static format. Well, this is not necessarily true. Through the power of code and Github Actions, we can use JavaScript and generate a static file.
 layout: '../../layouts/BlogPost.astro'
+permalink: '26-08-21-adding-your-blogposts-to-your-github-readme'
 ---
 
 # Add your blogposts to your Github README

@@ -11,6 +11,7 @@ description: Using Surge.sh to quickly deploy a static site
 imgUrl: https://thepracticaldev.s3.amazonaws.com/i/fbcv71kd73re1b9bvl0i.png
 longDescription: Deploying a static site is made very easy and free by Surge.sh, in this article I explain how it works, what it is and why you should use it.
 layout: '../../layouts/BlogPost.astro'
+permalink: 'using-surge-to-quickly-deploy-a-static-site'
 ---
 
 # Using Surge.sh to quickly deploy a static site

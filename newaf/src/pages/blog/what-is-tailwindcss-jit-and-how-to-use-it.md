@@ -11,6 +11,7 @@ description: What is TailwindCSS JIT and how to use it.
 imgUrl: https://raw.githubusercontent.com/tailwindlabs/tailwindcss-jit/master/.github/logo.svg
 longDescription: TailwindCSS just released a new feature @tailwindcss/jit. In this post I explain what it is and how to use it.
 layout: '../../layouts/BlogPost.astro'
+permalink: 'what-is-tailwindcss-jit-and-how-to-use-it'
 ---
 
 # What is TailwindCSS JIT and how to use it

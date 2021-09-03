@@ -11,6 +11,7 @@ description: Configure TailwindCSS with Blazor
 imgUrl: https://i.morioh.com/2019/11/28/428f90dff706.jpg
 longDescription: I started a WASM Blazor project and wanted to use TailwindCSS, but it has a lot of configuring to do with it.
 layout: '../../layouts/BlogPost.astro'
+permalink: 'configure-tailwindcss-with-blazor'
 ---
 
 # Configure TailwindCSS with Blazor

@@ -12,6 +12,7 @@ description: Deploying a React Native app to netlify
 imgUrl: https://www.inovex.de/blog/wp-content/uploads/2018/03/react-native.png
 longDescription: Deploying a mobile application does seem complicated, but Expo makes it very easy!
 layout: '../../layouts/BlogPost.astro'
+permalink: 'deploying-a-react-native-app-to-netlify'
 ---
 
 # Deploying a React Native app to netlify

@@ -127,7 +127,7 @@ main.error {
 
 /* COMING SOON PAGES */
 section.coming-soon {
-    @apply flex-1 flex flex-col gap-8 justify-center items-center;
+    @apply flex-1 flex overflow-y-hidden flex-col gap-8 justify-center items-center;
     h2 {
         @apply text-5xl font-medium;
     }

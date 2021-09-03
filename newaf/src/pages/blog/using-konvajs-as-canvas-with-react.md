@@ -11,6 +11,7 @@ description: Using KonvaJS as canvas with React
 imgUrl: https://konvajs.org/assets/features/undraw_image_viewer_wxce.svg
 longDescription: I was in need for a HTML canvas that was easily integratable with React or JavaScript, then I found Konva
 layout: '../../layouts/BlogPost.astro'
+permalink: 'using-konvajs-as-canvas-with-react'
 ---
 
 # Using KonvaJS as canvas with React

@@ -10,6 +10,7 @@ description: Building my website and blog with Nuxt
 imgUrl: https://madewithnetwork.ams3.cdn.digitaloceanspaces.com/spatie-space-production/3075/nuxtjs-2.jpg
 longDescription: This week I've recreated my website and blog with Nuxt and Bootstrap, in this post I describe how it all came together.
 layout: '../../layouts/BlogPost.astro'
+permalink: 'building-website-in-nuxt'
 ---
 
 # Recreating my site in Nuxt and adding a blog

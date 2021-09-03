@@ -10,6 +10,7 @@ description: Writing my own React Native templates
 imgUrl: https://snipcart.com/media/205228/tailwindcss-tutorial.png
 longDescription: I wanted to make a react native app with tailwindcss, but couldn't find a template... So I made my own.
 layout: '../../layouts/BlogPost.astro'
+permalink: 'pairing-react-native-with-tailwindcss'
 ---
 
 # Pairing React Native with TailwindCSS
