@@ -25,6 +25,21 @@ header nav {
     ul.textMenu {
         @apply hidden z-50 md:block absolute right-12 flex flex-col items-end gap-2;    
     }
+    div.mobile-menu {
+        @apply block md:hidden z-50;
+        div.mobile-list {
+            @apply top-0 right-0 left-0 pt-12 pb-24 px-12 shadow-lg bg-white absolute flex-col;
+            > div {
+                @apply flex justify-between items-center text-lg text-primary;
+            }
+            ul {
+                @apply pt-12 flex flex-col gap-8 w-full;
+                li {
+                    @apply text-center text-lg;
+                }
+            }
+        }
+    }
 }
 
 /* INDEX */

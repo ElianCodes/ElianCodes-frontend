@@ -15,8 +15,6 @@ const getLogoColor = (): string => {
 const getMenuColor = (): string => {
   return menuColor == null ? 'text-primary' : menuColor
 }
-
-
 ---
 <header>
   <nav>
@@ -30,7 +28,7 @@ const getMenuColor = (): string => {
           <li data-aos="fade-left" data-aos-delay="250"><a href="/certifications" class={getMenuColor()}>Certifications</a></li>
         </ul>
       ) : (
-        <ul class="textMenu"l>
+        <ul class="textMenu">
           <li><a href="/" class={getMenuColor()}>Home</a></li>
           <li><a href="/blog" class={getMenuColor()}>Blog</a></li>
           <li><a href="/projects" class={getMenuColor()}>Projects</a></li>
@@ -38,5 +36,49 @@ const getMenuColor = (): string => {
         </ul>
       )
     ) : null }
+    <div class="mobile-menu">
+      <button class="toggle-menu">
+        <span class="sr-only">Open Menu</span>
+        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+      </button>
+      <div class="mobile-list hidden">
+        <div>
+          <p>Elian Van Cutsem</p>
+          <button class="close-menu">
+            <span class="sr-only">Close Menu</span>
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        <ul>
+          <li><a href="/" class="mobile-route text-gray-900">Home</a></li>
+          <li><a href="/blog" class="mobile-route text-gray-900">Blog</a></li>
+          <li><a href="/projects" class="mobile-route text-gray-900">Projects</a></li>
+          <li><a href="/certifications" class="mobile-route text-gray-900">Certifications</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 </header>
+
+<script client:load>
+const menu = document.querySelector('.mobile-list');
+document.querySelector('.toggle-menu').addEventListener('click', () => {
+    menu.classList.contains('hidden') ? openMenu() : closeMenu()
+})
+
+document.querySelectorAll('.mobile-trigger').forEach(trigger => {
+  trigger.addEventListener('click', () => closeMenu())
+});
+
+document.querySelector('.close-menu').addEventListener('click', () => closeMenu())
+
+const openMenu = () => {
+  menu.classList.remove('hidden')
+  menu.classList.add('flex')
+}
+
+const closeMenu = () => {
+  menu.classList.add('hidden')
+  menu.classList.remove('flex')
+}
+</script>
