@@ -1,0 +1,24 @@
+---
+// Component Imports
+import BaseHead from '../components/layout/BaseHead.astro';
+import DefaultHeader from '../components/layout/DefaultHeader.astro';
+import DefaultFooter from '../components/layout/DefaultFooter.astro';
+import BlogPageContent from '../components/blog/BlogPageContent.astro';
+
+const {content} = Astro.props;
+const {author, createdAt, description, longDescription} = content;
+---
+<html lang="en">
+  <head>
+    <BaseHead title={`Elian Van Cutsem | ${description}`} description={longDescription} permalink={`https://www.elian.codes/blog/${content.permalink}/`}/>
+  </head>
+  <body>
+    <DefaultHeader textMenu={true} logoColor={'text-gray-900'} />
+    <main class="blog-post">
+      <BlogPageContent author={author}, createdAt={createdAt}>
+        <slot />
+      </BlogPageContent>
+    </main>
+    <DefaultFooter />
+  </body>
+</html>

@@ -1,0 +1,26 @@
+---
+// Component Imports
+import BaseHead from '../../components/layout/BaseHead.astro';
+import DefaultHeader from '../../components/layout/DefaultHeader.astro';
+import DefaultFooter from '../../components/layout/DefaultFooter.astro';
+import BlogOverview from '../../components/blog/BlogOverview.astro';
+
+const title = 'Elian Van Cutsem | Blog';
+const description = 'Software Engineer @vBridge BV';
+const permalink = 'https://www.elian.codes/blog/';
+
+let allPosts = Astro.fetchContent('./*.md');
+allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+---
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} />
+  </head>
+  <body>
+    <DefaultHeader textMenu={true} logoColor={'text-gray-900'} />
+    <main class="blog-index">
+      <BlogOverview articles={allPosts} />
+    </main>
+    <DefaultFooter />
+  </body>
+</html>

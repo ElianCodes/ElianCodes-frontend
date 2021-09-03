@@ -1,0 +1,9 @@
+---
+const {author, createdAt} = Astro.props;
+---
+<section class="blog-post">
+    <article class="prose">
+        <slot />
+        <p>Written by {author} on {createdAt}</p>
+    </article>
+</section>

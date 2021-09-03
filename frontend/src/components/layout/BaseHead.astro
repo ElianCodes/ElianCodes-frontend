@@ -1,0 +1,74 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  permalink: string;
+}
+const { title, description, permalink } = Astro.props;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<!-- icon Metadata -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="alternate" href="https://www.elian.codes/blog.xml" type="application/rss+xml">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+<meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA">
+<meta name="theme-color" content="#6ee7b7">
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={permalink} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content="/social.jpg" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={permalink} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content="/social.jpg" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Global CSS-->
+<link rel="stylesheet" href={Astro.resolve('../../assets/scss/tailwind.css')}>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX" client:load></script>
+<script client:load>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LXB34WHZJX');
+</script>
+<script client:idle async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>

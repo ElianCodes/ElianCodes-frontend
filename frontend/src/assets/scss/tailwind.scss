@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* GlOBAL SETTINGS */
+html {
+    @apply h-full;
+}
+
+body {
+    font-family: 'rubik', sans-serif;
+    @apply px-12 pt-12 text-gray-900 min-h-full flex flex-col;
+}
+
+a {
+    @apply text-primary;
+}
+
+/* HEADER */
+header nav {
+    @apply flex justify-between items-start z-50;
+    a.home {
+        @apply text-2xl md:text-3xl font-normal;
+    }
+    ul.textMenu {
+        @apply hidden z-50 md:block absolute right-12 flex flex-col items-end gap-2;    
+    }
+    div.mobile-menu {
+        @apply block md:hidden z-50;
+        div.mobile-list {
+            @apply top-0 right-0 left-0 pt-12 pb-24 px-12 shadow-lg bg-white absolute flex-col;
+            > div {
+                @apply flex justify-between items-center text-lg text-primary;
+            }
+            ul {
+                @apply pt-12 flex flex-col gap-8 w-full;
+                li {
+                    @apply text-center text-lg;
+                }
+            }
+        }
+    }
+}
+
+/* INDEX */
+html.index-bg {
+    @media (min-width: 768px) {
+        background: linear-gradient(90deg, #FFF 50%, theme('colors.primary') 50%);
+    }
+}
+
+main.index {
+   @apply flex flex-col md:flex-row gap-4 md:gap-24 flex-1 justify-between items-center; 
+}
+
+section.intro {
+    @apply flex-1 mt-24 md:mt-0;
+    h2 {
+        @apply text-5xl font-bold;
+    }
+    p.subtitle {
+        @apply my-8 text-gray-500 font-normal text-2xl md:text-4xl;;
+    }
+    div.text {
+        @apply md:text-xl;
+        p {
+            @apply my-4;
+        }
+    }
+}
+
+section.hero {
+    @apply flex-1 flex flex-col justify-center items-center;
+    figure {
+        @apply p-16;
+        img {
+            @apply w-96 h-auto;
+        }
+        figcaption {
+            @apply sr-only;
+        }
+    }
+    ul {
+        @apply w-96 flex justify-around items-center gap-8;
+        a {
+            @apply text-white;
+        }
+
+        img {
+            @apply h-12 w-auto;
+        }
+    }
+}
+
+/* BlOG INDEX */
+main.blog-index {
+    @apply flex-1 flex;
+    section.blog-overview {
+        ul {
+            @apply pt-8 md:py-16 md:mb-24 md:px-36 grid md:grid-cols-3 gap-16 text-gray-900;
+            a {
+                @apply text-gray-900;
+            }
+            img {
+                @apply object-contain w-full min-h-full;
+            }
+            h3 {
+                @apply my-4 text-lg font-medium;
+            }
+            p {
+                @apply mt-4 md:truncate;
+            }
+        }
+    }
+}
+
+/* BLOG PAGE */
+main.blog-post {
+    section.blog-post {
+        @apply mx-auto md:pt-24;
+        article {
+            @apply prose max-w-full prose-green;
+        }
+    }
+}
+
+/* FOOTER */
+footer {
+    @apply py-6 whitespace-nowrap;
+}
+
+/* ERROR PAGE */
+
+main.error {
+    @apply flex flex-col justify-center items-center flex-1;
+    h2 {
+        @apply text-primary text-9xl font-bold p-8;
+    }
+    p {
+        @apply text-2xl md:text-4xl;
+    }
+}
+
+/* COMING SOON PAGES */
+section.coming-soon {
+    @apply flex-1 flex flex-col gap-8 justify-center items-center;
+    h2 {
+        @apply text-3xl md:text-5xl font-medium;
+    }
+    p {
+        @apply text-lg;
+    }
+}

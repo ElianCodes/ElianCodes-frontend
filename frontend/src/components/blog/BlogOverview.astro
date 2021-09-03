@@ -1,0 +1,21 @@
+---
+export interface Props {
+    articles: any[];
+}
+const { articles } = Astro.props;
+---
+<section class="blog-overview">
+    <h2 class="sr-only">Articles</h2>
+    <ul>
+        { articles.map(article => (
+            <li data-aos="fade-up">
+                <a href={article.url}>
+                    <h3>{article.title}</h3>
+                    <p>{article.longDescription}</p>
+                    <p>Written by {article.author}</p>
+                    <p>Published {article.createdAt}</p>
+                </a>
+            </li>
+        ))}
+    </ul>
+</section>

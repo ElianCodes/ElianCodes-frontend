@@ -4,13 +4,7 @@ steps:
     dir: 'frontend'
 
   - name: 'gcr.io/cloud-builders/yarn'
-    args: ['create-env']
-    env:
-      - 'GOOGLE_ANALYTICS_ID=${_GOOGLE_ANALYTICS_ID}'
-    dir: 'frontend'
-
-  - name: 'gcr.io/cloud-builders/yarn'
-    args: ['generate']
+    args: ['build']
     dir: 'frontend'
 
   - name: gcr.io/cloud-builders/gsutil
