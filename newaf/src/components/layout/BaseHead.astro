@@ -27,10 +27,12 @@ const { title, description, permalink } = Astro.props;
 <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
-<link rel="canonical" href="https://www.elian.codes/blog.xml" type="rss+xml">
+<link rel="alternate" href="https://www.elian.codes/blog.xml" type="application/rss+xml">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
+<meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA">
+<meta name="theme-color" content="#6ee7b7">
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -69,3 +71,4 @@ const { title, description, permalink } = Astro.props;
 
   gtag('config', 'G-LXB34WHZJX');
 </script>
+<script client:idle async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>
