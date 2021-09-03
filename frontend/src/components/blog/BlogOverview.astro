@@ -9,7 +9,7 @@ const { articles } = Astro.props;
     <ul>
         { articles.map(article => (
             <li data-aos="fade-up">
-                <a href={article.url}>
+                <a href={`${article.url}/`}>
                     <h3>{article.title}</h3>
                     <p>{article.longDescription}</p>
                     <p>Written by {article.author}</p>

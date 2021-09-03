@@ -119,7 +119,7 @@ main.blog-post {
     section.blog-post {
         @apply mx-auto md:pt-24;
         article {
-            @apply prose max-w-full prose-green;
+            @apply prose mx-auto w-full prose-green;
         }
     }
 }
