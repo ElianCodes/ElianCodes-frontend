@@ -1,0 +1,22 @@
+---
+export async function getStaticPaths({rss}) {
+  const allPosts = Astro.fetchContent('./**/*.md');
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  rss({
+    title: 'Don’s Blog',
+    description: 'An example blog on Astro',
+    customData: `<language>en-us</language>`,
+    items: sortedPosts.map(item => ({
+      title: item.title,
+      description: item.description,
+      link: item.url,
+      pubDate: item.date,
+    })),
+    dest: "/blog.xml",
+  });
+  return [];
+}
+---
+<html>
+<body>blogpost</body>
+</html>
