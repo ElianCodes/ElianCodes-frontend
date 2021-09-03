@@ -13,7 +13,7 @@ body {
 }
 
 a {
-    @apply text-primary;
+    // color: $primary;
 }
 
 /* HEADER */
@@ -29,8 +29,8 @@ header nav {
         @apply block md:hidden z-50;
         div.mobile-list {
             @apply top-0 right-0 left-0 pt-12 pb-24 px-12 shadow-lg bg-white absolute flex-col;
-            > div {
-                @apply flex justify-between items-center text-lg text-primary;
+            > div.use-color {
+                @apply flex justify-between items-center text-lg;
             }
             ul {
                 @apply pt-12 flex flex-col gap-8 w-full;
@@ -44,8 +44,8 @@ header nav {
 
 /* INDEX */
 html.index-bg {
-    @media (min-width: 768px) {
-        background: linear-gradient(90deg, #FFF 50%, theme('colors.primary') 50%);
+    @media (max-width: 768px) {
+        background: white !important;
     }
 }
 
@@ -134,7 +134,8 @@ footer {
 main.error {
     @apply flex flex-col justify-center items-center flex-1;
     h2 {
-        @apply text-primary text-9xl font-bold p-8;
+        // color: $primary;
+        @apply text-9xl font-bold p-8;
     }
     p {
         @apply text-2xl md:text-4xl;

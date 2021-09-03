@@ -16,7 +16,11 @@ module.exports = {
           'spin-slow': 'spin 3s linear infinite',
         },
         colors: {
-          'primary': colors.green[300],
+          'primary-green': colors.emerald[300],
+          'primary-blue': colors.blue[300],
+          'primary-red': colors.red[300],
+          'primary-orange': colors.orange[300],
+          'primary-fuchsia': colors.fuchsia[300],
         }
       },
     },

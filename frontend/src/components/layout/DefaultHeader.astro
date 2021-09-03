@@ -9,11 +9,11 @@ export interface Props {
 const { textMenu, logoColor, menuColor, aosEnabled } = Astro.props;
 
 const getLogoColor = (): string => {
-  return logoColor == null ? 'text-primary' : logoColor
+  return logoColor == null ? 'use-color' : logoColor
 }
 
 const getMenuColor = (): string => {
-  return menuColor == null ? 'text-primary' : menuColor
+  return menuColor == null ? 'use-color' : menuColor
 }
 ---
 <header>
@@ -39,14 +39,14 @@ const getMenuColor = (): string => {
     <div class="mobile-menu">
       <button class="toggle-menu">
         <span class="sr-only">Open Menu</span>
-        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+        <svg class="w-8 h-8 use-color" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
       </button>
       <div class="mobile-list hidden">
         <div>
           <p>Elian Van Cutsem</p>
           <button class="close-menu">
             <span class="sr-only">Close Menu</span>
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            <svg class="w-8 h-8 use-color" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
           </button>
         </div>
         <ul>
