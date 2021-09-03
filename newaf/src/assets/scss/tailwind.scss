@@ -78,9 +78,35 @@ section.hero {
 /* BlOG INDEX */
 main.blog-index {
     @apply flex-1 flex;
+    section.blog-overview {
+        ul {
+            @apply py-16 mb-24 px-36 grid grid-cols-3 gap-16 text-gray-900;
+            a {
+                @apply text-gray-900;
+            }
+            img {
+                @apply object-contain w-full min-h-full;
+            }
+            h3 {
+                @apply my-4 text-lg font-medium;
+            }
+            p {
+                @apply mt-4 truncate;
+            }
+        }
+    }
 }
 
 /* BLOG PAGE */
+main.blog-post {
+    @apply flex-1 flex;
+    section.blog-post {
+        @apply flex w-full justify-center pt-24;
+        article {
+            @apply prose prose-green;
+        }
+    }
+}
 
 /* FOOTER */
 footer {

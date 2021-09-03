@@ -1,16 +1,19 @@
 ---
 export async function getStaticPaths({rss}) {
   const allPosts = Astro.fetchContent('./**/*.md');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.datecreatedAt));
   rss({
-    title: 'Don’s Blog',
+    title: 'Elian Van Cutsem',
     description: 'An example blog on Astro',
     customData: `<language>en-us</language>`,
-    items: sortedPosts.map(item => ({
-      title: item.title,
-      description: item.description,
-      link: item.url,
-      pubDate: item.date,
+    items: sortedPosts.map(post => ({
+      title: post.title,
+      description: post.longDescription,
+      link: post.url,
+      pubDate: post.createdAt,
+      author: { name: post.author },
+      image: post.imgUrl,
+      id: post.slug,
     })),
     dest: "/blog.xml",
   });

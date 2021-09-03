@@ -27,6 +27,7 @@ const { title, description, permalink } = Astro.props;
 <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
 <link rel="manifest" href="/manifest.json">
+<link rel="canonical" href="https://www.elian.codes/blog.xml" type="rss+xml">
 <meta name="msapplication-TileColor" content="#ffffff">
 <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
@@ -56,7 +57,7 @@ const { title, description, permalink } = Astro.props;
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Global CSS-->
-<link rel="stylesheet" href="{Astro.resolve('../assets/scss/tailwind.css')}">
+<link rel="stylesheet" href={Astro.resolve('../../assets/scss/tailwind.css')}>
 <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
 <!-- Global site tag (gtag.js) - Google Analytics -->

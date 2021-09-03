@@ -4,8 +4,18 @@ export interface Props {
 }
 const { articles } = Astro.props;
 ---
-<section class="blog-sidebar">
-    { articles.map(article => (
-        <p><a href={article.url}>{article.title}</a></p>)
-    )}
+<section class="blog-overview">
+    <h2 class="sr-only">Articles</h2>
+    <ul>
+        { articles.map(article => (
+            <li data-aos="fade-up">
+                <a href={article.url}>
+                    <h3>{article.title}</h3>
+                    <p>{article.longDescription}</p>
+                    <p>Written by {article.author}</p>
+                    <p>Published {article.createdAt}</p>
+                </a>
+            </li>
+        ))}
+    </ul>
 </section>

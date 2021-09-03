@@ -1,6 +1,6 @@
 ---
 // Component Imports
-import BaseHead from '../../components/BaseHead.astro';
+import BaseHead from '../../components/layout/BaseHead.astro';
 import DefaultHeader from '../../components/layout/DefaultHeader.astro';
 import DefaultFooter from '../../components/layout/DefaultFooter.astro';
 import BlogOverview from '../../components/blog/BlogOverview.astro';
@@ -11,7 +11,6 @@ const permalink = 'https://www.elian.codes/blog/';
 
 let allPosts = Astro.fetchContent('./*.md');
 allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
-console.log(allPosts)
 ---
 <html lang="en">
   <head>
