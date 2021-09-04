@@ -1,10 +1,14 @@
 {
-  "name": "@example/blog",
-  "version": "0.0.1",
+  "name": "eliancodes",
+  "version": "0.2.0",
   "private": true,
+  "author": { "name": "Elian Van Cutsem", "email": "hello@elian.codes", "url": "https://www.elian.codes/"},
+  "repository": { "type": "git", "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io", "directory": "frontend"},
+  "bugs": { "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io/issues", "email": "hello@elian.codes"},
+  "displayName": "ElianCodes",
+  "homepage": "https://www.elian.codes/",
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview"
   },
