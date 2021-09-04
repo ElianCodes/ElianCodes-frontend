@@ -9,24 +9,24 @@ const linkedinIcon = Astro.resolve('../../assets/img/icons/linkedin.svg')
 const githubIcon = Astro.resolve('../../assets/img/icons/github.svg')
 ---
 <section class="hero">
-    <figure>
+    <figure data-aos="fade-down">
         <img src={heroImg} alt="Elian Van Cutsem's online avatar"/>
         <figcaption>Elian Van Cutsem's online avatar</figcaption>
     </figure>
     <ul>
-        <li>
+        <li data-aos="fade-up" data-aos-delay="200">
             <a rel="nofollow noopener" href={`https://www.github.com/${githubUsername}`} target="_blank" title={`${githubUsername} on Github`}>
                 <span class="sr-only">Github Icon</span>
                 <img src={githubIcon} alt={`${githubUsername} on Github`}/>
             </a>
         </li>
-        <li>
+        <li data-aos="fade-up" data-aos-delay="300">
             <a rel="nofollow noopener" href={`https://www.twitter.com/${twitterUsername}`} target="_blank" title={`${twitterUsername} on Twitter`}>
                 <span class="sr-only">Twitter Icon</span>
                 <img src={twitterIcon} alt={`${twitterUsername} on Twitter`}/>
             </a>
         </li>
-        <li>
+        <li data-aos="fade-up" data-aos-delay="400">
             <a rel="nofollow noopener" href={`https://www.linkedin.com/in/${linkedInUsername}`} target="_blank" title={`${linkedInUsername} on Linkedin`}>
                 <span class="sr-only">LinkedIn Icon</span>
                 <img src={linkedinIcon} alt={`${linkedInUsername} on Linkedin`}/>
