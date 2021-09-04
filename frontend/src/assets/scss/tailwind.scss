@@ -50,7 +50,7 @@ html.index-bg {
 }
 
 main.index {
-   @apply flex flex-col md:flex-row gap-4 md:gap-24 flex-1 justify-between items-center; 
+   @apply flex flex-col-reverse md:flex-row gap-4 md:gap-24 flex-1 justify-between items-center; 
 }
 
 section.intro {
