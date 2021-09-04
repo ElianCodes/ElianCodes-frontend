@@ -3,7 +3,12 @@
 </footer>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" client:load></script>
 <script client:load>
-  AOS.init();
+    AOS.init({
+      offset: 200,
+      duration: 600,
+      easing: 'ease-in-sine',
+      delay: 100,
+    });
 </script>
 <script client:load>
 function getRandomInt(max) {

@@ -5,13 +5,10 @@ import DefaultHeader from '../components/layout/DefaultHeader.astro';
 import DefaultFooter from '../components/layout/DefaultFooter.astro';
 
 let title = 'Elian Van Cutsem | Page Not Found';
-let description = 'The perfect starter for your perfect blog.';
-let permalink = 'https://www.elian.codes/404/';
-
 ---
 <html lang="en">
   <head>
-    <BaseHead />
+    <BaseHead title={title} />
   </head>
   <body>
     <DefaultHeader textMenu={true} />
