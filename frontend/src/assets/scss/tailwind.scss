@@ -13,7 +13,9 @@ body {
 }
 
 a {
-    // color: $primary;
+  &.back-link {
+      @apply flex justify-start gap-4 my-2;
+  }
 }
 
 /* HEADER */
@@ -116,6 +118,7 @@ main.blog-index {
 
 /* BLOG PAGE */
 main.blog-post {
+    @apply mx-auto;
     section.blog-post {
         @apply mx-auto md:pt-24;
         article {

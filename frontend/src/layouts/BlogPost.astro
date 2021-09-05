@@ -16,7 +16,7 @@ const {author, createdAt, description, longDescription} = content;
   <body>
     <DefaultHeader textMenu={true} logoColor={'text-gray-900'} />
     <main class="blog-post">
-      <BlogPageContent author={author}, createdAt={createdAt}>
+      <BlogPageContent author={author} createdAt={createdAt}>
         <slot />
       </BlogPageContent>
     </main>

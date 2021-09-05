@@ -1,9 +1,12 @@
 ---
-const {author, createdAt} = Astro.props;
+import BackArrow from './BackArrow.astro'
+const {author, createdAt} = Astro.props
 ---
 <section class="blog-post">
-    <article class="prose">
-        <slot />
+    <BackArrow link="/blog/" text="Back to all posts" />
+    <article>
+        <slot class="prose" />
         <p>Written by {author} on {createdAt}</p>
     </article>
+    <BackArrow link="/blog/" text="Back to all posts" />
 </section>

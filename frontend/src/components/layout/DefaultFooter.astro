@@ -31,7 +31,7 @@ document.querySelectorAll('.use-color').forEach(element => {
   element.classList.add(color.class)
 });
 
-if (document.querySelector('html').getAttribute('class').includes('index-bg')){
+if (document.querySelector('html').getAttribute('class') != undefined && document.querySelector('html').getAttribute('class').includes('index-bg')){
   document.querySelector('html').style.background = `linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`
 }
 </script>
