@@ -2,12 +2,24 @@
 	<header :class="overlay ? 'overlay' : ''">
 		<nav>
 			<h1><a href="/" title="home" :class="[logoColor ? logoColor : 'use-color', 'home']">Elian Van Cutsem</a></h1>
-			<ul :class="[overlay ? 'overlay' : '', 'textMenu']">
-				<li v-for="link in navLinks" :key="link.link">
-					<a :href="link.link" :class="menuColor ? menuColor : 'use-color'">{{ link.name }}</a>
-				</li>
-				<li v-if="overlay"><p class="overlay-text--no-absolute"><a rel="nofollow noreferer" href="https://www.vuejs.org" target="_blank">Vue</a></p></li>
-			</ul>
+			<div>
+				<button @click="lightMode" v-if="currentTheme == 'dark'" :class="menuColor ? menuColor : 'use-color'">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+					</svg>
+				</button>
+				<button @click="darkMode" v-if="currentTheme == 'light'" :class="menuColor ? menuColor : 'use-color'">
+					<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+					</svg>
+				</button>
+				<ul :class="[overlay ? 'overlay' : '', 'textMenu']">
+					<li v-for="link in navLinks" :key="link.link">
+						<a :href="link.link" :class="menuColor ? menuColor : 'use-color'">{{ link.name }}</a>
+					</li>
+					<li v-if="overlay"><p class="overlay-text--no-absolute"><a rel="nofollow noreferer" href="https://www.vuejs.org" target="_blank">Vue</a></p></li>
+				</ul>
+			</div>
 			<div class="mobile-menu">
 				<button class="toggle-menu" @click="openMenu" v-if="!menuOpen">
 					<span class="sr-only">Open Menu</span>
@@ -32,7 +44,7 @@
 	</header>
 </template>
 
-<script lang='ts'>
+<script>
 export default {
 	props: {
     	textMenu: Boolean,
@@ -46,11 +58,39 @@ export default {
 		},
 		closeMenu() {
 			this.menuOpen = false;
+		},
+		lightMode() {
+			this.setCookie('theme', 'light')
+			document.getElementsByTagName('html')[0].classList.remove('dark')
+		},
+		darkMode() {
+			this.setCookie('theme', 'dark')
+		},
+		setCookie(cname, cvalue) {
+			document.cookie = cname + "=" + cvalue + ";path=/";
+			this.currentTheme = cvalue
+			document.dispatchEvent(new Event('changedMode'));
+		},
+	},
+	mounted: function () {
+		let name = "theme=";
+		let decodedCookie = decodeURIComponent(document.cookie);
+		let ca = decodedCookie.split(';');
+		for(let i = 0; i <ca.length; i++) {
+			let c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				this.currentTheme = c.substring(name.length, c.length);
+			}
 		}
+		return "";
 	},
 	data() {
 		return {
-			menuOpen: false as boolean
+			menuOpen: false,
+			currentTheme: ''
 		}
 	},
 	setup({ textMenu, logoColor, menuColor, overlay }) {

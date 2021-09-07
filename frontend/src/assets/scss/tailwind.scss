@@ -7,6 +7,10 @@ html {
     @apply h-full;
 }
 
+// html.dark {
+//     @apply bg-black text-gray-200;
+// }
+
 body {
     font-family: 'rubik', sans-serif;
     @apply px-6 pt-6 md:px-12 md:pt-12 text-gray-900 min-h-full flex flex-col;
@@ -20,17 +24,23 @@ a {
 
 /* HEADER */
 header nav {
-    @apply flex justify-between items-start z-50;
+    @apply flex justify-between items-center z-50;
     a.home {
         @apply text-2xl md:text-3xl font-normal;
     }
     ul.textMenu {
-        @apply hidden z-50 md:block absolute right-12 flex flex-col items-end gap-2;    
+        @apply hidden z-40 md:block absolute right-12 flex flex-col items-end justify-center gap-2;    
+    }
+    > div {
+        @apply flex;
+        > button {
+            @apply z-50;
+        }
     }
     div.mobile-menu {
-        @apply block md:hidden z-50;
+        @apply block md:hidden z-40;
         div.mobile-list {
-            @apply top-0 right-0 left-0 pt-6 md:pt-12 pb-12 md:pb-24 px-6 md:px-12 shadow-lg bg-white absolute flex-col;
+            @apply top-0 right-0 left-0 pt-6 md:pt-12 pb-12 md:pb-24 px-6 md:px-12 shadow-lg bg-white dark:bg-gray-900 absolute flex-col;
             > div.use-color {
                 @apply flex justify-between items-center text-lg;
             }
@@ -45,9 +55,11 @@ header nav {
 }
 
 /* INDEX */
-html.index-bg {
-    @media (max-width: 768px) {
-        background: white !important;
+html {
+    &.index-bg {
+        @media (max-width: 768px) {
+            background: white !important;
+        }
     }
 }
 
@@ -121,7 +133,10 @@ main.blog-post {
     section.blog-post {
         @apply mx-auto pt-6 md:pt-24;
         article {
-            @apply prose mx-auto max-w-prose w-full prose-green;
+            @apply prose dark:text-gray-200 mx-auto max-w-prose w-full prose-green;
+        }
+        article h1, h2, h3, h4, h5, h6   {
+            @apply dark:text-gray-200 #{!important};
         }
     }
 }
@@ -201,3 +216,5 @@ section.coming-soon {
         @apply text-lg;
     }
 }
+
+@import './dark.scss'

@@ -15,10 +15,10 @@ allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishD
 ---
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
+    <BaseHead title={title} description={description} permalink={permalink} client:load/>
   </head>
   <body>
-    <DefaultHeader textMenu={true} logoColor={'text-gray-900'} client:load/>
+    <DefaultHeader textMenu={true}   client:load/>
     <main class="blog-index">
       <BlogOverview articles={allPosts} />
     </main>

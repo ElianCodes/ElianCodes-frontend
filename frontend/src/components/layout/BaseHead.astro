@@ -5,7 +5,10 @@ export interface Props {
   permalink: string;
 }
 const { title, description, permalink } = Astro.props;
+const DarkMode = Astro.resolve('./DarkMode.js')
 ---
+<!-- DarkMode -->
+<script src={DarkMode} type="module" client:load></script>
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
@@ -59,7 +62,7 @@ const { title, description, permalink } = Astro.props;
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- Global CSS-->
-<link rel="stylesheet" href={Astro.resolve('../../assets/scss/tailwind.css')}>
+<link rel="stylesheet" href={Astro.resolve('../../assets/scss/tailwind.css')} client:load>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX" client:load></script>

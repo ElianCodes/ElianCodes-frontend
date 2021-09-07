@@ -7,6 +7,7 @@
 
     const removeOverlay = () => {
         document.querySelectorAll('.overlay-text').forEach(el => el.classList.add('hidden'))
+        document.querySelectorAll('.overlay-text--no-absolute').forEach(el => el.classList.add('hidden'))
         document.querySelectorAll('.overlay').forEach(el => {
             el.classList.remove('overlay')
             el.classList.add('overlay-none')
@@ -21,6 +22,7 @@
     
     const addOverlay = () => {
         document.querySelectorAll('.overlay-text').forEach(el => el.classList.remove('hidden'))
+        document.querySelectorAll('.overlay-text--no-absolute').forEach(el => el.classList.remove('hidden'))
         document.querySelectorAll('.overlay-none').forEach(el => {
             el.classList.add('overlay')
             el.classList.remove('overlay-none')

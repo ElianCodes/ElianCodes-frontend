@@ -9,7 +9,7 @@ module.exports = {
         './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}'
       ],
     },
-    darkMode: 'class',
+    darkMode: 'media',
     theme: {
       extend: {
         animation: {

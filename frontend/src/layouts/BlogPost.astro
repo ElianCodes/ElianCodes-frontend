@@ -14,7 +14,7 @@ const {author, createdAt, description, longDescription} = content;
     <BaseHead title={`Elian Van Cutsem | ${description}`} description={longDescription} permalink={`https://www.elian.codes/blog/${content.permalink}/`}/>
   </head>
   <body>
-    <DefaultHeader textMenu={true} logoColor={'text-gray-900'} client:load/>
+    <DefaultHeader textMenu={true} client:load/>
     <main class="blog-post">
       <BlogPageContent author={author} createdAt={createdAt}>
         <slot />
