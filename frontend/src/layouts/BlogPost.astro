@@ -1,8 +1,8 @@
 ---
 // Component Imports
 import BaseHead from '../components/layout/BaseHead.astro';
-import DefaultHeader from '../components/layout/DefaultHeader.astro';
-import DefaultFooter from '../components/layout/DefaultFooter.astro';
+import DefaultHeader from '../components/layout/DefaultHeader.vue';
+import DefaultFooter from '../components/layout/DefaultFooter.tsx';
 import BlogPageContent from '../components/blog/BlogPageContent.astro';
 import BlogScripts from '../components/layout/BlogScripts.astro';
 
@@ -14,13 +14,13 @@ const {author, createdAt, description, longDescription} = content;
     <BaseHead title={`Elian Van Cutsem | ${description}`} description={longDescription} permalink={`https://www.elian.codes/blog/${content.permalink}/`}/>
   </head>
   <body>
-    <DefaultHeader textMenu={true} logoColor={'text-gray-900'} />
+    <DefaultHeader textMenu={true} logoColor={'text-gray-900'} client:load/>
     <main class="blog-post">
       <BlogPageContent author={author} createdAt={createdAt}>
         <slot />
       </BlogPageContent>
     </main>
-    <DefaultFooter />
+    <DefaultFooter client:load/>
     <BlogScripts />
   </body>
 </html>

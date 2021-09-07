@@ -1,8 +1,8 @@
 ---
 // Component Imports
 import BaseHead from '../components/layout/BaseHead.astro';
-import DefaultHeader from '../components/layout/DefaultHeader.astro';
-import DefaultFooter from '../components/layout/DefaultFooter.astro';
+import DefaultHeader from '../components/layout/DefaultHeader.vue';
+import DefaultFooter from '../components/layout/DefaultFooter.tsx';
 
 let title = 'Elian Van Cutsem | Page Not Found';
 ---
@@ -11,11 +11,11 @@ let title = 'Elian Van Cutsem | Page Not Found';
     <BaseHead title={title} />
   </head>
   <body>
-    <DefaultHeader textMenu={true} />
+    <DefaultHeader textMenu={true} client:load/>
     <main class="error">
       <h2 data-aos="fade-down" class="use-color">404</h2>
       <p data-aos="fade-up">Seems like the page you're looking for is not here</p>
     </main>
-    <DefaultFooter />
+    <DefaultFooter client:load/>
   </body>
 </html>

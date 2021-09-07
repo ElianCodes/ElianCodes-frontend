@@ -2,9 +2,20 @@
   "name": "eliancodes",
   "version": "0.2.0",
   "private": true,
-  "author": { "name": "Elian Van Cutsem", "email": "hello@elian.codes", "url": "https://www.elian.codes/"},
-  "repository": { "type": "git", "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io", "directory": "frontend"},
-  "bugs": { "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io/issues", "email": "hello@elian.codes"},
+  "author": {
+    "name": "Elian Van Cutsem",
+    "email": "hello@elian.codes",
+    "url": "https://www.elian.codes/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io",
+    "directory": "frontend"
+  },
+  "bugs": {
+    "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io/issues",
+    "email": "hello@elian.codes"
+  },
   "displayName": "ElianCodes",
   "homepage": "https://www.elian.codes/",
   "scripts": {
@@ -14,6 +25,8 @@
   },
   "devDependencies": {
     "@astrojs/renderer-preact": "^0.2.1",
+    "@astrojs/renderer-svelte": "^0.1.1",
+    "@astrojs/renderer-vue": "^0.1.7",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",

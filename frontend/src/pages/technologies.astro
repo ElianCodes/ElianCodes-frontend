@@ -1,0 +1,24 @@
+---
+// Component Imports
+import BaseHead from '../components/layout/BaseHead.astro';
+import DefaultHeader from '../components/layout/DefaultHeader.vue';
+import DefaultFooter from '../components/layout/DefaultFooter.tsx';
+import Technologies from '../components/technologies/Technologies.svelte';
+
+const title = 'Elian Van Cutsem | Technologies';
+const description = 'Interested what technologies made this website possible? On this page I show some more info!';
+const permalink = 'https://www.elian.codes/technologies/';
+---
+<html lang="en">
+  <head>
+    <BaseHead title={title} description={description} permalink={permalink} />
+  </head>
+  <body>
+    <DefaultHeader textMenu={true} logoColor={'text-white'} menuColor={'text-white'} overlay={true} client:load/>
+    <main class="technologies overlay">
+      <Technologies client:load/>
+      <p class="overlay-text"><a rel="nofollow noreferer" href="https://www.astro.build" target="_blank">Astro</a></p>    
+    </main>
+    <DefaultFooter overlay={true} linkColor='text-white' client:load/>
+  </body>
+</html>

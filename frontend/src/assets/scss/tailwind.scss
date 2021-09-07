@@ -127,6 +127,53 @@ main.blog-post {
     }
 }
 
+/* TECHNOLOGIES */
+header.overlay {
+    @apply bg-primary-green;
+    .overlay {
+        @apply bg-primary-green;
+    }
+}
+
+main.technologies {
+    @apply flex-1 relative;
+    section {
+        @apply mt-12 mx-12 md:mx-24 relative;
+        h2 {
+            @apply text-2xl font-semibold;
+        }
+        h3 {
+            @apply text-xl font-medium;
+        }
+        p {
+            @apply pb-4;
+        }
+    }
+    &.overlay {
+        @apply bg-primary-fuchsia;
+        section {
+            @apply bg-primary-orange;
+        }
+    }
+    button.overlay-btn {
+        @apply px-4 py-2 rounded bg-green-200;
+        &.overlay-hidden-btn {
+            @apply text-gray-800;
+        }
+    }
+}
+
+footer.overlay {
+    @apply bg-primary-blue relative;
+}
+
+.overlay-text {
+    @apply text-white text-xl font-medium absolute bottom-1 right-2 z-50;
+    &--no-absolute {
+        @apply text-white text-xl font-medium z-50 text-right pr-2;
+    }
+}
+
 /* FOOTER */
 footer {
     @apply py-6 whitespace-nowrap;
