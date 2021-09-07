@@ -1,6 +1,0 @@
-/* VARIABLES */
-@function getColor() {
-    $colors: (theme('colors.primary-green') theme('colors.primary-blue') theme('colors.primary-red') theme('colors.primary-orange') theme('colors.primary-fuchsia'));
-    $primary: list.nth($colors, math.random(list.length($colors)));
-    @return $primary;
-}

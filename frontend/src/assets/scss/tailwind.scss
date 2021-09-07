@@ -140,10 +140,10 @@ main.technologies {
     section {
         @apply mt-12 mx-12 md:mx-24 relative;
         h2 {
-            @apply text-2xl font-semibold;
+            @apply text-2xl font-semibold pt-2 pb-2;
         }
         h3 {
-            @apply text-xl font-medium;
+            @apply text-xl font-medium pb-2;
         }
         p {
             @apply pb-4;
