@@ -20,7 +20,7 @@ const setCookie = (cname: string, cvalue: string): void => {
     document.cookie = cname + "=" + cvalue + ";path=/";
 }
 
-const setTheme = async () => {
+const setTheme = async (doInit: boolean) => {
     const cookie = getCookie('theme')
     if (cookie.length == 0 && window.matchMedia('(prefers-color-scheme: dark)').matches){
         setCookie('theme', 'dark')
@@ -28,8 +28,12 @@ const setTheme = async () => {
         setCookie('theme', 'light')
     }
     await document.querySelector('html').classList.add(cookie);
-    init();
+    if (doInit == true) {
+        init()
+    }
 }
-
-setTheme()
-document.addEventListener("changedMode", setTheme);
+setTheme(false);
+document.addEventListener('DOMContentLoaded', () => {
+    
+    document.addEventListener("changedMode", () => setTheme(true));
+})

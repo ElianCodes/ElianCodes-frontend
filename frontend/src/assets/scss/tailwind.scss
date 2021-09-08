@@ -88,7 +88,7 @@ section.hero {
     figure {
         @apply p-16;
         img {
-            @apply w-96 h-auto;
+            @apply w-96 h-auto rounded-full;
         }
         figcaption {
             @apply sr-only;
@@ -135,7 +135,7 @@ main.blog-post {
         article {
             @apply prose dark:text-gray-200 mx-auto max-w-prose w-full prose-green;
         }
-        article h1, h2, h3, h4, h5, h6   {
+        article h1, h2, h3, h4, h5, h6, code, p   {
             @apply dark:text-gray-200 #{!important};
         }
     }

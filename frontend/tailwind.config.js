@@ -1,20 +1,17 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-    mode: 'jit',
+    //mode: 'jit',
     purge: {
-      enabled: true,
+      enabled: false,
       content: [
         './public/**/*.html',
         './src/**/*.{astro,js,jsx,svelte,ts,tsx,vue}'
       ],
     },
-    darkMode: 'media',
+    darkMode: 'class',
     theme: {
       extend: {
-        animation: {
-          'spin-slow': 'spin 3s linear infinite',
-        },
         colors: {
           'primary-green': colors.emerald[300],
           'primary-blue': colors.blue[300],
@@ -24,14 +21,7 @@ module.exports = {
         }
       },
     },
-    variants: {
-      typography: ["responsive", "dark"],
-      extend: {
-        backgroundColor: ['dark', 'responsive'],
-      },
-    },
     plugins: [
-      require('@tailwindcss/forms'),
       require('@tailwindcss/typography'),
       require('@tailwindcss/line-clamp')
     ],

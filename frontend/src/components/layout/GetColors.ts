@@ -2,21 +2,23 @@ function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
+const colors = [
+	{ class: 'primary-green', code: '#86EFAC'},
+	{ class: 'primary-blue', code: '#93C5FD'},
+	{ class: 'primary-red', code: '#FCA5A5'},
+	{ class: 'primary-orange', code: '#FDBA74'},
+	{ class: 'primary-fuchsia', code: '#F0ABFC'}
+]
+
 const getNewColor = () => {
-	const colors = [
-		{ class: 'text-primary-green', code: '#86EFAC'},
-		{ class: 'text-primary-blue', code: '#93C5FD'},
-		{ class: 'text-primary-red', code: '#FCA5A5'},
-		{ class: 'text-primary-orange', code: '#FDBA74'},
-		{ class: 'text-primary-fuchsia', code: '#F0ABFC'}
-	]
 	return colors[getRandomInt(colors.length)]
 }
 
 const init = () => {
 	const color = getNewColor();
 	document.querySelectorAll('.use-color').forEach(element => {
-		element.classList.add(color.class)
+		colors.forEach(color => element.classList.remove(`text-${color.class}`));
+		element.classList.add(`text-${color.class}`)
 	});
 	setBgColor(color)
 }
