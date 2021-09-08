@@ -188,6 +188,17 @@ footer.overlay {
     }
 }
 
+/* COFFEE PAGE */
+main.coffee {
+    @apply flex-1;
+    article {
+        @apply mx-auto prose prose-green;
+        h1, h2, h3, h4, h5, h6, code, p   {
+            @apply dark:text-gray-200 #{!important};
+        }
+    }
+}
+
 /* FOOTER */
 footer {
     @apply py-6 whitespace-nowrap;
