@@ -1,5 +1,5 @@
 <script>
-import appImg from '../../assets/img/coffee/eliandotcoffeeapp.png'
+import appImg from '/img/coffee/eliandotcoffeeapp.png'
 </script>
 
 <section class="block-technologies">

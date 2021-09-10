@@ -1,6 +1,6 @@
 <script>
-import logo from  '../../assets/img/coffee/eliandotcoffee.svg';
-import inboxImg from '../../assets/img/coffee/eliandotcoffeeinbox.png'
+import logo from '/img/coffee/eliandotcoffee.svg';
+import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
 </script>
 
 <section class="block-title">

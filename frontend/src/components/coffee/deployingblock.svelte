@@ -1,5 +1,5 @@
 <script>
-import gcpLogo from '../../assets/img/gcp.jpg';
+import gcpLogo from '/img/gcp.jpg';
 </script>
 
 <section class="deploying-block">
