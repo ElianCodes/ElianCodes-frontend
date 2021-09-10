@@ -1,6 +1,4 @@
 <script>
-import logo from '/img/coffee/eliandotcoffee.svg';
-import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
 </script>
 
 <section class="block-title">
@@ -12,7 +10,7 @@ import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
                     <div>
                         <div class="mt-6">
                             <h3 class="text-3xl font-extrabold tracking-tight text-gray-900">
-                                <img class="logo" src={logo} alt="the ElianDotCoffee Logo">
+                                <img class="logo" src="/assets/img/coffee/eliandotcoffee.svg" alt="the ElianDotCoffee Logo">
                             </h3>
                             <p class="mt-4 text-2xl text-gray-500">
                                 The better way to taste coffee
@@ -27,7 +25,7 @@ import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
                 </div>
                 <div class="mt-12 sm:mt-16 lg:mt-0" data-aos="fade-left">
                     <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                        <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src={inboxImg} alt="Inbox in the user interface">
+                        <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src="/assets/img/coffee/eliandotcoffeeinbox.png" alt="Inbox in the user interface">
                     </div>
                 </div>
             </div>
@@ -54,7 +52,7 @@ import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
                 </div>
                 <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1" data-aos="fade-right">
                     <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
-                        <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src={inboxImg} alt="Screenshot of the Elian.Coffee site">
+                        <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src="/assets/img/coffee/eliandotcoffeeinbox.png" alt="Screenshot of the Elian.Coffee site">
                     </div>
                 </div>
             </div>

@@ -1,5 +1,4 @@
 <script>
-import appImg from '/img/coffee/eliandotcoffeeapp.png'
 </script>
 
 <section class="block-technologies">
@@ -8,7 +7,7 @@ import appImg from '/img/coffee/eliandotcoffeeapp.png'
             <div class="relative sm:py-16 lg:py-0" data-aos="fade-up">
                 <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
                     <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
-                        <img class="absolute inset-0 h-full w-full object-contain" src={appImg} alt="showing the login on the mobile app version">
+                        <img class="absolute inset-0 h-full w-full object-contain" src="/assets/img/coffee/eliandotcoffeeapp.png" alt="showing the login on the mobile app version">
                     </div>
                 </div>
             </div>

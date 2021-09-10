@@ -1,5 +1,4 @@
 <script>
-import gcpLogo from '/img/gcp.jpg';
 </script>
 
 <section class="deploying-block" data-aos="fade-up">
@@ -15,7 +14,7 @@ import gcpLogo from '/img/gcp.jpg';
                     <figure>
                         <div class="aspect-w-12 aspect-h-7 lg:aspect-none">
                             <a href="https://cloud.google.com" target="_blank" rel="noopener noreferer">
-                                <img class="rounded-lg shadow-lg object-cover object-center" src={gcpLogo} alt="Google Cloud Platform logo" width="1184" height="1376">
+                                <img class="rounded-lg shadow-lg object-cover object-center" src="/assets/img/gcp.jpg" alt="Google Cloud Platform logo" width="1184" height="1376">
                             </a>
                         </div>
                     </figure>
