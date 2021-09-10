@@ -22,6 +22,12 @@ a {
     }
 }
 
+.btn {
+    &-primary {
+        @apply px-4 py-2 rounded bg-green-300;
+    }
+}
+
 /* HEADER */
 header nav {
     @apply flex justify-between items-center z-50;
@@ -190,9 +196,12 @@ footer.overlay {
 
 /* COFFEE PAGE */
 main.coffee {
-    @apply flex-1;
+    @apply flex-1 mt-6 md:mt-12;
     article {
-        @apply mx-auto prose prose-green;
+        @apply mx-12 md:mx-24;
+        section.block-title {
+            @apply relative
+        }
         h1, h2, h3, h4, h5, h6, code, p   {
             @apply dark:text-gray-200 #{!important};
         }
