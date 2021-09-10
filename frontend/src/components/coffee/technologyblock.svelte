@@ -5,14 +5,14 @@ import appImg from '/img/coffee/eliandotcoffeeapp.png'
 <section class="block-technologies">
     <div class="relative mt-20">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">
-            <div class="relative sm:py-16 lg:py-0">
+            <div class="relative sm:py-16 lg:py-0" data-aos="fade-up">
                 <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0 lg:max-w-none lg:py-20">
                     <div class="relative pt-64 pb-10 rounded-2xl shadow-xl overflow-hidden">
                         <img class="absolute inset-0 h-full w-full object-contain" src={appImg} alt="showing the login on the mobile app version">
                     </div>
                 </div>
             </div>
-            <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0">
+            <div class="relative mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:px-0" data-aos="fade-left">
                 <!-- Content area -->
                 <div class="pt-12 prose prose-green sm:pt-16 lg:pt-20">
                     <h3 class="text-3xl text-gray-900 font-extrabold tracking-tight sm:text-4xl">

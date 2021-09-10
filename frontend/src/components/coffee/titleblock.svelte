@@ -8,7 +8,7 @@ import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
         <div aria-hidden="true" class="absolute inset-x-0 top-0 h-48"></div>
         <div class="relative">
             <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-                <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0">
+                <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-16 lg:max-w-none lg:mx-0 lg:px-0" data-aos="fade-right">
                     <div>
                         <div class="mt-6">
                             <h3 class="text-3xl font-extrabold tracking-tight text-gray-900">
@@ -25,7 +25,7 @@ import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
                         </div>
                     </div>
                 </div>
-                <div class="mt-12 sm:mt-16 lg:mt-0">
+                <div class="mt-12 sm:mt-16 lg:mt-0" data-aos="fade-left">
                     <div class="pl-4 -mr-48 sm:pl-6 md:-mr-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
                         <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:left-0 lg:h-full lg:w-auto lg:max-w-none" src={inboxImg} alt="Inbox in the user interface">
                     </div>
@@ -34,7 +34,7 @@ import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
         </div>
         <div class="mt-24">
             <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:grid-flow-col-dense lg:gap-24">
-                <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2">
+                <div class="px-4 max-w-xl mx-auto sm:px-6 lg:py-32 lg:max-w-none lg:mx-0 lg:px-0 lg:col-start-2" data-aos="fade-left">
                     <div>
                         <div class="mt-6">
                             <h3 class="text-3xl font-extrabold tracking-tight text-gray-900">
@@ -52,7 +52,7 @@ import inboxImg from '/img/coffee/eliandotcoffeeinbox.png'
                         </div>
                     </div>
                 </div>
-                <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1">
+                <div class="mt-12 sm:mt-16 lg:mt-0 lg:col-start-1" data-aos="fade-right">
                     <div class="pr-4 -ml-48 sm:pr-6 md:-ml-16 lg:px-0 lg:m-0 lg:relative lg:h-full">
                         <img class="w-full rounded-xl shadow-xl ring-1 ring-black ring-opacity-5 lg:absolute lg:right-0 lg:h-full lg:w-auto lg:max-w-none" src={inboxImg} alt="Screenshot of the Elian.Coffee site">
                     </div>
