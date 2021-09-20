@@ -20,6 +20,10 @@ const init = () => {
 		colors.forEach(color => element.classList.remove(`text-${color.class}`));
 		element.classList.add(`text-${color.class}`)
 	});
+	document.querySelectorAll('.use-color-bg').forEach(element => {
+		colors.forEach(color => element.classList.remove(`bg-${color.class}`));
+		element.classList.add(`bg-${color.class}`)
+	});
 	setBgColor(color)
 }
 

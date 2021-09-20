@@ -1,0 +1,45 @@
+---
+	import CertificationSection from './CertificationSection.astro'
+	const certificationSections = [
+		{
+			title: 'Postman',
+			description: 'I initially started using Postman somewhere 2018 when I was developing my first simple API\'s. Postman seemed like an extreme difficult to use software and I didn\'t really use it that often because of that. Somewhere around 2020 I started using it more intensively when I had to develop some more advanced API\'s. It seemed logically to get some certificates since their free and look good on your resume.',
+			certifications: [
+				{ title: 'Postman Student Expert', year: 2020, link: 'https://api.badgr.io/public/assertions/T72EGjzcScu-JduiMxkA-A?identity__email=elianvancutsem%40gmail.com', imgUrl: 'https://api.badgr.io/public/assertions/T72EGjzcScu-JduiMxkA-A/image', infoLink: 'https://www.postman.com/company/student-program/#student-expert-program', note: 'The Postman Student Expert badge / certification is all about learning to use the software and platform to test and use API\'s. Postman gives a lot of great excercises to learn about RESTful development and how to consume API\'s.' },
+				{ title: 'Postman Student Leader', year: 2021, link: 'https://badgr.com/public/assertions/NHIqp8pbSx2D1j-vC-tkrw', imgUrl: 'https://api.badgr.io/public/assertions/NHIqp8pbSx2D1j-vC-tkrw/image', infoLink: 'https://www.postman.com/company/student-program/#student-leader-program', note: 'The Student Leader badge at Postman stands for teaching to other people and helping them achieve their Postman Expert badge. Next to all that, it stands for initiative and teaching. I got my badge in 2021 when I gave my first guest lecture about API\'s and Postman at Odisee University of Applied Science to my peer students.' },
+			]
+		},
+		{
+			title: 'Gitlab',
+			description: 'Gitlab was my first initiation to git. We used it at school to turn in our assignments. I actually switched to Github after 2 weeks of using it, but I still wanted to learn more about git, workflows and pipelines, so it seemed like a good investment of time to learn more about Gitlab.',
+			certifications: [
+				{ title: 'Gitlab 101', year: 2021, link: 'https://drive.google.com/file/d/1prZJgYM7vFWzB3zmRAq3k1wGMKdEpNyV/view?usp=sharing', imgUrl: 'https://dada.cs.washington.edu/images/gitlab-icon-rgb.png', infoLink: 'https://about.gitlab.com/handbook/people-group/learning-and-development/certifications/gitlab-101/', note: 'Since git is the very basic layer of every project you start as a developer. It\'s important to know how to use it and know it well. Since I wanted to achieve this to my max, I decided to get this badge. I recommend everyone to learn about git and gitlab since it\'s a great platform for beginners and easy!' },
+				{ title: 'Gitlab 201', year: 2021, link: 'https://drive.google.com/file/d/1062GMv_ct7Ld5rkTClOqk7dUp7epGTTw/view?usp=sharing', imgUrl: 'https://dada.cs.washington.edu/images/gitlab-icon-rgb.png', infoLink: 'https://about.gitlab.com/handbook/people-group/learning-and-development/certifications/gitlab-201/', note: 'Although I got my first badge, I wanted to take my git & devops skills to the next level and learned about CI/CD pipelines in Gitlab. This got me into how to build and automate development and deployment workflows.' },
+			]
+		},
+		{
+			title: 'Netlify',
+			description: 'My "first" personal website was launched using Netlify. Netlify is an extremely easy-to-use platform with a lot of great features. I wanted to learn more about it and decided to look-up some more, there I found a free certification called "JAMStack explorer".',
+			certifications: [
+				{ title: 'JAMStack explorer', year: 2021, link: 'https://explorers.netlify.com/missions', imgUrl: 'https://images.unsplash.com/photo-1536697246787-1f7ae568d89a?q=85&fm=jpg&fit=crop&w=1600&h=800', infoLink: 'https://explorers.netlify.com/', note: 'The JAMStack is one of the most awesome technologies to me. Since I discovered it\'s existence in 2020 I\'ve mainly built all websites on it. There are a lot of awesome tools available and not to forget, hosting them is actually very cheap since you\'re basically serving static files to the browser.' },
+			]
+		},	
+		{
+			title: 'Google Cloud',
+			description: 'altough I\'m still working on getting Google Cloud Certificates, I wanted to provide some links to their certifications website. I\'m still learning for the Associate Cloud Engineer as a Google Partner @vBridge, planning on getting the certification somewhere in 2022.',
+			certifications: [
+				{ title: 'Associate Cloud Engineer', link: 'https://cloud.google.com/certification/cloud-engineer', imgUrl: 'https://www.techbindu.com/wp-content/uploads/2020/09/google-cloud.png', infoLink: 'https://cloud.google.com/certification/cloud-engineer', note: 'Google Cloud is the plaform I use to deploy all of my own websites and platforms, since it has an easy-to-use UI and has a lot of great functionalities. I would love to get a badge and learn more about this platform. Google Cloud has everything I need to build a perfect web-platform with all the functionalities I can think of.'}
+			]
+		},
+	]
+---
+<section>
+	{ certificationSections.map(section => (
+			<CertificationSection
+				title={section.title}
+				certifications={section.certifications}
+				description={section.description}
+			/>
+		))
+	}
+</section>

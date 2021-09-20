@@ -1,0 +1,47 @@
+---
+const { certification } = Astro.props
+---
+<style lang="scss">
+.certification {
+    @apply text-center max-w-sm;
+    figure {
+        @apply mb-4;
+        img {
+            @apply rounded-full w-64 h-64 object-cover mx-auto;
+        }
+        figcaption {
+            @apply sr-only;
+        }
+    }
+    .title-link {
+        @apply text-center;
+        h3 {
+            @apply text-xl;
+        }
+        p {
+            @apply -mt-1 text-center;
+        }
+    }
+    p.note {
+        @apply my-8 text-justify;
+    }
+}
+</style>
+<div class="certification">
+    <a href={certification.link} target="_blank" rel="noreferer nofollow">
+        <figure>
+            <img src={certification.imgUrl} alt={certification.title} />
+            <figcaption class="hidden" >
+                {certification.title}
+            </figcaption>
+        </figure>
+    </a>
+    <a class="title-link" href={certification.link} target="_blank" rel="noreferer nofollow">
+        <h3>{certification.title}</h3>
+        { certification.year ? (<p class="date">{certification.year}</p>) : null }
+    </a>
+    <p class="note">{certification.note}</p>
+    <a class="use-color-bg rounded px-4 py-2 dark:text-black text-gray-200" href={certification.infoLink} target="_blank" rel="noreferer nofollow">
+        Learn more
+    </a>
+</div>
