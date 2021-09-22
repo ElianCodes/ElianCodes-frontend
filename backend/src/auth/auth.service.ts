@@ -8,7 +8,7 @@ export class AuthService {
     constructor(private readonly usersService: UsersService) {}
 
     async validateUser(email: string, password: string): Promise<User> {
-        const user: User = await this.usersService.findOne(email)
+        const user: User = await this.usersService.findOneOnEmail(email)
         if (!user) {
             throw new NotFoundException
         }
@@ -16,6 +16,7 @@ export class AuthService {
         if (!isMatch) {
             throw new BadRequestException
         }
+        user.password = "";
         return user;
     }
 }

@@ -12,16 +12,20 @@ export class UsersService {
         return await this.userModel.find();
     }
 
-    async findOne(email: string): Promise<User> {
+    async findOneOnEmail(email: string): Promise<User> {
         return await this.userModel.findOne({ email: email })
+    }
+    
+    async findOneOnEmailWithoutPassword(email: string): Promise<User> {
+        return await this.userModel.findOne({ email: email }).select('-password')
     }
 
     async findById(id: string): Promise<User> {
-        return await this.userModel.findById(id);
+        return await this.userModel.findById(id).select('-password');
     }
 
     async createUser(firstName: string, lastName: string, email: string, password: string): Promise<User> {
-        if (await this.findOne(email)) {
+        if (await this.findOneOnEmailWithoutPassword(email)) {
             throw new BadRequestException;
         }
         const salt = await bcrypt.genSalt();
