@@ -17,6 +17,6 @@ async function bootstrap() {
   app.use(passport.initialize())
   app.use(passport.session())
 
-  await app.listen(parseInt(process.env.PORT, 10) || 3000,);
+  await app.listen(parseInt(process.env.PORT, 10) || 8080,);
 }
 bootstrap();
