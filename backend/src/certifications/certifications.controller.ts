@@ -1,14 +1,17 @@
 import { Controller, Get, Param } from '@nestjs/common';
+import { CertificationsService } from './certifications.service';
 
 @Controller('certifications')
 export class CertificationsController {
+    constructor(private readonly certifications: CertificationsService) {}
+
     @Get()
     findAll(): string {
-        return 'Getting all Certifications'
+        return this.certifications.findAll();
     }
     
     @Get(':id')
     findOne(@Param('id') id): string {
-        return `Getting Certification ${id}`
+        return this.certifications.findOne(id);
     }
 }

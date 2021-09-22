@@ -2,13 +2,12 @@ import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
 import { AppController } from './app.controller';
-import { ProjectsController } from './projects/projects.controller';
-import { HealthController } from './health/health.controller';
-import { CertificationsController } from './certifications/certifications.controller';
+import { ProjectsModule } from './projects/projects.module';
+import { CertificationsModule } from './certifications/certifications.module';
 
 @Module({
-  imports: [],//MongooseModule.forRoot(connectionString)],
-  controllers: [AppController, ProjectsController, HealthController, CertificationsController],
+  imports: [ProjectsModule, CertificationsModule],//MongooseModule.forRoot(connectionString)],
+  controllers: [AppController],
   providers: [AppService],
 })
 export class AppModule {}
