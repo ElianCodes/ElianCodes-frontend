@@ -1,6 +1,6 @@
 ---
 	import CertificationSection from './CertificationSection.astro'
-	const newCertifications = await fetch('http://localhost:8080/certificationgroups')
+	const newCertifications = await fetch('https://eliancodes-backend-kalvk7jmqq-ew.a.run.app/certificationgroups')
 	const certificationSections = await newCertifications.json();
 ---
 <section>
