@@ -8,7 +8,7 @@ import { ConfigModule } from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { CertificationgroupsModule } from './certificationgroups/certificationgroups.module';
-
+require('dotenv').config()
 @Module({
   imports: [ProjectsModule, CertificationsModule, ConfigModule.forRoot({ isGlobal: true }), MongooseModule.forRoot(process.env.DB_STRING), AuthModule, UsersModule, CertificationgroupsModule],
   controllers: [AppController],

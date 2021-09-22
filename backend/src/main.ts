@@ -2,6 +2,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import * as session from 'express-session'
 import * as passport from 'passport'
+require('dotenv').config()
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -16,7 +17,6 @@ async function bootstrap() {
 
   app.use(passport.initialize())
   app.use(passport.session())
-
-  await app.listen(parseInt(process.env.PORT, 10) || 8080,);
+  await app.listen(process.env.PORT || 8080);
 }
 bootstrap();
