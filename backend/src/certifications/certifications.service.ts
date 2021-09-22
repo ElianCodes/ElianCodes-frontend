@@ -1,12 +1,17 @@
 import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose';
+import { Certification } from 'models/interfaces/Certification'
 
 @Injectable()
 export class CertificationsService {
-    findAll(): string {
-        return 'Getting all Certifications'
+    constructor(@InjectModel('Certification') private readonly certificationModel: Model<Certification>) {}
+    
+    async findAll(): Promise<Certification[]> {
+        return await this.certificationModel.find();
     }
 
-    findOne(id: number): string {
-        return `Getting Certification ${id}`
+    async findOne(id: string): Promise<Certification> {
+        return await this.certificationModel.findOne({ _id: id });
     }
 }
