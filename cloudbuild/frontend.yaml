@@ -1,10 +1,10 @@
 steps:
-  - name: 'gcr.io/cloud-builders/yarn'
-    args: ['install']
+  - name: 'elianvancutsem/anna'
+    args: ['pnpm', 'install']
     dir: 'frontend'
 
-  - name: 'gcr.io/cloud-builders/yarn'
-    args: ['build']
+  - name: 'elianvancutsem/anna'
+    args: ['pnpm', 'build']
     dir: 'frontend'
 
   - name: gcr.io/cloud-builders/gsutil
