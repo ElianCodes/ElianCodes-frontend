@@ -11,7 +11,7 @@ const description = 'Software Engineer @vBridge BV';
 const permalink = 'https://www.elian.codes/blog/';
 
 let allPosts = Astro.fetchContent('./*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.publishDate) - new Date(a.publishDate));
+allPosts = allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 ---
 <html lang="en">
   <head>
