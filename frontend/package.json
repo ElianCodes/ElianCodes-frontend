@@ -25,14 +25,14 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/renderer-preact": "^0.2.1",
-    "@astrojs/renderer-svelte": "^0.1.1",
-    "@astrojs/renderer-vue": "^0.1.7",
+    "@astrojs/renderer-preact": "^0.2.2",
+    "@astrojs/renderer-svelte": "^0.1.2",
+    "@astrojs/renderer-vue": "^0.1.8",
     "@tailwindcss/forms": "^0.3.3",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tailwindcss/typography": "^0.4.1",
-    "astro": "^0.20.4",
-    "tailwindcss": "^2.2.9"
+    "astro": "^0.20.7",
+    "tailwindcss": "^2.2.15"
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6"
