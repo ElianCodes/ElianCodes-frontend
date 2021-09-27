@@ -5,12 +5,8 @@ import DefaultFooter from '../components/layout/DefaultFooter.tsx';
 
 let title = 'Elian Van Cutsem | Page Not Found';
 
-// @TODO: get this from Analytics API
-const popularPages = [
-  { title: 'Blog', description: 'On this page you can find all articles I post', link: 'https://www.elian.codes/blog/', type: 'page' },
-  { title: 'Coffee', description: 'This page gives a description on how I made Elian.Coffee', link: 'https://www.elian.codes/coffee/', type: 'page' },
-  { title: 'Add TailwindCSS JIT to your Nuxt Site', description: 'TailwindCSS just released a feature called Just-In-Time. The TailwindCSS blog published an article about it here. It’s available (for now, since it will be added in TailwindCSS v3.0) on NPM.', link: 'https://www.elian.codes/blog/add-tailwind-jit-to-your-nuxt-js-site/', type: 'article' },
-]
+const fetchPages = await fetch('https://api.elian.codes/analytics');
+const popularPages = await fetchPages.json();
 
 const getIcon = (type: string) => {
   if (type === "article") {
@@ -43,15 +39,15 @@ const getIcon = (type: string) => {
     <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8">
       <div class="max-w-xl mx-auto py-16 sm:py-24">
         <div class="text-center">
-          <p class="text-sm font-semibold use-color uppercase tracking-wide">404 error</p>
-            <h1 class="mt-2 text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">This page does not exist.</h1>
-          <p class="mt-2 text-lg text-gray-500">The page you are looking for could not be found.</p>
+          <p class="text-sm font-semibold use-color uppercase tracking-wide" data-aos="fade-in">404 error</p>
+          <h1 class="mt-2 text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl" data-aos="fade-in">This page does not exist.</h1>
+          <p class="mt-2 text-lg text-gray-500" data-aos="fade-in">The page you are looking for could not be found.</p>
         </div>
         <div class="mt-12">
-          <h2 class="text-sm font-semibold text-gray-500 tracking-wide uppercase">Popular pages</h2>
+          <h2 class="text-sm font-semibold text-gray-500 tracking-wide uppercase" data-aos="fade-left">Popular pages</h2>
           <ul role="list" class="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
             { popularPages.map(page => (
-              <li class="relative py-6 flex items-start space-x-4">
+              <li class="relative py-6 flex items-start space-x-4" data-aos="fade-right">
                 <div class="flex-shrink-0">
                   <span class="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-50">
                     {getIcon(page.type)}
@@ -60,15 +56,12 @@ const getIcon = (type: string) => {
                 <div class="min-w-0 flex-1">
                   <h3 class="text-base font-medium text-gray-900">
                     <span class="rounded-sm focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                      <a href={page.link} class="focus:outline-none">
+                      <a href={page.link.substring(15)} class="focus:outline-none">
                         <span class="absolute inset-0" aria-hidden="true"></span>
                         {page.title}
                       </a>
                     </span>
                   </h3>
-                  <p class="text-base text-gray-500">
-                    {page.description}
-                  </p>
                 </div>
                 <div class="flex-shrink-0 self-center">
                   <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -78,7 +71,7 @@ const getIcon = (type: string) => {
               </li>
             ))}
           </ul>
-          <div class="mt-8">
+          <div class="mt-8" data-aos="fade-left">
             <a href="/" class="text-base font-medium use-color">Or go back home<span aria-hidden="true"> &rarr;</span></a>
           </div>
         </div>
