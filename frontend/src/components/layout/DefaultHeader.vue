@@ -97,7 +97,6 @@ export default {
 		const navLinks = [
 			{ name: 'Home', link: '/'},
 			{ name: 'Blog', link: '/blog/'},
-			{ name: 'Projects', link: '/projects/'},
 			{ name: 'Certifications', link: '/certifications/'},
 		]
 		return { navLinks, textMenu, logoColor, menuColor, overlay  }
