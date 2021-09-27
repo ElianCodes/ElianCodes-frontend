@@ -4,13 +4,10 @@ const twitterUsername = 'HTMELian'
 const linkedInUsername = 'elianvancutsem'
 
 const heroImg = Astro.resolve('../../assets/img/hero.png')
-const twitterIcon = Astro.resolve('../../assets/img/icons/twitter.svg')
-const linkedinIcon = Astro.resolve('../../assets/img/icons/linkedin.svg')
-const githubIcon = Astro.resolve('../../assets/img/icons/github.svg')
 ---
 <section class="hero">
     <figure class="z-30" data-aos="fade-down">
-        <img src={heroImg} alt="Elian Van Cutsem's online avatar" id="heroImg"/>
+        <img src={heroImg} alt="Elian Van Cutsem's online avatar" title="Elian Van Cutsem" id="heroImg"/>
         <figcaption>Elian Van Cutsem's online avatar</figcaption>
     </figure>
     <ul>
@@ -38,7 +35,7 @@ const githubIcon = Astro.resolve('../../assets/img/icons/github.svg')
         <li data-aos="fade-up" data-aos-delay="400">
             <a rel="nofollow noopener" href={`https://www.linkedin.com/in/${linkedInUsername}`} target="_blank" title={`${linkedInUsername} on Linkedin`}>
                 <span class="sr-only">LinkedIn Icon</span>
-                 <svg class="use-color" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36pt" height="36pt" viewBox="0 0 36 36" version="1.1">
+                <svg class="use-color" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36pt" height="36pt" viewBox="0 0 36 36" version="1.1">
                     <path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 18 0 C 27.941406 0 36 8.058594 36 18 C 36 27.941406 27.941406 36 18 36 C 8.058594 36 0 27.941406 0 18 C 0 8.058594 8.058594 0 18 0 Z M 18 0 "/>
                     <path class="fill-current" style=" stroke:none;fill-rule:nonzero;" d="M 10.144531 24.730469 L 13.511719 24.730469 L 13.511719 13.496094 L 10.144531 13.496094 Z M 23.273438 13.109375 C 21.636719 13.109375 20.175781 13.707031 19.136719 15.023438 L 19.136719 13.460938 L 15.753906 13.460938 L 15.753906 24.730469 L 19.136719 24.730469 L 19.136719 18.636719 C 19.136719 17.347656 20.316406 16.09375 21.792969 16.09375 C 23.273438 16.09375 23.636719 17.347656 23.636719 18.605469 L 23.636719 24.730469 L 27.007812 24.730469 L 27.007812 18.355469 C 27.007812 13.925781 24.910156 13.109375 23.273438 13.109375 Z M 11.8125 12.375 C 12.742188 12.375 13.5 11.617188 13.5 10.6875 C 13.5 9.757812 12.742188 9 11.8125 9 C 10.882812 9 10.125 9.757812 10.125 10.6875 C 10.125 11.617188 10.882812 12.375 11.8125 12.375 Z M 11.8125 12.375 "/>
                 </svg>

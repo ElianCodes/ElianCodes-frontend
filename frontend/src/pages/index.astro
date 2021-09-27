@@ -7,14 +7,10 @@ import HeroSection from '../components/sections/HeroSection.astro';
 const title = 'Elian Van Cutsem | Home';
 const description = 'Sofware Engineer @vBridge BV. Elian blogs about webdevelopment, cloud native development and overall programming.';
 const permalink = 'https://www.elian.codes/';
-
-const githubUsername = 'ElianVanCutsem'
-const twitterUsername = 'HTMELian'
-const linkedInUsername = 'elianvancutsem'
 ---
 <DefaultLayout title={title} description={description} permalink={permalink}>
   <main class="index">
     <IntroSection />
-    <HeroSection githubUsername={githubUsername} linkedInUsername={linkedInUsername} twitterUsername={twitterUsername}/>
+    <HeroSection />
   </main>
 </DefaultLayout>
