@@ -1,5 +1,4 @@
 ---
-// Component Imports
 import BaseHead from '../components/layout/BaseHead.astro';
 import DefaultHeader from '../components/layout/DefaultHeader.vue';
 import DefaultFooter from '../components/layout/DefaultFooter.tsx';
@@ -13,7 +12,7 @@ const popularPages = [
   { title: 'Add TailwindCSS JIT to your Nuxt Site', description: 'TailwindCSS just released a feature called Just-In-Time. The TailwindCSS blog published an article about it here. It’s available (for now, since it will be added in TailwindCSS v3.0) on NPM.', link: 'https://www.elian.codes/blog/add-tailwind-jit-to-your-nuxt-js-site/', type: 'article' },
 ]
 
-const getIcon = (type: string): JSXElement => {
+const getIcon = (type: string) => {
   if (type === "article") {
     return (
       <svg class="h-6 w-6 use-color" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">

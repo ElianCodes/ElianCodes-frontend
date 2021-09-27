@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <section class="block-technologies">
     <div class="relative mt-20">
         <div class="lg:mx-auto lg:max-w-7xl lg:px-8 lg:grid lg:grid-cols-2 lg:gap-24 lg:items-center">

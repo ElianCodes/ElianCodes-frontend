@@ -1,12 +1,6 @@
 ---
-export interface Props {
-    certifications: any[];
-    title: String;
-    description?: string
-}
 import Certification from './Certification.astro'
-
-const { certifications, title, description }: Props = Astro.props
+const { certifications, title, description } = Astro.props
 ---
 <style lang="scss">
 .certification-section {

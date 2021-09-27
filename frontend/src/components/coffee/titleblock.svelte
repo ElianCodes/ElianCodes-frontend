@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <section class="block-title">
     <div class="relative pt-16 pb-32 overflow-hidden">
         <div aria-hidden="true" class="absolute inset-x-0 top-0 h-48"></div>

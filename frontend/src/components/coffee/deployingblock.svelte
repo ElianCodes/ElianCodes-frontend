@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <section class="deploying-block" data-aos="fade-up">
     <div class="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div class="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
