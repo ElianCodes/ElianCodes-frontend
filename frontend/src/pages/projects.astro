@@ -1,21 +1,12 @@
 ---
 // Component Imports
-import BaseHead from '../components/layout/BaseHead.astro';
-import DefaultHeader from '../components/layout/DefaultHeader.vue';
-import DefaultFooter from '../components/layout/DefaultFooter.tsx';
+import DefaultLayout from '../layouts/Default.astro';
 import ComingSoon from '../components/ComingSoon.astro';
 
 const title = 'Elian Van Cutsem | Projects';
 const description = 'Page is coming soon!';
 const permalink = 'https://www.elian.codes/projects/';
 ---
-<html lang="en">
-  <head>
-    <BaseHead title={title} description={description} permalink={permalink} />
-  </head>
-  <body>
-    <DefaultHeader textMenu={true} client:load/>
+<DefaultLayout title={title} description={description} permalink={permalink} >
     <ComingSoon title={'Projects'} />
-    <DefaultFooter client:load/>
-  </body>
-</html>
+</DefaultLayout>

@@ -1,6 +1,6 @@
 ---
 // Component Imports
-import DefaultLayout from '../layouts/Default.astro';
+import IndexLayout from '../layouts/Index.astro';
 import IntroSection from '../components/sections/IntroSection.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 
@@ -8,9 +8,9 @@ const title = 'Elian Van Cutsem | Home';
 const description = 'Sofware Engineer @vBridge BV. Elian blogs about webdevelopment, cloud native development and overall programming.';
 const permalink = 'https://www.elian.codes/';
 ---
-<DefaultLayout title={title} description={description} permalink={permalink}>
+<IndexLayout title={title} description={description} permalink={permalink}>
   <main class="index">
     <IntroSection />
     <HeroSection />
   </main>
-</DefaultLayout>
+</IndexLayout>
