@@ -1,4 +1,5 @@
 <script>
+    // Probably write this is Svelte right?
     const toggleOverlay = () => {
         document.querySelector('main.technologies').classList.contains('overlay-hidden')
         ? addOverlay()
@@ -70,7 +71,7 @@
     </p>
     <h2><a rel="nofollow noreferer" href="https://www.tailwindcss.com" target="_blank">TailwindCSS</a></h2>
     <p>
-        TailwindCSS has really become my go-to of CSS-frameworks. I first started using it in my first job <a href="https://www.vbridge.eu/" target="_blank" rel="noreferer noopener">@vBridge/a> where one of my first tasks was to move a Bootstrap site to TailwindCSS.
+        TailwindCSS has really become my go-to of CSS-frameworks. I first started using it in my first job <a class="text-white" href="https://www.vbridge.eu/" target="_blank" rel="noreferer noopener">@vBridge</a> where one of my first tasks was to move a Bootstrap site to TailwindCSS.
         At that time I really used TailwindCSS like a noob and didn't even know about the existence of <code>@apply</code> classes.
         Now that I have somewhat more experience using Tailwind, I feel like I have become pretty fast and maintainable at it, the last one there is really key, in combo with Sass it's even more stunning.
         Using TailwindCSS with astro is actually really easy. It's nothing more than installing the packages and adding it to the config and you're done.
@@ -83,9 +84,13 @@
     </p>
 
     <p>
+        If you'd like to know more about what technologies made this website possible, maybe you should checkout <a class="text-white" href="https://docs.elian.codes">the documentation website</a> (Still work in progress).
+    </p>
+
+    <p>
         Yeah I know this page is ugly and looks like it's 1990, but it's mainly built to show of the different frameworks and components.<br/>
         If you'd like to see this page without it's uglyness, there is a toggle-overlay-off button 😊.
     </p>
-    <button class="overlay-btn" on:click={toggleOverlay}>Remove overlays</button>
+    <button class="overlay-btn" on:click={toggleOverlay}>Toggle overlays</button>
     <p class="overlay-text"><a rel="nofollow noreferer" href="https://www.svelte.dev" target="_blank">Svelte</a></p>
 </section>
