@@ -1,7 +1,6 @@
-  
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'preact/hooks';
+import { useEffect, useState } from 'preact/hooks';
 import { init } from './GetColors';
 
 const initAnimation = () => {
@@ -15,9 +14,14 @@ const initAnimation = () => {
 }
 
 export default function DefaultFooter({ overlay, linkColor, slug }) {
-    const technologies = ['Astro', 'TailwindCSS', 'Svelte', 'Preact', 'NestJS', 'AOS', 'Vue', 'Sass', 'TypeScript', 'JavaScript']
+    const [technologies, setTechnologies] = useState([]);
+    const getTechnologies = async (): Promise<void> => {
+      const getTechnologies: any[] = await fetch('https://api.elian.codes/technologies').then(res => res.json());
+      setTechnologies(getTechnologies.map(technology => technology.name))
+    }
     useEffect(() => {
       initAnimation()
+      getTechnologies()
     }, [])
     return (
       <footer class={overlay ? 'overlay' : ''}>
