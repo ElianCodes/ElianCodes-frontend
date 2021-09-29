@@ -137,14 +137,11 @@ main.blog-index {
 
 /* BLOG PAGE */
 main.blog-post {
-    section.blog-post {
-        @apply mx-auto pt-6 md:pt-24;
-        article {
-            @apply prose dark:text-gray-200 mx-auto max-w-prose w-full prose-green;
-        }
-        article h1, h2, h3, h4, h5, h6, code, p   {
-            @apply dark:text-gray-200 #{!important};
-        }
+    article {
+        @apply mx-auto pt-6 md:pt-24 prose dark:text-gray-200 max-w-prose w-full prose-green;
+    }
+    article h1, h2, h3, h4, h5, h6, code, p   {
+        @apply dark:text-gray-200 #{!important};
     }
 }
 

@@ -17,14 +17,12 @@ const {author, createdAt, description, longDescription} = content;
   <body>
     <DefaultHeader textMenu={true} client:load/>
     <main class="blog-post">
-      <section class="blog-post">
-        <BackArrow link="/blog/" text="Back to all posts" />
-        <article>
-            <slot class="prose" />
-            <p>Written by {author} on {createdAt}</p>
-        </article>
-        <BackArrow link="/blog/" text="Back to all posts" />
-      </section>
+      <BackArrow link="/blog/" text="Back to all posts" />
+      <article class="blog-post">
+        <slot class="prose" />
+        <p>Written by {author} on {createdAt}</p>
+      </article>
+      <BackArrow link="/blog/" text="Back to all posts" />
     </main>
     <DefaultFooter client:load/>
     <BlogScripts />
