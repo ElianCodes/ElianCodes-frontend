@@ -28,10 +28,10 @@
     "@astrojs/renderer-preact": "^0.2.2",
     "@astrojs/renderer-svelte": "^0.1.2",
     "@astrojs/renderer-vue": "^0.1.8",
-    "@tailwindcss/forms": "^0.3.3",
-    "@tailwindcss/line-clamp": "^0.2.1",
+    "@tailwindcss/forms": "^0.3.4",
+    "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
-    "astro": "^0.20.7",
+    "astro": "^0.20.11",
     "tailwindcss": "^2.2.16"
   },
   "dependencies": {
