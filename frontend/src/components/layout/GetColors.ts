@@ -1,4 +1,4 @@
-function getRandomInt(max) {
+function getRandomInt(max: number): number {
   return Math.floor(Math.random() * max);
 }
 
@@ -16,25 +16,8 @@ const getNewColor = () => {
 
 const init = () => {
 	const color = getNewColor();
-	document.querySelectorAll('.use-color').forEach(element => {
-		colors.forEach(color => element.classList.remove(`text-${color.class}`));
-		element.classList.add(`text-${color.class}`)
-	});
-	document.querySelectorAll('.use-color-bg').forEach(element => {
-		colors.forEach(color => element.classList.remove(`bg-${color.class}`));
-		element.classList.add(`bg-${color.class}`)
-	});
-	setBgColor(color)
-}
-
-const setBgColor = (color) => {
-	if (document.querySelector('html').getAttribute('class') != undefined && !document.querySelector('html').getAttribute('class').includes('dark') && document.querySelector('html').getAttribute('class').includes('index-bg')){
-		document.querySelector('html').setAttribute('style', `background: linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`)
-	} else if (document.querySelector('html').getAttribute('class').includes('dark')) {
-		document.querySelector('html').setAttribute('style', `background: linear-gradient(90deg, #000 50%, #000 50%)`)
-	} else {
-		document.querySelector('html').setAttribute('style', '')
-	}
+	document.documentElement.style.setProperty('--random-color', color.code)
+	document.documentElement.style.setProperty('--color-for-bg', document.documentElement.classList.contains('dark') ? 'black' : color.code)
 }
 
 export { init }

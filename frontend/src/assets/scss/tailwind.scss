@@ -8,9 +8,23 @@ html {
     @apply h-full;
 }
 
-// html.dark {
-//     @apply bg-black text-gray-200;
-// }
+
+:root {
+    --color-for-bg: white;
+    --random-color: lightgreen;
+}
+
+:root.dark {
+    --color-for-bg: black;
+}
+
+.bg {
+    background-image: paint(eliancodes-bg);
+}
+
+.use-color {
+    color: var(--random-color);
+}
 
 body {
     font-family: 'rubik', sans-serif;
