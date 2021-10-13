@@ -9,7 +9,7 @@ const {title, description, permalink} = Astro.props;
 ---
 <html lang="en" class="bg">
 	<head>
-		<BaseHead title={title} description={description} permalink={permalink} client:load/>
+		<BaseHead title={title} description={description} permalink={permalink} />
 	</head>
 	<body>
 		<DefaultHeader textMenu={true} menuColor={'text-white'} client:load/>
