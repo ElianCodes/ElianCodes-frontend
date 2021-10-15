@@ -7,6 +7,7 @@ specifiers:
   '@tailwindcss/forms': ^0.3.4
   '@tailwindcss/line-clamp': ^0.2.2
   '@tailwindcss/typography': ^0.4.1
+  '@types/node': ^16.11.0
   aos: ^3.0.0-beta.6
   astro: ^0.20.11
   tailwindcss: ^2.2.16
@@ -21,6 +22,7 @@ devDependencies:
   '@tailwindcss/forms': 0.3.4_tailwindcss@2.2.16
   '@tailwindcss/line-clamp': 0.2.2_tailwindcss@2.2.16
   '@tailwindcss/typography': 0.4.1_tailwindcss@2.2.16
+  '@types/node': 16.11.0
   astro: 0.20.11
   tailwindcss: 2.2.16
 
@@ -962,6 +964,10 @@ packages:
 
   /@types/node/16.10.4:
     resolution: {integrity: sha512-EITwVTX5B4nDjXjGeQAfXOrm+Jn+qNjDmyDRtWoD+wZsl/RDPRTFRKivs4Mt74iOFlLOrE5+Kf+p5yjyhm3+cA==}
+    dev: true
+
+  /@types/node/16.11.0:
+    resolution: {integrity: sha512-8MLkBIYQMuhRBQzGN9875bYsOhPnf/0rgXGo66S2FemHkhbn9qtsz9ywV1iCG+vbjigE4WUNVvw37Dx+L0qsPg==}
     dev: true
 
   /@types/parse-json/4.0.0:

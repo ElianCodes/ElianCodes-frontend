@@ -31,6 +31,7 @@
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
+    "@types/node": "^16.11.0",
     "astro": "^0.20.11",
     "tailwindcss": "^2.2.16"
   },
