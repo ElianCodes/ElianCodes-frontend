@@ -26,6 +26,10 @@ html {
     color: var(--random-color);
 }
 
+.use-color-bg {
+    background-color: var(--random-color);
+}
+
 body {
     font-family: 'rubik', sans-serif;
     @apply px-6 pt-6 md:px-12 md:pt-12 text-gray-900 min-h-full flex flex-col;
