@@ -5,6 +5,7 @@ import { init } from './GetColors';
 
 const initAnimation = () => {
   AOS.init({
+    disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
     offset: 200,
     duration: 600,
     easing: 'ease-in-sine',
