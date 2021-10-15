@@ -1,0 +1,12 @@
+steps:
+  - name: 'elianvancutsem/anna'
+    args: ['pnpm', 'install']
+    dir: 'frontend'
+
+  - name: 'elianvancutsem/anna'
+    args: ['pnpm', 'build']
+    dir: 'frontend'
+
+  - name: gcr.io/cloud-builders/gsutil
+    args: ["-m", "rsync", "-r", "-c", "-d", "./dist/", "gs://www.elian.codes"]
+    dir: 'frontend'
