@@ -8,5 +8,5 @@ steps:
     dir: 'frontend'
 
   - name: gcr.io/cloud-builders/gsutil
-    args: ["-m", "rsync", "-r", "-c", "-d", "./dist/", "gs://www.elian.codes"]
+    args: ["-m", "rsync", "-r", "-c", "-d", "./dist/", "gs://canary.elian.codes"]
     dir: 'frontend'
