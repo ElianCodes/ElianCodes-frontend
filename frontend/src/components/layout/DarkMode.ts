@@ -13,7 +13,7 @@ const getCookie = (cname: string): string => {
             return c.substring(name.length, c.length);
         }
     }
-    return "";
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
 const setCookie = (cname: string, cvalue: string): void => {
@@ -21,12 +21,13 @@ const setCookie = (cname: string, cvalue: string): void => {
 }
 
 const setTheme = async (doInit: boolean) => {
-    const cookie = getCookie('theme')
+    const cookie = await getCookie('theme')
     if (cookie.length == 0 && window.matchMedia('(prefers-color-scheme: dark)').matches){
         setCookie('theme', 'dark')
     } else if (getCookie('theme').length == 0) {
         setCookie('theme', 'light')
     }
+    console.log(cookie)
     await document.querySelector('html').classList.add(cookie);
     if (doInit == true) {
         init()
@@ -34,6 +35,5 @@ const setTheme = async (doInit: boolean) => {
 }
 setTheme(false);
 document.addEventListener('DOMContentLoaded', () => {
-    
     document.addEventListener("changedMode", () => setTheme(true));
 })
