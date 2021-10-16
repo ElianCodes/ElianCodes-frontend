@@ -42,6 +42,10 @@ export NODE_ENV=development
 
 That should resolve it. If the CI system you're using doesn't support it out of the box, you can always set it manually to `production`
 
+## Astro & Snowpack
+
+Next to the `process.env.NODE_ENV`, Snowpack automatically uses `__SNOWPACK_ENV__.MODE` instead of `NODE_ENV`, so if you're using Astro (or snowpack) in general, you might want to use this one instead. (it will also use `development` by default on `npm run dev` & `production` on `npm run build`)
+
 ## The somewhat more advanced way
 
 In some usecases, it might seem handier to load in a `.env` file. In that case you can always use the Snowpack Environment Variables, [read more about that on their documentation](<https://www.snowpack.dev/reference/environment-variables>).

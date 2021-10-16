@@ -27,7 +27,6 @@ const setTheme = async (doInit: boolean) => {
     } else if (getCookie('theme').length == 0) {
         setCookie('theme', 'light')
     }
-    console.log(cookie)
     await document.querySelector('html').classList.add(cookie);
     if (doInit == true) {
         init()

@@ -1,5 +1,5 @@
 ---
-const mode = process.env.NODE_ENV
+const mode = __SNOWPACK_ENV__.MODE
 ---
 { mode == 'production'
   ? (<Fragment>
