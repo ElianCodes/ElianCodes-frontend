@@ -22,7 +22,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "create-env": "printenv > .env"
   },
   "devDependencies": {
     "@astrojs/renderer-preact": "^0.2.2",

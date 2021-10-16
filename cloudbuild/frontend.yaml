@@ -4,6 +4,12 @@ steps:
     dir: 'frontend'
 
   - name: 'elianvancutsem/anna'
+    args: ['pnpm', 'create-env']
+    env:
+      - 'NODE_ENV=${_NODE_ENV}'
+    dir: 'frontend'
+
+  - name: 'elianvancutsem/anna'
     args: ['pnpm', 'build']
     dir: 'frontend'
 
