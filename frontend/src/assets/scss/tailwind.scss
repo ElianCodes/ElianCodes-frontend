@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './cookies.scss';
+
 /* GlOBAL SETTINGS */
 html {
     scroll-behavior: smooth;
