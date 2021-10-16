@@ -42,7 +42,7 @@ export default function Cookies() {
           <div class="inline-block align-bottom bg-white dark:bg-black rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
             <div class="sm:flex sm:items-start sm:justify-between">
               <div class="mx-auto flex-shrink-0 flex items-center justify-center">
-                <img src="/assets/img/cookies.png" class="w-64 h-64 lg:w-96 lg:h-96" />
+                <img src="/assets/img/cookies.png" class="w-64 h-64 lg:w-96 lg:h-96" width="384" height="384" />
               </div>
               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left sm:w-64">
                 <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200" id="modal-title">
