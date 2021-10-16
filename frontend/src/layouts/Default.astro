@@ -3,9 +3,9 @@
 import BaseHead from '../components/layout/BaseHead.astro';
 import DefaultHeader from '../components/layout/DefaultHeader.vue';
 import DefaultFooter from '../components/layout/DefaultFooter.tsx';
+import Cookies from '../components/layout/Cookies.tsx';
 
 const {title, description, permalink} = Astro.props;
-
 ---
 <html lang="en">
 	<head>
@@ -15,5 +15,6 @@ const {title, description, permalink} = Astro.props;
 		<DefaultHeader textMenu={true} client:load/>
 		<slot />
 		<DefaultFooter client:load/>
+		<Cookies client:load/>
 	</body>
 </html>
