@@ -27,13 +27,13 @@
   "devDependencies": {
     "@astrojs/renderer-preact": "^0.2.2",
     "@astrojs/renderer-svelte": "^0.1.2",
-    "@astrojs/renderer-vue": "^0.1.8",
+    "@astrojs/renderer-vue": "^0.1.9",
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
     "@types/node": "^16.11.0",
-    "astro": "^0.20.11",
-    "tailwindcss": "^2.2.16"
+    "astro": "^0.20.12",
+    "tailwindcss": "^2.2.17"
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6"
