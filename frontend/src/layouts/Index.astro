@@ -4,6 +4,7 @@ import BaseHead from '../components/layout/BaseHead.astro';
 import DefaultHeader from '../components/layout/DefaultHeader.vue';
 import DefaultFooter from '../components/layout/DefaultFooter.tsx';
 import UseHoudini from '../components/layout/UseHoudini.astro';
+import Cookies from '../components/layout/Cookies.tsx';
 
 const {title, description, permalink} = Astro.props;
 ---
@@ -16,5 +17,6 @@ const {title, description, permalink} = Astro.props;
 		<slot />
 		<DefaultFooter client:load/>
 		<UseHoudini />
+		<Cookies client:load/>
 	</body>
 </html>

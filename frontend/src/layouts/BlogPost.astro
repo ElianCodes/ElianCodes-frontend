@@ -5,6 +5,7 @@ import DefaultHeader from '../components/layout/DefaultHeader.vue';
 import DefaultFooter from '../components/layout/DefaultFooter.tsx';
 import BlogScripts from '../components/layout/BlogScripts.astro';
 import BackArrow from '../components/blog/BackArrow.astro'
+import Cookies from '../components/layout/Cookies.tsx';
 
 const {content} = Astro.props;
 const {author, createdAt, description, longDescription} = content;
@@ -25,6 +26,7 @@ const {author, createdAt, description, longDescription} = content;
       <BackArrow link="/blog/" text="Back to all posts" />
     </main>
     <DefaultFooter client:load/>
+    <Cookies client:load/>
     <BlogScripts />
   </body>
 </html>
