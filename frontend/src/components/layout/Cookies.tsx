@@ -39,17 +39,17 @@ export default function Cookies() {
         <div>
           <div class="fixed inset-0 bg-gray-500 bg-opacity-50 transition-opacity" aria-hidden="true"></div>
           <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-          <div class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
+          <div class="inline-block align-bottom bg-white dark:bg-black rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full sm:p-6">
             <div class="sm:flex sm:items-start sm:justify-between">
               <div class="mx-auto flex-shrink-0 flex items-center justify-center">
                 <img src="/assets/img/cookies.png" class="w-64 h-64 lg:w-96 lg:h-96" />
               </div>
               <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left sm:w-64">
-                <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">
+                <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-200" id="modal-title">
                   Will you eat my cookies?
                 </h3>
                 <div class="mt-2">
-                  <p class="text-sm text-gray-500">
+                  <p class="text-sm text-gray-500 dark:text-gray-300">
                     Hello peeps, please click "Eat cookies", they're used for analytics and display relevant ads for you.<br/>
                     Oh wait... You can't click anywhere else. I guess this modal is irrelevant then. Just click it.
                   </p>
