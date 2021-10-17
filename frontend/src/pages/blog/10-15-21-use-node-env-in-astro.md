@@ -20,33 +20,45 @@ Today I did some development on my own website [www.elian.codes](<https://www.el
 
 ## The Simple Way
 
-The most easy and straightforward way would be to use the NodeJS internal `process.env.NODE_ENV`. This way works with most of the online CI/CD systems like Github Actions, Google Cloud Build, Netlify and so on.
+The most easy and straightforward way would be to use the NodeJS internal `process.env.NODE_ENV`. This way works with most of the online CI/CD systems like Github Actions, Google Cloud Build, Netlify and so on. The only problem there is that the `process.env` isn't really made accessible by Snowpack.
 
-To get this working locally, you'll need some extra commands in the terminal.
+Astro uses Snowpack out of the box, but will move to Vite in a future update (Astro v21.0). This method won't work from there on.
 
-In your code, you'll just need to access the `process.env.NODE_ENV` like the following:
-
-```jsx
-{ process.env.NODE_ENV == 'production' ?
-    (<Fragment>
-        <!-- Load the scripts only for production here -->
-    </Fragment>)
-: null }
-```
-
-It might be possible that on your local build or live server, the `process.env.NODE_ENV` is `undefined`. To resolve this, run the following command before running something like `yarn dev` or `npm run dev`
-
-```bash
-export NODE_ENV=development
-```
-
-That should resolve it. If the CI system you're using doesn't support it out of the box, you can always set it manually to `production`
-
-## Astro & Snowpack
-
-Next to the `process.env.NODE_ENV`, Snowpack automatically uses `__SNOWPACK_ENV__.MODE` instead of `NODE_ENV`, so if you're using Astro (or snowpack) in general, you might want to use this one instead. (it will also use `development` by default on `npm run dev` & `production` on `npm run build`)
+Snowpack automatically uses `__SNOWPACK_ENV__.MODE` instead of `NODE_ENV`, so if you're using Astro (or snowpack) in general, you might want to use this one instead. (it will also use `development` by default on `npm run dev` & `production` on `npm run build`)
 
 ## The somewhat more advanced way
+
+> - Install `@snowpack/plugin-dotenv`
+>
+>  ```
+>  npm i --save @snowpack/plugin-dotenv
+>  ```
+>
+> - Configure Astro via `astro.config.mjs` to use `@snowpack/plugin-dotenv`
+>
+> ```js
+>  plugins: [
+>    "@snowpack/plugin-dotenv",
+>  ],
+>  ```
+>
+> - Expose Env Vars via Snowpack's `snowpack.config.mjs`. Vars *must* be prefixed with `SNOWPACK_PUBLIC_`
+>
+>  ```js
+>  export default {
+>    env: {
+>      SNOWPACK_PUBLIC_API_BASEURL: 'https://myapi.example.org/',
+>    },
+>  };
+>  ```
+>
+> - Access the Env Vars on the `__SNOWPACK_ENV__` object
+>
+>  ```js
+>  const res = await fetch(`${__SNOWPACK_ENV__.SNOWPACK_PUBLIC_API_BASEURL}/events`);
+>  ```
+
+By [Bramus](<https://gist.github.com/bramus/093dadabcac610c58a3e133b64f97417>)
 
 In some usecases, it might seem handier to load in a `.env` file. In that case you can always use the Snowpack Environment Variables, [read more about that on their documentation](<https://www.snowpack.dev/reference/environment-variables>).
 
