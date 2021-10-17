@@ -1,0 +1,22 @@
+:root {
+    --color-for-bg: white;
+    --random-color: lightgreen;
+}
+
+:root.dark {
+    --color-for-bg: black;
+}
+
+.bg {
+    @media (min-width: 768px) {
+        background-image: paint(eliancodes-bg);
+    }
+}
+
+.use-color {
+    color: var(--random-color);
+}
+
+.use-color-bg {
+    background-color: var(--random-color);
+}
