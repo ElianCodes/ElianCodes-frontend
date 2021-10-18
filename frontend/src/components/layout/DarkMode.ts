@@ -1,6 +1,6 @@
 import { init } from './GetColors';
 
-const getCookie = (cname: string): string => {
+export const getCookie = (cname: string): string => {
     let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
     let ca = decodedCookie.split(';');
@@ -13,26 +13,55 @@ const getCookie = (cname: string): string => {
             return c.substring(name.length, c.length);
         }
     }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return "";
 }
 
-const setCookie = (cname: string, cvalue: string): void => {
+export const setCookie = (cname: string, cvalue: string): void => {
     document.cookie = cname + "=" + cvalue + ";path=/";
 }
 
-const setTheme = async (doInit: boolean) => {
+const setTheme = async (sync: boolean): void => {
     const cookie = await getCookie('theme')
-    if (cookie.length == 0 && window.matchMedia('(prefers-color-scheme: dark)').matches){
-        setCookie('theme', 'dark')
-    } else if (getCookie('theme').length == 0) {
-        setCookie('theme', 'light')
+    switch(cookie){
+        case 'system':
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches){
+                setDarkmode()
+            } else {
+                setLightmode()
+            }
+            break;
+
+        case 'dark':
+            setDarkmode()
+            break;
+
+        case 'light':
+            setLightmode()
+            break;
+
+        default:
+            setCookie('theme', 'system')
     }
-    await document.querySelector('html').classList.add(cookie);
-    if (doInit == true) {
+    if (sync == true) {
         init()
     }
 }
+
+const setDarkmode = (): void => {
+    document.documentElement.classList.add('dark');
+}
+
+const setLightmode = (): void => {
+    document.documentElement.classList.remove('dark');
+}
+
+// Initialise mode on first page enter
 setTheme(false);
+
+// Listen to events
 document.addEventListener('DOMContentLoaded', () => {
-    document.addEventListener("changedMode", () => setTheme(true));
+    document.addEventListener("changedMode", (): void => setTheme(true));
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (): void => {
+        setTheme(true)
+    });
 })

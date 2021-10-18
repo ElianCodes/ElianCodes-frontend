@@ -3,33 +3,12 @@
 @tailwind utilities;
 
 @import './cookies.scss';
+@import './randomColor.scss';
 
 /* GlOBAL SETTINGS */
 html {
     scroll-behavior: smooth;
     @apply h-full;
-}
-
-
-:root {
-    --color-for-bg: white;
-    --random-color: lightgreen;
-}
-
-:root.dark {
-    --color-for-bg: black;
-}
-
-.bg {
-    background-image: paint(eliancodes-bg);
-}
-
-.use-color {
-    color: var(--random-color);
-}
-
-.use-color-bg {
-    background-color: var(--random-color);
 }
 
 body {
