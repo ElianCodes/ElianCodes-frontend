@@ -21,6 +21,11 @@ module.exports = {
         }
       },
     },
+    variants: {
+      extend: {
+        overflow: ['dark'],
+      }
+    },
     plugins: [
       require('@tailwindcss/typography'),
       require('@tailwindcss/line-clamp')
