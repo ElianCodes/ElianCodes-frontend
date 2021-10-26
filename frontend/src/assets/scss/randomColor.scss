@@ -8,9 +8,7 @@
 }
 
 .bg {
-    @media (min-width: 768px) {
-        background-image: paint(eliancodes-bg);
-    }
+    background: paint(eliancodes-bg);
 }
 
 .use-color {

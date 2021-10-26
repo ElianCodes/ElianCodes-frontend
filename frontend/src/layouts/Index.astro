@@ -14,11 +14,11 @@ const {title, description, permalink} = Astro.props;
 		<BaseHead title={title} description={description} permalink={permalink}/>
 	</head>
 	<body>
+		<UseHoudini />
 		<DefaultHeader textMenu={true} menuColor={'text-white'} client:load/>
 		<slot />
 		<DefaultFooter client:load/>
 		<AreYouOnAMac client:load/>
-		<UseHoudini client:load/>
 		<Cookies client:load/>
 	</body>
 </html>
