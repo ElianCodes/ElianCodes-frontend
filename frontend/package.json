@@ -32,9 +32,9 @@
     "@tailwindcss/forms": "^0.3.4",
     "@tailwindcss/line-clamp": "^0.2.2",
     "@tailwindcss/typography": "^0.4.1",
-    "@types/node": "^16.11.0",
+    "@types/node": "^16.11.7",
     "astro": "^0.20.12",
-    "tailwindcss": "^2.2.17"
+    "tailwindcss": "^2.2.19"
   },
   "dependencies": {
     "aos": "^3.0.0-beta.6",

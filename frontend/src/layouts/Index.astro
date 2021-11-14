@@ -5,7 +5,6 @@ import DefaultHeader from '../components/layout/DefaultHeader.vue';
 import DefaultFooter from '../components/layout/DefaultFooter.tsx';
 import UseHoudini from '../components/layout/UseHoudini.astro';
 import Cookies from '../components/layout/Cookies.tsx';
-import AreYouOnAMac from '../components/macbook/areYouOnAMac.tsx';
 
 const {title, description, permalink} = Astro.props;
 ---
@@ -18,7 +17,6 @@ const {title, description, permalink} = Astro.props;
 		<DefaultHeader textMenu={true} menuColor={'text-white'} client:load/>
 		<slot />
 		<DefaultFooter client:load/>
-		<AreYouOnAMac client:load/>
 		<Cookies client:load/>
 	</body>
 </html>
