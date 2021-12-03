@@ -1,7 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
-  '@astrojs/renderer-preact': ^0.2.2
+  '@astrojs/renderer-preact': ^0.3.0
   '@astrojs/renderer-svelte': ^0.1.2
   '@astrojs/renderer-vue': ^0.1.9
   '@tailwindcss/forms': ^0.3.4
@@ -18,7 +18,7 @@ dependencies:
   css-paint-polyfill: 3.3.0
 
 devDependencies:
-  '@astrojs/renderer-preact': 0.2.2
+  '@astrojs/renderer-preact': 0.3.1
   '@astrojs/renderer-svelte': 0.1.2
   '@astrojs/renderer-vue': 0.1.9
   '@tailwindcss/forms': 0.3.4_tailwindcss@2.2.19
@@ -82,22 +82,22 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dev: true
 
-  /@astrojs/renderer-preact/0.2.2:
+  /@astrojs/renderer-preact/0.2.2_@babel+core@7.16.0:
     resolution: {integrity: sha512-viF5jON0Dk1Oq/FCV2O2ijXImg37Lx+KI1cXAR40WPtvypFoq8nht/BTj385fpWW5mDN0vgrk69L/WySt95yLA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
-      '@babel/plugin-transform-react-jsx': 7.16.0
+      '@babel/plugin-transform-react-jsx': 7.16.0_@babel+core@7.16.0
       preact: 10.5.15
       preact-render-to-string: 5.1.19_preact@10.5.15
     transitivePeerDependencies:
       - '@babel/core'
     dev: true
 
-  /@astrojs/renderer-preact/0.2.2_@babel+core@7.16.0:
-    resolution: {integrity: sha512-viF5jON0Dk1Oq/FCV2O2ijXImg37Lx+KI1cXAR40WPtvypFoq8nht/BTj385fpWW5mDN0vgrk69L/WySt95yLA==}
+  /@astrojs/renderer-preact/0.3.1:
+    resolution: {integrity: sha512-NEcUEtir2H0g4bV4/GwBxqE6bJpOH4WV/FfFRAO6yxqVx3VCdRJ7163fLmMqqznczoqg9w64uEGejx+NdHAFIg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
-      '@babel/plugin-transform-react-jsx': 7.16.0_@babel+core@7.16.0
+      '@babel/plugin-transform-react-jsx': 7.16.0
       preact: 10.5.15
       preact-render-to-string: 5.1.19_preact@10.5.15
     transitivePeerDependencies:

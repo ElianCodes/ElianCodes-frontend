@@ -1,15 +1,15 @@
 steps:
-  - name: 'elianvancutsem/anna'
+  - name: 'elianvancutsem/anna:latest'
     args: ['pnpm', 'install']
     dir: 'frontend'
 
-  - name: 'elianvancutsem/anna'
+  - name: 'elianvancutsem/anna:latest'
     args: ['pnpm', 'create-env']
     env:
       - 'NODE_ENV=${_NODE_ENV}'
     dir: 'frontend'
 
-  - name: 'elianvancutsem/anna'
+  - name: 'elianvancutsem/anna:latest'
     args: ['pnpm', 'build']
     dir: 'frontend'
 
