@@ -1,9 +1,7 @@
 ---
-import { Markdown } from 'astro/components';
-
 export async function getStaticPaths({rss}) {
   const allPosts = Astro.fetchContent('./**/*.md');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.datecreatedAt));
+  const sortedPosts = allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
   rss({
     title: 'Elian Van Cutsem',
     description: 'Programming and Frontend related articles',
