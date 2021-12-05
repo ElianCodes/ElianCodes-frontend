@@ -16,6 +16,8 @@ permalink: 'using-tailwindcss-with-sveltekit'
 
 # Using TailwindCSS with Sveltekit
 
+*This post is very outdated, check [the new post](</blog/12-05-21-use-tailwindcss-with-sveltekit-2021>) for an updated version*
+
 Earlier this week, Sveltekit beta got released (read all about it [here](<https://svelte.dev/blog/sveltekit-beta>)). Since it's so new, I wanted to try out some stuff, including using it with [TailwindCSS](<https://tailwindcss.com>). That seemed a little bit more complex than I initially thought.
 
 ## What is Sveltekit
