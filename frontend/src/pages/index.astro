@@ -6,8 +6,8 @@ const twitterUsername = 'ElianCodes';
 const linkedInUsername = "elianvancutsem"
 ---
 <BaseLayout title="Home" permalink="https://www.elian.codes/" description="Sofware Engineer @vBridge BV. Elian blogs about webdevelopment, cloud native development and overall programming.">
-    <main class="flex gap-10 items-center justify-center">
-        <div class="pr-4 flex-1">
+    <main class="mt-16 lg:mt-12 xl:mt-0 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
+        <div class="pt-12 xl:pt-0 pr-4 flex-1">
             <h2 class="text-5xl font-bold">👋 Hi!</h2>
             <p class="text-4xl py-8 text-gray-500">Software Engineer <a class="text-primary-green" target="_blank" href="https://www.vbridge.eu/">@vBridge</a></p>
             <div class="text-xl flex flex-col gap-4">
@@ -16,9 +16,9 @@ const linkedInUsername = "elianvancutsem"
                 <p>In 2020 I discovered cloud and serverless development, that really peeked my interest further and made me the curious developer I am today.</p>
             </div>
         </div>
-        <div class="h-full bg-primary-green rounded-3xl pl-4 text-white flex-1 flex flex-col justify-center items-center">
-            <img src="/assets/hero.png" class="w-96 h-auto" />
-            <ul class="flex gap-20 pt-24">
+        <div class="h-full lg:bg-primary-green rounded-3xl pl-4 text-white flex-1 flex flex-col justify-center items-center">
+            <img src="/assets/hero.png" class="w-64 lg:w-72 xl:w-96 h-auto" />
+            <ul class="flex gap-20 pt-12 lg:pt-24">
                 <li data-aos="fade-up" data-aos-delay="200">
                     <a rel="nofollow noopener" href={`https://www.github.com/${githubUsername}`} target="_blank" title={`${githubUsername} on Github`}>
                         <span class="sr-only">Github Icon</span>
