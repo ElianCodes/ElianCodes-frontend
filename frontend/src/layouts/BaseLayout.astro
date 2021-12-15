@@ -1,13 +1,10 @@
 ---
-const { title } = Astro.props
+import BaseHead from './BaseHead.astro'
+const { title, description, permalink } = Astro.props
 ---
 <html lang="en" class="h-full">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>Elian Codes | {title}</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href={Astro.resolve('../styles/tailwind.scss')}>
+    <BaseHead title={title} description={description} permalink={permalink}/>
 </head>
 <body class="p-8 text-gray-900 min-h-full flex relative">
     <header>  

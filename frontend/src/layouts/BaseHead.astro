@@ -1,0 +1,53 @@
+---
+const { title, description, permalink } = Astro.props
+---
+<!-- global -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Elian Codes | {title}</title>
+<meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA">
+<link rel="alternate" href="https://www.elian.codes/blog.xml" type="application/rss+xml">
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={permalink} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content="https://www.elian.codes/assets/img/social.jpg" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={permalink} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content="https://www.elian.codes/assets/img/social.jpg" />
+
+<!-- styles -->
+<link rel="stylesheet" href={Astro.resolve('../styles/tailwind.scss')}>
+
+<!-- icon Metadata -->
+<link rel="icon" type="image/x-icon" href={Astro.resolve("/favicon.ico")} />
+<link rel="apple-touch-icon" sizes="57x57" href={Astro.resolve("/icons/apple-icon-57x57.png")}>
+<link rel="apple-touch-icon" sizes="60x60" href={Astro.resolve("/icons/apple-icon-60x60.png")}>
+<link rel="apple-touch-icon" sizes="72x72" href={Astro.resolve("/icons/apple-icon-72x72.png")}>
+<link rel="apple-touch-icon" sizes="76x76" href={Astro.resolve("/icons/apple-icon-76x76.png")}>
+<link rel="apple-touch-icon" sizes="114x114" href={Astro.resolve("/icons/apple-icon-114x114.png")}>
+<link rel="apple-touch-icon" sizes="120x120" href={Astro.resolve("/icons/apple-icon-120x120.png")}>
+<link rel="apple-touch-icon" sizes="144x144" href={Astro.resolve("/icons/apple-icon-144x144.png")}>
+<link rel="apple-touch-icon" sizes="152x152" href={Astro.resolve("/icons/apple-icon-152x152.png")}>
+<link rel="apple-touch-icon" sizes="180x180" href={Astro.resolve("/icons/apple-icon-180x180.png")}>
+<link rel="icon" type="image/png" sizes="192x192"  href={Astro.resolve("/icons/android-icon-192x192.png")}>
+<link rel="icon" type="image/png" sizes="32x32" href={Astro.resolve("/icons/favicon-32x32.png")}>
+<link rel="icon" type="image/png" sizes="96x96" href={Astro.resolve("/icons/favicon-96x96.png")}>
+<link rel="icon" type="image/png" sizes="16x16" href={Astro.resolve("/icons/favicon-16x16.png")}>
+
+<link rel="manifest" href={Astro.resolve("/manifest.json")}>
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content={Astro.resolve("/ms-icon-144x144.png")}>
+<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#6ee7b7">
