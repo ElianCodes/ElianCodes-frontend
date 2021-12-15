@@ -1,4 +1,2 @@
 User-agent: *
-Disallow: 
-Host: https://www.elian.codes/
-Sitemap: https://www.elian.codes/sitemap.xml
+Disallow: /
