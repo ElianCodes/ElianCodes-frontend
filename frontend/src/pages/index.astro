@@ -1,28 +1,14 @@
 ---
-const title = 'Elian Codes | Home';
+import BaseLayout from '../layouts/BaseLayout.astro'
+
+const title = 'Home';
 const githubUsername = 'ElianCodes';
 const twitterUsername = 'ElianCodes';
 const linkedInUsername = "elianvancutsem"
 ---
-<html lang="en" class="h-full">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width">
-    <title>{title}</title>
-    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <link rel="stylesheet" href={Astro.resolve('../styles/tailwind.scss')}>
-</head>
-<body class="p-8 text-gray-900 min-h-full flex relative">
-    <header>  
-        <div class="absolute top-8 left-8">
-            <h1 class="page-title">Elian Codes</h1>
-        </div>
-        <div class="absolute top-12 right-12 text-3xl">
-            <button>🍔</button>
-        </div>
-    </header>
-    <main class="flex gap-6 items-center justify-center">
-        <div class="pt-14 flex-1">
+<BaseLayout title={title}>
+    <main class="flex gap-10 items-center justify-center">
+        <div class="pr-4 flex-1">
             <h2 class="text-5xl font-bold">👋 Hi!</h2>
             <p class="text-4xl py-8 text-gray-500">Software Engineer <a class="text-primary-green" target="_blank" href="https://www.vbridge.eu/">@vBridge</a></p>
             <div class="text-xl flex flex-col gap-4">
@@ -31,7 +17,7 @@ const linkedInUsername = "elianvancutsem"
                 <p>In 2020 I discovered cloud and serverless development, that really peeked my interest further and made me the curious developer I am today.</p>
             </div>
         </div>
-        <div class="h-full bg-primary-green rounded-3xl p-4 text-white flex-1 flex flex-col justify-center items-center">
+        <div class="h-full bg-primary-green rounded-3xl pl-4 text-white flex-1 flex flex-col justify-center items-center">
             <img src="/assets/hero.png" class="w-96 h-auto" />
             <ul class="flex gap-20 pt-24">
                 <li data-aos="fade-up" data-aos-delay="200">
@@ -67,8 +53,4 @@ const linkedInUsername = "elianvancutsem"
             </ul>
         </div>
     </main>
-    <footer class="absolute bottom-8">
-        Website built with <a class="text-primary-green" target="_blank" href="https://www.astro.build/">Astro</a> & ☕️
-    </footer>
-</body>
-</html>
+</BaseLayout>

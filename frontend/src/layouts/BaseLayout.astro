@@ -1,0 +1,26 @@
+---
+const { title } = Astro.props
+---
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Elian Codes | {title}</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href={Astro.resolve('../styles/tailwind.scss')}>
+</head>
+<body class="p-8 text-gray-900 min-h-full flex relative">
+    <header>  
+        <div class="absolute top-8 left-8">
+            <h1 class="page-title"><a href="/">Elian Codes</a></h1>
+        </div>
+        <div class="absolute top-12 right-12 text-3xl">
+            <button>🍔</button>
+        </div>
+    </header>
+    <slot />
+    <footer class="absolute bottom-8">
+        Website built with <a class="text-primary-green" target="_blank" href="https://www.astro.build/">Astro</a> & ☕️
+    </footer>
+</body>
+</html>
