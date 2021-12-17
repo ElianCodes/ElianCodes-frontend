@@ -1,5 +1,5 @@
 svg.social-icon {
-    @apply text-primary-green;
+    @extend .use-color;
 
     path.outside {
         @apply text-white dark:text-black;

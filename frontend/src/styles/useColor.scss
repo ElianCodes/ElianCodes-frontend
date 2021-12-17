@@ -1,0 +1,17 @@
+:root {
+    --custom-color: #93C5FD
+}
+
+.use-color {
+    color: var(--custom-color);
+    @apply transition-colors ease-in duration-500;
+}
+
+.bg-color {
+    @media (min-width: 1023px) {
+        background-color: var(--custom-color);
+        @apply transition-colors ease-in duration-500;
+    }
+}
+
+

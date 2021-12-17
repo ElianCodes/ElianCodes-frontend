@@ -1,5 +1,6 @@
 ---
 import BaseHead from './BaseHead.astro'
+import MainMenu from '../components/layout/MainMenu.astro'
 import DarkModeButton from '../components/layout/DarkMode.astro'
 import DefaultFooter from './BaseFooter.astro'
 
@@ -14,9 +15,7 @@ const { title, description, permalink } = Astro.props
         <div class="absolute top-8 left-8">
             <h1 class="page-title"><a title="go back home" href="/">Elian Codes</a></h1>
         </div>
-        <div class="absolute top-8 right-8 xl:top-12 xl:right-12 text-3xl">
-            <button title="open the menu">🍔</button>
-        </div>
+        <MainMenu />
     </header>
     <slot />
     <DarkModeButton />
