@@ -1,12 +1,14 @@
 ---
 import BaseHead from './BaseHead.astro'
+import DarkModeButton from '../components/layout/DarkMode.astro'
+
 const { title, description, permalink } = Astro.props
 ---
 <html lang="en" class="h-full">
 <head>
     <BaseHead title={title} description={description} permalink={permalink}/>
 </head>
-<body class="p-8 text-gray-900 min-h-full flex flex-col lg:flex-row relative">
+<body class="p-8 min-h-full flex flex-col lg:flex-row relative">
     <header>  
         <div class="absolute top-8 left-8">
             <h1 class="page-title"><a href="/">Elian Codes</a></h1>
@@ -16,6 +18,7 @@ const { title, description, permalink } = Astro.props
         </div>
     </header>
     <slot />
+    <DarkModeButton />
     <footer class="pt-12 lg:pt-0 lg:absolute lg:bottom-8">
         Website built with <a class="text-primary-green" target="_blank" href="https://www.astro.build/">Astro</a> & ☕️
     </footer>
