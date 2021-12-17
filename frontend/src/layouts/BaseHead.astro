@@ -51,3 +51,22 @@ const { title, description, permalink } = Astro.props
 <meta name="msapplication-TileImage" content={Astro.resolve("/ms-icon-144x144.png")}>
 <meta name="theme-color" content="#ffffff">
 <meta name="theme-color" content="#6ee7b7">
+
+<!-- Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX" client:load></script>
+<script client:load>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-LXB34WHZJX');
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-192060388-1"></script>
+<script client:load>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-192060388-1');
+</script>
+    <script client:idle async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>
