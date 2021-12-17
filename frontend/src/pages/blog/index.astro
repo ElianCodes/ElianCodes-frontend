@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.date) - new Date(a.date))
+---
+<BaseLayout title="Blog" permalink="https://www.elian.codes/blog/" description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming.">
+    <main class="mt-16 lg:mt-12 xl:mt-0 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
+        <div class="flex-1">
+            <ul>
+                {
+                    blogposts.map(post => {
+                        return (<li><a href={`/blog/${post.permalink}/`}>{post.title}</a></li>)
+                    })
+                }
+            </ul>
+        </div>
+        <div class="fixed h-full bg-color rounded-3xl pl-4 text-white flex-1">
+            
+        </div>
+    </main>
+</BaseLayout>

@@ -5,7 +5,7 @@ export default {
     pageUrlFormat: 'directory'
   },
   devOptions: {
-    trailingSlash: 'always'
+    trailingSlash: 'ignore'
   },
   renderers: [],
 };
