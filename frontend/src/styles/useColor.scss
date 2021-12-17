@@ -1,7 +1,3 @@
-:root {
-    --custom-color: #93C5FD
-}
-
 .use-color {
     color: var(--custom-color);
     @apply transition-colors ease-in duration-500;
@@ -13,5 +9,3 @@
         @apply transition-colors ease-in duration-500;
     }
 }
-
-
