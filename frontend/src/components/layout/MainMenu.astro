@@ -32,21 +32,4 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 </script>
 
-<script hoist>
-document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('eyeDropper')
-    if (!window.EyeDropper) {
-        button.classList.add('hidden')
-    } else {
-        button.addEventListener('click', e => {
-            e.preventDefault()
-            const eyeDropper = new EyeDropper();
-                eyeDropper.open().then(result => {
-                    document.documentElement.style.setProperty('--custom-color', result.sRGBHex)
-                }).catch(e => {
-                    console.log(e)
-                });
-        })
-    }
-})
-</script>
+<script src={Astro.resolve('./PickColor.ts')} hoist></script>

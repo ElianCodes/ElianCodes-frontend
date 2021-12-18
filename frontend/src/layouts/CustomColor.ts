@@ -5,4 +5,10 @@ const colors = [
     { class: 'primary-orange', code: '#FDBA74'},
     { class: 'primary-fuchsia', code: '#F0ABFC'}
 ]
-document.documentElement.style.setProperty('--custom-color', colors[Math.floor(Math.random() * colors.length)].code)
+
+// set this to trigger immediatly
+if (!('color' in localStorage)) {
+    document.documentElement.style.setProperty('--custom-color', colors[Math.floor(Math.random() * colors.length)].code)
+} else {
+    document.documentElement.style.setProperty('--custom-color', localStorage.getItem('color'))
+}
