@@ -12,3 +12,8 @@ if (!('color' in localStorage)) {
 } else {
     document.documentElement.style.setProperty('--custom-color', localStorage.getItem('color'))
 }
+
+document.addEventListener('getRandomColor', () => {
+    console.log('got new color!')
+    document.documentElement.style.setProperty('--custom-color', colors[Math.floor(Math.random() * colors.length)].code)
+})

@@ -7,10 +7,15 @@
         </ul>
     </nav>
     <button id="eyeDropper">🔍</button>
+    <button class="hidden" id="clearColor">🗑</button>
 </div>
 
 <script hoist>
 document.addEventListener('DOMContentLoaded', () => {
+    if('color' in localStorage) {
+        const clearColor = document.getElementById('clearColor')
+        clearColor.classList.remove('hidden')
+    }
     const navigation = document.getElementById('navigation')
     const button = document.getElementById('navigationButton')
     const openMenu = () => {

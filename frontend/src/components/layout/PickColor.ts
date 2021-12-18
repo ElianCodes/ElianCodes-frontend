@@ -1,18 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const button = document.getElementById('eyeDropper')
+    const colorPicker = document.getElementById('eyeDropper')
+    const clearColor = document.getElementById('clearColor')
     if (!window.EyeDropper) {
-        button.classList.add('hidden')
+        colorPicker.classList.add('hidden')
     } else {
-        button.addEventListener('click', e => {
+        colorPicker.addEventListener('click', e => {
             e.preventDefault()
             const eyeDropper = new EyeDropper();
                 eyeDropper.open().then(result => {
                     const rgbValue = result.sRGBHex
                     document.documentElement.style.setProperty('--custom-color', rgbValue)
                     localStorage.setItem('color', rgbValue)
+                    clearColor.classList.remove('hidden')
                 }).catch(e => {
                     console.log(e)
                 });
+        })
+        clearColor.addEventListener('click', e => {
+            e.preventDefault()
+            localStorage.removeItem('color')
+            clearColor.classList.add('hidden')
+            document.dispatchEvent(new Event('getRandomColor'))
         })
     }
 })
