@@ -1,0 +1,40 @@
+---
+import BaseHead from '../layouts/BaseHead.astro'
+import MainMenu from '../components/layout/MainMenu.astro'
+import DarkModeButton from '../components/layout/DarkMode.astro'
+import DefaultFooter from '../layouts/BaseFooter.astro'
+
+const pages = await fetch('https://api.elian.codes/analytics').then(res => res.json()).catch(err => console.log(err));
+---
+<html lang="en" class="h-full">
+<head>
+    <BaseHead title="page not found" />
+</head>
+<body class="p-8 min-h-full flex flex-col lg:flex-row relative">
+    <header>  
+        <div class="absolute top-8 left-8">
+            <p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>
+        </div>
+        <MainMenu color={true}/>
+    </header>
+    <main class="flex-1 w-full self-center h-full flex flex-col justify-start items-center">
+        <h1 class="text-4xl font-medium">Page not found</h1>
+        <p>seems like this page doesn't exist</p>
+        <p>Maybe take a look at the follwing pages</p>
+        <ul class="py-4">
+            {
+                pages.map(page => {
+                    return (
+                        <li class="py-1">
+                            <h2><a href={`https://${page.link}`}>{page.title}</a></h2>
+                        </li>
+                    )
+                })
+            }
+        </ul>
+        <p>These are <a class="use-color underline" target="_blank" href="https://www.npmjs.com/package/@elianvancutsem/mostvisitedpages" rel="nofollow noreferer">the most popular pages</a> on this website</p>
+    </main>
+    <DarkModeButton activateBackground={true}/>
+    <DefaultFooter />
+</body>
+</html>
