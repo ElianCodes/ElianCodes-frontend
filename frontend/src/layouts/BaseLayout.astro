@@ -4,7 +4,7 @@ import MainMenu from '../components/layout/MainMenu.astro'
 import DarkModeButton from '../components/layout/DarkMode.astro'
 import DefaultFooter from './BaseFooter.astro'
 
-const { title, description, permalink } = Astro.props
+const { title, description, permalink, useColor } = Astro.props
 ---
 <html lang="en" class="h-full">
 <head>
@@ -15,10 +15,10 @@ const { title, description, permalink } = Astro.props
         <div class="absolute top-8 left-8">
             <p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>
         </div>
-        <MainMenu />
+        <MainMenu color={useColor}/>
     </header>
     <slot />
-    <DarkModeButton />
+    <DarkModeButton activateBackground={useColor}/>
     <DefaultFooter />
 </body>
 </html>
