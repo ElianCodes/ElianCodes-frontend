@@ -4,7 +4,7 @@ const {content} = Astro.props;
 const {title, author, createdAt, description, longDescription, permalink} = content;
 const slug = `https://www.elian.codes/${permalink}/`
 ---
-<BaseLayout title={description} permalink={slug} description={longDescription}>
+<BaseLayout useColor={true} title={description} permalink={slug} description={longDescription}>
     <link rel="stylesheet" href="/assets/prism/prism.css" />
     <script src="/assets/prism/prism.js"></script>
     <article class="blog-post">
