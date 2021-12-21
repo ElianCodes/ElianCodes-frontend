@@ -2,7 +2,7 @@
 const { color } = Astro.props;
 ---
 <div class={color ? "use-color" : "text-white dark:text-gray-900"}>
-    <div class="absolute text-right top-8 right-8 xl:top-12 xl:right-12 text-3xl flex flex-row-reverse gap-8">
+    <div class="hidden absolute text-right top-8 right-8 xl:top-12 xl:right-12 text-3xl md:flex flex-row-reverse gap-8">
         <button id="navigationButton" title="open the menu">🍔</button>
         <nav id="navigation" class="hidden transition-all ease-in-out duration-300" role="menu" aria-expanded="false">
             <ul class="flex gap-8">
@@ -13,6 +13,19 @@ const { color } = Astro.props;
         <button title="Pick a new color" id="eyeDropper">🔍</button>
         <button title="Remove custome color" class="hidden" id="clearColor">🗑</button>
     </div>
+    <div class="absolute text-right top-8 right-8 xl:top-12 xl:right-12 text-3xl flex md:hidden flex-row-reverse gap-8">
+        <button id="mobileMenuOpenButton" title="open the menu">🍔</button>
+    </div>
+    <nav id="mobileNavigation" class="hidden transition-all ease-in-out duration-300 w-screen h-screen text-black bg-white absolute left-0 top-0 p-8" role="menu" aria-expanded="false">
+        <p class="text-black font-medium text-3xl">Elian Codes</p>
+        <div class="absolute text-right top-8 right-8 xl:top-12 xl:right-12 text-3xl flex md:hidden flex-row-reverse gap-8">
+            <button id="mobileMenuCloseButton" title="close the menu">🍕</button>
+        </div>
+        <ul class="flex flex-col gap-4 pt-8 self-center justify-center items-center">
+            <li class="text-2xl"><a title="to the home page" href="/">Home</a></li>
+            <li class="text-2xl"><a title="to the blog" href="/blog/">Blog</a></li>
+        </ul>
+    </nav>
 </div>
 
 <script hoist>
@@ -23,6 +36,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     const navigation = document.getElementById('navigation')
     const button = document.getElementById('navigationButton')
+    const mobileMenuOpenButton = document.getElementById('mobileMenuOpenButton')
+    const mobileMenCloseButton = document.getElementById('mobileMenuCloseButton')
+    const mobileNavigation = document.getElementById('mobileNavigation')
     const openMenu = () => {
         navigation.classList.remove('hidden')
         button.setAttribute('title', 'close the menu')
@@ -38,6 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
     button.addEventListener('click', e => {
         e.preventDefault()
         navigation.getAttribute('aria-expanded') == 'false' ? openMenu() : closeMenu()
+    })
+    mobileMenuOpenButton.addEventListener('click', e => {
+        e.preventDefault()
+        mobileNavigation.classList.remove('hidden')
+    })
+    mobileMenuCloseButton.addEventListener('click', e => {
+        e.preventDefault()
+        mobileNavigation.classList.add('hidden')
     })
 })
 </script>
