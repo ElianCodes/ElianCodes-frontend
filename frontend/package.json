@@ -26,7 +26,7 @@
     "create-env": "printenv > .env"
   },
   "devDependencies": {
-    "@astrojs/renderer-preact": "^0.3.1",
+    "@astrojs/renderer-preact": "^0.4.0",
     "@astrojs/renderer-svelte": "^0.1.2",
     "@astrojs/renderer-vue": "^0.1.9",
     "@tailwindcss/forms": "^0.3.4",
