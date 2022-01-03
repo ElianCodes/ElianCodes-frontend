@@ -13,7 +13,7 @@ const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.crea
                             <li class="mx-auto my-24 max-w-md blog-article">
                                 <a href={`/blog/${post.permalink}/`}><h3 class="text-xl font-medium">{post.title}</h3></a>
                                 <p class="py-4">{post.longDescription}</p>
-                                <a href={`/blog/${post.permalink}/`} class="mt-2 border border-color use-color border-2 rounded py-2 px-4">Read this article</a>
+                                <a href={`/blog/${post.permalink}/`} class="read-more">Read this article</a>
                             </li>
                         )
                     })
@@ -60,6 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             filterArticles()
             checkActiveFilters()
+            checkScroller()
         })
     })
 
@@ -83,4 +84,20 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
 })
+
+const checkScroller = () => {
+    const filter = document.querySelector('.blogpost-filter')
+    
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        filter.classList.add('bottom-16')
+        filter.classList.remove('bottom-8')
+    } else {
+        filter.classList.add('bottom-8')
+        filter.classList.remove('bottom-16')
+    }
+}
+
+window.onscroll = () => {
+    checkScroller()
+};
 </script>
