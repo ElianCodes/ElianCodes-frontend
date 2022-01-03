@@ -1,0 +1,14 @@
+div.blogpost-filter {
+    @apply transition-all duration-300 ease-in-out;
+    @extend .bg-color-always;
+    @apply hidden lg:flex gap-4 fixed text-white bottom-8 left-8 rounded-lg px-6 py-4;
+    button {
+        @apply transition-all duration-300 ease-in-out;
+    }
+    ul {
+        @apply transition-all duration-300 ease-in-out flex justify-start items-center gap-4;
+        .filter-item {
+            @apply cursor-pointer rounded-full p-2;
+        }
+    }
+}

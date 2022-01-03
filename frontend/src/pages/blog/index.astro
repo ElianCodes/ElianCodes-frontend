@@ -3,17 +3,17 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
 ---
 <BaseLayout useColor={true} title="Blog" permalink="https://www.elian.codes/blog/" description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming.">
-    <main class="mt-16 lg:mt-12 xl:mt-0 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
+    <main class="mt-16 lg:mt-12 flex-1 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
         <div class="flex-1">
-        <h2 class="sr-only">Blogposts</h2>
-            <ul>
+            <h2 class="sr-only">Blogposts</h2>
+            <ul class="w-full">
                 {
                     blogposts.map(post => {
                         return (
-                            <li class="my-6">
-                                <a href={`/blog/${post.permalink}/`}><h3>{post.title}</h3></a>
-                                <p>{post.longDescription}</p>
-                                <a href={`/blog/${post.permalink}/`} class="mt-2 bg-color-always rounded py-2 px-4">Read this article</a>
+                            <li class="mx-auto my-24 max-w-md blog-article">
+                                <a href={`/blog/${post.permalink}/`}><h3 class="text-xl font-medium">{post.title}</h3></a>
+                                <p class="py-4">{post.longDescription}</p>
+                                <a href={`/blog/${post.permalink}/`} class="mt-2 border border-color use-color border-2 rounded py-2 px-4">Read this article</a>
                             </li>
                         )
                     })
@@ -21,4 +21,66 @@ const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.crea
             </ul>
         </div>
     </main>
+    <div class="blogpost-filter">
+        <button id="toggleFilter" title="filter p-2 blogposts">⏩</button>
+        <div id="blogpostFilter" class="hidden">
+            <ul>
+                <li class="filter-item">💄</li>
+                <li class="filter-item">🔧</li>
+                <li class="filter-item">👽</li>
+                <li class="filter-item">✨</li>
+                <li class="filter-item">💫</li>
+                <li class="filter-item">📝</li>
+                <li class="filter-item">♻️</li>
+                <li class="filter-item">🎉</li>
+                <li class="filter-item">📈</li>
+                <li class="filter-item">🚀</li>
+            </ul>
+        </div>
+    </div>
 </BaseLayout>
+
+<script hoist>
+document.addEventListener('DOMContentLoaded', () => {
+    const filterItems = document.querySelectorAll('.filter-item')
+    const articles = document.querySelectorAll('.blog-article')
+    let activeFilters = []
+
+    document.getElementById('toggleFilter').addEventListener('click', () => {
+        document.getElementById('toggleFilter').classList.toggle('rotate-180')
+        document.getElementById('blogpostFilter').classList.toggle('hidden')
+    })
+
+    filterItems.forEach(item => {
+        item.addEventListener('click', () => {
+            articles.forEach(article => article.classList.add('hidden'))
+
+            const filterItem = item.innerHTML.toString()
+            activeFilters.includes(filterItem) ? activeFilters = activeFilters.filter(item => item !== filterItem) : activeFilters.push(filterItem)
+            
+            filterArticles()
+            checkActiveFilters()
+        })
+    })
+
+    const filterArticles = () => {
+        articles.forEach(article => {
+            const articleTitle = article.childNodes[1].firstChild.innerHTML.toString();
+            activeFilters.forEach(filterItem => {
+                if(articleTitle.includes(filterItem)) {
+                    article.classList.remove('hidden')
+                }
+            })  
+        })
+        if(activeFilters.length == 0){
+            articles.forEach(article => article.classList.remove('hidden'))
+        }
+    }
+
+    const checkActiveFilters = () => {
+        filterItems.forEach(item => {
+            activeFilters.includes(item.innerHTML) ? item.classList.add('bg-gray-600') : item.classList.remove('bg-gray-600')
+        })
+    }
+})
+</script>

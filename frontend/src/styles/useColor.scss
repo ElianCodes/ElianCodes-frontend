@@ -13,3 +13,7 @@
         @apply transition-colors ease-in duration-500;
     }
 }
+
+.border-color {
+    border-color: var(--custom-color);
+}
