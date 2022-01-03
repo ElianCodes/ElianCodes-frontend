@@ -10,8 +10,10 @@ const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.crea
                 {
                     blogposts.map(post => {
                         return (
-                            <li>
+                            <li class="my-6">
                                 <a href={`/blog/${post.permalink}/`}><h3>{post.title}</h3></a>
+                                <p>{post.longDescription}</p>
+                                <a href={`/blog/${post.permalink}/`} class="mt-2 bg-color-always rounded py-2 px-4">Read this article</a>
                             </li>
                         )
                     })

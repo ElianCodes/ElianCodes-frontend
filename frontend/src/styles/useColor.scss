@@ -4,6 +4,10 @@
 }
 
 .bg-color {
+    &-always {
+        background-color: var(--custom-color);
+        @apply transition-colors ease-in duration-500; 
+    }
     @media (min-width: 1023px) {
         background-color: var(--custom-color);
         @apply transition-colors ease-in duration-500;
