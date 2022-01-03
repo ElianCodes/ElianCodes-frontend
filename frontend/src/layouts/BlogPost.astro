@@ -1,5 +1,7 @@
 ---
 import BaseLayout from './BaseLayout.astro'
+import BackArrow from '../components/layout/BackArrow.astro'
+
 const {content} = Astro.props;
 const {title, author, createdAt, description, longDescription, permalink} = content;
 const slug = `https://www.elian.codes/${permalink}/`
@@ -8,7 +10,9 @@ const slug = `https://www.elian.codes/${permalink}/`
     <link rel="stylesheet" href="/assets/prism/prism.css" />
     <script src="/assets/prism/prism.js"></script>
     <article class="blog-post">
+        <BackArrow link="/blog/" text="Back to all posts"/>
         <slot />
         <p>Written by {author} on {createdAt}</p>
+        <BackArrow link="/blog/" text="Back to all posts"/>
     </article>
 </BaseLayout>
