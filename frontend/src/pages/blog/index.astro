@@ -22,7 +22,7 @@ const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.crea
         </div>
     </main>
     <div class="blogpost-filter">
-        <button id="toggleFilter" title="filter p-2 blogposts">⏩</button>
+        <button id="toggleFilter" class="p-2" title="filter blogposts">➡️</button>
         <div id="blogpostFilter" class="hidden">
             <ul>
                 <li class="filter-item">💄</li>
@@ -42,6 +42,7 @@ const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.crea
 
 <script hoist>
 document.addEventListener('DOMContentLoaded', () => {
+    checkScroller()
     const filterItems = document.querySelectorAll('.filter-item')
     const articles = document.querySelectorAll('.blog-article')
     let activeFilters = []
