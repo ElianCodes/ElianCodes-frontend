@@ -5,12 +5,13 @@ const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.crea
 <BaseLayout useColor={true} title="Blog" permalink="https://www.elian.codes/blog/" description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming.">
     <main class="mt-16 lg:mt-12 xl:mt-0 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
         <div class="flex-1">
+        <h2 class="sr-only">Blogposts</h2>
             <ul>
                 {
                     blogposts.map(post => {
                         return (
                             <li>
-                                <a href={`/blog/${post.permalink}/`}>{post.title}</a>
+                                <a href={`/blog/${post.permalink}/`}><h3>{post.title}</h3></a>
                             </li>
                         )
                     })

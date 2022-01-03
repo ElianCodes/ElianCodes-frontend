@@ -4,7 +4,7 @@ import MainMenu from '../components/layout/MainMenu.astro'
 import DarkModeButton from '../components/layout/DarkMode.astro'
 import DefaultFooter from './BaseFooter.astro'
 
-const { title, description, permalink, useColor } = Astro.props
+const { title, description, permalink, useColor, deactivateHeading } = Astro.props
 ---
 <html lang="en" class="h-full">
 <head>
@@ -13,7 +13,7 @@ const { title, description, permalink, useColor } = Astro.props
 <body class="p-8 min-h-full flex flex-col lg:flex-row relative">
     <header>  
         <div class="absolute top-8 left-8">
-            <p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>
+            { deactivateHeading ? (<p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>) : (<h1 class="page-title"><a title="go back home" href="/">Elian Codes</a></h1>)}
         </div>
         <MainMenu color={useColor}/>
     </header>
