@@ -1,6 +1,17 @@
 ---
 const { title, description, permalink } = Astro.props
 ---
+<!-- load first to prevent screen flicker -->
+<script src={Astro.resolve("./DarkMode.ts")} hoist></script>
+<style>
+html {
+    background-color: white;
+}
+html.dark {
+    background-color: black;
+}
+</style>
+
 <!-- global -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
