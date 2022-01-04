@@ -16,11 +16,11 @@ const getCookie = (cname: string): string => {
     return "";
 }
 
-const setCookie = (cvalue: string) => {
+const setCookie = (cname: string, cvalue: string) => {
     const d = new Date();
     d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
     let expires = "expires="+d.toUTCString();
-    document.cookie = "acceptedCookies=" + cvalue + ";" + expires + ";path=/";
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }
 
 const showCookies = (): void => {
@@ -50,16 +50,16 @@ document.addEventListener('DOMContentLoaded', (): void => {
 
     document.getElementById('acceptFullCookies').addEventListener('click', (): void => {
         hideCookies()
-        setCookie("acceptedFull")
+        setCookie("acceptedCookies", "acceptedFull")
     })
     
     document.getElementById('acceptMinimalCookies').addEventListener('click', (): void => {
         hideCookies()
-        setCookie("acceptedMinimal")
+        setCookie("acceptedCookies", "acceptedMinimal")
     })
     
     document.getElementById('closeCookies').addEventListener('click', (): void => {
         hideCookies()
-        setCookie("acceptedMinimal")
+        setCookie("acceptedCookies", "acceptedMinimal")
     })
 })
