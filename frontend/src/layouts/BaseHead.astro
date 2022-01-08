@@ -20,7 +20,7 @@ html.dark {
 <link rel="alternate" href="https://www.elian.codes/blog.xml" type="application/rss+xml">
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
+<meta name="title" content={`Elian Codes | ${title}`} />
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <link rel="canonical" href={permalink} />
@@ -30,7 +30,9 @@ html.dark {
 <meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
+
 <meta property="og:image" content="https://www.elian.codes/assets/img/social.jpg" />
+<meta property="twitter:image" content="https://www.elian.codes/assets/img/social.jpg" />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
