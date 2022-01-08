@@ -1,22 +1,37 @@
 ---
-export async function getStaticPaths({rss}) {
-  const allPosts = Astro.fetchContent('./**/*.md');
-  const sortedPosts = allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)).slice(0, 5);
-  rss({
-    title: 'Elian Van Cutsem',
-    description: 'Programming and Frontend related articles',
-    customData: `<language>en-us</language>`,
-    items: sortedPosts.map(post => ({
-      title: post.title,
-      description: post.longDescription,
-      link: post.url,
-      pubDate: post.createdAt,
-      author: { name: post.author },
-      image: post.imgUrl,
-      id: post.slug,
-    })),
-    dest: "/blog.xml",
-  });
-  return [];
+const allPosts = Astro.fetchContent('./*.md');
+const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+export async function getStaticPaths({ rss }) {
+	const allPosts = Astro.fetchContent('./*.md');
+	const sortedPosts = allPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+	rss({
+		title: 'Elian Van Cutsem',
+		description: 'Programming and Frontend related articles',
+		customData: `<language>en-us</language>`,
+		items: sortedPosts.map(post => ({
+			title: post.title,
+			description: post.longDescription,
+			link: post.permalink,
+			pubDate: post.createdAt,
+			author: { name: post.author },
+			image: post.imgUrl,
+			id: post.slug,
+		})),
+		dest: "/blog.xml",
+	});
+	return sortedPosts
 }
 ---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<p>Yea boy this is a blog</p>
+</body>
+</html>

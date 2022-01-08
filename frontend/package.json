@@ -1,43 +1,18 @@
 {
   "name": "eliancodes-frontend",
-  "version": "0.2.0",
-  "description": "The ElianDotCodes frontend written in Astro",
-  "private": false,
-  "author": {
-    "name": "Elian Van Cutsem",
-    "email": "hello@elian.codes",
-    "url": "https://www.elian.codes/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io",
-    "directory": "frontend"
-  },
-  "bugs": {
-    "url": "https://github.com/ElianVanCutsem/elianvancutsem.github.io/issues",
-    "email": "hello@elian.codes"
-  },
-  "displayName": "ElianCodes",
-  "homepage": "https://www.elian.codes/",
+  "version": "0.3.0",
+  "private": true,
   "scripts": {
     "dev": "astro dev",
+    "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "create-env": "printenv > .env"
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/renderer-preact": "^0.3.1",
-    "@astrojs/renderer-svelte": "^0.1.2",
-    "@astrojs/renderer-vue": "^0.1.9",
-    "@tailwindcss/forms": "^0.3.4",
-    "@tailwindcss/line-clamp": "^0.2.2",
-    "@tailwindcss/typography": "^0.4.1",
-    "@types/node": "^16.11.11",
-    "astro": "^0.20.12",
-    "tailwindcss": "^2.2.19"
-  },
-  "dependencies": {
-    "aos": "^3.0.0-beta.6",
-    "css-paint-polyfill": "^3.3.0"
+    "@tailwindcss/typography": "^0.5.0",
+    "astro": "0.22.9",
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.12"
   }
 }

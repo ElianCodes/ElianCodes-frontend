@@ -1,0 +1,7 @@
+svg.social-icon {
+    @extend .use-color;
+
+    path.outside {
+        @apply text-white dark:text-black;
+    }
+}

@@ -1,0 +1,25 @@
+div.blogpost-filter {
+    @apply transition-all duration-300 ease-in-out;
+    @extend .bg-color-always;
+    @apply hidden lg:flex gap-4 fixed text-white left-8 rounded-lg px-6 py-4;
+    button {
+        @apply transition-all duration-300 ease-in-out;
+    }
+    ul {
+        @apply transition-all duration-300 ease-in-out flex justify-start items-center gap-4;
+        .filter-item {
+            @apply cursor-pointer rounded-full p-2;
+        }       
+    }
+}
+
+.read-more {
+    @extend .border-color;
+    @extend .use-color;
+    @apply mt-2 border-2 rounded py-2 px-4 transition-colors ease-in-out duration-300;
+}
+
+.read-more:hover {
+    @extend .bg-color-always;
+    @apply text-white dark:text-black;
+}

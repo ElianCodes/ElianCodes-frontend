@@ -11,7 +11,7 @@ description: Using slots to build layouts in Astro
 imgUrl: https://css-tricks.com/wp-content/uploads/2021/05/astro-homepage.png
 longDescription: Coming from frameworks like NuxtJS and NextJS, I always liked the layout feature. It's a quick way to reuse shared components without re-importing them in every page. When I started with Astro, I had no idea that this was also possible.
 layout: '../../layouts/BlogPost.astro'
-permalink: '25-09-21-using-slots-to-build-layouts-in-astro'
+permalink: '09-25-21-using-slots-to-build-layouts-in-astro'
 ---
 
 # Using slots to build layout in Astro
@@ -26,7 +26,7 @@ After some time experimenting somewhat more with Astro, I actually understood th
 
 Building layouts in Nuxt is really easy (or I'm just very used to it). There's a `layouts` folder in which you create a new file
 
-```jsx
+```html
 <template>
   <div>
     <TheHeader />
@@ -38,7 +38,7 @@ Building layouts in Nuxt is really easy (or I'm just very used to it). There's a
 
 If the Nuxt layout component was named `Default.vue` you can just add `layout: 'default` in a page to use the layout. The `<Nuxt />` element will then be replaced by the `<template>` contents of your page Vue template.
 
-```jsx
+```html
 <template>
   <main>
     <h1>Look ma, a layout</h1>
@@ -63,7 +63,7 @@ In Astro, it's actually quite simple to also do this, you just gotta forget what
 
 Let's define a new Astro template in the `/src/layouts` folder and call it `Default.astro`. In this template, we make use of the Astro `<slot />` component to tell Astro where to render in the content of our page. Every page will then ofcourse have different content, with a shared `<YourHeadComponent />`, `<YourHeaderComponent />` and `<YourFooterComponent />`.
 
-```astro
+```html
 ---
 import YourHeadComponent from '../components/layout/Head.astro
 import YourHeaderComponent from '../components/layout/Header.astro
@@ -85,7 +85,7 @@ import YourFooterComponent from '../components/layout/Footer.astro
 
 To then also use the layout we defined above, we just have to create a new page in the `/src/pages` folder and import our `<DefaultLayout>` component we just defined.
 
-```astro
+```html
 ---
 import DefaultLayout from '../layouts/Default.astro
 ---

@@ -1,0 +1,26 @@
+---
+import BaseHead from './BaseHead.astro'
+import MainMenu from '../components/layout/MainMenu.astro'
+import DarkModeButton from '../components/layout/DarkMode.astro'
+import DefaultFooter from './BaseFooter.astro'
+import CookieBanner from '../components/layout/CookieBanner.astro'
+
+const { title, description, permalink, useColor, deactivateHeading } = Astro.props
+---
+<html lang="en" class="h-full">
+<head>
+    <BaseHead title={title} description={description} permalink={permalink}/>
+</head>
+<body class="p-8 min-h-full flex flex-col lg:flex-row relative">
+    <header>  
+        <div class="absolute top-8 left-8">
+            { deactivateHeading ? (<p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>) : (<h1 class="page-title"><a title="go back home" href="/">Elian Codes</a></h1>)}
+        </div>
+        <MainMenu color={useColor}/>
+    </header>
+    <slot />
+    <CookieBanner />
+    <DarkModeButton activateBackground={useColor}/>
+    <DefaultFooter />
+</body>
+</html>

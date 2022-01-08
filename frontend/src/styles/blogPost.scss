@@ -1,0 +1,29 @@
+article.blog-post {
+    @apply py-24 prose-sm w-full xl:prose mx-auto dark:text-gray-200;
+    h1, h2, h3, h4, h5, h6, p {
+        @apply dark:text-gray-200;
+    }
+    a {
+        color: var(--custom-color);
+        @apply transition-colors ease-in-out duration-500;
+    }
+    p code {
+        @apply dark:text-gray-200 dark:bg-gray-700 rounded;
+    }
+    pre {
+        @apply dark:bg-gray-800 bg-gray-200;
+    }
+    code[class*=language-], pre[class*=language-] {
+        text-shadow: none;
+        @apply dark:text-inherit shadow-none;
+        span.token.operator {
+            @apply dark:bg-gray-800 bg-gray-200;
+        }
+    }
+    h1 {
+        @apply text-2xl xl:text-4xl pb-4;
+    }
+    pre {
+        @apply w-full
+    }
+}

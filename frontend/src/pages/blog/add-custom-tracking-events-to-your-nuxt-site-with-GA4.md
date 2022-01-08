@@ -108,7 +108,7 @@ We can use this snippet in every component since we added `vue-gtag` as a compon
 
 So to send a custom event trigger we can use the `v-on:click` or any other directive to call a method. Here's an example:
 
-```vue
+```html
 <template>
   <a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
     <svg >
@@ -131,7 +131,7 @@ export default {
 
 Now we need to only add a custom event to it:
 
-```vue
+```html
 <template>
   <a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
     <svg >

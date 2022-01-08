@@ -26,7 +26,7 @@ If you're looking to understand the basics of [Stylus](https://stylus-lang.com/)
 
 First of all, let's [install the basic Nuxt boilerplate](https://nuxtjs.org/docs/2.x/get-started/installation)
 
-```
+```bash
 npx create-nuxt-app your-awesome-website
 ```
 
@@ -40,7 +40,7 @@ Now that Nuxt is installed, you should be able to run `yarn dev` or `npm run dev
 
 To start using Pug as a templating engine in Nuxt, we firstly have to install the language processor itself, to do this, we'll use two packages, one as the language and one as the loader so that Nuxt knows how to handle and compile the templates.
 
-```
+```bash
 yarn add -D pug pug-plain-loader
 ```
 
@@ -54,7 +54,7 @@ If you have been using pug for a while, you'll know that Pug in itself is a temp
 
 Nuxt has a default folder called `layouts/` in which it let's you define and create your own layouts using the `<nuxt />` element to show where page content should go. This works exactly the same in Pug:
 
-```
+```html
 <template lang="pug">
 div
     header
@@ -81,7 +81,7 @@ Static assets are as simple as HTML where you include the relative path in the `
 
 Here's how to use a dynamic asset:
 
-```
+```html
 <template lang="pug">
 ul
     li(v-for="icon in icons" :key="icon")
@@ -129,7 +129,7 @@ export default {
 
 to actually make the component above work, we would still need something like this:
 
-```
+```html
 <template lang="pug">
 div
     UsingVueVariables(

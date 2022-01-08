@@ -1,18 +1,40 @@
 ---
-import DefaultLayout from '../../layouts/Default.astro';
-import BlogOverview from '../../components/blog/BlogOverview.astro'
-import BlogScripts from '../../components/layout/BlogScripts.astro'
-
-const title = 'Elian Van Cutsem | Blog';
-const description = 'Software Engineer @vBridge BV';
-const permalink = 'https://www.elian.codes/blog/';
-
-let allPosts = Astro.fetchContent('./*.md');
-allPosts = allPosts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+import BaseLayout from '../../layouts/BaseLayout.astro'
+const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️', '🎉', '🔍', '📈', '🚀']
 ---
-<DefaultLayout title={title} description={description} permalink={permalink}>
-  <main class="blog-index">
-    <BlogOverview articles={allPosts} />
-  </main>
-  <BlogScripts />
-</DefaultLayout>
+<BaseLayout useColor={true} title="Blog" permalink="https://www.elian.codes/blog/" description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming.">
+    <main class="mt-16 lg:mt-12 flex-1 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
+        <div class="flex-1">
+            <h2 class="sr-only">Blogposts</h2>
+            <ul class="w-full">
+                {
+                    blogposts.map(post => {
+                        return (
+                            <li class="mx-auto my-24 max-w-md blog-article">
+                                <a href={`/blog/${post.permalink}/`}><h3 class="text-xl font-medium">{post.title}</h3></a>
+                                <p class="py-4">{post.longDescription}</p>
+                                <p class="pb-4">Published: {post.createdAt} by {post.author}</p>
+                                <a href={`/blog/${post.permalink}/`} class="read-more">Read this article</a>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </div>
+    </main>
+    <div class="blogpost-filter">
+        <button type="button" id="toggleFilter" class="p-2" title="filter blogposts">➡️</button>
+        <div id="blogpostFilter" class="hidden">
+            <ul>
+                { availableFilters.map(filter => {
+                    return (
+                        <li class="filter-item">{filter}</li>
+                    )
+                })}
+            </ul>
+        </div>
+    </div>
+</BaseLayout>
+
+<script src={Astro.resolve('../../components/blog/blogFilter.ts')} hoist></script>

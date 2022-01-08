@@ -25,7 +25,7 @@ So you it seems that nuxt simply allows you to set your own custom component as 
 
 Just build your template as you like it. Mine was as follows: (ofcourse it uses TailwindCSS, so don't mind the crazy classes)
 
-```vue
+```html
 <template>
   <div class="absolute z-50 w-full h-full overflow-hidden flex justify-center items-center" v-if="loading">
       <div class="h-14 w-14 animate-pulse bg-green-300 rounded-full flex justify-center items-center">
@@ -40,7 +40,7 @@ Just build your template as you like it. Mine was as follows: (ofcourse it uses 
 
 then we just have to add the script with the props that Nuxt provides us with:
 
-```vue
+```html
 <script>
   export default {
     data: () => ({
