@@ -7,45 +7,45 @@ import DefaultFooter from '../layouts/BaseFooter.astro'
 const pages = await fetch('https://api.elian.codes/analytics').then(res => res.json()).catch(err => console.log(err));
 ---
 <html lang="en" class="h-full">
-<head>
-    <BaseHead title="page not found" />
-</head>
-<body class="p-8 min-h-full flex flex-col lg:flex-row relative">
-    <header>  
-        <div class="absolute top-8 left-8">
-            <p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>
-        </div>
-        <MainMenu color={true}/>
-    </header>
-    <main class="flex-1 mt-24 lg:mt-0 w-full self-center h-full flex flex-col justify-start items-center">
-        <h1 class="text-4xl pb-2 font-medium">Page not found</h1>
-        <p class="pb-4">seems like this page doesn't exist</p>
-        <p>Maybe take a look at the follwing pages</p>
-        <ul class="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
-            {
-                pages.map(page => {
-                    return (
-                        <li class="relative space-x-4">
-                            <a href="#" class="py-6 focus:outline-none flex items-start">
-                                <div class="min-w-full flex-1">
-                                    <h2 class="text-base font-medium">
-                                        {page.title}
-                                    </h2>
-                                </div>
-                                <div class="flex-shrink-0 self-center">
-                                    <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                        <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                    </svg>
-                                </div>
-                            </a>
-                        </li>
-                    )
-                })
-            }
-        </ul>
-        <p class="pt-8">These are <a class="use-color underline" target="_blank" href="https://www.npmjs.com/package/@elianvancutsem/mostvisitedpages" rel="nofollow noreferer">the most popular pages</a> on this website</p>
-    </main>
-    <DarkModeButton activateBackground={true}/>
-    <DefaultFooter />
-</body>
+	<head>
+		<BaseHead title="page not found" />
+	</head>
+	<body class="p-8 min-h-full flex flex-col lg:flex-row relative">
+		<header>  
+			<div class="absolute top-8 left-8">
+				<p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>
+			</div>
+				<MainMenu color={true}/>
+		</header>
+		<main class="flex-1 mt-24 lg:mt-0 w-full self-center h-full flex flex-col justify-start items-center">
+			<h1 class="text-4xl pb-2 font-medium">Page not found</h1>
+			<p class="pb-4">seems like this page doesn't exist</p>
+			<p>Maybe take a look at the follwing pages</p>
+			<ul class="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
+				{
+					pages.map(page => {
+						return (
+							<li class="relative space-x-4">
+								<a href="#" class="py-6 focus:outline-none flex items-start">
+									<div class="min-w-full flex-1">
+										<h2 class="text-base font-medium">
+											{page.title}
+										</h2>
+									</div>
+									<div class="flex-shrink-0 self-center">
+										<svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+											<path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+										</svg>
+									</div>
+								</a>
+							</li>
+						)
+					})
+				}
+			</ul>
+			<p class="pt-8">These are <a class="use-color underline" target="_blank" href="https://www.npmjs.com/package/@elianvancutsem/mostvisitedpages" rel="nofollow noreferer">the most popular pages</a> on this website</p>
+		</main>
+		<DarkModeButton activateBackground={true}/>
+		<DefaultFooter />
+	</body>
 </html>
