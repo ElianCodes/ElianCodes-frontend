@@ -66,4 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 </script>
 
-<script src={Astro.resolve('./PickColor.ts')} hoist></script>
+<script hoist>
+    import './PickColor.ts'
+</script>

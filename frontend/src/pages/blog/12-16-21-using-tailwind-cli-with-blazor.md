@@ -24,7 +24,7 @@ Last year [I wrote an article](<https://www.elian.codes/blog/configure-tailwindc
 First of all, you should install a `dotnet` version on your local system. Since I use windows, I use `choco` to install my dotnet SDK.  
 You can also install it from [their website](https://dotnet.microsoft.com/en-us/learn/aspnet/blazor-tutorial/install).
 
-```sh
+```bash
 choco install dotnetcore-sdk -y
 ```
 
@@ -34,7 +34,7 @@ Note: I used version dotnet-core 5 for this 'project'
 
 Starting a new project is easy, just put the follow command in your terminal:
 
-```sh
+```bash
 dotnet new blazorserver -o YourAppName
 ```
 
@@ -62,7 +62,7 @@ Once the file is downloaded, move it to the current project directory.
 
 Now we can make a new config file by running the following command in the project root
 
-```sh
+```bash
 ./tailwind init
 ```
 
@@ -82,7 +82,7 @@ The only thing we need to do now, is build our Tailwind config into browser read
 
 The TailwindCLI has a command for building and watching the css file. At the moment, we still need to give the entire path to the input and output path, but you can build a seperate script to take care of this ofcourse!
 
-```sh
+```bash
 ./tailwindcss -i ./wwwroot/css/tailwind.css -o ./wwwroot/css/output.css
 ```
 

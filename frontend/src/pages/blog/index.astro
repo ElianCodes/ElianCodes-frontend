@@ -37,4 +37,6 @@ const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️
 	</div>
 </BaseLayout>
 
-<script src={Astro.resolve('../../components/blog/blogFilter.ts')} hoist></script>
+<script hoist>
+	import '../../components/blog/blogFilter.ts'
+</script>

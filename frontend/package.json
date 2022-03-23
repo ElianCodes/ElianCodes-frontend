@@ -1,6 +1,6 @@
 {
   "name": "eliancodes-frontend",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -9,10 +9,12 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.0",
-    "astro": "0.22.9",
-    "autoprefixer": "^10.4.2",
-    "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.15"
+    "@tailwindcss/typography": "^0.5.2",
+    "astro": "0.24.3",
+    "autoprefixer": "^10.4.4",
+    "postcss": "^8.4.12",
+    "postcss-import": "^14.1.0",
+    "sass": "^1.49.9",
+    "tailwindcss": "^3.0.23"
   }
 }
