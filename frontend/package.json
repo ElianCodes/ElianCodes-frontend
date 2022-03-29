@@ -10,7 +10,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.2",
-    "astro": "0.24.3",
+    "astro": "0.25.4",
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
     "postcss-import": "^14.1.0",
