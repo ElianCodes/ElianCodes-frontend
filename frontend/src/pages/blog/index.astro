@@ -14,7 +14,7 @@ const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️
 							<li class="mx-auto my-24 max-w-md blog-article">
 								<a href={`/blog/${post.permalink}/`}><h3 class="text-xl font-medium">{post.title}</h3></a>
 								<p class="py-4">{post.longDescription}</p>
-								<p class="pb-4">Published: {post.createdAt} by {post.author}</p>
+								<p class="pb-4">Published: {new Date(post.createdAt).toLocaleDateString()} by {post.author}</p>
 								<a href={`/blog/${post.permalink}/`} class="read-more">Read this article</a>
 							</li>
 						)
