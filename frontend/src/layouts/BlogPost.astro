@@ -7,8 +7,6 @@ const {title, author, createdAt, description, longDescription, permalink} = cont
 const slug = `https://www.elian.codes/${permalink}/`
 ---
 <BaseLayout deactivateHeading={true} useColor={true} title={description} permalink={slug} description={longDescription}>
-	<link rel="stylesheet" href="/assets/prism/prism.css" />
-	<script src="/assets/prism/prism.js"></script>
 	<main class="w-full">
 		<article class="blog-post">
 			<BackArrow link="/blog/" text="Back to all posts"/>

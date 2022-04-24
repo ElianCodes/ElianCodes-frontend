@@ -9,8 +9,9 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^0.1.0",
     "@tailwindcss/typography": "^0.5.2",
-    "astro": "0.24.3",
+    "astro": "v1.0.0-beta.2",
     "autoprefixer": "^10.4.4",
     "postcss": "^8.4.12",
     "postcss-import": "^14.1.0",
