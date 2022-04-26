@@ -15,7 +15,7 @@ const { title, description, permalink, useColor, deactivateHeading } = Astro.pro
 	<body class="p-8 min-h-full flex flex-col lg:flex-row relative">
     <header>  
 			<div class="absolute top-8 left-8">
-				{ deactivateHeading ? (<p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>) : (<h1 class="page-title"><a title="go back home" href="/">Elian Codes</a></h1>)}
+				{ deactivateHeading ? (<p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>) : (<h1 class="page-title" data-aos="fade-down"><a title="go back home" href="/">Elian Codes</a></h1>)}
 			</div>
 			<MainMenu color={useColor}/>
     </header>
