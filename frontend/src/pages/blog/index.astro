@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-const blogposts = Astro.fetchContent('./**/*.md').sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+const blogposts = await Astro.glob('./**/*.md').then(posts => posts.sort((a, b) => new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)))
 const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️', '🎉', '🔍', '📈', '🚀']
 ---
 <BaseLayout useColor={true} title="Blog" permalink="https://www.elian.codes/blog/" description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming.">
@@ -12,10 +12,10 @@ const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️
 					blogposts.map(post => {
 						return (
 							<li class="mx-auto my-24 max-w-md blog-article">
-								<a href={`/blog/${post.permalink}/`}><h3 class="text-xl font-medium">{post.title}</h3></a>
-								<p class="py-4">{post.longDescription}</p>
-								<p class="pb-4">Published: {new Date(post.createdAt).toLocaleDateString()} by {post.author}</p>
-								<a href={`/blog/${post.permalink}/`} class="read-more">Read this article</a>
+								<a href={`/blog/${post.frontmatter.permalink}/`}><h3 class="text-xl font-medium">{post.frontmatter.title}</h3></a>
+								<p class="py-4">{post.frontmatter.longDescription}</p>
+								<p class="pb-4">Published: {new Date(post.frontmatter.createdAt).toLocaleDateString()} by {post.frontmatter.author}</p>
+								<a href={`/blog/${post.frontmatter.permalink}/`} class="read-more">Read this article</a>
 							</li>
 						)
 					})
@@ -37,6 +37,6 @@ const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️
 	</div>
 </BaseLayout>
 
-<script hoist>
+<script>
 	import '../../components/blog/blogFilter.ts'
 </script>

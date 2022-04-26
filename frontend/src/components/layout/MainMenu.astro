@@ -28,7 +28,7 @@ const { color } = Astro.props;
     </nav>
 </div>
 
-<script hoist>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
     if('color' in localStorage) {
         const clearColor = document.getElementById('clearColor')
@@ -66,6 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 </script>
 
-<script hoist>
+<script>
     import './PickColor.ts'
 </script>

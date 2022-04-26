@@ -1,11 +1,14 @@
-export default {
-  buildOptions: {
-    site: 'https://www.elian.codes',
-    sitemap: true,
-    pageUrlFormat: 'directory'
+import { defineConfig } from 'astro/config';
+import sitemap from "@astrojs/sitemap";
+
+// https://astro.build/config
+export default defineConfig({
+  trailingSlash: 'ignore',
+  site: 'https://www.elian.codes',
+  server: {
+    port: 3000
   },
-  devOptions: {
-    trailingSlash: 'ignore'
-  },
-  renderers: [],
-};
+  integrations: [sitemap({
+    canonicalURL: 'https://www.elian.codes',
+  })]
+});
