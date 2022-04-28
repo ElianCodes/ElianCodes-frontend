@@ -1,0 +1,49 @@
+<footer id="footer" class="opacity-0 pt-12 lg:pt-0 lg:absolute lg:bottom-8 transition-opacity ease-in-out duration-500">
+	Website built with <a id="footerTechnology" class="use-color" title="go to the " target="_blank" href="">test</a> & ☕️
+</footer>
+
+<script> 
+	const updateDOM = (technology) => {
+		const footer = document.getElementById('footerTechnology')
+		footer.innerHTML = technology.name
+		footer.setAttribute('title', `go to the ${technology.name} website`)
+		footer.setAttribute('href', technology.link)
+		document.getElementById('footer').classList.remove('opacity-0')
+	}
+	const setTechnology = async () => {
+		await fetch('https://api.elian.codes/technologies').then(res => res.json()).then(technologies => {
+			updateDOM(technologies[(Math.floor(Math.random() * technologies.length))])
+		}).catch(() => {
+			updateDOM({ name: 'Astro', link: 'https://www.astro.build'})
+		})
+	}
+	setTechnology()
+</script>
+
+<script>
+	import './CustomColor.ts'
+</script>
+
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: import.meta.env.API_KEY,
+    authDomain: "eliancodes-1632771244788.firebaseapp.com",
+    projectId: "eliancodes-1632771244788",
+    storageBucket: "eliancodes-1632771244788.appspot.com",
+    messagingSenderId: import.meta.env.MSG_ID,
+    appId: import.meta.env.APP_ID,
+    measurementId: import.meta.env.GA_ID
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>

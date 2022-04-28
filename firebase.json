@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "eliancodes-1632771244788",
     "public": "dist",
     "ignore": []
   }
