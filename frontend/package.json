@@ -6,7 +6,9 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "firebase deploy",
+    "prerelease": "firebase hosting:channel:deploy canary"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^0.1.0",

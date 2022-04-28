@@ -1,5 +1,7 @@
 # build output
 dist
+.firebase/
+.firebaserc
 
 # dependencies
 node_modules/
