@@ -7,10 +7,18 @@ interface Technology {
 }
 
 export const technologies: HttpsFunction = https.onRequest(
-    async (_req: Request, res: Response) => {
-      admin.initializeApp({
-        projectId: "eliancodes-1632771244788",
-      });
+    async (req: Request, res: Response) => {
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Methods", "GET, POST");
+      res.setHeader("Content-Type", "application/json");
+
+      if (req.method === "OPTIONS") {
+        // stop preflight requests here
+        res.status(204).send();
+        return;
+      }
+
+      !admin.apps.length ? admin.initializeApp() : admin.app();
       const db = admin.firestore();
 
       const technologies: Technology[] = await (
