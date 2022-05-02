@@ -18,3 +18,5 @@ yarn-error.log*
 
 # macOS-specific files
 .DS_Store
+
+firebase-debug.log
