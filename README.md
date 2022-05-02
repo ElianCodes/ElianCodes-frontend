@@ -5,6 +5,7 @@ The full sourcecode for my personal website. Written in [Astro](<https://astro.b
 Previous version of this website used [Nuxt](<https://www.nuxtjs.org>), [Vue](<https://www.vuejs.org>) and [TypeScript](<https://www.typescript-lang.com>).
 
 ## Deployment and Hosting
+
 At the moment, this website is hosted on Firebase as a static site and some Firebase functions to use as an API. The DNS is controlled by [CloudFlare](<https://www.cloudflare.com>).
 
 The website was previously hosted on [Google Cloud Storage](<https://cloud.google.com/storage>) as a static folder in a public bucket, but firebase was a better (and cheaper) option.
