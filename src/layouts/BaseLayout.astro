@@ -1,10 +1,10 @@
 ---
 import BaseHead from './BaseHead.astro'
-import MainMenu from '../components/layout/MainMenu.astro'
-import DarkModeButton from '../components/layout/DarkMode.astro'
+import MainMenu from '@components/layout/MainMenu.astro'
+import DarkModeButton from '@components/layout/DarkMode.astro'
 import DefaultFooter from './BaseFooter.astro'
-import CookieBanner from '../components/layout/CookieBanner.astro'
-import '../styles/tailwind.scss';
+import CookieBanner from '@components/layout/CookieBanner.astro'
+import '@styles/tailwind.scss';
 
 const { title, description, permalink, useColor, deactivateHeading } = Astro.props
 ---

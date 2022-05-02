@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'
+import BaseLayout from '@layouts/BaseLayout.astro'
 const blogposts = await Astro.glob('./**/*.md').then(posts => posts.sort((a, b) => new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)))
 const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️', '🎉', '🔍', '📈', '🚀']
 ---

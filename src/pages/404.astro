@@ -1,8 +1,8 @@
 ---
-import BaseHead from '../layouts/BaseHead.astro'
-import MainMenu from '../components/layout/MainMenu.astro'
-import DarkModeButton from '../components/layout/DarkMode.astro'
-import DefaultFooter from '../layouts/BaseFooter.astro'
+import BaseHead from '@layouts/BaseHead.astro'
+import MainMenu from '@components/layout/MainMenu.astro'
+import DarkModeButton from '@components/layout/DarkMode.astro'
+import DefaultFooter from '@layouts/BaseFooter.astro'
 
 const pages = await fetch('https://api.elian.codes/analytics').then(res => res.json()).catch(err => console.log(err));
 ---
