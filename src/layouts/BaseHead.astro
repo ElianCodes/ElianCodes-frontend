@@ -1,5 +1,6 @@
 ---
 const { title, description, permalink } = Astro.props;
+const socialImg = "https://firebasestorage.googleapis.com/v0/b/eliancodes-1632771244788.appspot.com/o/social.jpg?alt=media&token=e0a7ffbe-5cc8-46ba-b5ca-2dde00266a80"
 ---
 <!-- load first to prevent screen flicker -->
 <script>
@@ -33,14 +34,14 @@ html.dark {
 <meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:image" content="https://www.elian.codes/assets/img/social.jpg" />
+<meta property="og:image" content={socialImg} />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
-<meta property="twitter:image" content="https://www.elian.codes/assets/img/social.jpg" />
+<meta property="twitter:image" content={socialImg} />
 
 <!-- styles -->
 
