@@ -28,7 +28,8 @@
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
   import { getPerformance } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-performance.js";
-
+	import { initializeAppCheck, ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app-check.js";
+	
   const firebaseConfig = {
     apiKey: import.meta.env.API_KEY,
     authDomain: "eliancodes-1632771244788.firebaseapp.com",
@@ -42,4 +43,10 @@
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const perf = getPerformance(app);
+
+
+	const appCheck = initializeAppCheck(app, {
+		provider: new ReCaptchaV3Provider(import.meta.env.CAPTCHA_SITE_KEY),
+		isTokenAutoRefreshEnabled: true
+	});
 </script>
