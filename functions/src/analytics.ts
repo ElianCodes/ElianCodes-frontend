@@ -35,8 +35,8 @@ export const analytics: HttpsFunction = https.onRequest(
       const rawPages: Page[] = await mostVisitedPages.getPageViews(4);
       const result = rawPages.map((page: Page) => {
         const newPage: AnalyticsPage = {
-          type: page.url,
-          title: page.title,
+          type: "blogpost",
+          title: page.title.replace("Elian Codes | ", ""),
           link: `https://${page.url}`,
           views: page.views,
         };
