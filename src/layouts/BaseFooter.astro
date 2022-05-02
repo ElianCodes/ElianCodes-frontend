@@ -11,7 +11,7 @@
 		document.getElementById('footer').classList.remove('opacity-0')
 	}
 	const setTechnology = async () => {
-		await fetch('https://api.elian.codes/technologies').then(res => res.json()).then(technologies => {
+		await fetch('https://us-central1-eliancodes-1632771244788.cloudfunctions.net/technologies').then(res => res.json()).then(technologies => {
 			updateDOM(technologies[(Math.floor(Math.random() * technologies.length))])
 		}).catch(() => {
 			updateDOM({ name: 'Astro', link: 'https://www.astro.build'})
