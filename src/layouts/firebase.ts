@@ -17,8 +17,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const perf = getPerformance(app);
 
-
-const appCheck = initializeAppCheck(app, {
-  provider: new ReCaptchaV3Provider(import.meta.env.PUBLIC_CAPTCHA_SITE_KEY),
-  isTokenAutoRefreshEnabled: true
-});
+// const appCheck = initializeAppCheck(app, {
+//   provider: new ReCaptchaV3Provider(import.meta.env.PUBLIC_CAPTCHA_SITE_KEY),
+//   isTokenAutoRefreshEnabled: true
+// });
