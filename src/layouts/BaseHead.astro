@@ -1,8 +1,7 @@
 ---
 const { title, description, permalink } = Astro.props;
-const socialImg = "https://firebasestorage.googleapis.com/v0/b/eliancodes-1632771244788.appspot.com/o/social.jpg?alt=media&token=e0a7ffbe-5cc8-46ba-b5ca-2dde00266a80"
+const socialImg = "https://www.elian.codes/assets/img/social.jpg";
 ---
-<!-- load first to prevent screen flicker -->
 <script>
     import './DarkMode.ts'
 </script>
@@ -16,36 +15,28 @@ html.dark {
 }
 </style>
 
-<!-- global -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <title>Elian Codes | {title}</title>
 <meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA">
 <link rel="alternate" href="https://www.elian.codes/blog.xml" type="application/rss+xml">
 
-<!-- Primary Meta Tags -->
 <meta name="title" content={`Elian Codes | ${title}`} />
 <meta name="title" content={title} />
 <meta name="description" content={description} />
-<link rel="canonical" href={permalink} />
 
-<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={permalink} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImg} />
 
-<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImg} />
 
-<!-- styles -->
-
-<!-- icon Metadata -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
@@ -67,30 +58,5 @@ html.dark {
 <meta name="theme-color" content="#ffffff">
 <meta name="theme-color" content="#6ee7b7">
 
-<!-- Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX" client:load></script>
-<script client:load>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-LXB34WHZJX');
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-192060388-1"></script>
-<script client:load>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-192060388-1');
-</script>
 <script client:idle async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js" is:global></script>
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script>
-    AOS.init();
-</script>
+<link href="/assets/fonts/Rubik/Rubik.css">
