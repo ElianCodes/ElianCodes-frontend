@@ -1,6 +1,7 @@
 ---
 title: ♻️ Upgrading my website to Astro v1.0
 createdAt: 04/26/2022 21:52
+pubDate: 04/26/2022 21:52
 author: "Elian Van Cutsem"
 tags:
   - Astro

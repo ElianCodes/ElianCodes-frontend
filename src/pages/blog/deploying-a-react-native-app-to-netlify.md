@@ -1,6 +1,7 @@
 ---
 title: 🚀 Deploying a React Native app to netlify
 createdAt: 03/31/2021 18:07 
+pubDate: 03/31/2021 18:07 
 author: "Elian Van Cutsem"
 tags:
   - Netlify

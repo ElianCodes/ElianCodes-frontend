@@ -1,6 +1,7 @@
 ---
 title: 💄 Use TailwindCSS with Sveltekit (2021)
 createdAt: 12/05/2021 22:45
+pubDate: 12/05/2021 22:45
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

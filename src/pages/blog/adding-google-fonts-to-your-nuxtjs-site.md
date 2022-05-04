@@ -1,6 +1,7 @@
 ---
 title: 💄 Adding Google Fonts to your NuxtJS site
 createdAt: 05/07/2021 18:32
+pubDate: 05/07/2021 18:32
 author: "Elian Van Cutsem"
 tags:
   - Nuxt

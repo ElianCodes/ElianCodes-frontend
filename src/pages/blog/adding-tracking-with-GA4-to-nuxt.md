@@ -1,6 +1,7 @@
 ---
 title: 📈 Adding tracking to your Nuxt site with GA4
 createdAt: 03/15/2021 19:32
+pubDate: 03/15/2021 19:32
 author: "Elian Van Cutsem"
 tags:
   - Nuxt

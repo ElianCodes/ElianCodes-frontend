@@ -1,6 +1,7 @@
 ---
 title: ✨ Moving on from Netlify to Google Cloud
 createdAt: 08/11/2021 16:00
+pubDate: 08/11/2021 16:00
 author: "Elian Van Cutsem"
 tags:
   - Netlify

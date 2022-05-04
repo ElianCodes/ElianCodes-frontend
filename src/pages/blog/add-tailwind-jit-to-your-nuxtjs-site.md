@@ -1,6 +1,7 @@
 ---
 title: ⚡ Add TailwindCSS JIT to your Nuxtjs site
 createdAt: 03/18/2021 18:27
+pubDate: 03/18/2021 18:27
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

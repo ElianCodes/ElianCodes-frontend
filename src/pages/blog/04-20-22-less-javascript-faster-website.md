@@ -1,6 +1,7 @@
 ---
 title: 🎤 Less JavaScript, Faster website - Astro
 createdAt: 04/20/2022 20:00
+pubDate: 04/20/2022 20:00
 author: "Elian Van Cutsem"
 tags:
   - Astro
@@ -91,7 +92,7 @@ Here you can see that the menu is written in Vue, the content in Svelte and the 
 
 In my opinion this isn’t exactly a good developer strategy, but still useful if you have limited time and different developers experienced in different frameworks, or simply want to copy a stack overflow answer from another framework 😉.
 
-The cool this about this is that (when rendered server-side) this all will output static HTML, so still, no actual JavaScript is shipped in production regardless whatever framework is used to generate the content.
+The cool thing about this is that (when rendered server-side) this all will output static HTML, so still, no actual JavaScript is shipped in production regardless of the framework that's used to generate the content.
 
 ![Layouts](<https://i.imgur.com/pcVK9zR.png>)
 

@@ -1,6 +1,7 @@
 ---
 title: 💄darkmode in TailwindCSS
 createdAt: 02/09/2021 18:11
+pubDate: 02/09/2021 18:11
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

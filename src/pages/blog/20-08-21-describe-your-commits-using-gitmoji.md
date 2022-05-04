@@ -1,6 +1,7 @@
 ---
 title: 🥳 Describe your commits using Gitmoji
 createdAt: 08/20/2021 18:31
+pubDate: 08/20/2021 18:31
 author: "Elian Van Cutsem"
 tags:
   - Git

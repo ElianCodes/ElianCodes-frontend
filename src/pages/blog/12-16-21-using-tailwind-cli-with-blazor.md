@@ -1,6 +1,7 @@
 ---
 title: 💄 Using Tailwind CLI with Blazor
 createdAt: 12/16/2021 23:16
+pubDate: 12/16/2021 23:16
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

@@ -1,6 +1,7 @@
 ---
 title: 🚀 Using Surge.sh to quickly deploy a static site
 createdAt: 08/14/2021 12:23 
+pubDate: 08/14/2021 12:23 
 author: "Elian Van Cutsem"
 tags:
   - Surge

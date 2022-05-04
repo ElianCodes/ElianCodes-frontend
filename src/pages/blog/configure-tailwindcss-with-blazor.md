@@ -1,6 +1,7 @@
 ---
 title: 💄 Configure TailwindCSS with Blazor
 createdAt: 03/12/2021 17:07
+pubDate: 03/12/2021 17:07
 author: "Elian Van Cutsem"
 tags:
   - WASM

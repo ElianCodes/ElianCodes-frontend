@@ -1,6 +1,7 @@
 ---
 title: 💄 Writing your own style components with TailwindCSS and Sass
 createdAt: 04/13/2021 17:28
+pubDate: 04/13/2021 17:28
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

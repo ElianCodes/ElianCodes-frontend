@@ -1,6 +1,7 @@
 ---
 title: ♻️ Using PNPM on Netlify
 createdAt: 09/27/2021 13:10
+pubDate: 09/27/2021 13:10
 author: "Elian Van Cutsem"
 tags:
   - Netlify

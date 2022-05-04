@@ -1,6 +1,7 @@
 ---
 title: 🔍 How I automated SEO to fit my needs
 createdAt: 12/10/2021 18:27
+pubDate: 12/10/2021 18:27
 author: "Elian Van Cutsem"
 tags:
   - SEO

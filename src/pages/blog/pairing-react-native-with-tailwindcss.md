@@ -1,6 +1,7 @@
 ---
 title: ✨ Pairing React-native with TailwindCSS
 createdAt: 02/20/2021 17:37
+pubDate: 02/20/2021 17:37
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

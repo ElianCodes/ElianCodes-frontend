@@ -1,6 +1,7 @@
 ---
 title: 📈 Add custom tracking events to your nuxt site with GA4
 createdAt: 04/05/2021 22:01
+pubDate: 04/05/2021 22:01
 author: "Elian Van Cutsem"
 tags:
   - Nuxt

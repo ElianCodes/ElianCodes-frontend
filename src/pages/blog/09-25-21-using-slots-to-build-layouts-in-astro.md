@@ -1,6 +1,7 @@
 ---
 title: ✨ Using slots to build layouts in Astro
 createdAt: 09/25/2021 17:48
+pubDate: 09/25/2021 17:48
 author: "Elian Van Cutsem"
 tags:
   - Astro

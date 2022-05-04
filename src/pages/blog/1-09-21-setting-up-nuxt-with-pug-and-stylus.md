@@ -1,6 +1,7 @@
 ---
 title: ✨ Setting up Nuxt with Pug and Stylus
 createdAt: 09/01/2021 21:48
+pubDate: 09/01/2021 21:48
 author: "Elian Van Cutsem"
 tags:
   - Nuxt
