@@ -1,6 +1,7 @@
 ---
 title: 📈 Using @elianvancutsem/mostvisitedpages as a serverless function
 createdAt: 05/02/2022 23:28
+pubDate: 05/02/2022 23:28
 author: "Elian Van Cutsem"
 tags:
   - Analytics

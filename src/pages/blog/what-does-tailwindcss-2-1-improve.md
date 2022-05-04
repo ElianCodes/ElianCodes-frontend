@@ -1,6 +1,7 @@
 ---
 title: ⬆️ What does TailwindCSS 2.1 improve?
 createdAt: 04/05/2021 23:27
+pubDate: 04/05/2021 23:27
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

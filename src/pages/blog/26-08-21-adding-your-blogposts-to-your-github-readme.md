@@ -1,6 +1,7 @@
 ---
 title: 📝 Add your blogposts to your Github README
 createdAt: 08/26/2021 11:48
+pubDate: 08/26/2021 11:48
 author: "Elian Van Cutsem"
 tags:
   - Git

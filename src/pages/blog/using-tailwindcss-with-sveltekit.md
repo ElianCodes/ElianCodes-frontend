@@ -1,6 +1,7 @@
 ---
 title: 💄 Sveltekit with TailwindCSS
 createdAt: 03/26/2021 18:27
+pubDate: 03/26/2021 18:27
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

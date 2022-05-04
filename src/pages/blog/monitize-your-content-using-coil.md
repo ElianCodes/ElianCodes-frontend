@@ -1,6 +1,7 @@
 ---
 title: ✨ Monetize your content with Coil
 createdAt: 03/29/2021 13:20
+pubDate: 03/29/2021 13:20
 author: "Elian Van Cutsem"
 tags:
   - Coil

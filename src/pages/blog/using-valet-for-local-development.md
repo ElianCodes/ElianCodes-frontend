@@ -1,6 +1,7 @@
 ---
 title: ✨ Using Valet for local PHP development
 createdAt: 02/12/2021 20:48
+pubDate: 02/12/2021 20:48
 author: "Elian Van Cutsem"
 tags:
   - Laravel

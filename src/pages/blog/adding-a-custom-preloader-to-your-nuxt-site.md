@@ -1,6 +1,7 @@
 ---
 title: 💫 Adding a custom preloader to your nuxt site
 createdAt: 03/12/2021 00:11
+pubDate: 03/12/2021 00:11
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

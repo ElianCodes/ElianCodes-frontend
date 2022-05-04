@@ -1,6 +1,7 @@
 ---
 title: 💄 Tailwind with sass
 createdAt: 02/16/2021 19:13 
+pubDate: 02/16/2021 19:13 
 author: "Elian Van Cutsem"
 tags:
   - Sass

@@ -1,6 +1,7 @@
 ---
 title: ✨ What is TailwindCSS JIT and how to use it.
 createdAt: 03/16/2021 17:10
+pubDate: 03/16/2021 17:10
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

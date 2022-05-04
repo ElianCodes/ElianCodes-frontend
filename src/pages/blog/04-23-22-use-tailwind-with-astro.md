@@ -1,6 +1,7 @@
 ---
 title: 💄 Tailwind CSS in Astro
 createdAt: 04/23/2022 20:48
+pubDate: 04/23/2022 20:48
 author: "Elian Van Cutsem"
 tags:
   - Astro

@@ -1,6 +1,7 @@
 ---
 title: 💄 What's new in TailwindCSS v3
 createdAt: 10/03/2021 11:23
+pubDate: 10/03/2021 11:23
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS

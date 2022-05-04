@@ -1,6 +1,7 @@
 ---
 title: 🎤 Less JavaScript, Faster website - Astro
 createdAt: 04/20/2022 20:00
+pubDate: 04/20/2022 20:00
 author: "Elian Van Cutsem"
 tags:
   - Astro
