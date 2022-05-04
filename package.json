@@ -11,6 +11,7 @@
     "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
   },
   "devDependencies": {
+    "@astrojs/partytown": "^0.1.2",
     "@astrojs/rss": "^0.1.1",
     "@astrojs/sitemap": "^0.1.0",
     "@tailwindcss/typography": "^0.5.2",

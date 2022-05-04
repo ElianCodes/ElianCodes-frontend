@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@astrojs/partytown': ^0.1.2
   '@astrojs/rss': ^0.1.1
   '@astrojs/sitemap': ^0.1.0
   '@tailwindcss/typography': ^0.5.2
@@ -16,6 +17,7 @@ dependencies:
   firebase: 9.7.0
 
 devDependencies:
+  '@astrojs/partytown': 0.1.2
   '@astrojs/rss': 0.1.1
   '@astrojs/sitemap': 0.1.0
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.24
@@ -84,6 +86,13 @@ packages:
       unist-util-visit: 4.1.0
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /@astrojs/partytown/0.1.2:
+    resolution: {integrity: sha512-aWs1b0iQhBdLoYt+lvIXvWjeAJCZ5Gh/HN2aAzM0wcRQl1Fwvr6iq4ad5X0/QQSYbbxxCQH6+D3odSQGQ49diA==}
+    dependencies:
+      '@builder.io/partytown': 0.4.5
+      mrmime: 1.0.0
     dev: true
 
   /@astrojs/prism/0.4.1:
@@ -317,6 +326,11 @@ packages:
     dependencies:
       '@babel/helper-validator-identifier': 7.16.7
       to-fast-properties: 2.0.0
+    dev: true
+
+  /@builder.io/partytown/0.4.5:
+    resolution: {integrity: sha512-HcHlmMYSpOxfJ0lFVxgZrvgIjz1Q8knlGuWkBpvjIp68j+xVWg969+sn7BCfyKhcGaYlnVOY/CEBHapQBcl0jw==}
+    hasBin: true
     dev: true
 
   /@emmetio/abbreviation/2.2.3:
