@@ -24,7 +24,7 @@ const setCookie = (cname: string, cvalue: string) => {
 }
 
 const showCookies = (): void => {
-    document.getElementById('cookieBanner').classList.remove('opacity-0')
+    document.getElementById('cookieBanner').classList.remove('opacity-0', 'hidden')
 }
 
 const hideCookies = (): void => {
