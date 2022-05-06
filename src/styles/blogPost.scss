@@ -3,6 +3,9 @@ article.blog-post {
     h1, h2, h3, h4, h5, h6, p {
         @apply dark:text-gray-200;
     }
+    h1 {
+        @apply font-semibold;
+    }
     a {
         color: var(--custom-color);
         @apply transition-colors ease-in-out duration-500;

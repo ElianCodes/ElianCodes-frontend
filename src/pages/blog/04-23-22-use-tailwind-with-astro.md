@@ -1,6 +1,5 @@
 ---
 title: 💄 Tailwind CSS in Astro
-createdAt: 04/23/2022 20:48
 pubDate: 04/23/2022 20:48
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - Tailwind
   - Development
-description: Tailwind CSS in Astro
 imgUrl: 
-longDescription: Since Astro 24, the documentation of Tailwind CSS in Astro has disappeared. Not because it's not supported, but because it now holds true to the Tailwind CSS documentation itself. If you still need a guide on how to use them both, look no further!
+description: Since Astro 24, the documentation of Tailwind CSS in Astro has disappeared. Not because it's not supported, but because it now holds true to the Tailwind CSS documentation itself. If you still need a guide on how to use them both, look no further!
 layout: '../../layouts/BlogPost.astro'
 permalink: '04-23-22-use-tailwind-with-astro'
 ---

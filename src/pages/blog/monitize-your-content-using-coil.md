@@ -1,6 +1,5 @@
 ---
 title: ✨ Monetize your content with Coil
-createdAt: 03/29/2021 13:20
 pubDate: 03/29/2021 13:20
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Monitize
   - PWA
   - web
-description: Monetize your content with Coil
 imgUrl: https://coil.com/static/media/creator-not-subscribed.bb0272e7.svg
-longDescription: Ads are annoying right, Coil adds a new way to get paid for every second spent on your content.
+description: Ads are annoying right, Coil adds a new way to get paid for every second spent on your content.
 layout: '../../layouts/BlogPost.astro'
 permalink: 'monitize-your-content-using-coil'
 ---

@@ -1,15 +1,13 @@
 ---
 title: 💄darkmode in TailwindCSS
-createdAt: 02/09/2021 18:11
 pubDate: 02/09/2021 18:11
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS
   - JavaScript
   - Front-end
-description: Adding dark mode to TailwindCSS
 imgUrl: https://snipcart.com/media/205228/tailwindcss-tutorial.png
-longDescription: How to add dark mode support in TailwindCSS
+description: How to add dark mode support in TailwindCSS
 layout: '../../layouts/BlogPost.astro'
 permalink: 'adding-dark-mode-tailwind'
 ---

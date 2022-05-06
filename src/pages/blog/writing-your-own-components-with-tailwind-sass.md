@@ -1,6 +1,5 @@
 ---
 title: 💄 Writing your own style components with TailwindCSS and Sass
-createdAt: 04/13/2021 17:28
 pubDate: 04/13/2021 17:28
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Sass
   - Nuxt
   - Front-end
-description: Writing your own style components with TailwindCSS and Sass
 imgUrl: https://snipcart.com/media/205228/tailwindcss-tutorial.png
-longDescription: having TailwindCSS classes everywhere in my markup annoys me. That's why I tought of a better way of styling with TailwindCSS
+description: having TailwindCSS classes everywhere in my markup annoys me. That's why I tought of a better way of styling with TailwindCSS
 layout: '../../layouts/BlogPost.astro'
 permalink: 'writing-your-own-components-with-tailwind-sass'
 ---

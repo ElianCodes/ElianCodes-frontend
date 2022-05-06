@@ -1,6 +1,5 @@
 ---
 title: 🔧 Set your NodeJS version in Netlify
-createdAt: 12/03/2021 08:25
 pubDate: 12/03/2021 08:25
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - JAMStack
   - Netlify
-description: Set your NodeJS version in Netlify
 imgUrl: https://download.logo.wine/logo/Netlify/Netlify-Logo.wine.png
-longDescription: A couple of times I needed to fix the NodeJS version on a Netlify site, I found myself googling it a couple of times, so this little how-to is basically a note-to-self.
+description: A couple of times I needed to fix the NodeJS version on a Netlify site, I found myself googling it a couple of times, so this little how-to is basically a note-to-self.
 layout: '../../layouts/BlogPost.astro'
 permalink: '12-03-21-set-your-node-version-in-netlify'
 ---

@@ -1,15 +1,13 @@
 ---
 title: 💄 Using Tailwind CLI with Blazor
-createdAt: 12/16/2021 23:16
 pubDate: 12/16/2021 23:16
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS
   - Blazor
   - Webdevelopment
-description: Using Tailwind CLI with Blazor
 imgUrl: 
-longDescription: Last year I wrote an article about using TailwindCSS with Blazor. It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS NodeJS. Now that TailwindCSS launched a new tool, Tailwind CLI, it's time to try it another way!
+description: Last year I wrote an article about using TailwindCSS with Blazor. It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS NodeJS. Now that TailwindCSS launched a new tool, Tailwind CLI, it's time to try it another way!
 layout: '../../layouts/BlogPost.astro'
 permalink: '12-16-21-using-tailwind-cli-with-blazor'
 ---

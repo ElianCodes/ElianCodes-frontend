@@ -1,6 +1,5 @@
 ---
 title: ♻️ Upgrading my website to Astro v1.0
-createdAt: 04/26/2022 21:52
 pubDate: 04/26/2022 21:52
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - Tailwind
   - Development
-description: ♻️ Upgrading my website to Astro v1.0
 imgUrl: 
-longDescription: Astro came out with a beta version of the v1.0 release of the framework. I upgraded my website to use that version, since I was still running on v0.24. The following are some of the changes I had to do to get it working.
+description: Astro came out with a beta version of the v1.0 release of the framework. I upgraded my website to use that version, since I was still running on v0.24. The following are some of the changes I had to do to get it working.
 layout: '../../layouts/BlogPost.astro'
 permalink: '22-04-26-upgrading-to-astro-beta-one'
 ---

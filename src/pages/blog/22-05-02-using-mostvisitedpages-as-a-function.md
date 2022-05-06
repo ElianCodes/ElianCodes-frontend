@@ -1,6 +1,5 @@
 ---
 title: 📈 Using @elianvancutsem/mostvisitedpages as a serverless function
-createdAt: 05/02/2022 23:28
 pubDate: 05/02/2022 23:28
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Cloud
   - Firebase
   - JavaScript
-description: Using @elianvancutsem/mostvisitedpages as a serverless function
 imgUrl: 
-longDescription: I've moved from a regular RESTful API to serverless functions. Here is a little guide and explanation on why & how I did that.
+description: I've moved from a regular RESTful API to serverless functions. Here is a little guide and explanation on why & how I did that.
 layout: '../../layouts/BlogPost.astro'
 permalink: '22-05-02-using-mostvisitedpages-as-a-function'
 ---

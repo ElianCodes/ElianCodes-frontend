@@ -5,7 +5,7 @@ specifiers:
   '@astrojs/rss': ^0.1.1
   '@astrojs/sitemap': ^0.1.0
   '@tailwindcss/typography': ^0.5.2
-  astro: 1.0.0-beta.23
+  astro: 1.0.0-beta.26
   autoprefixer: ^10.4.7
   firebase: ^9.7.0
   postcss: ^8.4.13
@@ -21,7 +21,7 @@ devDependencies:
   '@astrojs/rss': 0.1.1
   '@astrojs/sitemap': 0.1.0
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.24
-  astro: 1.0.0-beta.23_sass@1.51.0
+  astro: 1.0.0-beta.26_sass@1.51.0
   autoprefixer: 10.4.7_postcss@8.4.13
   postcss: 8.4.13
   postcss-import: 14.1.0_postcss@8.4.13
@@ -1126,8 +1126,8 @@ packages:
       tslib: 2.4.0
     dev: true
 
-  /astro/1.0.0-beta.23_sass@1.51.0:
-    resolution: {integrity: sha512-aElMF0YRGmdoI215m4yHOAa7NdsSEBPMJnypbMHWD1pQE2WSfclbQNeByR756hHqXxAZaGbFoaSbZU+YAwJVlw==}
+  /astro/1.0.0-beta.26_sass@1.51.0:
+    resolution: {integrity: sha512-KQK+mzlUdcfw19zNKsz+UXTcXbM9hQgwyMTKMf7xuP3uVIlTu/6dG3w7Ybn1uCsP1mA1P2bPR0MdK12yH34yyA==}
     engines: {node: ^14.15.0 || >=16.0.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
@@ -1148,7 +1148,6 @@ packages:
       ci-info: 3.3.0
       common-ancestor-path: 1.0.1
       debug: 4.3.4
-      devalue: 2.0.1
       diff: 5.0.0
       eol: 0.9.1
       es-module-lexer: 0.10.5
@@ -1177,6 +1176,7 @@ packages:
       resolve: 1.22.0
       rollup: 2.71.1
       semver: 7.3.7
+      serialize-javascript: 6.0.0
       shiki: 0.10.1
       sirv: 2.0.2
       slash: 4.0.0
@@ -1525,10 +1525,6 @@ packages:
       acorn-node: 1.8.2
       defined: 1.0.0
       minimist: 1.2.6
-    dev: true
-
-  /devalue/2.0.1:
-    resolution: {integrity: sha512-I2TiqT5iWBEyB8GRfTDP0hiLZ0YeDJZ+upDxjBfOC2lebO5LezQMv7QvIUTzdb64jQyAKLf1AHADtGN+jw6v8Q==}
     dev: true
 
   /didyoumean/1.2.2:
@@ -3608,6 +3604,12 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /randombytes/2.1.0:
+    resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
+    dependencies:
+      safe-buffer: 5.2.1
+    dev: true
+
   /read-cache/1.0.0:
     resolution: {integrity: sha1-5mTvMRYRZsl1HNvo28+GtftY93Q=}
     dependencies:
@@ -3861,6 +3863,12 @@ packages:
     hasBin: true
     dependencies:
       lru-cache: 6.0.0
+    dev: true
+
+  /serialize-javascript/6.0.0:
+    resolution: {integrity: sha512-Qr3TosvguFt8ePWqsvRfrKyQXIiW+nGbYpy8XK24NQHE83caxWt+mIymTT19DGFbNWNLfEwsrkSmN64lVWB9ag==}
+    dependencies:
+      randombytes: 2.1.0
     dev: true
 
   /set-immediate-shim/1.0.1:

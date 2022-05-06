@@ -1,6 +1,5 @@
 ---
 title: ⚡ Add TailwindCSS JIT to your Nuxtjs site
-createdAt: 03/18/2021 18:27
 pubDate: 03/18/2021 18:27
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Nuxt
   - '@tailwindcss/jit'
   - Front-end
-description: Add TailwindCSS JIT to your Nuxtjs site
 imgUrl: https://camo.githubusercontent.com/5244c677b6cab57711cd9d6f063220f640d2101204ffdb9332124a32233bcabc/68747470733a2f2f7461696c77696e646373732e6e7578746a732e6f72672f707265766965772e706e67
-longDescription: TailwindCSS just came out with a new feature called @tailwindcss/jit. here's how you can add it to your Nuxt site.
+description: TailwindCSS just came out with a new feature called @tailwindcss/jit. here's how you can add it to your Nuxt site.
 layout: '../../layouts/BlogPost.astro'
 permalink: 'add-tailwind-jit-to-your-nuxtjs-site'
 ---

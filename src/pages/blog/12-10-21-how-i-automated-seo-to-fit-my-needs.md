@@ -1,15 +1,13 @@
 ---
 title: 🔍 How I automated SEO to fit my needs
-createdAt: 12/10/2021 18:27
 pubDate: 12/10/2021 18:27
 author: "Elian Van Cutsem"
 tags:
   - SEO
   - Astro
   - Webdevelopment
-description: How I automated SEO to fit my needs
 imgUrl: http://marketingupdate.nl/wp-content/uploads/2020/05/SEO-Pillar-Post-Art-.png
-longDescription: It's been some time since I started writing posts and articles about programming and related. Since the start, I've always invested time in SEO, over time, I have integrated a system that now works for me. This is an explanation how I did that.
+description: It's been some time since I started writing posts and articles about programming and related. Since the start, I've always invested time in SEO, over time, I have integrated a system that now works for me. This is an explanation how I did that.
 layout: '../../layouts/BlogPost.astro'
 permalink: '12-10-21-how-i-automated-seo-to-fit-my-needs'
 ---

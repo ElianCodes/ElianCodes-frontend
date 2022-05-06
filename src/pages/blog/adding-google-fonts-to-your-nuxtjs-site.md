@@ -1,6 +1,5 @@
 ---
 title: 💄 Adding Google Fonts to your NuxtJS site
-createdAt: 05/07/2021 18:32
 pubDate: 05/07/2021 18:32
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Google Fonts
   - JavaScript
   - Front-end
-description: Adding Google Fonts to your NuxtJS site
 imgUrl: https://google-fonts.nuxtjs.org/preview.svg
-longDescription: I found out that my fonts weren't loading properly, so I searched for an alternative.
+description: I found out that my fonts weren't loading properly, so I searched for an alternative.
 layout: '../../layouts/BlogPost.astro'
 permalink: 'adding-google-fonts-to-your-nuxtjs-site'
 ---

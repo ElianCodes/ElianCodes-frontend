@@ -1,6 +1,5 @@
 ---
 title: ♻️ Using PNPM on Netlify
-createdAt: 09/27/2021 13:10
 pubDate: 09/27/2021 13:10
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - Programming
   - Webdevelopment
-description: Using PNPM on Netlify
 imgUrl: https://img.stackshare.io/service/10903/JLVo_YPe_400x400.jpg
-longDescription: When I first switched my website over to PNPM instead of Yarn, I noticed that my Netlify build were failing. Here's a guide and solution to everyone having the same issue.
+description: When I first switched my website over to PNPM instead of Yarn, I noticed that my Netlify build were failing. Here's a guide and solution to everyone having the same issue.
 layout: '../../layouts/BlogPost.astro'
 permalink: '09-27-21-using-pnpm-on-netlify'
 ---

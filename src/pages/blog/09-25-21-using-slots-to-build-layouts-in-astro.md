@@ -1,6 +1,5 @@
 ---
 title: ✨ Using slots to build layouts in Astro
-createdAt: 09/25/2021 17:48
 pubDate: 09/25/2021 17:48
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - Programming
   - Webdevelopment
-description: Using slots to build layouts in Astro
 imgUrl: https://css-tricks.com/wp-content/uploads/2021/05/astro-homepage.png
-longDescription: Coming from frameworks like NuxtJS and NextJS, I always liked the layout feature. It's a quick way to reuse shared components without re-importing them in every page. When I started with Astro, I had no idea that this was also possible.
+description: Coming from frameworks like NuxtJS and NextJS, I always liked the layout feature. It's a quick way to reuse shared components without re-importing them in every page. When I started with Astro, I had no idea that this was also possible.
 layout: '../../layouts/BlogPost.astro'
 permalink: '09-25-21-using-slots-to-build-layouts-in-astro'
 ---

@@ -1,6 +1,5 @@
 ---
 title: 📈 Adding tracking to your Nuxt site with GA4
-createdAt: 03/15/2021 19:32
 pubDate: 03/15/2021 19:32
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Tracking
   - Analytics
   - JavaScript
-description: Adding tracking to your Nuxt site with GA4
 imgUrl: https://google-analytics.nuxtjs.org/preview.png
-longDescription: Tracking your users' action on your site can be very helpful, but it isn't always as straightforward
+description: Tracking your users' action on your site can be very helpful, but it isn't always as straightforward
 layout: '../../layouts/BlogPost.astro'
 permalink: 'adding-tracking-with-ga4-to-nuxt'
 ---
