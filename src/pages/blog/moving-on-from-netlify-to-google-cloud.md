@@ -1,6 +1,5 @@
 ---
 title: ✨ Moving on from Netlify to Google Cloud
-createdAt: 08/11/2021 16:00
 pubDate: 08/11/2021 16:00
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Google Cloud
   - Websites
   - Programming
-description: Moving on from Netlify to Google Cloud
 imgUrl: https://1000merken.com/wp-content/uploads/2021/03/Google-Cloud-Logo-700x394.png
-longDescription: Hosting your website online is one of the basic and required steps to build an online audience. Choosing the right platform to host it, can be a difficult process. In this blogpost I clearify my choice.
+description: Hosting your website online is one of the basic and required steps to build an online audience. Choosing the right platform to host it, can be a difficult process. In this blogpost I clearify my choice.
 layout: '../../layouts/BlogPost.astro'
 permalink: 'moving-on-from-netlify-to-google-cloud'
 ---

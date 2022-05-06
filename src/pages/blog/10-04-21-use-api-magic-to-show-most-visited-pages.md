@@ -1,6 +1,5 @@
 ---
 title: 👽 Use API magic to show your most visited pages
-createdAt: 10/04/2021 17:40
 pubDate: 10/04/2021 17:40
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - Programming
   - Webdevelopment
-description: Use API magic to show your most visited pages
 imgUrl: https://i.pcmag.com/imagery/reviews/04u4r8E0NHva7mQ3Bnozbh6-9.1569482850.fit_scale.size_760x427.jpg
-longDescription: A while ago I had an idea for a feature which would show the most frequent visited pages upon a 'page not found' error. After I let it sit for a while, I realized that this might be possible by using the Google Analytics API. Here's a guide.
+description: A while ago I had an idea for a feature which would show the most frequent visited pages upon a 'page not found' error. After I let it sit for a while, I realized that this might be possible by using the Google Analytics API. Here's a guide.
 layout: '../../layouts/BlogPost.astro'
 permalink: '10-04-21-use-api-magic-to-show-most-visited-pages'
 ---

@@ -1,6 +1,5 @@
 ---
 title: ⬆️ What does TailwindCSS 2.1 improve?
-createdAt: 04/05/2021 23:27
 pubDate: 04/05/2021 23:27
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - CSS
   - Front-end
   - Programming
-description: What does TailwindCSS 2.1 improve?
 imgUrl: https://blog.tailwindcss.com/_next/static/media/card.3bf3cbd50f2798709f66eeefbfdb1eaf.jpg
-longDescription: TailwindCSS 2.1 just got released, but what does it bring and improve?
+description: TailwindCSS 2.1 just got released, but what does it bring and improve?
 layout: '../../layouts/BlogPost.astro'
 permalink: 'what-does-tailwindcss-2-1-improve'
 ---

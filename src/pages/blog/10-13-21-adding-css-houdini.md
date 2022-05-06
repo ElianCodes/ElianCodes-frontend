@@ -1,6 +1,5 @@
 ---
 title: 🎉 Write less code by using CSS Houdini
-createdAt: 10/13/2021 19:10
 pubDate: 10/13/2021 19:10
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - Houdini
   - Webdevelopment
-description: Write less code by using CSS Houdini
 imgUrl: https://i1.wp.com/css-tricks.com/wp-content/uploads/2018/06/magic-stage.png?fit=1200%2C600&ssl=1
-longDescription: Some time ago I started looking into CSS Houdini. Today was finally the day that I wrote a package to replace some of my shitty code with some CSS Houdini magic
+description: Some time ago I started looking into CSS Houdini. Today was finally the day that I wrote a package to replace some of my shitty code with some CSS Houdini magic
 layout: '../../layouts/BlogPost.astro'
 permalink: '10-13-21-adding-css-houdini'
 ---

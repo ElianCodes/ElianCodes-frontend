@@ -1,15 +1,13 @@
 ---
 title: 💄 What's new in TailwindCSS v3
-createdAt: 10/03/2021 11:23
 pubDate: 10/03/2021 11:23
 author: "Elian Van Cutsem"
 tags:
   - TailwindCSS
   - Javascript
   - Webdevelopment
-description: What's new in TailwindCSS v3
 imgUrl: https://miro.medium.com/max/1400/0*A70w-WrmSaBVxwAm.png
-longDescription: TailwindCSS v3-alpha-1 was released yesterday! It's not a full release of v3 yet, but might already give us an insight on what is to come with TailwindCSS v3.
+description: TailwindCSS v3-alpha-1 was released yesterday! It's not a full release of v3 yet, but might already give us an insight on what is to come with TailwindCSS v3.
 layout: '../../layouts/BlogPost.astro'
 permalink: '10-03-21-what-is-new-in-tailwind-v3'
 ---

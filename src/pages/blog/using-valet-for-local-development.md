@@ -1,15 +1,13 @@
 ---
 title: ✨ Using Valet for local PHP development
-createdAt: 02/12/2021 20:48
 pubDate: 02/12/2021 20:48
 author: "Elian Van Cutsem"
 tags:
   - Laravel
   - Valet
   - PHP
-description: Setting up local PHP development with Laravel Valet
 imgUrl: https://res.cloudinary.com/redfern-web/image/upload/v1598516539/redfern-dev/png/valet.png
-longDescription: Valet is a highly configurable MacOs tool for webdevelopment running in the background
+description: Valet is a highly configurable MacOs tool for webdevelopment running in the background
 layout: '../../layouts/BlogPost.astro'
 permalink: 'using-valet-for-local-development'
 ---

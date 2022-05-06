@@ -1,6 +1,5 @@
 ---
 title: 💄 Use TailwindCSS with Sveltekit (2021)
-createdAt: 12/05/2021 22:45
 pubDate: 12/05/2021 22:45
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - svelte
   - sveltekit
   - Front-end
-description: Use TailwindCSS with Sveltekit (2021)
 imgUrl: https://res.cloudinary.com/practicaldev/image/fetch/s--k-z0ysHD--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p3nn57r52krvpdieblta.png
-longDescription: Earlier this week, Sveltekit beta got released, ofcourse I wanted to fiddle with it.
+description: Earlier this week, Sveltekit beta got released, ofcourse I wanted to fiddle with it.
 layout: '../../layouts/BlogPost.astro'
 permalink: '12-05-21-use-tailwindcss-with-sveltekit-2021'
 ---

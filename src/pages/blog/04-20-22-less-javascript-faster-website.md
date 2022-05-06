@@ -1,6 +1,5 @@
 ---
 title: 🎤 Less JavaScript, Faster website - Astro
-createdAt: 04/20/2022 20:00
 pubDate: 04/20/2022 20:00
 author: "Elian Van Cutsem"
 tags:
@@ -8,9 +7,8 @@ tags:
   - Javascript
   - Tailwind
   - Development
-description: Less JavaScript, Faster website
 imgUrl: https://i.imgur.com/zHKeWzx.jpg 
-longDescription: 20th April, I gave a lightning talk at the Full Stack Ghent meetup. This blog post contains my slides as well as some extra accompanying speaker notes.
+description: 20th April, I gave a lightning talk at the Full Stack Ghent meetup. This blog post contains my slides as well as some extra accompanying speaker notes.
 layout: '../../layouts/BlogPost.astro'
 permalink: '04-20-22-less-javascript-faster-website'
 ---

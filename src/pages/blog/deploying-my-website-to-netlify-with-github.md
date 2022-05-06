@@ -1,6 +1,5 @@
 ---
 title: 🚀 Deploying my website to Netlify using Github
-createdAt: 03/22/2021 17:52 
 pubDate: 03/22/2021 17:52 
 author: "Elian Van Cutsem"
 tags:
@@ -9,9 +8,8 @@ tags:
   - TravisCI
   - Nuxt
   - Front-end
-description: Deploying my website to Netlify using Github
 imgUrl: https://flaviocopes.com/netlify/netlify-logo.png
-longDescription: I've used github to manage the sourcecode for my website for a long time, github pages came with it. Now I discovered a better way to deploy and host websites.
+description: I've used github to manage the sourcecode for my website for a long time, github pages came with it. Now I discovered a better way to deploy and host websites.
 layout: '../../layouts/BlogPost.astro'
 permalink: 'deploying-my-website-to-netlify-with-github'
 ---

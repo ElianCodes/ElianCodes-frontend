@@ -1,15 +1,13 @@
 ---
 title: 🥳 Describe your commits using Gitmoji
-createdAt: 08/20/2021 18:31
 pubDate: 08/20/2021 18:31
 author: "Elian Van Cutsem"
 tags:
   - Git
   - Programming
   - gitmoji
-description: Describe your commits using Gitmoji
 imgUrl: https://res.cloudinary.com/practicaldev/image/fetch/s--aXLUId3y--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/v6sayrf35j4be2ehuyk5.png
-longDescription: Describing your commits can be a difficult task. You can write down everything you changed or improved, or you can let the code speak for itself. Gitmoji makes this a whole lot easier by using emoji.
+description: Describing your commits can be a difficult task. You can write down everything you changed or improved, or you can let the code speak for itself. Gitmoji makes this a whole lot easier by using emoji.
 layout: '../../layouts/BlogPost.astro'
 permalink: '20-08-21-describe-your-commits-using-gitmoji'
 ---
