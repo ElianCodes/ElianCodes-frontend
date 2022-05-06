@@ -92,6 +92,6 @@ The `--allow-net` tells Deno that it may allow network access to the server, `--
 
 Now we are ready to preview the actual build, run `npm run preview`! You should see your website served through Deno on `http://localhost:8080`
 
-More about Astro SSR & adapters here: <https://docs.astro.build/en/guides/server-side-rendering/#enabling-ssr-in-your-project>
+[More about Astro SSR & adapters here](https://docs.astro.build/en/guides/server-side-rendering/#enabling-ssr-in-your-project)
 
-You can check the official repo and docs here: <https://github.com/withastro/astro/tree/main/packages/integrations/deno>
+[You can check the official repo and docs here](https://github.com/withastro/astro/tree/main/packages/integrations/deno)

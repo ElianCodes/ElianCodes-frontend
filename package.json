@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "deploy": "pnpm build && firebase deploy",
+    "deploy:hosting": "pnpm build && firebase deploy --only hosting",
     "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
   },
   "devDependencies": {
