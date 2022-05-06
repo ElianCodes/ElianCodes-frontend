@@ -19,15 +19,15 @@ const pages = await fetch('https://us-central1-eliancodes-1632771244788.cloudfun
 				<MainMenu color={true}/>
 		</header>
 		<main class="flex-1 mt-24 lg:mt-0 w-full self-center h-full flex flex-col justify-start items-center">
-			<h1 class="text-4xl pb-2 font-medium">Page not found</h1>
-			<p class="pb-4">seems like this page doesn't exist</p>
-			<p>Maybe take a look at the follwing pages</p>
+			<h1 class="text-4xl pb-2 font-medium use-color">🤷 Damn...<span class="sr-only">Page not found</span></h1>
+			<p class="pb-4">seems that this page couldn't be found</p>
+			<p>But, maybe you could take a look at one of the follwing pages</p>
 			<ul class="mt-4 border-t border-b border-gray-200 divide-y divide-gray-200">
 				{
 					pages.map(page => {
 						return (
 							<li class="relative space-x-4">
-								<a href={page.link} class="py-6 focus:outline-none flex items-start">
+								<a href={page.link} class="py-6 focus:outline-none flex items-start use-color">
 									<div class="min-w-full flex-1">
 										<h2 class="text-base font-medium">
 											{page.title}
