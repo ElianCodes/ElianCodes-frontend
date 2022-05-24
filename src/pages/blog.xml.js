@@ -8,5 +8,6 @@ export const get = () => rss({
     stylesheet: false,
     items: posts,
     customData: `<language>en-us</language>`,
-    canonicalUrl: "https://www.elian.codes"
+    canonicalUrl: "https://www.elian.codes",
+    site: "https://www.elian.codes"
 });
