@@ -1,7 +1,24 @@
 ---
 import BaseLayout from '@layouts/BaseLayout.astro'
 const blogposts = await Astro.glob('./**/*.md').then(posts => posts.sort((a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)))
-const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️', '🎉', '🔍', '📈', '🚀']
+interface FilterItem {
+	icon: string,
+	title: string
+}
+const availableFilters: FilterItem[] = [
+	{icon: '💄', title: 'Frontend related'},
+	{icon: '🔧', title: 'Settings'},
+	{icon: '👽', title: "API's and more"},
+	{icon: '✨', title: 'Trying new things'},
+	{icon: '💫', title: 'Animations'},
+	{icon: '📝', title: 'Blogposts'},
+	{icon: '♻️', title: 'Upgrades and improvements'},
+	{icon: '🎉', title: 'new projects'},
+	{icon: '🔍', title: 'SEO & related'},
+	{icon: '📈', title: 'tracking & analytics'}, 
+	{icon: '🚀', title: 'Deployments'},
+	{icon: '🎤', title: 'Talks'}
+]
 ---
 <BaseLayout useColor={true} title="Blog" permalink="https://www.elian.codes/blog/" description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming.">
 	<main class="mt-16 lg:mt-12 flex-1 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
@@ -15,7 +32,7 @@ const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️
 								<a href={`${post.url}/`}><h3 class="text-xl font-medium">{post.frontmatter.title}</h3></a>
 								<p class="py-4">{post.frontmatter.description}</p>
 								<p class="pb-4">Published: {new Date(post.frontmatter.pubDate).toLocaleDateString()} by {post.frontmatter.author}</p>
-								<a href={`${post.url}/`} class="read-more">Read this article</a>
+								<a title={`read "${post.frontmatter.title}"`} href={`${post.url}/`} class="read-more">Read this article</a>
 							</li>
 						)
 					})
@@ -29,7 +46,7 @@ const availableFilters = ['💄', '🔧', '👽', '✨', '💫', '📝', '♻️
 			<ul>
 				{ availableFilters.map(filter => {
 					return (
-						<li class="filter-item">{filter}</li>
+						<li><button class="filter-item" title={filter.title}>{filter.icon}</button></li>
 					)
 				})}
 			</ul>
