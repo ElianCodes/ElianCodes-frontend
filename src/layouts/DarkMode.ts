@@ -1,45 +1,40 @@
-const getThemeCookie = (cname: string): string => {
-	const name = cname + "=";
-	const decodedCookie = decodeURIComponent(document.cookie);
-	const ca = decodedCookie.split(';');
-	for(let i = 0; i < ca.length; i++) {
-		let c = ca[i];
-		while (c.charAt(0) == ' ') {
-			c = c.substring(1);
-		}
-		if (c.indexOf(name) == 0) {
-			return c.substring(name.length, c.length);
-		}
+// initial load
+const theme: string = (() => {
+	if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+		return localStorage.getItem('theme');
 	}
-	return "";
-}
+	if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+		return 'dark';
+	}
+	return 'light';
+})();
 
-const setThemeCookie = (cname: string, cvalue: string) => {
-	const d = new Date();
-	d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-	let expires = "expires="+d.toUTCString();
-	document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-let darkModeActive = false;
-
-if (getThemeCookie('theme') === 'dark' || (getThemeCookie('theme') === "" && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-	darkModeActive = true;
-}
-
+// darkmode toggle button
 document.addEventListener('DOMContentLoaded', (): void => {
-	darkModeActive ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark')
 	document.querySelectorAll('button.toggleMode').forEach(btn => {
 		btn.addEventListener('click', e => {
 			e.preventDefault()
-			console.log(darkModeActive)
 			document.documentElement.classList.toggle('dark')
-			setThemeCookie('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light')
+			localStorage.getItem('theme') === 'dark' ? localStorage.setItem('theme', 'light') : localStorage.setItem('theme', 'dark')
 			document.documentElement.classList.add('transition-colors', 'ease-in-out', 'duration-500');
 			setTimeout(() => {
 				document.documentElement.classList.remove('transition-colors', 'ease-in-out', 'duration-500')
 			}, 500)
-		})
+		})	
 	})
 })
 
+// color-theme system trigger
+window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', () => {
+	const theme: string = (() => {
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			return 'dark';
+		}
+		return 'light';
+	})()
+	if (theme === 'light') {
+		document.documentElement.classList.remove('dark');
+	} else {
+		document.documentElement.classList.add('dark');
+	}
+})
