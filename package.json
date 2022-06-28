@@ -12,18 +12,18 @@
     "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^0.1.4",
+    "@astrojs/partytown": "^0.1.5",
     "@astrojs/rss": "^0.2.0",
-    "@astrojs/sitemap": "^0.1.0",
+    "@astrojs/sitemap": "^0.1.2",
     "@tailwindcss/typography": "^0.5.2",
     "astro": "1.0.0-beta.31",
     "autoprefixer": "^10.4.7",
     "postcss": "^8.4.14",
     "postcss-import": "^14.1.0",
-    "sass": "^1.52.3",
-    "tailwindcss": "^3.1.2"
+    "sass": "^1.53.0",
+    "tailwindcss": "^3.1.4"
   },
   "dependencies": {
-    "firebase": "^9.8.3"
+    "firebase": "^9.8.4"
   }
 }
