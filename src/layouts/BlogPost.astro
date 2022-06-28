@@ -3,10 +3,10 @@ import BaseLayout from './BaseLayout.astro'
 import BackArrow from '@components/layout/BackArrow.astro'
 
 const {content} = Astro.props;
-const {author, pubDate, description, permalink} = content;
+const {author, pubDate, description, permalink, title} = content;
 const slug = `https://www.elian.codes/blog/${permalink}/`
 ---
-<BaseLayout deactivateHeading={true} useColor={true} title={description} permalink={slug} description={description}>
+<BaseLayout deactivateHeading={true} useColor={true} title={title} permalink={slug} description={description}>
 	<main class="w-full">
 		<article class="blog-post">
 			<BackArrow link="/blog/" text="Back to all posts"/>
