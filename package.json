@@ -12,9 +12,9 @@
     "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^0.1.5",
+    "@astrojs/partytown": "^0.1.6",
     "@astrojs/rss": "^0.2.0",
-    "@astrojs/sitemap": "^0.1.2",
+    "@astrojs/sitemap": "^0.2.4",
     "@tailwindcss/typography": "^0.5.2",
     "astro": "1.0.0-beta.31",
     "autoprefixer": "^10.4.7",
