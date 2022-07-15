@@ -21,7 +21,7 @@ export const technologies: HttpsFunction = https.onRequest(
       !admin.apps.length ? admin.initializeApp() : admin.app();
       const db = admin.firestore();
 
-      const technologies: Technology[] = await (
+      const technologies: Technology[] = (
         await db.collection("technologies").get()
       ).docs.map((doc) => doc.data())
           .map((technology): Technology => {
