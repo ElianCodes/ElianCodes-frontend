@@ -9,6 +9,7 @@
     "preview": "astro preview",
     "deploy": "pnpm build && firebase deploy",
     "deploy:hosting": "pnpm build && firebase deploy --only hosting",
+    "deploy:functions": "npm run deploy --prefix functions --only functions",
     "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
   },
   "devDependencies": {
