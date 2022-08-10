@@ -4,7 +4,7 @@ const { color } = Astro.props;
 <div class={color ? "use-color" : "text-white dark:text-gray-900"}>
     <div class="hidden absolute text-right top-8 right-8 xl:top-12 xl:right-12 text-3xl md:flex flex-row-reverse gap-8">
         <button id="navigationButton" type="button" title="open the menu">🍔</button>
-        <nav id="navigation" class="hidden transition-all ease-in-out duration-300" role="menu" aria-expanded="false">
+        <nav role="navigation" id="navigation" class="hidden transition-all ease-in-out duration-300" role="menu" aria-expanded="false">
             <ul class="flex gap-8">
                 <li><a title="to the home page" href="/">Home</a></li>
                 <li><a title="to the blog" href="/blog/">Blog</a></li>
