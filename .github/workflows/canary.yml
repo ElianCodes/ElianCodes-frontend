@@ -5,6 +5,15 @@ on:
     branches:
       - main 
 
+env:
+  PUBLIC_API_KEY: ${{ secrets.PUBLIC_API_KEY }}
+  PUBLIC_MSG_ID: ${{ secrets.PUBLIC_MSG_ID }}
+  PUBLIC_GA_ID: ${{ secrets.PUBLIC_GA_ID }}
+  PUBLIC_APP_ID: ${{ secrets.PUBLIC_APP_ID }}
+  PUBLIC_CAPTCHA_SITE_KEY: ${{ secrets.PUBLIC_CAPTCHA_SITE_KEY }}
+  PUBLIC_CAPTCHA_SECRET: ${{ secrets.PUBLIC_CAPTCHA_SECRET }}
+  SITE: ${{ secrets.SITE }}
+
 jobs:
   build-canary-preview:
     runs-on: ubuntu-latest
