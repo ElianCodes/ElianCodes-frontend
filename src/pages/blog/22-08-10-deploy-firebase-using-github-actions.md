@@ -40,6 +40,8 @@ on:
 jobs:
   build-staging-preview:
     runs-on: ubuntu-latest
+    # You can also add environmental secrets (.env)
+    # environment: production
     steps:
       - uses: actions/checkout@v2
       - run: npm i -g pnpm@latest
@@ -78,7 +80,8 @@ Now, when you trigger the workflow, it should work! If you head over to your fir
 
 ![Screenshot of Firebase console preview channel](<https://i.imgur.com/fHIrSdP.png>)
 
-> ⚠️ Also don't forget to add the rest of your `.env` secrets to Github! ⚠  ️
+> ⚠️ Also don't forget to add the rest of your `.env` secrets to Github actions! ⚠  ️
+
 ### Production deployment
 
 The Production deployment is actually almost the same as the staging workflow (depending on your commands). This time, just replace the `channelId` to `live` & delete the `expiration`. Be sure to change te `on` action as well!
