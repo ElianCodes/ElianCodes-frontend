@@ -30,9 +30,12 @@ export const analytics: HttpsFunction = https.onRequest(
       };
 
       const mostVisitedPages = new MostVisitedPages(
-          credentials, process.env.GA_PROPERTY ?? ""
+          credentials, process.env.GA_PROPERTY ?? "",
+          {excludeUrls: [
+            "www.elian.codes/",
+          ]},
       );
-      const rawPages: Page[] = await mostVisitedPages.getPageViews(4);
+      const rawPages: Page[] = await mostVisitedPages.getPageViews(5);
       const result = rawPages.map((page: Page) => {
         const newPage: AnalyticsPage = {
           type: "blogpost",

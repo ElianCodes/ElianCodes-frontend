@@ -1,6 +1,7 @@
 ---
 const { title, description, permalink } = Astro.props;
 const socialImg = "https://www.elian.codes/assets/img/social.jpg";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <style>
 html {
@@ -12,13 +13,12 @@ html.dark {
 </style>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Elian Codes | {title}</title>
 <meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA">
 <link rel="alternate" href="https://www.elian.codes/blog.xml" type="application/rss+xml">
 
 <meta name="title" content={`Elian Codes | ${title}`} />
-<meta name="title" content={title} />
 <meta name="description" content={description} />
 
 <meta property="og:type" content="website" />
@@ -26,13 +26,16 @@ html.dark {
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImg} />
+<meta property="og:image:alt" content="The Elian Codes Social image" />
 
 <meta property="twitter:card" content="summary_large_image" />
 <meta property="twitter:url" content={permalink} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImg} />
+<meta property="twitter:image:alt" content="The Elian Codes Social image" />
 
+<link rel="canonical" href={canonicalURL} />
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
 <link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
@@ -56,20 +59,10 @@ html.dark {
 
 <script client:idle async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="/assets/fonts/Rubik/Rubik.css">
-<!-- Fathom - beautiful, simple website analytics -->
-<script src="https://annies-song-innovate.elian.codes/script.js" data-site="UNQYDNDV" defer></script>
-<!-- / Fathom -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX"></script>
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-LXB34WHZJX');
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-192060388-1"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-192060388-1');
 </script>

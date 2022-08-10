@@ -9,21 +9,22 @@
     "preview": "astro preview",
     "deploy": "pnpm build && firebase deploy",
     "deploy:hosting": "pnpm build && firebase deploy --only hosting",
+    "deploy:functions": "npm run deploy --prefix functions --only functions",
     "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^0.1.6",
-    "@astrojs/rss": "^0.2.0",
-    "@astrojs/sitemap": "^0.2.4",
-    "@tailwindcss/typography": "^0.5.2",
-    "astro": "1.0.0-beta.31",
-    "autoprefixer": "^10.4.7",
-    "postcss": "^8.4.14",
+    "@astrojs/partytown": "^1.0.0",
+    "@astrojs/rss": "^1.0.0",
+    "@astrojs/sitemap": "^1.0.0",
+    "@tailwindcss/typography": "^0.5.4",
+    "astro": "1.0.1",
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.16",
     "postcss-import": "^14.1.0",
-    "sass": "^1.53.0",
-    "tailwindcss": "^3.1.4"
+    "sass": "^1.54.4",
+    "tailwindcss": "^3.1.8"
   },
   "dependencies": {
-    "firebase": "^9.8.4"
+    "firebase": "^9.9.2"
   }
 }
