@@ -1,0 +1,22 @@
+name: Deploy to the Canary channel
+
+on:
+  pull_request:
+    branches:
+      - main 
+
+jobs:
+  build-canary-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm i -g pnpm@latest
+      - run: pnpm i
+      - run: pnpm build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          expires: 30d
+          projectId: eliancodes-1632771244788
+          channelId: canary
