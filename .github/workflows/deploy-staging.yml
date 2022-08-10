@@ -6,7 +6,7 @@ on:
       - develop
 
 jobs:
-  build-canary-preview:
+  build-staging-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

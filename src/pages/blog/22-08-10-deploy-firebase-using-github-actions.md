@@ -38,7 +38,7 @@ on:
       - develop
 
 jobs:
-  build-canary-preview:
+  build-staging-preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -91,7 +91,7 @@ on:
       - main
 
 jobs:
-  build-canary-preview:
+  build-and-deploy-production:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
