@@ -1,7 +1,7 @@
 div.blogpost-filter {
     @apply transition-all duration-300 ease-in-out;
     @extend .bg-color-always;
-    @apply hidden lg:flex gap-4 fixed text-white left-8 rounded-lg px-6 py-4;
+    @apply hidden lg:flex gap-4 fixed text-white left-8 bottom-8 rounded-lg px-6 py-4;
     button {
         @apply transition-all duration-300 ease-in-out;
     }
