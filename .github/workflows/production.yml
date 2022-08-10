@@ -1,0 +1,33 @@
+name: Deploy to the Live channel
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  PUBLIC_API_KEY: ${{ secrets.PUBLIC_API_KEY }}
+  PUBLIC_MSG_ID: ${{ secrets.PUBLIC_MSG_ID }}
+  PUBLIC_GA_ID: ${{ secrets.PUBLIC_GA_ID }}
+  PUBLIC_APP_ID: ${{ secrets.PUBLIC_APP_ID }}
+  PUBLIC_CAPTCHA_SITE_KEY: ${{ secrets.PUBLIC_CAPTCHA_SITE_KEY }}
+  PUBLIC_CAPTCHA_SECRET: ${{ secrets.PUBLIC_CAPTCHA_SECRET }}
+  SITE: ${{ secrets.SITE }}
+
+jobs:
+  build-and-deploy-production:
+    runs-on: ubuntu-latest
+    environment: Production
+    env:
+      PUBLIC_API_KEY: ${{ secrets.PUBLIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm i -g pnpm@latest
+      - run: pnpm i
+      - run: pnpm build
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"
+          projectId: eliancodes-1632771244788
+          channelId: live

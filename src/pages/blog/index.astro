@@ -31,7 +31,7 @@ const availableFilters: FilterItem[] = [
 							<li class="mx-auto my-24 max-w-md blog-article">
 								<a href={`${post.url}/`}><h3 class="text-xl font-medium">{post.frontmatter.title}</h3></a>
 								<p class="py-4">{post.frontmatter.description}</p>
-								<p class="pb-4">Published: {new Date(post.frontmatter.pubDate).toLocaleDateString()} by {post.frontmatter.author}</p>
+								<p class="pb-4">Published: {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { year:"numeric", month:"long", day:"numeric"})} by {post.frontmatter.author}</p>
 								<a title={`read "${post.frontmatter.title}"`} href={`${post.url}/`} class="read-more">Read this article</a>
 							</li>
 						)
@@ -41,7 +41,7 @@ const availableFilters: FilterItem[] = [
 		</div>
 	</main>
 	<div class="blogpost-filter">
-		<button onclick="window.fathom.trackGoal('NKBZUAD9', 0);" type="button" id="toggleFilter" class="p-2" title="filter blogposts">➡️</button>
+		<button type="button" id="toggleFilter" class="p-2" title="filter blogposts">➡️</button>
 		<div id="blogpostFilter" class="hidden">
 			<ul>
 				{ availableFilters.map(filter => {
