@@ -2,7 +2,12 @@
   "hosting": {
     "site": "eliancodes-1632771244788",
     "public": "dist",
-    "ignore": []
+    "ignore": [],
+    "redirects": [ {
+      "source": "/foo",
+      "destination": "/bar",
+      "type": 301
+    } ]
   },
   "functions": {
     "predeploy": [
