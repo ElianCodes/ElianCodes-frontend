@@ -1,5 +1,9 @@
 ---
-const { activateBackground } = Astro.props
+export interface Props {
+    activateBackground: boolean;
+};
+
+const { activateBackground } = Astro.props as Props;
 ---
 <div class="fixed bottom-10 right-12 text-white hidden md:inline">
     <div class={activateBackground ? "bg-color p-2 -m-2 rounded-full flex justify-center items-center" : ""}>

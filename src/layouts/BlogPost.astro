@@ -1,9 +1,16 @@
 ---
+export interface Content {
+	author: string;
+	pubDate: string;
+	title: string;
+	description: string;
+};
+
 import BaseLayout from './BaseLayout.astro'
 import BackArrow from '@components/layout/BackArrow.astro'
 
 const {content} = Astro.props;
-const {author, pubDate, description, title} = content;
+const {author, pubDate, description, title} = content as Content;
 ---
 <BaseLayout deactivateHeading={true} useColor={true} title={title} description={description}>
 	<main class="w-full">

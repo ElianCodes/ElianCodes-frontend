@@ -1,5 +1,9 @@
 ---
-const { color } = Astro.props;
+export interface Props {
+    color: boolean;
+};
+
+const { color } = Astro.props as Props;
 ---
 <div class={color ? "use-color" : "use-color xl:text-white dark:text-gray-900"}>
     <div class="hidden absolute text-right top-8 right-8 xl:top-12 xl:right-12 text-3xl md:flex flex-row-reverse gap-8">
