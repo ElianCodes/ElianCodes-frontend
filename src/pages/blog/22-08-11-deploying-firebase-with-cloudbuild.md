@@ -10,7 +10,6 @@ tags:
 imgUrl: "https://firebase.google.com/images/social.png"
 description: Deploying to Firebase can sometimes be somewhat of a hassle if you're using the CLI. There is a better way using some sort of CI/CD, Cloudbuild is the example explained here.
 layout: '../../layouts/BlogPost.astro'
-permalink: '22-08-11-deploy-firebase-with-cloudbuild'
 ---
 
 # Deploying to Firebase using Google Cloudbuild

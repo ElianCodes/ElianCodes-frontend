@@ -1,7 +1,13 @@
 ---
-const { title, description, permalink } = Astro.props;
+export interface Props {
+    title: string;
+    description: string;
+};
+
+const { title, description } = Astro.props as Props;
 const socialImg = "https://www.elian.codes/assets/img/social.jpg";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const dev: boolean = import.meta.env.APP_ENV === "dev";
 ---
 <style>
 html {
@@ -14,7 +20,6 @@ html.dark {
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Elian Codes | {title}</title>
 <meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA">
 <link rel="alternate" href="https://www.elian.codes/blog.xml" type="application/rss+xml">
 
@@ -22,14 +27,14 @@ html.dark {
 <meta name="description" content={description} />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content={permalink} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImg} />
 <meta property="og:image:alt" content="The Elian Codes Social image" />
 
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={permalink} />
+<meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImg} />
@@ -57,12 +62,17 @@ html.dark {
 <meta name="theme-color" content="#ffffff">
 <meta name="theme-color" content="#6ee7b7">
 
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>
 <link rel="stylesheet" type="text/css" href="/assets/fonts/Rubik/Rubik.css">
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-LXB34WHZJX');
-</script>
+
+{ !dev ? (
+    <title>Elian Codes | {title}</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX"></script>
+    <script hoist>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-LXB34WHZJX');
+    </script>
+    ) : (<title>DEV | Elian Codes | {title}</title>)
+}

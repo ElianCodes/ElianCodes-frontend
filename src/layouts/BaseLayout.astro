@@ -1,15 +1,22 @@
 ---
+export interface Props {
+	title: string;
+	description: string;
+	useColor?: boolean;
+	deactivateHeading?: boolean;
+};
+
 import BaseHead from './BaseHead.astro'
 import MainMenu from '@components/layout/MainMenu.astro'
 import DarkModeButton from '@components/layout/DarkMode.astro'
 import DefaultFooter from './BaseFooter.astro'
 import CookieBanner from '@components/layout/CookieBanner.astro'
 import '@styles/tailwind.scss';
-const { title, description, permalink, useColor, deactivateHeading } = Astro.props
+const { title, description, useColor, deactivateHeading } = Astro.props as Props;
 ---
 <html lang="en" class="h-full">
 	<head>
-    <BaseHead title={title} description={description} permalink={permalink}/>
+    <BaseHead title={title} description={description} />
 	</head>
 	<body class="p-8 min-h-full flex flex-col lg:flex-row w-full relative">
     <header>  

@@ -10,7 +10,6 @@ tags:
 imgUrl: 
 description: Astro came out some time ago with a SSR Deno adapter. I never tried it out before, So I thought I should give it a try!
 layout: '../../layouts/BlogPost.astro'
-permalink: '22-05-02-using-mostvisitedpages-as-a-function'
 ---
 
 # Deploying Astro on Deno

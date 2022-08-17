@@ -1,5 +1,10 @@
 ---
-const { link, text } = Astro.props
+export interface Props {
+	link: string;
+	text: string;
+};
+
+const { link, text } = Astro.props as Props;
 ---
 <a href={link} class="decoration-none py-4">
 	<span>&leftarrow;</span>

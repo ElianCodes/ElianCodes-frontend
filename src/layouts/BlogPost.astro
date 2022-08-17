@@ -1,12 +1,18 @@
 ---
+export interface Content {
+	author: string;
+	pubDate: string;
+	title: string;
+	description: string;
+};
+
 import BaseLayout from './BaseLayout.astro'
 import BackArrow from '@components/layout/BackArrow.astro'
 
 const {content} = Astro.props;
-const {author, pubDate, description, permalink, title} = content;
-const slug = `https://www.elian.codes/blog/${permalink}/`
+const {author, pubDate, description, title} = content as Content;
 ---
-<BaseLayout deactivateHeading={true} useColor={true} title={title} permalink={slug} description={description}>
+<BaseLayout deactivateHeading={true} useColor={true} title={title} description={description}>
 	<main class="w-full">
 		<article class="blog-post">
 			<BackArrow link="/blog/" text="Back to all posts"/>
