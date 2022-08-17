@@ -202,7 +202,7 @@ Its a very small and simple representation where you disallow certain directorie
 
 Here's the `robots.txt` of [elian.codes](<https://www.elian.codes/>)
 
-```txt
+```text
 User-agent: *
 Disallow: 
 Host: https://www.elian.codes/
