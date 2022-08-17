@@ -10,7 +10,6 @@ tags:
 imgUrl: 
 description: Since Astro 24, the documentation of Tailwind CSS in Astro has disappeared. Not because it's not supported, but because it now holds true to the Tailwind CSS documentation itself. If you still need a guide on how to use them both, look no further!
 layout: '../../layouts/BlogPost.astro'
-permalink: '04-23-22-use-tailwind-with-astro'
 ---
 
 # Tailwind CSS in Astro

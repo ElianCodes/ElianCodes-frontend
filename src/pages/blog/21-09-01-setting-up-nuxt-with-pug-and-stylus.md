@@ -10,7 +10,6 @@ tags:
 imgUrl: https://miro.medium.com/max/1400/1*sR9hl1Wbxt0mYFu2l1Efbw.png
 description: Nuxt is really cool all by itself but can even be cooler when combined with another templating engine. In this example I'll use Pug and Stylus to fiddle around.
 layout: '../../layouts/BlogPost.astro'
-permalink: '1-09-21-setting-up-nuxt-with-pug-and-stylus'
 ---
 
 # Setting up Nuxt with Pug and Stylus

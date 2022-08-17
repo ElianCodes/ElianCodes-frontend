@@ -9,7 +9,6 @@ tags:
 imgUrl: https://res.cloudinary.com/redfern-web/image/upload/v1598516539/redfern-dev/png/valet.png
 description: Valet is a highly configurable MacOs tool for webdevelopment running in the background
 layout: '../../layouts/BlogPost.astro'
-permalink: 'using-valet-for-local-development'
 ---
 
 # Using Laravel Valet for local PHP development

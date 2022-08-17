@@ -10,7 +10,6 @@ tags:
 imgUrl: https://snipcart.com/media/205228/tailwindcss-tutorial.png
 description: having TailwindCSS classes everywhere in my markup annoys me. That's why I tought of a better way of styling with TailwindCSS
 layout: '../../layouts/BlogPost.astro'
-permalink: 'writing-your-own-components-with-tailwind-sass'
 ---
 
 # Writing your own style components with TailwindCSS and Sass

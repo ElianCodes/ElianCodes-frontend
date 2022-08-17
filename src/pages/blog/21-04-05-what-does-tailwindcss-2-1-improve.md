@@ -10,7 +10,6 @@ tags:
 imgUrl: https://blog.tailwindcss.com/_next/static/media/card.3bf3cbd50f2798709f66eeefbfdb1eaf.jpg
 description: TailwindCSS 2.1 just got released, but what does it bring and improve?
 layout: '../../layouts/BlogPost.astro'
-permalink: 'what-does-tailwindcss-2-1-improve'
 ---
 
 # What does TailwindCSS 2.1 improve?

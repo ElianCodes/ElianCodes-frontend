@@ -9,7 +9,6 @@ tags:
 imgUrl: 
 description: Last year I wrote an article about using TailwindCSS with Blazor. It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS NodeJS. Now that TailwindCSS launched a new tool, Tailwind CLI, it's time to try it another way!
 layout: '../../layouts/BlogPost.astro'
-permalink: '12-16-21-using-tailwind-cli-with-blazor'
 ---
 
 # Using Tailwind CLI with Blazor

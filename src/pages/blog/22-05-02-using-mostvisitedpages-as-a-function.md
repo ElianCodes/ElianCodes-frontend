@@ -10,7 +10,6 @@ tags:
 imgUrl: 
 description: I've moved from a regular RESTful API to serverless functions. Here is a little guide and explanation on why & how I did that.
 layout: '../../layouts/BlogPost.astro'
-permalink: '22-05-02-using-mostvisitedpages-as-a-function'
 ---
 
 # Using @elianvancutsem/mostvisitedpages as a serverless function

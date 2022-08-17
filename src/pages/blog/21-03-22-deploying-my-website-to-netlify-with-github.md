@@ -11,7 +11,6 @@ tags:
 imgUrl: https://flaviocopes.com/netlify/netlify-logo.png
 description: I've used github to manage the sourcecode for my website for a long time, github pages came with it. Now I discovered a better way to deploy and host websites.
 layout: '../../layouts/BlogPost.astro'
-permalink: 'deploying-my-website-to-netlify-with-github'
 ---
 
 # Deploying my website to Netlify using Github

@@ -10,7 +10,6 @@ tags:
 imgUrl: 
 description: Astro came out with a beta version of the v1.0 release of the framework. I upgraded my website to use that version, since I was still running on v0.24. The following are some of the changes I had to do to get it working.
 layout: '../../layouts/BlogPost.astro'
-permalink: '22-04-26-upgrading-to-astro-beta-one'
 ---
 
 # Upgrading my website to Astro v1.0

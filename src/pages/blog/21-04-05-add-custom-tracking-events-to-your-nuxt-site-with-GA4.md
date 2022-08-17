@@ -10,7 +10,6 @@ tags:
 imgUrl: https://google-analytics.nuxtjs.org/preview.png
 description: Tracking with GA4 can be very useful, here's a little guide on tracking things you find important with custom GA4 events in Nuxt
 layout: '../../layouts/BlogPost.astro'
-permalink: 'add-custom-tracking-events-to-your-nuxt-site-with-GA4'
 ---
 
 # Add custom tracking events to your nuxt site with GA4

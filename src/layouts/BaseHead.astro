@@ -1,5 +1,10 @@
 ---
-const { title, description, permalink } = Astro.props;
+export interface Props {
+    title: string;
+    description: string;
+};
+
+const { title, description } = Astro.props as Props;
 const socialImg = "https://www.elian.codes/assets/img/social.jpg";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const dev: boolean = import.meta.env.APP_ENV === "dev";
@@ -22,14 +27,14 @@ html.dark {
 <meta name="description" content={description} />
 
 <meta property="og:type" content="website" />
-<meta property="og:url" content={permalink} />
+<meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={socialImg} />
 <meta property="og:image:alt" content="The Elian Codes Social image" />
 
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={permalink} />
+<meta property="twitter:url" content={canonicalURL} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={socialImg} />

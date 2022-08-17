@@ -10,7 +10,6 @@ tags:
 imgUrl: https://1000merken.com/wp-content/uploads/2021/03/Google-Cloud-Logo-700x394.png
 description: Hosting your website online is one of the basic and required steps to build an online audience. Choosing the right platform to host it, can be a difficult process. In this blogpost I clearify my choice.
 layout: '../../layouts/BlogPost.astro'
-permalink: 'moving-on-from-netlify-to-google-cloud'
 ---
 
 # Moving on from Netlify to Google Cloud

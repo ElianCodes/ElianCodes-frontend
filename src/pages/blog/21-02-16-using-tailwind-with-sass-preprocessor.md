@@ -9,7 +9,6 @@ tags:
 imgUrl: https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1200px-Sass_Logo_Color.svg.png
 description: Found myself struggling with tailwind config with sass preprocessor, so I figured I'd share a solution
 layout: '../../layouts/BlogPost.astro'
-permalink: 'using-tailwind-with-sass-preprocessor'
 ---
 
 # Using Sass as a tailwindCSS preprocessor

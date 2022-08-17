@@ -9,7 +9,6 @@ tags:
 imgUrl: https://madewithnetwork.ams3.cdn.digitaloceanspaces.com/spatie-space-production/3075/nuxtjs-2.jpg
 description: I added a custom preloader to my Nuxt site. It's not that difficult, here's how I did it.
 layout: '../../layouts/BlogPost.astro'
-permalink: 'adding-a-custom-preloader-to-your-nuxt-site'
 ---
 
 # Adding a custom preloader to your nuxt site

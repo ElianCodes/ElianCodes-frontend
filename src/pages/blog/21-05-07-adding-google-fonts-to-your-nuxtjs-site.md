@@ -10,7 +10,6 @@ tags:
 imgUrl: https://google-fonts.nuxtjs.org/preview.svg
 description: I found out that my fonts weren't loading properly, so I searched for an alternative.
 layout: '../../layouts/BlogPost.astro'
-permalink: 'adding-google-fonts-to-your-nuxtjs-site'
 ---
 
 # Adding Google Fonts to your NuxtJS site

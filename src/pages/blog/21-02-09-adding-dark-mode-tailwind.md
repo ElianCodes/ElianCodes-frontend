@@ -9,7 +9,6 @@ tags:
 imgUrl: https://snipcart.com/media/205228/tailwindcss-tutorial.png
 description: How to add dark mode support in TailwindCSS
 layout: '../../layouts/BlogPost.astro'
-permalink: 'adding-dark-mode-tailwind'
 ---
 
 # Add dark mode to your site with TailwindCSS

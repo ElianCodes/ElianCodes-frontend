@@ -10,7 +10,6 @@ tags:
 imgUrl: https://coil.com/static/media/creator-not-subscribed.bb0272e7.svg
 description: Ads are annoying right, Coil adds a new way to get paid for every second spent on your content.
 layout: '../../layouts/BlogPost.astro'
-permalink: 'monitize-your-content-using-coil'
 ---
 
 # Monetize your content with Coil
