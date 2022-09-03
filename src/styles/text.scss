@@ -14,3 +14,7 @@ h2.welcome {
 p.tagline {
     @apply text-4xl py-8 text-gray-500 dark:text-gray-300;
 }
+
+.standard-animation {
+    @apply transition-all duration-300 ease-in-out;
+}
