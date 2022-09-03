@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/baseLayout.astro'
+import Events from '@components/events/eventList.astro'
+---
+
+<BaseLayout title="Events" description="See upcoming and past events I took part in as a speaker" useColor={true}>
+<main class="mt-16 lg:my-12 xl:my-12 flex flex-col lg:flex-row gap-10 items-center justify-center w-full"> 
+  <div class="h-full bg-color w-full rounded-3xl px-8 text-black lg:text-white flex-1 flex flex-col justify-center items-center">
+    <figure>
+        <img alt="Elian speaking @Full Stack Ghent" title="Elian speaking at Full Stack Ghent" src="/assets/img/fullstackghent.jpeg" width="384" height="384" class="rounded-full w-64 lg:w-72 xl:w-84 h-auto" />
+      <figcaption class="sr-only">Elian speaking at Full Stack Ghent</figcaption>
+    </figure>
+    <p class="mt-16 text-xl">
+      Elian, Software Engineer <a href="https://www.vbridge.eu" target="_blank">@vBridge</a> where he started a couple years ago as an intern. He has a strong focus on design, front-end development and cloud native web-applications with the emphasis on personalization and technical innovation. Part of a community where he supports many companies in their IT story, and through his work connecting people, via the cloud and in real life. Always available for a chat or drink.
+    </p>
+  </div>
+  <div class="flex-1">
+    <Events />
+  </div>
+</main>
+</BaseLayout>
