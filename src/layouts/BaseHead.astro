@@ -7,7 +7,7 @@ export interface Props {
 const { title, description } = Astro.props as Props;
 const socialImg = "https://www.elian.codes/assets/img/social.jpg";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const dev: boolean = import.meta.env.APP_ENV === "dev";
+const dev: boolean = import.meta.env.PUBLIC_APP_ENV === "dev";
 ---
 <style>
 html {

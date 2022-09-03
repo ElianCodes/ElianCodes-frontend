@@ -5,7 +5,7 @@ import DarkModeButton from '@components/layout/DarkMode.astro'
 import DefaultFooter from '@layouts/BaseFooter.astro'
 import '@styles/tailwind.scss';
 
-const dev: boolean = import.meta.env.APP_ENV === "dev";
+const dev: boolean = import.meta.env.PUBLIC_APP_ENV === "dev";
 const pages = dev ? [{ title: 'hidden for development mode', link: '#' }] : await fetch('https://us-central1-eliancodes-1632771244788.cloudfunctions.net/analytics').then(res => res.json()).catch(err => console.log(err));
 ---
 <html lang="en" class="h-full">
