@@ -16,15 +16,15 @@
     "@astrojs/partytown": "^1.0.0",
     "@astrojs/rss": "^1.0.0",
     "@astrojs/sitemap": "^1.0.0",
-    "@tailwindcss/typography": "^0.5.4",
-    "astro": "^1.0.6",
+    "@tailwindcss/typography": "^0.5.7",
+    "astro": "^1.1.5",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.16",
     "postcss-import": "^14.1.0",
-    "sass": "^1.54.4",
+    "sass": "^1.54.8",
     "tailwindcss": "^3.1.8"
   },
   "dependencies": {
-    "firebase": "^9.9.2"
+    "firebase": "^9.9.4"
   }
 }
