@@ -3,6 +3,10 @@
     @apply transition-colors ease-in duration-500;
 }
 
+.hover:use-color {
+    color: green;
+}
+
 .bg-color {
     &-always {
         background-color: var(--custom-color);

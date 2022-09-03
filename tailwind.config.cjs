@@ -12,7 +12,10 @@ module.exports = {
         'primary-red': colors.red[300],
         'primary-orange': colors.orange[300],
         'primary-fuchsia': colors.fuchsia[300],
-      }
+      },
+      maxHeight: {
+        'screen-80': '80vh'
+      },
     },
   },
   plugins: [
