@@ -13,6 +13,7 @@ env:
   PUBLIC_CAPTCHA_SITE_KEY: ${{ secrets.PUBLIC_CAPTCHA_SITE_KEY }}
   PUBLIC_CAPTCHA_SECRET: ${{ secrets.PUBLIC_CAPTCHA_SECRET }}
   SITE: ${{ secrets.SITE }}
+  PUBLIC_APP_ENV: dev
 
 jobs:
   build-canary-preview:
