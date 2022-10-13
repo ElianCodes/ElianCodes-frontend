@@ -27,7 +27,7 @@ So, I'm Elian, a software engineer at [vBridge](<https://www.vbridge.eu>) in Bel
 
 I’m an Ambassador for [Astro](<https://astro.build>)
 
-![Slide 1](https://i.imgur.com/PSFZ6ru.jpg)
+![Slide 1](https://i.imgur.com/tyUS0Dp.png)
 
 So what is [Astro](<https://astro.build>)?
 
@@ -35,7 +35,7 @@ So what is [Astro](<https://astro.build>)?
 
 Astro is a lightning fast framework!
 
-![Slide 3](https://i.imgur.com/PDptO6U.jpg)
+![Slide 3](https://i.imgur.com/G1A9OdB.png)
 
 Even better, it’s a blazing fast framework
 
@@ -43,17 +43,17 @@ Even better, it’s a blazing fast framework
 
 Or even a primeagen fast framework
 
-![Slide 5](https://i.imgur.com/FASSntZ.jpg)
+![Slide 5](https://i.imgur.com/8Czu8GZ.png)
 
 Or just simply Astronomically fast!
 
-![Slide 6](https://i.imgur.com/GwWJxTr.jpg)
+![Slide 6](https://i.imgur.com/ivSCUi2.png)
 
 So; Why was I talking about a different Framework than React at React Brussels?
 
 It's because Astro loves React right!
 
-![Slide 7](https://i.imgur.com/rmljHjL.jpg)
+![Slide 7](https://i.imgur.com/Kz4eG18.png)
 
 Astro is based on an island component design architecture, what does this mean?
 
@@ -95,7 +95,7 @@ Let’s take a closer look at writing and using a React Component in Astro
 
 let’s add a very simple React counter component that you’ve all probably used before. A basic number and two buttons, one decreasing the value and one increasing the value
 
-Let’s add some HTML in our `index.astro` `ile.
+Let’s add some HTML in our `index.astro` file.
 
 Let’s add some basic styling in the frontmatter of our Astro page
 
@@ -188,17 +188,19 @@ Deploying to the edge with tools like Vercel Edge Functions. Even other runtimes
 
 But also there are native integrations with popular packages, like Tailwind and Partytown
 
-![Slide 29](https://i.imgur.com/5FhjhV4.jpg)
+![Slide 29](https://i.imgur.com/LGA31M1.png)
 
-So, not only is Astro an amazing framework, it's also driven by a beautiful community, so come chat with us on discord!
+So, not only is Astro an amazing framework, it's also driven by a beautiful community, so come [chat with us on discord](<https://astro.build/chat>)!
 
 I've also put some links in here that can guide you on your journey in Astro!
 
 ![Slide 30](https://i.imgur.com/7alPlqr.jpg)
 
-If you liked this talk and want the slides, there already available on my website!
+if you decide to give astro a spin, be sure to tag [me on twitter](<https://twitter.com/eliancodes>) :D
 
 That’s it for me!
+
+Elian Out!
 
 ## Thanks
 
@@ -206,4 +208,4 @@ Huge thanks you to Ben & Aymen for organising this talk & asking me! 🙏
 
 Big thanks for everyone helping me out and listening to my talk! 🙏
 
-Special thanks to Fuzzy for helping me out finishing my slides! 🙏🐻
+Special thanks to [Fuzzy](<https://twitter.com/aFuzzyBear2>) for helping me out finishing my slides! 🙏🐻
