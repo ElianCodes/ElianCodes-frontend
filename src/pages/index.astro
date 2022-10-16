@@ -1,4 +1,5 @@
 ---
+import { Picture } from '@astrojs/image/components'
 import BaseLayout from '@layouts/BaseLayout.astro'
 
 const githubUsername = 'ElianCodes';
@@ -25,10 +26,15 @@ const linkedInUsername = "elianvancutsem"
 			</div>
 		</div>
 		<div class="h-full bg-color rounded-3xl pl-8 text-white flex-1 flex flex-col justify-center items-center">
-			<figure>
-					<img alt="Elian's online avatar" title="Elian's online avatar" src="/assets/hero.webp" width="384" height="384" class="w-64 lg:w-72 xl:w-96 h-auto" />
-				<figcaption class="sr-only">Elian's online avatar</figcaption>
-			</figure>
+			<Picture
+				src="/assets/hero.png"
+				title="Elian's online avatar"
+				alt="Elian's online avatar"
+				class="w-64 lg:w-72 xl:w-96 h-auto"
+				sizes="((min-width: 50em) and (max-width: 60em)) 50em, ((min-width: 30em) and (max-width: 50em)) 30em, (max-width: 30em) 20em"
+				widths={[400, 800]}
+				aspectRatio="1:1"
+			/>
 			<ul class="flex gap-20 pt-12 lg:pt-24">
 				<li data-aos="fade-up" data-aos-delay="200">
 					<a rel="nofollow noopener" href={`https://www.github.com/${githubUsername}`} target="_blank" title={`${githubUsername} on Github`}>

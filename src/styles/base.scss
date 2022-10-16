@@ -5,3 +5,7 @@ html {
 html.dark {
     @apply bg-black;
 }
+
+.rounded-picture img {
+    @apply rounded-full;
+}
