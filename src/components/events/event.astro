@@ -18,8 +18,11 @@ const { event } = Astro.props as Props
       <div class="min-w-0 flex-1">
         <div>
           <div class="text-sm">
-            <h3>
-              <a href={event.blogpost} target="_blank" class:list={["font-medium", event.blogpost ? 'hover:use-color' : null]}>{event.title}</a>
+            <h3> { event.blogpost ? (
+                <a href={event.blogpost} target="_blank" class="font-medium hover:underline">{event.title}</a>
+              ) : (
+                <span class="font-medium">{event.title}</span>
+              )}
             </h3>
           </div>
           <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">{event.date.toLocaleDateString()}</p>
