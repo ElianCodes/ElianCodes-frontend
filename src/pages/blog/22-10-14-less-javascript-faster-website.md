@@ -17,7 +17,11 @@ layout: '../../layouts/BlogPost.astro'
 
 Keep in mind that this was a lightning talk between 4 and 10 minutes long.
 
-*Last updated: 10/14/2022 12:00*
+*Last updated: 10/18/2022 21:05*
+
+![Me at the conference](<https://i.imgur.com/OnGbVrg.jpg>)
+
+☝️ me at the conference!
 
 ## The Slides
 
@@ -196,7 +200,7 @@ I've also put some links in here that can guide you on your journey in Astro!
 
 ![Slide 30](https://i.imgur.com/7alPlqr.jpg)
 
-if you decide to give astro a spin, be sure to tag [me on twitter](<https://twitter.com/eliancodes>) :D
+If you decide to give astro a spin, be sure to tag [me on twitter](<https://twitter.com/eliancodes>) :D
 
 That’s it for me!
 
@@ -204,7 +208,7 @@ Elian Out!
 
 ## Thanks
 
-Huge thanks you to Ben & Aymen for organising this talk & asking me! 🙏
+Huge thanks you to Aymen & Omar for organising this talk & asking me! 🙏
 
 Big thanks for everyone helping me out and listening to my talk! 🙏
 
