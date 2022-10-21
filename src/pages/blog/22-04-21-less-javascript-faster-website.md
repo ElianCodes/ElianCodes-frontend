@@ -35,7 +35,7 @@ So, What is [Astro](<https://astro.build>)?
 
 Astro is a fairly new Static Site Generator started by the folks over at Snowpack. [see Github repo here](<https://github.com/withastro/astro>)
 
-In certain ways it’s very comparable to frameworks like [NextJS](<https://nextjs.org/>) and [NuxtJS](<nuxtjs.org>), but other than most JAMStack frameworks, Astro takes another approach at [shipping JavaScript, in other words, as little as possible](<https://astro.build/#more-html-less-javascript>).
+In certain ways it’s very comparable to frameworks like [NextJS](<https://nextjs.org/>) and [NuxtJS](<https://nuxtjs.org>), but other than most JAMStack frameworks, Astro takes another approach at [shipping JavaScript, in other words, as little as possible](<https://astro.build/#more-html-less-javascript>).
 
 When astro first released, it used SnowPack under the hood as a build system, but since Astro version 0.21 it switched to Vite which featured great speed and developer experience improvements. [Blogpost here](https://astro.build/blog/astro-021-release/)
 
