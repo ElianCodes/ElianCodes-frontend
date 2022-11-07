@@ -8,7 +8,7 @@ interface Props {
 
 import BaseHead from '@components/layout/BaseHead.astro'
 import MainMenu from '@components/layout/MainMenu.astro'
-import DarkMode from '@components/layout/DarkMode'
+import DarkModeButton from '@components/layout/DarkMode.astro'
 import DefaultFooter from '@components/layout/BaseFooter.astro'
 import CookieBanner from '@components/layout/CookieBanner.astro'
 
@@ -27,7 +27,26 @@ const { title, description, useColor, deactivateHeading } = Astro.props as Props
     </header>
     <slot />
     <CookieBanner />
-		<DarkMode activateBackground={useColor} client:load/>
+    <DarkModeButton activateBackground={useColor}/>
     <DefaultFooter />
+		<script is:inline>
+			const theme = (() => {
+				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+					return localStorage.getItem('theme');
+				}
+				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+					return 'dark';
+				}
+				return 'light';
+			})();
+			if (theme === 'light') {
+				document.documentElement.classList.remove('dark');
+			} else {
+				document.documentElement.classList.add('dark');
+			}
+		</script>
+		<script>
+			import './DarkMode.ts'
+		</script>
 	</body>
 </html>

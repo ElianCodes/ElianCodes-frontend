@@ -1,7 +1,7 @@
 ---
 import BaseHead from '@components/layout/BaseHead.astro'
 import MainMenu from '@components/layout/MainMenu.astro'
-import DarkMode from '@components/layout/DarkMode'
+import DarkModeButton from '@components/layout/DarkMode.astro'
 import DefaultFooter from '@components/layout/BaseFooter.astro'
 
 const dev: boolean = import.meta.env.PUBLIC_APP_ENV === "dev";
@@ -46,7 +46,7 @@ const pages = dev ? [{ title: 'hidden for development mode', link: '#' }] : awai
 			</ul>
 			<p class="pt-8">These are <a class="use-color underline" target="_blank" href="https://www.npmjs.com/package/@elianvancutsem/mostvisitedpages" rel="nofollow noreferer">the most popular pages</a> on this website</p>
 		</main>
-		<DarkMode activateBackground={true} client:load/>
+		<DarkModeButton activateBackground={true}/>
 		<DefaultFooter />
 	</body>
 </html>
