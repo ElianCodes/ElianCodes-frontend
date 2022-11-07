@@ -1,29 +1,15 @@
-<footer id="footer" class="opacity-0 pt-12 lg:pt-0 lg:absolute lg:bottom-8 transition-opacity ease-in-out duration-500">
-	Website built with <a id="footerTechnology" class="use-color" title="go to the " target="_blank" href="">test</a> & ☕️
-</footer>
+---
+import Technologies from './Technologies';
 
-<script>
-	const dev = import.meta.env.PUBLIC_APP_ENV === "dev";
-	const updateDOM = (technology) => {
-		const footer = document.getElementById('footerTechnology')
-		footer.innerHTML = technology.name
-		footer.setAttribute('title', `go to the ${technology.name} website`)
-		footer.setAttribute('href', technology.link)
-		document.getElementById('footer').classList.remove('opacity-0')
-	}
-	const setTechnology = async () => {
-		if (dev) {
-			updateDOM({ name: 'hidden for dev', href: '#' });
-		} else {
-			await fetch('https://us-central1-eliancodes-1632771244788.cloudfunctions.net/technologies').then(res => res.json()).then(technologies => {
-				updateDOM(technologies[(Math.floor(Math.random() * technologies.length))])
-			}).catch(() => {
-				updateDOM({ name: 'Astro', link: 'https://www.astro.build'})
-			})
-		}
-	}
-	setTechnology()
-</script>
+const dev = import.meta.env.PUBLIC_APP_ENV === "dev";
+const technologies = !dev ? await fetch('https://us-central1-eliancodes-1632771244788.cloudfunctions.net/technologies').then(res => res.json()) : [{ name: 'Astro', link: 'https://astro.build'}]
+---
+<footer id="footer" class="pt-12 lg:pt-0 lg:absolute lg:bottom-8 transition-opacity ease-in-out duration-500">
+	<Technologies
+		technologies={technologies}
+		client:visible
+	/>
+</footer>
 
 <script>
 	import './CustomColor.ts';
