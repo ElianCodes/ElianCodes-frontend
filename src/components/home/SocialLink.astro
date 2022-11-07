@@ -1,0 +1,23 @@
+---
+interface SocialContent {
+  name: string,
+  username: string,
+  href: string,
+  content: string
+}
+
+export interface Props {
+  social: SocialContent
+}
+
+const {social} = Astro.props as Props;
+const {name, username, href, content} = social;
+---
+<li data-aos="fade-up" data-aos-delay="200">
+  <a rel="nofollow noopener" href={href} target="_blank" title={`${username} on ${name}`}>
+    <span class="sr-only">{name} Icon</span>
+    <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36pt" height="36pt" viewBox="0 0 36 36" version="1.1">
+      <Fragment set:html={content} />
+    </svg>
+  </a>
+</li>

@@ -6,12 +6,12 @@ export interface Props {
 	deactivateHeading?: boolean;
 };
 
-import BaseHead from './BaseHead.astro'
+import BaseHead from '@components/layout/BaseHead.astro'
 import MainMenu from '@components/layout/MainMenu.astro'
 import DarkModeButton from '@components/layout/DarkMode.astro'
-import DefaultFooter from './BaseFooter.astro'
+import DefaultFooter from '@components/layout/BaseFooter.astro'
 import CookieBanner from '@components/layout/CookieBanner.astro'
-import '@styles/tailwind.scss';
+
 const { title, description, useColor, deactivateHeading } = Astro.props as Props;
 ---
 <html lang="en" class="h-full">
