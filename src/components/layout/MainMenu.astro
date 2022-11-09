@@ -1,5 +1,7 @@
 ---
-export interface Props {
+import PickColor from './PickColor';
+
+interface Props {
     color: boolean;
 };
 
@@ -14,8 +16,7 @@ const { color } = Astro.props as Props;
                 <li><a title="to the blog" href="/blog/">Blog</a></li>
             </ul>
         </nav>
-        <button title="Pick a new color" type="button" id="eyeDropper">🔍</button>
-        <button title="Remove custome color" type="button" class="hidden" id="clearColor">🗑</button>
+        <PickColor client:idle />
     </div>
     <div class="absolute text-right top-8 right-8 xl:top-12 xl:right-12 text-3xl flex md:hidden flex-row-reverse gap-8">
         <button id="mobileMenuOpenButton" type="button" title="open the menu">🍔</button>
@@ -69,8 +70,4 @@ document.addEventListener('DOMContentLoaded', () => {
         mobileNavigation.classList.add('hidden')
     })
 })
-</script>
-
-<script>
-    import './PickColor.ts'
 </script>

@@ -6,6 +6,9 @@ import partytown from "@astrojs/partytown";
 import image from "@astrojs/image";
 
 // https://astro.build/config
+import solidJs from "@astrojs/solid-js";
+
+// https://astro.build/config
 export default defineConfig({
   trailingSlash: 'ignore',
   server: {
@@ -14,5 +17,5 @@ export default defineConfig({
   site: 'https://www.elian.codes',
   integrations: [sitemap({
     canonicalURL: 'https://www.elian.codes'
-  }), partytown(), image()]
+  }), partytown(), image(), solidJs()]
 });

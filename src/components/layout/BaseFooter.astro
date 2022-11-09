@@ -1,0 +1,17 @@
+---
+import Technologies from './Technologies';
+
+const dev = import.meta.env.PUBLIC_APP_ENV === "dev";
+const technologies = !dev ? await fetch('https://us-central1-eliancodes-1632771244788.cloudfunctions.net/technologies').then(res => res.json()) : [{ name: 'Astro', link: 'https://astro.build'}]
+---
+<footer id="footer" class="pt-12 lg:pt-0 lg:absolute lg:bottom-8 transition-opacity ease-in-out duration-500">
+	<Technologies
+		technologies={technologies}
+		client:visible
+	/>
+</footer>
+
+<script>
+	import './CustomColor.ts';
+	import './firebase.ts';
+</script>
