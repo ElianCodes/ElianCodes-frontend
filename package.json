@@ -30,7 +30,6 @@
     "@astrojs/vercel": "^2.3.3",
     "@vercel/analytics": "^0.1.4",
     "firebase": "^9.13.0",
-    "sharp": "^0.31.2",
     "solid-js": "^1.6.1"
   }
 }
