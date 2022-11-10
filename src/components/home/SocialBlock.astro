@@ -1,5 +1,5 @@
 ---
-// import { Picture } from '@astrojs/image/components'
+import { Picture } from '@astrojs/image/components'
 import SocialLink from './SocialLink.astro';
 
 const socials = [
@@ -33,7 +33,7 @@ const socials = [
 ]
 ---
 <div class="h-full bg-color rounded-3xl pl-8 text-white flex-1 flex flex-col justify-center items-center">
-  <!-- <Picture
+  <Picture
     src="/assets/hero.png"
     title="Elian's online avatar"
     alt="Elian's online avatar"
@@ -41,7 +41,7 @@ const socials = [
     sizes="((min-width: 50em) and (max-width: 60em)) 50em, ((min-width: 30em) and (max-width: 50em)) 30em, (max-width: 30em) 20em"
     widths={[400, 800]}
     aspectRatio="1:1"
-  /> -->
+  />
   <ul class="flex gap-20 pt-12 lg:pt-24">
     {
       socials.map(social => (
