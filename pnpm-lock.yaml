@@ -1430,8 +1430,8 @@ packages:
       sprintf-js: 1.0.3
     dev: true
 
-  /array-iterate/1.1.4:
-    resolution: {integrity: sha512-sNRaPGh9nnmdC8Zf+pT3UqP8rnWj5Hf9wiFGsX3wUQ2yVSIhO2ShFwCoceIPpB41QF6i2OEmrHmCo36xronCVA==}
+  /array-iterate/2.0.1:
+    resolution: {integrity: sha512-I1jXZMjAgCMmxT4qxXfPXa6SthSoE8h6gkSI9BGGNv8mP8G/v0blc+qFnZu6K42vTOiuME596QaLO0TP3Lk0xg==}
     dev: true
 
   /ast-types/0.14.2:
@@ -3768,10 +3768,6 @@ packages:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     dev: false
 
-  /nlcst-to-string/2.0.4:
-    resolution: {integrity: sha512-3x3jwTd6UPG7vi5k4GEzvxJ5rDA7hVUIRNHPblKuMVP9Z3xmlsd9cgLcpAMkc5uPOBna82EeshROFhsPkbnTZg==}
-    dev: true
-
   /nlcst-to-string/3.1.0:
     resolution: {integrity: sha512-Y8HQWKw/zrHTCnu2zcFBN1dV6vN0NUG7s5fkEj380G8tF3R+vA2KG+tDl2QoHVQCTHGHVXwoni2RQkDSFQb1PA==}
     dependencies:
@@ -3964,12 +3960,12 @@ packages:
       is-hexadecimal: 2.0.1
     dev: true
 
-  /parse-latin/5.0.0:
-    resolution: {integrity: sha512-Ht+4/+AUySMS5HKGAiQpBmkFsHSoGrj6Y83flLCa5OIBdtsVkO3UD4OtboJ0O0vZiOznH02x8qlwg9KLUVXuNg==}
+  /parse-latin/5.0.1:
+    resolution: {integrity: sha512-b/K8ExXaWC9t34kKeDV8kGXBkXZ1HCSAZRYE7HR14eA1GlXX5L8iWhs8USJNhQU9q5ci413jCKF0gOyovvyRBg==}
     dependencies:
-      nlcst-to-string: 2.0.4
-      unist-util-modify-children: 2.0.0
-      unist-util-visit-children: 1.1.4
+      nlcst-to-string: 3.1.0
+      unist-util-modify-children: 3.0.0
+      unist-util-visit-children: 2.0.0
     dev: true
 
   /parse5/6.0.1:
@@ -4387,7 +4383,7 @@ packages:
     resolution: {integrity: sha512-5MrD1tuebzO8ppsja5eEu+ZbBeUNCjoEarn70tkXOS7Bdsdf6tNahsv2bY0Z8VooFF6cw7/6S+d3yI/TMlMVVQ==}
     dependencies:
       '@types/nlcst': 1.0.0
-      parse-latin: 5.0.0
+      parse-latin: 5.0.1
       unherit: 3.0.0
       unified: 10.1.2
     dev: true
@@ -4974,10 +4970,11 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /unist-util-modify-children/2.0.0:
-    resolution: {integrity: sha512-HGrj7JQo9DwZt8XFsX8UD4gGqOsIlCih9opG6Y+N11XqkBGKzHo8cvDi+MfQQgiZ7zXRUiQREYHhjOBHERTMdg==}
+  /unist-util-modify-children/3.0.0:
+    resolution: {integrity: sha512-cbDbx+4BeR4UzJXzvOgw6M/b69dKiaezt3gvN3ZbaJnGr0q719GKQCkMhdjPQiOBH6DnQ7TfHZs2aPY3vOkPyg==}
     dependencies:
-      array-iterate: 1.1.4
+      '@types/unist': 2.0.6
+      array-iterate: 2.0.1
     dev: true
 
   /unist-util-position-from-estree/1.1.1:
@@ -5005,8 +5002,10 @@ packages:
       '@types/unist': 2.0.6
     dev: true
 
-  /unist-util-visit-children/1.1.4:
-    resolution: {integrity: sha512-sA/nXwYRCQVRwZU2/tQWUqJ9JSFM1X3x7JIOsIgSzrFHcfVt6NkzDtKzyxg2cZWkCwGF9CO8x4QNZRJRMK8FeQ==}
+  /unist-util-visit-children/2.0.0:
+    resolution: {integrity: sha512-n8CvdoeexGn6EkAa865Wp9SFFuS1IKf1j0vMoEwHHfA5f48gJPK6rwS/s/P+ouRDfAklQaiBQtlloX3KadUrww==}
+    dependencies:
+      '@types/unist': 2.0.6
     dev: true
 
   /unist-util-visit-parents/5.1.1:
