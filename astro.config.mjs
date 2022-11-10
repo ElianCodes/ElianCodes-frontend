@@ -14,7 +14,9 @@ export default defineConfig({
     //sitemap({
     //canonicalURL: 'https://www.elian.codes'
   //}),
-    image(), solidJs()
+  image({
+    serviceEntryPoint: '@astrojs/image/sharp'
+  }), solidJs()
   ],
   output: "server",
   adapter: vercel()

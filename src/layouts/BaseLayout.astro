@@ -10,7 +10,7 @@ import BaseHead from '@components/layout/BaseHead.astro'
 import MainMenu from '@components/layout/MainMenu.astro'
 import DarkModeButton from '@components/layout/DarkMode.astro'
 import DefaultFooter from '@components/layout/BaseFooter.astro'
-import CookieBanner from '@components/layout/CookieBanner.astro'
+// import CookieBanner from '@components/layout/CookieBanner.astro'
 
 const { title, description, useColor, deactivateHeading } = Astro.props as Props;
 ---
@@ -26,7 +26,7 @@ const { title, description, useColor, deactivateHeading } = Astro.props as Props
 			<MainMenu color={useColor}/>
     </header>
     <slot />
-    <CookieBanner />
+    <!-- <CookieBanner /> -->
     <DarkModeButton activateBackground={useColor}/>
     <DefaultFooter />
 		<script is:inline>
