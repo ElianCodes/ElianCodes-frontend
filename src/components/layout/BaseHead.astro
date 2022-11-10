@@ -11,8 +11,7 @@ const socialImg = "https://www.elian.codes/assets/img/social.jpg";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const dev: boolean = import.meta.env.PUBLIC_APP_ENV === "dev";
 
-import { inject } from '@vercel/analytics';
-inject();
+
 ---
 <style>
 html {
@@ -70,6 +69,10 @@ html.dark {
 <link rel="stylesheet" type="text/css" href="/assets/fonts/Rubik/Rubik.css">
 <title>Elian Codes | {title}</title>
 
+<script type="module">
+    import { inject } from '@vercel/analytics';
+    inject();
+</script>
 <!-- { !dev ? (
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4472038053216899" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXB34WHZJX"></script>
