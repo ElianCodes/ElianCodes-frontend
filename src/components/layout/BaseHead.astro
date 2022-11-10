@@ -10,6 +10,9 @@ const { title, description } = Astro.props as Props;
 const socialImg = "https://www.elian.codes/assets/img/social.jpg";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const dev: boolean = import.meta.env.PUBLIC_APP_ENV === "dev";
+
+import { inject } from '@vercel/analytics';
+inject();
 ---
 <style>
 html {

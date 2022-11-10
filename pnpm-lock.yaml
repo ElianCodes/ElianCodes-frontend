@@ -8,6 +8,7 @@ specifiers:
   '@astrojs/solid-js': ^1.2.2
   '@astrojs/vercel': ^2.3.3
   '@tailwindcss/typography': ^0.5.8
+  '@vercel/analytics': ^0.1.4
   astro: ^1.6.5
   autoprefixer: ^10.4.13
   firebase: ^9.13.0
@@ -22,6 +23,7 @@ dependencies:
   '@astrojs/image': 0.10.0_sharp@0.31.2
   '@astrojs/solid-js': 1.2.2_solid-js@1.6.1
   '@astrojs/vercel': 2.3.3
+  '@vercel/analytics': 0.1.4
   firebase: 9.13.0
   sharp: 0.31.2
   solid-js: 1.6.1
@@ -1290,6 +1292,12 @@ packages:
   /@types/yargs-parser/21.0.0:
     resolution: {integrity: sha512-iO9ZQHkZxHn4mSakYV0vFHAVDyEOIJQrV2uZ06HxEPcx+mt8swXoZHIbaaJ2crJYFfErySgktuTZ3BeLz+XmFA==}
     dev: true
+
+  /@vercel/analytics/0.1.4:
+    resolution: {integrity: sha512-6xI1kozfgigwmDTQCrtj+m0yQnzhLGa/l0yE8BjTbUQ2vF9b88CEXF3dXjZl48ESfjssCur3FkK3jOwZm4emrw==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dev: false
 
   /@vercel/nft/0.22.1:
     resolution: {integrity: sha512-lYYZIoxRurqDOSoVIdBicGnpUIpfyaS5qVjdPq+EfI285WqtZK3NK/dyCkiyBul+X2U2OEhRyeMdXPCHGJbohw==}
