@@ -1,6 +1,6 @@
 {
   "name": "eliancodes-frontend",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -14,21 +14,22 @@
   },
   "devDependencies": {
     "@astrojs/partytown": "^1.0.1",
-    "@astrojs/rss": "^1.0.2",
+    "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
-    "@tailwindcss/typography": "^0.5.7",
-    "astro": "^1.5.0",
-    "autoprefixer": "^10.4.12",
+    "@tailwindcss/typography": "^0.5.8",
+    "astro": "^1.6.5",
+    "autoprefixer": "^10.4.13",
     "postcss": "^8.4.18",
     "postcss-import": "^14.1.0",
-    "sass": "^1.55.0",
-    "tailwindcss": "^3.1.8"
+    "sass": "^1.56.1",
+    "tailwindcss": "^3.2.3"
   },
   "dependencies": {
     "@astrojs/image": "^0.10.0",
     "@astrojs/solid-js": "^1.2.2",
-    "firebase": "^9.12.1",
-    "sharp": "^0.31.1",
-    "solid-js": "^1.4.3"
+    "@astrojs/vercel": "^2.3.3",
+    "firebase": "^9.13.0",
+    "sharp": "^0.31.2",
+    "solid-js": "^1.6.1"
   }
 }
