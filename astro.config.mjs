@@ -1,7 +1,7 @@
 import { defineConfig } from 'astro/config';
 import image from "@astrojs/image";
 import solidJs from "@astrojs/solid-js";
-import vercel from "@astrojs/vercel/serverless";
+import vercel from "@astrojs/vercel/edge";
 
 // https://astro.build/config
 export default defineConfig({
