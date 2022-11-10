@@ -1,8 +1,10 @@
-import { createEffect, createSignal } from "solid-js";
+interface Technology {
+  name: string
+  link: string
+}
 
 const Technologies = () => {
-  const [technology, setTechnology] = createSignal({ name: null, link: null});
-  const technologies = [
+  const technologies: Technology[] = [
     {
       name: "Sass",
       link: "https://sass-lang.com"
@@ -24,12 +26,10 @@ const Technologies = () => {
       link: "https://tailwindcss.com"
     }
   ]
-  createEffect(() => {
-    setTechnology(technologies[(Math.floor(Math.random() * technologies.length))]);
-  }, 0)
+  const technology = technologies[(Math.floor(Math.random() * technologies.length))]
 
   return (
-    <span>Website built with <a class="use-color transition-all ease-in-out duration-300" title={`go to the ${technology().name}`} target="_blank" href={technology().link}>{technology().name}</a> & ☕️</span>
+    <span>Website built with <a class="use-color transition-all ease-in-out duration-300" title={`go to the ${technology.name}`} target="_blank" href={technology.link}>{technology.name}</a> & ☕️</span>
   )
 }
 
