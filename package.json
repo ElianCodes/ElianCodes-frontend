@@ -7,10 +7,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "pnpm build && firebase deploy",
-    "deploy:hosting": "pnpm build && firebase deploy --only hosting",
     "deploy:functions": "npm run deploy --prefix functions --only functions",
-    "prerelease": "pnpm build && firebase hosting:channel:deploy canary",
     "lint": "rome check ./"
   },
   "devDependencies": {
@@ -18,21 +15,21 @@
     "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
     "@tailwindcss/typography": "^0.5.8",
-    "astro": "^1.6.5",
+    "astro": "^1.6.10",
     "autoprefixer": "^10.4.13",
-    "postcss": "^8.4.18",
+    "postcss": "^8.4.19",
     "postcss-import": "^14.1.0",
     "rome": "^10.0.1",
     "sass": "^1.56.1",
-    "tailwindcss": "^3.2.3"
+    "tailwindcss": "^3.2.4"
   },
   "dependencies": {
     "@astrojs/image": "^0.10.0",
-    "@astrojs/solid-js": "^1.2.2",
-    "@astrojs/vercel": "^2.3.3",
-    "@vercel/analytics": "^0.1.4",
+    "@astrojs/solid-js": "^1.2.3",
+    "@astrojs/vercel": "^2.3.4",
+    "@vercel/analytics": "^0.1.5",
     "astro-rome": "^0.0.5",
-    "firebase": "^9.13.0",
-    "solid-js": "^1.6.1"
+    "firebase": "^9.14.0",
+    "solid-js": "^1.6.2"
   }
 }
