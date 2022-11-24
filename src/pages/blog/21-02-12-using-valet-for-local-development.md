@@ -29,7 +29,7 @@ Valet also starts when you boot your computer and will run as a background proce
 
 ## Valet Link
 
-So installing is easy, so mapping a domain shouldn't be hard right! just cd into the directory you want to run as a site and run `valet link` and the name of the directory will be used as domain. For insance: 
+So installing is easy, so mapping a domain shouldn't be hard right! just cd into the directory you want to run as a site and run `valet link` and the name of the directory will be used as domain. For insance:
 
 ```bash
 cd laravelsite
@@ -75,9 +75,9 @@ For instance:
 <?php
 
 return [
-	'newsite' => [
-		'APP_ENV' => 'dev',
-	],
+ 'newsite' => [
+  'APP_ENV' => 'dev',
+ ],
 ];
 ```
 

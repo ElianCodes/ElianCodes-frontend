@@ -1,23 +1,23 @@
 .use-color {
-    color: var(--custom-color);
-    @apply transition-colors ease-in duration-500;
+  color: var(--custom-color);
+  @apply transition-colors ease-in duration-500;
 }
 
 .hover:use-color {
-    color: green;
+  color: green;
 }
 
 .bg-color {
-    &-always {
-        background-color: var(--custom-color);
-        @apply transition-colors ease-in duration-500; 
-    }
-    @media (min-width: 1023px) {
-        background-color: var(--custom-color);
-        @apply transition-colors ease-in duration-500;
-    }
+  &-always {
+    background-color: var(--custom-color);
+    @apply transition-colors ease-in duration-500;
+  }
+  @media (min-width: 1023px) {
+    background-color: var(--custom-color);
+    @apply transition-colors ease-in duration-500;
+  }
 }
 
 .border-color {
-    border-color: var(--custom-color);
+  border-color: var(--custom-color);
 }

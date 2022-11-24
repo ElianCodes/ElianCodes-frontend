@@ -7,7 +7,7 @@ export const get = () => rss({
     description: 'Programming and Frontend related articles and guides',
     stylesheet: false,
     items: posts,
-    customData: `<language>en-us</language>`,
+    customData: "<language>en-us</language>",
     canonicalUrl: "https://www.elian.codes",
     site: "https://www.elian.codes"
 });

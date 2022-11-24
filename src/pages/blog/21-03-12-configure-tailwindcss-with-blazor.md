@@ -18,7 +18,7 @@ I had to make a project for school with [Blazor WASM](<https://dotnet.microsoft.
 
 A little heads up. It's not that easy, if you plan on using the basics, you could also use the [CDN](<https://tailwindcss.com/docs/installation#using-tailwind-via-cdn>), but if you plan on using more advanced features in the configuration like using [Sass](<https://sass-lang.com/>) and `@apply` classes or purging, it's worth it to find a solution.
 
-## Starting a new Blazor project.
+## Starting a new Blazor project
 
 Starting a new blazor project is very easy to do. First, we have to install the dotnet SDK, which can be done easily [here](<https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/install>). It's a very straight forward process.
 
@@ -199,6 +199,7 @@ now add the build scripts in `package.json` and we're pretty much done.
 from this point on we can use Tailwind in any way we want. First, we have to add it to our project by modifying our `.csproj` file.
 
 `yourAwesomeProject.csproj`
+
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
   

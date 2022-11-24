@@ -62,7 +62,7 @@ const blogposts = await Astro.glob('*.md');
 </body>
 ```
 
-An example of what the `.then()` use, could look like: 
+An example of what the `.then()` use, could look like:
 
 ```astro
 ---

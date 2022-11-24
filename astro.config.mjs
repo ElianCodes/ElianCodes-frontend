@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
-import sitemap from '@astrojs/sitemap'
+import sitemap from '@astrojs/sitemap';
 import image from "@astrojs/image";
 import solidJs from "@astrojs/solid-js";
 import vercel from "@astrojs/vercel/static";
+
+// https://astro.build/config
+import rome from "astro-rome";
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,13 +14,9 @@ export default defineConfig({
     port: 3000
   },
   site: 'https://www.elian.codes',
-  integrations: [
-    sitemap({
-      canonicalURL: 'https://www.elian.codes'
-    }),
-  image(),
-  solidJs()
-  ],
+  integrations: [sitemap({
+    canonicalURL: 'https://www.elian.codes'
+  }), image(), solidJs(), rome()],
   output: "static",
   adapter: vercel()
 });

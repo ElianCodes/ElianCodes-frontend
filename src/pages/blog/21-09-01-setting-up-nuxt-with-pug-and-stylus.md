@@ -73,7 +73,7 @@ export default {
 
 ### Using dynamic assets in Pug
 
-One of the things I struggled with in my first experience with using a combination of Pug, Vue and Nuxt was using dynamic assets. 
+One of the things I struggled with in my first experience with using a combination of Pug, Vue and Nuxt was using dynamic assets.
 
 Static assets are as simple as HTML where you include the relative path in the `src` attribute in your `<img/>` element. That's ofcourse if you place them in the `static` folder in your Nuxt configuration.
 

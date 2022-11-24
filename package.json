@@ -10,7 +10,8 @@
     "deploy": "pnpm build && firebase deploy",
     "deploy:hosting": "pnpm build && firebase deploy --only hosting",
     "deploy:functions": "npm run deploy --prefix functions --only functions",
-    "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
+    "prerelease": "pnpm build && firebase hosting:channel:deploy canary",
+    "lint": "rome check ./"
   },
   "devDependencies": {
     "@astrojs/partytown": "^1.0.1",
@@ -21,6 +22,7 @@
     "autoprefixer": "^10.4.13",
     "postcss": "^8.4.18",
     "postcss-import": "^14.1.0",
+    "rome": "^10.0.1",
     "sass": "^1.56.1",
     "tailwindcss": "^3.2.3"
   },
@@ -29,6 +31,7 @@
     "@astrojs/solid-js": "^1.2.2",
     "@astrojs/vercel": "^2.3.3",
     "@vercel/analytics": "^0.1.4",
+    "astro-rome": "^0.0.5",
     "firebase": "^9.13.0",
     "solid-js": "^1.6.1"
   }
