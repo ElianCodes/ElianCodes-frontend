@@ -1,6 +1,7 @@
 ---
 import Event from '../../types/events';
 import EventBlock from '@components/events/event.astro';
+import NoEvent from '@components/events/NoEvent.astro';
 
 let events: Event[] = await fetch(
   'https://us-central1-eliancodes-1632771244788.cloudfunctions.net/events'
@@ -13,6 +14,9 @@ events = events
     return event;
   })
   .sort((a, b) => b.date - a.date);
+
+const futureEvents = events.filter((event) => event.date >= new Date())
+const pastEvents = events.filter((event) => event.date <= new Date())
 ---
 
 <div class='mt-8 flow-root overflow-y-auto lg:max-h-screen-80'>
@@ -40,9 +44,11 @@ events = events
       </div>
     </li>
     {
-      events
-        .filter((event) => event.date >= new Date())
-        .map((event: Event) => <EventBlock event={event} />)
+      futureEvents.length > 0
+      ? futureEvents.map((event: Event) => <EventBlock event={event} />)
+      : (
+          <NoEvent />
+      )
     }
     <li>
       <div class='relative pb-8'>
@@ -67,9 +73,7 @@ events = events
       </div>
     </li>
     {
-      events
-        .filter((event) => event.date <= new Date())
-        .map((event: Event) => <EventBlock event={event} />)
+      pastEvents.map((event: Event) => <EventBlock event={event} />)
     }
   </ul>
 </div>
