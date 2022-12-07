@@ -1,34 +1,31 @@
 {
   "name": "eliancodes-frontend",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy": "pnpm build && firebase deploy",
-    "deploy:hosting": "pnpm build && firebase deploy --only hosting",
     "deploy:functions": "npm run deploy --prefix functions --only functions",
-    "prerelease": "pnpm build && firebase hosting:channel:deploy canary"
+    "lint": "rome check ./"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^1.0.1",
-    "@astrojs/rss": "^1.0.2",
+    "@astrojs/rss": "^1.0.3",
     "@astrojs/sitemap": "^1.0.0",
-    "@tailwindcss/typography": "^0.5.7",
-    "astro": "^1.5.0",
-    "autoprefixer": "^10.4.12",
-    "postcss": "^8.4.18",
-    "postcss-import": "^14.1.0",
-    "sass": "^1.55.0",
-    "tailwindcss": "^3.1.8"
+    "@tailwindcss/typography": "^0.5.8",
+    "astro": "^1.6.11",
+    "rome": "^10.0.1",
+    "sass": "^1.56.1",
+    "tailwindcss": "^3.0.24"
   },
   "dependencies": {
     "@astrojs/image": "^0.10.0",
-    "@astrojs/solid-js": "^1.2.2",
-    "firebase": "^9.12.1",
-    "sharp": "^0.31.1",
-    "solid-js": "^1.4.3"
+    "@astrojs/solid-js": "^1.2.3",
+    "@astrojs/tailwind": "^2.1.3",
+    "@astrojs/vercel": "^2.3.4",
+    "@vercel/analytics": "^0.1.5",
+    "astro-rome": "^0.0.5",
+    "solid-js": "^1.6.2"
   }
 }

@@ -1,54 +1,79 @@
 ---
-import Event from '../../types/events'
-import EventBlock from '@components/events/event.astro'
+import Event from '../../types/events';
+import EventBlock from '@components/events/event.astro';
+import NoEvent from '@components/events/NoEvent.astro';
 
-let events: Event[] = await fetch('https://us-central1-eliancodes-1632771244788.cloudfunctions.net/events').then(res => res.json());
-events = events.map((event: Event): Event => {
-  const seconds = event.date._seconds;
-  event.date = new Date(0);
-  event.date.setUTCSeconds(seconds);
-  return event;
-}).sort((a, b) => b.date - a.date);
+let events: Event[] = await fetch(
+  'https://us-central1-eliancodes-1632771244788.cloudfunctions.net/events'
+).then((res) => res.json());
+events = events
+  .map((event: Event): Event => {
+    const seconds = event.date._seconds;
+    event.date = new Date(0);
+    event.date.setUTCSeconds(seconds);
+    return event;
+  })
+  .sort((a, b) => b.date - a.date);
+
+const futureEvents = events.filter((event) => event.date >= new Date())
+const pastEvents = events.filter((event) => event.date <= new Date())
 ---
-<div class="mt-8 flow-root overflow-y-auto lg:max-h-screen-80">
-  <ul role="list" class="mb-8">
+
+<div class='mt-8 flow-root overflow-y-auto lg:max-h-screen-80'>
+  <ul role='list' class='mb-8'>
     <li>
-      <div class="relative pb-8">
-        <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-        <div class="relative flex items-start space-x-3">
+      <div class='relative pb-8'>
+        <span
+          class='absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200'
+          aria-hidden='true'></span>
+        <div class='relative flex items-start space-x-3'>
           <div>
-            <div class="relative px-1">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full">
+            <div class='relative px-1'>
+              <div
+                class='flex h-8 w-8 items-center justify-center rounded-full'
+              >
               </div>
             </div>
           </div>
-          <div class="min-w-0 flex-1 py-1.5">
-            <h2 class="text-xl text-gray-900 dark:text-white font-medium">
-              Future talks:
+          <div class='min-w-0 flex-1 py-1.5'>
+            <h2 class='text-xl text-gray-900 dark:text-white font-medium'>
+              Future events:
             </h2>
           </div>
         </div>
       </div>
     </li>
-    {events.filter((event) => event.date >= new Date()).map((event: Event) => <EventBlock event={event} />)}
+    {
+      futureEvents.length > 0
+      ? futureEvents.map((event: Event) => <EventBlock event={event} />)
+      : (
+          <NoEvent />
+      )
+    }
     <li>
-      <div class="relative pb-8">
-        <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-        <div class="relative flex items-start space-x-3">
+      <div class='relative pb-8'>
+        <span
+          class='absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200'
+          aria-hidden='true'></span>
+        <div class='relative flex items-start space-x-3'>
           <div>
-            <div class="relative px-1">
-              <div class="flex h-8 w-8 items-center justify-center rounded-full">
+            <div class='relative px-1'>
+              <div
+                class='flex h-8 w-8 items-center justify-center rounded-full'
+              >
               </div>
             </div>
           </div>
-          <div class="min-w-0 flex-1 py-1.5">
-            <h2 class="text-xl text-gray-900 dark:text-white font-medium">
-              Past talks:
+          <div class='min-w-0 flex-1 py-1.5'>
+            <h2 class='text-xl text-gray-900 dark:text-white font-medium'>
+              Past events:
             </h2>
           </div>
         </div>
       </div>
     </li>
-    {events.filter((event) => event.date <= new Date()).map((event: Event) => <EventBlock event={event} />)}
+    {
+      pastEvents.map((event: Event) => <EventBlock event={event} />)
+    }
   </ul>
 </div>

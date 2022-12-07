@@ -1,27 +1,42 @@
 ---
-import { Picture } from "@astrojs/image/components"
-import BaseLayout from '@layouts/BaseLayout.astro'
-import Events from '@components/events/eventList.astro'
+import { Picture } from '@astrojs/image/components';
+import BaseLayout from '@layouts/BaseLayout.astro';
+import Events from '@components/events/eventList.astro';
 ---
 
-<BaseLayout title="Events" description="See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript)." useColor={true}>
-<main class="mt-16 lg:my-12 xl:my-12 flex flex-col lg:flex-row gap-10 items-center justify-center w-full"> 
-  <div class="h-full bg-color w-full rounded-3xl px-8 text-black lg:text-white flex-1 flex flex-col justify-center items-center">
-    <Picture
-      src="/assets/img/elian.jpg"
-      alt="Elian speaking @ React Brussels"
-      title="Elian speaking @ React Brussels"
-      class="w-64 lg:w-72 xl:w-96 h-auto rounded-picture"
-      sizes="((min-width: 50em) and (max-width: 60em)) 50em, ((min-width: 30em) and (max-width: 50em)) 30em, (max-width: 30em) 20em"
-      widths={[288, 384, 800, 1600]}
-      aspectRatio="1:1"
-    />
-    <p class="mt-16 text-xl dark:text-gray-200 dark:lg:text-black">
-      Elian, Software Engineer <a href="https://www.vbridge.eu" target="_blank">@vBridge</a> where he started a couple years ago as an intern. He has a strong focus on design, front-end development and cloud native web-applications with the emphasis on personalization and technical innovation. Part of a community where he supports many companies in their IT story, and through his work connecting people, via the cloud and in real life. Always available for a chat or drink.
-    </p>
-  </div>
-  <div class="flex-1">
-    <Events />
-  </div>
-</main>
+<BaseLayout
+  title='Events'
+  description='See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript).'
+  useColor={true}
+>
+  <main
+    class='mt-16 lg:my-12 xl:my-12 flex flex-col lg:flex-row gap-10 items-center justify-center w-full'
+  >
+    <div
+      class='h-full bg-color w-full rounded-3xl px-8 text-black lg:text-white flex-1 flex flex-col justify-center items-center'
+    >
+      <Picture
+        src='/assets/img/elian.jpg'
+        alt='Elian speaking @ React Brussels'
+        title='Elian speaking @ React Brussels'
+        class='w-64 lg:w-72 xl:w-96 h-auto rounded-picture'
+        sizes='((min-width: 50em) and (max-width: 60em)) 50em, ((min-width: 30em) and (max-width: 50em)) 30em, (max-width: 30em) 20em'
+        widths={[288, 384, 800, 1600]}
+        aspectRatio='1:1'
+      />
+      <p class='mt-16 text-xl dark:text-gray-200 dark:lg:text-black'>
+        Elian is a Software Engineer 
+        <a
+          href='https://www.vbridge.eu'
+          target='_blank'>@vBridge</a
+        >  where he started a couple years ago as an intern.
+        He has a strong focus on design, front-end development and cloud native web-applications with the emphasis on personalisation and technical innovation.
+        Elian started out building static websites to showcase the photos he took, then discovered JAMStack development, since then he's always learning and trying out new stuff.
+        Experimentation drew him to Astro, there was no way back. Now, Elian is an Astro Ambassador & always available for a chat or drink.
+      </p>
+    </div>
+    <div class='flex-1'>
+      <Events />
+    </div>
+  </main>
 </BaseLayout>

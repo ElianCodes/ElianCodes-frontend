@@ -1,11 +1,11 @@
 html {
-    @apply bg-white scroll-smooth;
+  @apply bg-white scroll-smooth;
 }
 
 html.dark {
-    @apply bg-black;
+  @apply bg-black;
 }
 
 .rounded-picture img {
-    @apply rounded-full;
+  @apply rounded-full;
 }

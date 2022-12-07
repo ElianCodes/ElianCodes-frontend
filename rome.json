@@ -1,0 +1,17 @@
+{
+  "linter": {
+    "enabled": true,
+    "ignore": [
+      "./.firebase",
+      "./.github",
+      "./.idea",
+      "./.vercel",
+      "./.vscode",
+      "./functions",
+      "./public"
+    ],
+    "rules": {
+      "recommended": true
+    }
+  }
+}

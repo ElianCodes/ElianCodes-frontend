@@ -1,52 +1,71 @@
 ---
 interface Props {
-	title: string;
-	description: string;
-	useColor?: boolean;
-	deactivateHeading?: boolean;
-};
+  title: string;
+  description: string;
+  useColor?: boolean;
+  deactivateHeading?: boolean;
+}
 
-import BaseHead from '@components/layout/BaseHead.astro'
-import MainMenu from '@components/layout/MainMenu.astro'
-import DarkModeButton from '@components/layout/DarkMode.astro'
-import DefaultFooter from '@components/layout/BaseFooter.astro'
-import CookieBanner from '@components/layout/CookieBanner.astro'
+import BaseHead from '@components/layout/BaseHead.astro';
+import MainMenu from '@components/layout/MainMenu.astro';
+import DarkModeButton from '@components/layout/DarkMode.astro';
+import DefaultFooter from '@components/layout/BaseFooter.astro';
+// import CookieBanner from '@components/layout/CookieBanner.astro'
 
-const { title, description, useColor, deactivateHeading } = Astro.props as Props;
+const { title, description, useColor, deactivateHeading } =
+  Astro.props as Props;
 ---
-<html lang="en" class="h-full">
-	<head>
+
+<html lang='en' class='h-full'>
+  <head>
     <BaseHead title={title} description={description} />
-	</head>
-	<body class="p-8 min-h-full flex flex-col lg:flex-row w-full relative">
-    <header>  
-			<div class="absolute top-8 left-8">
-				{ deactivateHeading ? (<p class="page-title"><a title="go back home" href="/">Elian Codes</a></p>) : (<h1 class="page-title" data-aos="fade-down"><a title="go back home" href="/">Elian Codes</a></h1>)}
-			</div>
-			<MainMenu color={useColor}/>
+  </head>
+  <body class='p-8 min-h-full flex flex-col lg:flex-row w-full relative'>
+    <header>
+      <div class='absolute top-8 left-8'>
+        {
+          deactivateHeading ? (
+            <p class='page-title'>
+              <a title='go back home' href='/'>
+                Elian Codes
+              </a>
+            </p>
+          ) : (
+            <h1 class='page-title' data-aos='fade-down'>
+              <a title='go back home' href='/'>
+                Elian Codes
+              </a>
+            </h1>
+          )
+        }
+      </div>
+      <MainMenu color={useColor} />
     </header>
     <slot />
-    <CookieBanner />
-    <DarkModeButton activateBackground={useColor}/>
+    <!-- <CookieBanner /> -->
+    <DarkModeButton activateBackground={useColor} />
     <DefaultFooter />
-		<script is:inline>
-			const theme = (() => {
-				if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-					return localStorage.getItem('theme');
-				}
-				if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-					return 'dark';
-				}
-				return 'light';
-			})();
-			if (theme === 'light') {
-				document.documentElement.classList.remove('dark');
-			} else {
-				document.documentElement.classList.add('dark');
-			}
-		</script>
-		<script>
-			import './DarkMode.ts'
-		</script>
-	</body>
+    <script is:inline>
+      const theme = (() => {
+        if (
+          typeof localStorage !== 'undefined' &&
+          localStorage.getItem('theme')
+        ) {
+          return localStorage.getItem('theme');
+        }
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          return 'dark';
+        }
+        return 'light';
+      })();
+      if (theme === 'light') {
+        document.documentElement.classList.remove('dark');
+      } else {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <script>
+      import './DarkMode.ts';
+    </script>
+  </body>
 </html>

@@ -1,20 +1,20 @@
 body {
-    font-family: 'Rubik', sans-serif;
-    @apply text-gray-900 dark:text-gray-200;
+  font-family: 'Rubik', sans-serif;
+  @apply text-gray-900 dark:text-gray-200;
 }
 
 .page-title {
-    @apply font-medium text-3xl;
+  @apply font-medium text-3xl;
 }
 
 h2.welcome {
-    @apply text-5xl font-bold;
+  @apply text-5xl font-bold;
 }
 
 p.tagline {
-    @apply text-4xl py-8 text-gray-500 dark:text-gray-300;
+  @apply text-4xl py-8 text-gray-500 dark:text-gray-300;
 }
 
 .standard-animation {
-    @apply transition-all duration-300 ease-in-out;
+  @apply transition-all duration-300 ease-in-out;
 }

@@ -2,43 +2,110 @@
 import Event from '../../types/events';
 
 interface Props {
-  event: Event
+  event: Event;
 }
 
-const { event } = Astro.props as Props
+const { event } = Astro.props as Props;
+
+const date = new Date(new Date(event.date).toLocaleString('en-US', {timeZone: 'Europe/Brussels'}))
 ---
-{ event.type === 'talk' && (
-<li>
-  <div class="relative pb-8">
-    <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
-    <div class="relative flex items-start space-x-3">
-      <div class="relative h-10 w-10 rounded-full bg-color-always items-center justify-center flex">
-        <p class="text-xl">🎤</p>
-      </div>
-      <div class="min-w-0 flex-1">
-        <div>
-          <div class="text-sm">
-            <h3> { event.blogpost ? (
-                <a href={event.blogpost} target="_blank" class="font-medium hover:underline">{event.title}</a>
-              ) : (
-                <span class="font-medium">{event.title}</span>
-              )}
-            </h3>
-          </div>
-          <p class="mt-1 text-sm text-gray-500 dark:text-gray-300">{event.date.toLocaleDateString()}</p>
+
+{
+  <li>
+    <div class='relative pb-8'>
+      <span
+        class='absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200'
+        aria-hidden='true'
+      />
+      <div class='relative flex items-start space-x-3'>
+        <div class='relative h-10 w-10 rounded-full bg-color-always items-center justify-center flex'>
+          <p class='text-xl'>
+            { event.emoji ?? '🔥' }
+          </p>
         </div>
-        <div class="mt-4 text-sm text-gray-700 dark:text-gray-200">
-          <p>{event.abstract}</p>
-          <div class="flex justify-between items-baseline">
-            <p class="mt-2">Talk at <a class="use-color" href={event.link}>{event.name}</a></p>
-            {event.blogpost && (<a href={event.blogpost} class="flex gap-2 items-center use-color">read the blogpost <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
-                </svg>
-              </a>
-            )}
+        <div class='min-w-0 flex-1'>
+          <div>
+            <div class='text-sm'>
+              <h3>
+                {event.blogpost ? (
+                  <a
+                    href={event.blogpost}
+                    target='_blank'
+                    class='font-medium hover:underline'
+                  >
+                    {event.title}
+                  </a>
+                ) : (
+                  <span class='font-medium'>{event.title}</span>
+                )}
+              </h3>
+            </div>
+            <p class='mt-1 text-sm text-gray-500 dark:text-gray-300'>
+              {date.toDateString()}
+            </p>
+          </div>
+          <div class='mt-4 text-sm text-gray-700 dark:text-gray-200'>
+            <p>{event.abstract}</p>
+            <div class='flex justify-between items-baseline'>
+              <p class='mt-2'>
+                <span>
+                  {event.type.charAt(0).toUpperCase() + event.type.slice(1)} at
+                  <a class='use-color' target="_blank" rel="noreferrer" href={event.link}>
+                    {event.name}
+                  </a>
+                </span>
+              </p>
+              <div class="flex flex-col gap-2">
+                {event.blogpost && (
+                  <a
+                    href={event.blogpost}
+                    class='flex gap-2 items-center use-color'
+                  >
+                    read the blogpost{' '}
+                    <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke-width='1.5'
+                      stroke='currentColor'
+                      class='w-6 h-6'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        d='M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3'
+                      />
+                    </svg>
+                  </a>
+                )}
+                {event.videolink && (
+                  <a
+                    href={event.videolink}
+                    target="_blank"
+                    rel="noreferrer"
+                    class='flex gap-2 items-center use-color'
+                  >
+                    Watch the {event.subtype ?? 'talk'} here  <svg
+                      xmlns='http://www.w3.org/2000/svg'
+                      fill='none'
+                      viewBox='0 0 24 24'
+                      stroke-width='1.5'
+                      stroke='currentColor'
+                      class='w-6 h-6'
+                    >
+                      <path
+                        stroke-linecap='round'
+                        stroke-linejoin='round'
+                        d='M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3'
+                      />
+                    </svg>
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</li>)}
+  </li>
+}

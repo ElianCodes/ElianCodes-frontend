@@ -53,6 +53,7 @@ Of course, it's also not that hard to add it in something like [Nuxt](<https://n
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.png' }],
   },
 ```
+
 Easy money, right!
 
 Oh yes, you shouldn't be scared to keep the pointer secret. It will show up in the browser anyway and will always point to your wallet, so don't worry that someone will steal your pointer.

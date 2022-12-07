@@ -37,7 +37,7 @@ As I said in the introduction, I mainly transferred my old Vue site to Nuxt to b
 
 ### Nuxt/content
 
-Nuxt content also has it's own dedicated documentation which is https://content.nuxtjs.org/.
+Nuxt content also has it's own dedicated documentation which is <https://content.nuxtjs.org/>.
 
 The setup for a blog is very easy. You install the `@nuxt/content` package and you're almost ready to go. Just have to add some settings in the `nuxt.config.js` file, add some .md files with your blog content per post, a new page with your blog feed and a template for your blog. It worked super fast and couldn't be any easier.
 

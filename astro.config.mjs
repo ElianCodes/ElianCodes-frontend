@@ -1,12 +1,10 @@
 import { defineConfig } from 'astro/config';
-import sitemap from "@astrojs/sitemap";
-import partytown from "@astrojs/partytown";
-
-// https://astro.build/config
+import sitemap from '@astrojs/sitemap';
 import image from "@astrojs/image";
-
-// https://astro.build/config
 import solidJs from "@astrojs/solid-js";
+import vercel from "@astrojs/vercel/static";
+import rome from "astro-rome";
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,5 +15,7 @@ export default defineConfig({
   site: 'https://www.elian.codes',
   integrations: [sitemap({
     canonicalURL: 'https://www.elian.codes'
-  }), partytown(), image(), solidJs()]
+  }), image(), solidJs(), rome(), tailwind()],
+  output: "static",
+  adapter: vercel()
 });

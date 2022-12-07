@@ -1,59 +1,93 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro'
-const blogposts = await Astro.glob('./**/*.md').then(posts => posts.sort((a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)))
+import BaseLayout from '@layouts/BaseLayout.astro';
+const blogposts = await Astro.glob('./**/*.md').then((posts) =>
+  posts.sort(
+    (a, b) => new Date(b.frontmatter.pubDate) - new Date(a.frontmatter.pubDate)
+  )
+);
 interface FilterItem {
-	icon: string,
-	title: string
+  icon: string;
+  title: string;
 }
 const availableFilters: FilterItem[] = [
-	{icon: '💄', title: 'Frontend related'},
-	{icon: '🔧', title: 'Settings'},
-	{icon: '👽', title: "API's and more"},
-	{icon: '✨', title: 'Trying new things'},
-	{icon: '💫', title: 'Animations'},
-	{icon: '📝', title: 'Blogposts'},
-	{icon: '♻️', title: 'Upgrades and improvements'},
-	{icon: '🎉', title: 'new projects'},
-	{icon: '🔍', title: 'SEO & related'},
-	{icon: '📈', title: 'tracking & analytics'}, 
-	{icon: '🚀', title: 'Deployments'},
-	{icon: '🎤', title: 'Talks'}
-]
+  { icon: '💄', title: 'Frontend related' },
+  { icon: '🔧', title: 'Settings' },
+  { icon: '👽', title: "API's and more" },
+  { icon: '✨', title: 'Trying new things' },
+  { icon: '💫', title: 'Animations' },
+  { icon: '📝', title: 'Blogposts' },
+  { icon: '♻️', title: 'Upgrades and improvements' },
+  { icon: '🎉', title: 'new projects' },
+  { icon: '🔍', title: 'SEO & related' },
+  { icon: '📈', title: 'tracking & analytics' },
+  { icon: '🚀', title: 'Deployments' },
+  { icon: '🎤', title: 'Talks' },
+];
 ---
-<BaseLayout useColor={true} title="Blog" description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming.">
-	<main class="mt-16 lg:mt-12 flex-1 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center">
-		<div class="flex-1">
-			<h2 class="sr-only">Blogposts</h2>
-			<ul class="w-full">
-				{
-					blogposts.map(post => {
-						return (
-							<li class="mx-auto my-24 max-w-md blog-article">
-								<a href={`${post.url}/`}><h3 class="text-xl font-medium">{post.frontmatter.title}</h3></a>
-								<p class="py-4">{post.frontmatter.description}</p>
-								<p class="pb-4">Published: {new Date(post.frontmatter.pubDate).toLocaleDateString('en-US', { year:"numeric", month:"long", day:"numeric"})} by {post.frontmatter.author}</p>
-								<a title={`read "${post.frontmatter.title}"`} href={`${post.url}/`} class="read-more">Read this article</a>
-							</li>
-						)
-					})
-				}
-			</ul>
-		</div>
-	</main>
-	<div class="blogpost-filter">
-		<button type="button" id="toggleFilter" class="p-2" title="filter blogposts">➡️</button>
-		<div id="blogpostFilter" class="hidden">
-			<ul>
-				{ availableFilters.map(filter => {
-					return (
-						<li><button class="filter-item" title={filter.title}>{filter.icon}</button></li>
-					)
-				})}
-			</ul>
-		</div>
-	</div>
+
+<BaseLayout
+  useColor={true}
+  title='Blog'
+  description="Sofware Engineer @vBridge BV. On this page you'll find blogposts about webdevelopment, cloud native development and overall programming."
+>
+  <main
+    class='mt-16 lg:mt-12 flex-1 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center'
+  >
+    <div class='flex-1'>
+      <h2 class='sr-only'>Blogposts</h2>
+      <ul class='w-full'>
+        {
+          blogposts.map((post) => {
+            return (
+              <li class='mx-auto my-24 max-w-md blog-article'>
+                <a href={`${post.url}/`}>
+                  <h3 class='text-xl font-medium'>{post.frontmatter.title}</h3>
+                </a>
+                <p class='py-4'>{post.frontmatter.description}</p>
+                <p class='pb-4'>
+                  Published:{' '}
+                  {new Date(post.frontmatter.pubDate).toLocaleDateString(
+                    'en-US',
+                    { year: 'numeric', month: 'long', day: 'numeric' }
+                  )}{' '}
+                  by {post.frontmatter.author}
+                </p>
+                <a
+                  title={`read "${post.frontmatter.title}"`}
+                  href={`${post.url}/`}
+                  class='read-more'
+                >
+                  Read this article
+                </a>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </main>
+  <div class='blogpost-filter'>
+    <button type='button' id='toggleFilter' class='p-2' title='filter blogposts'
+      >➡️</button
+    >
+    <div id='blogpostFilter' class='hidden'>
+      <ul>
+        {
+          availableFilters.map((filter) => {
+            return (
+              <li>
+                <button class='filter-item' title={filter.title}>
+                  {filter.icon}
+                </button>
+              </li>
+            );
+          })
+        }
+      </ul>
+    </div>
+  </div>
 </BaseLayout>
 
 <script>
-	import '../../components/blog/blogFilter.ts'
+  import '../../components/blog/blogFilter.ts';
 </script>

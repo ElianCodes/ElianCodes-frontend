@@ -18,7 +18,7 @@ export const technologies: HttpsFunction = https.onRequest(
         return;
       }
 
-      !admin.apps.length ? admin.initializeApp() : admin.app();
+      admin.apps.length ? admin.app() : admin.initializeApp();
       const db = admin.firestore();
 
       const technologies: Technology[] = (

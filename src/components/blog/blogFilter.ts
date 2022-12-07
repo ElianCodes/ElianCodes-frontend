@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		item.addEventListener('click', () => {
 			articles.forEach(article => article.classList.add('hidden'))
 
-			const filterItem = item.innerHTML.toString()
+			const filterItem = item.innerHTML.trim();
+
 			activeFilters.includes(filterItem) ? activeFilters = activeFilters.filter(item => item !== filterItem) : activeFilters.push(filterItem)
 			
 			filterArticles()
@@ -24,14 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	const filterArticles = () => {
 		articles.forEach(article => {
-			const articleTitle = article.childNodes[1].firstChild.innerHTML.toString();
+			const articleTitle = article.childNodes[1].innerHTML.trim();
+			
+			console.log(articleTitle, activeFilters);
+
 			activeFilters.forEach(filterItem => {
-				if(articleTitle.includes(filterItem)) {
+				if (articleTitle.includes(filterItem)) {
 					article.classList.remove('hidden')
 				}
 			})  
 		})
-		if(activeFilters.length == 0){
+		if(activeFilters.length === 0){
 			articles.forEach(article => article.classList.remove('hidden'))
 		}
 	}

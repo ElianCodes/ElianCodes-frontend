@@ -1,14 +1,6 @@
-import { createEffect, createSignal } from "solid-js";
-
-const Technologies = ({ technologies }) => {
-  const [technology, setTechnology] = createSignal({ name: null, link: null});
-
-  createEffect(() => {
-    setTechnology(technologies[(Math.floor(Math.random() * technologies.length))]);
-  }, 0)
-
+const Technologies = ({ technology }) => {
   return (
-    <span>Website built with <a class="use-color" title={`go to the ${technology().name}`} target="_blank" href={technology().link}>{technology().name}</a> & ☕️</span>
+    <span>Website built with <a class="use-color transition-all ease-in-out duration-300" title={`go to the ${technology.name}`} rel="noreferrer" target="_blank" href={technology.link}>{technology.name}</a> & ☕️</span>
   )
 }
 
