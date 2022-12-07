@@ -8,4 +8,5 @@ export default interface Event {
   blogpost?: string
   subtype?: string
   videolink?: string
+  emoji ?: string
 }
