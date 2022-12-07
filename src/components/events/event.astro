@@ -18,7 +18,7 @@ const { event } = Astro.props as Props;
         />
         <div class='relative flex items-start space-x-3'>
           <div class='relative h-10 w-10 rounded-full bg-color-always items-center justify-center flex'>
-            <p class='text-xl'>🎤</p>
+            <p class='text-xl'> {event.subtype === 'lightning talk' ? '⚡️' : '🎤' }</p>
           </div>
           <div class='min-w-0 flex-1'>
             <div>
@@ -51,28 +51,53 @@ const { event } = Astro.props as Props;
                     {event.name}
                   </a>
                 </p>
-                {event.blogpost && (
-                  <a
-                    href={event.blogpost}
-                    class='flex gap-2 items-center use-color'
-                  >
-                    read the blogpost{' '}
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      stroke-width='1.5'
-                      stroke='currentColor'
-                      class='w-6 h-6'
+                <div class="flex flex-col gap-2">
+                  {event.blogpost && (
+                    <a
+                      href={event.blogpost}
+                      class='flex gap-2 items-center use-color'
                     >
-                      <path
-                        stroke-linecap='round'
-                        stroke-linejoin='round'
-                        d='M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3'
-                      />
-                    </svg>
-                  </a>
-                )}
+                      read the blogpost{' '}
+                      <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        stroke-width='1.5'
+                        stroke='currentColor'
+                        class='w-6 h-6'
+                      >
+                        <path
+                          stroke-linecap='round'
+                          stroke-linejoin='round'
+                          d='M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3'
+                        />
+                      </svg>
+                    </a>
+                  )}
+                  {event.videolink && (
+                    <a
+                      href={event.videolink}
+                      target="_blank"
+                      rel="noreferrer"
+                      class='flex gap-2 items-center use-color'
+                    >
+                      Watch the {event.subtype ?? 'talk'} here  <svg
+                        xmlns='http://www.w3.org/2000/svg'
+                        fill='none'
+                        viewBox='0 0 24 24'
+                        stroke-width='1.5'
+                        stroke='currentColor'
+                        class='w-6 h-6'
+                      >
+                        <path
+                          stroke-linecap='round'
+                          stroke-linejoin='round'
+                          d='M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3'
+                        />
+                      </svg>
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>

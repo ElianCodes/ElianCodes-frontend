@@ -5,5 +5,7 @@ export default interface Event {
   date: Date | any 
   abstract: string
   type: string
-  blogpost: string | undefined
+  blogpost?: string
+  subtype?: string
+  videolink?: string
 }
