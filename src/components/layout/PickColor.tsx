@@ -1,14 +1,19 @@
-import { onMount, createSignal } from "solid-js";
+import { createSignal, createEffect } from "solid-js";
 
 const PickColor = () => {
   const [canColorBePicked, setColorCanBePicked] = createSignal(false);
   const [customColorActive, setCustomColorActive] = createSignal(false);
 
-  onMount(() => {
-    if (typeof window !== "undefined") {
-      setColorCanBePicked(true);
-    }
-  });
+  createEffect(() => {
+    setTimeout(() => {
+    const color = document.documentElement.style.getPropertyValue('--arc-palette-foregroundPrimary');
+      if (color !== '') {
+        setColorCanBePicked(false);
+      } else if (typeof window !== "undefined") {
+        setColorCanBePicked(true);
+      }
+    }, 500)
+  })
 
   const pickColor = () => {
     const eyeDropper = new EyeDropper();
@@ -32,9 +37,9 @@ const PickColor = () => {
     <>
     { canColorBePicked() ? (
         customColorActive() ? (
-          <button onClick={removeColor} title="Remove custom color" type="button">🗑</button>
+          <button onClick={removeColor} class="transition-all duration-300 ease-in-out" title="Remove custom color" type="button">🗑</button>
         ) : (
-          <button onClick={pickColor} title="Pick a new color" type="button">🔍</button>
+          <button onClick={pickColor} class="transition-all duration-300 ease-in-out" title="Pick a new color" type="button">🔍</button>
         )
     ) : null 
     }

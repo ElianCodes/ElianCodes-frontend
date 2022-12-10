@@ -1,6 +1,10 @@
 .use-color {
-  color: var(--custom-color);
+  color: var(--arc-palette-foregroundPrimary, var(--custom-color));
   @apply transition-colors ease-in duration-500;
+}
+
+:root {
+  --arc-palette-foregroundPrimary: var(--arc-palette-foregroundPrimary);
 }
 
 .hover:use-color {
@@ -9,15 +13,15 @@
 
 .bg-color {
   &-always {
-    background-color: var(--custom-color);
+    background-color: var(--arc-palette-cutoutColor, var(--custom-color));
     @apply transition-colors ease-in duration-500;
   }
   @media (min-width: 1023px) {
-    background-color: var(--custom-color);
+    background-color: var(--arc-palette-cutoutColor, var(--custom-color));
     @apply transition-colors ease-in duration-500;
   }
 }
 
 .border-color {
-  border-color: var(--custom-color);
+  border-color: var(--arc-palette-minContrastColor, var(--custom-color));
 }
