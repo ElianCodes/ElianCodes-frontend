@@ -3,6 +3,17 @@
   @apply transition-colors ease-in duration-500;
 }
 
+.use-color-light {
+  color: var(--arc-palette-cutoutColor, var(--custom-color));
+}
+
+.bg-color-contrast {
+  background-color: var(--arc-palette-cutoutColor, var(--custom-color));
+  p {
+    color: var(--arc-palette-foregroundPrimary, var(--custom-color));
+  }
+}
+
 :root {
   --arc-palette-foregroundPrimary: var(--arc-palette-foregroundPrimary);
 }
