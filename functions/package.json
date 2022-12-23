@@ -15,7 +15,7 @@
   "main": "lib/index.js",
   "dependencies": {
     "@elianvancutsem/mostvisitedpages": "^0.0.9",
-    "firebase-admin": "^11.0.0",
+    "firebase-admin": "^11.4.1",
     "firebase-functions": "^3.18.0"
   },
   "devDependencies": {
