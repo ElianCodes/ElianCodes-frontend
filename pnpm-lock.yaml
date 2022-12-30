@@ -2,14 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   '@astrojs/image': ^0.12.1
-  '@astrojs/rss': ^1.2.1
+  '@astrojs/rss': ^2.0.0
   '@astrojs/sitemap': ^1.0.0
   '@astrojs/solid-js': ^1.2.3
   '@astrojs/tailwind': ^2.1.3
-  '@astrojs/vercel': ^2.3.6
+  '@astrojs/vercel': ^2.4.0
   '@tailwindcss/typography': ^0.5.8
   '@vercel/analytics': ^0.1.6
-  astro: ^1.7.2
+  astro: ^1.8.0
   astro-rome: ^0.1.5
   rome: ^11.0.0
   sass: ^1.57.1
@@ -20,15 +20,15 @@ dependencies:
   '@astrojs/image': 0.12.1
   '@astrojs/solid-js': 1.2.3_solid-js@1.6.6
   '@astrojs/tailwind': 2.1.3_tailwindcss@3.2.4
-  '@astrojs/vercel': 2.3.6
+  '@astrojs/vercel': 2.4.0
   '@vercel/analytics': 0.1.6
   solid-js: 1.6.6
 
 devDependencies:
-  '@astrojs/rss': 1.2.1
+  '@astrojs/rss': 2.0.0
   '@astrojs/sitemap': 1.0.0
   '@tailwindcss/typography': 0.5.8_tailwindcss@3.2.4
-  astro: 1.7.2_sass@1.57.1
+  astro: 1.8.0_sass@1.57.1
   astro-rome: 0.1.5
   rome: 11.0.0
   sass: 1.57.1
@@ -78,7 +78,7 @@ packages:
     resolution: {integrity: sha512-fPovAX/X46eE2w03jNRMpQ7W9m2mAvNt4Ay65lD9wl1Z5vIQYxlg7Enp9qP225muTr4jSVB5QiLumFJmZMAaVA==}
     hasBin: true
     dependencies:
-      '@vscode/emmet-helper': 2.8.4
+      '@vscode/emmet-helper': 2.8.6
       events: 3.3.0
       prettier: 2.8.1
       prettier-plugin-astro: 0.7.0
@@ -92,8 +92,8 @@ packages:
       vscode-uri: 3.0.7
     dev: true
 
-  /@astrojs/markdown-remark/1.1.3:
-    resolution: {integrity: sha512-6MDuQXbrp2fZBYBIqD+0jvSqYAukiMTte6oLNHiEYsLf3KIMlVAZj6dDgUJakgL7cQ4fmzWb0HUqzVpxAsasLw==}
+  /@astrojs/markdown-remark/1.2.0:
+    resolution: {integrity: sha512-Cb+uhSuukyfERknfJ8K4iJLeKJaiZWi1BTwPS4fzw0bc9kGKe5VeTRzd2E25+vaMnRTk0tN/y6QfYEMMN3Q97g==}
     dependencies:
       '@astrojs/micromark-extension-mdx-jsx': 1.0.3
       '@astrojs/prism': 1.0.2
@@ -144,8 +144,8 @@ packages:
       prismjs: 1.29.0
     dev: true
 
-  /@astrojs/rss/1.2.1:
-    resolution: {integrity: sha512-ZgCunS6ECuPpxBznBYE+ONf23rcp+OWZ5IyDKFAcVZCWEq8Bh0rVYa9p8u6cU9WOTK56JRQTuwcVZYndmExNtw==}
+  /@astrojs/rss/2.0.0:
+    resolution: {integrity: sha512-qXsmyq2HhnKRA85US6GLelT47VLhdtS0bNq88umqfB2uneB9vWHSLnOJjhN9rv0mUSQjsFYytF4IEznfmNnpkQ==}
     dependencies:
       fast-xml-parser: 4.0.12
     dev: true
@@ -198,8 +198,8 @@ packages:
       - supports-color
     dev: true
 
-  /@astrojs/vercel/2.3.6:
-    resolution: {integrity: sha512-OAfu1d6pgzhKIi48rAKemfhNO6s8ZF/38zSRqGZwl9HnY5qfacccqWmoVeUJ9lSqB/rljxA5Xzh3s+jMqyd9mA==}
+  /@astrojs/vercel/2.4.0:
+    resolution: {integrity: sha512-b+4GJxjePSOV3e3uxz7c3ZQGwnNh/TS4jMUzhYuxz+spqmwGlj+GSrrgUXxaC5Hkwu+ZTH0tiM6q9FT0hTvDJA==}
     dependencies:
       '@astrojs/webapi': 1.1.1
       '@vercel/nft': 0.22.6
@@ -842,14 +842,13 @@ packages:
       - supports-color
     dev: false
 
-  /@vscode/emmet-helper/2.8.4:
-    resolution: {integrity: sha512-lUki5QLS47bz/U8IlG9VQ+1lfxMtxMZENmU5nu4Z71eOD5j9FK0SmYGL5NiVJg9WBWeAU0VxRADMY2Qpq7BfVg==}
+  /@vscode/emmet-helper/2.8.6:
+    resolution: {integrity: sha512-IIB8jbiKy37zN8bAIHx59YmnIelY78CGHtThnibD/d3tQOKRY83bYVi9blwmZVUZh6l9nfkYH3tvReaiNxY9EQ==}
     dependencies:
       emmet: 2.3.6
       jsonc-parser: 2.3.1
       vscode-languageserver-textdocument: 1.0.8
       vscode-languageserver-types: 3.17.2
-      vscode-nls: 5.2.0
       vscode-uri: 2.1.2
     dev: true
 
@@ -986,14 +985,14 @@ packages:
       - '@rometools/wasm-web'
     dev: true
 
-  /astro/1.7.2_sass@1.57.1:
-    resolution: {integrity: sha512-svgkfJUBcNzWV9YeoAGv+T96HjSK1j1xy1CbUA4JALU99WEvmJ1tFZBSrd1+m5xW9MuNOleSViGTfXhHfUaH9A==}
+  /astro/1.8.0_sass@1.57.1:
+    resolution: {integrity: sha512-MZIJveOC1OCIA0w2XmxjDtKviAEuYdF142DVq0VApInE1lm+CvAoyMgJs0a1h4mydD2vgQZpTjPhYKJIdxDjOA==}
     engines: {node: ^14.18.0 || >=16.12.0, npm: '>=6.14.0'}
     hasBin: true
     dependencies:
       '@astrojs/compiler': 0.31.3
       '@astrojs/language-server': 0.28.3
-      '@astrojs/markdown-remark': 1.1.3
+      '@astrojs/markdown-remark': 1.2.0
       '@astrojs/telemetry': 1.0.1
       '@astrojs/webapi': 1.1.1
       '@babel/core': 7.20.7
@@ -1007,6 +1006,7 @@ packages:
       '@types/babel__core': 7.1.20
       '@types/html-escaper': 3.0.0
       '@types/yargs-parser': 21.0.0
+      acorn: 8.8.1
       boxen: 6.2.1
       ci-info: 3.7.0
       common-ancestor-path: 1.0.1
@@ -1016,6 +1016,7 @@ packages:
       devalue: 4.2.0
       diff: 5.1.0
       es-module-lexer: 1.1.0
+      estree-walker: 3.0.1
       execa: 6.1.0
       fast-glob: 3.2.12
       github-slugger: 1.5.0
@@ -1083,8 +1084,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: false
 
-  /babel-plugin-jsx-dom-expressions/0.35.8:
-    resolution: {integrity: sha512-IzObXlDFA80wyEW/IUtCxaUAoJnq4CTpvcvC1xBZBlMpJDwmK6mIYnTZ9xgFyGCrAjC0LxVcqeDQx31gJJ4UJQ==}
+  /babel-plugin-jsx-dom-expressions/0.35.9:
+    resolution: {integrity: sha512-YXb+I4dej5E94bzPzPBECUT5Q5vuSQJzsq1NgW8fe4gsgg6vcy6c6VqixgtY0UU8udKTc1Ls5CmgaFDj2fO9lA==}
     peerDependencies:
       '@babel/core': ^7.0.0
     dependencies:
@@ -1099,7 +1100,7 @@ packages:
     peerDependencies:
       '@babel/core': ^7.0.0
     dependencies:
-      babel-plugin-jsx-dom-expressions: 0.35.8
+      babel-plugin-jsx-dom-expressions: 0.35.9
     dev: false
 
   /bail/2.0.2:
@@ -1720,6 +1721,10 @@ packages:
   /estree-walker/2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
     dev: false
+
+  /estree-walker/3.0.1:
+    resolution: {integrity: sha512-woY0RUD87WzMBUiZLx8NsYr23N5BKsOMZHhu2hoNRVh6NXGfoiT1KOL8G3UHlJAnEDGmfa5ubNA/AacfG+Kb0g==}
+    dev: true
 
   /events/3.3.0:
     resolution: {integrity: sha512-mQw+2fkQbALzQ7V0MY0IqdnXNOeTtP4r0lN9z7AAawCXgqea7bDii20AYrIBrFd/Hx0M2Ocz6S111CaFkUcb0Q==}
@@ -4108,10 +4113,6 @@ packages:
     hasBin: true
     dependencies:
       vscode-languageserver-protocol: 3.17.2
-    dev: true
-
-  /vscode-nls/5.2.0:
-    resolution: {integrity: sha512-RAaHx7B14ZU04EU31pT+rKz2/zSl7xMsfIZuo8pd+KZO6PXtQmpevpq3vxvWNcrGbdmhM/rr5Uw5Mz+NBfhVng==}
     dev: true
 
   /vscode-oniguruma/1.7.0:
