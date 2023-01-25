@@ -42,6 +42,12 @@ const technologies: Technology[] = [
 
 <script>
   import './CustomColor.ts';
-  import './vitalsApi.ts';
-  // import './firebase.ts';
+  import { webVitals } from './vitalsApi.js';
+
+  const analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
+
+  webVitals({
+    path: window.location.pathname,
+    analyticsId,
+  });
 </script>
