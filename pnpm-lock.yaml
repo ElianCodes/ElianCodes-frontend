@@ -15,6 +15,7 @@ specifiers:
   sass: ^1.57.1
   solid-js: ^1.6.9
   tailwindcss: ^3.2.4
+  web-vitals: ^3.1.1
 
 dependencies:
   '@astrojs/image': 0.13.0_astro@2.0.1
@@ -23,6 +24,7 @@ dependencies:
   '@astrojs/vercel': 3.0.0_astro@2.0.1
   '@vercel/analytics': 0.1.8
   solid-js: 1.6.9
+  web-vitals: 3.1.1
 
 devDependencies:
   '@astrojs/rss': 2.1.0
@@ -3442,6 +3444,10 @@ packages:
 
   /web-namespaces/2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
+
+  /web-vitals/3.1.1:
+    resolution: {integrity: sha512-qvllU+ZeQChqzBhZ1oyXmWsjJ8a2jHYpH8AMaVuf29yscOPZfTQTjQFRX6+eADTdsDE8IanOZ0cetweHMs8/2A==}
+    dev: false
 
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
