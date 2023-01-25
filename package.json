@@ -26,6 +26,7 @@
     "@astrojs/tailwind": "^3.0.0",
     "@astrojs/vercel": "^3.0.0",
     "@vercel/analytics": "^0.1.8",
-    "solid-js": "^1.6.9"
+    "solid-js": "^1.6.9",
+    "web-vitals": "^3.1.1"
   }
 }
