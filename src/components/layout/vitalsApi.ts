@@ -2,8 +2,6 @@ import { getCLS, getFCP, getFID, getLCP, getTTFB } from 'web-vitals';
 
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
 
-console.log('I loaded stuff');
-
 function getConnectionSpeed() {
   return 'connection' in navigator &&
     navigator['connection'] &&
