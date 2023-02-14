@@ -1,24 +1,20 @@
 ---
-interface Content {
-	author: string;
-	pubDate: string;
-	title: string;
-	description: string;
-};
-
-import BaseLayout from './BaseLayout.astro'
-import BackArrow from '@components/layout/BackArrow.astro'
-
-const {content} = Astro.props;
-const {author, pubDate, description, title} = content as Content;
+import Layout from './Default.astro';
+import BlogSideBar from '../components/blog/BlogSideBar.astro';
+import BlogContent from '../components/blog/BlogContent.astro';
+import RecentBlogPosts from '../components/generic/RecentBlogPosts.astro';
+const { content, headings } = Astro.props;
+const { title, description } = content;
 ---
-<BaseLayout deactivateHeading={true} useColor={true} title={title} description={description}>
-	<main class="w-full">
-		<article class="blog-post">
-			<BackArrow link="/blog/" text="Back to all posts"/>
-			<slot />
-			<p>Written by {author} on {new Date(pubDate).toLocaleDateString()}</p>
-			<BackArrow link="/blog/" text="Back to all posts"/>
-		</article>
-	</main>
-</BaseLayout>
+
+<Layout title={title} description={description}>
+  <main class='p-6 lg:grid lg:grid-cols-3 flex justify-center'>
+    <BlogSideBar headings={headings} />
+    <BlogContent content={content}>
+      <slot />
+    </BlogContent>
+  </main>
+  <section class='p-6'>
+    <RecentBlogPosts count={6} />
+  </section>
+</Layout>
