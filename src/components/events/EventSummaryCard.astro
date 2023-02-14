@@ -6,7 +6,7 @@ interface Event {
   name: string;
   title: string;
   link: string;
-  date: Date | any;
+  date: Date;
   abstract: string;
   type: string;
   blogpost?: string;
@@ -28,7 +28,20 @@ const { event } = Astro.props;
   imgAlt={event.title}
   description={event.abstract}
 >
-  <p class='mt-2'>{event.date.toLocaleDateString()}</p>
+  <p class='mt-2'>
+    <a
+      href={event.link}
+      title={event.title}
+      class='hover:text-yellow transition-color duration-150 ease-in-out'
+      >{event.name}</a
+    > - {
+      event.date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    }
+  </p>
   <div class='flex gap-4 mt-4'>
     <Button blank={true} href={event.link}>See event</Button>
     {
