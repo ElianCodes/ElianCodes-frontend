@@ -36,7 +36,7 @@ const { event } = Astro.props;
       class='hover:text-yellow transition-color duration-150 ease-in-out'
       >{event.name}</a
     > - {
-      event.date.toLocaleDateString('en-US', {
+      event.date.toLocaleDateString('en-BE', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
