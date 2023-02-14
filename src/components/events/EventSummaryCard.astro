@@ -21,6 +21,7 @@ interface Props {
 
 const { event } = Astro.props;
 ---
+
 <SummaryCard
   title={event.title}
   imgSrc='https://i.imgur.com/KvnPBQV.png'
@@ -29,18 +30,20 @@ const { event } = Astro.props;
 >
   <p class='mt-2'>{event.date.toLocaleDateString()}</p>
   <div class='flex gap-4 mt-4'>
-    <Button blank={true} href={event.link}>
-      See event
-    </Button>
-    {event.blogpost && (
-      <Button blank={true} href={event.blogpost}>
-        See Blogpost
-      </Button>
-    )}
-    {event.videolink && (
-      <Button blank={true} href={event.videolink}>
-        See Recording
-      </Button>
-    )}
+    <Button blank={true} href={event.link}>See event</Button>
+    {
+      event.blogpost && (
+        <Button blank={true} href={event.blogpost}>
+          See Blogpost
+        </Button>
+      )
+    }
+    {
+      event.videolink && (
+        <Button blank={true} href={event.videolink}>
+          See Recording
+        </Button>
+      )
+    }
   </div>
 </SummaryCard>
