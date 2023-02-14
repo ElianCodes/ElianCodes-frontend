@@ -17,15 +17,15 @@
     "@astrojs/vercel": "^3.1.1",
     "@astrojs/vue": "^2.0.1",
     "@unocss/astro": "^0.49.4",
-    "astro": "^2.0.10",
+    "astro": "^2.0.11",
     "sharp": "^0.31.3",
-    "vue": "^3.2.30"
+    "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@iconify-json/logos": "^1.1.22",
-    "@iconify-json/uil": "^1.1.3",
+    "@iconify-json/logos": "^1.1.23",
+    "@iconify-json/uil": "^1.1.4",
     "@playwright/test": "^1.30.0",
-    "@typescript-eslint/parser": "^5.51.0",
+    "@typescript-eslint/parser": "^5.52.0",
     "@unocss/preset-icons": "^0.49.4",
     "@unocss/preset-typography": "^0.49.4",
     "@unocss/preset-wind": "^0.49.4",
