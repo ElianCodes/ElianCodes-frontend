@@ -13,6 +13,7 @@ interface Event {
   subtype?: string;
   videolink?: string;
   emoji?: string;
+  img?: string;
 }
 
 interface Props {
@@ -24,7 +25,7 @@ const { event } = Astro.props;
 
 <SummaryCard
   title={event.title}
-  imgSrc='https://i.imgur.com/KvnPBQV.png'
+  imgSrc={event.img ?? 'https://i.imgur.com/KvnPBQV.png'}
   imgAlt={event.title}
   description={event.abstract}
 >
