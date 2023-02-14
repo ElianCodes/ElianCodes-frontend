@@ -1,0 +1,56 @@
+---
+import TagItem from '../blog/TagItem.astro';
+import Card from '../generic/Card.astro';
+
+const doing = [
+  { name: 'Astro', url: 'https://astro.build/' },
+  { name: 'Nuxt', url: 'https://vitejs.dev/' },
+  { name: 'Laravel', url: 'https://svelte.dev/' },
+  { name: 'Tailwind', url: 'https://tailwindcss.com/' },
+  { name: 'Firebase', url: 'https://firebase.google.com/' },
+  { name: 'Vue', url: 'https://www.vuejs.org/' },
+  { name: 'Vercel', url: 'https://vercel.com/' },
+  { name: 'Google Cloud', url: 'https://cloud.google.com' },
+  { name: 'Nest', url: 'https://www.nestjs.com' },
+];
+---
+
+<section class='mt-8 grid md:grid-cols-2 gap-8'>
+  <Card color='blue'>
+    <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+      What's keeping me busy?
+    </h2>
+    <ul class='flex gap-4 flex-wrap'>
+      {
+        doing.map((item) => (
+          <li>
+            <TagItem>
+              <a href={item.url} target='_blank' title={`Go to ${item.name}`}>
+                {item.name}
+              </a>
+            </TagItem>
+          </li>
+        ))
+      }
+    </ul>
+  </Card>
+  <Card color='orange'>
+    <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>Who am I?</h2>
+    <p class='outfit'>
+      My 💖 for the web was first sparked in 2016 when I decided to 🔨 a simple
+      HTML page to display the photo's I took at the time, there was no way
+      back! Today, I'm mainly focussed on Full-Stack development with a love for
+      front-end and JavaScript
+    </p>
+    <p class='poppins mt-2'>
+      Elian is a Software Engineer @vBridge where he started a couple years ago
+      as an intern. He has a strong focus on design, front-end development and
+      cloud native web-applications with the emphasis on personalisation and
+      technical innovation. Elian started out building static websites to
+      showcase the photos he took, then discovered JAMStack development, since
+      then he's always learning and trying out new stuff. Experimentation drew
+      him to Astro, there was no way back. Now, Elian is an Astro Ambassador &
+      always available for a chat or drink.
+    </p>
+  </Card>
+</section>
