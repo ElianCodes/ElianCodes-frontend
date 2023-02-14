@@ -1,53 +1,19 @@
 ---
-import Technologies from './Technologies';
-
-interface Technology {
-  name: string;
-  link: string;
-}
-
-const technologies: Technology[] = [
-  {
-    name: 'Sass',
-    link: 'https://sass-lang.com',
-  },
-  {
-    name: 'Google Cloud',
-    link: 'https://cloud.google.com',
-  },
-  {
-    name: 'firebase',
-    link: 'https://firebase.com',
-  },
-  {
-    name: 'Astro',
-    link: 'https://astro.build/',
-  },
-  {
-    name: 'TailwindCSS',
-    link: 'https://tailwindcss.com',
-  },
+const techs = [
+  { name: 'Astro', link: 'https://astro.build' },
+  { name: 'Vue', link: 'https://www.vuejs.org' },
+  { name: 'UnoCSS', link: 'https://uno.antfu.me' },
+  { name: 'Vercel', link: 'https://vercel.com' },
+  { name: 'Playwright', link: 'https://playwright.dev' },
 ];
+const tech = techs[Math.floor(Math.random() * techs.length)];
 ---
 
-<footer
-  id='footer'
-  class='pt-12 lg:pt-0 lg:absolute lg:bottom-8 transition-opacity ease-in-out duration-500'
->
-  <Technologies
-    technology={technologies[Math.floor(Math.random() * technologies.length)]}
-    client:idle
-  />
+<footer class='bg-black text-white p-6'>
+  <h2 class='hidden'>Footer</h2>
+  <p class='outfit'>
+    Built with <a href={tech.link} target='_blank' class='text-blue'
+      >{tech.name}</a
+    > & ☕️
+  </p>
 </footer>
-
-<script>
-  import './CustomColor.ts';
-  import { webVitals } from './vitalsApi.js';
-
-  const analyticsId = import.meta.env.PUBLIC_VERCEL_ANALYTICS_ID;
-
-  webVitals({
-    path: window.location.pathname,
-    analyticsId,
-  });
-</script>
