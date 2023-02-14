@@ -1,42 +1,46 @@
 ---
-import { Picture } from '@astrojs/image/components';
-import BaseLayout from '@layouts/BaseLayout.astro';
-import Events from '@components/events/eventList.astro';
+import Layout from '../layouts/Default.astro';
+import EventSummaryCard from '../components/events/EventSummaryCard.astro';
+
+interface Event {
+  name: string;
+  title: string;
+  link: string;
+  date: Date | any;
+  abstract: string;
+  type: string;
+  blogpost?: string;
+  subtype?: string;
+  videolink?: string;
+  emoji?: string;
+}
+
+let events: Event[] = await fetch(
+  'https://us-central1-eliancodes-1632771244788.cloudfunctions.net/events'
+).then((res) => res.json());
+events = events
+  .map((event: Event): Event => {
+    const seconds = event.date._seconds;
+    event.date = new Date(0);
+    event.date.setUTCSeconds(seconds);
+    return event;
+  })
+  .sort((a, b) => b.date - a.date);
 ---
 
-<BaseLayout
+<Layout
   title='Events'
   description='See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript).'
-  useColor={true}
 >
-  <main
-    class='mt-16 lg:my-12 xl:my-12 flex flex-col lg:flex-row gap-10 items-center justify-center w-full'
-  >
-    <div
-      class='h-full bg-color-contrast w-full rounded-3xl px-8 text-black lg:text-white flex-1 flex flex-col justify-center items-center'
-    >
-      <Picture
-        src='/assets/img/elian.jpg'
-        alt='Elian speaking @ React Brussels'
-        title='Elian speaking @ React Brussels'
-        class='w-64 lg:w-72 xl:w-96 h-auto rounded-picture'
-        sizes='((min-width: 50em) and (max-width: 60em)) 50em, ((min-width: 30em) and (max-width: 50em)) 30em, (max-width: 30em) 20em'
-        widths={[288, 384, 800, 1600]}
-        aspectRatio='1:1'
-      />
-      <p class='mt-16 text-xl dark:text-gray-200 dark:lg:text-black'>
-        Elian is a Software Engineer 
-        <a
-          href='https://www.vbridge.eu'
-          target='_blank'>@vBridge</a
-        >  where he started a couple years ago as an intern.
-        He has a strong focus on design, front-end development and cloud native web-applications with the emphasis on personalisation and technical innovation.
-        Elian started out building static websites to showcase the photos he took, then discovered JAMStack development, since then he's always learning and trying out new stuff.
-        Experimentation drew him to Astro, there was no way back. Now, Elian is an Astro Ambassador & always available for a chat or drink.
-      </p>
-    </div>
-    <div class='flex-1'>
-      <Events />
-    </div>
+  <main class='bg-yellow p-6'>
+    <ul class='grid md:grid-cols-3 gap-8'>
+      {
+        events.map((event) => (
+          <li>
+            <EventSummaryCard event={event} />
+          </li>
+        ))
+      }
+    </ul>
   </main>
-</BaseLayout>
+</Layout>

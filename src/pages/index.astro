@@ -1,17 +1,19 @@
 ---
-import BaseLayout from '@layouts/BaseLayout.astro';
-import InfoBlock from '@components/home/InfoBlock.astro';
-import SocialBlock from '@components/home/SocialBlock.astro';
+import Layout from '../layouts/Default.astro';
+import AboutMe from '../components/home/AboutMe.astro';
+import RecentBlogPosts from '../components/generic/RecentBlogPosts.astro';
+import MobileSocials from '../components/home/MobileSocials.astro';
+import Description from '../components/home/Description.astro';
 ---
 
-<BaseLayout
+<Layout
   title='Home'
   description='Sofware Engineer @vBridge BV | Astro Ambassador | Elian blogs about webdevelopment, cloud native development and overall programming.'
 >
-  <main
-    class='mt-16 lg:mt-12 xl:mt-0 flex flex-col-reverse lg:flex-row gap-10 items-center justify-center w-full'
-  >
-    <InfoBlock />
-    <SocialBlock />
+  <main class='bg-green p-6'>
+    <MobileSocials />
+    <AboutMe />
+    <Description />
+    <RecentBlogPosts />
   </main>
-</BaseLayout>
+</Layout>
