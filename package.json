@@ -1,32 +1,39 @@
 {
   "name": "eliancodes-frontend",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "deploy:functions": "npm run deploy --prefix functions --only functions",
-    "lint": "rome check ./"
-  },
-  "devDependencies": {
-    "@astrojs/rss": "^2.1.0",
-    "@astrojs/sitemap": "^1.0.0",
-    "@tailwindcss/typography": "^0.5.9",
-    "astro": "^2.0.1",
-    "astro-rome": "^0.1.6",
-    "rome": "^11.0.0",
-    "sass": "^1.57.1",
-    "tailwindcss": "^3.2.4"
+    "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.13.0",
-    "@astrojs/solid-js": "^2.0.0",
-    "@astrojs/tailwind": "^3.0.0",
-    "@astrojs/vercel": "^3.0.0",
-    "@vercel/analytics": "^0.1.8",
-    "solid-js": "^1.6.9",
-    "web-vitals": "^3.1.1"
+    "@astrojs/image": "^0.14.1",
+    "@astrojs/rss": "^2.1.0",
+    "@astrojs/sitemap": "^1.0.1",
+    "@astrojs/vercel": "^3.1.1",
+    "@astrojs/vue": "^2.0.1",
+    "@unocss/astro": "^0.49.4",
+    "astro": "^2.0.10",
+    "sharp": "^0.31.3",
+    "vue": "^3.2.30"
+  },
+  "devDependencies": {
+    "@iconify-json/logos": "^1.1.22",
+    "@iconify-json/uil": "^1.1.3",
+    "@playwright/test": "^1.30.0",
+    "@typescript-eslint/parser": "^5.51.0",
+    "@unocss/preset-icons": "^0.49.4",
+    "@unocss/preset-typography": "^0.49.4",
+    "@unocss/preset-wind": "^0.49.4",
+    "@unocss/reset": "^0.49.4",
+    "eslint": "^8.34.0",
+    "eslint-plugin-astro": "^0.23.0",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "prettier": "^2.8.4",
+    "prettier-plugin-astro": "^0.8.0"
   }
 }

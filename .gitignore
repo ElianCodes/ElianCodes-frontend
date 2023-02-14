@@ -23,3 +23,4 @@ firebase-debug.log
 
 .vscode/
 /.vercel
+/.astro
