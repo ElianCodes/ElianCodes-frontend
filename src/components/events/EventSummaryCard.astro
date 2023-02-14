@@ -1,0 +1,46 @@
+---
+import Button from '../generic/Button.astro';
+import SummaryCard from '../generic/SummaryCard.astro';
+
+interface Event {
+  name: string;
+  title: string;
+  link: string;
+  date: Date | any;
+  abstract: string;
+  type: string;
+  blogpost?: string;
+  subtype?: string;
+  videolink?: string;
+  emoji?: string;
+}
+
+interface Props {
+  event: Event;
+}
+
+const { event } = Astro.props;
+---
+<SummaryCard
+  title={event.title}
+  imgSrc='https://i.imgur.com/KvnPBQV.png'
+  imgAlt={event.title}
+  description={event.abstract}
+>
+  <p class='mt-2'>{event.date.toLocaleDateString()}</p>
+  <div class='flex gap-4 mt-4'>
+    <Button blank={true} href={event.link}>
+      See event
+    </Button>
+    {event.blogpost && (
+      <Button blank={true} href={event.blogpost}>
+        See Blogpost
+      </Button>
+    )}
+    {event.videolink && (
+      <Button blank={true} href={event.videolink}>
+        See Recording
+      </Button>
+    )}
+  </div>
+</SummaryCard>
