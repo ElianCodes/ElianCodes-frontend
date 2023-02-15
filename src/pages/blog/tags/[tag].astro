@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Default.astro';
+import BlogList from '../../../components/blog/BlogList.astro';
+import Button from '../../../components/generic/Button.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+
+  const tags: string[] = []
+  
+  allPosts.forEach((post) => {
+    post.data.tags.forEach((tag) => {
+      tags.push(tag);
+    });
+  });
+
+  const tagSet = Array.from(new Set(tags));
+
+  console.log(tagSet);
+
+  return tagSet.map((tag) => {
+    return {
+      params: { tag: tag.toLowerCase() },
+      props: { tag: tag, blogposts: allPosts.filter((post) => post.data.tags.includes(tag)) }
+    }
+  });
+}
+
+const { tag } = Astro.props;
+---
+<Layout
+  title={`Blog: ${tag}`}
+  description={`All posts tagged with ${tag}`}
+>
+  <main class="p-6 bg-purple grid gap-4">
+    <div>
+      <Button href="/blog">&larr; Back to blog</Button>
+    </div>
+    <BlogList posts={Astro.props.blogposts} />
+  </main>
+</Layout>
