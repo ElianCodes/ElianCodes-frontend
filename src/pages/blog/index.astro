@@ -8,7 +8,7 @@ const posts = await getCollection('blog').then((collection) =>
 );
 ---
 
-<Layout title='Blog' description='Page not found'>
+<Layout title='Blog' description='Page not found' pageTitle='Elian Codes Blog'>
   <main class='bg-blue p-6'>
     <BlogList posts={posts} />
   </main>
