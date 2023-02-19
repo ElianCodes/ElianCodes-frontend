@@ -60,7 +60,7 @@ In Astro, it's actually quite simple to also do this, you just gotta forget what
 
 Let's define a new Astro template in the `/src/layouts` folder and call it `Default.astro`. In this template, we make use of the Astro `<slot />` component to tell Astro where to render in the content of our page. Every page will then ofcourse have different content, with a shared `<YourHeadComponent />`, `<YourHeaderComponent />` and `<YourFooterComponent />`.
 
-```html
+```astro
 ---
 import YourHeadComponent from '../components/layout/Head.astro
 import YourHeaderComponent from '../components/layout/Header.astro
@@ -82,7 +82,7 @@ import YourFooterComponent from '../components/layout/Footer.astro
 
 To then also use the layout we defined above, we just have to create a new page in the `/src/pages` folder and import our `<DefaultLayout>` component we just defined.
 
-```html
+```astro
 ---
 import DefaultLayout from '../layouts/Default.astro
 ---

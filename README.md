@@ -2,17 +2,32 @@
 
 The full sourcecode for my personal website.
 
-(currently) written in [Astro](<https://astro.build>) and [TailwindCSS](<https://tailwindcss.com>) with some [Firebase](<https://firebase.com>) functions as well, deployed to [Vercel](https://www.vercel.com).
+## Current technologies
 
-*Previous version of this website used [Nuxt](<https://www.nuxtjs.org>), [Vue](<https://www.vuejs.org>) and [TypeScript](<https://www.typescript-lang.com>).*
+(currently) written in [Astro](<https://astro.build>) and [UnoCSS](<https://uno.antfu.me>) with some [Firebase](<https://firebase.com>) functions as well, deployed to [Vercel](https://www.vercel.com).
+
+I'm actually looking to get rid of the Firebase functions, this are the options I'm thinking of:
+
+1. Vercel edge functions with same functionallity.
+1. Process the data in Astro with API routes.
+1. Find a totally different approach to process data.
+
+### Previous technologies
+
+This website is a representation of technologies I'm playing with. Here is a list of technologies that have powed this site before:
+
+- [Nuxt](<https://www.nuxtjs.org>)
+- [Vue](<https://www.vuejs.org>)
+- [TypeScript](<https://www.typescript-lang.com>)
+- [TailwindCSS](<https://tailwindcss.com>)
 
 ## Deployment and Hosting
 
-At the moment, this website is hosted on Vercel as a static site and some Firebase functions to use as an API (at buildtime). The DNS is controlled by [CloudFlare](<https://www.cloudflare.com>).
+At the moment, this website is hosted on Vercel with some Firebase functions to use as an API (at buildtime). The DNS is controlled by [CloudFlare](<https://www.cloudflare.com>).
 
 The website was previously hosted on [Google Cloud Storage](<https://cloud.google.com/storage>) as a static folder in a public bucket. Then I transitioned to Firebase, since it was easier to manage, cheaper and you get some handy features like preview deploys and such.
 
-Currently, it's deployed as a static Vercel website using the [Astro Vercel adapter](). Vercel offers some features I love, like analytics, web vitals info, feature and preview deploys.
+Currently, it's deployed as a static Vercel website using the [Astro Vercel adapter](https://docs.astro.build/en/guides/integrations-guide/vercel/). Vercel offers some features I love, like analytics, web vitals info, feature and preview deploys.
 
 ## Development setup
 
@@ -36,11 +51,11 @@ At the moment, the UI of the website is built and generated using [Astro](<https
 
 #### Components
 
-Most of my templates are written in pure Astro with some TypeScript features, since I don't need to much interactivity. Components that do require interactivity, are mostly written (ore being converted) to [SolidJS](). Actually, Astro doesn't care in which language you write or define your components. That's kinda their thing.
+Most of my templates are written in pure Astro, since I don't need to much interactivity. Components that do require interactivity, are written in [VueJS](<https://www.vuejs.org>). Actually, Astro doesn't care in which language you write or define your components. That's kinda their thing.
 
-#### TailwindCSS
+#### UnoCSS
 
-To define the style of the website, [TailwindCSS](<https://tailwindcss.com>) is used with [Sass preprocessor](<https://sass-lang.com/>). This allows you to create custom and reusable components with easy by using `@apply` classes. Astro supports this with their amazing [Tailwind integration]().
+To define the style of the website, [UnoCSS](<https://uno.antfu.me>) with `preset-wind` is used. [You can read more about my transition and use here.](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>)
 
 ### Backend
 

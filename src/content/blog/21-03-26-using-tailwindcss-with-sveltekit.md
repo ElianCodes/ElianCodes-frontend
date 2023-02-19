@@ -5,7 +5,7 @@ author: "Elian Van Cutsem"
 tags:
   - TailwindCSS
   - svelte
-  - '@tailwindcss/jit'
+  - JIT
 imgUrl: https://res.cloudinary.com/practicaldev/image/fetch/s--k-z0ysHD--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p3nn57r52krvpdieblta.png
 description: Earlier this week, Sveltekit beta got released, ofcourse I wanted to fiddle with it.
 layout: '../../layouts/BlogPost.astro'
@@ -112,7 +112,7 @@ Don't forget to include the generated TailwindCSS output file to your `.gitignor
 
 ### Add @tailwindcss/jit
 
-To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](<https://elianvancutsem.com/blog/what-is-tailwindcss-jit-and-how-to-use-it>), so read it if you're interested and would like to learn more about that.
+To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](<https://www.elian.codes/blog/21-03-18-add-tailwind-jit-to-your-nuxtjs-site>), so read it if you're interested and would like to learn more about that.
 
 It's actually easy and I recommend that you use it!
 

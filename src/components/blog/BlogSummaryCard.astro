@@ -29,7 +29,9 @@ const { post } = Astro.props;
           post.data.tags.map((tag) => {
             return (
               <li>
-                <TagItem>{tag}</TagItem>
+                <a href={`/blog/tags/${tag.toLowerCase()}`}>
+                  <TagItem>{tag}</TagItem>
+                </a>
               </li>
             );
           })

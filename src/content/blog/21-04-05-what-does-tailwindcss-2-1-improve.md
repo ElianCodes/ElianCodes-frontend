@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # What does TailwindCSS 2.1 improve?
 
-TailwindCSS 2.1 just got released. Read [the official blogpost about that here](<https://blog.tailwindcss.com/tailwindcss-2-1>). I'm excited for it since it brings the new Just-In-Time engine to the core, I wrote [a detailed blogpost about what it is and how to use it](<https://www.elian.codes/blog/what-is-tailwindcss-jit-and-how-to-use-it>) some time ago, which actually did very well.
+TailwindCSS 2.1 just got released. Read [the official blogpost about that here](<https://blog.tailwindcss.com/tailwindcss-2-1>). I'm excited for it since it brings the new Just-In-Time engine to the core, I wrote [a detailed blogpost about what it is and how to use it](<https://www.elian.codes/blog/21-03-16-what-is-tailwindcss-jit-and-how-to-use-it>) some time ago, which actually did very well.
 
 ## Tailwind JIT
 
