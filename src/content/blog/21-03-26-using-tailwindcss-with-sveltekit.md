@@ -112,7 +112,7 @@ Don't forget to include the generated TailwindCSS output file to your `.gitignor
 
 ### Add @tailwindcss/jit
 
-To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](<https://elianvancutsem.com/blog/what-is-tailwindcss-jit-and-how-to-use-it>), so read it if you're interested and would like to learn more about that.
+To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](<https://www.elian.codes/blog/21-03-18-add-tailwind-jit-to-your-nuxtjs-site>), so read it if you're interested and would like to learn more about that.
 
 It's actually easy and I recommend that you use it!
 

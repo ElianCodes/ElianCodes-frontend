@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Add TailwindCSS JIT to your Nuxtjs site
 
-[TailwindCSS](<https://tailwindcss.com>) just released a feature called Just-In-Time. [The TailwindCSS blog](<https://blog.tailwindcss.com/>) published an article about it [here](<https://blog.tailwindcss.com/just-in-time-the-next-generation-of-tailwind-css>). It's available (for now, since it will be added in TailwindCSS v3.0) on [NPM](<https://www.npmjs.com/package/@tailwindcss/jit>). I dedicated [another blogpost](<https://elianvancutsem.com/blog/what-is-tailwindcss-jit-and-how-to-use-it>) to this, so I wont go deeper into that topic here. But what is interesting here, is that it changes the whole way how you use TailwindCSS with [Nuxtjs](<https://nuxtjs.org>)
+[TailwindCSS](<https://tailwindcss.com>) just released a feature called Just-In-Time. [The TailwindCSS blog](<https://blog.tailwindcss.com/>) published an article about it [here](<https://blog.tailwindcss.com/just-in-time-the-next-generation-of-tailwind-css>). It's available (for now, since it will be added in TailwindCSS v3.0) on [NPM](<https://www.npmjs.com/package/@tailwindcss/jit>). I dedicated [another blogpost](<21-03-16-what-is-tailwindcss-jit-and-how-to-use-it>) to this, so I wont go deeper into that topic here. But what is interesting here, is that it changes the whole way how you use TailwindCSS with [Nuxtjs](<https://nuxtjs.org>)
 
 ## Upgrading nuxtjs/tailwindcss
 
