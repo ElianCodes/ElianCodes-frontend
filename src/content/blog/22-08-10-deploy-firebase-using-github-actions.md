@@ -5,7 +5,7 @@ author: "Elian Van Cutsem"
 tags:
   - Firebase
   - Github actions
-  - CI/CD
+  - DevOps
 imgUrl: "https://firebase.google.com/images/social.png"
 description: Deploying to Firebase can sometimes be somewhat of a hassle if you're using the CLI. There is a better way using some sort of CI/CD, Github actions is one example explained here.
 layout: '../../layouts/BlogPost.astro'
