@@ -78,4 +78,4 @@ module.exports = {
 
 TailwindCSS dark mode is very easy when combined with `@apply` classes and can be extended to your needs. It's easy to configure and can give an extra functionality to your application.
 
-See an example [here](<https://github.com/ElianVanCutsem/tailwind-dark-mode-example>) or [here](<https://admiring-wescoff-a17fa9.netlify.app/>).
+See an example [here](<https://github.com/eliancodes/tailwind-dark-mode-example>) or [here](<https://admiring-wescoff-a17fa9.netlify.app/>).

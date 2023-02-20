@@ -29,7 +29,7 @@ Netlify has an easy integration with GitHub that doesn't require any configurati
 
 If your project is NPM based, the integration between GitHub and Netlify will be seamless and without much configuration.
 
-Before Netlify, I used [elianvancutsem.github.io](<https://elianvancutsem.github.io>) with [Github Pages](<https://pages.github.com>). It also has it's advantages and features, but Netlify is much more sophisticated. If you want, you can also attach your own domain name to Github Pages, Netlify or [Vercel](<https://vercel.com>) (although Vercel only offers this on a paid plan). One downside of Github pages is that you've got to deploy a branch. So you'll need a dedicated branch with the compiled version of your site there, whereas Netlify and Vercel build on their systems and deploy from there.
+Before Netlify, I used`elianvancutsem.github.io with [Github Pages](<https://pages.github.com>). It also has it's advantages and features, but Netlify is much more sophisticated. If you want, you can also attach your own domain name to Github Pages, Netlify or [Vercel](<https://vercel.com>) (although Vercel only offers this on a paid plan). One downside of Github pages is that you've got to deploy a branch. So you'll need a dedicated branch with the compiled version of your site there, whereas Netlify and Vercel build on their systems and deploy from there.
 
 ## Further features
 

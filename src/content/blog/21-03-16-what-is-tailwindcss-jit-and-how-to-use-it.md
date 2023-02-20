@@ -100,7 +100,7 @@ module.exports = {
 
 Depending on your specific situation you might need to change a few other things.
 
-[I also wrote a blogpost on how to use JIT with Nuxtjs](<https://www.elianvancutsem.com/blog/add-tailwind-jit-to-your-nuxt-js-site/>).
+[I also wrote a blogpost on how to use JIT with Nuxtjs](<https://www.elian.codes/blog/21-03-18-add-tailwind-jit-to-your-nuxtjs-site/>).
 
 In my specific situation this is how @tailwindcss/jit affected my development process:
 

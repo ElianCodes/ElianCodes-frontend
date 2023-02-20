@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Adding tracking to your Nuxt site with GA4
 
-I've been wanting to see how my site did in analytics for a while now but never got to actually installing and preparing it. Now that I finally attached a new domain ([elian.codes](<https://elian.codes>)) and fixed my DNS for [elianvancutsem.com](<https://elianvancutsem.com>). I put in the works to add google analytics to my site. (blog post coming up about how I did that soon...)
+I've been wanting to see how my site did in analytics for a while now but never got to actually installing and preparing it. Now that I finally attached a new domain ([elian.codes](<https://www.elian.codes/>)) and fixed my DNS for [elianvancutsem.com](<https://elianvancutsem.com>). I put in the works to add google analytics to my site. (blog post coming up about how I did that soon...)
 
 Here is a little guide on how I did it and integrated it with [Nuxt](https://nuxtjs.org)
 

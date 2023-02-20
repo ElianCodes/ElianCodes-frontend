@@ -21,7 +21,7 @@ To follow along, you'll need at least some knowledge about building a backend se
 
 You'll also need to integrate [Google Analytics](<https://analytics.google.com>) into your website, but you probably guessed that already. (I also won't show that part here)
 
-The code that I used to get the feature working, you can find in [this repository](<https://github.com/ElianVanCutsem/ElianCodes-backend>). Feel free to fork or re-use in your own projects!
+The code that I used to get the feature working, you can find in [this repository](<https://github.com/eliancodes/ElianCodes-backend>). Feel free to fork or re-use in your own projects!
 
 ## Using @elianvancutsem/mostvisitedpages
 
@@ -105,7 +105,7 @@ export class testRun {
 }
 ```
 
-you could always take a look at [this GitHub file](<https://github.com/ElianVanCutsem/ElianCodes-backend/blob/main/backend/src/analytics/analytics.service.ts>) for inspiration.
+you could always take a look at [this GitHub file](<https://github.com/eliancodes/ElianCodes-backend/blob/main/backend/src/analytics/analytics.service.ts>) for inspiration.
 
 ### Add your correct metrics for your report
 

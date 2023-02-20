@@ -51,8 +51,4 @@ Surge will than (only the first time) ask you to log in or create your account, 
 
 Of course you need to keep in mind that Surge does nothing more than deploy a directory directly on the web, so there is no building or compiling involved. If you want (or need) to deploy a site with `node_modules`, you could compile your website locally and just deploy the output build folder, or use an external CI/CD provider like [Travis](https://www.travisci.com) or [Github Actions](https://github.com/features/actions). To use CI/CD, you need to use an online repository of course.
 
-## Demo
-
-In [this repository](<https://github.com/elianvancutsem/elianvancutsem.github.io>) I've added a new directory called `demos`, in which I'll provide future demo's of technologies and other programming / code related stuff. This time I used that repository to test Surge.sh and provide a simple look on how it works.
-
 The demo of this article can be found on [http://swapped-coffee.surge.sh]. (It only contains an `index.html` & `404.html` file)
