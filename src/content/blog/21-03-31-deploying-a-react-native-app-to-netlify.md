@@ -20,12 +20,12 @@ My exact setup will be te following:
 - [React Native](<https://react-native.com>) front-end
 - Back-end will be RESTful, so doesn't really matter what you use
 - [Github](<https://github.com>) for version-control
-- [Travis CI](<https://travis-ci.com>) to build, test and deploy
+- [Travis CI](<https://www.travis-ci.com/>) to build, test and deploy
 - [Netlify](<https://netlify.com>) to host the application
 
 ## Starting a React Native application using Expo
 
-Starting a new React Native app using [Expo](<https://expo.io/>) isn't that hard and is even guided through on [the official documentation](<https://reactnative.dev/docs/environment-setup>).
+Starting a new React Native app using [Expo](<https://expo.dev/>) isn't that hard and is even guided through on [the official documentation](<https://reactnative.dev/docs/environment-setup>).
 
 Firstly, install the `expo-cli` so we can run expo commands:
 
@@ -88,4 +88,4 @@ jobs:
 
 ## Deploying to Netlify
 
-In this example I used [Netlify](<https://netlify.com>) to deploy the application, but any static hosting service (like [Github pages](<https://pages.github.com>) or [Vercel](<https://vercel.com>)) can be used since Expo will generate a static build of your site. I won't go further here on how you can set up Netlify, since I wrote [a blogpost about that](<https://elian.codes/blog/deploying-my-website-to-netlify-with-github>) before.
+In this example I used [Netlify](<https://netlify.com>) to deploy the application, but any static hosting service (like [Github pages](<https://pages.github.com>) or [Vercel](<https://vercel.com>)) can be used since Expo will generate a static build of your site. I won't go further here on how you can set up Netlify, since I wrote [a blogpost about that](<https://www.elian.codes/blog/21-03-22-deploying-my-website-to-netlify-with-github/>) before.

@@ -19,7 +19,7 @@ I went through the release notes and summed up some things that I found importan
 
 ## New
 
-In TailwindCSS v3, JIT will be the default compiler mode. If you want to learn more about the Just-In-Time compiler, [check this blogpost](<https://www.elian.codes/blog/what-is-tailwindcss-jit-and-how-to-use-it/>).
+In TailwindCSS v3, JIT will be the default compiler mode. If you want to learn more about the Just-In-Time compiler, [check this blogpost](<https://www.elian.codes/blog/21-03-16-what-is-tailwindcss-jit-and-how-to-use-it/>).
 
 All colors are enabled by default. Before you had to import them via the `tailwind.config.js`.
 

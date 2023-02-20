@@ -13,11 +13,11 @@ layout: '../../layouts/BlogPost.astro'
 
 # Add custom tracking events to your nuxt site with GA4
 
-Sometime ago I wrote [an article about pairing Nuxt with GA4](<https://www.elian.codes/blog/21-03-15-adding-tracking-with-GA4-to-nuxt>) and wanted to try it out after just playing around with it for a bit. The older [Universal Analytics (UA)](<https://support.google.com/analytics/answer/10269537?hl=en>) worked fine for me, but after using it rather intensive, I xanted to dive a little deeper into understanding how a user interacts with my website and how I can improve the user experience.
+Sometime ago I wrote [an article about pairing Nuxt with GA4](<https://www.elian.codes/blog/21-03-15-adding-tracking-with-ga4-to-nuxt/>) and wanted to try it out after just playing around with it for a bit. The older [Universal Analytics (UA)](<https://support.google.com/analytics/answer/10269537?hl=en>) worked fine for me, but after using it rather intensive, I xanted to dive a little deeper into understanding how a user interacts with my website and how I can improve the user experience.
 
 ## Adding GA4 support to Nuxt
 
-Adding GA4 isn't that hard in Nuxt, if you need a more in-depth guide on that, check out [this article](<https://www.elian.codes/blog/21-03-15-adding-tracking-with-GA4-to-nuxt/>). Here follows a little guide without many in-depth descriptions:
+Adding GA4 isn't that hard in Nuxt, if you need a more in-depth guide on that, check out [this article](<https://www.elian.codes/blog/21-03-15-adding-tracking-with-ga4-to-nuxt/>). Here follows a little guide without many in-depth descriptions:
 
 Firstly we install [Vue-gtag](<https://www.npmjs.com/package/vue-gtag>), the documentation of that package can be found [here](<https://matteo-gabriele.gitbook.io/vue-gtag/>).
 
@@ -105,7 +105,7 @@ We can use this snippet in every component since we added `vue-gtag` as a compon
 
 So to send a custom event trigger we can use the `v-on:click` or any other directive to call a method. Here's an example:
 
-```html
+```vue
 <template>
   <a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
     <svg >
@@ -128,7 +128,7 @@ export default {
 
 Now we need to only add a custom event to it:
 
-```html
+```vue
 <template>
   <a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
     <svg >

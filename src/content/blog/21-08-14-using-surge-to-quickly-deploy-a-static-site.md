@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Using Surge.sh to quickly deploy a static site
 
-Deploying a static site can be really easy when using [Netlify](https://www.netlify.com), [Vercel](https://www.vercel.com) or another service. Most of them require to have a connection to a [Github](https://www.github.com) (or similar) repository, although some of them also come with a CLI version. [Surge.sh](http://surge.sh) is a tool that makes it very easy to deploy a simple site via the command line without any hassle, this can be a useful tool to make a temporary link for a preview for a client or yourself.
+Deploying a static site can be really easy when using [Netlify](https://www.netlify.com), [Vercel](https://vercel.com) or another service. Most of them require to have a connection to a [Github](https://www.github.com) (or similar) repository, although some of them also come with a CLI version. [Surge.sh](http://surge.sh) is a tool that makes it very easy to deploy a simple site via the command line without any hassle, this can be a useful tool to make a temporary link for a preview for a client or yourself.
 
 ## Why use Surge over other services
 
@@ -49,10 +49,6 @@ surge
 
 Surge will than (only the first time) ask you to log in or create your account, after which it asks you the subdomain of the site and immediately will start deploying. This only takes a little moment and once it's done, your website will be live in an instant.
 
-Of course you need to keep in mind that Surge does nothing more than deploy a directory directly on the web, so there is no building or compiling involved. If you want (or need) to deploy a site with `node_modules`, you could compile your website locally and just deploy the output build folder, or use an external CI/CD provider like [Travis](https://www.travisci.com) or [Github Actions](https://github.com/features/actions). To use CI/CD, you need to use an online repository of course.
-
-## Demo
-
-In [this repository](<https://github.com/elianvancutsem/elianvancutsem.github.io>) I've added a new directory called `demos`, in which I'll provide future demo's of technologies and other programming / code related stuff. This time I used that repository to test Surge.sh and provide a simple look on how it works.
+Of course you need to keep in mind that Surge does nothing more than deploy a directory directly on the web, so there is no building or compiling involved. If you want (or need) to deploy a site with `node_modules`, you could compile your website locally and just deploy the output build folder, or use an external CI/CD provider like [Travis](https://www.travis-ci.com/) or [Github Actions](https://github.com/features/actions). To use CI/CD, you need to use an online repository of course.
 
 The demo of this article can be found on [http://swapped-coffee.surge.sh]. (It only contains an `index.html` & `404.html` file)

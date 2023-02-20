@@ -56,8 +56,6 @@ then we just have to add the script with the props that Nuxt provides us with:
 </script>
 ```
 
-The full component is available on my [Github repository](<https://github.com/ElianVanCutsem/elianvancutsem.github.io>) under `components/loading/loading.vue`
-
 There's really not that much about it. you can configure it as a modal, or just as a component somewhere on your page. It's up to you to invent crazy things!
 
 ## Telling Nuxt to use you component as preloader
@@ -75,8 +73,6 @@ As simple as that. Now nuxt should toggle your component everytime  it has somet
 ## Nuxt default preloaders
 
 So now I had a cool custom component which looked awesome and matching to my site. Still I was not really happy with it. The main reason being that you literally have to see it everytime something loads. Everytime I clicked on a blogpost or switched pages it popped up. So it quickly annoyed me more than I found it valueable, so I ditched the idea of a preloader in the center of the page and went with the actually preset nuxt preloader and customised it to my needs.
-
-The component I made is still available in my repository over on [Github](<https://github.com/ElianVanCutsem/elianvancutsem.github.io>) if your interested.
 
 So as we saw in our own component, we just have to tell nuxt to use a preloader. The default Nuxt preloader can be set as following:
 

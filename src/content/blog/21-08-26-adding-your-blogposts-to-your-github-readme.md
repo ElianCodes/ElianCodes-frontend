@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Add your blogposts to your Github README
 
-Github profile README's are a very cool and personal way to tell something about yourself  or your code. One of the downsides to this is that it depends on a static format. Well, this is not necessarily true. Through the power of code and Github Actions, we can use JavaScript (or another language) and generate a static `README.md` file. Here's a little guide on how I added my latest blogposts to [my Github profile](https://github.com/elianvancutsem).
+Github profile README's are a very cool and personal way to tell something about yourself  or your code. One of the downsides to this is that it depends on a static format. Well, this is not necessarily true. Through the power of code and Github Actions, we can use JavaScript (or another language) and generate a static `README.md` file. Here's a little guide on how I added my latest blogposts to [my Github profile](https://github.com/eliancodes).
 
 ## What's a Github README
 

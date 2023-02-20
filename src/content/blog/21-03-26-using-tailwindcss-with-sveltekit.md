@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Using TailwindCSS with Sveltekit
 
-*This post is very outdated, check [the new post](</blog/12-05-21-use-tailwindcss-with-sveltekit-2021>) for an updated version*
+*This post is very outdated, check [the new post](<https://www.elian.codes/blog/21-12-05-use-tailwindcss-with-sveltekit-2021/>) for an updated version*
 
 Earlier this week, Sveltekit beta got released (read all about it [here](<https://svelte.dev/blog/sveltekit-beta>)). Since it's so new, I wanted to try out some stuff, including using it with [TailwindCSS](<https://tailwindcss.com>). That seemed a little bit more complex than I initially thought.
 
@@ -112,7 +112,7 @@ Don't forget to include the generated TailwindCSS output file to your `.gitignor
 
 ### Add @tailwindcss/jit
 
-To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](<https://www.elian.codes/blog/21-03-18-add-tailwind-jit-to-your-nuxtjs-site>), so read it if you're interested and would like to learn more about that.
+To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](<https://www.elian.codes/blog/21-03-18-add-tailwind-jit-to-your-nuxtjs-site/>), so read it if you're interested and would like to learn more about that.
 
 It's actually easy and I recommend that you use it!
 

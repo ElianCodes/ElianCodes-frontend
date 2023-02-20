@@ -4,7 +4,7 @@ The full sourcecode for my personal website.
 
 ## Current technologies
 
-(currently) written in [Astro](<https://astro.build>) and [UnoCSS](<https://uno.antfu.me>) with some [Firebase](<https://firebase.com>) functions as well, deployed to [Vercel](https://www.vercel.com).
+(currently) written in [Astro](<https://astro.build>) and [UnoCSS](<https://uno.antfu.me>) with some [Firebase](<https://firebase.com>) functions as well, deployed to [Vercel](https://vercel.com).
 
 I'm actually looking to get rid of the Firebase functions, this are the options I'm thinking of:
 
@@ -17,7 +17,7 @@ I'm actually looking to get rid of the Firebase functions, this are the options 
 This website is a representation of technologies I'm playing with. Here is a list of technologies that have powed this site before:
 
 - [Nuxt](<https://www.nuxtjs.org>)
-- [Vue](<https://www.vuejs.org>)
+- [Vue](<https://vuejs.org>)
 - [TypeScript](<https://www.typescript-lang.com>)
 - [TailwindCSS](<https://tailwindcss.com>)
 
@@ -51,7 +51,7 @@ At the moment, the UI of the website is built and generated using [Astro](<https
 
 #### Components
 
-Most of my templates are written in pure Astro, since I don't need to much interactivity. Components that do require interactivity, are written in [VueJS](<https://www.vuejs.org>). Actually, Astro doesn't care in which language you write or define your components. That's kinda their thing.
+Most of my templates are written in pure Astro, since I don't need to much interactivity. Components that do require interactivity, are written in [VueJS](<https://vuejs.org>). Actually, Astro doesn't care in which language you write or define your components. That's kinda their thing.
 
 #### UnoCSS
 
