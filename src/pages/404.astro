@@ -4,7 +4,12 @@ import Layout from '../layouts/Default.astro';
 import ErrorPage from '../components/errors/404.astro';
 ---
 
-<Layout title='Page Not Found' description='Page not found' classList='h-full'>
+<Layout
+  title='Page Not Found'
+  description='Page not found'
+  classList='h-full'
+  pageTitle='Page Not Found!'
+>
   <main class='bg-red px-6 py-24'>
     <ErrorPage />
     <RecentBlogPosts />
