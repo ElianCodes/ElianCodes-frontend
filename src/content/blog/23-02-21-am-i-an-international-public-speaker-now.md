@@ -3,7 +3,6 @@ title: 🎤 Am I an international public speaker now?
 description: A few weeks ago, I gave my first international keynote talk at JSWorld in Amsterdam. In this blogpost, I wanted to share some insights about the conference and my talk.
 pubDate: 2023-02-21 00:13
 author: Elian Van Cutsem
-draft: true
 tags: 
   - Talk
   - JSWorld
