@@ -15,7 +15,7 @@ layout: '../../layouts/BlogPost.astro'
 
 It's been some time since I started writing posts and articles about programming and related topics. Since the start, I've always invested a lot of time in SEO, over time, I've integrated a system that now works for me. This is an explanation how I did that.
 
-When I first started writing, I used the [NuxtJS](<https://www.nuxtjs.org>) framework with [Nuxt Content](<https://content.nuxtjs.org/>), Nuxt has a very good [SEO guide and toolset](<https://nuxtjs.org/docs/features/meta-tags-seo/>). These enabled me to write my own system when I switched to [Astro](<https://www.astro.build>)
+When I first started writing, I used the [NuxtJS](<https://nuxtjs.org>) framework with [Nuxt Content](<https://content.nuxtjs.org/>), Nuxt has a very good [SEO guide and toolset](<https://nuxtjs.org/docs/features/meta-tags-seo/>). These enabled me to write my own system when I switched to [Astro](<https://www.astro.build>)
 
 The following is more of a theoretical explanation rather than real code samples. It will include them, but they can differ depending on frameworks or languages you are using in your projects.
 

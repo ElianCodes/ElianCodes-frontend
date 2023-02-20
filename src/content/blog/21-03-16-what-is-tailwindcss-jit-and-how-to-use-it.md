@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # What is TailwindCSS JIT and how to use it
 
-Yesterday the [TailwindCSS blog](<https://blog.tailwindcss.com/just-in-time-the-next-generation-of-tailwind-css>) published an article about a new feature they released called [TailwindCSS JIT](<https://www.npmjs.com/package/@tailwindcss/jit>) (which stands for Just-In-Time). For now it's still an experimental feature, but it has worked great for me.
+Yesterday the [TailwindCSS blog](<https://tailwindcss.com/blog/just-in-time-the-next-generation-of-tailwind-css>) published an article about a new feature they released called [TailwindCSS JIT](<https://www.npmjs.com/package/@tailwindcss/jit>) (which stands for Just-In-Time). For now it's still an experimental feature, but it has worked great for me.
 
 ## What is tailwindcss/jit
 

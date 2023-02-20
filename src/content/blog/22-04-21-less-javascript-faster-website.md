@@ -19,7 +19,7 @@ My slides can be found over at [slidr.io as well](<https://slidr.io/ElianVanCuts
 
 Keep in mind that this was a lightning talk between 4 and 10 minutes long.
 
-Cross posted from <https://www.vbridge.eu/blog/202204-less-javascript-faster-website>
+Cross posted from <https://www.vbridge.eu/blog/202204-less-javascript-faster-website/>
 
 ![Me at the meetup](<https://i.imgur.com/zHKeWzx.jpg>)
 

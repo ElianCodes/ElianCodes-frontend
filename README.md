@@ -16,7 +16,7 @@ I'm actually looking to get rid of the Firebase functions, this are the options 
 
 This website is a representation of technologies I'm playing with. Here is a list of technologies that have powed this site before:
 
-- [Nuxt](<https://www.nuxtjs.org>)
+- [Nuxt](<https://nuxtjs.org>)
 - [Vue](<https://vuejs.org>)
 - [TypeScript](<https://www.typescript-lang.com>)
 - [TailwindCSS](<https://tailwindcss.com>)
