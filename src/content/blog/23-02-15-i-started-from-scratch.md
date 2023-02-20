@@ -41,7 +41,7 @@ The first step I actually took was deciding how the design would look. I googled
 
 ### Adding the UnoCSS integration
 
-I added [TailwindCSS](<https://www.tailwindcss.com>) in all previous versions of my website, since I use that on almost every project I make, at work and in personal projects, it feels so natural. This time, I used [UnoCSS](<https://uno.antfu.me>), with the `@unocss/preset-wind` preset. You can [read more about it here](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>).
+I added [TailwindCSS](<https://tailwindcss.com>) in all previous versions of my website, since I use that on almost every project I make, at work and in personal projects, it feels so natural. This time, I used [UnoCSS](<https://uno.antfu.me>), with the `@unocss/preset-wind` preset. You can [read more about it here](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>).
 
 Although, there was one thing I wanted to do different this time! Usually, I make a very complicated `tailwind.scss` which imports a couple of other more specific files; this time I wanted to engineer my components so good from the start, so I didn't have to build custom CSS, and UnoCSS made this a dream. If I need to change CSS in more than one spot, the component itself, probably isn't small enough. Of course, this is a choice I can make in starting a new project, but isn't usable in every project. I think this worked out great! There is one style I made globally available, which was the shadow / filter and it's animation;
 
@@ -156,7 +156,7 @@ pnpm install -D eslint eslint-plugin-astro @typescript-eslint/parser eslint-plug
 
 ## Interactivity using Vue
 
-Yes, I always loved [Vue](<https://www.vuejs.org>) and it's been a long time since it has been on my personal website! One of the first versions of my website were built with [Nuxt](<https://www.nuxt.com>) and [Nuxt Content](<https://content.nuxtjs.org/>), but when I switched over to Astro, I used [Solid](<https://www.solidjs.com>) which I did to learn more about Solid and it's signals, and I must say that I really like it! But one can only follow so many frameworks and have a deep understanding about it, So I decided to go back to Vue, since I'm using it at work and I'm really enjoying it!
+Yes, I always loved [Vue](<https://vuejs.org>) and it's been a long time since it has been on my personal website! One of the first versions of my website were built with [Nuxt](<https://nuxt.com>) and [Nuxt Content](<https://content.nuxtjs.org/>), but when I switched over to Astro, I used [Solid](<https://www.solidjs.com>) which I did to learn more about Solid and it's signals, and I must say that I really like it! But one can only follow so many frameworks and have a deep understanding about it, So I decided to go back to Vue, since I'm using it at work and I'm really enjoying it!
 
 ```bash
 astro add vue

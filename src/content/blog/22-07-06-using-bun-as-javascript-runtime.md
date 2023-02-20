@@ -58,7 +58,7 @@ bun remove
 
 Some of these commands also have shorthands like `bun i` or `bun rm`
 
-More info can be found in [the reference docs](<https://github.com/Jarred-Sumner/bun#Reference>)
+More info can be found in [the reference docs](<https://github.com/oven-sh/bun#readme>)
 
 ## Using the Bun runtime
 

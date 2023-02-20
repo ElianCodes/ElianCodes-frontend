@@ -20,12 +20,12 @@ My exact setup will be te following:
 - [React Native](<https://react-native.com>) front-end
 - Back-end will be RESTful, so doesn't really matter what you use
 - [Github](<https://github.com>) for version-control
-- [Travis CI](<https://travis-ci.com>) to build, test and deploy
+- [Travis CI](<https://www.travis-ci.com/>) to build, test and deploy
 - [Netlify](<https://netlify.com>) to host the application
 
 ## Starting a React Native application using Expo
 
-Starting a new React Native app using [Expo](<https://expo.io/>) isn't that hard and is even guided through on [the official documentation](<https://reactnative.dev/docs/environment-setup>).
+Starting a new React Native app using [Expo](<https://expo.dev/>) isn't that hard and is even guided through on [the official documentation](<https://reactnative.dev/docs/environment-setup>).
 
 Firstly, install the `expo-cli` so we can run expo commands:
 

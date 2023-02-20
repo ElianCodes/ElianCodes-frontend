@@ -43,4 +43,4 @@ If you are a regular visitor of this blog, you might have noticed that I use the
 - 📝 textual work (like blogposts)
 - 🍱 asset updates
 
-For a full list and description, see the [gitmoji.dev](http://gitmoji.dev) site
+For a full list and description, see the [gitmoji.dev](https://gitmoji.dev) site

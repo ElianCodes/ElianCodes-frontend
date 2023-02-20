@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Using Tailwind CLI with Blazor
 
-Last year [I wrote an article](<https://www.elian.codes/blog/21-03-12-configure-tailwindcss-with-blazor/>) about using [TailwindCSS](<https://www.tailwindcss.com>) with [Blazor](<https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor>). It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS via PostCSS using [NodeJS](<https://www.nodejs.org>). Yesterday, TailwindCSS launched a new tool called [Tailwind CLI](<https://tailwindcss.com/blog/standalone-cli>). So it's time to revisit trying a combination of TailwindCSS with Blazor!
+Last year [I wrote an article](<https://www.elian.codes/blog/21-03-12-configure-tailwindcss-with-blazor/>) about using [TailwindCSS](<https://tailwindcss.com>) with [Blazor](<https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor>). It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS via PostCSS using [NodeJS](<https://www.nodejs.org>). Yesterday, TailwindCSS launched a new tool called [Tailwind CLI](<https://tailwindcss.com/blog/standalone-cli>). So it's time to revisit trying a combination of TailwindCSS with Blazor!
 
 ## Bootstrapping a new Blazor project
 

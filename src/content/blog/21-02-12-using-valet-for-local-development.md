@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Using Laravel Valet for local PHP development
 
-This week I've been developing PHP and Twig at my internship at [vBridge](<https://vbridge.eu>), since we're using a big pile of sourcecode, Docker doesn't perform as well. To fix this [Bramus](<https://bram.us>) told me about a tool called Valet. So I went on the search to configure and install Valet.
+This week I've been developing PHP and Twig at my internship at [vBridge](<https://vbridge.eu>), since we're using a big pile of sourcecode, Docker doesn't perform as well. To fix this [Bramus](<https://www.bram.us>) told me about a tool called Valet. So I went on the search to configure and install Valet.
 
 ## Installing Valet
 
