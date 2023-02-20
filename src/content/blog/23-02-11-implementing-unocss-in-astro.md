@@ -13,7 +13,7 @@ layout: ../../layouts/BlogPost.astro
 
 # Implementing UnoCSS in Astro
 
-[UnoCSS](<https://github.com/unocss/unocss>) is a CSS engine, built by [Anthony Fu](<https://www.antfu.me>). It's rather a CSS engine than a CSS library. It's crazy fast, supports presets and is designed for flexibility and performance. I wanted to give this one a try, since I met Anthony last week at [JSWorld](<https://www.jsworldconference.com>), and I'm totally blast away by his work.
+[UnoCSS](<https://github.com/unocss/unocss>) is a CSS engine, built by [Anthony Fu](<https://antfu.me>). It's rather a CSS engine than a CSS library. It's crazy fast, supports presets and is designed for flexibility and performance. I wanted to give this one a try, since I met Anthony last week at [JSWorld](<https://www.jsworldconference.com>), and I'm totally blast away by his work.
 
 ## Astro Integration
 

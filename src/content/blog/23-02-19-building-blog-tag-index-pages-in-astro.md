@@ -144,4 +144,4 @@ This should now display your layout with a list of all blogposts related to the 
 
 Keep in mind you should still customize this page to fit your needs, otherwise it's kinda ugly.
 
-If you're interested on how I implemented this on [my own website](<https://www.elian.codes>), you can always take a peek into [the source code](<https://www.github.com/eliancodes/eliancodes-frontend>).
+If you're interested on how I implemented this on [my own website](<https://www.elian.codes>), you can always take a peek into [the source code](<https://github.com/eliancodes/eliancodes-frontend>).

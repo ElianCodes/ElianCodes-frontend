@@ -13,7 +13,7 @@ layout: '../../layouts/BlogPost.astro'
 
 # Recreating my site in Nuxt and adding a blog
 
-So, next week I'm about to start my journey as a Full-stack software engineer at [vBridge](<https://www.vbridge.eu>). I'm so excited! The internship is part of my school program, a part of the internship is keeping a blog with your findings and thoughts, so I decided to build my own blog with [Nuxt](<https://www.nuxtjs.org>) instead of a regular WordPress or something else. Nuxt was on my 'want to learn' list for a while, so I was very excited to finally try out the framework. I'm a huge fan of [Vue](<https://vuejs.org>) so it didn't seem very hard to learn and implement Nuxt. I was right.
+So, next week I'm about to start my journey as a Full-stack software engineer at [vBridge](<https://www.vbridge.eu>). I'm so excited! The internship is part of my school program, a part of the internship is keeping a blog with your findings and thoughts, so I decided to build my own blog with [Nuxt](<https://nuxtjs.org>) instead of a regular WordPress or something else. Nuxt was on my 'want to learn' list for a while, so I was very excited to finally try out the framework. I'm a huge fan of [Vue](<https://vuejs.org>) so it didn't seem very hard to learn and implement Nuxt. I was right.
 
 ## Setting up Nuxt
 
