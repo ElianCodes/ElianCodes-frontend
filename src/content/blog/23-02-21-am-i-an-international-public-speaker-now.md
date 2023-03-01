@@ -29,6 +29,8 @@ It was so much fun, telling the audience about my own journey in webdevelopment 
 
 I'll share the recording on my [blog](<https://www.elian.codes/blog/>) / [events](<https://www.elian.codes/events/>) page as soon as it's released!
 
+**Update: [Here's the recording](<https://youtu.be/E93QhdxlKuo>)!**
+
 ![Elian speaking at JSWorld](<https://i.imgur.com/2E5BGyH.jpg>)
 
 ☝️ me speaking at JSWorld!
