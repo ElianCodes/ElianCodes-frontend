@@ -40,7 +40,7 @@ const getSafeList = () => {
 };
 
 export default defineConfig({
-  site: 'https://www.elian.codes/',
+  site: process.env.VERCEL_ENV === 'production' ? 'https://www.elian.codes/' : process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/` : 'https://localhost:3000/',
   trailingSlash: 'ignore',
   integrations: [
     vue(),
