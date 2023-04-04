@@ -66,4 +66,12 @@ export default defineConfig({
   adapter: vercel({
     analytics: true,
   }),
+  server: {
+    port: 3001
+  },
+  vite: {
+    optimizeDeps: {
+      exclude: ["@resvg/resvg-js"],
+    },
+  },
 });

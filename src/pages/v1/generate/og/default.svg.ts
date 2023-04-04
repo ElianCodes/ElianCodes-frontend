@@ -1,8 +1,8 @@
 import type { APIRoute } from 'astro';
-
 import satori from 'satori';
-
 import { html as toReactElement } from 'satori-html';
+import { ResvgRenderOptions, Resvg } from '@resvg/resvg-js';
+
 
 const fontFile = await fetch(
   'https://og-playground.vercel.app/inter-latin-ext-700-normal.woff'
@@ -11,7 +11,6 @@ const fontFile = await fetch(
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 
 const height = 630;
-
 const width = 1200;
 
 export const get: APIRoute = async () => {
@@ -47,9 +46,19 @@ export const get: APIRoute = async () => {
     width,
   });
 
-  return new Response(svg, {
+  const opts: ResvgRenderOptions = {
+    fitTo: {
+      mode: 'width',
+      value: 800,
+    },
+  }
+  const resvg = new Resvg(svg, opts)
+  const pngData = resvg.render()
+  const pngBuffer = pngData.asPng()
+
+  return new Response(pngBuffer, {
     headers: {
-      'content-type': 'image/svg',
+      'content-type': 'image/png',
     },
   });
 };
