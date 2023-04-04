@@ -49,7 +49,7 @@ export const get: APIRoute = async () => {
   const opts: ResvgRenderOptions = {
     fitTo: {
       mode: 'width',
-      value: 800,
+      value: width,
     },
   }
   const resvg = new Resvg(svg, opts)
