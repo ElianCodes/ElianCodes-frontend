@@ -1,8 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import Button from '../generic/Button.astro';
-import TagItem from './TagItem.astro';
 import SummaryCard from '../generic/SummaryCard.astro';
+import { Pill, Button } from '@eliancodes/brutal-ui';
 
 interface Props {
   post: CollectionEntry<'blog'>;
@@ -30,7 +29,7 @@ const { post } = Astro.props;
             return (
               <li>
                 <a href={`/blog/tags/${tag.toLowerCase()}/`}>
-                  <TagItem>{tag}</TagItem>
+                  <Pill>{tag}</Pill>
                 </a>
               </li>
             );

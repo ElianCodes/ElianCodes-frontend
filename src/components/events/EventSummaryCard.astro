@@ -1,5 +1,5 @@
 ---
-import Button from '../generic/Button.astro';
+import { Button } from '@eliancodes/brutal-ui';
 import SummaryCard from '../generic/SummaryCard.astro';
 
 interface Event {
@@ -44,17 +44,17 @@ const { event } = Astro.props;
     }
   </p>
   <div class='md:flex gap-4 mt-4 hidden'>
-    <Button blank={true} href={event.link}>See event</Button>
+    <Button target='_blank' href={event.link}>See event</Button>
     {
       event.blogpost && (
-        <Button blank={true} href={event.blogpost}>
+        <Button target='_blank' href={event.blogpost}>
           See Blogpost
         </Button>
       )
     }
     {
       event.videolink && (
-        <Button blank={true} href={event.videolink}>
+        <Button target='_blank' href={event.videolink}>
           See Recording
         </Button>
       )
