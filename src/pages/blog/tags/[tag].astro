@@ -6,9 +6,7 @@ import BlogList from '@components/blog/BlogList.astro';
 import { Button } from '@eliancodes/brutal-ui';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog').then((collection) =>
-    collection.reverse()
-  );
+  const allPosts = await getCollection('blog');
 
   const tags: string[] = [];
 
