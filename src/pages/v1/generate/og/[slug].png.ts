@@ -2,7 +2,7 @@ import type { APIRoute } from 'astro';
 import { getCollection } from 'astro:content';
 import satori from 'satori';
 import { html as toReactElement } from 'satori-html';
-import {Resvg, ResvgRenderOptions } from '@resvg/resvg-js';
+import { Resvg, ResvgRenderOptions } from '@resvg/resvg-js';
 
 const fontFile = await fetch(
   'https://og-playground.vercel.app/inter-latin-ext-700-normal.woff'
@@ -33,7 +33,7 @@ export const get: APIRoute = async ({ params, props }) => {
             <p style="font-size: 48px;">ElianCodes</p>
             <p style="font-size: 38px;">${title}</p>
           </div>
-          <img src="https://www.elian.codes/_astro/elian_ZJca6K.jpg" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
+          <img src="https://www.elian.codes/assets/img/elian.jpg" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
         </div>
         <div style="display: flex;">
           <p style="font-size: 24px;">${description}</p>
@@ -60,10 +60,10 @@ export const get: APIRoute = async ({ params, props }) => {
       mode: 'width', // If you need to change the size
       value: width,
     },
-  }
-  const resvg = new Resvg(svg, opts)
-  const pngData = resvg.render()
-  const pngBuffer = pngData.asPng()
+  };
+  const resvg = new Resvg(svg, opts);
+  const pngData = resvg.render();
+  const pngBuffer = pngData.asPng();
 
   return new Response(pngBuffer, {
     headers: {
