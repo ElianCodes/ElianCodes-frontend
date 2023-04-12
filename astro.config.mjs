@@ -40,7 +40,12 @@ const getSafeList = () => {
 };
 
 export default defineConfig({
-  site: process.env.VERCEL_ENV === 'production' ? 'https://www.elian.codes/' : process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}/` : 'https://localhost:3000/',
+  site:
+    process.env.VERCEL_ENV === 'production'
+      ? 'https://www.elian.codes/'
+      : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}/`
+      : 'https://localhost:3000/',
   trailingSlash: 'ignore',
   integrations: [
     vue(),
@@ -67,11 +72,11 @@ export default defineConfig({
     analytics: true,
   }),
   server: {
-    port: 3001
+    port: 3001,
   },
   vite: {
     optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
+      exclude: ['@resvg/resvg-js'],
     },
   },
 });
