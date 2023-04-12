@@ -3,7 +3,11 @@ import { getCollection } from 'astro:content';
 import Layout from '@layouts/Default.astro';
 import BlogList from '@components/blog/BlogList.astro';
 
-const posts = await getCollection('blog');
+const posts = await getCollection('blog').then((collection) => {
+  return collection.sort(
+    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+  );
+});
 ---
 
 <Layout
