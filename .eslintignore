@@ -1,0 +1,6 @@
+.astro/
+dist/
+.vercel/
+functions/
+pnpm-lock.yaml
+src/env.d.ts
