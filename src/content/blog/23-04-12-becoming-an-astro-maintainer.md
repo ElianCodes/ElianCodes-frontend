@@ -14,7 +14,7 @@ layout: "@layouts/BlogPost.astro"
 
 # Becoming an Astro maintainer
 
-A week ago, I got a DM from Dan ([@jutanium](https://github.com/jutanium)). The DM simply said: "*hey, I heard some news came out, any idea what it is?*". I was at a family gathering, so I missed the DM by a couple of hours.
+A week ago, I got a DM from Dan ([@jutanium](https://github.com/jutanium)). The DM simply said: "_hey, I heard some news came out, any idea what it is?_". I was at a family gathering, so I missed the DM by a couple of hours.
 
 Turned out, I completely missed a DM from [Fred](https://twitter.com/fredkschott) (co-founder of Astro and CEO of HTML), saying that I was nominated and voted as a new maintainer on Astro and asking if I would accept. Of course I couldn't be happier 🥳!
 

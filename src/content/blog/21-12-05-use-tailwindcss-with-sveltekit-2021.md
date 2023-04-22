@@ -8,12 +8,12 @@ tags:
   - Sveltekit
 imgUrl: https://res.cloudinary.com/practicaldev/image/fetch/s--k-z0ysHD--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p3nn57r52krvpdieblta.png
 description: Earlier this week, Sveltekit beta got released, ofcourse I wanted to fiddle with it.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Use TailwindCSS with Sveltekit (2021)
 
-Since my previous blogpost on using [TailwindCSS](<https://tailwindcss.com/>) (JIT) with [Sveltekit](<https://kit.svelte.dev/>), a lot has changed. That's why I've updated the article to a newer (and better) method.
+Since my previous blogpost on using [TailwindCSS](https://tailwindcss.com/) (JIT) with [Sveltekit](https://kit.svelte.dev/), a lot has changed. That's why I've updated the article to a newer (and better) method.
 
 ## Setting up Sveltekit
 
@@ -23,7 +23,7 @@ Setting up a new Sveltekit project is not that hard anymore. Just run the follow
 npm init svelte@next tailwind-sveltekit-app
 ```
 
-You can always search [the official documentation](<https://kit.svelte.dev/docs>) for more info
+You can always search [the official documentation](https://kit.svelte.dev/docs) for more info
 
 ### Adding an adapter
 
@@ -36,22 +36,22 @@ npm i @sveltejs/adapter-static@next
 Also add the following to the `svelte.config.cjs`
 
 ```js
-const adapter = require('@sveltejs/adapter-static');
+const adapter = require("@sveltejs/adapter-static");
 
 module.exports = {
- kit: {
-  adapter: adapter({
-   pages: 'build',
-   assets: 'build',
-   fallback: null
-  })
- }
+	kit: {
+		adapter: adapter({
+			pages: "build",
+			assets: "build",
+			fallback: null,
+		}),
+	},
 };
 ```
 
 This tells Sveltekit to put the output in the `build` folder and dont use a fallback (so generate a `index.html`, `404.html`, `contact.html`, ...)
 
-more info on the adapter [here](<https://kit.svelte.dev/docs#adapters-supported-environments-static-sites>)
+more info on the adapter [here](https://kit.svelte.dev/docs#adapters-supported-environments-static-sites)
 
 ## Adding TailwindCSS
 

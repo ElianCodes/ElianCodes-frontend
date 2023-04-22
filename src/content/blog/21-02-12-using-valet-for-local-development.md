@@ -8,24 +8,24 @@ tags:
   - PHP
 imgUrl: https://res.cloudinary.com/redfern-web/image/upload/v1598516539/redfern-dev/png/valet.png
 description: Valet is a highly configurable MacOs tool for webdevelopment running in the background
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Laravel Valet for local PHP development
 
-This week I've been developing PHP and Twig at my internship at [vBridge](<https://vbridge.eu>), since we're using a big pile of sourcecode, Docker doesn't perform as well. To fix this [Bramus](<https://www.bram.us>) told me about a tool called Valet. So I went on the search to configure and install Valet.
+This week I've been developing PHP and Twig at my internship at [vBridge](https://vbridge.eu), since we're using a big pile of sourcecode, Docker doesn't perform as well. To fix this [Bramus](https://www.bram.us) told me about a tool called Valet. So I went on the search to configure and install Valet.
 
 ## Installing Valet
 
-Installing Valet is actually really easy. They have incredible [documentation](<https://laravel.com/docs/master/valet>) (as usual with Laravel).
+Installing Valet is actually really easy. They have incredible [documentation](https://laravel.com/docs/master/valet) (as usual with Laravel).
 
-You can simply install it by using `composer global require laravel/valet` if you've installed [Homebrew](<https://brew.sh/>), PHP and [Composer](<https://getcomposer.org/>), else you should install those first (but also that is very easy). Once that's done, simply run `valet install` and Valet will install and start.
+You can simply install it by using `composer global require laravel/valet` if you've installed [Homebrew](https://brew.sh/), PHP and [Composer](https://getcomposer.org/), else you should install those first (but also that is very easy). Once that's done, simply run `valet install` and Valet will install and start.
 
 Now that valet is installed and started you'll be able to ping any `.test` domain and it'll answer from `localhost` or `172.0.0.1`.
 
 Valet also starts when you boot your computer and will run as a background process with only 7mb of RAM!
 
-*Also, Valet is MacOS only*
+_Also, Valet is MacOS only_
 
 ## Valet Link
 
@@ -55,7 +55,7 @@ So, imagine that you're developing a website on your local machine with the newe
 
 Just run `valet use php@version` and valet will use that version. If you don't have the version installed locally, it will install it for you.
 
-But ofcourse, [sphp](<https://github.com/sgotre/sphp-osx>) is a valid choice too.
+But ofcourse, [sphp](https://github.com/sgotre/sphp-osx) is a valid choice too.
 
 ## Valet Secure
 
@@ -83,6 +83,6 @@ return [
 
 Now when you'll open `newsite.test` in your browser, it'll have the dev environment!
 
-Read the post about environment variable from Bramus [here](<https://www.bram.us/2019/01/17/laravel-valet-environment-variables/>)
+Read the post about environment variable from Bramus [here](https://www.bram.us/2019/01/17/laravel-valet-environment-variables/)
 
-Read the [full documentation here](<https://laravel.com/docs/master/valet>)!
+Read the [full documentation here](https://laravel.com/docs/master/valet)!

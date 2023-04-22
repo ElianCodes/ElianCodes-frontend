@@ -8,7 +8,7 @@ tags:
   - DevOps
 imgUrl: "https://firebase.google.com/images/social.png"
 description: Deploying to Firebase can sometimes be somewhat of a hassle if you're using the CLI. There is a better way using some sort of CI/CD, Github actions is one example explained here.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Deploying to Firebase using Github actions
@@ -25,7 +25,7 @@ Most of the time, I tend to use two workflows with Firebase, where the first one
 
 The workflow itself isn't that hard, it's basically cloning your repo, building the files and deploying them, however, you'll need to add some secrets from Firebase so Github knows where to deploy to!
 
-The following example is written for an [Astro](<https://astro.build>) SSG website:
+The following example is written for an [Astro](https://astro.build) SSG website:
 
 ```yaml
 name: Deploy to the Staging channel
@@ -58,7 +58,7 @@ As you see above, you'll probably need to update the runs, so the action perform
 
 You'll see something like below:
 
-![Image of buildsteps in Github Actions](<https://i.imgur.com/GlYNxyc.png>)
+![Image of buildsteps in Github Actions](https://i.imgur.com/GlYNxyc.png)
 
 But there's a big chance your first action failed by now, since we haven't added any secrets yet.
 
@@ -66,9 +66,9 @@ But there's a big chance your first action failed by now, since we haven't added
 
 You probably noticed we use `firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT }}"` to tell which Service Account the workflow should use.
 
-To get this service account file, you'll need to head to [the Google Cloud Console](<https://console.cloud.google.com>) select your Firebase project and head to the IAM section.
+To get this service account file, you'll need to head to [the Google Cloud Console](https://console.cloud.google.com) select your Firebase project and head to the IAM section.
 
-![Screenshot of Google Cloud Console IAM section](<https://i.imgur.com/PmVslOS.png>)
+![Screenshot of Google Cloud Console IAM section](https://i.imgur.com/PmVslOS.png)
 
 If you don't have a key yet, click on 'ADD KEY' and select create key (JSON). This will download a Service Account Key.
 
@@ -76,9 +76,9 @@ Now head over to `https://github.com/USERNAME/REPOSITORY/settings/secret`. There
 
 Now, when you trigger the workflow, it should work! If you head over to your firebase project, there should be a preview channel called `staging`.
 
-![Screenshot of Firebase console preview channel](<https://i.imgur.com/fHIrSdP.png>)
+![Screenshot of Firebase console preview channel](https://i.imgur.com/fHIrSdP.png)
 
-> ⚠️ Also don't forget to add the rest of your `.env` secrets to Github actions! ⚠  ️
+> ⚠️ Also don't forget to add the rest of your `.env` secrets to Github actions! ⚠ ️
 
 ### Production deployment
 

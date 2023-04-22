@@ -3,17 +3,17 @@ title: 📝 Add your blogposts to your Github README
 pubDate: 08/26/2021 11:48
 author: "Elian Van Cutsem"
 tags:
-  - Workflows 
+  - Workflows
   - Github
   - JavaScript
 imgUrl: https://docs.github.com/assets/images/help/repository/profile-with-readme.png
 description: Github profile README's are a very cool and personal way to tell something about yourself. One of the downsides to this is that it depends on a static format. Well, this is not necessarily true. Through the power of code and Github Actions, we can use JavaScript and generate a static file.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Add your blogposts to your Github README
 
-Github profile README's are a very cool and personal way to tell something about yourself  or your code. One of the downsides to this is that it depends on a static format. Well, this is not necessarily true. Through the power of code and Github Actions, we can use JavaScript (or another language) and generate a static `README.md` file. Here's a little guide on how I added my latest blogposts to [my Github profile](https://github.com/eliancodes).
+Github profile README's are a very cool and personal way to tell something about yourself or your code. One of the downsides to this is that it depends on a static format. Well, this is not necessarily true. Through the power of code and Github Actions, we can use JavaScript (or another language) and generate a static `README.md` file. Here's a little guide on how I added my latest blogposts to [my Github profile](https://github.com/eliancodes).
 
 ## What's a Github README
 
@@ -59,22 +59,22 @@ const path = require("path");
 
 // Read the template and store it as a variable
 async function main() {
-    const template = (
-        await fs.readFile(path.join(process.cwd(), "./README.raw.md"))
-    ).toString("utf-8");
+	const template = (
+		await fs.readFile(path.join(process.cwd(), "./README.raw.md"))
+	).toString("utf-8");
 }
 main();
 
 // Creating a simple object to use
 const elian = {
-    name: "Elian",
-    age: 21
-}
+	name: "Elian",
+	age: 21,
+};
 
 // Inject the content
 const staticReadme = readmeTemplate
-    .replace("{{name}}", elian.name)
-    .replace("{{age}}", elian.age)
+	.replace("{{name}}", elian.name)
+	.replace("{{age}}", elian.age);
 
 // Let's write the file
 await fs.writeFile("README.md", staticReadme);
@@ -100,7 +100,7 @@ jobs:
           node-version: 14.6.0
 
       - run: yarn
-        
+
         # Lets run the index.js
       - run: node index.js
 
@@ -150,7 +150,7 @@ Create a new file `.github/workflows/.blogposts.yml` and add the following conte
 name: Latest blog post workflow
 on:
   schedule: # Run workflow automatically
-    - cron: '0 * * * *' # Runs every hour, on the hour
+    - cron: "0 * * * *" # Runs every hour, on the hour
   workflow_dispatch: # Run workflow manually with a trigger
 jobs:
   update-readme-with-blog:
@@ -167,14 +167,15 @@ jobs:
 When this workflow is committed and pushed to your repository, it will search for an update every hour and make changes to the `README.md` file accordingly.
 
 ```markdown
-  ## My cool blog posts
+## My cool blog posts
 
   <!-- BLOG-POST-LIST:START -->
-+ - [🥳 Describe your commits using Gitmoji](https://www.elian.codes/blog/20-08-21-describe-your-commits-using-gitmoji/)
-+ - [🚀 Using Surge.sh to quickly deploy a static site](https://www.elian.codes/blog/using-surge-to-quickly-deploy-a-static-site/)
-+ - [✨ Moving on from Netlify to Google Cloud](https://www.elian.codes/blog/moving-on-from-netlify-to-google-cloud/)
-+ - [💄 Adding Google Fonts to your NuxtJS site](https://www.elian.codes/blog/adding-google-fonts-to-your-nuxtjs-site/)
-+ - [💄 Writing your own style components with TailwindCSS and Sass](https://www.elian.codes/blog/writing-your-own-components-with-tailwind-sass/)
+
+- - [🥳 Describe your commits using Gitmoji](https://www.elian.codes/blog/20-08-21-describe-your-commits-using-gitmoji/)
+- - [🚀 Using Surge.sh to quickly deploy a static site](https://www.elian.codes/blog/using-surge-to-quickly-deploy-a-static-site/)
+- - [✨ Moving on from Netlify to Google Cloud](https://www.elian.codes/blog/moving-on-from-netlify-to-google-cloud/)
+- - [💄 Adding Google Fonts to your NuxtJS site](https://www.elian.codes/blog/adding-google-fonts-to-your-nuxtjs-site/)
+- - [💄 Writing your own style components with TailwindCSS and Sass](https://www.elian.codes/blog/writing-your-own-components-with-tailwind-sass/)
   <!-- BLOG-POST-LIST:END -->
 ```
 

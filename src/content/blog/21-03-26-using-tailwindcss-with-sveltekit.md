@@ -8,18 +8,18 @@ tags:
   - JIT
 imgUrl: https://res.cloudinary.com/practicaldev/image/fetch/s--k-z0ysHD--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/p3nn57r52krvpdieblta.png
 description: Earlier this week, Sveltekit beta got released, ofcourse I wanted to fiddle with it.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using TailwindCSS with Sveltekit
 
-*This post is very outdated, check [the new post](<https://www.elian.codes/blog/21-12-05-use-tailwindcss-with-sveltekit-2021/>) for an updated version*
+_This post is very outdated, check [the new post](https://www.elian.codes/blog/21-12-05-use-tailwindcss-with-sveltekit-2021/) for an updated version_
 
-Earlier this week, Sveltekit beta got released (read all about it [here](<https://svelte.dev/blog/sveltekit-beta>)). Since it's so new, I wanted to try out some stuff, including using it with [TailwindCSS](<https://tailwindcss.com>). That seemed a little bit more complex than I initially thought.
+Earlier this week, Sveltekit beta got released (read all about it [here](https://svelte.dev/blog/sveltekit-beta)). Since it's so new, I wanted to try out some stuff, including using it with [TailwindCSS](https://tailwindcss.com). That seemed a little bit more complex than I initially thought.
 
 ## What is Sveltekit
 
-Sveltekit is very comparable to [Nuxt](<https://nuxtjs.org>) and [Next](<https://nextjs.org>), but with [Svelte](<https://svelte.dev>). It provides server-side rendering, routing and code-splitting. Also, Sveltekit uses [Vite](<https://vitejs.dev>) right out of the box, which makes it incredibly fast.
+Sveltekit is very comparable to [Nuxt](https://nuxtjs.org) and [Next](https://nextjs.org), but with [Svelte](https://svelte.dev). It provides server-side rendering, routing and code-splitting. Also, Sveltekit uses [Vite](https://vitejs.dev) right out of the box, which makes it incredibly fast.
 
 ## Bootstrap Sveltekit
 
@@ -71,11 +71,8 @@ Now that we have installed TailwindCSS, we just need to configure Svelte to actu
 
 ```js
 module.exports = {
-    plugins: [
-      require('autoprefixer'),
-      require('tailwindcss')
-    ]
-}
+	plugins: [require("autoprefixer"), require("tailwindcss")],
+};
 ```
 
 Now we can add a new script to our `package.json`, so it builds TailwindCSS before the main build:
@@ -95,14 +92,14 @@ Now we can include the file globally by adding the output CSS file as a styleshe
 
 ```html
 <html>
- <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="../assets/css/tailwindoutput.css" type="text/css">
-  %svelte.head%
- </head>
- <body>
-  <div id="svelte">%svelte.body%</div>
- </body>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="../assets/css/tailwindoutput.css" type="text/css" />
+		%svelte.head%
+	</head>
+	<body>
+		<div id="svelte">%svelte.body%</div>
+	</body>
 </html>
 ```
 
@@ -112,7 +109,7 @@ Don't forget to include the generated TailwindCSS output file to your `.gitignor
 
 ### Add @tailwindcss/jit
 
-To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](<https://www.elian.codes/blog/21-03-18-add-tailwind-jit-to-your-nuxtjs-site/>), so read it if you're interested and would like to learn more about that.
+To save some more time in the compilation and configuration of TailwindCSS, we can use the `@tailwindcss/jit` package. I dedicated a [whole blogpost about that](https://www.elian.codes/blog/21-03-18-add-tailwind-jit-to-your-nuxtjs-site/), so read it if you're interested and would like to learn more about that.
 
 It's actually easy and I recommend that you use it!
 
@@ -126,11 +123,8 @@ Tell PostCSS to switch packages by changing `require('tailwindcss')` to `require
 
 ```js
 module.exports = {
-    plugins: [
-      require('autoprefixer'),
-      require('@tailwindcss/jit')
-    ]
-}
+	plugins: [require("autoprefixer"), require("@tailwindcss/jit")],
+};
 ```
 
 That should do it!

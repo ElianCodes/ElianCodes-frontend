@@ -8,7 +8,7 @@ tags:
   - Front-end
 imgUrl: https://madewithnetwork.ams3.cdn.digitaloceanspaces.com/spatie-space-production/3075/nuxtjs-2.jpg
 description: I added a custom preloader to my Nuxt site. It's not that difficult, here's how I did it.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Adding a custom preloader to your nuxt site
@@ -25,14 +25,35 @@ Just build your template as you like it. Mine was as follows: (ofcourse it uses 
 
 ```html
 <template>
-  <div class="absolute z-50 w-full h-full overflow-hidden flex justify-center items-center" v-if="loading">
-      <div class="h-14 w-14 animate-pulse bg-green-300 rounded-full flex justify-center items-center">
-        <svg class="w-12 h-12 text-green-500 animate-spin-slow" stroke="currentColor" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-        </svg>
-    </div>
-  </div>
+	<div
+		class="absolute z-50 w-full h-full overflow-hidden flex justify-center items-center"
+		v-if="loading"
+	>
+		<div
+			class="h-14 w-14 animate-pulse bg-green-300 rounded-full flex justify-center items-center"
+		>
+			<svg
+				class="w-12 h-12 text-green-500 animate-spin-slow"
+				stroke="currentColor"
+				fill="none"
+				viewBox="0 0 24 24"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+				></path>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="2"
+					d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+				></path>
+			</svg>
+		</div>
+	</div>
 </template>
 ```
 
@@ -40,19 +61,19 @@ then we just have to add the script with the props that Nuxt provides us with:
 
 ```html
 <script>
-  export default {
-    data: () => ({
-      loading: false
-    }),
-    methods: {
-      start() {
-        this.loading = true
-      },
-      finish() {
-        this.loading = false
-      }
-    }
-  }
+	export default {
+		data: () => ({
+			loading: false,
+		}),
+		methods: {
+			start() {
+				this.loading = true;
+			},
+			finish() {
+				this.loading = false;
+			},
+		},
+	};
 </script>
 ```
 
@@ -68,7 +89,7 @@ module.exports {
 }
 ```
 
-As simple as that. Now nuxt should toggle your component everytime  it has something to load.
+As simple as that. Now nuxt should toggle your component everytime it has something to load.
 
 ## Nuxt default preloaders
 
@@ -96,4 +117,4 @@ module.exports {
 
 Not more than that, but ofcourse you can change more properties like: `rtl`, `css`, `continuous`, `duration` and more.
 
-Nuxt also has a very good documentation of this which can be found [here](<https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-loading>)
+Nuxt also has a very good documentation of this which can be found [here](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-loading)

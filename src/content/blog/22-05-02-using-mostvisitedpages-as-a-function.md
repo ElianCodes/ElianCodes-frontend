@@ -8,7 +8,7 @@ tags:
   - JavaScript
 description: I've moved from a regular RESTful API to serverless functions. Here is a little guide and explanation on why & how I did that.
 imgUrl: https://uniqueideas.com/wp-content/uploads/2018/11/google-cloud-functions.png
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using @elianvancutsem/mostvisitedpages as a serverless function
@@ -62,14 +62,14 @@ If you're not yet authenticated in firebase, run `firebase login` before initial
 Basically, each exported function from a file (like `index.js`), is deployed as a separate Firebase function.
 
 ```ts
-import {HttpsFunction, https, Request, Response} from "firebase-functions";
+import { HttpsFunction, https, Request, Response } from "firebase-functions";
 
 export const yourFunction: HttpsFunction = https.onRequest(
-  async (req: Request, res: Response) => {
-    // our main code goes here
-    res.status(200).send();
-  }
-)
+	async (req: Request, res: Response) => {
+		// our main code goes here
+		res.status(200).send();
+	}
+);
 ```
 
 A little trick to manage more functions, without having them all in one file, is to do the following:
@@ -77,28 +77,25 @@ A little trick to manage more functions, without having them all in one file, is
 ```js
 // analytics.js
 export const analytics = https.onRequest(
-  async (req: Request, res: Response) => {
-    // analytics endpoint
-    res.status(200).send();
-  }
-)
+	async (req: Request, res: Response) => {
+		// analytics endpoint
+		res.status(200).send();
+	}
+);
 
 // technologies.ts
 export const technologies = https.onRequest(
-  async (req: Request, res: Response) => {
-    // technologies endpoint
-    res.status(200).send();
-  }
-)
+	async (req: Request, res: Response) => {
+		// technologies endpoint
+		res.status(200).send();
+	}
+);
 
 // index.js
-import {technologies} from "./technologies";
-import {analytics} from "./analytics";
+import { technologies } from "./technologies";
+import { analytics } from "./analytics";
 
-export {
-  technologies,
-  analytics,
-};
+export { technologies, analytics };
 ```
 
 These functions will get deployed as two separate Firebase functions.

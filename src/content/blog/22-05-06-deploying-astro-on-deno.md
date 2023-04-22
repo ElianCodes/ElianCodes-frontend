@@ -8,16 +8,16 @@ tags:
   - TypeScript
 description: Astro came out some time ago with a SSR Deno adapter. I never tried it out before, So I thought I should give it a try!
 imgUrl: https://ik.imagekit.io/serenity/ByteofDev/Blog_Heading_Images/State_of_the_Web_Deno
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Deploying Astro on Deno
 
 Astro came out some time ago with a SSR Deno adapter. I never tried it out before, So I thought I should give it a try!
 
-*make sure you've installed npm and deno before starting!*
+_make sure you've installed npm and deno before starting!_
 
-**Note:** *Also keep in mind that this is still highly experimental!*
+**Note:** _Also keep in mind that this is still highly experimental!_
 
 ## Installing Astro and adapter
 
@@ -34,11 +34,11 @@ When the installation is done, let's move on to adding the Deno adapter. Install
 Change your `astro.config.mjs` configuration file to the following:
 
 ```js
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import deno from "@astrojs/deno";
 
 export default defineConfig({
-  adapter: deno()
+	adapter: deno(),
 });
 ```
 
@@ -61,13 +61,13 @@ Notice that the output folder (`dist/`) contains a `server/` & `client/` directo
 Now, to actually view and run the Astro site through Deno, there are still some steps to take. First of all, define the port you want to run the website on in the `astro.config.mjs` file:
 
 ```js
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import deno from "@astrojs/deno";
 
 export default defineConfig({
-  adapter: deno({
-    port: 8080
-  })
+	adapter: deno({
+		port: 8080,
+	}),
 });
 ```
 
@@ -77,12 +77,12 @@ To serve the website with an `npm` command, we still need to change the script i
 
 ```json
 {
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "deno run --allow-net --allow-read ./dist/server/entry.mjs"
-  }
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "deno run --allow-net --allow-read ./dist/server/entry.mjs"
+	}
 }
 ```
 

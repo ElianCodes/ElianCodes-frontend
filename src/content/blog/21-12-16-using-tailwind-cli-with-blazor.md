@@ -8,12 +8,12 @@ tags:
   - WASM
 description: Last year I wrote an article about using TailwindCSS with Blazor. It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS NodeJS. Now that TailwindCSS launched a new tool, Tailwind CLI, it's time to try it another way!
 imgUrl: https://dev-to-uploads.s3.amazonaws.com/i/409qgloh9brwc9eg1ym5.png
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Tailwind CLI with Blazor
 
-Last year [I wrote an article](<https://www.elian.codes/blog/21-03-12-configure-tailwindcss-with-blazor/>) about using [TailwindCSS](<https://tailwindcss.com>) with [Blazor](<https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor>). It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS via PostCSS using [NodeJS](<https://www.nodejs.org>). Yesterday, TailwindCSS launched a new tool called [Tailwind CLI](<https://tailwindcss.com/blog/standalone-cli>). So it's time to revisit trying a combination of TailwindCSS with Blazor!
+Last year [I wrote an article](https://www.elian.codes/blog/21-03-12-configure-tailwindcss-with-blazor/) about using [TailwindCSS](https://tailwindcss.com) with [Blazor](https://dotnet.microsoft.com/en-us/apps/aspnet/web-apps/blazor). It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS via PostCSS using [NodeJS](https://www.nodejs.org). Yesterday, TailwindCSS launched a new tool called [Tailwind CLI](https://tailwindcss.com/blog/standalone-cli). So it's time to revisit trying a combination of TailwindCSS with Blazor!
 
 ## Bootstrapping a new Blazor project
 
@@ -52,7 +52,7 @@ Also delete the `<link>` elements refering to them in `Pages/_host.cshtml`
 
 ### Tailwind all the way
 
-Now let's try out Tailwind. First of all we need an executable. The executables can be found on [their GitHub repo here](<https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.0.6>). Be sure to grab the exact one for your OS.
+Now let's try out Tailwind. First of all we need an executable. The executables can be found on [their GitHub repo here](https://github.com/tailwindlabs/tailwindcss/releases/tag/v3.0.6). Be sure to grab the exact one for your OS.
 
 Once the file is downloaded, move it to the current project directory.
 
