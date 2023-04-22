@@ -1,4 +1,6 @@
 ---
+import Social from "@types/Social";
+
 import MobileNavigation from "./MobileNavigation.vue";
 
 const navigationItems = [
@@ -19,9 +21,9 @@ const socialIcons = [
 		icon: "i-uil-twitter",
 	},
 	{ name: "RSS", url: "/blog.xml", icon: "i-uil-rss" },
-];
+] as Social[];
 
-interface Props {
+export interface Props {
 	pageTitle?: string;
 }
 
@@ -37,7 +39,7 @@ const { pageTitle } = Astro.props;
 		<h2 class="hidden">Navigation</h2>
 		<ul class="flex gap-8 poppins">
 			{
-				navigationItems.map((item) => (
+				navigationItems.map((item: Social) => (
 					<li>
 						<a
 							class="text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out"

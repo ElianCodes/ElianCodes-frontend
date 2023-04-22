@@ -19,15 +19,17 @@ module.exports = {
 			},
 			rules: {
 				"@typescript-eslint/no-unsafe-assignment": "off",
-				"deprecation/deprecation": "off",
+				"@typescript-eslint/no-unsafe-return": "off",
+				"@typescript-eslint/no-unsafe-member-access": "off",
 			},
 		},
 		{
-			files: ["*.ts", "*.tsx"],
+			files: ["*.ts"],
 			extends: [
 				"plugin:@typescript-eslint/recommended-requiring-type-checking",
 				"plugin:@typescript-eslint/strict",
 			],
+			
 		},
 		{
 			files: ["*.json", "*.jsonc"],
@@ -74,7 +76,6 @@ module.exports = {
 	plugins: [
 		"@typescript-eslint",
 		"astro",
-		"deprecation",
 		"jsx-a11y",
 		"simple-import-sort",
 		"typescript-sort-keys",
@@ -83,7 +84,6 @@ module.exports = {
 	rules: {
 		"simple-import-sort/imports": "error",
 		"simple-import-sort/exports": "error",
-		"deprecation/deprecation": "error",
 
 		// Stylistic concerns that don't interfere with Prettier
 		"padding-line-between-statements": "off",

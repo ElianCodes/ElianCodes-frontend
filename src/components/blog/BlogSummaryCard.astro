@@ -1,9 +1,9 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import SummaryCard from "@components/generic/SummaryCard.astro";
-import { Pill, Button } from "@eliancodes/brutal-ui";
+import { Button, Pill } from "@eliancodes/brutal-ui";
+import type { CollectionEntry } from "astro:content";
 
-interface Props {
+export interface Props {
 	post: CollectionEntry<"blog">;
 }
 

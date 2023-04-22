@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
+
 import BlogSummaryCard from "./BlogSummaryCard.astro";
 
-interface Props {
+export interface Props {
 	posts: CollectionEntry<"blog">[];
 }
 

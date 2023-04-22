@@ -1,6 +1,6 @@
 ---
-import { Button } from "@eliancodes/brutal-ui";
 import SummaryCard from "@components/generic/SummaryCard.astro";
+import { Button } from "@eliancodes/brutal-ui";
 
 interface Event {
 	name: string;
@@ -16,7 +16,7 @@ interface Event {
 	img?: string;
 }
 
-interface Props {
+export interface Props {
 	event: Event;
 }
 

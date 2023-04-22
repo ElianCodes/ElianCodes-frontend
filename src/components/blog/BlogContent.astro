@@ -1,6 +1,8 @@
 ---
-interface Props {
-	content: any;
+import { collectionEntry } from "astro:content";
+
+export interface Props {
+	content: collectionEntry<"blog">;
 }
 
 const { content } = Astro.props;

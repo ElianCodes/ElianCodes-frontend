@@ -1,6 +1,6 @@
 ---
-interface Props {
-	headings: Array<Object>;
+export interface Props {
+	headings: object[];
 }
 
 const { headings } = Astro.props;
@@ -10,14 +10,14 @@ const { headings } = Astro.props;
 	<nav class="hidden lg:block sticky top-6">
 		<ul>
 			{
-				headings.map((heading: any) => (
+				headings.map((heading: object) => (
 					<li class="py-1">
-						{[...Array(heading.depth - 1)].map((_) => (
+						{[...Array(heading.depth - 1)].map(() => (
 							<span class="inline-block w-4" />
 						))}
 						<a
 							class="hover:text-stone transition-all duration-150 ease-in-out text-dark poppins"
-							href={`#${heading.slug}`}
+							href={`#${heading.slug ?? ""}`}
 						>
 							{heading.text}
 						</a>

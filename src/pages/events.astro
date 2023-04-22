@@ -2,11 +2,11 @@
 import EventSummaryCard from "@components/events/EventSummaryCard.astro";
 import Layout from "@layouts/Default.astro";
 
-interface Event {
+export interface Event {
 	name: string;
 	title: string;
 	link: string;
-	date: Date | any;
+	date: Date;
 	abstract: string;
 	type: string;
 	blogpost?: string;
@@ -20,7 +20,7 @@ let events: Event[] = await fetch(
 ).then((res) => res.json());
 events = events
 	.map((event: Event): Event => {
-		const seconds = event.date._seconds;
+		const seconds: number = event.date._seconds;
 		event.date = new Date(0);
 		event.date.setUTCSeconds(seconds);
 		return event;
@@ -36,7 +36,7 @@ events = events
 	<main class="bg-yellow p-6">
 		<ul class="grid md:grid-cols-3 gap-8">
 			{
-				events.map((event) => (
+				events.map((event: Event) => (
 					<li>
 						<EventSummaryCard event={event} />
 					</li>
