@@ -4,7 +4,7 @@ The full sourcecode for my personal website.
 
 ## Current technologies
 
-(currently) written in [Astro](<https://astro.build>) and [UnoCSS](<https://uno.antfu.me>) with some [Firebase](<https://firebase.com>) functions as well, deployed to [Vercel](https://vercel.com).
+(currently) written in [Astro](https://astro.build) and [UnoCSS](https://unocss.dev) with some [Firebase](https://firebase.com) functions as well, deployed to [Vercel](https://vercel.com).
 
 I'm actually looking to get rid of the Firebase functions, this are the options I'm thinking of:
 
@@ -20,6 +20,7 @@ This website is a representation of technologies I'm playing with. Here is a lis
 - [Vue](<https://vuejs.org>)
 - [TypeScript](<https://www.typescript-lang.com>)
 - [TailwindCSS](<https://tailwindcss.com>)
+- [UnoCSS](https://unocss.dev)
 
 ## Deployment and Hosting
 
@@ -55,7 +56,7 @@ Most of my templates are written in pure Astro, since I don't need to much inter
 
 #### UnoCSS
 
-To define the style of the website, [UnoCSS](<https://uno.antfu.me>) with `preset-wind` is used. [You can read more about my transition and use here.](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>)
+To define the style of the website, [UnoCSS](https://unocss.dev), with some presets are used. [You can read more about my transition and use here.](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>)
 
 ### Backend
 
