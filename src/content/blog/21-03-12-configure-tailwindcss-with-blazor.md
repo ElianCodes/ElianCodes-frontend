@@ -84,15 +84,15 @@ the `postcss.config.js` file is used to process tailwind to our custom styleshee
 
 ```js
 module.exports = {
-	plugins: [
-		require("postcss-easy-import")({
-			prefix: "_",
-			extensions: [".css", ".scss"],
-		}),
-		require("tailwindcss"),
-		require("autoprefixer"),
-		require("postcss-nested"),
-	],
+  plugins: [
+    require("postcss-easy-import")({
+      prefix: "_",
+      extensions: [".css", ".scss"],
+    }),
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require("postcss-nested"),
+  ],
 };
 ```
 
@@ -106,32 +106,32 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 module.exports = (env, args) => ({
-	devtool: args.mode === "development" ? "source-map" : "none",
-	entry: "./scss/tailwind.scss",
-	output: {
-		filename: "[name].js",
-		path: path.resolve(__dirname, "..", "wwwroot/css"),
-	},
-	module: {
-		rules: [
-			{
-				test: /\.scss$/,
-				exclude: /node_modules/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					{ loader: "css-loader", options: { url: false, sourceMap: true } },
-					{ loader: "postcss-loader" },
-					{ loader: "sass-loader" },
-				],
-			},
-		],
-	},
-	plugins: [
-		new FixStyleOnlyEntriesPlugin(),
-		new MiniCssExtractPlugin({
-			filename: "[name].css",
-		}),
-	],
+  devtool: args.mode === "development" ? "source-map" : "none",
+  entry: "./scss/tailwind.scss",
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "..", "wwwroot/css"),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: "css-loader", options: { url: false, sourceMap: true } },
+          { loader: "postcss-loader" },
+          { loader: "sass-loader" },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new FixStyleOnlyEntriesPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
 });
 ```
 
@@ -141,12 +141,12 @@ below is the basic configuration of TailwindCSS without many to it. But from her
 
 ```js
 module.exports = {
-	purge: [],
-	theme: {
-		extend: {},
-	},
-	variants: {},
-	plugins: [],
+  purge: [],
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
 };
 ```
 
@@ -221,9 +221,9 @@ Now we can include and use it in our markup
 
 ```html
 <head>
-	<meta charset="utf-8" />
-	<title>YourAwesomeProject</title>
-	<link href="~/css/main.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <title>YourAwesomeProject</title>
+  <link href="~/css/main.css" rel="stylesheet" />
 </head>
 ```
 

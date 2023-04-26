@@ -40,7 +40,7 @@ Now we can tell PostCSS to use JIT instead of 'normal' TailwindCSS by changing `
 ```js
 // postcss.config.js
 module.exports = {
-	plugins: [require("@tailwindcss/jit"), require("autoprefixer")],
+  plugins: [require("@tailwindcss/jit"), require("autoprefixer")],
 };
 ```
 
@@ -51,15 +51,15 @@ module.exports = {
 ```js
 // tailwind.config.js
 module.exports = {
-	variants: {
-		extend: {
-			backgroundColor: ["active"],
-			// ...
-			borderColor: ["focus-visible", "first"],
-			// ...
-			textColor: ["visited"],
-		},
-	},
+  variants: {
+    extend: {
+      backgroundColor: ["active"],
+      // ...
+      borderColor: ["focus-visible", "first"],
+      // ...
+      textColor: ["visited"],
+    },
+  },
 };
 ```
 
@@ -70,25 +70,25 @@ Below is an example of a full configuration with @tailwindcss/jit:
 ```js
 // tailwind.config.js
 module.exports = {
-	purge: {
-		enabled: true,
-		content: [
-			"./components/**/*.{vue,js}",
-			"./layouts/**/*.vue",
-			"./pages/**/*.vue",
-			"./plugins/**/*.{js,ts}",
-			"./nuxt.config.{js,ts}",
-		],
-	},
-	darkMode: "class",
-	theme: {
-		extend: {
-			animation: {
-				"spin-slow": "spin 3s linear infinite",
-			},
-		},
-	},
-	plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
+  purge: {
+    enabled: true,
+    content: [
+      "./components/**/*.{vue,js}",
+      "./layouts/**/*.vue",
+      "./pages/**/*.vue",
+      "./plugins/**/*.{js,ts}",
+      "./nuxt.config.{js,ts}",
+    ],
+  },
+  darkMode: "class",
+  theme: {
+    extend: {
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+      },
+    },
+  },
+  plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],
 };
 ```
 

@@ -39,13 +39,13 @@ Also add the following to the `svelte.config.cjs`
 const adapter = require("@sveltejs/adapter-static");
 
 module.exports = {
-	kit: {
-		adapter: adapter({
-			pages: "build",
-			assets: "build",
-			fallback: null,
-		}),
-	},
+  kit: {
+    adapter: adapter({
+      pages: "build",
+      assets: "build",
+      fallback: null,
+    }),
+  },
 };
 ```
 

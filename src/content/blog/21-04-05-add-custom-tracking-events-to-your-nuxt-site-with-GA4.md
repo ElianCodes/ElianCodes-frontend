@@ -34,7 +34,7 @@ import Vue from "vue";
 import VueGtag from "vue-gtag";
 
 Vue.use(VueGtag, {
-	config: { id: "G-XXXXXXXXXX" },
+  config: { id: "G-XXXXXXXXXX" },
 });
 ```
 
@@ -68,8 +68,8 @@ Add it as a buildModule
 // nuxt.config.js
 
 buildModules: [
-	"@nuxtjs/google-analytics",
-	// Probably more modules
+  "@nuxtjs/google-analytics",
+  // Probably more modules
 ];
 ```
 
@@ -95,9 +95,9 @@ In the Vue component you'll have access to the `this.$gtag` object. So to actual
 
 ```js
 this.$gtag.event("action", {
-	event_category: "category",
-	event_label: "label",
-	value: "value",
+  event_category: "category",
+  event_label: "label",
+  value: "value",
 });
 ```
 
@@ -107,21 +107,21 @@ So to send a custom event trigger we can use the `v-on:click` or any other direc
 
 ```vue
 <template>
-	<a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
-		<svg>
-			<path />
-		</svg>
-	</a>
+  <a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
+    <svg>
+      <path />
+    </svg>
+  </a>
 </template>
 
 <script>
 export default {
-	// ...
-	methods: {
-		activateLightMode() {
-			// Place the logic for dark- or lightmode here
-		},
-	},
+  // ...
+  methods: {
+    activateLightMode() {
+      // Place the logic for dark- or lightmode here
+    },
+  },
 };
 </script>
 ```
@@ -130,25 +130,25 @@ Now we need to only add a custom event to it:
 
 ```vue
 <template>
-	<a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
-		<svg>
-			<path />
-		</svg>
-	</a>
+  <a v-on:click="activateLightMode" class="" v-if="activeTheme === 'dark'">
+    <svg>
+      <path />
+    </svg>
+  </a>
 </template>
 
 <script>
 export default {
-	// ...
-	methods: {
-		activateLightMode() {
-			this.$gtag.event("toggleDark", {
-				event_category: "toggleTheme",
-				event_label: "dark",
-			});
-			// Place the logic for dark- or lightmode here
-		},
-	},
+  // ...
+  methods: {
+    activateLightMode() {
+      this.$gtag.event("toggleDark", {
+        event_category: "toggleTheme",
+        event_label: "dark",
+      });
+      // Place the logic for dark- or lightmode here
+    },
+  },
 };
 </script>
 ```

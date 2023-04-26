@@ -27,7 +27,7 @@ Using the JIT engine in TailwindCSS 2.0.4 required to set the PostCSS config to 
 // postcss.config.js
 
 module.exports = {
-	plugins: [require("@tailwindcss/jit"), require("autoprefixer")],
+  plugins: [require("@tailwindcss/jit"), require("autoprefixer")],
 };
 ```
 
@@ -37,17 +37,17 @@ Where you now only need the following line `mode: 'jit'` in your `tailwind.confi
 // tailwind.config.js
 
 module.exports = {
-	mode: "jit",
-	purge: {
-		enabled: true,
-		content: [
-			//...
-		],
-	},
-	darkMode: "class",
-	theme: {
-		//...
-	},
+  mode: "jit",
+  purge: {
+    enabled: true,
+    content: [
+      //...
+    ],
+  },
+  darkMode: "class",
+  theme: {
+    //...
+  },
 };
 ```
 
@@ -74,8 +74,8 @@ Now we don't have to include it here anymore, but instead add it as `mode: 'JIT'
 // tailwind.config.js
 
 module.exports = {
-	mode: "jit",
-	// other TailwindCSS options
+  mode: "jit",
+  // other TailwindCSS options
 };
 ```
 

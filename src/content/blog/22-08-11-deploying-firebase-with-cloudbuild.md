@@ -75,10 +75,10 @@ Simply explained:
 >
 > ```json
 > {
-> 	"hosting": {
-> 		"public": "dist",
-> 		"ignore": ["**/.*", "**/node_modules/**"]
-> 	}
+>   "hosting": {
+>     "public": "dist",
+>     "ignore": ["**/.*", "**/node_modules/**"]
+>   }
 > }
 > ```
 

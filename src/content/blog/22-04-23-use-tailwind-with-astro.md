@@ -49,11 +49,11 @@ After installing Tailwind, we'll need to add the Tailwind configuration file by 
 
 ```js
 module.exports = {
-	content: ["./src/**/*.{astro}"],
-	theme: {
-		extend: {},
-	},
-	plugins: [],
+  content: ["./src/**/*.{astro}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
 };
 ```
 
@@ -63,10 +63,10 @@ Next, let's add the PostCSS configuration file `postcss.config.js` in the root o
 
 ```js
 module.exports = {
-	plugins: {
-		tailwindcss: {},
-		autoprefixer: {},
-	},
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 };
 ```
 

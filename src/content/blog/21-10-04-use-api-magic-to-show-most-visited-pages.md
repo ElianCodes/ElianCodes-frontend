@@ -39,16 +39,16 @@ First of all, you'll need to enable the API on google's side. If you're using [G
 
 ```json
 {
-	"type": "service_account",
-	"project_id": "project-xxxxxxxxxx",
-	"private_key_id": "xxxxx",
-	"private_key": "xxx",
-	"client_email": "xxxxxxxx-xxxxxxxxx@project-xxxxxxxx.iam.gserviceaccount.com",
-	"client_id": "xxxxxxxxxxxxxx",
-	"auth_uri": "https://accounts.google.com/o/oauth2/auth",
-	"token_uri": "https://oauth2.googleapis.com/token",
-	"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-	"client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/xxxxxxxxx-xxxxxxxxxx%project-xxxxxxxxx.iam.gserviceaccount.com"
+  "type": "service_account",
+  "project_id": "project-xxxxxxxxxx",
+  "private_key_id": "xxxxx",
+  "private_key": "xxx",
+  "client_email": "xxxxxxxx-xxxxxxxxx@project-xxxxxxxx.iam.gserviceaccount.com",
+  "client_id": "xxxxxxxxxxxxxx",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/xxxxxxxxx-xxxxxxxxxx%project-xxxxxxxxx.iam.gserviceaccount.com"
 }
 ```
 
@@ -72,38 +72,38 @@ yarn add @google-analytics/data
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
 
 export class testRun {
-	propertyId: string = process.env.GA_PROPERTY;
-	analytics: BetaAnalyticsDataClient;
+  propertyId: string = process.env.GA_PROPERTY;
+  analytics: BetaAnalyticsDataClient;
 
-	constructor() {
-		this.analytics = new BetaAnalyticsDataClient({
-			credentials: {
-				client_email: process.env.GA_EMAIL,
-				private_key: process.env.GA_KEY,
-			},
-		});
-	}
+  constructor() {
+    this.analytics = new BetaAnalyticsDataClient({
+      credentials: {
+        client_email: process.env.GA_EMAIL,
+        private_key: process.env.GA_KEY,
+      },
+    });
+  }
 
-	async runReport(): Promise<any[]> {
-		const response: AnalyticsPage[] = [];
-		const [report] = await this.analyticsDataClient.runReport({
-			property: `properties/${this.propertyId}`,
-			dateRanges: [{ startDate: "90daysAgo", endDate: "today" }],
-			dimensions: [{ name: "fullPageUrl" }, { name: "pageTitle" }],
-			metrics: [{ name: "engagedSessions" }],
-			limit: 4,
-		});
-		report.rows.forEach((row) => {
-			const record: AnalyticsPage = {
-				type: this.defineTypeForPage(row.dimensionValues[0].value),
-				title: this.morphTitleForOldHeading(row.dimensionValues[1].value),
-				link: row.dimensionValues[0].value,
-				views: Number.parseInt(row.metricValues[0].value),
-			};
-			response.push(record);
-		});
-		return response;
-	}
+  async runReport(): Promise<any[]> {
+    const response: AnalyticsPage[] = [];
+    const [report] = await this.analyticsDataClient.runReport({
+      property: `properties/${this.propertyId}`,
+      dateRanges: [{ startDate: "90daysAgo", endDate: "today" }],
+      dimensions: [{ name: "fullPageUrl" }, { name: "pageTitle" }],
+      metrics: [{ name: "engagedSessions" }],
+      limit: 4,
+    });
+    report.rows.forEach((row) => {
+      const record: AnalyticsPage = {
+        type: this.defineTypeForPage(row.dimensionValues[0].value),
+        title: this.morphTitleForOldHeading(row.dimensionValues[1].value),
+        link: row.dimensionValues[0].value,
+        views: Number.parseInt(row.metricValues[0].value),
+      };
+      response.push(record);
+    });
+    return response;
+  }
 }
 ```
 

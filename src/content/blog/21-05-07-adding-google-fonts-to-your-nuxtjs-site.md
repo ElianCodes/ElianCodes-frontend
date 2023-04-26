@@ -95,8 +95,8 @@ Keep in mind that the font you specify in the CSS-file should ofcourse be instal
 
 ```css
 p {
-	font-family: Rubik, sans-serif;
-	font-weight: 400;
+  font-family: Rubik, sans-serif;
+  font-weight: 400;
 }
 ```
 
@@ -106,8 +106,8 @@ Since I'm using TailwindCSS on [my website](https://www.elian.codes), I also had
 
 ```css
 p.title {
-	font-family: Rubik, sans-serif;
-	@apply text-lg text-center text-black font-semibold;
+  font-family: Rubik, sans-serif;
+  @apply text-lg text-center text-black font-semibold;
 }
 ```
 

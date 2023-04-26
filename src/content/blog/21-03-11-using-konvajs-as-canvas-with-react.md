@@ -41,15 +41,15 @@ import React from "react";
 import Konva, { Stage, Layer, Text, Rect, Circle } from "react-konva";
 
 const App = () => {
-	return (
-		<Stage>
-			<Layer>
-				<Text text="hello from Konva" />
-				<Rect fill="red" height="50" width="50" />
-				<Circle fill="red" radius="60" />
-			</Layer>
-		</Stage>
-	);
+  return (
+    <Stage>
+      <Layer>
+        <Text text="hello from Konva" />
+        <Rect fill="red" height="50" width="50" />
+        <Circle fill="red" radius="60" />
+      </Layer>
+    </Stage>
+  );
 };
 
 export default App;
@@ -59,38 +59,38 @@ Where this would translate in pure KonvaJS without react as follows
 
 ```html
 <html>
-	<body>
-		<div id="container"></div>
-		<script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
-		<script>
-			// first we need to create a stage
-			var stage = new Konva.Stage({
-				container: "container", // id of container <div>
-				width: 500,
-				height: 500,
-			});
+  <body>
+    <div id="container"></div>
+    <script src="https://unpkg.com/konva@7.0.3/konva.min.js"></script>
+    <script>
+      // first we need to create a stage
+      var stage = new Konva.Stage({
+        container: "container", // id of container <div>
+        width: 500,
+        height: 500,
+      });
 
-			// then create layer
-			var layer = new Konva.Layer();
+      // then create layer
+      var layer = new Konva.Layer();
 
-			// create our shape
-			var circle = new Konva.Circle({
-				x: stage.width() / 2,
-				y: stage.height() / 2,
-				radius: 50,
-				fill: "red",
-			});
+      // create our shape
+      var circle = new Konva.Circle({
+        x: stage.width() / 2,
+        y: stage.height() / 2,
+        radius: 50,
+        fill: "red",
+      });
 
-			// add the shape to the layer
-			layer.add(circle);
+      // add the shape to the layer
+      layer.add(circle);
 
-			// add the layer to the stage
-			stage.add(layer);
+      // add the layer to the stage
+      stage.add(layer);
 
-			// draw the image
-			layer.draw();
-		</script>
-	</body>
+      // draw the image
+      layer.draw();
+    </script>
+  </body>
 </html>
 ```
 
@@ -109,16 +109,16 @@ import React from "react";
 import Konva, { Stage, Layer, Circle } from "react-konva";
 
 const App = () => {
-	const sayHello = () => {
-		console.log("hello");
-	};
-	return (
-		<Stage>
-			<Layer>
-				<Circle fill="red" radius="60" onMouseOver={sayHello} />
-			</Layer>
-		</Stage>
-	);
+  const sayHello = () => {
+    console.log("hello");
+  };
+  return (
+    <Stage>
+      <Layer>
+        <Circle fill="red" radius="60" onMouseOver={sayHello} />
+      </Layer>
+    </Stage>
+  );
 };
 
 export default App;

@@ -67,10 +67,10 @@ When using `bun run`, you can run TypeScript & JavaScript files. The example on 
 ```javascript
 // http.js
 export default {
-	port: 3000,
-	fetch(request) {
-		return new Response("Welcome to Bun!");
-	},
+  port: 3000,
+  fetch(request) {
+    return new Response("Welcome to Bun!");
+  },
 };
 ```
 

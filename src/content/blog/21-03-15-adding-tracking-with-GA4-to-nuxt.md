@@ -43,9 +43,9 @@ Then simply add a new section `googleAnalytics` to your `nuxt.config.js`
 
 ```js
 export default {
-	googleAnalytics: {
-		id: "UA-XXX-X",
-	},
+  googleAnalytics: {
+    id: "UA-XXX-X",
+  },
 };
 ```
 
@@ -76,7 +76,7 @@ import Vue from "vue";
 import VueGtag from "vue-gtag";
 
 Vue.use(VueGtag, {
-	config: { id: "G-XXXXXXXXXX" },
+  config: { id: "G-XXXXXXXXXX" },
 });
 ```
 
@@ -84,7 +84,7 @@ Next, configure Nuxt to use the plugin by adding this to your `nuxt.config.js` f
 
 ```js
 {
-	plugins: ["~/plugins/gtag.js"];
+  plugins: ["~/plugins/gtag.js"];
 }
 ```
 
@@ -98,7 +98,7 @@ In the case of nuxtjs/google-analytics:
 
 ```js
 googleAnalytics: {
-	id: process.env.GOOGLE_ANALITICS_ID;
+  id: process.env.GOOGLE_ANALITICS_ID;
 }
 ```
 
@@ -106,7 +106,7 @@ and in the case of vue-gtag:
 
 ```js
 Vue.use(VueGtag, {
-	config: { id: process.env.GOOGLE_ANALITICS_ID },
+  config: { id: process.env.GOOGLE_ANALITICS_ID },
 });
 ```
 

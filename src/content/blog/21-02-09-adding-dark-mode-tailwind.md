@@ -25,11 +25,11 @@ Tailwind disables dark mode in a basic setup to reduce the size of the css-file.
 
 ```javascript
 module.exports = {
-	purge: [],
-	darkMode: "class", // or 'media'
-	theme: {},
-	variants: {},
-	plugins: [],
+  purge: [],
+  darkMode: "class", // or 'media'
+  theme: {},
+  variants: {},
+  plugins: [],
 };
 ```
 
@@ -43,7 +43,7 @@ It's as simple as just adding `dark:bg-black` to your html classes.
 
 ```html
 <body class="bg-white dark:bg-black">
-	<h1 class="text-black dark:text-white">What color am I?</h1>
+  <h1 class="text-black dark:text-white">What color am I?</h1>
 </body>
 ```
 
@@ -61,12 +61,12 @@ By default Tailwind dark classes are available on background colors, border colo
 
 ```javascript
 module.exports = {
-	// ...
-	variants: {
-		extend: {
-			textOpacity: ["dark"],
-		},
-	},
+  // ...
+  variants: {
+    extend: {
+      textOpacity: ["dark"],
+    },
+  },
 };
 ```
 

@@ -28,7 +28,7 @@ Then add the module to your `buildModules` in `nuxt.config.js`
 ```js
 // nuxt.config.js
 export default {
-	buildModules: ["@nuxtjs/tailwindcss"],
+  buildModules: ["@nuxtjs/tailwindcss"],
 };
 ```
 
@@ -43,9 +43,9 @@ Now adding jit to TailwindCSS is just as easy as configuring it in your `nuxt.co
 ```js
 // nuxt.config.js
 export default {
-	tailwindcss: {
-		jit: true,
-	},
+  tailwindcss: {
+    jit: true,
+  },
 };
 ```
 
@@ -72,18 +72,18 @@ Now we have all packages ready to go, we'll just need to configure our `nuxt.con
 ```js
 // nuxt.config.js
 export default {
-	tailwindcss: {
-		cssPath: "~/assets/scss/tailwind.scss",
-		jit: true,
-	},
-	build: {
-		postcss: {
-			plugins: {
-				"postcss-easy-import": { prefix: "_", extensions: [".css", ".scss"] },
-				"postcss-nested": {},
-			},
-		},
-	},
+  tailwindcss: {
+    cssPath: "~/assets/scss/tailwind.scss",
+    jit: true,
+  },
+  build: {
+    postcss: {
+      plugins: {
+        "postcss-easy-import": { prefix: "_", extensions: [".css", ".scss"] },
+        "postcss-nested": {},
+      },
+    },
+  },
 };
 ```
 

@@ -41,16 +41,16 @@ Netlify has a built-in form manager, which can easily be enabled. It will handle
 
 ```html
 <form name="contact" netlify>
-	<p>
-		<label>Name <input type="text" name="name" /></label>
-	</p>
-	<p>
-		<label>message</label>
-		<textarea name="message"></textarea>
-	</p>
-	<p>
-		<button type="submit">Send</button>
-	</p>
+  <p>
+    <label>Name <input type="text" name="name" /></label>
+  </p>
+  <p>
+    <label>message</label>
+    <textarea name="message"></textarea>
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
 </form>
 ```
 

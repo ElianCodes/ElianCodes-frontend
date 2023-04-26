@@ -71,7 +71,7 @@ Now that we have installed TailwindCSS, we just need to configure Svelte to actu
 
 ```js
 module.exports = {
-	plugins: [require("autoprefixer"), require("tailwindcss")],
+  plugins: [require("autoprefixer"), require("tailwindcss")],
 };
 ```
 
@@ -92,14 +92,14 @@ Now we can include the file globally by adding the output CSS file as a styleshe
 
 ```html
 <html>
-	<head>
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link href="../assets/css/tailwindoutput.css" type="text/css" />
-		%svelte.head%
-	</head>
-	<body>
-		<div id="svelte">%svelte.body%</div>
-	</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../assets/css/tailwindoutput.css" type="text/css" />
+    %svelte.head%
+  </head>
+  <body>
+    <div id="svelte">%svelte.body%</div>
+  </body>
 </html>
 ```
 
@@ -123,7 +123,7 @@ Tell PostCSS to switch packages by changing `require('tailwindcss')` to `require
 
 ```js
 module.exports = {
-	plugins: [require("autoprefixer"), require("@tailwindcss/jit")],
+  plugins: [require("autoprefixer"), require("@tailwindcss/jit")],
 };
 ```
 

@@ -34,10 +34,10 @@ import { defineConfig } from "astro/config";
 import unocss from "@unocss/astro";
 
 export default defineConfig({
-	integrations: [
-		/* ... */
-		unocss(),
-	],
+  integrations: [
+    /* ... */
+    unocss(),
+  ],
 });
 ```
 
@@ -56,17 +56,17 @@ import presetWind from "@unocss/preset-wind";
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [
-		unocss({
-			presets: [
-				presetWind(),
-				/* more presets */
-			],
-			safelist: [
-				/* this you can use to exclude utilities from purge */
-			],
-		}),
-	],
+  integrations: [
+    unocss({
+      presets: [
+        presetWind(),
+        /* more presets */
+      ],
+      safelist: [
+        /* this you can use to exclude utilities from purge */
+      ],
+    }),
+  ],
 });
 ```
 

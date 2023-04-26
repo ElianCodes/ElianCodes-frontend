@@ -29,7 +29,6 @@ module.exports = {
 				"plugin:@typescript-eslint/recommended-requiring-type-checking",
 				"plugin:@typescript-eslint/strict",
 			],
-			
 		},
 		{
 			files: ["*.json", "*.jsonc"],

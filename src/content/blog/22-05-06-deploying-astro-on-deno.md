@@ -38,7 +38,7 @@ import { defineConfig } from "astro/config";
 import deno from "@astrojs/deno";
 
 export default defineConfig({
-	adapter: deno(),
+  adapter: deno(),
 });
 ```
 
@@ -65,9 +65,9 @@ import { defineConfig } from "astro/config";
 import deno from "@astrojs/deno";
 
 export default defineConfig({
-	adapter: deno({
-		port: 8080,
-	}),
+  adapter: deno({
+    port: 8080,
+  }),
 });
 ```
 
@@ -77,12 +77,12 @@ To serve the website with an `npm` command, we still need to change the script i
 
 ```json
 {
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "deno run --allow-net --allow-read ./dist/server/entry.mjs"
-	}
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "deno run --allow-net --allow-read ./dist/server/entry.mjs"
+  }
 }
 ```
 

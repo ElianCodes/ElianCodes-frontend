@@ -31,18 +31,18 @@ That's the first step, the second step is to actually write the 301 rules that h
 
 ```json
 {
-	"hosting": {
-		"site": "yourProjectId",
-		"public": "dist",
-		"ignore": ["..."],
-		"redirects": [
-			{
-				"source": "/blog/1-09-21-setting-up-nuxt-with-pug-and-stylus",
-				"destination": "/blog/21-09-01-setting-up-nuxt-with-pug-and-stylus",
-				"type": 301
-			}
-		]
-	}
+  "hosting": {
+    "site": "yourProjectId",
+    "public": "dist",
+    "ignore": ["..."],
+    "redirects": [
+      {
+        "source": "/blog/1-09-21-setting-up-nuxt-with-pug-and-stylus",
+        "destination": "/blog/21-09-01-setting-up-nuxt-with-pug-and-stylus",
+        "type": 301
+      }
+    ]
+  }
 }
 ```
 

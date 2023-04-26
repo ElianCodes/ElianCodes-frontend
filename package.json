@@ -8,8 +8,7 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"format": "prettier --plugin-search-dir=. . --ignore-unknown",
-		"format:write": "pnpm format --write",
+		"format": "prettier -w --plugin-search-dir=. .",
 		"lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
 		"lint:fix": "eslint . --fix",
 		"astro": "astro"

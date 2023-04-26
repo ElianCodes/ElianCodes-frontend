@@ -29,13 +29,13 @@ const blogposts = Astro.fetchContent("*.md");
 ---
 
 <body>
-	<ul>
-		{
-			blogposts.map((blogpost) => {
-				return <li>{blogpost.title}</li>;
-			})
-		}
-	</ul>
+  <ul>
+    {
+      blogposts.map((blogpost) => {
+        return <li>{blogpost.title}</li>;
+      })
+    }
+  </ul>
 </body>
 ```
 
@@ -49,13 +49,13 @@ const blogposts = await Astro.glob("*.md");
 ---
 
 <body>
-	<ul>
-		{
-			blogposts.map((blogpost) => {
-				return <li>{blogpost.frontmatter.title}</li>;
-			})
-		}
-	</ul>
+  <ul>
+    {
+      blogposts.map((blogpost) => {
+        return <li>{blogpost.frontmatter.title}</li>;
+      })
+    }
+  </ul>
 </body>
 ```
 
@@ -64,10 +64,10 @@ An example of what the `.then()` use, could look like:
 ```astro
 ---
 const blogposts = await Astro.glob("./**/*.md").then((posts) =>
-	posts.sort(
-		(a, b) =>
-			new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)
-	)
+  posts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)
+  )
 );
 ---
 ```
@@ -100,16 +100,16 @@ import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-	trailingSlash: "ignore",
-	site: "https://www.elian.codes",
-	server: {
-		port: 3000,
-	},
-	integrations: [
-		sitemap({
-			canonicalURL: "https://www.elian.codes",
-		}),
-	],
+  trailingSlash: "ignore",
+  site: "https://www.elian.codes",
+  server: {
+    port: 3000,
+  },
+  integrations: [
+    sitemap({
+      canonicalURL: "https://www.elian.codes",
+    }),
+  ],
 });
 ```
 

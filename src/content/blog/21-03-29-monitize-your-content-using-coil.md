@@ -29,9 +29,9 @@ It comes down to getting your payment pointer and adding it to your site like th
 
 ```html
 <html>
-	<head>
-		<meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA" />
-	</head>
+  <head>
+    <meta name="monetization" content="$ilp.uphold.com/gH9RGFW9ijRA" />
+  </head>
 </html>
 ```
 

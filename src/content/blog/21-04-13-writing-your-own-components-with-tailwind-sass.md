@@ -30,13 +30,13 @@ You can run `npx tailwindcss init` to set up a basic `tailwind.config.js` file w
 ```js
 // tailwind.config.js
 module.exports = {
-	purge: [],
-	darkMode: false, // or 'media' or 'class'
-	theme: {
-		extend: {},
-	},
-	variants: {},
-	plugins: [],
+  purge: [],
+  darkMode: false, // or 'media' or 'class'
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
 };
 ```
 
@@ -45,10 +45,10 @@ Since we're using PostCSS to process our TailwindCSS Sass file, we also have to 
 ```js
 // postcss.config.js
 module.exports = {
-	plugins: {
-		tailwindcss: {},
-		autoprefixer: {},
-	},
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  },
 };
 ```
 
@@ -77,11 +77,11 @@ Just run `yarn add -D postcss-nested` and add the plugin to your `postcss.config
 
 ```js
 module.exports = {
-	plugins: [
-		require("tailwindcss"),
-		require("autoprefixer"),
-		require("postcss-nested"),
-	],
+  plugins: [
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require("postcss-nested"),
+  ],
 };
 ```
 
@@ -96,7 +96,7 @@ Now we have a Sass file that can be processed, we can also import other files. F
 @import "tailwindcss/utilities";
 
 button {
-	@apply rounded-full bg-gray-900 text-center py-2 px-4 text-white;
+  @apply rounded-full bg-gray-900 text-center py-2 px-4 text-white;
 }
 ```
 
@@ -105,11 +105,11 @@ Very easy right, we can also take this a step further by importing custom compon
 ```js
 // postcss.config.js
 module.exports = {
-	plugins: {
-		tailwindcss: {},
-		autoprefixer: {},
-		"postcss-easy-import": { prefix: "_", extensions: [".css", ".scss"] },
-	},
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+    "postcss-easy-import": { prefix: "_", extensions: [".css", ".scss"] },
+  },
 };
 ```
 
@@ -133,7 +133,7 @@ Let's make a file called `/components/_button.scss` in the styles folder:
 // ./components/_button.scss
 
 button {
-	@apply rounded-full bg-gray-900 text-center py-2 px-4 text-white;
+  @apply rounded-full bg-gray-900 text-center py-2 px-4 text-white;
 }
 ```
 

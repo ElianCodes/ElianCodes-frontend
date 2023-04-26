@@ -25,15 +25,15 @@ The blogpost frontmatter validation:
 import { z, defineCollection } from "astro:content";
 
 const blogCollection = defineCollection({
-	schema: z.object({
-		title: z.string(),
-		author: z.string(),
-		tags: z.array(z.string()),
-		description: z.string(),
-		pubDate: z.string().transform((str) => new Date(str)),
-		imgUrl: z.string(),
-		draft: z.boolean().optional().default(false),
-	}),
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    tags: z.array(z.string()),
+    description: z.string(),
+    pubDate: z.string().transform((str) => new Date(str)),
+    imgUrl: z.string(),
+    draft: z.boolean().optional().default(false),
+  }),
 });
 ```
 
@@ -45,12 +45,12 @@ Of course, tags are dynamic, so the first thing is to build a page with the `get
 
 ```js
 return {
-	params: {
-		/* ... */
-	},
-	props: {
-		/* ... */
-	},
+  params: {
+    /* ... */
+  },
+  props: {
+    /* ... */
+  },
 };
 ```
 
@@ -63,29 +63,29 @@ Let's start with getting all tags and build the static pages:
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-	const allPosts = await getCollection("blog");
+  const allPosts = await getCollection("blog");
 
-	const tags: string[] = [];
+  const tags: string[] = [];
 
-	// using .toLowerCase() here to get rid of case sensitivity
-	allPosts.forEach((post) => {
-		post.data.tags.forEach((tag) => {
-			tags.push(tag.toLowerCase());
-		});
-	});
+  // using .toLowerCase() here to get rid of case sensitivity
+  allPosts.forEach((post) => {
+    post.data.tags.forEach((tag) => {
+      tags.push(tag.toLowerCase());
+    });
+  });
 
-	// using a new array from a set, we can get rid of duplicate tags
-	return Array.from(new Set(tags)).map((tag) => {
-		return {
-			params: { tag },
-			// only keep the blogposts that contain the tag itself
-			props: {
-				blogposts: allPosts.filter((post) =>
-					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
-				),
-			},
-		};
-	});
+  // using a new array from a set, we can get rid of duplicate tags
+  return Array.from(new Set(tags)).map((tag) => {
+    return {
+      params: { tag },
+      // only keep the blogposts that contain the tag itself
+      props: {
+        blogposts: allPosts.filter((post) =>
+          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+        ),
+      },
+    };
+  });
 }
 ---
 ```
@@ -106,48 +106,48 @@ import type { CollectionEntry } from "astro:content";
 import Layout from "../../../layouts/YourLayout.astro";
 
 export async function getStaticPaths() {
-	const allPosts = await getCollection("blog");
+  const allPosts = await getCollection("blog");
 
-	const tags: string[] = [];
+  const tags: string[] = [];
 
-	allPosts.forEach((post) => {
-		post.data.tags.forEach((tag) => {
-			tags.push(tag.toLowerCase());
-		});
-	});
+  allPosts.forEach((post) => {
+    post.data.tags.forEach((tag) => {
+      tags.push(tag.toLowerCase());
+    });
+  });
 
-	return Array.from(new Set(tags)).map((tag) => {
-		return {
-			params: { tag },
-			props: {
-				blogposts: allPosts.filter((post) =>
-					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
-				),
-			},
-		};
-	});
+  return Array.from(new Set(tags)).map((tag) => {
+    return {
+      params: { tag },
+      props: {
+        blogposts: allPosts.filter((post) =>
+          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+        ),
+      },
+    };
+  });
 }
 
 interface Props {
-	tag: string;
-	blogposts: CollectionEntry<"blog">[];
+  tag: string;
+  blogposts: CollectionEntry<"blog">[];
 }
 
 const { blogposts } = Astro.props;
 ---
 
 <Layout>
-	<main>
-		<ul>
-			{
-				blogposts.map((post) => (
-					<li>
-						<a href={`/blog/${post.slug}`}>{post.data.title}</a>
-					</li>
-				))
-			}
-		</ul>
-	</main>
+  <main>
+    <ul>
+      {
+        blogposts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
 </Layout>
 ```
 

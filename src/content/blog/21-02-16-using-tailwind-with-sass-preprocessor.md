@@ -23,12 +23,12 @@ the ideal solution is actually very clean and simple, just require the `postcss-
 
 ```javascript
 module.exports = {
-	plugins: [
-		require("postcss-import"),
-		require("tailwindcss"),
-		require("postcss-nested"), // or require('postcss-nesting')
-		require("autoprefixer"),
-	],
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss"),
+    require("postcss-nested"), // or require('postcss-nesting')
+    require("autoprefixer"),
+  ],
 };
 ```
 
@@ -56,12 +56,12 @@ out of the box this does work for the basics, but still the nested classes were 
 ```javascript
 //postcss.config.js
 module.exports = {
-	plugins: [
-		require("postcss-import"),
-		require("tailwindcss"),
-		require("autoprefixer"),
-		require("postcss-nested"),
-	],
+  plugins: [
+    require("postcss-import"),
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require("postcss-nested"),
+  ],
 };
 ```
 
@@ -74,9 +74,9 @@ Now everything finally worked fine and I could use nested classes!
 @tailwind utilities;
 
 .header {
-	@apply text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50;
-	nav {
-		@apply hover:text-green-800;
-	}
+  @apply text-gray-600 hover:text-gray-900 dark:text-gray-200 dark:hover:text-gray-50;
+  nav {
+    @apply hover:text-green-800;
+  }
 }
 ```

@@ -64,11 +64,11 @@ This example is almost identically taken from the [Astro docs](https://docs.astr
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-	const blogEntries = await getCollection("blog");
-	return blogEntries.map((blogpost) => ({
-		params: { slug: blogpost.slug },
-		props: { blogpost },
-	}));
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((blogpost) => ({
+    params: { slug: blogpost.slug },
+    props: { blogpost },
+  }));
 }
 
 const { blogpost } = Astro.props;
@@ -88,14 +88,14 @@ Waw! The complete typesafety in the content collection API is mindblowing! Now I
 import { z, defineCollection } from "astro:content";
 
 const blogCollection = defineCollection({
-	schema: z.object({
-		title: z.string(),
-		author: z.string(),
-		tags: z.array(z.string()),
-		description: z.string(),
-		pubDate: z.string().transform((str) => new Date(str)),
-		imgUrl: z.string().optional(),
-	}),
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    tags: z.array(z.string()),
+    description: z.string(),
+    pubDate: z.string().transform((str) => new Date(str)),
+    imgUrl: z.string().optional(),
+  }),
 });
 ```
 
@@ -108,21 +108,21 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
 export async function get(context) {
-	const blog = await getCollection("blog");
-	return rss({
-		title: "Elian Van Cutsem",
-		description:
-			"BLog about programming, Astro and general JavaScript knowledge.",
-		site: context.site, // defined in astro.config.mjs
-		items: blog.map((post) => ({
-			title: post.data.title,
-			pubDate: post.data.pubDate,
-			description: post.data.description,
-			customData: post.data.customData,
-			link: `/blog/${post.slug}/`,
-		})),
-		customData: `<language>en-us</language>`,
-	});
+  const blog = await getCollection("blog");
+  return rss({
+    title: "Elian Van Cutsem",
+    description:
+      "BLog about programming, Astro and general JavaScript knowledge.",
+    site: context.site, // defined in astro.config.mjs
+    items: blog.map((post) => ({
+      title: post.data.title,
+      pubDate: post.data.pubDate,
+      description: post.data.description,
+      customData: post.data.customData,
+      link: `/blog/${post.slug}/`,
+    })),
+    customData: `<language>en-us</language>`,
+  });
 }
 ```
 
@@ -130,10 +130,10 @@ For the above code to work, you need to add the following to your `astro.config.
 
 ```ts
 export default defineConfig({
-	site: "https://www.elian.codes/",
-	integrations: [
-		/* ... */
-	],
+  site: "https://www.elian.codes/",
+  integrations: [
+    /* ... */
+  ],
 });
 ```
 
@@ -183,9 +183,9 @@ That will initialise a playwright config. Then you can start building tests:
 import { test, expect } from "@playwright/test";
 
 test("meta is correct", async ({ page }) => {
-	await page.goto("/");
+  await page.goto("/");
 
-	await expect(page).toHaveTitle("ElianCodes | Home");
+  await expect(page).toHaveTitle("ElianCodes | Home");
 });
 ```
 
@@ -204,15 +204,15 @@ import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel/static";
 
 export default defineConfig({
-	site: "https://www.elian.codes/",
-	trailingSlash: "ignore",
-	integrations: [
-		// ... //
-	],
-	output: "static",
-	adapter: vercel({
-		analytics: true,
-	}),
+  site: "https://www.elian.codes/",
+  trailingSlash: "ignore",
+  integrations: [
+    // ... //
+  ],
+  output: "static",
+  adapter: vercel({
+    analytics: true,
+  }),
 });
 ```
 

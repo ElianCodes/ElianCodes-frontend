@@ -53,14 +53,14 @@ Nuxt has a default folder called `layouts/` in which it let's you define and cre
 
 ```html
 <template lang="pug">
-	div header //- your header could be here main nuxt //- Nuxt will place the
-	page content here footer //- here comes your footer content
+  div header //- your header could be here main nuxt //- Nuxt will place the
+  page content here footer //- here comes your footer content
 </template>
 
 <script>
-	export default {
-		name: "default-layout",
-	};
+  export default {
+    name: "default-layout",
+  };
 </script>
 ```
 
@@ -74,19 +74,19 @@ Here's how to use a dynamic asset:
 
 ```html
 <template lang="pug">
-	ul li(v-for="icon in icons" :key="icon")
-	img(:src="require(`~/assets/img/icons/${icon}`)")
+  ul li(v-for="icon in icons" :key="icon")
+  img(:src="require(`~/assets/img/icons/${icon}`)")
 </template>
 
 <script>
-	export default {
-		name: "using-dynamic-assets",
-		data() {
-			return {
-				icons: ["first.svg", "second.png"],
-			};
-		},
-	};
+  export default {
+    name: "using-dynamic-assets",
+    data() {
+      return {
+        icons: ["first.svg", "second.png"],
+      };
+    },
+  };
 </script>
 ```
 
@@ -96,16 +96,16 @@ Like you've seen in the example above, it's possible to use things like `v-if`, 
 
 ```html
 <template lang="pug">
-	div article.main-content h2 {{ title }} p {{ description }}
+  div article.main-content h2 {{ title }} p {{ description }}
 </template>
 
 <script>
-	export default {
-	    name: 'using-vue-variables',
-	    props [
-	        'title', 'description'
-	    ]
-	}
+  export default {
+      name: 'using-vue-variables',
+      props [
+          'title', 'description'
+      ]
+  }
 </script>
 ```
 
@@ -115,26 +115,26 @@ to actually make the component above work, we would still need something like th
 
 ```html
 <template lang="pug">
-	div UsingVueVariables( v-for="block in blocks" :key="block.title"
-	:title="block.title" :description="block.description" )
+  div UsingVueVariables( v-for="block in blocks" :key="block.title"
+  :title="block.title" :description="block.description" )
 </template>
 
 <script>
-	import UsingVueVariables from "~/components/using-vue-variables.vue";
-	export default {
-		name: "using-components-with-props",
-		components: {
-			UsingVueVariables,
-		},
-		data() {
-			return {
-				blocks: [
-					{ title: "hello", description: "world" },
-					{ title: "from", description: "ElianCodes" },
-				],
-			};
-		},
-	};
+  import UsingVueVariables from "~/components/using-vue-variables.vue";
+  export default {
+    name: "using-components-with-props",
+    components: {
+      UsingVueVariables,
+    },
+    data() {
+      return {
+        blocks: [
+          { title: "hello", description: "world" },
+          { title: "from", description: "ElianCodes" },
+        ],
+      };
+    },
+  };
 </script>
 ```
 
@@ -158,23 +158,23 @@ A lot of people tend to use single-file components in Vue, I don't blame them si
 
 ```html
 <template>
-	<main>
-		<h1>A simple styled component</h1>
-		<p>Using Vue, Nuxt and Stylus</p>
-	</main>
+  <main>
+    <h1>A simple styled component</h1>
+    <p>Using Vue, Nuxt and Stylus</p>
+  </main>
 </template>
 
 <script>
-	export default {
-		name: "using-stylus",
-	};
+  export default {
+    name: "using-stylus",
+  };
 </script>
 
 <style lang="styl" scoped>
-	h1
-	    color green
-	p
-	    color blue
+  h1
+      color green
+  p
+      color blue
 </style>
 ```
 
@@ -184,7 +184,7 @@ Sometimes, a styles component library can be quite a handful, somtimes I prefer 
 
 ```js
 export default {
-	css: [{ src: "~/assets/styls/styles.styl", lang: "styl" }],
+  css: [{ src: "~/assets/styls/styles.styl", lang: "styl" }],
 };
 ```
 

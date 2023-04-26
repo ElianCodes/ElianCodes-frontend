@@ -25,17 +25,17 @@ You start by defining what your package should do:
 
 ```js
 class ElianCodesBg {
-	static get inputProperties() {
-		return ["--color-for-bg"];
-	}
-	static get inputArguments() {
-		return ["<color>"];
-	}
+  static get inputProperties() {
+    return ["--color-for-bg"];
+  }
+  static get inputArguments() {
+    return ["<color>"];
+  }
 
-	paint(ctx, size, props) {
-		ctx.fillStyle = props.get("--color-for-bg");
-		ctx.fillRect(size.width / 2, 0, size.width, size.height);
-	}
+  paint(ctx, size, props) {
+    ctx.fillStyle = props.get("--color-for-bg");
+    ctx.fillRect(size.width / 2, 0, size.width, size.height);
+  }
 }
 registerPaint("eliancodes-bg", ElianCodesBg);
 ```
@@ -64,8 +64,8 @@ using that javascript, we could just set a custom color in the CSS file
 
 ```css
 .bg {
-	--color-for-bg: lightgreen;
-	background-image: paint(eliancodes-bg);
+  --color-for-bg: lightgreen;
+  background-image: paint(eliancodes-bg);
 }
 ```
 
@@ -83,29 +83,29 @@ If you look at my website, one of the first things people notice, is that the ba
 
 ```ts
 const setBgColor = (color) => {
-	if (
-		document.querySelector("html").getAttribute("class") != undefined &&
-		!document.querySelector("html").getAttribute("class").includes("dark") &&
-		document.querySelector("html").getAttribute("class").includes("index-bg")
-	) {
-		document
-			.querySelector("html")
-			.setAttribute(
-				"style",
-				`background: linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`
-			);
-	} else if (
-		document.querySelector("html").getAttribute("class").includes("dark")
-	) {
-		document
-			.querySelector("html")
-			.setAttribute(
-				"style",
-				`background: linear-gradient(90deg, #000 50%, #000 50%)`
-			);
-	} else {
-		document.querySelector("html").setAttribute("style", "");
-	}
+  if (
+    document.querySelector("html").getAttribute("class") != undefined &&
+    !document.querySelector("html").getAttribute("class").includes("dark") &&
+    document.querySelector("html").getAttribute("class").includes("index-bg")
+  ) {
+    document
+      .querySelector("html")
+      .setAttribute(
+        "style",
+        `background: linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`
+      );
+  } else if (
+    document.querySelector("html").getAttribute("class").includes("dark")
+  ) {
+    document
+      .querySelector("html")
+      .setAttribute(
+        "style",
+        `background: linear-gradient(90deg, #000 50%, #000 50%)`
+      );
+  } else {
+    document.querySelector("html").setAttribute("style", "");
+  }
 };
 ```
 
@@ -113,8 +113,8 @@ after upgrading to houdini, it got replaced by:
 
 ```ts
 document.documentElement.style.setProperty(
-	"--color-for-bg",
-	document.documentElement.classList.contains("dark") ? "black" : color.code
+  "--color-for-bg",
+  document.documentElement.classList.contains("dark") ? "black" : color.code
 );
 ```
 
@@ -139,8 +139,8 @@ To do this, I wrote some code:
 ```ts
 const color = getNewColor();
 document.querySelectorAll(".use-color").forEach((element) => {
-	colors.forEach((color) => element.classList.remove(`text-${color.class}`));
-	element.classList.add(`text-${color.class}`);
+  colors.forEach((color) => element.classList.remove(`text-${color.class}`));
+  element.classList.add(`text-${color.class}`);
 });
 ```
 
@@ -154,11 +154,11 @@ This got refactored to a very simple method where a CSS custom property would ge
 
 ```css
 :root {
-	--random-color: lightgreen;
+  --random-color: lightgreen;
 }
 
 .use-color {
-	color: var(--random-color);
+  color: var(--random-color);
 }
 ```
 

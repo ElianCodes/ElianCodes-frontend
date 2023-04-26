@@ -61,34 +61,34 @@ When these are converted to HTML at build-time, the `<head>` element will look s
 <title>🔍 How I automated SEO to fit my needs</title>
 <meta name="title" content="🔍 How I automated SEO to fit my needs" />
 <meta
-	name="description"
-	content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
+  name="description"
+  content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
 />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta
-	property="og:url"
-	content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
+  property="og:url"
+  content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
 />
 <meta property="og:title" content="🔍 How I automated SEO to fit my needs" />
 <meta
-	property="og:description"
-	content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
+  property="og:description"
+  content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
 />
 
 <!-- Twitter -->
 <meta
-	property="twitter:url"
-	content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
+  property="twitter:url"
+  content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
 />
 <meta
-	property="twitter:title"
-	content="🔍 How I automated SEO to fit my needs"
+  property="twitter:title"
+  content="🔍 How I automated SEO to fit my needs"
 />
 <meta
-	property="twitter:description"
-	content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
+  property="twitter:description"
+  content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
 />
 ```
 
@@ -153,53 +153,53 @@ A recognizable favicon is an important step when building or designing a website
 <link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
 <link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
 <link
-	rel="apple-touch-icon"
-	sizes="114x114"
-	href="/icons/apple-icon-114x114.png"
+  rel="apple-touch-icon"
+  sizes="114x114"
+  href="/icons/apple-icon-114x114.png"
 />
 <link
-	rel="apple-touch-icon"
-	sizes="120x120"
-	href="/icons/apple-icon-120x120.png"
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="/icons/apple-icon-120x120.png"
 />
 <link
-	rel="apple-touch-icon"
-	sizes="144x144"
-	href="/icons/apple-icon-144x144.png"
+  rel="apple-touch-icon"
+  sizes="144x144"
+  href="/icons/apple-icon-144x144.png"
 />
 <link
-	rel="apple-touch-icon"
-	sizes="152x152"
-	href="/icons/apple-icon-152x152.png"
+  rel="apple-touch-icon"
+  sizes="152x152"
+  href="/icons/apple-icon-152x152.png"
 />
 <link
-	rel="apple-touch-icon"
-	sizes="180x180"
-	href="/icons/apple-icon-180x180.png"
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/icons/apple-icon-180x180.png"
 />
 <link
-	rel="icon"
-	type="image/png"
-	sizes="192x192"
-	href="/icons/android-icon-192x192.png"
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="/icons/android-icon-192x192.png"
 />
 <link
-	rel="icon"
-	type="image/png"
-	sizes="32x32"
-	href="/icons/favicon-32x32.png"
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/icons/favicon-32x32.png"
 />
 <link
-	rel="icon"
-	type="image/png"
-	sizes="96x96"
-	href="/icons/favicon-96x96.png"
+  rel="icon"
+  type="image/png"
+  sizes="96x96"
+  href="/icons/favicon-96x96.png"
 />
 <link
-	rel="icon"
-	type="image/png"
-	sizes="16x16"
-	href="/icons/favicon-16x16.png"
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/icons/favicon-16x16.png"
 />
 
 <link rel="manifest" href="/manifest.json" />
@@ -218,19 +218,19 @@ Images are eye candy, choosing an image that fits your post and will appear ever
 ```html
 <!-- Open Graph / Facebook -->
 <meta
-	property="og:url"
-	content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
+  property="og:url"
+  content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
 />
 <meta
-	property="og:image"
-	content="https://www.elian.codes/assets/img/social.jpg"
+  property="og:image"
+  content="https://www.elian.codes/assets/img/social.jpg"
 />
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
 <meta
-	property="twitter:image"
-	content="https://www.elian.codes/assets/img/social.jpg"
+  property="twitter:image"
+  content="https://www.elian.codes/assets/img/social.jpg"
 />
 ```
 

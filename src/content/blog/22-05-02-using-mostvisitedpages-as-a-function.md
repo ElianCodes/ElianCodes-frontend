@@ -65,10 +65,10 @@ Basically, each exported function from a file (like `index.js`), is deployed as 
 import { HttpsFunction, https, Request, Response } from "firebase-functions";
 
 export const yourFunction: HttpsFunction = https.onRequest(
-	async (req: Request, res: Response) => {
-		// our main code goes here
-		res.status(200).send();
-	}
+  async (req: Request, res: Response) => {
+    // our main code goes here
+    res.status(200).send();
+  }
 );
 ```
 
@@ -77,18 +77,18 @@ A little trick to manage more functions, without having them all in one file, is
 ```js
 // analytics.js
 export const analytics = https.onRequest(
-	async (req: Request, res: Response) => {
-		// analytics endpoint
-		res.status(200).send();
-	}
+  async (req: Request, res: Response) => {
+    // analytics endpoint
+    res.status(200).send();
+  }
 );
 
 // technologies.ts
 export const technologies = https.onRequest(
-	async (req: Request, res: Response) => {
-		// technologies endpoint
-		res.status(200).send();
-	}
+  async (req: Request, res: Response) => {
+    // technologies endpoint
+    res.status(200).send();
+  }
 );
 
 // index.js

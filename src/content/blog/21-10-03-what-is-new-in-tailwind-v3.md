@@ -48,37 +48,37 @@ Using the TailwindCSS CDN JIT isn't that hard:
 ```html
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<!-- add base TailwindCSS -->
-		+
-		<script src="https://cdn-tailwindcss.vercel.app/"></script>
+  <head>
+    <!-- add base TailwindCSS -->
+    +
+    <script src="https://cdn-tailwindcss.vercel.app/"></script>
 
-		<!-- add Plugins -->
-		<script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <!-- add Plugins -->
+    <script src="https://cdn-tailwindcss.vercel.app/?plugins=forms,typography,aspect-ratio,line-clamp"></script>
 
-		<!-- customize config -->
-		<script>
-			tailwind.config = {
-				theme: {
-					extend: {
-						colors: {
-							tomato: "tomato",
-						},
-					},
-				},
-			};
-		</script>
+    <!-- customize config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              tomato: "tomato",
+            },
+          },
+        },
+      };
+    </script>
 
-		<!-- add custom styling -->
-		<style type="text/tailwindcss">
-			body {
-				@apply bg-pink-500;
-			}
-		</style>
-	</head>
-	<body>
-		<!-- -->
-	</body>
+    <!-- add custom styling -->
+    <style type="text/tailwindcss">
+      body {
+        @apply bg-pink-500;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- -->
+  </body>
 </html>
 ```
 
