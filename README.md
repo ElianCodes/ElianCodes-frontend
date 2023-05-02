@@ -4,12 +4,7 @@ The full sourcecode for my personal website.
 
 ## Current technologies
 
-<<<<<<< HEAD
-(currently) written in [Astro](https://astro.build) and [UnoCSS](https://uno.antfu.me) with some [Firebase](https://firebase.com) functions as well, deployed to [Vercel](https://vercel.com).
-=======
-
 (currently) written in [Astro](https://astro.build) and [UnoCSS](https://unocss.dev) with some [Firebase](https://firebase.com) functions as well, deployed to [Vercel](https://vercel.com).
->>>>>>> main
 
 I'm actually looking to get rid of the Firebase functions, this are the options I'm thinking of:
 
@@ -21,20 +16,11 @@ I'm actually looking to get rid of the Firebase functions, this are the options 
 
 This website is a representation of technologies I'm playing with. Here is a list of technologies that have powed this site before:
 
-<<<<<<< HEAD
-
-- [Nuxt](https://nuxtjs.org)
-- [Vue](https://vuejs.org)
-- [TypeScript](https://www.typescript-lang.com)
-- [TailwindCSS](https://tailwindcss.com)
-=======
 - [Nuxt](<https://nuxtjs.org>)
 - [Vue](<https://vuejs.org>)
 - [TypeScript](<https://www.typescript-lang.com>)
 - [TailwindCSS](<https://tailwindcss.com>)
 - [UnoCSS](https://unocss.dev)
-
->>>>>>> main
 
 ## Deployment and Hosting
 
