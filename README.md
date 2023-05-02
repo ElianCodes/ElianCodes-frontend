@@ -16,10 +16,10 @@ I'm actually looking to get rid of the Firebase functions, this are the options 
 
 This website is a representation of technologies I'm playing with. Here is a list of technologies that have powed this site before:
 
-- [Nuxt](<https://nuxtjs.org>)
-- [Vue](<https://vuejs.org>)
-- [TypeScript](<https://www.typescript-lang.com>)
-- [TailwindCSS](<https://tailwindcss.com>)
+- [Nuxt](https://nuxtjs.org)
+- [Vue](https://vuejs.org)
+- [TypeScript](https://www.typescript-lang.com)
+- [TailwindCSS](https://tailwindcss.com)
 - [UnoCSS](https://unocss.dev)
 
 ## Deployment and Hosting
@@ -56,7 +56,7 @@ Most of my templates are written in pure Astro, since I don't need to much inter
 
 #### UnoCSS
 
-To define the style of the website, [UnoCSS](https://unocss.dev), with some presets are used. [You can read more about my transition and use here.](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>)
+To define the style of the website, [UnoCSS](https://unocss.dev), with some presets are used. [You can read more about my transition and use here.](https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro)
 
 ### Backend
 
