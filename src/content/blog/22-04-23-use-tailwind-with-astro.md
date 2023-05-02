@@ -8,7 +8,7 @@ tags:
   - TailwindCSS
 description: Since Astro 24, the documentation of Tailwind CSS in Astro has disappeared. Not because it's not supported, but because it now holds true to the Tailwind CSS documentation itself. If you still need a guide on how to use them both, look no further!
 imgUrl: https://css-tricks.com/wp-content/uploads/2021/05/astro-homepage.png
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Tailwind CSS in Astro
@@ -17,7 +17,7 @@ Since Astro 24, the documentation of Tailwind CSS in Astro has disappeared. Not 
 
 ## Setup Astro
 
-Installing and setting up Astro is really easy. You can read the documentation on it [right here](<https://docs.astro.build/en/getting-started/#install-astro-locally>)!
+Installing and setting up Astro is really easy. You can read the documentation on it [right here](https://docs.astro.build/en/getting-started/#install-astro-locally)!
 
 In the following examples I'll be using NPM, but feel free to use Yarn or PNPM, all of those have a dedicated Astro create command
 
@@ -25,9 +25,9 @@ In the following examples I'll be using NPM, but feel free to use Yarn or PNPM, 
 npm create astro@latest
 ```
 
-The Astro create script will ask a few questions, like where to install and what template to use. Feel free to use whatever suits you most, I tend to mostly choose the *minimal* template since I don't like boilerplate.
+The Astro create script will ask a few questions, like where to install and what template to use. Feel free to use whatever suits you most, I tend to mostly choose the _minimal_ template since I don't like boilerplate.
 
-After running the above command, Astro will be ready to use. (*Don't forget to `cd` into the folder where you initialised your project*). After you're done installing the dependencies, run `npm run dev` to see it come to life on port `3000` (look [here to change the port](<https://docs.astro.build/en/reference/configuration-reference/#server-options>))!
+After running the above command, Astro will be ready to use. (_Don't forget to `cd` into the folder where you initialised your project_). After you're done installing the dependencies, run `npm run dev` to see it come to life on port `3000` (look [here to change the port](https://docs.astro.build/en/reference/configuration-reference/#server-options))!
 
 ## Install TailwindCSS
 
@@ -54,7 +54,7 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
+};
 ```
 
 Keep in mind I added `astro` as the extension there. If you're going to use other extensions like `vue` or `tsx`, don't forget to add them as well.
@@ -66,8 +66,8 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-  }
-}
+  },
+};
 ```
 
 ## Adding a stylesheet
@@ -86,10 +86,10 @@ when you import this file in your Astro page or layout, all default browser styl
 
 ```astro
 ---
-import '../styles/global.css'
+import "../styles/global.css";
 ---
-<body class="bg-green-300 text-white">
-</body>
+
+<body class="bg-green-300 text-white"> </body>
 ```
 
 This is all to get basic Tailwind CSS working in Astro!

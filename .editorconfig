@@ -1,0 +1,9 @@
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = true
+
+[*.{astro,ts,js,cjs,mjs,json,vue}]
+tab_width = 2
+indent_style = tab

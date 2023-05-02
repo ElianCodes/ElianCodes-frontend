@@ -1,21 +1,21 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '@layouts/Default.astro';
-import BlogList from '@components/blog/BlogList.astro';
+import BlogList from "@components/blog/BlogList.astro";
+import Layout from "@layouts/Default.astro";
+import { getCollection } from "astro:content";
 
-const posts = await getCollection('blog').then((collection) => {
-  return collection.sort(
-    (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
-  );
+const posts = await getCollection("blog").then((collection) => {
+	return collection.sort(
+		(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+	);
 });
 ---
 
 <Layout
-  title='Blog'
-  description='Elian Codes Blog | On this page you can find a collection of my blogposts, related to web technologies and programming.'
-  pageTitle='Elian Codes Blog'
+	title="Blog"
+	description="Elian Codes Blog | On this page you can find a collection of my blogposts, related to web technologies and programming."
+	pageTitle="Elian Codes Blog"
 >
-  <main class='bg-blue p-6'>
-    <BlogList posts={posts} />
-  </main>
+	<main class="bg-blue p-6">
+		<BlogList posts={posts} />
+	</main>
 </Layout>

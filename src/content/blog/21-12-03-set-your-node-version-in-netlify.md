@@ -8,19 +8,19 @@ tags:
   - Netlify
 imgUrl: https://download.logo.wine/logo/Netlify/Netlify-Logo.wine.png
 description: A couple of times I needed to fix the NodeJS version on a Netlify site, I found myself googling it a couple of times, so this little how-to is basically a note-to-self.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Set your NodeJS version in Netlify
 
-A couple of times I needed to fix the [NodeJS](<https://nodejs.org>) version on a [Netlify](<https://www.netlify.com>) site, I found myself googling it a couple of times, so this little how-to is basically a note-to-self.
+A couple of times I needed to fix the [NodeJS](https://nodejs.org) version on a [Netlify](https://www.netlify.com) site, I found myself googling it a couple of times, so this little how-to is basically a note-to-self.
 
 The solution to setting a fixed NodeJS version is actually quite easy:
 
 1. go to your desired website
 1. go to Site Settings
-1. under *Build & deploy*
-1. scroll down to *Environment*
+1. under _Build & deploy_
+1. scroll down to _Environment_
 1. add a new environment variable named `NODE_VERSION`
 1. set it to your desired version (major or minor)
 
@@ -28,4 +28,4 @@ The solution to setting a fixed NodeJS version is actually quite easy:
 
 When you set it to `16`, it will automatically use the latest `16.xx.xx`.
 
-More information over on the [Netlify documentation](<https://docs.netlify.com/configure-builds/manage-dependencies/>)
+More information over on the [Netlify documentation](https://docs.netlify.com/configure-builds/manage-dependencies/)

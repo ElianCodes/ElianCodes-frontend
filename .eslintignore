@@ -1,0 +1,10 @@
+.astro/
+.vercel/
+functions/
+node_modules/
+public/
+src/content/
+.env
+tests/
+pnpm-lock.yaml
+src/env.d.ts

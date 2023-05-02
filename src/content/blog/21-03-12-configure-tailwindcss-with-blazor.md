@@ -8,18 +8,18 @@ tags:
   - TailwindCSS
 imgUrl: https://i.morioh.com/2019/11/28/428f90dff706.jpg
 description: I started a WASM Blazor project and wanted to use TailwindCSS, but it has a lot of configuring to do with it.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Configure TailwindCSS with Blazor
 
-I had to make a project for school with [Blazor WASM](<https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor>) and I wanted to use [TailwindCSS](<https://tailwindcss.com>) with it. A new Blazor project is quickly setup, but it uses [Bootstrap](<https://getbootstrap.com/>) out of the box, so how do we configure it to use TailwindCSS?
+I had to make a project for school with [Blazor WASM](https://dotnet.microsoft.com/apps/aspnet/web-apps/blazor) and I wanted to use [TailwindCSS](https://tailwindcss.com) with it. A new Blazor project is quickly setup, but it uses [Bootstrap](https://getbootstrap.com/) out of the box, so how do we configure it to use TailwindCSS?
 
-A little heads up. It's not that easy, if you plan on using the basics, you could also use the [CDN](<https://tailwindcss.com/docs/installation#using-tailwind-via-cdn>), but if you plan on using more advanced features in the configuration like using [Sass](<https://sass-lang.com/>) and `@apply` classes or purging, it's worth it to find a solution.
+A little heads up. It's not that easy, if you plan on using the basics, you could also use the [CDN](https://tailwindcss.com/docs/installation#using-tailwind-via-cdn), but if you plan on using more advanced features in the configuration like using [Sass](https://sass-lang.com/) and `@apply` classes or purging, it's worth it to find a solution.
 
 ## Starting a new Blazor project
 
-Starting a new blazor project is very easy to do. First, we have to install the dotnet SDK, which can be done easily [here](<https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/install>). It's a very straight forward process.
+Starting a new blazor project is very easy to do. First, we have to install the dotnet SDK, which can be done easily [here](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/install). It's a very straight forward process.
 
 After that, we can bootstrap the default Blazor WASM template by running
 
@@ -84,51 +84,54 @@ the `postcss.config.js` file is used to process tailwind to our custom styleshee
 
 ```js
 module.exports = {
-    plugins: [
-        require('postcss-easy-import')({ prefix: '_', extensions: ['.css', '.scss'] }),
-        require('tailwindcss'),
-        require('autoprefixer'),
-        require('postcss-nested')
-    ]
-}
+  plugins: [
+    require("postcss-easy-import")({
+      prefix: "_",
+      extensions: [".css", ".scss"],
+    }),
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require("postcss-nested"),
+  ],
+};
 ```
 
 #### webpack.config.js
 
-In the `webpack.config.js` file we basically tell Webpack to take our raw  `/assets/scss/tailwind.scss` file and compile it to a `main.css` file and add it to the `wwwroot/css/` folder
+In the `webpack.config.js` file we basically tell Webpack to take our raw `/assets/scss/tailwind.scss` file and compile it to a `main.css` file and add it to the `wwwroot/css/` folder
 
 ```js
-const path = require('path');
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
 module.exports = (env, args) => ({
-    devtool: args.mode === 'development' ? 'source-map' : 'none',
-    entry: './scss/tailwind.scss',
-    output: {
-        filename: '[name].js',
-        path: path.resolve(__dirname, '..', 'wwwroot/css')
-    },
-    module: {
-        rules: [
-            {
-                test: /\.scss$/,
-                exclude: /node_modules/,
-                use: [
-                    MiniCssExtractPlugin.loader,
-                    { loader: 'css-loader', options: { url: false, sourceMap: true } },
-                    { loader: 'postcss-loader' },
-                    { loader: 'sass-loader' }
-                ]
-            }
-        ]
-    },
-    plugins: [
-        new FixStyleOnlyEntriesPlugin(),
-        new MiniCssExtractPlugin({
-            filename: '[name].css'
-        })
-    ]
+  devtool: args.mode === "development" ? "source-map" : "none",
+  entry: "./scss/tailwind.scss",
+  output: {
+    filename: "[name].js",
+    path: path.resolve(__dirname, "..", "wwwroot/css"),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: "css-loader", options: { url: false, sourceMap: true } },
+          { loader: "postcss-loader" },
+          { loader: "sass-loader" },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new FixStyleOnlyEntriesPlugin(),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    }),
+  ],
 });
 ```
 
@@ -138,13 +141,13 @@ below is the basic configuration of TailwindCSS without many to it. But from her
 
 ```js
 module.exports = {
-    purge: [],
-    theme: {
-        extend: {},
-    },
-    variants: {},
-    plugins: [],
-}
+  purge: [],
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+};
 ```
 
 ## Configure Blazor to use TailwindCSS
@@ -201,9 +204,9 @@ from this point on we can use Tailwind in any way we want. First, we have to add
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Web">
-  
-   // default configuration here ... 
-    
+
+   // default configuration here ...
+
   <Import Project="assets\assets.targets" />
 </Project>
 ```
@@ -218,9 +221,9 @@ Now we can include and use it in our markup
 
 ```html
 <head>
-    <meta charset="utf-8" />
-    <title>YourAwesomeProject</title>
-    <link href="~/css/main.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <title>YourAwesomeProject</title>
+  <link href="~/css/main.css" rel="stylesheet" />
 </head>
 ```
 

@@ -1,10 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea or improvement
-title: ''
+title: ""
 labels: enhancement
 assignees: ElianCodes
-
 ---
 
 **Is your feature request related to a problem? Please describe.**

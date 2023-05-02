@@ -16,23 +16,23 @@ I'm actually looking to get rid of the Firebase functions, this are the options 
 
 This website is a representation of technologies I'm playing with. Here is a list of technologies that have powed this site before:
 
-- [Nuxt](<https://nuxtjs.org>)
-- [Vue](<https://vuejs.org>)
-- [TypeScript](<https://www.typescript-lang.com>)
-- [TailwindCSS](<https://tailwindcss.com>)
+- [Nuxt](https://nuxtjs.org)
+- [Vue](https://vuejs.org)
+- [TypeScript](https://www.typescript-lang.com)
+- [TailwindCSS](https://tailwindcss.com)
 - [UnoCSS](https://unocss.dev)
 
 ## Deployment and Hosting
 
-At the moment, this website is hosted on Vercel with some Firebase functions to use as an API (at buildtime). The DNS is controlled by [CloudFlare](<https://www.cloudflare.com>).
+At the moment, this website is hosted on Vercel with some Firebase functions to use as an API (at buildtime). The DNS is controlled by [CloudFlare](https://www.cloudflare.com).
 
-The website was previously hosted on [Google Cloud Storage](<https://cloud.google.com/storage>) as a static folder in a public bucket. Then I transitioned to Firebase, since it was easier to manage, cheaper and you get some handy features like preview deploys and such.
+The website was previously hosted on [Google Cloud Storage](https://cloud.google.com/storage) as a static folder in a public bucket. Then I transitioned to Firebase, since it was easier to manage, cheaper and you get some handy features like preview deploys and such.
 
 Currently, it's deployed as a static Vercel website using the [Astro Vercel adapter](https://docs.astro.build/en/guides/integrations-guide/vercel/). Vercel offers some features I love, like analytics, web vitals info, feature and preview deploys.
 
 ## Development setup
 
-To install and manage dependencies, I use [PNPM](<https://pnpm.io/>).
+To install and manage dependencies, I use [PNPM](https://pnpm.io/).
 
 ```bash
 # for development
@@ -44,22 +44,22 @@ pnpm build && pnpm preview
 
 ## Technologies and packages
 
-The base of the website uses [Astro](<https://astro.build>) to generate and build the (static) site.
+The base of the website uses [Astro](https://astro.build) to generate and build the (static) site.
 
 ### Frontend
 
-At the moment, the UI of the website is built and generated using [Astro](<https://astro.build>). [Astro](<https://astro.build>) is an amazing technology to generate static sites (but also supports SSR). If you want to know more about it, feel free to read [their documentation](<https://docs.astro.build/getting-started>).
+At the moment, the UI of the website is built and generated using [Astro](https://astro.build). [Astro](https://astro.build) is an amazing technology to generate static sites (but also supports SSR). If you want to know more about it, feel free to read [their documentation](https://docs.astro.build/getting-started).
 
 #### Components
 
-Most of my templates are written in pure Astro, since I don't need to much interactivity. Components that do require interactivity, are written in [VueJS](<https://vuejs.org>). Actually, Astro doesn't care in which language you write or define your components. That's kinda their thing.
+Most of my templates are written in pure Astro, since I don't need to much interactivity. Components that do require interactivity, are written in [VueJS](https://vuejs.org). Actually, Astro doesn't care in which language you write or define your components. That's kinda their thing.
 
 #### UnoCSS
 
-To define the style of the website, [UnoCSS](https://unocss.dev), with some presets are used. [You can read more about my transition and use here.](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>)
+To define the style of the website, [UnoCSS](https://unocss.dev), with some presets are used. [You can read more about my transition and use here.](https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro)
 
 ### Backend
 
-The *real* RESTful API was discontinued on 02 May 2022 since I decided to go with serveless cloud functions on Firebase instead of a running container.
+The _real_ RESTful API was discontinued on 02 May 2022 since I decided to go with serveless cloud functions on Firebase instead of a running container.
 
 The functions are located in the `functions/` folder in this repo. Most of them are only fetched and used at build time (Yay Astro 🙌). For example, the events list, these are fetched from the API at buildtime, the API itself gets them from Firestore.

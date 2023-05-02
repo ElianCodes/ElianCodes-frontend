@@ -13,9 +13,9 @@ layout: "../../layouts/BlogPost.astro"
 
 # I started from scratch (again)
 
-So, after attending [JSWorld](<https://jsworldconference.com/>) Conference in Amsterdam 8 - 10 february, I was feeling so amazed and inspired by the talks and the people I met there. The're all amazing developers  with so many ideas and insane skills. I already wanted to redesign and update [my own personal website](<https://www.elian.codes>). I took this amazing opportunity of being inspired to popout a new website from scratch over the weekend.
+So, after attending [JSWorld](https://jsworldconference.com/) Conference in Amsterdam 8 - 10 february, I was feeling so amazed and inspired by the talks and the people I met there. The're all amazing developers with so many ideas and insane skills. I already wanted to redesign and update [my own personal website](https://www.elian.codes). I took this amazing opportunity of being inspired to popout a new website from scratch over the weekend.
 
-This was of course also an ultimate test of [Astro](<https://astro.build>), [their docs](<https://docs.astro.build/>) and DX. (spoiler alert: their docs are great, but I still put in some PR's 🤷‍♂️)
+This was of course also an ultimate test of [Astro](https://astro.build), [their docs](https://docs.astro.build/) and DX. (spoiler alert: their docs are great, but I still put in some PR's 🤷‍♂️)
 
 ## Bootstrapping Astro (once again)
 
@@ -37,15 +37,15 @@ When I restarted building this site, I wanted to make I use as less client-side 
 
 The first step I actually took was deciding how the design would look. I googled for some inspiration and newer design trends for 2023. I quickly stumbled upon a style called Neobrutalism, it looked cool and is actually really easy to implement, since it uses a lot of color and contrast and a lot of boxes.
 
-![Lookup for Neobrutalism on Dribble](<https://i.imgur.com/R8VPONo.png>)
+![Lookup for Neobrutalism on Dribble](https://i.imgur.com/R8VPONo.png)
 
 ### Adding the UnoCSS integration
 
-I added [TailwindCSS](<https://tailwindcss.com>) in all previous versions of my website, since I use that on almost every project I make, at work and in personal projects, it feels so natural. This time, I used [UnoCSS](<https://uno.antfu.me>), with the `@unocss/preset-wind` preset. You can [read more about it here](<https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro>).
+I added [TailwindCSS](https://tailwindcss.com) in all previous versions of my website, since I use that on almost every project I make, at work and in personal projects, it feels so natural. This time, I used [UnoCSS](https://uno.antfu.me), with the `@unocss/preset-wind` preset. You can [read more about it here](https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro).
 
 Although, there was one thing I wanted to do different this time! Usually, I make a very complicated `tailwind.scss` which imports a couple of other more specific files; this time I wanted to engineer my components so good from the start, so I didn't have to build custom CSS, and UnoCSS made this a dream. If I need to change CSS in more than one spot, the component itself, probably isn't small enough. Of course, this is a choice I can make in starting a new project, but isn't usable in every project. I think this worked out great! There is one style I made globally available, which was the shadow / filter and it's animation;
 
-![ElianCodes website](<https://i.imgur.com/ITe2vHQ.png>)
+![ElianCodes website](https://i.imgur.com/ITe2vHQ.png)
 
 ## Features & Integrations
 
@@ -57,22 +57,24 @@ I've created a new folder called `src/content/blog` and I've moved all my blogpo
 
 #### The `[slug].astro` page
 
-This example is almost identically taken from the [Astro docs](<https://docs.astro.build/en/guides/content-collections/#using-content-in-astro-templates>). Since this works perfectly as I need it to, I don't have to change anything about it. The blogposts themself, have a property in the frontmatter called `layout`, which we then use to tell Astro what Layout it should use, it will then inject the `<Content />` in the `<slot />` of that layout.
+This example is almost identically taken from the [Astro docs](https://docs.astro.build/en/guides/content-collections/#using-content-in-astro-templates). Since this works perfectly as I need it to, I don't have to change anything about it. The blogposts themself, have a property in the frontmatter called `layout`, which we then use to tell Astro what Layout it should use, it will then inject the `<Content />` in the `<slot />` of that layout.
 
 ```astro
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(blogpost => ({
-    params: { slug: blogpost.slug }, props: { blogpost },
+  const blogEntries = await getCollection("blog");
+  return blogEntries.map((blogpost) => ({
+    params: { slug: blogpost.slug },
+    props: { blogpost },
   }));
 }
 
 const { blogpost } = Astro.props;
 const { Content } = await blogpost.render();
 ---
+
 <Content />
 ```
 
@@ -80,10 +82,10 @@ The awesome part is that you don't need any extra integration to make full use o
 
 #### Type Safety???
 
-Waw! The complete typesafety in the content collection API is mindblowing! Now I'm actually happy that I stole [Fred](<https://twitter.com/FredKSchott>)'s talk at JSWorld, so he could talk about complete typesafety in Markdown! Using this, I can define what the frontmatter properties of my blogposts should look like, if a blogpost doesn't have them, it will throw an error during the build of the site! Awesome!!
+Waw! The complete typesafety in the content collection API is mindblowing! Now I'm actually happy that I stole [Fred](https://twitter.com/FredKSchott)'s talk at JSWorld, so he could talk about complete typesafety in Markdown! Using this, I can define what the frontmatter properties of my blogposts should look like, if a blogpost doesn't have them, it will throw an error during the build of the site! Awesome!!
 
 ```ts
-import { z, defineCollection } from 'astro:content';
+import { z, defineCollection } from "astro:content";
 
 const blogCollection = defineCollection({
   schema: z.object({
@@ -91,9 +93,9 @@ const blogCollection = defineCollection({
     author: z.string(),
     tags: z.array(z.string()),
     description: z.string(),
-    pubDate: z.string().transform(str => new Date(str)),
+    pubDate: z.string().transform((str) => new Date(str)),
     imgUrl: z.string().optional(),
-  })
+  }),
 });
 ```
 
@@ -102,14 +104,15 @@ const blogCollection = defineCollection({
 To setup RSS, you still need a package called `@astrojs/rss`. Then I just added the same code as in my previous version of the website, but now I'm using the Content Collection API to get the data from the blogposts.
 
 ```ts
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
 
 export async function get(context) {
-  const blog = await getCollection('blog');
+  const blog = await getCollection("blog");
   return rss({
-    title: 'Elian Van Cutsem',
-    description: 'BLog about programming, Astro and general JavaScript knowledge.',
+    title: "Elian Van Cutsem",
+    description:
+      "BLog about programming, Astro and general JavaScript knowledge.",
     site: context.site, // defined in astro.config.mjs
     items: blog.map((post) => ({
       title: post.data.title,
@@ -127,12 +130,14 @@ For the above code to work, you need to add the following to your `astro.config.
 
 ```ts
 export default defineConfig({
-  site: 'https://www.elian.codes/',
-  integrations: [ /* ... */ ]
+  site: "https://www.elian.codes/",
+  integrations: [
+    /* ... */
+  ],
 });
 ```
 
-![ElianCodes blog screenshot](<https://i.imgur.com/5PLhjyJ.png>)
+![ElianCodes blog screenshot](https://i.imgur.com/5PLhjyJ.png)
 
 ### Sitemap integration
 
@@ -156,7 +161,7 @@ pnpm install -D eslint eslint-plugin-astro @typescript-eslint/parser eslint-plug
 
 ## Interactivity using Vue
 
-Yes, I always loved [Vue](<https://vuejs.org>) and it's been a long time since it has been on my personal website! One of the first versions of my website were built with [Nuxt](<https://nuxt.com>) and [Nuxt Content](<https://content.nuxtjs.org/>), but when I switched over to Astro, I used [Solid](<https://www.solidjs.com>) which I did to learn more about Solid and it's signals, and I must say that I really like it! But one can only follow so many frameworks and have a deep understanding about it, So I decided to go back to Vue, since I'm using it at work and I'm really enjoying it!
+Yes, I always loved [Vue](https://vuejs.org) and it's been a long time since it has been on my personal website! One of the first versions of my website were built with [Nuxt](https://nuxt.com) and [Nuxt Content](https://content.nuxtjs.org/), but when I switched over to Astro, I used [Solid](https://www.solidjs.com) which I did to learn more about Solid and it's signals, and I must say that I really like it! But one can only follow so many frameworks and have a deep understanding about it, So I decided to go back to Vue, since I'm using it at work and I'm really enjoying it!
 
 ```bash
 astro add vue
@@ -175,12 +180,12 @@ pnpm dlx create-playwright
 That will initialise a playwright config. Then you can start building tests:
 
 ```js
-import { test, expect } from '@playwright/test';
+import { test, expect } from "@playwright/test";
 
-test('meta is correct', async ({ page }) => {
+test("meta is correct", async ({ page }) => {
   await page.goto("/");
 
-  await expect(page).toHaveTitle('ElianCodes | Home');
+  await expect(page).toHaveTitle("ElianCodes | Home");
 });
 ```
 
@@ -195,19 +200,19 @@ npx playwright test
 The deployment is completely taken care of by Vercel. You don't really have to configure a lot, but this is my config:
 
 ```js
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import vercel from "@astrojs/vercel/static";
 
 export default defineConfig({
-  site: 'https://www.elian.codes/',
-  trailingSlash: 'ignore',
+  site: "https://www.elian.codes/",
+  trailingSlash: "ignore",
   integrations: [
     // ... //
-  ]
+  ],
   output: "static",
   adapter: vercel({
-    analytics: true
-  })
+    analytics: true,
+  }),
 });
 ```
 
@@ -217,10 +222,10 @@ export default defineConfig({
 
 There are still some ideas I'm playing with, for instance I'd like to add custom social images to my blogpost and autogenerate them! I'm also thinking about ways to make the events page a little more interactive, but I'm not sure yet how I want to do that. Guess you'll have to wait and see 🤷‍♂️!
 
-But if you're so interested that you want to watch me build, give the [`eliancodes-frontend`](<https://github.com/ElianCodes/ElianCodes-frontend>) a watch or star on Github and check out the issues!
+But if you're so interested that you want to watch me build, give the [`eliancodes-frontend`](https://github.com/ElianCodes/ElianCodes-frontend) a watch or star on Github and check out the issues!
 
 ## Some last details
 
 I worked on the new website for about 16 hours
 
-![Screenshot of wakatime stats for the 2023 redesign](<https://i.imgur.com/H34ZoVJ.png>)
+![Screenshot of wakatime stats for the 2023 redesign](https://i.imgur.com/H34ZoVJ.png)

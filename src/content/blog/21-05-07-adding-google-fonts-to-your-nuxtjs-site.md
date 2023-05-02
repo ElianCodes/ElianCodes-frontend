@@ -8,7 +8,7 @@ tags:
   - JavaScript
 imgUrl: https://www.gstatic.com/images/icons/material/apps/fonts/1x/catalog/v5/opengraph_color.png
 description: I found out that my fonts weren't loading properly, so I searched for an alternative.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Adding Google Fonts to your NuxtJS site
@@ -17,11 +17,11 @@ Some time ago I found out that some of my fonts weren't loading in some browsers
 
 ## @nuxtjs/google-fonts
 
-In my search on Google Fonts in Nuxt, I almost immediatly found out about the Nuxt module called [@nuxtjs/google-fonts](<https://www.npmjs.com/package/@nuxtjs/google-fonts>). It works like a charm and is very versatile. Here's a little guide on how you can use it.
+In my search on Google Fonts in Nuxt, I almost immediatly found out about the Nuxt module called [@nuxtjs/google-fonts](https://www.npmjs.com/package/@nuxtjs/google-fonts). It works like a charm and is very versatile. Here's a little guide on how you can use it.
 
 ## Installing the module
 
-Installing a module in [Nuxt](<https://nuxtjs.org>) is the easiest thing you'll come across. It's nothing more than a simple NPM package install. Here's how you can install the google-fonts module:
+Installing a module in [Nuxt](https://nuxtjs.org) is the easiest thing you'll come across. It's nothing more than a simple NPM package install. Here's how you can install the google-fonts module:
 
 ```bash
 yarn add -D @nuxtjs/google-fonts
@@ -102,13 +102,13 @@ p {
 
 ### Using with TailwindCSS
 
-Since I'm using TailwindCSS on [my website](<https://www.elian.codes>), I also had to find out how to use the fonts in my custom Tailwind configuration. Turns out I just had to add it by using simple old skool CSS, since there's no way (yet) to add it in an `@apply` rule.
+Since I'm using TailwindCSS on [my website](https://www.elian.codes), I also had to find out how to use the fonts in my custom Tailwind configuration. Turns out I just had to add it by using simple old skool CSS, since there's no way (yet) to add it in an `@apply` rule.
 
 ```css
 p.title {
-    font-family: Rubik, sans-serif;
-    @apply text-lg text-center text-black font-semibold;
+  font-family: Rubik, sans-serif;
+  @apply text-lg text-center text-black font-semibold;
 }
 ```
 
-More info is available on the [Official Documentation of the module](<https://google-fonts.nuxtjs.org/>).
+More info is available on the [Official Documentation of the module](https://google-fonts.nuxtjs.org/).

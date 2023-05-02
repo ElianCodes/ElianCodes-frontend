@@ -8,7 +8,7 @@ tags:
   - TailwindCSS
 description: Astro came out with a beta version of the v1.0 release of the framework. I upgraded my website to use that version, since I was still running on v0.24. The following are some of the changes I had to do to get it working.
 imgUrl: https://css-tricks.com/wp-content/uploads/2021/05/astro-homepage.png
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Upgrading my website to Astro v1.0
@@ -25,15 +25,14 @@ This is what the older API looked like:
 
 ```astro
 ---
-const blogposts = Astro.fetchContent('*.md')
+const blogposts = Astro.fetchContent("*.md");
 ---
+
 <body>
   <ul>
     {
-      blogposts.map(blogpost => {
-        return (
-          <li>{blogpost.title}</li>
-        )
+      blogposts.map((blogpost) => {
+        return <li>{blogpost.title}</li>;
       })
     }
   </ul>
@@ -46,15 +45,14 @@ Here is what it looks like:
 
 ```astro
 ---
-const blogposts = await Astro.glob('*.md');
+const blogposts = await Astro.glob("*.md");
 ---
+
 <body>
   <ul>
     {
-      blogposts.map(blogpost => {
-        return (
-          <li>{blogpost.frontmatter.title}</li>
-        )
+      blogposts.map((blogpost) => {
+        return <li>{blogpost.frontmatter.title}</li>;
       })
     }
   </ul>
@@ -65,7 +63,12 @@ An example of what the `.then()` use, could look like:
 
 ```astro
 ---
-const blogposts = await Astro.glob('./**/*.md').then(posts => posts.sort((a, b) => new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)))
+const blogposts = await Astro.glob("./**/*.md").then((posts) =>
+  posts.sort(
+    (a, b) =>
+      new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)
+  )
+);
 ---
 ```
 
@@ -92,19 +95,21 @@ Some changes also ocurred in the `astro.config.mjs` file.
 Here's an example of the new API:
 
 ```js
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
 export default defineConfig({
-  trailingSlash: 'ignore',
-  site: 'https://www.elian.codes',
+  trailingSlash: "ignore",
+  site: "https://www.elian.codes",
   server: {
-    port: 3000
+    port: 3000,
   },
-  integrations: [sitemap({
-    canonicalURL: 'https://www.elian.codes',
-  })]
+  integrations: [
+    sitemap({
+      canonicalURL: "https://www.elian.codes",
+    }),
+  ],
 });
 ```
 
@@ -112,4 +117,4 @@ Note that the `integrations` object is a new thing, which basically contains the
 
 Keep in mind that the `@astrojs/sitemap` is a new and seperate package, so should be installed too.
 
-That's basically all I had to do. If you're interested to upgrade your Astro website to v1.0-beta and need some more guidance, here's the [Official upgrade & migration guide](<https://docs.astro.build/en/migrate/>)
+That's basically all I had to do. If you're interested to upgrade your Astro website to v1.0-beta and need some more guidance, here's the [Official upgrade & migration guide](https://docs.astro.build/en/migrate/)

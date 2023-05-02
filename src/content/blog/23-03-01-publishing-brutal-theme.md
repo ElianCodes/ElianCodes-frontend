@@ -4,7 +4,7 @@ description: Brutal is a minimal neobrutalist theme for Astro. It's based on Ne
 pubDate: 2023-03-01 19:41
 author: Elian Van Cutsem
 imgUrl: https://i.imgur.com/9iWcLIX.png
-tags: 
+tags:
   - Astro
   - UnoCSS
   - TypeScript
@@ -15,7 +15,7 @@ layout: ../../layouts/BlogPost.astro
 
 Brutal is a minimal neobrutalist theme for [Astro](https://astro.build/). It's based on Neobrutalist Web Design, a movement that aims to create websites with a minimalistic and functional design. It has some integrations like Image Optimization, RSS, Sitemap, ready to get your SEO done right.
 
-Finally, I published my own [website](<https://www.elian.codes/>)'s 2023 redesign as an Astro theme!
+Finally, I published my own [website](https://www.elian.codes/)'s 2023 redesign as an Astro theme!
 
 ## Getting started
 
@@ -39,7 +39,7 @@ That's it! You now should have a fully functional theme!!
 
 ### UnoCSS
 
-I recently got more in contact with [UnoCSS](<https://uno.antfu.me/>) and really love it. I decided to set it up with this theme, so more people can get easy access to using it without the hassle of setting it up. I also love the presets for utility-first classes and pureCSS icons!
+I recently got more in contact with [UnoCSS](https://uno.antfu.me/) and really love it. I decided to set it up with this theme, so more people can get easy access to using it without the hassle of setting it up. I also love the presets for utility-first classes and pureCSS icons!
 
 ### Astro integrations
 
@@ -47,5 +47,5 @@ The theme includes some basics you need to setup a blog or general website. It w
 
 ## Links
 
-- [Brutal theme on Astro's website](<https://astro.build/themes/details/brutal>)
-- [Theme's repository on Github](<https://github.com/eliancodes/brutal>)
+- [Brutal theme on Astro's website](https://astro.build/themes/details/brutal)
+- [Theme's repository on Github](https://github.com/eliancodes/brutal)

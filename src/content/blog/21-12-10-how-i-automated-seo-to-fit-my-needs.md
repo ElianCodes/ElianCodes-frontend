@@ -8,14 +8,14 @@ tags:
   - Webdevelopment
 description: It's been some time since I started writing posts and articles about programming and related. Since the start, I've always invested time in SEO, over time, I have integrated a system that now works for me. This is an explanation how I did that.
 imgUrl: https://www.swifttech.com.np/blog/wp-content/uploads/2022/12/What-is-SEO.png
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # How I automated SEO to fit my needs
 
 It's been some time since I started writing posts and articles about programming and related topics. Since the start, I've always invested a lot of time in SEO, over time, I've integrated a system that now works for me. This is an explanation how I did that.
 
-When I first started writing, I used the [NuxtJS](<https://nuxtjs.org>) framework with [Nuxt Content](<https://content.nuxtjs.org/>), Nuxt has a very good [SEO guide and toolset](<https://nuxtjs.org/docs/features/meta-tags-seo/>). These enabled me to write my own system when I switched to [Astro](<https://www.astro.build>)
+When I first started writing, I used the [NuxtJS](https://nuxtjs.org) framework with [Nuxt Content](https://content.nuxtjs.org/), Nuxt has a very good [SEO guide and toolset](https://nuxtjs.org/docs/features/meta-tags-seo/). These enabled me to write my own system when I switched to [Astro](https://www.astro.build)
 
 The following is more of a theoretical explanation rather than real code samples. It will include them, but they can differ depending on frameworks or languages you are using in your projects.
 
@@ -35,8 +35,8 @@ tags:
 description: How I automated SEO to fit my needs
 imgUrl: http://marketingupdate.nl/wp-content/uploads/2020/05/SEO-Pillar-Post-Art-.png
 longDescription: It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that.
-layout: '../../layouts/BlogPost.astro'
-permalink: '12-10-21-how-i-automated-seo-to-fit-my-needs'
+layout: "../../layouts/BlogPost.astro"
+permalink: "12-10-21-how-i-automated-seo-to-fit-my-needs"
 ---
 ```
 
@@ -60,18 +60,36 @@ When these are converted to HTML at build-time, the `<head>` element will look s
 <!-- Primary Meta Tags -->
 <title>🔍 How I automated SEO to fit my needs</title>
 <meta name="title" content="🔍 How I automated SEO to fit my needs" />
-<meta name="description" content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that." />
+<meta
+  name="description"
+  content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
+/>
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs" />
+<meta
+  property="og:url"
+  content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
+/>
 <meta property="og:title" content="🔍 How I automated SEO to fit my needs" />
-<meta property="og:description" content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that." />
+<meta
+  property="og:description"
+  content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
+/>
 
 <!-- Twitter -->
-<meta property="twitter:url" content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs" />
-<meta property="twitter:title" content="🔍 How I automated SEO to fit my needs" />
-<meta property="twitter:description" content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that." />
+<meta
+  property="twitter:url"
+  content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
+/>
+<meta
+  property="twitter:title"
+  content="🔍 How I automated SEO to fit my needs"
+/>
+<meta
+  property="twitter:description"
+  content="It's been some time since I started writing posts and articles about programming and related. Since the start, I always invested time in SEO, I integrated a system that now works for me. This is an explanation how I did that."
+/>
 ```
 
 ## RSS
@@ -130,25 +148,65 @@ A recognizable favicon is an important step when building or designing a website
 ```html
 <!-- icon Metadata -->
 <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="/icons/apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="/icons/apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="/icons/apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="/icons/apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192"  href="/icons/android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="57x57" href="/icons/apple-icon-57x57.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/icons/apple-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/icons/apple-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/icons/apple-icon-76x76.png" />
+<link
+  rel="apple-touch-icon"
+  sizes="114x114"
+  href="/icons/apple-icon-114x114.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="120x120"
+  href="/icons/apple-icon-120x120.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="144x144"
+  href="/icons/apple-icon-144x144.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="152x152"
+  href="/icons/apple-icon-152x152.png"
+/>
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/icons/apple-icon-180x180.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="192x192"
+  href="/icons/android-icon-192x192.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/icons/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="96x96"
+  href="/icons/favicon-96x96.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/icons/favicon-16x16.png"
+/>
 
-<link rel="manifest" href="/manifest.json">
-<meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-<meta name="theme-color" content="#ffffff">
-<meta name="theme-color" content="#6ee7b7">
+<link rel="manifest" href="/manifest.json" />
+<meta name="msapplication-TileColor" content="#ffffff" />
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="theme-color" content="#6ee7b7" />
 ```
 
 There are a lot of helpful icon generators online that will output your given icon in the right formats.
@@ -159,12 +217,21 @@ Images are eye candy, choosing an image that fits your post and will appear ever
 
 ```html
 <!-- Open Graph / Facebook -->
-<meta property="og:url" content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs" />
-<meta property="og:image" content="https://www.elian.codes/assets/img/social.jpg" />
+<meta
+  property="og:url"
+  content="https://www.elian.codes/blog/12-10-21-how-i-automated-seo-to-fit-my-needs"
+/>
+<meta
+  property="og:image"
+  content="https://www.elian.codes/assets/img/social.jpg"
+/>
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://www.elian.codes/assets/img/social.jpg" />
+<meta
+  property="twitter:image"
+  content="https://www.elian.codes/assets/img/social.jpg"
+/>
 ```
 
 Currently I'm building/writing my own social image generator in Go to adjust the title and color dynamically based on the HTML-page title and such! Once that's finished and published, I'll share a post on how it works!
@@ -199,18 +266,18 @@ A `robots.txt` file is a simple representation of what pages a search engine or 
 
 Its a very small and simple representation where you disallow certain directories or pages from a specific or all search engines. It also can include your hostname and sitemap so every crawler knows what to look for and where to find it.
 
-Here's the `robots.txt` of [elian.codes](<https://www.elian.codes/>)
+Here's the `robots.txt` of [elian.codes](https://www.elian.codes/)
 
 ```
 User-agent: *
-Disallow: 
+Disallow:
 Host: https://www.elian.codes/
 Sitemap: https://www.elian.codes/sitemap.xml
 ```
 
 ## Crossposting
 
-Since I started writing posts, I wasn't sure that the posts I wrote would get any traction. I did some research and noted that [Dev.to](<https://www.dev.to>) has a functionality where it can fetch your posts from RSS and cross-post them on their website. In the details of the post it describes the original (canonical) link, so people still see your website and your website still gets chosen above theirs by crawlers, but people already on Dev.to are more likely to find your post. A win-win situation!
+Since I started writing posts, I wasn't sure that the posts I wrote would get any traction. I did some research and noted that [Dev.to](https://www.dev.to) has a functionality where it can fetch your posts from RSS and cross-post them on their website. In the details of the post it describes the original (canonical) link, so people still see your website and your website still gets chosen above theirs by crawlers, but people already on Dev.to are more likely to find your post. A win-win situation!
 
 Since I first started writing posts on this website, I always invested in SEO and I feel that it does it's job well!
 

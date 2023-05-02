@@ -1,10 +1,10 @@
-import type { APIRoute } from 'astro';
-import satori from 'satori';
-import { html as toReactElement } from 'satori-html';
-import { ResvgRenderOptions, Resvg } from '@resvg/resvg-js';
+import type { APIRoute } from "astro";
+import satori from "satori";
+import { html as toReactElement } from "satori-html";
+import { ResvgRenderOptions, Resvg } from "@resvg/resvg-js";
 
 const fontFile = await fetch(
-  'https://og-playground.vercel.app/inter-latin-ext-700-normal.woff'
+	"https://og-playground.vercel.app/inter-latin-ext-700-normal.woff"
 );
 
 const fontData: ArrayBuffer = await fontFile.arrayBuffer();
@@ -13,8 +13,8 @@ const height = 630;
 const width = 1200;
 
 export const get: APIRoute = async () => {
-  const link = 'https://www.elian.codes';
-  const html = toReactElement(`
+	const link = "https://www.elian.codes";
+	const html = toReactElement(`
   <div style="background-color: white; display: flex; flex-direction: column; height: 100%; padding: 3rem; width: 100%">
     <div style="display:flex; height: 100%; width: 100%; background-color: white; border: 6px solid black; border-radius: 0.5rem; padding: 2rem; filter: drop-shadow(6px 6px 0 rgb(0 0 0 / 1));">
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; filter: drop-shadow()">
@@ -32,32 +32,32 @@ export const get: APIRoute = async () => {
   </div>
   `);
 
-  const svg = await satori(html, {
-    fonts: [
-      {
-        name: 'Inter Latin',
-        data: fontData,
-        style: 'normal',
-      },
-    ],
+	const svg = await satori(html, {
+		fonts: [
+			{
+				name: "Inter Latin",
+				data: fontData,
+				style: "normal",
+			},
+		],
 
-    height,
-    width,
-  });
+		height,
+		width,
+	});
 
-  const opts: ResvgRenderOptions = {
-    fitTo: {
-      mode: 'width',
-      value: width,
-    },
-  };
-  const resvg = new Resvg(svg, opts);
-  const pngData = resvg.render();
-  const pngBuffer = pngData.asPng();
+	const opts: ResvgRenderOptions = {
+		fitTo: {
+			mode: "width",
+			value: width,
+		},
+	};
+	const resvg = new Resvg(svg, opts);
+	const pngData = resvg.render();
+	const pngBuffer = pngData.asPng();
 
-  return new Response(pngBuffer, {
-    headers: {
-      'content-type': 'image/png',
-    },
-  });
+	return new Response(pngBuffer, {
+		headers: {
+			"content-type": "image/png",
+		},
+	});
 };

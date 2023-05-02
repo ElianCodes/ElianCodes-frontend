@@ -1,34 +1,34 @@
 ---
-import { getCollection } from 'astro:content';
-import BlogList from '@components/blog/BlogList.astro';
-import { Button, Card } from '@eliancodes/brutal-ui';
+import BlogList from "@components/blog/BlogList.astro";
+import { Button, Card } from "@eliancodes/brutal-ui";
+import { getCollection } from "astro:content";
 
-interface Props {
-  count?: number;
+export interface Props {
+	count?: number;
 }
 
 const { count } = Astro.props;
 
-const posts = await getCollection('blog').then((collection) => {
-  return collection
-    .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-    .slice(0, count || 3);
+const posts = await getCollection("blog").then((collection) => {
+	return collection
+		.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
+		.slice(0, count ?? 3);
 });
 ---
 
-<section class='mt-8'>
-  <Card>
-    <div class='flex justify-between items-start'>
-      <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
-        Recent Blogposts
-      </h2>
-      <div class='hidden md:block'>
-        <Button href='/blog/'>Go to blog &rarr;</Button>
-      </div>
-      <div class='block md:hidden'>
-        <Button href='/blog/'>to blog</Button>
-      </div>
-    </div>
-    <BlogList posts={posts} />
-  </Card>
+<section class="mt-8">
+	<Card>
+		<div class="flex justify-between items-start">
+			<h2 class="text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif">
+				Recent Blogposts
+			</h2>
+			<div class="hidden md:block">
+				<Button href="/blog/">Go to blog &rarr;</Button>
+			</div>
+			<div class="block md:hidden">
+				<Button href="/blog/">to blog</Button>
+			</div>
+		</div>
+		<BlogList posts={posts} />
+	</Card>
 </section>

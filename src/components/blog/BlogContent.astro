@@ -1,17 +1,19 @@
 ---
-interface Props {
-  content: any;
+import { collectionEntry } from "astro:content";
+
+export interface Props {
+	content: collectionEntry<"blog">;
 }
 
 const { content } = Astro.props;
 ---
 
-<article class='prose-slate w-sm md:w-prose md:prose poppins'>
-  <a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
-  <p class='text-slate text-sm md:text-base'>
-    Published on {content.pubDate} by {content.author}
-  </p>
-  <slot />
-  <p class='text-slate'>Written by {content.author}</p>
-  <a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
+<article class="prose-slate w-sm md:w-prose md:prose poppins">
+	<a href="/blog/" title="Back to blog">&larr; Back to blog</a>
+	<p class="text-slate text-sm md:text-base">
+		Published on {content.pubDate} by {content.author}
+	</p>
+	<slot />
+	<p class="text-slate">Written by {content.author}</p>
+	<a href="/blog/" title="Back to blog">&larr; Back to blog</a>
 </article>

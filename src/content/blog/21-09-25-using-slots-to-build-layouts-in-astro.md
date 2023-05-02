@@ -8,7 +8,7 @@ tags:
   - Framework
 imgUrl: https://css-tricks.com/wp-content/uploads/2021/05/astro-homepage.png
 description: Coming from frameworks like NuxtJS and NextJS, I always liked the layout feature. It's a quick way to reuse shared components without re-importing them in every page. When I started with Astro, I had no idea that this was also possible.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using slots to build layout in Astro
@@ -27,7 +27,8 @@ Building layouts in Nuxt is really easy (or I'm just very used to it). There's a
 <template>
   <div>
     <TheHeader />
-    <Nuxt /> <!-- The page content will then go here -->
+    <Nuxt />
+    <!-- The page content will then go here -->
     <TheFooter />
   </div>
 </template>
@@ -44,9 +45,9 @@ If the Nuxt layout component was named `Default.vue` you can just add `layout: '
 </template>
 
 <script>
-export default {
-  layout: 'default',
-}
+  export default {
+    layout: "default",
+  };
 </script>
 ```
 
@@ -62,17 +63,19 @@ Let's define a new Astro template in the `/src/layouts` folder and call it `Defa
 
 ```astro
 ---
-import YourHeadComponent from '../components/layout/Head.astro
-import YourHeaderComponent from '../components/layout/Header.astro
-import YourFooterComponent from '../components/layout/Footer.astro
+import YourHeadComponent from "../components/layout/Head.astro";
+import YourHeaderComponent from "../components/layout/Header.astro";
+import YourFooterComponent from "../components/layout/Footer.astro";
 ---
+
 <html lang="en">
   <head>
     <YourHeadComponent />
   </head>
   <body>
     <YourHeaderComponent />
-    <slot /> <!-- The page will render it's content here -->
+    <slot />
+    <!-- The page will render it's content here -->
     <YourFooterComponent />
   </body>
 </html>
@@ -84,8 +87,9 @@ To then also use the layout we defined above, we just have to create a new page 
 
 ```astro
 ---
-import DefaultLayout from '../layouts/Default.astro
+import DefaultLayout from "../layouts/Default.astro";
 ---
+
 <DefaultLayout>
   <main>
     <h1>Look ma, a layout</h1>

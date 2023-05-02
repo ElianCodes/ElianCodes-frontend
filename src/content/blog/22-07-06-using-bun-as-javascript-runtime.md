@@ -8,14 +8,14 @@ tags:
   - Runtime
 imgUrl: https://bun.sh/share.png
 description: Bun is a new runtime for JavaScript & TypeScript, compatible with NodeJS packages and ecosystem.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Bun as JavaScript runtime
 
-So, this morning I came across a tweet showcasing [Bun](<https://bun.sh/>). Bun is a 'new' runtime for JavaScript built from scratch. It claims to be a lot faster and compatible with NodeJS packages (NPM) and the NodeJS API functions. Let's try that out!
+So, this morning I came across a tweet showcasing [Bun](https://bun.sh/). Bun is a 'new' runtime for JavaScript built from scratch. It claims to be a lot faster and compatible with NodeJS packages (NPM) and the NodeJS API functions. Let's try that out!
 
-*"Bun's goal is to run most of the worlds JavaScript outside of browsers, bringing performance and complexity enhancements to your future infrastructure, as well as developer productivity through better, simpler tooling."*
+_"Bun's goal is to run most of the worlds JavaScript outside of browsers, bringing performance and complexity enhancements to your future infrastructure, as well as developer productivity through better, simpler tooling."_
 
 ## Installing Bun
 
@@ -58,7 +58,7 @@ bun remove
 
 Some of these commands also have shorthands like `bun i` or `bun rm`
 
-More info can be found in [the reference docs](<https://github.com/oven-sh/bun#readme>)
+More info can be found in [the reference docs](https://github.com/oven-sh/bun#readme)
 
 ## Using the Bun runtime
 

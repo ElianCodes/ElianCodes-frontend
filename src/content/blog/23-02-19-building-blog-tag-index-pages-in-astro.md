@@ -25,15 +25,15 @@ The blogpost frontmatter validation:
 import { z, defineCollection } from "astro:content";
 
 const blogCollection = defineCollection({
-	schema: z.object({
-		title: z.string(),
-		author: z.string(),
-		tags: z.array(z.string()),
-		description: z.string(),
-		pubDate: z.string().transform((str) => new Date(str)),
-		imgUrl: z.string(),
-		draft: z.boolean().optional().default(false),
-	}),
+  schema: z.object({
+    title: z.string(),
+    author: z.string(),
+    tags: z.array(z.string()),
+    description: z.string(),
+    pubDate: z.string().transform((str) => new Date(str)),
+    imgUrl: z.string(),
+    draft: z.boolean().optional().default(false),
+  }),
 });
 ```
 
@@ -45,8 +45,12 @@ Of course, tags are dynamic, so the first thing is to build a page with the `get
 
 ```js
 return {
-  params: { /* ... */ },
-  props: { /* ... */ },
+  params: {
+    /* ... */
+  },
+  props: {
+    /* ... */
+  },
 };
 ```
 
@@ -56,10 +60,10 @@ Let's start with getting all tags and build the static pages:
 
 ```astro
 ---
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
+  const allPosts = await getCollection("blog");
 
   const tags: string[] = [];
 
@@ -70,14 +74,16 @@ export async function getStaticPaths() {
     });
   });
 
-  // using a new array from a set, we can get rid of duplicate tags 
+  // using a new array from a set, we can get rid of duplicate tags
   return Array.from(new Set(tags)).map((tag) => {
     return {
       params: { tag },
       // only keep the blogposts that contain the tag itself
-	  props: {
-	    blogposts: allPosts.filter((post) => post.data.tags.map(tag => tag.toLowerCase()).includes(tag)),
-	  }
+      props: {
+        blogposts: allPosts.filter((post) =>
+          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+        ),
+      },
     };
   });
 }
@@ -94,13 +100,13 @@ Also don't forget to add your `Astro.props` object for the page itself.
 
 ```astro
 ---
-import { getCollection } from 'astro:content';
-import type { CollectionEntry } from 'astro:content';
+import { getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
-import Layout from '../../../layouts/YourLayout.astro';
+import Layout from "../../../layouts/YourLayout.astro";
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog');
+  const allPosts = await getCollection("blog");
 
   const tags: string[] = [];
 
@@ -114,7 +120,9 @@ export async function getStaticPaths() {
     return {
       params: { tag },
       props: {
-        blogposts: allPosts.filter((post) => post.data.tags.map(tag => tag.toLowerCase()).includes(tag)),
+        blogposts: allPosts.filter((post) =>
+          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+        ),
       },
     };
   });
@@ -122,20 +130,23 @@ export async function getStaticPaths() {
 
 interface Props {
   tag: string;
-  blogposts: CollectionEntry<'blog'>[];
+  blogposts: CollectionEntry<"blog">[];
 }
 
 const { blogposts } = Astro.props;
 ---
+
 <Layout>
   <main>
-	<ul>
-	  { blogposts.map(post => (
-	    <li>
-	      <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-	    </li>
-	  ))}
-	</ul>
+    <ul>
+      {
+        blogposts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          </li>
+        ))
+      }
+    </ul>
   </main>
 </Layout>
 ```
@@ -144,4 +155,4 @@ This should now display your layout with a list of all blogposts related to the 
 
 Keep in mind you should still customize this page to fit your needs, otherwise it's kinda ugly.
 
-If you're interested on how I implemented this on [my own website](<https://www.elian.codes>), you can always take a peek into [the source code](<https://github.com/eliancodes/eliancodes-frontend>).
+If you're interested on how I implemented this on [my own website](https://www.elian.codes), you can always take a peek into [the source code](https://github.com/eliancodes/eliancodes-frontend).

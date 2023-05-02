@@ -8,12 +8,12 @@ tags:
   - Nuxt
 imgUrl: https://www.devwares.com/blog/images/tailwindcss-vs-sass.png
 description: having TailwindCSS classes everywhere in my markup annoys me. That's why I tought of a better way of styling with TailwindCSS
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Writing your own style components with TailwindCSS and Sass
 
-Out of the box, [TailwindCSS](<https://tailwindcss.com>) can be very cluttered. It's intended to place all of your classes and styling in your markup. I understand that this can be very easy in some cases, but in a big project with several developers and a styleguide, it can become quite unmaintainable. Luckilly TailwindCSS has a very good way to write reusable components. Using the `@apply` classes can be one way, but combining [Sass pre-processor](<https://sass-lang.com>) and Tailwind `@apply` makes TailwindCSS work like a dream!
+Out of the box, [TailwindCSS](https://tailwindcss.com) can be very cluttered. It's intended to place all of your classes and styling in your markup. I understand that this can be very easy in some cases, but in a big project with several developers and a styleguide, it can become quite unmaintainable. Luckilly TailwindCSS has a very good way to write reusable components. Using the `@apply` classes can be one way, but combining [Sass pre-processor](https://sass-lang.com) and Tailwind `@apply` makes TailwindCSS work like a dream!
 
 ## Set up TailwindCSS
 
@@ -37,7 +37,7 @@ module.exports = {
   },
   variants: {},
   plugins: [],
-}
+};
 ```
 
 Since we're using PostCSS to process our TailwindCSS Sass file, we also have to set up a `postcss.config.js` file with following content:
@@ -48,8 +48,8 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-  }
-}
+  },
+};
 ```
 
 ## Adding TailwindCSS as Sass
@@ -69,7 +69,7 @@ Now let's set up PostCSS to process the Sass file to an outputted CSS file
 
 First of all, PostCSS isn't limited. You can install a lot of plugins that might solve your specific problem with your css files; so give it a search when you want to create your own CSS workflow.
 
-To add Sass support to your project might differ a lot from another project. Some projects use [webpack](<https://webpack.js.org/>) where you can use `sass-loader` to process your Sass files, others might use [Vite](<https://vitejs.dev/>) where you simply have to install the Sass NPM package. So google a bit around and you'll find a way to preprocess the Sass.
+To add Sass support to your project might differ a lot from another project. Some projects use [webpack](https://webpack.js.org/) where you can use `sass-loader` to process your Sass files, others might use [Vite](https://vitejs.dev/) where you simply have to install the Sass NPM package. So google a bit around and you'll find a way to preprocess the Sass.
 
 To use nesting in Sass / TailwindCSS (which you really want, believe me...) we just have to install a specific PostCSS package called `postcss-nested`.
 
@@ -78,11 +78,11 @@ Just run `yarn add -D postcss-nested` and add the plugin to your `postcss.config
 ```js
 module.exports = {
   plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-    require('postcss-nested')
-  ]
-}
+    require("tailwindcss"),
+    require("autoprefixer"),
+    require("postcss-nested"),
+  ],
+};
 ```
 
 ## Write your components
@@ -96,7 +96,7 @@ Now we have a Sass file that can be processed, we can also import other files. F
 @import "tailwindcss/utilities";
 
 button {
-  @apply rounded-full bg-gray-900 text-center py-2 px-4 text-white
+  @apply rounded-full bg-gray-900 text-center py-2 px-4 text-white;
 }
 ```
 
@@ -108,9 +108,9 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
-    'postcss-easy-import': { prefix: '_', extensions: ['.css', '.scss'] },
-  }
-}
+    "postcss-easy-import": { prefix: "_", extensions: [".css", ".scss"] },
+  },
+};
 ```
 
 now PostCSS will know that we want to import another css or scss file without us telling it what extensions and prefixes to import.
@@ -133,7 +133,7 @@ Let's make a file called `/components/_button.scss` in the styles folder:
 // ./components/_button.scss
 
 button {
-  @apply rounded-full bg-gray-900 text-center py-2 px-4 text-white
+  @apply rounded-full bg-gray-900 text-center py-2 px-4 text-white;
 }
 ```
 

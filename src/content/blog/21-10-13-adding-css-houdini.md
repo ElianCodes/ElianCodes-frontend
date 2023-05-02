@@ -8,7 +8,7 @@ tags:
   - Houdini
 imgUrl: https://i1.wp.com/css-tricks.com/wp-content/uploads/2018/06/magic-stage.png?fit=1200%2C600&ssl=1
 description: Some time ago I started looking into CSS Houdini. Today was finally the day that I wrote a package to replace some of my shitty code with some CSS Houdini magic
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Write less code by using CSS Houdini
@@ -25,15 +25,19 @@ You start by defining what your package should do:
 
 ```js
 class ElianCodesBg {
-    static get inputProperties() { return ['--color-for-bg']; }
-    static get inputArguments() { return ['<color>']; }
+  static get inputProperties() {
+    return ["--color-for-bg"];
+  }
+  static get inputArguments() {
+    return ["<color>"];
+  }
 
-    paint(ctx, size, props) {
-        ctx.fillStyle = props.get('--color-for-bg');
-        ctx.fillRect(size.width / 2, 0, size.width, size.height);
-    }
+  paint(ctx, size, props) {
+    ctx.fillStyle = props.get("--color-for-bg");
+    ctx.fillRect(size.width / 2, 0, size.width, size.height);
+  }
 }
-registerPaint('eliancodes-bg', ElianCodesBg)
+registerPaint("eliancodes-bg", ElianCodesBg);
 ```
 
 here we defined that the Worklet should use one input property called `--color-for-bg`, which is a color type. Next we define that it should draw a rectangle with half of the width of the element and the same height.
@@ -46,14 +50,14 @@ background-image: paint(eliancodes-bg);
 
 That's basically it!
 
-[The package is available on NPM](<https://www.npmjs.com/package/eliancodes-bg>), although it should be fine to load it over CDN.
+[The package is available on NPM](https://www.npmjs.com/package/eliancodes-bg), although it should be fine to load it over CDN.
 
 ## Using the package
 
 add this code to your html as a `<script>` or add it in an already linked JS-file.
 
 ```js
-CSS.paintWorklet.addModule('https://unpkg.com/eliancodes-bg@0.0.1/index.js')
+CSS.paintWorklet.addModule("https://unpkg.com/eliancodes-bg@0.0.1/index.js");
 ```
 
 using that javascript, we could just set a custom color in the CSS file
@@ -79,20 +83,39 @@ If you look at my website, one of the first things people notice, is that the ba
 
 ```ts
 const setBgColor = (color) => {
-    if (document.querySelector('html').getAttribute('class') != undefined && !document.querySelector('html').getAttribute('class').includes('dark') && document.querySelector('html').getAttribute('class').includes('index-bg')){
-        document.querySelector('html').setAttribute('style', `background: linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`)
-    } else if (document.querySelector('html').getAttribute('class').includes('dark')) {
-        document.querySelector('html').setAttribute('style', `background: linear-gradient(90deg, #000 50%, #000 50%)`)
-} else {
-    document.querySelector('html').setAttribute('style', '')
-}
-}
+  if (
+    document.querySelector("html").getAttribute("class") != undefined &&
+    !document.querySelector("html").getAttribute("class").includes("dark") &&
+    document.querySelector("html").getAttribute("class").includes("index-bg")
+  ) {
+    document
+      .querySelector("html")
+      .setAttribute(
+        "style",
+        `background: linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`
+      );
+  } else if (
+    document.querySelector("html").getAttribute("class").includes("dark")
+  ) {
+    document
+      .querySelector("html")
+      .setAttribute(
+        "style",
+        `background: linear-gradient(90deg, #000 50%, #000 50%)`
+      );
+  } else {
+    document.querySelector("html").setAttribute("style", "");
+  }
+};
 ```
 
 after upgrading to houdini, it got replaced by:
 
 ```ts
-document.documentElement.style.setProperty('--color-for-bg', document.documentElement.classList.contains('dark') ? 'black' : color.code)
+document.documentElement.style.setProperty(
+  "--color-for-bg",
+  document.documentElement.classList.contains("dark") ? "black" : color.code
+);
 ```
 
 The `--color-for-bg` custom property gets used by the Houdini package and will make the background work without any other code!
@@ -115,33 +138,33 @@ To do this, I wrote some code:
 
 ```ts
 const color = getNewColor();
-document.querySelectorAll('.use-color').forEach(element => {
-    colors.forEach(color => element.classList.remove(`text-${color.class}`));
-    element.classList.add(`text-${color.class}`)
+document.querySelectorAll(".use-color").forEach((element) => {
+  colors.forEach((color) => element.classList.remove(`text-${color.class}`));
+  element.classList.add(`text-${color.class}`);
 });
 ```
 
 The `getNewColor()` in above example would return a random color from an array with the tailwind class and color code as values.
 
 ```js
-const color = { class: 'primary-green', code: '#86EFAC' }
+const color = { class: "primary-green", code: "#86EFAC" };
 ```
 
 This got refactored to a very simple method where a CSS custom property would get changed from TypeScript:
 
 ```css
 :root {
-    --random-color: lightgreen;
+  --random-color: lightgreen;
 }
 
 .use-color {
-    color: var(--random-color);
+  color: var(--random-color);
 }
 ```
 
 ```ts
 const color = getNewColor();
-document.documentElement.style.setProperty('--random-color', color.code)
+document.documentElement.style.setProperty("--random-color", color.code);
 ```
 
 This way a lot of code is replaced by way better lines!

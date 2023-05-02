@@ -1,10 +1,9 @@
 ---
 name: Bug report
 about: Create a report to help improve the ElianCodes website
-title: ''
+title: ""
 labels: bug
 assignees: ElianCodes
-
 ---
 
 **Describe the bug**

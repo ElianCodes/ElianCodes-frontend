@@ -8,18 +8,18 @@ tags:
   - Talk
 imgUrl: https://i.imgur.com/Vo7u34l.jpg
 description: 14th of October, I gave a lightning talk at React Brussels. This blog post contains my slides as well as some extra accompanying speaker notes.
-layout: '../../layouts/BlogPost.astro'
+layout: "../../layouts/BlogPost.astro"
 ---
 
 # Less JavaScript, Faster Website - Astro
 
-14th of October, I gave a lightning talk at [React Brussels](<https://www.react.brussels>). This blog post contains my slides as well as some extra accompanying speaker notes.
+14th of October, I gave a lightning talk at [React Brussels](https://www.react.brussels). This blog post contains my slides as well as some extra accompanying speaker notes.
 
 Keep in mind that this was a lightning talk between 4 and 10 minutes long.
 
-*Last updated: 10/19/2022 10:27*
+_Last updated: 10/19/2022 10:27_
 
-![Me at the conference](<https://i.imgur.com/OnGbVrg.jpg>)
+![Me at the conference](https://i.imgur.com/OnGbVrg.jpg)
 
 ☝️ me at the conference!
 
@@ -27,13 +27,13 @@ Keep in mind that this was a lightning talk between 4 and 10 minutes long.
 
 Thanks for taking an interest in the slides!
 
-So, I'm Elian, a software engineer at [vBridge](<https://www.vbridge.eu>) in Belgium 🇧🇪.
+So, I'm Elian, a software engineer at [vBridge](https://www.vbridge.eu) in Belgium 🇧🇪.
 
-I’m also an Ambassador for [Astro](<https://astro.build>).
+I’m also an Ambassador for [Astro](https://astro.build).
 
 ![Slide 1](https://i.imgur.com/tyUS0Dp.png)
 
-So what is [Astro](<https://astro.build>)?
+So what is [Astro](https://astro.build)?
 
 ![Slide 2](https://i.imgur.com/Rj5G4c9.jpg)
 
@@ -73,7 +73,7 @@ You’ll see that we do have templates for all of your favourite frameworks; inc
 
 ![Slide 10](https://i.imgur.com/bt2MTkk.jpg)
 
-Astro also has a lot of official and community driven integrations. All of them are documented and collected on [the Astro website](<https://astro.build>)!
+Astro also has a lot of official and community driven integrations. All of them are documented and collected on [the Astro website](https://astro.build)!
 
 The React integration is right there on the Astro integrations & Frameworks tab!
 
@@ -193,13 +193,13 @@ But also there are native integrations with popular packages, like Tailwind and 
 
 ![Slide 29](https://i.imgur.com/LGA31M1.png)
 
-So, not only is Astro an amazing framework, it's also driven by a beautiful community, so come [chat with us on discord](<https://astro.build/chat>)!
+So, not only is Astro an amazing framework, it's also driven by a beautiful community, so come [chat with us on discord](https://astro.build/chat)!
 
 Here are some more links that can guide you on your journey in Astro!
 
 ![Slide 30](https://i.imgur.com/7alPlqr.jpg)
 
-If you decide to give astro a spin, be sure to tag [me on twitter](<https://twitter.com/eliancodes>) :D
+If you decide to give astro a spin, be sure to tag [me on twitter](https://twitter.com/eliancodes) :D
 
 That’s it for me!
 
@@ -211,4 +211,4 @@ Huge thanks you to Aymen & Omar for organising this talk & asking me! 🙏
 
 Big thanks for everyone helping me out and listening to my talk! 🙏
 
-Special thanks to [Fuzzy](<https://twitter.com/aFuzzyBear2>) for helping me out finishing my slides! 🙏🐻
+Special thanks to [Fuzzy](https://twitter.com/aFuzzyBear2) for helping me out finishing my slides! 🙏🐻
