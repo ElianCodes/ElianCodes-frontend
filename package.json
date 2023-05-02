@@ -14,27 +14,27 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/image": "^0.16.6",
-		"@astrojs/rss": "^2.3.2",
+		"@astrojs/image": "^0.16.7",
+		"@astrojs/rss": "^2.4.1",
 		"@astrojs/sitemap": "^1.2.2",
-		"@astrojs/vercel": "^3.2.5",
+		"@astrojs/vercel": "^3.3.0",
 		"@astrojs/vue": "^2.1.1",
 		"@eliancodes/brutal-ui": "^0.2.1",
 		"@resvg/resvg-js": "^2.4.1",
 		"@unocss/astro": "^0.51.8",
-		"astro": "^2.3.1",
-		"sharp": "^0.32.0",
+		"astro": "^2.3.4",
+		"sharp": "^0.32.1",
 		"unocss": "^0.51.8",
 		"vue": "^3.2.47"
 	},
 	"devDependencies": {
 		"@iconify-json/logos": "^1.1.25",
 		"@iconify-json/uil": "^1.1.4",
-		"@playwright/test": "^1.32.3",
-		"@typescript-eslint/parser": "^5.59.1",
+		"@playwright/test": "^1.33.0",
+		"@typescript-eslint/parser": "^5.59.2",
 		"@unocss/reset": "^0.51.8",
 		"eslint": "^8.39.0",
-		"eslint-plugin-astro": "^0.23.0",
+		"eslint-plugin-astro": "^0.26.1",
 		"eslint-plugin-deprecation": "^1.4.1",
 		"eslint-plugin-jsonc": "^2.7.0",
 		"eslint-plugin-jsx-a11y": "^6.7.1",
@@ -44,7 +44,7 @@
 		"eslint-plugin-yml": "^1.5.0",
 		"prettier": "^2.8.8",
 		"prettier-plugin-astro": "^0.8.0",
-		"satori": "^0.7.2",
+		"satori": "^0.7.3",
 		"satori-html": "^0.3.2"
 	}
 }
