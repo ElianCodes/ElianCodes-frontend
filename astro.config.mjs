@@ -26,7 +26,7 @@ export default defineConfig({
 		analytics: true,
 	}),
 	server: {
-		port: 3001,
+		port: 3000,
 	},
 	vite: {
 		optimizeDeps: {

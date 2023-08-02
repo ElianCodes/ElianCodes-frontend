@@ -15,9 +15,9 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/image": "^0.16.9",
+		"@astrojs/image": "^0.17.2",
 		"@astrojs/rss": "^2.4.3",
-		"@astrojs/sitemap": "^1.4.0",
+		"@astrojs/sitemap": "^2.0.1",
 		"@astrojs/vercel": "^3.7.5",
 		"@astrojs/vue": "^2.2.1",
 		"@eliancodes/brutal-ui": "^0.2.2",
