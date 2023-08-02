@@ -46,7 +46,7 @@ Before, when using the TailwindCSS CDN, you had to give up on a lot of configura
 Using the TailwindCSS CDN JIT isn't that hard:
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- add base TailwindCSS -->

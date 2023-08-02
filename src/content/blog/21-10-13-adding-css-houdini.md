@@ -92,7 +92,7 @@ const setBgColor = (color) => {
       .querySelector("html")
       .setAttribute(
         "style",
-        `background: linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`
+        `background: linear-gradient(90deg, #FFF 50%, ${color.code} 50%)`,
       );
   } else if (
     document.querySelector("html").getAttribute("class").includes("dark")
@@ -101,7 +101,7 @@ const setBgColor = (color) => {
       .querySelector("html")
       .setAttribute(
         "style",
-        `background: linear-gradient(90deg, #000 50%, #000 50%)`
+        `background: linear-gradient(90deg, #000 50%, #000 50%)`,
       );
   } else {
     document.querySelector("html").setAttribute("style", "");
@@ -114,7 +114,7 @@ after upgrading to houdini, it got replaced by:
 ```ts
 document.documentElement.style.setProperty(
   "--color-for-bg",
-  document.documentElement.classList.contains("dark") ? "black" : color.code
+  document.documentElement.classList.contains("dark") ? "black" : color.code,
 );
 ```
 
