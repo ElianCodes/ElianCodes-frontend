@@ -66,8 +66,8 @@ An example of what the `.then()` use, could look like:
 const blogposts = await Astro.glob("./**/*.md").then((posts) =>
   posts.sort(
     (a, b) =>
-      new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt)
-  )
+      new Date(b.frontmatter.createdAt) - new Date(a.frontmatter.createdAt),
+  ),
 );
 ---
 ```

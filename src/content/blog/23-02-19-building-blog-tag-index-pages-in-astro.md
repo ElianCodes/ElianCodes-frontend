@@ -81,7 +81,7 @@ export async function getStaticPaths() {
       // only keep the blogposts that contain the tag itself
       props: {
         blogposts: allPosts.filter((post) =>
-          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag),
         ),
       },
     };
@@ -121,7 +121,7 @@ export async function getStaticPaths() {
       params: { tag },
       props: {
         blogposts: allPosts.filter((post) =>
-          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+          post.data.tags.map((tag) => tag.toLowerCase()).includes(tag),
         ),
       },
     };

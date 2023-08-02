@@ -1,8 +1,8 @@
 import {
 	defineConfig,
-	presetWind,
 	presetIcons,
 	presetTypography,
+	presetWind,
 } from "unocss";
 
 export default defineConfig({

@@ -68,7 +68,7 @@ export const yourFunction: HttpsFunction = https.onRequest(
   async (req: Request, res: Response) => {
     // our main code goes here
     res.status(200).send();
-  }
+  },
 );
 ```
 
