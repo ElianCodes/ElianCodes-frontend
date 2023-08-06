@@ -15,14 +15,14 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/image": "^0.17.2",
+		"@astrojs/image": "^0.17.3",
 		"@astrojs/rss": "^2.4.3",
 		"@astrojs/sitemap": "^2.0.1",
-		"@astrojs/vercel": "^3.7.5",
+		"@astrojs/vercel": "^3.8.0",
 		"@eliancodes/brutal-ui": "^0.2.2",
 		"@resvg/resvg-js": "^2.4.1",
 		"@unocss/astro": "^0.54.1",
-		"astro": "^2.9.7",
+		"astro": "^2.10.1",
 		"sharp": "^0.32.4",
 		"unocss": "^0.54.1",
 		"vue": "^3.3.4"
@@ -42,7 +42,7 @@
 		"eslint-plugin-simple-import-sort": "^10.0.0",
 		"eslint-plugin-typescript-sort-keys": "^2.3.0",
 		"eslint-plugin-yml": "^1.8.0",
-		"prettier": "^3.0.0",
+		"prettier": "^3.0.1",
 		"prettier-plugin-astro": "^0.11.0",
 		"satori": "^0.7.4",
 		"satori-html": "^0.3.2"
