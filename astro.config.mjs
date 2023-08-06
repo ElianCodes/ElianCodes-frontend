@@ -1,5 +1,5 @@
+/* eslint-disable simple-import-sort/imports */
 import { defineConfig } from "astro/config";
-import vue from "@astrojs/vue";
 import vercel from "@astrojs/vercel/static";
 import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
@@ -14,7 +14,6 @@ export default defineConfig({
 			: "https://localhost:3000/",
 	trailingSlash: "ignore",
 	integrations: [
-		vue(),
 		image({
 			serviceEntryPoint: "@astrojs/image/sharp",
 		}),
@@ -25,9 +24,6 @@ export default defineConfig({
 	adapter: vercel({
 		analytics: true,
 	}),
-	server: {
-		port: 3000,
-	},
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],

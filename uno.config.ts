@@ -18,5 +18,4 @@ export default defineConfig({
 		}),
 		presetTypography(),
 	],
-	// safelist: getSafeList(),
 });

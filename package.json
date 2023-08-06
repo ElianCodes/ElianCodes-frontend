@@ -19,7 +19,6 @@
 		"@astrojs/rss": "^2.4.3",
 		"@astrojs/sitemap": "^2.0.1",
 		"@astrojs/vercel": "^3.7.5",
-		"@astrojs/vue": "^2.2.1",
 		"@eliancodes/brutal-ui": "^0.2.2",
 		"@resvg/resvg-js": "^2.4.1",
 		"@unocss/astro": "^0.54.1",
