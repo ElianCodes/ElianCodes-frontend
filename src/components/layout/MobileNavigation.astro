@@ -11,7 +11,7 @@ const { items } = Astro.props;
 
 <nav class="block md:hidden flex flex-row-reverse gap-4">
   <h2 class="hidden">Mobile Navigation</h2>
-  <button id="openMenuButton">
+  <button role="button" id="openMenuButton" aria-label="Open mobile menu">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
@@ -26,7 +26,12 @@ const { items } = Astro.props;
         d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
     </svg>
   </button>
-  <button id="closeMenuButton" class="hidden">
+  <button
+    role="button"
+    id="closeMenuButton"
+    class="hidden"
+    aria-label="Close mobile menu"
+  >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
