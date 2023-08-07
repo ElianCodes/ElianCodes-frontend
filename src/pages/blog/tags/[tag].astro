@@ -8,7 +8,7 @@ import { getCollection } from "astro:content";
 export async function getStaticPaths() {
 	const allPosts = await getCollection("blog").then((collection) => {
 		return collection.sort(
-			(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+			(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
 		);
 	});
 
@@ -26,7 +26,7 @@ export async function getStaticPaths() {
 			props: {
 				tag,
 				blogposts: allPosts.filter((post) =>
-					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag)
+					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag),
 				),
 			},
 		};

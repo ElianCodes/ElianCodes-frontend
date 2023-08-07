@@ -9,7 +9,7 @@
 		"start": "astro dev",
 		"build": "astro build",
 		"preview": "astro preview",
-		"format": "prettier -w --plugin-search-dir=. .",
+		"format": "prettier --write . --plugin=prettier-plugin-astro",
 		"lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
 		"lint:fix": "eslint . --fix",
 		"astro": "astro"
