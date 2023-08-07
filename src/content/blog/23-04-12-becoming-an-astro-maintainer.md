@@ -8,7 +8,7 @@ tags:
   - Astro
   - Open Source
   - Web development
-imgUrl: "../../assets/blog/backlog/firebase.png"
+imgUrl: "../../assets/blog/23-04-12/maintainer.jpg"
 layout: "@layouts/BlogPost.astro"
 ---
 
