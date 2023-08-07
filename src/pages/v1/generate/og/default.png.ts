@@ -18,12 +18,14 @@ export const get: APIRoute = async () => {
   <div style="background-color: white; display: flex; flex-direction: column; height: 100%; padding: 3rem; width: 100%">
     <div style="display:flex; height: 100%; width: 100%; background-color: white; border: 6px solid black; border-radius: 0.5rem; padding: 2rem; filter: drop-shadow(6px 6px 0 rgb(0 0 0 / 1));">
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; filter: drop-shadow()">
-        <div style="display: flex; flex-direction: column; gap: 0.75rem;">  
+        <div style="display: flex; flex-direction: column; gap: 0.5rem;">  
           <p style="font-size: 48px;">ElianCodes</p>
-          <p style="font-size: 38px;">Software Engineer <span>@vBridge</span></p>
-          <p style="font-size: 38px;">Ambassador & Maintainer <span>@Astro</span></p>
+          <p style="font-size: 38px;">Team DX <span>@Astro</span></p>
+          <p style="font-size: 28px;">BeJS & React Brussels ambassador</p>
+          <p style="font-size: 28px;">meetup organizer & speaker</p>
+          <p style="font-size: 28px;">Prev. vBridge Cloud</p>
         </div>
-        <div style="display: flex; justify-content: space-between; align-items: baseline; padding-top: -2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: baseline; position: absolute; bottom: -0.5rem; width: 100%">
           <p style="font-size: 32px">${link}</p>
           <img src="https://www.elian.codes/assets/img/elian.jpg" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
         </div>
