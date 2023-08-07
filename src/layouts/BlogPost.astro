@@ -7,7 +7,7 @@ import Layout from "./Default.astro";
 
 const socialImg = new URL(
 	`/v1/generate/og/${Astro.params.slug ?? "default"}.png`,
-	Astro.url
+	Astro.url,
 );
 
 const { content, headings } = Astro.props;
