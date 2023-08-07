@@ -20,16 +20,16 @@
 		"@astrojs/vercel": "^3.8.0",
 		"@eliancodes/brutal-ui": "^0.2.2",
 		"@resvg/resvg-js": "^2.4.1",
-		"@unocss/astro": "^0.54.1",
+		"@unocss/astro": "^0.54.2",
 		"astro": "^2.10.1",
-		"unocss": "^0.54.1"
+		"unocss": "^0.54.2"
 	},
 	"devDependencies": {
-		"@iconify-json/logos": "^1.1.33",
-		"@iconify-json/uil": "^1.1.4",
+		"@iconify-json/logos": "^1.1.34",
+		"@iconify-json/uil": "^1.1.5",
 		"@playwright/test": "^1.36.2",
 		"@typescript-eslint/parser": "^6.2.1",
-		"@unocss/reset": "^0.54.1",
+		"@unocss/reset": "^0.54.2",
 		"eslint": "^8.46.0",
 		"eslint-plugin-astro": "^0.28.0",
 		"eslint-plugin-deprecation": "^1.5.0",
