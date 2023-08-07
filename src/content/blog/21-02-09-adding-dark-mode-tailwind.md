@@ -6,7 +6,7 @@ tags:
   - TailwindCSS
   - JavaScript
   - Front-end
-imgUrl: https://miro.medium.com/max/1400/1*oPL8C-i04sqAUoOS_da9aA.jpeg
+imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: How to add dark mode support in TailwindCSS
 layout: "../../layouts/BlogPost.astro"
 ---

@@ -6,7 +6,7 @@ tags:
   - Netlify
   - Google Cloud
   - Static Hosting
-imgUrl: https://1000logos.net/wp-content/uploads/2020/05/Google-cloud-logo.jpg
+imgUrl: "../../assets/blog/backlog/astro_old.png"
 description: Hosting your website online is one of the basic and required steps to build an online audience. Choosing the right platform to host it, can be a difficult process. In this blogpost I clearify my choice.
 layout: "../../layouts/BlogPost.astro"
 ---

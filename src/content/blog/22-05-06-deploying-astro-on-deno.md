@@ -7,7 +7,7 @@ tags:
   - Deno
   - TypeScript
 description: Astro came out some time ago with a SSR Deno adapter. I never tried it out before, So I thought I should give it a try!
-imgUrl: https://ik.imagekit.io/serenity/ByteofDev/Blog_Heading_Images/State_of_the_Web_Deno
+imgUrl: "../../assets/blog/backlog/astro_old.png"
 layout: "../../layouts/BlogPost.astro"
 ---
 

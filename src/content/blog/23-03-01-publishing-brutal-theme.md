@@ -3,7 +3,7 @@ title: "🍱 Brutal: A theme for Astro"
 description: Brutal is a minimal neobrutalist theme for Astro. It's based on Neobrutalist Web Design, a movement that aims to create websites with a minimalistic and functional design. It has some integrations like Image Optimization, RSS, Sitemap, ready to get your SEO done right.
 pubDate: 2023-03-01 19:41
 author: Elian Van Cutsem
-imgUrl: https://i.imgur.com/9iWcLIX.png
+imgUrl: "../../assets/blog/backlog/brutal.png"
 tags:
   - Astro
   - UnoCSS

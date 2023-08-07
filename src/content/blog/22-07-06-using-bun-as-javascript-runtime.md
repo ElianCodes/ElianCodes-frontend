@@ -6,7 +6,7 @@ tags:
   - Javascript
   - Bun
   - Runtime
-imgUrl: https://bun.sh/share.png
+imgUrl: "../../assets/blog/backlog/bun.png"
 description: Bun is a new runtime for JavaScript & TypeScript, compatible with NodeJS packages and ecosystem.
 layout: "../../layouts/BlogPost.astro"
 ---

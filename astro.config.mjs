@@ -1,8 +1,6 @@
-import { defineConfig } from "astro/config";
-import vue from "@astrojs/vue";
-import vercel from "@astrojs/vercel/static";
-import image from "@astrojs/image";
 import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel/static";
+import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
 
 export default defineConfig({
@@ -13,20 +11,13 @@ export default defineConfig({
 			? `https://${process.env.VERCEL_URL}/`
 			: "https://localhost:3000/",
 	trailingSlash: "ignore",
-	integrations: [
-		vue(),
-		image({
-			serviceEntryPoint: "@astrojs/image/sharp",
-		}),
-		sitemap(),
-		UnoCSS({ injectReset: true }),
-	],
+	integrations: [sitemap(), UnoCSS({ injectReset: true })],
 	output: "static",
 	adapter: vercel({
 		analytics: true,
 	}),
-	server: {
-		port: 3000,
+	experimental: {
+		assets: true,
 	},
 	vite: {
 		optimizeDeps: {

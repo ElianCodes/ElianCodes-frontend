@@ -1,40 +1,39 @@
 ---
-import { Image } from "@astrojs/image/components";
 import { Button, Card } from "@eliancodes/brutal-ui";
+import { Image } from "astro:assets";
 
-const src =
-	"https://firebasestorage.googleapis.com/v0/b/eliancodes-1632771244788.appspot.com/o/elian.jpg?alt=media&token=ccf7b7c1-ee54-43eb-b61d-cc3587e23959";
+import headshot from "../../assets/elian.jpg";
 ---
 
 <section id="about" class="grid md:grid-cols-8 gap-8 mt-4">
-	<h2 class="hidden">About Elian</h2>
-	<div class="flex flex-col md:col-span-6">
-		<Card>
-			<p class="mt-4 outfit text-2xl md:text-5xl lg:text-7xl">
-				Software Engineer <a
-					class="underline underline-blue"
-					target="_blank"
-					href="https://www.vbridge.eu/">@vBridge</a
-				>
-			</p>
-			<p class="mt-2 outfit text-xl md:text-3xl lg:text-5xl">
-				Maintainer & Ambassador <a
-					class="underline underline-blue"
-					target="_blank"
-					href="https://astro.build/">@astro</a
-				>
-			</p>
-			<p class="sanchez mt-4 mb-8 text-lg md:text-xl lg:text-3xl">
-				Located in Ghent, 🇧🇪
-			</p>
-			<Button href="/events/">See what I do &rarr;</Button>
-		</Card>
-	</div>
-	<Image
-		class="object-cover h-full w-full rounded-lg md:col-span-2 border-3 border-black card-shadow"
-		src={src}
-		alt="Elian Van Cutsem"
-		width={800}
-		height={800}
-	/>
+  <h2 class="hidden">About Elian</h2>
+  <div class="flex flex-col md:col-span-6">
+    <Card>
+      <p class="mt-4 outfit text-2xl md:text-5xl lg:text-7xl">
+        Team DX <a
+          class="underline underline-blue"
+          target="_blank"
+          href="https://astro.build/">@Astro</a
+        >
+      </p>
+      <p class="sanchez mt-4 mb-8 text-lg md:text-xl lg:text-3xl">
+        ex. <a
+          href="https://www.vbridge.eu"
+          target="_blank"
+          class="underline underline-blue">vBridge Cloud</a
+        >
+      </p>
+      <p class="sanchez mt-4 mb-8 text-lg md:text-xl lg:text-3xl">
+        Located in Ghent, 🇧🇪
+      </p>
+      <Button href="/events/">See what I do &rarr;</Button>
+    </Card>
+  </div>
+  <Image
+    class="object-cover h-full w-full rounded-lg md:col-span-2 border-3 border-black card-shadow"
+    src={headshot}
+    alt="Elian Van Cutsem"
+    width={headshot.width}
+    height={headshot.height}
+  />
 </section>

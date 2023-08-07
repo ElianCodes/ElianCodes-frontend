@@ -6,7 +6,7 @@ tags:
   - Netlify
   - TravisCI
   - Nuxt
-imgUrl: http://ww1.prweb.com/prfiles/2019/07/09/16429924/netlify.gif
+imgUrl: "../../assets/blog/backlog/netlify.png"
 description: I've used github to manage the sourcecode for my website for a long time, github pages came with it. Now I discovered a better way to deploy and host websites.
 layout: "../../layouts/BlogPost.astro"
 ---

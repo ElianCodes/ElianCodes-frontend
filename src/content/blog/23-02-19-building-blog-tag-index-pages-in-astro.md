@@ -7,7 +7,7 @@ tags:
   - JavaScript
   - Blog
 description: I wanted to add blog tag collection pages to my website. This way, people could filter on tags I used in my blog posts. Here is a guide on how I implemented it.
-imgUrl: https://i.imgur.com/Dpkd1vd.png
+imgUrl: "../../assets/blog/backlog/astro_old.png"
 layout: "../../layouts/BlogPost.astro"
 ---
 

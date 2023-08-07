@@ -6,7 +6,7 @@ tags:
   - JavaScript
   - Astro
   - Talk
-imgUrl: https://i.imgur.com/Vo7u34l.jpg
+imgUrl: "../../assets/blog/backlog/reactbrussels.jpeg"
 description: 14th of October, I gave a lightning talk at React Brussels. This blog post contains my slides as well as some extra accompanying speaker notes.
 layout: "../../layouts/BlogPost.astro"
 ---

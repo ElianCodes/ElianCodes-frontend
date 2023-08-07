@@ -1,0 +1,80 @@
+---
+interface Props {
+  items: {
+    name: string;
+    url: string;
+  }[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="block md:hidden flex flex-row-reverse gap-4">
+  <h2 class="hidden">Mobile Navigation</h2>
+  <button role="button" id="openMenuButton" aria-label="Open mobile menu">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+    </svg>
+  </button>
+  <button
+    role="button"
+    id="closeMenuButton"
+    class="hidden"
+    aria-label="Close mobile menu"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.5"
+      stroke="currentColor"
+      class="w-6 h-6"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  <div id="mobileMenu" class="hidden">
+    <ul class="flex gap-4">
+      {
+        items.map((item) => (
+          <li>
+            <a href={item.url}>{item.name}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // open menu
+    document.getElementById("openMenuButton")?.addEventListener("click", () => {
+      document.getElementById("mobileMenu")?.classList.remove("hidden");
+      document.getElementById("openMenuButton")?.classList.add("hidden");
+      document.getElementById("closeMenuButton")?.classList.remove("hidden");
+    });
+
+    // close menu
+    document
+      .getElementById("closeMenuButton")
+      ?.addEventListener("click", () => {
+        document.getElementById("mobileMenu")?.classList.add("hidden");
+        document.getElementById("openMenuButton")?.classList.remove("hidden");
+        document.getElementById("closeMenuButton")?.classList.add("hidden");
+      });
+  });
+</script>

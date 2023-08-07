@@ -6,7 +6,7 @@ tags:
   - Nuxt
   - Tracking
   - Analytics
-imgUrl: https://google-analytics.nuxtjs.org/preview.png
+imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: Tracking your users' action on your site can be very helpful, but it isn't always as straightforward
 layout: "../../layouts/BlogPost.astro"
 ---

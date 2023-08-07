@@ -7,7 +7,7 @@ tags:
   - CSS
   - Astro
   - UnoCSS
-imgUrl: https://repository-images.githubusercontent.com/412152628/30d80147-4535-4ff1-9837-b9015eecbb07
+imgUrl: "../../assets/blog/backlog/astro_old.png"
 layout: ../../layouts/BlogPost.astro
 ---
 

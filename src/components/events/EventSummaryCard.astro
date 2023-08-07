@@ -1,63 +1,37 @@
 ---
 import SummaryCard from "@components/generic/SummaryCard.astro";
 import { Button } from "@eliancodes/brutal-ui";
-
-interface Event {
-	name: string;
-	title: string;
-	link: string;
-	date: Date;
-	abstract: string;
-	type: string;
-	blogpost?: string;
-	subtype?: string;
-	videolink?: string;
-	emoji?: string;
-	img?: string;
-}
+import type { CollectionEntry } from "astro:content";
 
 export interface Props {
-	event: Event;
+  event: CollectionEntry<"events">;
 }
 
 const { event } = Astro.props;
+const { data } = event;
 ---
 
 <SummaryCard
-	title={event.title}
-	imgSrc={event.img ?? "https://i.imgur.com/KvnPBQV.png"}
-	imgAlt={event.title}
-	description={event.abstract}
+  title={data.title}
+  imgSrc={data.img ?? "https://i.imgur.com/KvnPBQV.png"}
+  imgAlt={data.title}
+  description={data.abstract}
 >
-	<p class="mt-2">
-		<a
-			href={event.link}
-			title={event.title}
-			class="hover:text-yellow transition-color duration-150 ease-in-out"
-			>{event.name}</a
-		> - {
-			event.date.toLocaleDateString("en-BE", {
-				year: "numeric",
-				month: "long",
-				day: "numeric",
-			})
-		}
-	</p>
-	<div class="md:flex gap-4 mt-4 hidden">
-		<Button target="_blank" href={event.link}>See event</Button>
-		{
-			event.blogpost && (
-				<Button target="_blank" href={event.blogpost}>
-					See Blogpost
-				</Button>
-			)
-		}
-		{
-			event.videolink && (
-				<Button target="_blank" href={event.videolink}>
-					See Recording
-				</Button>
-			)
-		}
-	</div>
+  <p class="mt-2">
+    <a
+      href={data.link}
+      title={data.title}
+      class="hover:text-yellow transition-color duration-150 ease-in-out"
+      >{data.name}</a
+    > - {
+      data.date.toLocaleDateString("en-BE", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      })
+    }
+  </p>
+  <div class="md:flex justify-end gap-4 mt-4 hidden">
+    <Button target="_blank" href={data.link}>See event</Button>
+  </div>
 </SummaryCard>
