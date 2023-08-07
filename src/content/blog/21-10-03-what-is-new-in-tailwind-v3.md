@@ -6,7 +6,7 @@ tags:
   - TailwindCSS
   - JavaScript
   - Release
-imgUrl: https://miro.medium.com/max/1400/0*A70w-WrmSaBVxwAm.png
+imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: TailwindCSS v3-alpha-1 was released yesterday! It's not a full release of v3 yet, but might already give us an insight on what is to come with TailwindCSS v3.
 layout: "../../layouts/BlogPost.astro"
 ---

@@ -6,7 +6,7 @@ tags:
   - Netlify
   - JavaScript
   - PNPM
-imgUrl: https://dev-to-uploads.s3.amazonaws.com/uploads/articles/o8e2at4huuuv08y24jvg.png
+imgUrl: "../../assets/blog/backlog/netlify.png"
 description: When I first switched my website over to PNPM instead of Yarn, I noticed that my Netlify build were failing. Here's a guide and solution to everyone having the same issue.
 layout: "../../layouts/BlogPost.astro"
 ---

@@ -6,7 +6,7 @@ tags:
   - TailwindCSS
   - CSS
   - Release
-imgUrl: https://miro.medium.com/max/1400/1*oPL8C-i04sqAUoOS_da9aA.jpeg
+imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: TailwindCSS 2.1 just got released, but what does it bring and improve?
 layout: "../../layouts/BlogPost.astro"
 ---

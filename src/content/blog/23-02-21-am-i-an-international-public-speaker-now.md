@@ -7,7 +7,7 @@ tags:
   - Talk
   - JSWorld
   - Astro
-imgUrl: https://i.imgur.com/2E5BGyH.jpg
+imgUrl: "../../assets/blog/backlog/jsworld.jpeg"
 layout: ../../layouts/BlogPost.astro
 ---
 

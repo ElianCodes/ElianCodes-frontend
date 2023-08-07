@@ -6,7 +6,7 @@ tags:
   - NodeJS
   - JavaScript
   - Netlify
-imgUrl: https://download.logo.wine/logo/Netlify/Netlify-Logo.wine.png
+imgUrl: "../../assets/blog/backlog/netlify.png"
 description: A couple of times I needed to fix the NodeJS version on a Netlify site, I found myself googling it a couple of times, so this little how-to is basically a note-to-self.
 layout: "../../layouts/BlogPost.astro"
 ---

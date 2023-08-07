@@ -6,7 +6,7 @@ tags:
   - Netlify
   - ReactNative
   - Expo
-imgUrl: http://ww1.prweb.com/prfiles/2019/07/09/16429924/netlify.gif
+imgUrl: "../../assets/blog/backlog/netlify.png"
 description: Deploying a mobile application does seem complicated, but Expo makes it very easy!
 layout: "../../layouts/BlogPost.astro"
 ---

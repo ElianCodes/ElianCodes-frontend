@@ -6,7 +6,7 @@ tags:
   - API
   - JavaScript
   - Packaging
-imgUrl: https://i.pcmag.com/imagery/reviews/04u4r8E0NHva7mQ3Bnozbh6-9.1569482850.fit_scale.size_760x427.jpg
+imgUrl: "../../assets/blog/backlog/firebase.png"
 description: A while ago I had an idea for a feature which would show the most frequent visited pages upon a 'page not found' error. After I let it sit for a while, I realized that this might be possible by using the Google Analytics API. Here's a guide.
 layout: "../../layouts/BlogPost.astro"
 ---

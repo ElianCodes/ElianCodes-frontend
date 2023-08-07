@@ -1,9 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { Button, Card } from "@eliancodes/brutal-ui";
-
-const src =
-  "https://firebasestorage.googleapis.com/v0/b/eliancodes-1632771244788.appspot.com/o/elian.jpg?alt=media&token=ccf7b7c1-ee54-43eb-b61d-cc3587e23959";
+import headshot from "../../assets/elian.jpg";
 ---
 
 <section id="about" class="grid md:grid-cols-8 gap-8 mt-4">
@@ -32,9 +30,9 @@ const src =
   </div>
   <Image
     class="object-cover h-full w-full rounded-lg md:col-span-2 border-3 border-black card-shadow"
-    src={src}
+    src={headshot}
     alt="Elian Van Cutsem"
-    width={800}
-    height={800}
+    width={headshot.width}
+    height={headshot.height}
   />
 </section>

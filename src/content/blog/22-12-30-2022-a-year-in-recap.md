@@ -6,7 +6,7 @@ tags:
   - JavaScript
   - Recap
   - Programming
-imgUrl: https://i.imgur.com/iEB1YQk.jpg
+imgUrl: "../../assets/blog/backlog/graduation.jpeg"
 description: 2022 was a year that flew by so fast, I've gotten amazing opportunities and a lot of lessons learned. In this post, I put them all in a list.
 layout: "../../layouts/BlogPost.astro"
 ---

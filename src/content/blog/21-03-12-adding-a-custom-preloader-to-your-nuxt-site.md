@@ -6,7 +6,7 @@ tags:
   - TailwindCSS
   - Nuxt
   - Front-end
-imgUrl: https://madewithnetwork.ams3.cdn.digitaloceanspaces.com/spatie-space-production/3075/nuxtjs-2.jpg
+imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: I added a custom preloader to my Nuxt site. It's not that difficult, here's how I did it.
 layout: "../../layouts/BlogPost.astro"
 ---

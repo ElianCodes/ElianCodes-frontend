@@ -6,7 +6,7 @@ tags:
   - TailwindCSS
   - Nuxt
   - JIT
-imgUrl: https://miro.medium.com/max/1400/1*oPL8C-i04sqAUoOS_da9aA.jpeg
+imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: TailwindCSS just came out with a new feature called @tailwindcss/jit. here's how you can add it to your Nuxt site.
 layout: "../../layouts/BlogPost.astro"
 ---

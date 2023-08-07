@@ -8,7 +8,7 @@ tags:
   - Astro
   - Open Source
   - Web development
-imgUrl: https://i.imgur.com/bb7O3Nq.jpg
+imgUrl: "../../assets/blog/23-08-07/jsworld.jpg"
 layout: "@layouts/BlogPost.astro"
 ---
 
@@ -20,9 +20,9 @@ I had an amazing time there and learned a lot from each and every colleague. Tha
 
 ![Picture of the vBridge team](../../assets/blog/23-08-07/vbridge-team.jpeg)
 
-Now, It's time for a new adventure! I'm joining the DX-team at [Astro](https://astro.build) full-time! I'm so excited to be able to work on Astro full-time and help shape the future of web development!
+Now, it's time for a new adventure! I'm joining the DX-team at [Astro](https://astro.build) full-time! I'm so excited to be able to work on Astro full-time and help shape the future of web development!
 
-After being nominated and selected as a maintainer for the project, this always felt like one of the next steps. You can read the blogpost about becoming a maintainer here: <https://www.elian.codes/blog/23-04-12-becoming-an-astro-maintainer/>
+After being nominated and selected as a maintainer for the project, this always felt like one of the next steps. You can read [the blogpost about becoming a maintainer here](https://www.elian.codes/blog/23-04-12-becoming-an-astro-maintainer/)
 
 After being invited and flying out to Copenhagen to attend the first ever Astro meetup, where I met so many faces behind Astro, I knew that I wanted to stay involved with the project and help out where I could.
 

@@ -6,7 +6,7 @@ tags:
   - Nuxt
   - Tracking
   - Analytics
-imgUrl: https://google-analytics.nuxtjs.org/preview.png
+imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: Tracking with GA4 can be very useful, here's a little guide on tracking things you find important with custom GA4 events in Nuxt
 layout: "../../layouts/BlogPost.astro"
 ---

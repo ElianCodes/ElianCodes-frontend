@@ -7,7 +7,7 @@ tags:
   - Firebase
   - JavaScript
 description: I've moved from a regular RESTful API to serverless functions. Here is a little guide and explanation on why & how I did that.
-imgUrl: https://uniqueideas.com/wp-content/uploads/2018/11/google-cloud-functions.png
+imgUrl: "../../assets/blog/backlog/astro_old.png"
 layout: "../../layouts/BlogPost.astro"
 ---
 

@@ -6,7 +6,7 @@ tags:
   - TailwindCSS
   - Sass
   - Nuxt
-imgUrl: https://www.devwares.com/blog/images/tailwindcss-vs-sass.png
+imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: having TailwindCSS classes everywhere in my markup annoys me. That's why I tought of a better way of styling with TailwindCSS
 layout: "../../layouts/BlogPost.astro"
 ---

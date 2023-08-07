@@ -6,7 +6,7 @@ tags:
   - TailwindCSS
   - JIT
   - CSS
-imgUrl: https://miro.medium.com/max/1400/1*oPL8C-i04sqAUoOS_da9aA.jpeg
+imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: TailwindCSS just released a new feature @tailwindcss/jit. In this post I explain what it is and how to use it.
 layout: "../../layouts/BlogPost.astro"
 ---

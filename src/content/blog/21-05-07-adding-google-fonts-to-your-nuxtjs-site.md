@@ -6,7 +6,7 @@ tags:
   - Nuxt
   - Google Fonts
   - JavaScript
-imgUrl: https://www.gstatic.com/images/icons/material/apps/fonts/1x/catalog/v5/opengraph_color.png
+imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: I found out that my fonts weren't loading properly, so I searched for an alternative.
 layout: "../../layouts/BlogPost.astro"
 ---

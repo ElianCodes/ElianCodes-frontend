@@ -6,7 +6,7 @@ tags:
   - Konva
   - React
   - Canvas
-imgUrl: https://images.opencollective.com/konva/2568cd7/background.png
+imgUrl: "../../assets/blog/backlog/konva.png"
 description: I was in need for a HTML canvas that was easily integratable with React or JavaScript, then I found Konva
 layout: "../../layouts/BlogPost.astro"
 ---

@@ -7,7 +7,7 @@ tags:
   - JavaScript
   - Web Development
 description: I started rebuilding my personal website from scratch in Astro again, no dependencies, no frameworks, no nothing. This to decrease technical debt and make full use of the newer Astro features.
-imgUrl: https://i.imgur.com/ezNHRa6.png
+imgUrl: "../../assets/blog/backlog/astro_old.png"
 layout: "../../layouts/BlogPost.astro"
 ---
 

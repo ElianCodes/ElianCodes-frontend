@@ -6,7 +6,7 @@ tags:
   - Coil
   - Monitize
   - PWA
-imgUrl: https://consistentme.com/wp-content/uploads/2019/12/Coil-Web-Monetization.png
+imgUrl: "../../assets/blog/backlog/coil.png"
 description: Ads are annoying right, Coil adds a new way to get paid for every second spent on your content.
 layout: "../../layouts/BlogPost.astro"
 ---
