@@ -3,7 +3,9 @@ import EventSummaryCard from "@components/events/EventSummaryCard.astro";
 import Layout from "@layouts/Default.astro";
 import { getCollection } from "astro:content";
 
-const events = await getCollection("events");
+const events = await getCollection("events").then((events) =>
+  events.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
+);
 ---
 
 <Layout

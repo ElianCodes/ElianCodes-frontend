@@ -1,7 +1,6 @@
-/* eslint-disable simple-import-sort/imports */
-import { defineConfig } from "astro/config";
-import vercel from "@astrojs/vercel/static";
 import sitemap from "@astrojs/sitemap";
+import vercel from "@astrojs/vercel/static";
+import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
 
 export default defineConfig({
