@@ -26,8 +26,8 @@ After being nominated and selected as a maintainer for the project, this always 
 
 After being invited and flying out to Copenhagen to attend the first ever Astro meetup, where I met so many faces behind Astro, I knew that I wanted to stay involved with the project and help out where I could.
 
-|![Picture of the Astro meetup](../../assets/blog/23-08-07/astro-meetup.jpg)| ![Picture of the Astro 3 displayed on a screen](../../assets/blog/23-08-07/astro-three.jpg)|
-|-|-|
+| ![Picture of the Astro meetup](../../assets/blog/23-08-07/astro-meetup.jpg) | ![Picture of the Astro 3 displayed on a screen](../../assets/blog/23-08-07/astro-three.jpg) |
+| --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 
 ## Team DX - Astro
 
