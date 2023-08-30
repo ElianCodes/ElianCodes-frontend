@@ -2,14 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## 0.8.0 (2023-08-08)
+### 0.8.1 (2023-08-17)
 
+
+### Features
+
+* add link to devs.gent ([188aed2](https://github.com/ElianCodes/ElianCodes-frontend/commit/188aed2183f742c5af63dff4cb389d025ea0740c))
+
+## 0.8.0 (2023-08-08)
 
 ### ⚠ BREAKING CHANGES
 
-* update README
+- update README
 
-* update README ([4c62019](https://github.com/ElianCodes/ElianCodes-frontend/commit/4c6201906341de8ed9aae011b5c00cb03bfeb97a))
+- update README ([4c62019](https://github.com/ElianCodes/ElianCodes-frontend/commit/4c6201906341de8ed9aae011b5c00cb03bfeb97a))
 
 ### 0.7.8 (2023-08-08)
 
