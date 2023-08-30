@@ -16,9 +16,6 @@ export default defineConfig({
 	adapter: vercel({
 		analytics: true,
 	}),
-	experimental: {
-		assets: true,
-	},
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],

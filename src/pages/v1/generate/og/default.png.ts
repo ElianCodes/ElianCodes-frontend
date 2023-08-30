@@ -12,7 +12,7 @@ const fontData: ArrayBuffer = await fontFile.arrayBuffer();
 const height = 630;
 const width = 1200;
 
-export const get: APIRoute = async () => {
+export const GET: APIRoute = async () => {
 	const link = "https://www.elian.codes";
 	const html = toReactElement(`
   <div style="background-color: white; display: flex; flex-direction: column; height: 100%; padding: 3rem; width: 100%">
