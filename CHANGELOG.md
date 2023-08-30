@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 0.9.0 (2023-08-30)
+
+
+### ⚠ BREAKING CHANGES
+
+* upgrade to Astro 3.0
+
+### Features
+
+* upgrade to Astro 3.0 ([d43ad71](https://github.com/ElianCodes/ElianCodes-frontend/commit/d43ad71db8edb47e876695462763bc2beaf476aa))
+
 ### 0.8.1 (2023-08-17)
 
 
