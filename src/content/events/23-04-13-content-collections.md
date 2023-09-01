@@ -4,5 +4,5 @@ abstract: "Join me and Marc into fixing his website's problems with Astro's Cont
 link: "https://www.youtube.com/watch?v=WabB7iQtRQM"
 date: 2023-04-13
 name: "Marc Backes on YouTube"
-img: https://i.imgur.com/u5JtvSa.jpg
+img: "../../assets/events/marcbackes.jpeg"
 ---

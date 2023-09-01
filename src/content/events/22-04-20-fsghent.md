@@ -4,5 +4,5 @@ abstract: Astro is an upcoming JavaScript framework which focuses on the generat
 link: "https://www.meetup.com/fullstackghent/events/284612742/"
 date: 2022-04-20
 name: "Full Stack Ghent"
-img: https://i.imgur.com/KFZx2CD.jpg
+img: "../../assets/events/fsghent.jpg"
 ---

@@ -4,5 +4,5 @@ abstract: "In this talk we’ll go a a little deeper in exploring the atmosphere
 link: "https://www.meetup.com/fullstackghent/events/286280324/"
 date: 2022-09-14
 name: "Full Stack Ghent"
-img: https://i.imgur.com/hWm30D0.jpg
+img: "../../assets/events/fsghent2.jpg"
 ---

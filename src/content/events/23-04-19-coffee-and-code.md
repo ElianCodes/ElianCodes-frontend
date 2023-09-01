@@ -4,5 +4,5 @@ abstract: "Join me and @Palmiak in a livestream where we dive a little deeper in
 link: "https://www.youtube.com/watch?v=w_BekkTiJoM"
 date: 2023-04-19
 name: "Code & Coffee show"
-img: https://i.imgur.com/7r5mZxi.jpg
+img: "../../assets/events/codeandcoffee.jpeg"
 ---

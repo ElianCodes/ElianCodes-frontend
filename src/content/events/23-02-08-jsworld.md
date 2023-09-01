@@ -4,5 +4,5 @@ abstract: "Astro is a meta framework which focusses on publishing as little Java
 link: "https://jsworldconference.com/"
 date: 2023-02-08
 name: "JSWorld"
-img: https://i.imgur.com/Eaqjjsg.jpg
+img: "../../assets/events/jsworld.jpeg"
 ---

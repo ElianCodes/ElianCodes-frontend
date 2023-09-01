@@ -4,5 +4,5 @@ abstract: "Are you fluent in HTML, CSS, JavaScript and Angular? Then this challe
 link: "https://editx.eu/en/it-challenges/front-end-challenge-belgium-2022-sd-worx"
 date: 2023-02-26
 name: "SDWorx"
-img: https://i.imgur.com/Kjgjagv.jpg
+img: "../../assets/events/editxsdworx.jpeg"
 ---
