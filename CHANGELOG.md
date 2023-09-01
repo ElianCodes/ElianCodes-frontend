@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.1](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.0...v0.9.1) (2023-09-01)
+
+
+### Features
+
+* convert all images to new assets ([1ad7dd4](https://github.com/ElianCodes/ElianCodes-frontend/commit/1ad7dd4c8ab0553363561a29973d17b4cd093869))
+* upgrade Astro version ([9e7c9a2](https://github.com/ElianCodes/ElianCodes-frontend/commit/9e7c9a2fc06ffb25c96728f693802f4f25f7ad41))
+
 ## 0.9.0 (2023-08-30)
 
 ### ⚠ BREAKING CHANGES
