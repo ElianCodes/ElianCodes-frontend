@@ -4,21 +4,19 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 0.9.0 (2023-08-30)
 
-
 ### ⚠ BREAKING CHANGES
 
-* upgrade to Astro 3.0
+- upgrade to Astro 3.0
 
 ### Features
 
-* upgrade to Astro 3.0 ([d43ad71](https://github.com/ElianCodes/ElianCodes-frontend/commit/d43ad71db8edb47e876695462763bc2beaf476aa))
+- upgrade to Astro 3.0 ([d43ad71](https://github.com/ElianCodes/ElianCodes-frontend/commit/d43ad71db8edb47e876695462763bc2beaf476aa))
 
 ### 0.8.1 (2023-08-17)
 
-
 ### Features
 
-* add link to devs.gent ([188aed2](https://github.com/ElianCodes/ElianCodes-frontend/commit/188aed2183f742c5af63dff4cb389d025ea0740c))
+- add link to devs.gent ([188aed2](https://github.com/ElianCodes/ElianCodes-frontend/commit/188aed2183f742c5af63dff4cb389d025ea0740c))
 
 ## 0.8.0 (2023-08-08)
 
