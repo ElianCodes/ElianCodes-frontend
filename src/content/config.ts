@@ -14,14 +14,15 @@ const blogCollection = defineCollection({
 });
 
 const eventCollection = defineCollection({
-	schema: z.object({
-		title: z.string(),
-		abstract: z.string(),
-		date: z.date().or(z.string().transform((str) => new Date(str))),
-		link: z.string(),
-		name: z.string(),
-		img: z.string().optional(),
-	}),
+	schema: ({ image }) =>
+		z.object({
+			title: z.string(),
+			abstract: z.string(),
+			date: z.date().or(z.string().transform((str) => new Date(str))),
+			link: z.string(),
+			name: z.string(),
+			img: image(),
+		}),
 });
 
 export const collections = {

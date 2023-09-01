@@ -4,5 +4,5 @@ abstract: "Astro is a static site generator which focusses on publishing as litt
 link: "https://react.brussels/"
 date: 2022-10-14
 name: "React Brussels"
-img: https://i.imgur.com/T4D0Wi1.jpg
+img: "../../assets/events/reactbrussels.jpg"
 ---

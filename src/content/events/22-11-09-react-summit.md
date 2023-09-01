@@ -4,5 +4,5 @@ abstract: "This talk will contain an intro into cloud native development, using 
 link: "https://events.geekle.us/react3/"
 date: 2022-11-09
 name: "React Global Online Summit"
-img: https://i.imgur.com/PviW1rO.jpg
+img: "../../assets/events/reactonlinesummit.jpg"
 ---

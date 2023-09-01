@@ -4,4 +4,5 @@ abstract: "We all know React, Vue or Svelte, we've probably build more than a mi
 link: "https://events.geekle.us/react23/"
 date: 2023-04-18
 name: "React Global Online Summit"
+img: "../../assets/events/fsghent.jpg"
 ---
