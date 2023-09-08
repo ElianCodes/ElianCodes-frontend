@@ -17,19 +17,19 @@
 	"dependencies": {
 		"@astrojs/rss": "^3.0.0",
 		"@astrojs/sitemap": "^3.0.0",
-		"@astrojs/vercel": "^4.0.3",
+		"@astrojs/vercel": "^4.0.5",
 		"@eliancodes/brutal-ui": "^0.2.2",
 		"@resvg/resvg-js": "^2.4.1",
-		"@unocss/astro": "^0.55.4",
-		"astro": "^3.0.6",
-		"unocss": "^0.55.4"
+		"@unocss/astro": "^0.55.7",
+		"astro": "^3.0.12",
+		"unocss": "^0.55.7"
 	},
 	"devDependencies": {
 		"@iconify-json/logos": "^1.1.35",
 		"@iconify-json/uil": "^1.1.5",
 		"@playwright/test": "^1.37.1",
-		"@typescript-eslint/parser": "^6.5.0",
-		"@unocss/reset": "^0.55.4",
+		"@typescript-eslint/parser": "^6.6.0",
+		"@unocss/reset": "^0.55.7",
 		"eslint": "^8.48.0",
 		"eslint-plugin-astro": "^0.29.0",
 		"eslint-plugin-deprecation": "^1.5.0",
