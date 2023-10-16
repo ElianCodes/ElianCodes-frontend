@@ -14,7 +14,12 @@ export default defineConfig({
 	integrations: [sitemap(), UnoCSS({ injectReset: true })],
 	output: "static",
 	adapter: vercel({
-		analytics: true,
+		webAnalytics: {
+			enabled: true,
+		},
+		speedInsights: {
+			enabled: true,
+		},
 	}),
 	vite: {
 		optimizeDeps: {
