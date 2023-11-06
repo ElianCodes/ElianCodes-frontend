@@ -1,0 +1,14 @@
+{
+	"redirects": [
+		{ "source": "/x", "destination": "https://x.com/eliancodes" },
+		{ "source": "/twitter", "destination": "https://x.com/eliancodes" },
+		{ "source": "/youtube", "destination": "https://youtube.com/@eliancodes" },
+		{ "source": "/yt", "destination": "https://youtube.com/@eliancodes" },
+		{ "source": "/github", "destination": "https://github.com/eliancodes" },
+		{
+			"source": "/linkedin",
+			"destination": "https://linkedin.com/in/elianvancutsem"
+		},
+		{ "source": "/mastodon", "destination": "https://m.webtoo.ls/@eliancodes" }
+	]
+}
