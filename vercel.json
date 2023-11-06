@@ -9,6 +9,15 @@
 			"source": "/linkedin",
 			"destination": "https://linkedin.com/in/elianvancutsem"
 		},
-		{ "source": "/mastodon", "destination": "https://m.webtoo.ls/@eliancodes" }
+		{ "source": "/mastodon", "destination": "https://m.webtoo.ls/@eliancodes" },
+		{
+			"source": "/threads",
+			"destination": "https://www.threads.net/@eliancodes"
+		},
+		{
+			"source": "/bluesky",
+			"destination": "https://bsky.app/profile/eliancodes.bsky.social"
+		},
+		{ "source": "/mail", "destination": "mailto:hello@elian.codes" }
 	]
 }
