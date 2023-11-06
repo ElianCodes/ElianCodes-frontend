@@ -14,7 +14,7 @@ const events = await getCollection("events").then((events) =>
 	description="See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript)."
 >
 	<main class="bg-yellow p-6">
-		<ul class="grid md:grid-cols-3 gap-8">
+		<ul class="grid md:grid-cols-3 2xl:grid-cols-4 gap-8">
 			{
 				events.map((event) => (
 					<li>

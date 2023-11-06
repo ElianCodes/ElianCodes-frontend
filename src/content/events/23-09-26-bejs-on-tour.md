@@ -4,5 +4,5 @@ abstract: "Web performance is way more complicated these days than it used to be
 link: "https://www.meetup.com/bejs-belgian-javascript-community/events/295676802/"
 date: 2023-09-26
 name: "BeJS on tour"
-img: "../../assets/events/lille.png"
+img: "../../assets/events/lille.jpg"
 ---
