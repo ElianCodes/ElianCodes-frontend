@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.11 (2023-11-06)
+
+
+### Features
+
+* add some rewrites ([28a9d70](https://github.com/ElianCodes/ElianCodes-frontend/commit/28a9d70e14fb1ca247dcd60edd62620fc773d304))
+
 ### 0.9.10 (2023-11-06)
 
 ### 0.9.9 (2023-11-06)
