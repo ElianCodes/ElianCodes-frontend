@@ -21,7 +21,7 @@
 		"@eliancodes/brutal-ui": "^0.2.2",
 		"@resvg/resvg-js": "^2.6.0",
 		"@unocss/astro": "^0.57.2",
-		"astro": "^4.0.0",
+		"astro": "^4.0.2",
 		"unocss": "^0.57.2"
 	},
 	"devDependencies": {
