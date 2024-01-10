@@ -22,6 +22,7 @@
 		"@resvg/resvg-js": "^2.6.0",
 		"@unocss/astro": "^0.57.2",
 		"astro": "^4.0.2",
+		"astro-font": "^0.0.68",
 		"unocss": "^0.57.2"
 	},
 	"devDependencies": {
@@ -30,7 +31,6 @@
 		"@playwright/test": "^1.39.0",
 		"@typescript-eslint/parser": "^6.9.1",
 		"@unocss/reset": "^0.57.2",
-		"astro-font": "^0.0.11",
 		"eslint": "^8.53.0",
 		"eslint-plugin-astro": "^0.29.1",
 		"eslint-plugin-deprecation": "^1.5.0",
