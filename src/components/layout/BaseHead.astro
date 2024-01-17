@@ -1,4 +1,5 @@
 ---
+import LocalFont from "./LocalFont.astro";
 import { ViewTransitions } from "astro:transitions";
 export interface Props {
 	title: string;
@@ -19,6 +20,7 @@ const { title, description, socialImg } = Astro.props;
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="generator" content={Astro.generator} />
+	<LocalFont />
 
 	<link
 		rel="alternate"
