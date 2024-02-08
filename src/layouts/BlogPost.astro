@@ -11,7 +11,7 @@ const socialImg = new URL(
 );
 
 const { content, headings } = Astro.props;
-const { title, description } = content;
+const { title, description } = content.data;
 ---
 
 <Layout title={title} description={description} socialImg={socialImg}>

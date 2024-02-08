@@ -1,4 +1,4 @@
-import { Resvg, ResvgRenderOptions } from "@resvg/resvg-js";
+import { Resvg, type ResvgRenderOptions } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
 import satori from "satori";
 import { html as toReactElement } from "satori-html";
