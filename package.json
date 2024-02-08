@@ -6,12 +6,11 @@
 	"packageManager": "pnpm@8.6.11",
 	"scripts": {
 		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
+		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"format": "prettier --write . --plugin=prettier-plugin-astro",
-		"lint": "eslint . --max-warnings 0 --report-unused-disable-directives",
-		"lint:fix": "eslint . --fix",
+		"format": "biome format ./src --write",
+		"lint": "biome lint ./src",
+		"check": "biome check --apply ./src",
 		"astro": "astro"
 	},
 	"dependencies": {
@@ -26,22 +25,10 @@
 		"unocss": "^0.57.7"
 	},
 	"devDependencies": {
+		"@biomejs/biome": "1.5.3",
 		"@iconify-json/logos": "^1.1.42",
 		"@iconify-json/uil": "^1.1.8",
-		"@playwright/test": "^1.41.2",
-		"@typescript-eslint/parser": "^6.21.0",
 		"@unocss/reset": "^0.57.7",
-		"eslint": "^8.56.0",
-		"eslint-plugin-astro": "^0.29.1",
-		"eslint-plugin-deprecation": "^1.5.0",
-		"eslint-plugin-jsonc": "^2.13.0",
-		"eslint-plugin-jsx-a11y": "^6.8.0",
-		"eslint-plugin-markdown": "^3.0.1",
-		"eslint-plugin-simple-import-sort": "^10.0.0",
-		"eslint-plugin-typescript-sort-keys": "^2.3.0",
-		"eslint-plugin-yml": "^1.12.2",
-		"prettier": "^3.2.5",
-		"prettier-plugin-astro": "^0.12.3",
 		"satori": "^0.7.4",
 		"satori-html": "^0.3.2"
 	}

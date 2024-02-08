@@ -1,7 +1,0 @@
-.astro/
-.vercel/
-functions/
-node_modules/
-public/
-pnpm-lock.yaml
-**/*.md*
