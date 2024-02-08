@@ -7,7 +7,7 @@ tags:
   - Astro
   - Open Source
   - Web development
-imgUrl: "../../assets/blog/23-04-12/maintainer.jpg"
+imgUrl: "./images/startkit.jpeg"
 layout: "@layouts/BlogPost.astro"
 ---
 
@@ -27,9 +27,9 @@ You can read the full list of all the technologies I use in the project and why 
 - [UnoCSS](https://unocss.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## Intensions
+## Intentions
 
-I quickly wanted to write down some intensions I have for the repo.
+I quickly wanted to write down some intentions I have for the repo.
 
 I will update / change it, depending on me changing my "go to" technologies. For instance, at any time in the future, I might change my TypeScript settings or change the design system. Maybe there is an ideal technology that I really want / need but isn't released yet? (Yes, I'm totally talking about Astro Studio).
 
