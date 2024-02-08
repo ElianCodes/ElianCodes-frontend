@@ -1,8 +1,8 @@
-import { Resvg, ResvgRenderOptions } from "@resvg/resvg-js";
+import { Resvg, type ResvgRenderOptions } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
 import satori from "satori";
 import { html as toReactElement } from "satori-html";
+import { getCollection } from "astro:content";
 
 const fontFile = await fetch(
 	"https://og-playground.vercel.app/inter-latin-ext-700-normal.woff",
@@ -21,7 +21,7 @@ export function getStaticPaths() {
 	}));
 }
 
-export const GET: APIRoute = async ({ params, props }) => {
+export const GET: APIRoute = async ({ props }) => {
 	const title = props.title.trim() ?? "Blogpost";
 	const description = props.description ?? null;
 	const html = toReactElement(`

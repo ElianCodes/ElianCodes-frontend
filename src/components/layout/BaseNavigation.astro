@@ -1,5 +1,5 @@
 ---
-import Social from "@types/Social";
+import { type Social } from "../../types/Social";
 
 import MobileNavigation from "./MobileNavigation.astro";
 
@@ -39,7 +39,7 @@ const { pageTitle } = Astro.props;
 		<h2 class="hidden">Navigation</h2>
 		<ul class="flex gap-8 poppins">
 			{
-				navigationItems.map((item: Social) => (
+				navigationItems.map((item) => (
 					<li>
 						<a
 							class="text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out"
