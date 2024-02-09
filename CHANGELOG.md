@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.20 (2024-02-09)
+
+
+### Features
+
+* add sponsors ([a3638f5](https://github.com/ElianCodes/ElianCodes-frontend/commit/a3638f57e57a577f36b88a18d7efebf28921ce2b))
+
 ### 0.9.19 (2024-02-09)
 
 ### 0.9.18 (2024-02-08)
