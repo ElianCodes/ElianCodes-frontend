@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.22 (2024-02-10)
+
+
+### Features
+
+* indicate if blogpost is older then 90 days ([99d4185](https://github.com/ElianCodes/ElianCodes-frontend/commit/99d4185f2dad35b5a61a470579f382c960ed4fc6))
+
 ### 0.9.21 (2024-02-09)
 
 ### 0.9.20 (2024-02-09)
