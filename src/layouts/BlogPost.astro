@@ -15,7 +15,7 @@ const { title, description } = content;
 ---
 
 <Layout title={title} description={description} socialImg={socialImg}>
-	<main class="p-6 lg:grid lg:grid-cols-3 flex justify-center">
+	<main class="p-6 mx-auto">
 		<BlogSideBar headings={headings} />
 		<BlogContent content={content}>
 			<slot />
