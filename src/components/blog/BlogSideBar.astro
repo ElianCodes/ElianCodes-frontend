@@ -1,5 +1,5 @@
 ---
-import { Button } from '@eliancodes/brutal-ui';
+import { ActualButton } from '@eliancodes/brutal-ui';
 
 interface Props {
 	headings: any;
@@ -9,16 +9,16 @@ const { headings } = Astro.props;
 ---
 
 <aside class="absolute">
-	<Button class:list="cursor-pointer brutal-btn" id='menuOpen' title="Open Table of Contents">
+	<ActualButton class:list="cursor-pointer brutal-btn" id='menuOpen' title="Open Table of Contents">
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
 		</svg>		
-	</Button>
-	<Button class:list="!hidden cursor-pointer brutal-btn" id='menuClose' title="Close Table of Contents">
+	</ActualButton>
+	<ActualButton class:list="!hidden cursor-pointer brutal-btn" id='menuClose' title="Close Table of Contents">
 		<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
 			<path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
 		</svg>		
-	</Button>
+	</ActualButton>
 	<nav id="toc" class="hidden sticky top-6">
 		<ul>
 			{

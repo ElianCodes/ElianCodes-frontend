@@ -18,8 +18,8 @@ dependencies:
     specifier: ^7.3.0
     version: 7.3.0(astro@4.3.5)
   '@eliancodes/brutal-ui':
-    specifier: ^0.2.4
-    version: 0.2.4
+    specifier: ^0.2.5
+    version: 0.2.5
   '@resvg/resvg-js':
     specifier: ^2.6.0
     version: 2.6.0
@@ -817,8 +817,8 @@ packages:
       prettier: 2.8.8
     dev: false
 
-  /@eliancodes/brutal-ui@0.2.4:
-    resolution: {integrity: sha512-E0bkOlksIB38MT0AMMpIMI+/ZyLhzr5x9F8j1ibo4AAB/SuwD16xBiGFJgypOXFJ/4vVo1JrYg7Y47ae6uen8A==}
+  /@eliancodes/brutal-ui@0.2.5:
+    resolution: {integrity: sha512-U8bdvSbNjDAoIpVnc1psx5g6gY9mCX+OYbNk1J/YeA40f9eFU9puInGOUahokkaCabK7qrMS7qi4WJmc2GnhZA==}
     dependencies:
       '@changesets/cli': 2.27.1
     dev: false
