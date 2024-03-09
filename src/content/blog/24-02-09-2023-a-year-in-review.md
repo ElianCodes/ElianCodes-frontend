@@ -13,19 +13,19 @@ layout: "@layouts/BlogPost.astro"
 
 # 2023 - A year in review
 
-2023 was such a rush for me, which is one of the reasons I’m only posting my recap this late. I feel like everything described in this blog post only happened yesterday. Maybe it’s because I work too hard or too much, or maybe it’s because I’ve done that many stuff the Elian from 2022 couldn’t believe I would ever do.
+2023 was such a rush for me, which is one of the reasons I’m only posting my recap this late. I feel like everything described in this blog post only happened yesterday. Maybe it’s because I work too hard or too much, or maybe it’s because I’ve done that much stuff the Elian from 2022 couldn’t believe I would ever do.
 
 Up to you to figure that one out.
 
-I hope you enjoy this blog post as much as I do, because man, what a crazy year. Let’s go for an even better and crazier 2024!
+I hope you enjoy this blog post as much as I do, because man, what a wild year. Let’s go for an even better and crazier 2024!
 
 ## First international conference
 
 *February*
 
-Where do I even begin, last year I finished my 2022 recap with a big look forward to my first international conference, and quicker than I could think about it, there it was. JSWorld in Amsterdam. JSWorld was such an amazing experience for me. It was my first international conference and the only one I was projecting on back in 2023, little did I know that I was going to speak at many many more that same year and I was so happy I got asked to speak in Amsterdam. Not only just my first international conference but also, I knew that Fred was going to be there. Not only one of the creators of Astro but also *The* CEO of HTML and CEO of The Astro Technology Company. The same company that powers the development of Astro, that same framework I was speaking about. I felt so scared and stressed to give a full 30-minute talk about Astro in front of one of the creators themselves.
+Where do I even begin? Last year I finished my 2022 recap looking forward to my first international conference, and quicker than I could think about it, there it was. JSWorld in Amsterdam. JSWorld was such an amazing experience for me. It was my first international conference and the only one I was projecting on back in 2023. Little did I know that I was going to speak at many many more that same year and I was so happy I got asked to speak in Amsterdam. Not only just my first international conference but also, I knew that Fred was going to be there. Not only one of the creators of Astro but also *The* CEO of HTML and CEO of The Astro Technology Company. The same company that powers the development of Astro, that same framework I was speaking about. I felt so scared and stressed to give a full 30-minute talk about Astro in front of one of the creators themselves.
 
-After the talk was over, I was so overwhelmed with amazing comments and congratz from audience members, but also fellow speakers, including Fred. Best feeling ever, I lively remember Daniel Roe coming up to me and saying "Debbie told me this is your first full-length talk, I couldn't notice, you did amazing". I never felt so proud of myself before.
+After the talk was over, I was so overwhelmed with amazing comments and congrats from audience members and also fellow speakers, including Fred. Best feeling ever! I lively remember Daniel Roe coming up to me and saying "Debbie told me this is your first full-length talk, I couldn't notice, you did amazing". I never felt so proud of myself before.
 
 ![Elian and Fred sitting in the speakers room](./images/2023-review/elian-fred.png)
 ![The empty seats before JSWorld](./images/2023-review/jsworld-stage.png)
@@ -35,8 +35,8 @@ After the talk was over, I was so overwhelmed with amazing comments and congratz
 
 *February*
 
-While I was in the audience of the JSWorld and VueJS Amsterdam conference. I was overwhelmed by so many amazing speakers and contributors to big open-source projects, that I was thinking to myself WTF am I doing here… I'm just this small guy contributing some typo fixes in the Astro docs repo.
-So I started, there on the spot, redesigning and re-developing my website from the ground up. Astro 2.0 just came out with content collections. So I started thinking about my new website, my new design, and everything. The result came out pretty cool. Eventually, I thought to myself, why shouldn’t I release this as a theme and open-source library myself? Maybe one day, this will be as big as Anthony open-sourcing the Nuxt dev tools on stage.
+While in the audience of the JSWorld and VueJS Amsterdam conference, I was overwhelmed by so many amazing speakers and contributors to big open-source projects thinking to myself "WTF am I doing here… I'm just this small guy contributing some typo fixes in the Astro docs repo."
+So I started, there on the spot, redesigning and re-developing my website from the ground up. Astro 2.0 had just come out with content collections. So I started thinking about my new website, my new design, and everything. The result came out pretty cool. Eventually, I thought to myself, why shouldn’t I release this as a theme and open-source library myself? Maybe one day, this will be as big as Anthony open-sourcing the Nuxt dev tools on stage.
 
 It’s not as big and never will nor has to be, but it gets me fun tweets like this:
 
@@ -46,9 +46,9 @@ It’s not as big and never will nor has to be, but it gets me fun tweets like t
 
 *April*
 
-I still even have a screenshot of the time I officially became a contributor. Which was already a crazy thing for me at that time (11oct 2021). Even though I regularly was contributing to Astro itself and Astro docs, a role like that, meant the world to me. Getting recognition for work that I love to do, was the best feeling ever.
+I still have a screenshot of the time I officially became a contributor. Which was already a crazy thing for me at that time (11oct 2021). Even though I regularly was contributing to Astro itself and Astro docs, a role like maintainer meant the world to me. Getting recognition for work that I love to do, was the best feeling ever.
 
-In case you want to read more about [my thoughts on becoming a maintainer, you can read those here](/blog/23-04-12-becoming-an-astro-maintainer/).
+You can read [my thoughts on becoming a maintainer here](/blog/23-04-12-becoming-an-astro-maintainer/).
 
 ![Visual saying "welcome to new maintainer Elian"](./images/2023-review/new-maintainer-astro.png)
 ![Picture of my screen in a Discord Call](./images/2023-review/maintainer-elian.png)
@@ -57,7 +57,7 @@ In case you want to read more about [my thoughts on becoming a maintainer, you c
 
 *April*
 
-This thing changed my life. And I’m pretty sure it changed the course of my career as well. After some core members weren't able to get their visas in time to come to Europe from America, I got the chance to join the Astro Offsite in Copenhagen. An amazing experience is the most I can say.
+This thing changed my life. And I’m pretty sure it changed the course of my career as well. After some core members weren't able to get their visas in time to come to Europe from America, I got the chance to join the Astro Offsite in Copenhagen. It was an amazing experience.
 
 I got to meet almost all of Astro core, each one of them being amazing humans and put so much effort into including me in their activities and making sure I felt at home with them.
 
@@ -99,13 +99,13 @@ If you want to read more about [my thoughts on joining Astro full-time, you can 
 
 *August*
 
-I only had joined the Astro Core team about a week, before they came with the announcement: “We’re shipping Astro 3 and hey, Elian, You’re a big part of it. You’re responsible for writing the docs together with Sarah!”. Which is awesome, don't get me wrong. But it was also a bit overwhelming. I was still learning the ropes of the company and the project, and now I had to make sure the docs were up to date and ready for the release of Astro 3. It was a lot of work, but I’m glad I got to do it. It was such a great learning experience, working together with the whole DX team to make sure the docs were in shape and working with the platform team on what features were going to be released and how to document them.
+I had only just been on the Astro Core team about a week when they announced: “We’re shipping Astro 3 and hey, Elian, you’re a big part of it. You’re responsible for writing the docs together with Sarah!”. Which is awesome! But it was also a bit overwhelming. I was still learning the ropes of the company and the project, and now I had to make sure the docs were up to date and ready for the release of Astro 3. It was a lot of work, but I’m glad I got to do it. It was such a great learning experience, working together with the whole DX team to make sure the docs were in shape and working with the platform team on what features were going to be released and how to document them.
 
 ## Starting devs.gent
 
 *September*
 
-I always had this in mind. Since day one I attended and joined meetups. How awesome is it to empower people to take the stage and make their 20 minutes of fame? If I can help them, I'll gladly do so. Thanks to Freek and Bert, that dream was turned into a reality. Since we started, we have done 3 meetups, all of which were super successful! We always reached full capacity, with awesome conversations and great talks! Many thanks to all of the people who came to watch, give a talk, or hosted us at their company offices!
+I always had this in mind. Since day one I attended and joined meetups. How awesome is it to empower people to take the stage and make their 20 minutes of fame? If I can help them, I'll gladly do so. Thanks to Freek and Bert, that dream was turned into a reality. We've done 3 meetups, all super successful! Each reached full capacity, with awesome conversations and great talks! Many thanks to all of the people who came to watch, give a talk, or hosted us at their company offices!
 
 ![The organising team of devs.gent having dinner](./images/2023-review/devs-gent.jpeg)
 
