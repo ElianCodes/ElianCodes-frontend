@@ -18,19 +18,19 @@
 		"@astrojs/rss": "^4.0.5",
 		"@astrojs/sitemap": "^3.1.1",
 		"@astrojs/vercel": "^7.3.6",
-		"@eliancodes/brutal-ui": "^0.2.3",
+		"@eliancodes/brutal-ui": "^0.2.6",
 		"@resvg/resvg-js": "^2.6.0",
-		"@unocss/astro": "^0.57.7",
+		"@unocss/astro": "^0.58.6",
 		"astro": "^4.5.4",
 		"astro-font": "^0.0.72",
-		"typescript": "^5.3.3",
-		"unocss": "^0.57.7"
+		"typescript": "^5.4.2",
+		"unocss": "^0.58.6"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.5.3",
 		"@iconify-json/logos": "^1.1.42",
 		"@iconify-json/uil": "^1.1.8",
-		"@unocss/reset": "^0.57.7",
+		"@unocss/reset": "^0.58.6",
 		"satori": "^0.7.4",
 		"satori-html": "^0.3.2"
 	}
