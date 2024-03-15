@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.24 (2024-03-15)
+
+
+### Features
+
+* add nightly upgrade script & blogpost ([4305657](https://github.com/ElianCodes/ElianCodes-frontend/commit/4305657596bff24d19cdfba214029f6e3c541cb8))
+
 ### 0.9.23 (2024-03-09)
 
 ### 0.9.22 (2024-02-10)
