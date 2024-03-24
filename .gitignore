@@ -25,3 +25,6 @@ firebase-debug.log
 /.vercel
 /.astro
 /playwright-report
+
+# Local Netlify folder
+.netlify
