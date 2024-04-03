@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.1.2
     version: 3.1.2
   '@astrojs/vercel':
-    specifier: ^7.5.0
-    version: 7.5.0(astro@4.5.12)
+    specifier: ^7.5.1
+    version: 7.5.1(astro@4.5.14)
   '@eliancodes/brutal-ui':
     specifier: ^0.2.6
     version: 0.2.6
@@ -27,8 +27,8 @@ dependencies:
     specifier: ^0.58.6
     version: 0.58.6(vite@5.1.6)
   astro:
-    specifier: ^4.5.12
-    version: 4.5.12(typescript@5.4.2)
+    specifier: ^4.5.14
+    version: 4.5.14(typescript@5.4.2)
   astro-font:
     specifier: ^0.0.72
     version: 0.0.72
@@ -101,6 +101,10 @@ packages:
     resolution: {integrity: sha512-XpC8MAaWjD1ff6/IfkRq/5k1EFj6zhCNqXRd5J43SVJEBj/Bsmizkm8N0xOYscGcDFQkRgEw6/eKnI5x/1l6aA==}
     dev: false
 
+  /@astrojs/compiler@2.7.1:
+    resolution: {integrity: sha512-/POejAYuj8WEw7ZI0J8JBvevjfp9jQ9Wmu/Bg52RiNwGXkMV7JnYpsenVfHvvf1G7R5sXHGKlTcxlQWhoUTiGQ==}
+    dev: false
+
   /@astrojs/internal-helpers@0.4.0:
     resolution: {integrity: sha512-6B13lz5n6BrbTqCTwhXjJXuR1sqiX/H6rTxzlXx+lN1NnV4jgnq/KJldCQaUWJzPL5SiWahQyinxAbxQtwgPHA==}
     dev: false
@@ -137,8 +141,8 @@ packages:
       - typescript
     dev: false
 
-  /@astrojs/markdown-remark@4.3.2:
-    resolution: {integrity: sha512-4Oa4VaYiBd0MatB+rWIU/0A8pZH/sK3c2QkRYb+OO2lPl+qzevJtWaZY8hAQc4qurIOlRdn6B6ofDAGhWw+DSg==}
+  /@astrojs/markdown-remark@5.0.0:
+    resolution: {integrity: sha512-QBXbxXZamVRoqCNN2gjDXa7qYPUkJZq7KYFfg3DX7rze3QL6xiz4N+Wg202dNPRaIkQa16BV6D8+EHibQFubRg==}
     dependencies:
       '@astrojs/prism': 3.0.0
       github-slugger: 2.0.0
@@ -198,8 +202,8 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/vercel@7.5.0(astro@4.5.12):
-    resolution: {integrity: sha512-RYFZNHkfNgFNb41nblG26ubw5924hAjLYs+Bpp4kttcsYJAX/wavIfDbfZQ/XesDTKwIH+Gi/+3c5bldZePFDA==}
+  /@astrojs/vercel@7.5.1(astro@4.5.14):
+    resolution: {integrity: sha512-jYGGddRY7QruazIfV+jFrfv0vAYY5tzTfG7YsCGDxZJXx3MOwcNeFjIkv3SJ4C2h+jecxnBiPk7gRxQcVS5KXw==}
     peerDependencies:
       astro: ^4.2.0
     dependencies:
@@ -207,7 +211,7 @@ packages:
       '@vercel/analytics': 1.2.2
       '@vercel/edge': 1.1.1
       '@vercel/nft': 0.26.4
-      astro: 4.5.12(typescript@5.4.2)
+      astro: 4.5.14(typescript@5.4.2)
       esbuild: 0.19.12
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -2143,14 +2147,14 @@ packages:
     resolution: {integrity: sha512-FUjIerovSg2lsfJfvvqY23hgvc++gHi69ikFkxm0mqO3MPFykK5ppeUuROUjhNbE6vwdD8MpiJOy1CR5S0g/lQ==}
     dev: false
 
-  /astro@4.5.12(typescript@5.4.2):
-    resolution: {integrity: sha512-xIJcFI2hbyV8+h5pWjL7SKD1jIP0K01fYVAH+gdAt0mJaXy+u8Mj+goD0cPlK6sEaykR+7zxQLYGKJ44U4qarg==}
+  /astro@4.5.14(typescript@5.4.2):
+    resolution: {integrity: sha512-OXQ9Wbcn5e2eEPrNKJjGXeCWnKamNGyvSwORL0B8BB1fp3OO/EYo/RfeQGTR9kxGNxEpokoPZL9JNgFHoVK+wA==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
-      '@astrojs/compiler': 2.7.0
+      '@astrojs/compiler': 2.7.1
       '@astrojs/internal-helpers': 0.4.0
-      '@astrojs/markdown-remark': 4.3.2
+      '@astrojs/markdown-remark': 5.0.0
       '@astrojs/telemetry': 3.0.4
       '@babel/core': 7.24.3
       '@babel/generator': 7.24.1
