@@ -15,8 +15,8 @@ dependencies:
     specifier: ^3.1.2
     version: 3.1.2
   '@astrojs/vercel':
-    specifier: ^7.5.2
-    version: 7.5.2(astro@4.6.0)
+    specifier: ^7.5.3
+    version: 7.5.3(astro@4.6.1)
   '@eliancodes/brutal-ui':
     specifier: ^0.2.6
     version: 0.2.6
@@ -27,8 +27,8 @@ dependencies:
     specifier: ^0.58.6
     version: 0.58.6(vite@5.1.6)
   astro:
-    specifier: ^4.6.0
-    version: 4.6.0(typescript@5.4.2)
+    specifier: ^4.6.1
+    version: 4.6.1(typescript@5.4.2)
   astro-font:
     specifier: ^0.0.72
     version: 0.0.72
@@ -202,8 +202,8 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/vercel@7.5.2(astro@4.6.0):
-    resolution: {integrity: sha512-Wvz5wCvmc1iu22KcVEpEAXsyzAWrVIkcXOReqd6QAUTJ5Kj1oYsZdZqJuibjbM6hDfnhTF78W64XXUKH+Wb0cg==}
+  /@astrojs/vercel@7.5.3(astro@4.6.1):
+    resolution: {integrity: sha512-rIqcoGoW+SJv+rOjMjMq5ICdBZP+zbuenXyNhTa6UIUZldm4pZLLImuBDvTxB/A3JvJZRoTwZtsEgORXav1bbg==}
     peerDependencies:
       astro: ^4.2.0
     dependencies:
@@ -211,7 +211,7 @@ packages:
       '@vercel/analytics': 1.2.2
       '@vercel/edge': 1.1.1
       '@vercel/nft': 0.26.4
-      astro: 4.6.0(typescript@5.4.2)
+      astro: 4.6.1(typescript@5.4.2)
       esbuild: 0.19.12
       fast-glob: 3.3.2
       set-cookie-parser: 2.6.0
@@ -2147,8 +2147,8 @@ packages:
     resolution: {integrity: sha512-FUjIerovSg2lsfJfvvqY23hgvc++gHi69ikFkxm0mqO3MPFykK5ppeUuROUjhNbE6vwdD8MpiJOy1CR5S0g/lQ==}
     dev: false
 
-  /astro@4.6.0(typescript@5.4.2):
-    resolution: {integrity: sha512-zys+COED1Zs/PurkgAFc/f93e2jACMv7XeC+CyDNBgdE9v2b7rlVPRu054j2nTrQTzGQ7kst2/waQrDbs6e1aA==}
+  /astro@4.6.1(typescript@5.4.2):
+    resolution: {integrity: sha512-gcL22NEhuRi4wu9/x5Kn2eJf7nT6GeU5BxdN6AHbUnX6UzEDIWtpgHs5lBIZYExKbHKN9PjEGXWQzQtFwLU+5g==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
     dependencies:
