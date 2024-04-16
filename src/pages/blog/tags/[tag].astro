@@ -14,19 +14,19 @@ export async function getStaticPaths() {
 
 	const tags: string[] = [];
 
-	allPosts.forEach((post) => {
-		post.data.tags.forEach((tag) => {
-			tags.push(tag.toLowerCase());
-		});
-	});
+	for (const post of allPosts) {
+		for (const tag of post.data.tags) {
+			tags.push(tag);
+		}
+	}
 
 	return Array.from(new Set(tags)).map((tag) => {
 		return {
-			params: { tag },
+			params: { tag: tag.toLowerCase() },
 			props: {
 				tag,
 				blogposts: allPosts.filter((post) =>
-					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag),
+					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase()),
 				),
 			},
 		};
