@@ -1,6 +1,6 @@
 {
 	"name": "eliancodes-frontend",
-	"version": "0.9.40",
+	"version": "0.9.41",
 	"private": true,
 	"type": "module",
 	"packageManager": "pnpm@9.0.0",
