@@ -3,7 +3,6 @@
 	"version": "0.9.42",
 	"private": true,
 	"type": "module",
-	"packageManager": "pnpm@9.0.0",
 	"scripts": {
 		"dev": "astro dev",
 		"build": "astro check && astro build",
