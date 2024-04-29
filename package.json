@@ -26,7 +26,7 @@
 		"unocss": "^0.59.4"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.7.0",
+		"@biomejs/biome": "1.7.1",
 		"@iconify-json/logos": "^1.1.42",
 		"@iconify-json/uil": "^1.1.8",
 		"@unocss/reset": "^0.59.4",
