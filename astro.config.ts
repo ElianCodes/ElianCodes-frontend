@@ -22,7 +22,7 @@ export default defineConfig({
 		db(),
 		webVitals(),
 	],
-	output: "static",
+	output: "hybrid",
 	adapter: vercel({
 		webAnalytics: {
 			enabled: true,
