@@ -18,3 +18,9 @@ I was working on a SolidJS project with Astro and found myself in need of some d
 [Here's a link to the quickstart SolidJS Devtools + Astro repo](https://github.com/ElianCodes/astro-solidjs-devtools).
 
 For now, it's only a template to get you started quickly, but I'm definitely exploring options to release it as a an Astro integration somewhere in the future.
+
+## UPDATE: WE DID IT!
+
+I'm happy to announce that the SolidJS Devtools are now integrated into Astro! 🎉
+
+Even better, it sparked a whole lot of different devtool integration PRs as well. You can find how to enable the SolidJS Devtools in Astro in [the official Astro documentation](https://docs.astro.build/en/guides/integrations-guide/solid-js/#devtools).
