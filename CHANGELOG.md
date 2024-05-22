@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.50 (2024-05-22)
+
+
+### Features
+
+* enable devtools ([fb769db](https://github.com/ElianCodes/ElianCodes-frontend/commit/fb769db7d85405a4aee46e88101d1b2da12861a2))
+
 ### 0.9.49 (2024-05-20)
 
 ### 0.9.48 (2024-05-17)
