@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.54 (2024-05-22)
+
+
+### Features
+
+* allow hybrid render ([1c5830f](https://github.com/ElianCodes/ElianCodes-frontend/commit/1c5830f98d8f309c156de7d0460c907525a2a596))
+
 ### 0.9.53 (2024-05-22)
 
 
