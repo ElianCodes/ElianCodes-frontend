@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.52 (2024-05-22)
+
+
+### Features
+
+* enable remote build ([891ba90](https://github.com/ElianCodes/ElianCodes-frontend/commit/891ba90a93e26a9e635fe6fc0df6077f849d5bbf))
+
 ### 0.9.51 (2024-05-22)
 
 
