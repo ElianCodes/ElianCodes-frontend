@@ -1,5 +1,5 @@
 import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 import { defineConfig } from "astro/config";
 import UnoCSS from "unocss/astro";
 import db from "@astrojs/db";
