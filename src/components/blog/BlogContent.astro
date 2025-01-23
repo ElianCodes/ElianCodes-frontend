@@ -9,7 +9,7 @@ const daysAgo = (new Date(content.pubDate).getTime() - new Date().getTime()) / (
 const oldPost = daysAgo <= -90;
 ---
 
-<article class="prose-slate w-sm md:w-prose md:prose poppins">
+<article class="prose-slate w-xs md:w-prose md:prose poppins">
 	<a href="/blog/" title="Back to blog">&larr; Back to blog</a>
 	{ oldPost ?
 		<aside class="p-4 border-black border-3 rounded-md bg-white card-shadow mt-4 text-black text-sm md:text-base">This blogpost was published more than 3 months ago. It's possible that some of this data or concepts are outdated.</aside>
