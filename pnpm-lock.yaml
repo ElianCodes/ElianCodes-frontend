@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@astrojs/check':
     specifier: ^0.8.1
-    version: 0.8.1(typescript@5.4.5)
+    version: 0.8.1(typescript@5.8.2)
   '@astrojs/db':
     specifier: ^0.14.0
     version: 0.14.8
@@ -34,13 +34,13 @@ dependencies:
     version: 0.59.4(vite@5.4.14)
   astro:
     specifier: ^4.11.5
-    version: 4.16.18(typescript@5.4.5)
+    version: 4.16.18(typescript@5.8.2)
   astro-font:
     specifier: ^0.0.80
     version: 0.0.80
   typescript:
     specifier: ^5.4.5
-    version: 5.4.5
+    version: 5.8.2
   unocss:
     specifier: ^0.59.4
     version: 0.59.4(postcss@8.5.3)(vite@5.4.14)
@@ -86,17 +86,17 @@ packages:
     resolution: {integrity: sha512-rWQkqXRESdjXtc+7NRfK9lASQjpXJu1ayp7qi1d23zZorY+wBHVLHHoVcMsEnkqEBWTFqbztO7/QdJFzyEcLTg==}
     dev: false
 
-  /@astrojs/check@0.8.1(typescript@5.4.5):
+  /@astrojs/check@0.8.1(typescript@5.8.2):
     resolution: {integrity: sha512-QTzCuiBWll3SLSe7OsWtWyZRbwChXwxM4Y0Jb84jdPOdYobzHad9ubU7V23qmK3Y0BNwgzCbEP5C5FPVitb31Q==}
     hasBin: true
     peerDependencies:
       typescript: ^5.0.0
     dependencies:
-      '@astrojs/language-server': 2.11.1(typescript@5.4.5)
+      '@astrojs/language-server': 2.11.1(typescript@5.8.2)
       chokidar: 3.6.0
       fast-glob: 3.3.2
       kleur: 4.1.5
-      typescript: 5.4.5
+      typescript: 5.8.2
       yargs: 17.7.2
     transitivePeerDependencies:
       - prettier
@@ -161,7 +161,7 @@ packages:
     resolution: {integrity: sha512-EdDWkC3JJVcpGpqJAU/5hSk2LKXyG3mNGkzGoAuyK+xoPHbaVdSuIWoN1QTnmK3N/gGfaaAfM8gO2KDCAW7S3w==}
     dev: false
 
-  /@astrojs/language-server@2.11.1(typescript@5.4.5):
+  /@astrojs/language-server@2.11.1(typescript@5.8.2):
     resolution: {integrity: sha512-WSIBBUK9lSeVD4KhPiZk2u3wsXdj7WEYvYPPs8ZsgbSVIOzUJWAKVcITHiXmcXlzZB5ubK44YUN/Hq+f2GeMyQ==}
     hasBin: true
     peerDependencies:
@@ -175,7 +175,7 @@ packages:
     dependencies:
       '@astrojs/compiler': 2.11.0
       '@jridgewell/sourcemap-codec': 1.5.0
-      '@volar/kit': 2.4.0-alpha.15(typescript@5.4.5)
+      '@volar/kit': 2.4.0-alpha.15(typescript@5.8.2)
       '@volar/language-core': 2.4.0-alpha.15
       '@volar/language-server': 2.4.0-alpha.15
       '@volar/language-service': 2.4.0-alpha.15
@@ -273,7 +273,7 @@ packages:
       '@vercel/analytics': 1.5.0
       '@vercel/edge': 1.2.1
       '@vercel/nft': 0.27.10
-      astro: 4.16.18(typescript@5.4.5)
+      astro: 4.16.18(typescript@5.8.2)
       esbuild: 0.21.5
       fast-glob: 3.3.3
       web-vitals: 3.5.2
@@ -2315,7 +2315,7 @@ packages:
       - supports-color
     dev: false
 
-  /@volar/kit@2.4.0-alpha.15(typescript@5.4.5):
+  /@volar/kit@2.4.0-alpha.15(typescript@5.8.2):
     resolution: {integrity: sha512-ZCBErTebCVdzpSo/0wBlrjnZfqQfVIaHUJa3kOQe3TbVR/8Ny/3mij9gSkBTUcSyVtlUFpJpJo/B8aQp0xt/mQ==}
     peerDependencies:
       typescript: '*'
@@ -2323,7 +2323,7 @@ packages:
       '@volar/language-service': 2.4.0-alpha.15
       '@volar/typescript': 2.4.0-alpha.15
       typesafe-path: 0.2.2
-      typescript: 5.4.5
+      typescript: 5.8.2
       vscode-languageserver-textdocument: 1.0.11
       vscode-uri: 3.0.8
     dev: false
@@ -2532,7 +2532,7 @@ packages:
     resolution: {integrity: sha512-RjUANXSNdt0Yp2Tpyn7woBg67hCX2Gy1OiiA7B0NX501LcrzvFHoX98CoBgJC5af3tj3fznfLqqBmMr7wu6+fQ==}
     dev: false
 
-  /astro@4.16.18(typescript@5.4.5):
+  /astro@4.16.18(typescript@5.8.2):
     resolution: {integrity: sha512-G7zfwJt9BDHEZwlaLNvjbInIw2hPryyD654314KV/XT34pJU6SfN1S+mWa8RAkALcZNJnJXCJmT3JXLQStD3Lw==}
     engines: {node: ^18.17.1 || ^20.3.0 || >=21.0.0, npm: '>=9.6.5', pnpm: '>=7.1.0'}
     hasBin: true
@@ -2588,7 +2588,7 @@ packages:
       semver: 7.7.1
       shiki: 1.29.2
       tinyexec: 0.3.2
-      tsconfck: 3.1.5(typescript@5.4.5)
+      tsconfck: 3.1.5(typescript@5.8.2)
       unist-util-visit: 5.0.0
       vfile: 6.0.3
       vite: 5.4.14
@@ -2598,7 +2598,7 @@ packages:
       yargs-parser: 21.1.1
       zod: 3.24.2
       zod-to-json-schema: 3.24.3(zod@3.24.2)
-      zod-to-ts: 1.2.0(typescript@5.4.5)(zod@3.24.2)
+      zod-to-ts: 1.2.0(typescript@5.8.2)(zod@3.24.2)
     optionalDependencies:
       sharp: 0.33.5
     transitivePeerDependencies:
@@ -6241,7 +6241,7 @@ packages:
     resolution: {integrity: sha512-tmMpK00BjZiUyVyvrBK7knerNgmgvcV/KLVyuma/SC+TQN167GrMRciANTz09+k3zW8L8t60jWO1GpfkZdjTaw==}
     dev: false
 
-  /tsconfck@3.1.5(typescript@5.4.5):
+  /tsconfck@3.1.5(typescript@5.8.2):
     resolution: {integrity: sha512-CLDfGgUp7XPswWnezWwsCRxNmgQjhYq3VXHM0/XIRxhVrKw0M1if9agzryh1QS3nxjCROvV+xWxoJO1YctzzWg==}
     engines: {node: ^18 || >=20}
     hasBin: true
@@ -6251,7 +6251,7 @@ packages:
       typescript:
         optional: true
     dependencies:
-      typescript: 5.4.5
+      typescript: 5.8.2
     dev: false
 
   /tslib@2.8.1:
@@ -6348,8 +6348,8 @@ packages:
       semver: 7.7.1
     dev: false
 
-  /typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
+  /typescript@5.8.2:
+    resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: false
@@ -7011,13 +7011,13 @@ packages:
       zod: 3.24.2
     dev: false
 
-  /zod-to-ts@1.2.0(typescript@5.4.5)(zod@3.24.2):
+  /zod-to-ts@1.2.0(typescript@5.8.2)(zod@3.24.2):
     resolution: {integrity: sha512-x30XE43V+InwGpvTySRNz9kB7qFU8DlyEy7BsSTCHPH1R0QasMmHWZDCzYm6bVXtj/9NNJAZF3jW8rzFvH5OFA==}
     peerDependencies:
       typescript: ^4.9.4 || ^5.0.2
       zod: ^3
     dependencies:
-      typescript: 5.4.5
+      typescript: 5.8.2
       zod: 3.24.2
     dev: false
 
