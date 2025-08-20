@@ -22,7 +22,7 @@
 		"@eliancodes/brutal-ui": "^0.2.6",
 		"@resvg/resvg-js": "^2.6.2",
 		"@unocss/astro": "^66.0.0",
-		"astro": "^4.11.5",
+		"astro": "^4.16.19",
 		"astro-font": "^0.0.80",
 		"typescript": "^5.4.5",
 		"unocss": "^66.0.0"
