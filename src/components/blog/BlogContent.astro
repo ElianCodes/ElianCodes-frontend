@@ -11,16 +11,21 @@ const daysAgo =
 const oldPost = daysAgo <= -90;
 ---
 
-<article class="prose-slate w-xs sm:w-sm md:w-prose md:prose poppins">
-	<a href="/blog/" title="Back to blog">&larr; Back to blog</a>
-	{ oldPost ?
-		<aside class="p-4 border-black border-3 rounded-md bg-white card-shadow mt-4 text-black text-sm md:text-base">This blogpost was published more than 3 months ago. It's possible that some of this data or concepts are outdated.</aside>
-		: 
-		<p class="text-slate text-sm md:text-base">
-			Published on {content.pubDate} by {content.author}
-		</p>
+<article class='prose-slate w-xs sm:w-sm md:w-prose md:prose poppins'>
+	<a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
+	{
+		oldPost ? (
+			<aside class='p-4 border-black border-3 rounded-md bg-white card-shadow mt-4 mb-8 text-black text-sm md:text-base'>
+				This blogpost was published more than 3 months ago. It's possible that
+				some of this data or concepts are outdated.
+			</aside>
+		) : (
+			<p class='text-slate text-sm md:text-base'>
+				Published on {content.pubDate} by {content.author}
+			</p>
+		)
 	}
 	<slot />
-	<p class="text-slate">Written by {content.author}</p>
-	<a href="/blog/" title="Back to blog">&larr; Back to blog</a>
+	<p class='text-slate'>Written by {content.author}</p>
+	<a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
 </article>
