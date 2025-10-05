@@ -9,7 +9,7 @@
 		"preview": "astro preview",
 		"format": "biome format ./src --write",
 		"lint": "biome lint ./src",
-		"check": "biome check --apply ./src",
+		"check": "biome check ./src",
 		"astro": "astro"
 	},
 	"dependencies": {
@@ -28,7 +28,7 @@
 		"unocss": "^66.5.2"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.7.1",
+		"@biomejs/biome": "2.2.5",
 		"@iconify-json/logos": "^1.2.9",
 		"@iconify-json/uil": "^1.2.3",
 		"@unocss/reset": "^66.5.2",

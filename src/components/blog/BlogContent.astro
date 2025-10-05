@@ -6,12 +6,13 @@ export interface Props {
 
 const { content } = Astro.props;
 const daysAgo =
-	(new Date(content.pubDate).getTime() - new Date().getTime()) /
-	(1000 * 60 * 60 * 24);
+	(new Date(content.pubDate).getTime() - Date.now()) / (1000 * 60 * 60 * 24);
 const oldPost = daysAgo <= -90;
 ---
 
-<article class="prose prose-slate w-full md:w-prose mx-auto poppins prose-pre:overflow-x-auto prose-img:rounded-md prose-a:underline prose-a:underline-offset-2 prose-a:decoration-2">
+<article
+	class='prose prose-slate w-full md:w-prose mx-auto poppins prose-pre:overflow-x-auto prose-img:rounded-md prose-a:underline prose-a:underline-offset-2 prose-a:decoration-2'
+>
 	<a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
 	{
 		oldPost ? (

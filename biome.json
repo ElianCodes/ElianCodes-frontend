@@ -1,6 +1,6 @@
 {
-	"$schema": "https://biomejs.dev/schemas/1.7.0/schema.json",
-	"organizeImports": {
+	"$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
+	"formatter": {
 		"enabled": true
 	},
 	"linter": {
@@ -8,5 +8,22 @@
 		"rules": {
 			"recommended": true
 		}
-	}
+	},
+	"overrides": [
+    {
+      "includes": ["**/*.astro"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    }
+  ]
 }
