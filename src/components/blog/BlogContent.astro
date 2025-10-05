@@ -5,7 +5,9 @@ export interface Props {
 }
 
 const { content } = Astro.props;
-const daysAgo = (new Date(content.pubDate).getTime() - new Date().getTime()) / (1000 * 60 * 60 * 24);
+const daysAgo =
+	(new Date(content.pubDate).getTime() - new Date().getTime()) /
+	(1000 * 60 * 60 * 24);
 const oldPost = daysAgo <= -90;
 ---
 

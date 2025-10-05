@@ -1,9 +1,9 @@
 ---
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
 import { Button } from "@eliancodes/brutal-ui";
 import Layout from "@layouts/Default.astro";
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
 	const allPosts = await getCollection("blog").then((collection) => {
@@ -26,7 +26,9 @@ export async function getStaticPaths() {
 			props: {
 				tag,
 				blogposts: allPosts.filter((post) =>
-					post.data.tags.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase()),
+					post.data.tags
+						.map((tag) => tag.toLowerCase())
+						.includes(tag.toLowerCase()),
 				),
 			},
 		};
