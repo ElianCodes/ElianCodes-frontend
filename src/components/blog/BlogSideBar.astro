@@ -7,8 +7,8 @@ export interface Props {
 const { headings } = Astro.props;
 ---
 
-<aside>
-	<nav class="hidden lg:block sticky top-6">
+<aside class="hidden lg:block">
+	<nav class="sticky top-6">
 		<ul>
 			{
 				headings.map((heading: any) => (

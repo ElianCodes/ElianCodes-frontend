@@ -53,15 +53,15 @@ export const GET: APIRoute = async () => {
 			value: width,
 		},
 	};
-		const resvg = new Resvg(svg, opts);
-		const pngData = resvg.render();
-		const bytes = new Uint8Array(pngData.asPng());
-		const body = new Blob([bytes], { type: "image/png" });
+	const resvg = new Resvg(svg, opts);
+	const pngData = resvg.render();
+	const bytes = new Uint8Array(pngData.asPng());
+	const body = new Blob([bytes], { type: "image/png" });
 
-		return new Response(body, {
-			headers: {
-				"content-type": "image/png",
-				"cache-control": "public, max-age=31536000, immutable",
-			},
-		});
+	return new Response(body, {
+		headers: {
+			"content-type": "image/png",
+			"cache-control": "public, max-age=31536000, immutable",
+		},
+	});
 };
