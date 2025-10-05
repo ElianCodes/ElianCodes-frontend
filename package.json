@@ -18,20 +18,20 @@
 		"@astrojs/rss": "^4.0.12",
 		"@astrojs/sitemap": "^3.6.0",
 		"@astrojs/vercel": "^8.2.8",
-		"@astrojs/web-vitals": "^4.0.0",
 		"@eliancodes/brutal-ui": "^0.2.6",
 		"@resvg/resvg-js": "^2.6.2",
-		"@unocss/astro": "^66.0.0",
+		"@studiocms/web-vitals": "^4.5.3",
+		"@unocss/astro": "^66.5.2",
 		"astro": "^5.14.1",
 		"astro-font": "^0.0.80",
-		"typescript": "^5.4.5",
-		"unocss": "^66.0.0"
+		"typescript": "^5.9.3",
+		"unocss": "^66.5.2"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.7.1",
-		"@iconify-json/logos": "^1.1.42",
-		"@iconify-json/uil": "^1.1.8",
-		"@unocss/reset": "^66.0.0",
+		"@iconify-json/logos": "^1.2.9",
+		"@iconify-json/uil": "^1.2.3",
+		"@unocss/reset": "^66.5.2",
 		"satori": "^0.7.4",
 		"satori-html": "^0.3.2"
 	}
