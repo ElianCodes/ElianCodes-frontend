@@ -128,4 +128,16 @@ const { title, description, socialImg } = Astro.props;
 	<ViewTransitions />
 
 	<slot />
+
+	<!-- Plausible Analytics -->
+	<script defer data-domain="elian.codes" src="https://plausible.eliancodes.synology.me/js/script.file-downloads.outbound-links.js"></script>
+	<script is:inline>
+		(function () {
+			/** @type {any} */
+			var w = window;
+			w.plausible = w.plausible || function () {
+				(w.plausible.q = w.plausible.q || []).push(arguments);
+			};
+		})();
+	</script>
 </head>
