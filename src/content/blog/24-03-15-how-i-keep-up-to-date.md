@@ -8,7 +8,6 @@ tags:
   - Tooling
   - Web development
 imgUrl: "./images/up-to-date.jpeg"
-layout: "@layouts/BlogPost.astro"
 ---
 
 # How I keep everything up to date

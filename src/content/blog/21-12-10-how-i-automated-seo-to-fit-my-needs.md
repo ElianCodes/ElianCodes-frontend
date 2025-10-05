@@ -8,7 +8,6 @@ tags:
   - Webdevelopment
 description: It's been some time since I started writing posts and articles about programming and related. Since the start, I've always invested time in SEO, over time, I have integrated a system that now works for me. This is an explanation how I did that.
 imgUrl: "../../assets/blog/backlog/seo.png"
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # How I automated SEO to fit my needs

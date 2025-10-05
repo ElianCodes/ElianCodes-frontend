@@ -8,7 +8,6 @@ tags:
   - Analytics
 imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: Tracking your users' action on your site can be very helpful, but it isn't always as straightforward
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Adding tracking to your Nuxt site with GA4

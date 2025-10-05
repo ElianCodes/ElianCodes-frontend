@@ -8,7 +8,6 @@ tags:
   - JSWorld
   - Astro
 imgUrl: "../../assets/blog/backlog/jsworld.jpeg"
-layout: ../../layouts/BlogPost.astro
 ---
 
 # Am I an international public speaker now?

@@ -8,7 +8,6 @@ tags:
   - Front-end
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: Found myself struggling with tailwind config with sass preprocessor, so I figured I'd share a solution
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Sass as a tailwindCSS preprocessor

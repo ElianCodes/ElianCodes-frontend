@@ -8,7 +8,6 @@ tags:
   - WASM
 description: Last year I wrote an article about using TailwindCSS with Blazor. It was a struggle, since Blazor had to be tricked to install and compile TailwindCSS NodeJS. Now that TailwindCSS launched a new tool, Tailwind CLI, it's time to try it another way!
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Tailwind CLI with Blazor

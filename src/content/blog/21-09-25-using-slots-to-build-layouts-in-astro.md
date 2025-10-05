@@ -8,7 +8,6 @@ tags:
   - Framework
 imgUrl: "../../assets/blog/backlog/astro_old.png"
 description: Coming from frameworks like NuxtJS and NextJS, I always liked the layout feature. It's a quick way to reuse shared components without re-importing them in every page. When I started with Astro, I had no idea that this was also possible.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using slots to build layout in Astro

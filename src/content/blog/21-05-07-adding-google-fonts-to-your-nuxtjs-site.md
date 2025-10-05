@@ -8,7 +8,6 @@ tags:
   - JavaScript
 imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: I found out that my fonts weren't loading properly, so I searched for an alternative.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Adding Google Fonts to your NuxtJS site

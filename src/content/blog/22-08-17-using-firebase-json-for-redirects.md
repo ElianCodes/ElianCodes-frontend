@@ -8,7 +8,6 @@ tags:
   - Redirects
 imgUrl: "../../assets/blog/backlog/firebase.png"
 description: I started out my blog about a year ago, at the time, I didn't really think about a good URL system, which came back biting me in the ass.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Firebase JSON config for redirects

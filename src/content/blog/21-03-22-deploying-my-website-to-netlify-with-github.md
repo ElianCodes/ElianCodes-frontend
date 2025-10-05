@@ -8,7 +8,6 @@ tags:
   - Nuxt
 imgUrl: "../../assets/blog/backlog/netlify.png"
 description: I've used github to manage the sourcecode for my website for a long time, github pages came with it. Now I discovered a better way to deploy and host websites.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Deploying my website to Netlify using Github

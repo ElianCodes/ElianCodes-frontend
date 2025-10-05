@@ -8,7 +8,6 @@ tags:
   - Houdini
 imgUrl: "../../assets/blog/backlog/houdini.webp"
 description: Some time ago I started looking into CSS Houdini. Today was finally the day that I wrote a package to replace some of my shitty code with some CSS Houdini magic
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Write less code by using CSS Houdini

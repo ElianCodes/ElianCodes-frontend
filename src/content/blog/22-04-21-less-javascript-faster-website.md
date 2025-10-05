@@ -8,7 +8,6 @@ tags:
   - TailwindCSS
 imgUrl: "../../assets/blog/backlog/fsghentastro.jpeg"
 description: 20th April, I gave a lightning talk at the Full Stack Ghent meetup. This blog post contains my slides as well as some extra accompanying speaker notes.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Less JavaScript, Faster website - Astro

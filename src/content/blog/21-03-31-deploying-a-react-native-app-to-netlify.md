@@ -8,7 +8,6 @@ tags:
   - Expo
 imgUrl: "../../assets/blog/backlog/netlify.png"
 description: Deploying a mobile application does seem complicated, but Expo makes it very easy!
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Deploying a React Native app to netlify

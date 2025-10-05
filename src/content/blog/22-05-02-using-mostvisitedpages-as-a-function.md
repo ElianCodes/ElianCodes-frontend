@@ -8,7 +8,6 @@ tags:
   - JavaScript
 description: I've moved from a regular RESTful API to serverless functions. Here is a little guide and explanation on why & how I did that.
 imgUrl: "../../assets/blog/backlog/astro_old.png"
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using @elianvancutsem/mostvisitedpages as a serverless function

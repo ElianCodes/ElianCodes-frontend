@@ -8,7 +8,6 @@ tags:
   - Front-end
 imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: I added a custom preloader to my Nuxt site. It's not that difficult, here's how I did it.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Adding a custom preloader to your nuxt site

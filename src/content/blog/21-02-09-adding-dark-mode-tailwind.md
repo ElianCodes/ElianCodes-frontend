@@ -8,7 +8,6 @@ tags:
   - Front-end
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: How to add dark mode support in TailwindCSS
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Add dark mode to your site with TailwindCSS

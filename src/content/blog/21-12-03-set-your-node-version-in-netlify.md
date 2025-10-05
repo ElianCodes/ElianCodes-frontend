@@ -8,7 +8,6 @@ tags:
   - Netlify
 imgUrl: "../../assets/blog/backlog/netlify.png"
 description: A couple of times I needed to fix the NodeJS version on a Netlify site, I found myself googling it a couple of times, so this little how-to is basically a note-to-self.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Set your NodeJS version in Netlify

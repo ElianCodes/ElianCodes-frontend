@@ -8,7 +8,6 @@ tags:
   - Talk
 imgUrl: "../../assets/blog/backlog/reactbrussels.jpeg"
 description: 14th of October, I gave a lightning talk at React Brussels. This blog post contains my slides as well as some extra accompanying speaker notes.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Less JavaScript, Faster Website - Astro

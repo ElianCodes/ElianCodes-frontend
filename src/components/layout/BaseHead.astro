@@ -17,111 +17,111 @@ const { title, description, socialImg } = Astro.props;
 ---
 
 <head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="generator" content={Astro.generator} />
+	<meta charset='utf-8' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta name='generator' content={Astro.generator} />
 	<LocalFont />
 
 	<link
-		rel="alternate"
-		href="https://www.elian.codes/blog.xml"
-		type="application/rss+xml"
+		rel='alternate'
+		href='https://www.elian.codes/blog.xml'
+		type='application/rss+xml'
 	/>
 
-	<meta name="title" content={`Elian Codes | ${title}`} />
-	<meta name="description" content={description} />
+	<meta name='title' content={`Elian Codes | ${title}`} />
+	<meta name='description' content={description} />
 
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content={canonicalURL} />
-	<meta property="og:title" content={title} />
-	<meta property="og:description" content={description} />
-	<meta property="og:image" content={socialImg} />
-	<meta property="og:image:alt" content="The Elian Codes Social image" />
+	<meta property='og:type' content='website' />
+	<meta property='og:url' content={canonicalURL} />
+	<meta property='og:title' content={title} />
+	<meta property='og:description' content={description} />
+	<meta property='og:image' content={socialImg} />
+	<meta property='og:image:alt' content='The Elian Codes Social image' />
 
-	<meta property="twitter:card" content="summary_large_image" />
-	<meta property="twitter:url" content={canonicalURL} />
-	<meta property="twitter:title" content={title} />
-	<meta property="twitter:description" content={description} />
-	<meta property="twitter:image" content={socialImg} />
-	<meta property="twitter:image:alt" content="The Elian Codes Social image" />
+	<meta property='twitter:card' content='summary_large_image' />
+	<meta property='twitter:url' content={canonicalURL} />
+	<meta property='twitter:title' content={title} />
+	<meta property='twitter:description' content={description} />
+	<meta property='twitter:image' content={socialImg} />
+	<meta property='twitter:image:alt' content='The Elian Codes Social image' />
 
-	<link rel="canonical" href={canonicalURL} />
-	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<link rel='canonical' href={canonicalURL} />
+	<link rel='icon' type='image/x-icon' href='/favicon.ico' />
 	<link
-		rel="apple-touch-icon"
-		sizes="57x57"
-		href="/icons/apple-icon-57x57.png"
+		rel='apple-touch-icon'
+		sizes='57x57'
+		href='/icons/apple-icon-57x57.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="60x60"
-		href="/icons/apple-icon-60x60.png"
+		rel='apple-touch-icon'
+		sizes='60x60'
+		href='/icons/apple-icon-60x60.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="72x72"
-		href="/icons/apple-icon-72x72.png"
+		rel='apple-touch-icon'
+		sizes='72x72'
+		href='/icons/apple-icon-72x72.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="76x76"
-		href="/icons/apple-icon-76x76.png"
+		rel='apple-touch-icon'
+		sizes='76x76'
+		href='/icons/apple-icon-76x76.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="114x114"
-		href="/icons/apple-icon-114x114.png"
+		rel='apple-touch-icon'
+		sizes='114x114'
+		href='/icons/apple-icon-114x114.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="120x120"
-		href="/icons/apple-icon-120x120.png"
+		rel='apple-touch-icon'
+		sizes='120x120'
+		href='/icons/apple-icon-120x120.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="144x144"
-		href="/icons/apple-icon-144x144.png"
+		rel='apple-touch-icon'
+		sizes='144x144'
+		href='/icons/apple-icon-144x144.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="152x152"
-		href="/icons/apple-icon-152x152.png"
+		rel='apple-touch-icon'
+		sizes='152x152'
+		href='/icons/apple-icon-152x152.png'
 	/>
 	<link
-		rel="apple-touch-icon"
-		sizes="180x180"
-		href="/icons/apple-icon-180x180.png"
+		rel='apple-touch-icon'
+		sizes='180x180'
+		href='/icons/apple-icon-180x180.png'
 	/>
 	<link
-		rel="icon"
-		type="image/png"
-		sizes="192x192"
-		href="/icons/android-icon-192x192.png"
+		rel='icon'
+		type='image/png'
+		sizes='192x192'
+		href='/icons/android-icon-192x192.png'
 	/>
 	<link
-		rel="icon"
-		type="image/png"
-		sizes="32x32"
-		href="/icons/favicon-32x32.png"
+		rel='icon'
+		type='image/png'
+		sizes='32x32'
+		href='/icons/favicon-32x32.png'
 	/>
 	<link
-		rel="icon"
-		type="image/png"
-		sizes="96x96"
-		href="/icons/favicon-96x96.png"
+		rel='icon'
+		type='image/png'
+		sizes='96x96'
+		href='/icons/favicon-96x96.png'
 	/>
 	<link
-		rel="icon"
-		type="image/png"
-		sizes="16x16"
-		href="/icons/favicon-16x16.png"
+		rel='icon'
+		type='image/png'
+		sizes='16x16'
+		href='/icons/favicon-16x16.png'
 	/>
 
-	<link rel="manifest" href="/manifest.json" />
-	<meta name="msapplication-TileColor" content="#ffffff" />
-	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-	<meta name="theme-color" content="#ffffff" />
-	<meta name="theme-color" content="#6ee7b7" />
+	<link rel='manifest' href='/manifest.json' />
+	<meta name='msapplication-TileColor' content='#ffffff' />
+	<meta name='msapplication-TileImage' content='/ms-icon-144x144.png' />
+	<meta name='theme-color' content='#ffffff' />
+	<meta name='theme-color' content='#6ee7b7' />
 
 	<title>Elian Codes | {title}</title>
 
@@ -130,14 +130,20 @@ const { title, description, socialImg } = Astro.props;
 	<slot />
 
 	<!-- Plausible Analytics -->
-	<script defer data-domain="elian.codes" src="https://plausible.eliancodes.synology.me/js/script.file-downloads.outbound-links.js"></script>
+	<script
+		defer
+		data-domain='elian.codes'
+		src='https://plausible.eliancodes.synology.me/js/script.file-downloads.outbound-links.js'
+	></script>
 	<script is:inline>
 		(function () {
 			/** @type {any} */
 			var w = window;
-			w.plausible = w.plausible || function () {
-				(w.plausible.q = w.plausible.q || []).push(arguments);
-			};
+			w.plausible =
+				w.plausible ||
+				function () {
+					(w.plausible.q = w.plausible.q || []).push(arguments);
+				};
 		})();
 	</script>
 </head>

@@ -8,7 +8,6 @@ tags:
   - PWA
 imgUrl: "../../assets/blog/backlog/coil.png"
 description: Ads are annoying right, Coil adds a new way to get paid for every second spent on your content.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Monetize your content with Coil

@@ -8,7 +8,6 @@ tags:
   - PHP
 imgUrl: "../../assets/blog/backlog/valet.png"
 description: Valet is a highly configurable MacOs tool for webdevelopment running in the background
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Laravel Valet for local PHP development

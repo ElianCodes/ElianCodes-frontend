@@ -8,7 +8,6 @@ tags:
   - Astro
   - UnoCSS
   - TypeScript
-layout: ../../layouts/BlogPost.astro
 ---
 
 # Brutal: A theme for Astro

@@ -8,7 +8,6 @@ tags:
   - TailwindCSS
 description: Astro came out with a beta version of the v1.0 release of the framework. I upgraded my website to use that version, since I was still running on v0.24. The following are some of the changes I had to do to get it working.
 imgUrl: "../../assets/blog/backlog/astro_old.png"
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Upgrading my website to Astro v1.0
