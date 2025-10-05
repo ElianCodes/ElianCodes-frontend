@@ -1,0 +1,20 @@
+# ElianCodes - Elian Van Cutsem
+
+> ElianCodes is the personal site of Elian Van Cutsem, a Belgian web developer and consultant specializing in web development, DevRel, and CTO work. The site showcases Elian's projects, blog posts on web technologies, conference talks, and resources for developers.
+
+Elian Van Cutsem is an experienced software engineer with roles including Lead DevRel at React Bricks and CTO at Vulpo, a web agency based in Ghent, Belgium.
+
+The site focuses on topics such as Laravel, React, Astro, automation with n8n, developer workflows, and technology insights.
+
+## Key Sections
+
+- [About Elian](https://elian.codes/): Learn more about Elian's professional background, expertise, and personal interests.
+
+- [Blog](https://elian.codes/blog): Updated articles and tutorials on web development, frameworks, tools, and automation.
+
+- [Projects](https://elian.codes/events): Showcase of professional and personal projects, including open source contributions.
+
+- [Conference Talks](https://elian.codes/events): Videos and slides from international tech conferences where Elian has spoken.
+
+
+This llms.txt file guides AI systems to the most important content on elian.codes for accurate understanding and reference.
