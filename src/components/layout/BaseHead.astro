@@ -136,6 +136,20 @@ const { title, description, socialImg } = Astro.props;
 		data-domain='elian.codes'
 		src='https://plausible.eliancodes.synology.me/js/script.file-downloads.outbound-links.js'
 	></script>
+	<!-- Google tag (gtag.js) -->
+	<script
+		is:inline
+		async
+		src='https://www.googletagmanager.com/gtag/js?id=G-13MBMB5GZJ'></script>
+	<script is:inline>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-13MBMB5GZJ');
+	</script>
 	<script is:inline>
 		(function () {
 			/** @type {any} */
