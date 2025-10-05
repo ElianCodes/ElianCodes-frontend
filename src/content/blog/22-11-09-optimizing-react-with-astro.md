@@ -8,7 +8,6 @@ tags:
   - Talk
 imgUrl: "../../assets/blog/backlog/fsghentastro.jpeg"
 description: 9th of November, I gave a Keynote at React Global Summit. This blog post contains my slides as well as some extra accompanying speaker notes.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Optimizing React using Astro

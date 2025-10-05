@@ -8,7 +8,6 @@ tags:
   - Canvas
 imgUrl: "../../assets/blog/backlog/konva.png"
 description: I was in need for a HTML canvas that was easily integratable with React or JavaScript, then I found Konva
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using KonvaJS as canvas with React

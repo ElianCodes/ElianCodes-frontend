@@ -9,7 +9,6 @@ tags:
   - Open Source
   - Web development
 imgUrl: "./images/pandacss-startkit.jpeg"
-layout: "@layouts/BlogPost.astro"
 ---
 
 # Astro + PandaCSS startkit

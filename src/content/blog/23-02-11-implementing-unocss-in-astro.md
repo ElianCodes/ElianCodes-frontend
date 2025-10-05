@@ -8,7 +8,6 @@ tags:
   - Astro
   - UnoCSS
 imgUrl: "../../assets/blog/backlog/astro_old.png"
-layout: ../../layouts/BlogPost.astro
 ---
 
 # Implementing UnoCSS in Astro

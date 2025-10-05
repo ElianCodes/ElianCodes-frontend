@@ -8,7 +8,6 @@ tags:
   - Release
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: TailwindCSS v3-alpha-1 was released yesterday! It's not a full release of v3 yet, but might already give us an insight on what is to come with TailwindCSS v3.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # What's new in TailwindCSS v3

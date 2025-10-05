@@ -8,7 +8,6 @@ tags:
   - Tooling
   - Web development
 imgUrl: "./images/solid-devtools.jpeg"
-layout: "@layouts/BlogPost.astro"
 ---
 
 # SolidJS Devtools with Astro

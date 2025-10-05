@@ -8,7 +8,6 @@ tags:
   - Blog
 imgUrl: "../../assets/blog/21-02-03/nuxt.jpg"
 description: This week I've recreated my website and blog with Nuxt and Bootstrap, in this post I describe how it all came together.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Recreating my site in Nuxt and adding a blog

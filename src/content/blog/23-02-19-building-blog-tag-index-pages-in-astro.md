@@ -8,7 +8,6 @@ tags:
   - Blog
 description: I wanted to add blog tag collection pages to my website. This way, people could filter on tags I used in my blog posts. Here is a guide on how I implemented it.
 imgUrl: "../../assets/blog/backlog/astro_old.png"
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Building blog tag index pages in Astro

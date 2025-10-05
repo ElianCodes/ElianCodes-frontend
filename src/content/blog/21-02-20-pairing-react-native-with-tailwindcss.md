@@ -8,7 +8,6 @@ tags:
   - NPM
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: I wanted to make a react native app with tailwindcss, but couldn't find a template... So I made my own.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Pairing React Native with TailwindCSS

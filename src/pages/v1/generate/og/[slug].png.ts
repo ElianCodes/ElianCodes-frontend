@@ -1,8 +1,8 @@
+import { getCollection } from "astro:content";
 import { Resvg, type ResvgRenderOptions } from "@resvg/resvg-js";
 import type { APIRoute } from "astro";
 import satori from "satori";
 import { html as toReactElement } from "satori-html";
-import { getCollection } from "astro:content";
 
 const fontFile = await fetch(
 	"https://og-playground.vercel.app/inter-latin-ext-700-normal.woff",
@@ -61,13 +61,15 @@ export const GET: APIRoute = async ({ props }) => {
 			value: width,
 		},
 	};
-	const resvg = new Resvg(svg, opts);
-	const pngData = resvg.render();
-	const pngBuffer = pngData.asPng();
+		const resvg = new Resvg(svg, opts);
+		const pngData = resvg.render();
+		const bytes = new Uint8Array(pngData.asPng());
+		const body = new Blob([bytes], { type: "image/png" });
 
-	return new Response(pngBuffer, {
-		headers: {
-			"content-type": "image/png",
-		},
-	});
+		return new Response(body, {
+			headers: {
+				"content-type": "image/png",
+				"cache-control": "public, max-age=31536000, immutable",
+			},
+		});
 };

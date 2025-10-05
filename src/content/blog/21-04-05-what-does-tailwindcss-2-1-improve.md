@@ -8,7 +8,6 @@ tags:
   - Release
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: TailwindCSS 2.1 just got released, but what does it bring and improve?
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # What does TailwindCSS 2.1 improve?

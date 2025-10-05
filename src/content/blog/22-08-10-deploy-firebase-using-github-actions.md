@@ -8,7 +8,6 @@ tags:
   - DevOps
 imgUrl: "../../assets/blog/backlog/firebase.png"
 description: Deploying to Firebase can sometimes be somewhat of a hassle if you're using the CLI. There is a better way using some sort of CI/CD, Github actions is one example explained here.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Deploying to Firebase using Github actions

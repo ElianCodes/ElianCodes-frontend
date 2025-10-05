@@ -8,7 +8,6 @@ tags:
   - Sveltekit
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: Earlier this week, Sveltekit beta got released, ofcourse I wanted to fiddle with it.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Use TailwindCSS with Sveltekit (2021)

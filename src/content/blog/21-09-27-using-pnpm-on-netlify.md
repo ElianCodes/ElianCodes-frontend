@@ -8,7 +8,6 @@ tags:
   - PNPM
 imgUrl: "../../assets/blog/backlog/netlify.png"
 description: When I first switched my website over to PNPM instead of Yarn, I noticed that my Netlify build were failing. Here's a guide and solution to everyone having the same issue.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using PNPM on Netlify

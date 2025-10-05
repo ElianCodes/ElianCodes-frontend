@@ -8,7 +8,6 @@ tags:
   - CSS
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: TailwindCSS just released a new feature @tailwindcss/jit. In this post I explain what it is and how to use it.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # What is TailwindCSS JIT and how to use it

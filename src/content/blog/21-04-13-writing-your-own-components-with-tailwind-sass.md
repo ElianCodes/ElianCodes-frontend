@@ -8,7 +8,6 @@ tags:
   - Nuxt
 imgUrl: "../../assets/blog/21-02-09/tailwind.jpeg"
 description: having TailwindCSS classes everywhere in my markup annoys me. That's why I tought of a better way of styling with TailwindCSS
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Writing your own style components with TailwindCSS and Sass

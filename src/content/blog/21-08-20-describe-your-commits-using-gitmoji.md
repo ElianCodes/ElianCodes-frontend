@@ -8,7 +8,6 @@ tags:
   - Gitmoji
 imgUrl: "../../assets/blog/backlog/gitmoji.webp"
 description: Describing your commits can be a difficult task. You can write down everything you changed or improved, or you can let the code speak for itself. Gitmoji makes this a whole lot easier by using emoji.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Describe your commits using Gitmoji

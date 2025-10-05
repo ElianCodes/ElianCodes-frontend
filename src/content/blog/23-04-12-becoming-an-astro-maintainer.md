@@ -9,7 +9,6 @@ tags:
   - Open Source
   - Web development
 imgUrl: "../../assets/blog/23-04-12/maintainer.jpg"
-layout: "@layouts/BlogPost.astro"
 ---
 
 # Becoming an Astro maintainer

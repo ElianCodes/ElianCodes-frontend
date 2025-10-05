@@ -1,9 +1,9 @@
-import { defineConfig, presetTypography, presetWind } from "unocss";
+import { defineConfig, presetTypography, presetWind3 } from "unocss";
 import presetIcons from "@unocss/preset-icons/browser";
 
 export default defineConfig({
 	presets: [
-		presetWind(),
+		presetWind3(),
 		presetIcons({
 			collections: {
 				logos: () =>

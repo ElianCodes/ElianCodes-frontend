@@ -8,7 +8,6 @@ tags:
   - Open Source
   - Web development
 imgUrl: "./images/startkit.jpeg"
-layout: "@layouts/BlogPost.astro"
 ---
 
 # Releasing my Astro default setup
