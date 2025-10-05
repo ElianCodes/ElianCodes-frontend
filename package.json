@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.8.1",
-		"@astrojs/db": "^0.17.0",
+		"@astrojs/db": "^0.18.0",
 		"@astrojs/rss": "^4.0.7",
 		"@astrojs/sitemap": "^3.1.6",
 		"@astrojs/vercel": "^7.7.2",
