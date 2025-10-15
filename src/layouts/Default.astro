@@ -14,27 +14,27 @@ export interface Props {
 const { title, description, classList, pageTitle, socialImg } = Astro.props;
 ---
 
-<html lang="en" class="h-full">
+<html lang='en' class='h-full'>
 	<BaseHead title={title} description={description} socialImg={socialImg} />
-
 	<body class:list={[classList]}>
 		<BaseNavigation pageTitle={pageTitle} />
 		<slot />
 		<BaseFooter />
-		<style is:global>
-			.card-shadow {
-				filter: drop-shadow(7px 7px 0 rgb(0 0 0 / 1));
-				transition: all;
-				transition-duration: 0.5s;
-				animation: ease-in-out;
-			}
-			.card-shadow:hover {
-				filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
-			}
-
-			html {
-				scroll-behavior: smooth;
-			}
-		</style>
 	</body>
 </html>
+
+<style is:global>
+	.card-shadow {
+		filter: drop-shadow(7px 7px 0 rgb(0 0 0 / 1));
+		transition: all;
+		transition-duration: 0.5s;
+		animation: ease-in-out;
+	}
+	.card-shadow:hover {
+		filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+</style>
