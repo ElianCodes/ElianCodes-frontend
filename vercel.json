@@ -18,7 +18,6 @@
 			"source": "/bluesky",
 			"destination": "https://bsky.app/profile/eliancodes.bsky.social"
 		},
-		{ "source": "/work", "destination": "https://eliancodes.com" },
-		{ "source": "/mail", "destination": "mailto:hello@elian.codes" }
+		{ "source": "/work", "destination": "https://eliancodes.com" }
 	]
 }
