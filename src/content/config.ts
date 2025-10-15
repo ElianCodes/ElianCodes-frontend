@@ -22,6 +22,11 @@ const eventCollection = defineCollection({
 			link: z.string(),
 			name: z.string(),
 			img: image(),
+			location: z.object({
+				city: z.string(),
+				country: z.string(),
+				countryFlag: z.string(),
+			}).optional(),
 		}),
 });
 

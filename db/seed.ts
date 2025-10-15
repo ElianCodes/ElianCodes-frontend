@@ -1,6 +1,15 @@
-import { db } from 'astro:db';
+import { db, UserLocation } from 'astro:db';
 
 // https://astro.build/db/seed
 export default async function seed() {
-	// TODO
+	// Insert default home location
+	await db.insert(UserLocation).values({
+		id: 1,
+		city: 'Ghent',
+		country: 'Belgium',
+		countryFlag: '🇧🇪',
+		isHome: true,
+		isTravelling: false,
+		updatedAt: new Date()
+	});
 }

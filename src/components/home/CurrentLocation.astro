@@ -1,0 +1,29 @@
+---
+import { db, UserLocation } from 'astro:db';
+
+let location = null;
+try {
+	const locations = await db.select().from(UserLocation).limit(1);
+	location = locations[0];
+} catch (error) {
+	console.warn('Could not connect to database during static generation');
+}
+
+// Default fallback if no location in DB
+const defaultLocation = {
+	city: 'Ghent',
+	country: 'Belgium',
+	countryFlag: '🇧🇪',
+	isHome: true,
+	isTravelling: false,
+	currentEvent: null,
+};
+
+const loc = location || defaultLocation;
+---
+
+<p class='sanchez mt-4 mb-8 text-lg md:text-xl lg:text-3xl'>
+	Located in {loc.city}, {loc.countryFlag}
+	{loc.isTravelling && <small class='text-sm'>(currently travelling)</small>}
+	{loc.currentEvent && <small class='text-sm'>at {loc.currentEvent}</small>}
+</p>

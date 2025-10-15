@@ -1,8 +1,9 @@
 ---
-import { Image } from "astro:assets";
-import { Button, Card } from "@eliancodes/brutal-ui";
+import { Image } from 'astro:assets';
+import { Button, Card } from '@eliancodes/brutal-ui';
+import CurrentLocation from './CurrentLocation.astro';
 
-import headshot from "../../assets/elian.jpg";
+import headshot from '../../assets/elian.jpg';
 ---
 
 <section id='about' class='grid md:grid-cols-8 gap-8 mt-4'>
@@ -44,11 +45,7 @@ import headshot from "../../assets/elian.jpg";
 					href='https://www.devs.gent/'>devs.gent</a
 				> meetup organizer
 			</p>
-			<p class='sanchez mt-4 mb-8 text-lg md:text-xl lg:text-3xl'>
-				Located in Ghent, 🇧🇪 <small class='text-sm'
-					>(or somewhere travelling)</small
-				>
-			</p>
+			<CurrentLocation server:defer />
 			<div class='flex gap-3 flex-wrap'>
 				<Button href='/events/'>See what I do &rarr;</Button>
 				<Button href='https://eliancodes.com' target='_blank'
