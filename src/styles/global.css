@@ -2,17 +2,23 @@
 @plugin "@tailwindcss/typography";
 
 :root {
-  --primary: #ebff00;
-  --off-white: #f0f0f0;
-  --light-gray: #f0f0f0;
-  --secondary: #9e00ff;
-  --primary-gray: #2b2b2b;
+	--primary: #ebff00;
+	--off-white: #f0f0f0;
+	--light-gray: #f0f0f0;
+	--secondary: #9e00ff;
+	--primary-gray: #2b2b2b;
+
+	--color-primary: #ebff00;
+	--color-secondary: #9e00ff;
+	--color-off-white: #f0f0f0;
+	--color-light-gray: #f0f0f0;
+	--color-primary-gray: #2b2b2b;
 }
 
 a {
-  transition: all;
-  animation-duration: 300ms;
-  animation-timing-function: ease-in-out;
+	transition: all;
+	animation-duration: 300ms;
+	animation-timing-function: ease-in-out;
 }
 
 /* @view-transition {

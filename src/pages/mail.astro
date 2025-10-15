@@ -2,27 +2,34 @@
 // This page handles the mailto redirect client-side
 // since Vercel doesn't handle mailto: redirects properly in vercel.json
 
-import Layout from "@layouts/Default.astro";
+import Button from "@components/ui/Button.astro";
+import Section from "@components/ui/Section.astro";
+import Subtitle from "@components/ui/Subtitle.astro";
+import Title from "@components/ui/Title.astro";
+import TitleSection from "@components/ui/TitleSection.astro";
+import Layout from "@layouts/new/Default.astro";
 
 const emailAddress = "hello@elian.codes";
 const mailtoUrl = `mailto:${emailAddress}`;
 ---
 
 <Layout title='Contact - Elian Codes' description='Get in touch via email'>
-	<div>
-		<h1>📧 Get in Touch</h1>
-		<p>Opening your email client...</p>
+	<TitleSection title='Contact' subtitle='Get in touch via email.' />
+	<Section class='my-24'>
+		<Subtitle class={'my-4 text-gray-700!'}
+			>Opening your email client...</Subtitle
+		>
 		<p>
-			<a href={mailtoUrl} class='email-link'>
+			<Button href={mailtoUrl} class='email-link'>
 				Email me: {emailAddress}
-			</a>
+			</Button>
 		</p>
-		<p>
+		<p class='my-2 text-center'>
 			<small
 				>If your email client didn't open automatically, click the button above.</small
 			>
 		</p>
-	</div>
+	</Section>
 </Layout>
 
 <script>
@@ -31,29 +38,3 @@ const mailtoUrl = `mailto:${emailAddress}`;
 		window.location.href = 'mailto:hello@elian.codes';
 	});
 </script>
-
-<style>
-	body {
-		align-items: center;
-
-		> div {
-			padding: 8rem 2rem;
-			border-radius: 8px;
-			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-			text-align: center;
-		}
-	}
-	.email-link {
-		display: inline-block;
-		padding: 12px 24px;
-		background: #3b82f6;
-		color: white;
-		text-decoration: none;
-		border-radius: 6px;
-		font-weight: 500;
-		margin: 1rem 0;
-	}
-	.email-link:hover {
-		background: #2563eb;
-	}
-</style>
