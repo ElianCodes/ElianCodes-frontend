@@ -8,7 +8,6 @@ tags:
   - Runtime
 imgUrl: "../../assets/blog/backlog/bun.png"
 description: Bun is a new runtime for JavaScript & TypeScript, compatible with NodeJS packages and ecosystem.
-layout: "../../layouts/BlogPost.astro"
 ---
 
 # Using Bun as JavaScript runtime
