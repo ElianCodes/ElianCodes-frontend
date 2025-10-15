@@ -1,0 +1,12 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"li"> {
+	decoration?: boolean;
+}
+
+const { decoration = false, ...rest } = Astro.props;
+---
+<li style={decoration === true ? "list-style-type: disc;" : ""} {...rest}>
+	<slot />
+</li>

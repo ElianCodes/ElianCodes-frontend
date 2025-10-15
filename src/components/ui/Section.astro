@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"section"> {}
+
+const { ...rest } = Astro.props;
+---
+<section {...rest}>
+	<slot />
+</section>
+
+<style>
+	section {
+		padding: 0 2rem;
+	}
+	@media (min-width: 768px) {
+		section {
+			padding: 0 4rem;
+		}
+	}
+</style>
