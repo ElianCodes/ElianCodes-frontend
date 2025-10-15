@@ -1,0 +1,50 @@
+---
+import HeaderAvatar from "@components/HeaderAvatar.astro";
+import BaseHeader from "@ui/layout/BaseHeader.astro";
+import BaseFooter from "@ui/layout/BaseFooter.astro";
+import LinkSidebar from "@ui/layout/LinkSidebar.astro";
+import Layout from "./Generic.astro";
+
+const { title, frontmatter } = Astro.props;
+
+const sidebarLinks = [
+	{ title: "LinkedIn", href: "https://www.linkedin.com/in/elianvancutsem/" },
+	{ title: "Twitter", href: "https://twitter.com/eliancodes" },
+	{ title: "GitHub", href: "https://github.com/eliancodes" },
+	{ title: "RSS", href: "/rss.xml" },
+];
+
+const mainHeaderLinks = [
+	{ href: "/", title: "Home" },
+	{ href: "/blog", title: "Articles" },
+	{ href: "/videos", title: "Videos" },
+	{ href: "/talks", title: "Talks" },
+	{ href: "/about", title: "About" },
+];
+
+const footerLinks = [
+	{ href: "/", title: "Home" },
+	{ href: "/blog", title: "Articles" },
+	{ href: "/about", title: "About" },
+	{ href: "https://x.com/eliancodes", title: "Twitter" },
+	{ href: "https://github.com/eliancodes", title: "GitHub" },
+	{ href: "/rss.xml", title: "RSS" },
+	{ href: "/cat", title: "Cat" },
+	{ href: "/photography", title: "Photography" },
+	{ href: "/uses", title: "Uses" },
+	{ href: "/ama", title: "AMA" },
+	{ href: "/links", title: "Links" },
+];
+---
+
+<Layout title={title || frontmatter.title}>
+	<BaseHeader links={mainHeaderLinks}>
+		<HeaderAvatar />
+		<HeaderAvatar slot="mobile-menu" />
+	</BaseHeader>
+	<main>
+		<LinkSidebar links={sidebarLinks} />
+		<slot />
+	</main>
+	<BaseFooter links={footerLinks} />
+</Layout>

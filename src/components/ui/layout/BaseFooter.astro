@@ -1,0 +1,110 @@
+---
+import reactBrussels from '@assets/react-bru.jpg';
+import type { HTMLAttributes } from 'astro/types';
+import LinkPrimary from '../LinkPrimary.astro';
+import List from '../List.astro';
+import ListItem from '../ListItem.astro';
+
+interface Props extends HTMLAttributes<'footer'> {
+	links: {
+		title: string;
+		href: string;
+	}[];
+}
+
+const { links, ...rest } = Astro.props;
+---
+
+<footer {...rest} transition:name='footer'>
+	<div>
+		<div>
+			<img src={reactBrussels.src} alt='facepic of Elian' />
+			<p>
+				Short bio about Elian blablablabla. <LinkPrimary href='/about'
+					>More about me...</LinkPrimary
+				>
+			</p>
+		</div>
+		<nav>
+			<List>
+				{
+					links.map((link) => (
+						<ListItem>
+							<LinkPrimary href={link.href}>{link.title}</LinkPrimary>
+						</ListItem>
+					))
+				}
+			</List>
+		</nav>
+	</div>
+	<div class='theme-text'>
+		<p>
+			☕️ + 🤦 + 🚀 = ✨ Astro Rockstar theme by <LinkPrimary href='/'
+				>Elian.codes</LinkPrimary
+			> and <LinkPrimary href='https://timetc.nl/'>Tim ect.</LinkPrimary>
+		</p>
+	</div>
+</footer>
+
+<style>
+	footer {
+		background-color: #2b2b2b;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		padding-top: 7rem;
+		padding-bottom: 4rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		z-index: 20;
+		> div {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: start;
+			gap: 1rem;
+			> div {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				gap: 1rem;
+				img {
+					border-radius: 100%;
+					width: 5rem;
+					height: 5rem;
+					flex-shrink: 0;
+					object-fit: cover;
+				}
+			}
+		}
+		div.theme-text p {
+			margin-top: 2rem;
+		}
+		nav {
+			padding-top: 2rem;
+			ul {
+				display: grid;
+				text-transform: uppercase;
+				gap: 0.5rem;
+				font-size: 0.875rem;
+				line-height: 1.5rem;
+			}
+		}
+	}
+	@media (min-width: 768px) {
+		footer {
+			/* margin-top: ; */
+			> div {
+				flex-direction: row;
+				align-items: center;
+				> div {
+					flex-direction: row;
+				}
+			}
+			ul {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+	}
+</style>
