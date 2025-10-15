@@ -25,6 +25,13 @@ const mailtoUrl = `mailto:${emailAddress}`;
 	</div>
 </Layout>
 
+<script>
+	// Automatically redirect to email client when page loads
+	document.addEventListener('DOMContentLoaded', function () {
+		window.location.href = 'mailto:hello@elian.codes';
+	});
+</script>
+
 <style>
 	body {
 		align-items: center;
