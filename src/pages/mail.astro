@@ -1,0 +1,59 @@
+---
+// This page handles the mailto redirect client-side
+// since Vercel doesn't handle mailto: redirects properly in vercel.json
+
+import Layout from "@layouts/Default.astro";
+
+const emailAddress = "hello@elian.codes";
+const mailtoUrl = `mailto:${emailAddress}`;
+---
+
+<Layout title='Contact - Elian Codes' description='Get in touch via email'>
+	<div>
+		<h1>📧 Get in Touch</h1>
+		<p>Opening your email client...</p>
+		<p>
+			<a href={mailtoUrl} class='email-link'>
+				Email me: {emailAddress}
+			</a>
+		</p>
+		<p>
+			<small
+				>If your email client didn't open automatically, click the button above.</small
+			>
+		</p>
+	</div>
+</Layout>
+
+<script>
+	// Automatically redirect to email client when page loads
+	document.addEventListener('DOMContentLoaded', function () {
+		window.location.href = 'mailto:hello@elian.codes';
+	});
+</script>
+
+<style>
+	body {
+		align-items: center;
+
+		> div {
+			padding: 8rem 2rem;
+			border-radius: 8px;
+			box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+			text-align: center;
+		}
+	}
+	.email-link {
+		display: inline-block;
+		padding: 12px 24px;
+		background: #3b82f6;
+		color: white;
+		text-decoration: none;
+		border-radius: 6px;
+		font-weight: 500;
+		margin: 1rem 0;
+	}
+	.email-link:hover {
+		background: #2563eb;
+	}
+</style>
