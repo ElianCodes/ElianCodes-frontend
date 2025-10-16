@@ -1,26 +1,27 @@
 ---
-import type { Social } from "../../types/Social";
+import Github from '@components/icons/github.astro';
+import type { Social } from '../../types/Social';
 
-import MobileNavigation from "./MobileNavigation.astro";
+import MobileNavigation from './MobileNavigation.astro';
 
 const navigationItems = [
-	{ name: "Home", url: "/" },
-	{ name: "Blog", url: "/blog/" },
-	{ name: "Events", url: "/events/" },
+	{ name: 'Home', url: '/' },
+	{ name: 'Blog', url: '/blog/' },
+	{ name: 'Events', url: '/events/' },
 ];
 
 const socialIcons = [
 	{
-		name: "GitHub",
-		url: "https://www.elian.codes/github",
-		icon: "i-uil-github",
+		name: 'GitHub',
+		url: 'https://www.elian.codes/github',
+		icon: 'github',
 	},
 	{
-		name: "Twitter",
-		url: "https://www.elian.codes/twitter",
-		icon: "i-uil-twitter",
+		name: 'Twitter',
+		url: 'https://www.elian.codes/twitter',
+		icon: 'twitter',
 	},
-	{ name: "RSS", url: "/blog.xml", icon: "i-uil-rss" },
+	{ name: 'RSS', url: '/blog.xml', icon: 'rss' },
 ] as Social[];
 
 export interface Props {
@@ -30,19 +31,19 @@ export interface Props {
 const { pageTitle } = Astro.props;
 ---
 
-<header class="border-b-4 border-black flex justify-between p-6 items-center">
-	{pageTitle && <h1 class="hidden">{pageTitle}</h1>}
-	<a href="/" title="Back to Home">
-		<p class="righteous md:text-5xl">ElianCodes</p>
+<header class='border-b-4 border-black flex justify-between p-6 items-center'>
+	{pageTitle && <h1 class='hidden'>{pageTitle}</h1>}
+	<a href='/' title='Back to Home'>
+		<p class='righteous md:text-5xl'>ElianCodes</p>
 	</a>
-	<nav class="hidden md:inline-block">
-		<h2 class="hidden">Navigation</h2>
-		<ul class="flex gap-8 poppins">
+	<nav class='hidden md:inline-block'>
+		<h2 class='hidden'>Navigation</h2>
+		<ul class='flex gap-8 poppins'>
 			{
 				navigationItems.map((item) => (
 					<li>
 						<a
-							class="text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out"
+							class='text-lg font-medium hover:text-green hover:underline transition-all duration-150 ease-in-out'
 							href={item.url}
 							title={`Go to ${item.name}`}
 						>
@@ -56,11 +57,17 @@ const { pageTitle } = Astro.props;
 					<li>
 						<a
 							href={item.url}
-							class="hover:text-green hover:underline transition-all duration-150 ease-in-out"
-							target="_blank"
-							title={`'See @ElianCodes on ${item.name}`}
+							target='_blank'
+							title={`See @ElianCodes on ${item.name}`}
 						>
-							<div class:list={[item.icon, "w-6 h-6"]} />
+							{item.icon === 'github' && (
+								<Github
+									class={
+										'hover:text-green-400 w-6 h-6 transition-all duration-150 ease-in-out'
+									}
+								/>
+							)}
+							{/* add other icons here? Maybe switch case? */}
 						</a>
 					</li>
 				))
