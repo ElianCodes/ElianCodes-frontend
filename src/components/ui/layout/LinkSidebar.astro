@@ -1,0 +1,70 @@
+---
+import Link from "../Link.astro";
+import List from "../List.astro";
+import ListItem from "../ListItem.astro";
+
+interface Props {
+	links: {
+		title: string;
+		href: string;
+	}[];
+}
+
+const { links } = Astro.props;
+---
+
+<div>
+	<nav>
+		<List>
+			{
+				links.map((link) => (
+					<ListItem>
+						<Link class='no-underline' href={link.href}>
+							{link.title}
+						</Link>
+					</ListItem>
+				))
+			}
+		</List>
+	</nav>
+</div>
+
+<style>
+	div {
+		display: none;
+		position: absolute;
+		border-left: 0.5px solid white;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 3.5rem;
+		padding-top: 3.5rem;
+		text-transform: uppercase;
+		color: white;
+		font-size: smaller;
+		nav {
+			ul {
+				display: flex;
+				flex-direction: column;
+				gap: 3.8rem;
+				text-decoration: underline 1px white;
+				text-underline-offset: 0.2rem;
+				font-weight: 600;
+
+				li {
+					transform: rotate(90deg);
+					&:hover {
+						color: var(--primary);
+						text-decoration: underline 1px var(--primary);
+					}
+				}
+			}
+		}
+	}
+	@media (min-width: 768px) {
+		div {
+			position: absolute;
+			display: flex;
+		}
+	}
+</style>

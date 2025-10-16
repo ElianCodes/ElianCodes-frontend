@@ -1,0 +1,90 @@
+---
+import Link from "../Link.astro";
+import List from "../List.astro";
+import ListItem from "../ListItem.astro";
+import MobileMenu from "./MobileMenu.astro";
+
+interface Props {
+	links: {
+		title: string;
+		href: string;
+	}[];
+}
+
+const { links } = Astro.props;
+const currentUrl = Astro.url.pathname;
+---
+
+<header>
+	<nav>
+		<slot />
+		<List>
+			{
+				links.map((link) => (
+					<ListItem>
+						<Link
+							class={link.href === currentUrl ? 'active' : ''}
+							href={link.href}
+						>
+							{link.title}
+						</Link>
+					</ListItem>
+				))
+			}
+		</List>
+	</nav>
+	<MobileMenu {links} {currentUrl}>
+		<slot name='mobile-menu' />
+	</MobileMenu>
+</header>
+
+<style>
+	header {
+		padding: 1.5rem 2rem;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		color: white;
+		> nav {
+			display: none;
+			> ul {
+				display: flex;
+				gap: 1.5rem;
+				padding: 1rem 2rem;
+				text-transform: uppercase;
+				font-size: 0.8rem;
+				line-height: 1.25rem;
+				z-index: 50;
+
+				background: rgba(0, 0, 0, 0.35);
+				border-radius: 16px;
+				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(5px);
+				-webkit-backdrop-filter: blur(5px);
+				border: 1px solid rgba(0, 0, 0, 0.5);
+
+				a:hover,
+				a.active {
+					color: var(--primary);
+					text-decoration: underline;
+					text-decoration-color: var(--primary);
+				}
+			}
+			h1 {
+				font-size: 2.25rem;
+				line-height: 2.5rem;
+			}
+		}
+	}
+	@media (min-width: 768px) {
+		header {
+			padding: 1.5rem 4rem;
+			> nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+		}
+	}
+</style>

@@ -7,7 +7,8 @@
 			"@layouts/*": ["src/layouts/*"],
 			"@assets/*": ["src/assets/*"],
 			"@pages/*": ["src/pages/*"],
-			"@types/*": ["src/types/*"]
+			"@types/*": ["src/types/*"],
+			"@ui/*": ["src/components/ui/*"]
 		}
 	},
 	"extends": "astro/tsconfigs/strict"

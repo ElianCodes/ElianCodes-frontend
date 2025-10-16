@@ -1,4 +1,6 @@
 ---
+import "../styles/global.css";
+
 import BlogContent from "@components/blog/BlogContent.astro";
 import BlogSideBar from "@components/blog/BlogSideBar.astro";
 import RecentBlogPosts from "@components/generic/RecentBlogPosts.astro";
@@ -15,13 +17,13 @@ const { title, description } = content;
 ---
 
 <Layout title={title} description={description} socialImg={socialImg}>
-	<main class="px-4 py-6 md:px-6 lg:px-8 lg:grid lg:grid-cols-3 gap-8">
+	<main class='px-4 py-6 md:px-6 lg:px-8 lg:grid lg:grid-cols-3 gap-8'>
 		<BlogSideBar headings={headings} />
 		<BlogContent content={content}>
 			<slot />
 		</BlogContent>
 	</main>
-	<section class="px-4 py-6 md:px-6 lg:px-8">
+	<section class='px-4 py-6 md:px-6 lg:px-8'>
 		<RecentBlogPosts count={6} />
 	</section>
 </Layout>
