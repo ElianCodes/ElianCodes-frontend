@@ -22,7 +22,8 @@ const oldPost = daysAgo <= -90;
 			</aside>
 		) : (
 			<p class='text-slate text-sm md:text-base'>
-				Published on {content.pubDate} by {content.author}
+				Published on {new Date(content.pubDate).toLocaleDateString()} by{' '}
+				{content.author}
 			</p>
 		)
 	}
