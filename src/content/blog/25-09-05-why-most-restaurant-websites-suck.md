@@ -1,7 +1,7 @@
 ---
 title: "Why Most Restaurant Websites Suck (and What To Do About It)"
 description: "A developer's rant about restaurant websites, SEO essentials, and how to fix them"
-pubDate: 10/05/2025 15:00
+pubDate: 09/05/2025 15:00
 author: Elian Van Cutsem
 tags: 
   - web development
