@@ -1,0 +1,199 @@
+---
+import { actions, isInputError } from 'astro:actions';
+
+// Handle form result (only if form was submitted)
+const result = Astro.getActionResult(actions.updateLocation);
+const inputErrors = isInputError(result?.error) ? result.error.fields : {};
+
+// Show success message if location was updated
+const showSuccess = result && !result.error;
+
+// Default location for form (will be loaded client-side)
+const defaultLocation = {
+	city: 'Ghent',
+	country: 'Belgium',
+	countryFlag: '🇧🇪',
+	isHome: true,
+	isTravelling: false,
+	currentEvent: '',
+};
+---
+
+<div
+	class='location-admin max-w-md mx-auto p-6 border border-gray-300 rounded-lg bg-white shadow-sm'
+>
+	<h3 class='text-lg font-semibold mb-4'>Update Location</h3>
+
+	{
+		showSuccess && (
+			<div class='mb-4 p-3 bg-green-100 border border-green-300 text-green-800 rounded'>
+				Location updated successfully! ✅
+			</div>
+		)
+	}
+
+	{
+		result?.error && !isInputError(result.error) && (
+			<div class='mb-4 p-3 bg-red-100 border border-red-300 text-red-800 rounded'>
+				Error: {result.error.message}
+			</div>
+		)
+	}
+
+	<form method='POST' action={actions.updateLocation} class='space-y-4'>
+		<div>
+			<label for='city' class='block text-sm font-medium text-gray-700 mb-1'>
+				City
+			</label>
+			<input
+				type='text'
+				id='city'
+				name='city'
+				value={defaultLocation.city}
+				required
+				class='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+			/>
+			{
+				inputErrors.city && (
+					<p class='mt-1 text-sm text-red-600'>{inputErrors.city.join(', ')}</p>
+				)
+			}
+		</div>
+
+		<div>
+			<label for='country' class='block text-sm font-medium text-gray-700 mb-1'>
+				Country
+			</label>
+			<input
+				type='text'
+				id='country'
+				name='country'
+				value={defaultLocation.country}
+				required
+				class='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+			/>
+			{
+				inputErrors.country && (
+					<p class='mt-1 text-sm text-red-600'>
+						{inputErrors.country.join(', ')}
+					</p>
+				)
+			}
+		</div>
+
+		<div>
+			<label
+				for='countryFlag'
+				class='block text-sm font-medium text-gray-700 mb-1'
+			>
+				Country Flag (emoji)
+			</label>
+			<input
+				type='text'
+				id='countryFlag'
+				name='countryFlag'
+				value={defaultLocation.countryFlag}
+				required
+				placeholder='🇧🇪'
+				class='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+			/>
+			{
+				inputErrors.countryFlag && (
+					<p class='mt-1 text-sm text-red-600'>
+						{inputErrors.countryFlag.join(', ')}
+					</p>
+				)
+			}
+		</div>
+
+		<div class='flex items-center'>
+			<input
+				type='checkbox'
+				id='isTravelling'
+				name='isTravelling'
+				checked={defaultLocation.isTravelling}
+				class='h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded'
+			/>
+			<label for='isTravelling' class='ml-2 block text-sm text-gray-900'>
+				Currently travelling
+			</label>
+		</div>
+
+		<div>
+			<label
+				for='currentEvent'
+				class='block text-sm font-medium text-gray-700 mb-1'
+			>
+				Current Event (optional)
+			</label>
+			<input
+				type='text'
+				id='currentEvent'
+				name='currentEvent'
+				value={defaultLocation.currentEvent || ''}
+				placeholder='e.g., React Brussels Conference'
+				class='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500'
+			/>
+			{
+				inputErrors.currentEvent && (
+					<p class='mt-1 text-sm text-red-600'>
+						{inputErrors.currentEvent.join(', ')}
+					</p>
+				)
+			}
+		</div>
+
+		<button
+			type='submit'
+			class='w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors'
+		>
+			Update Location
+		</button>
+	</form>
+</div>
+
+<script>
+	import { actions } from 'astro:actions';
+
+	// Load current location when page loads
+	document.addEventListener('DOMContentLoaded', async () => {
+		try {
+			const { data, error } = await actions.getCurrentLocation({});
+			if (!error && data?.location) {
+				const location = data.location;
+
+				// Update form fields with current location
+				const cityInput = document.getElementById('city') as HTMLInputElement;
+				const countryInput = document.getElementById(
+					'country'
+				) as HTMLInputElement;
+				const flagInput = document.getElementById(
+					'countryFlag'
+				) as HTMLInputElement;
+				const travellingInput = document.getElementById(
+					'isTravelling'
+				) as HTMLInputElement;
+				const eventInput = document.getElementById(
+					'currentEvent'
+				) as HTMLInputElement;
+
+				if (cityInput) cityInput.value = location.city;
+				if (countryInput) countryInput.value = location.country;
+				if (flagInput) flagInput.value = location.countryFlag;
+				if (travellingInput) travellingInput.checked = location.isTravelling;
+				if (eventInput) eventInput.value = location.currentEvent || '';
+			}
+		} catch (error) {
+			console.warn('Could not load current location:', error);
+		}
+	});
+</script>
+
+<style>
+	.location-admin {
+		font-family:
+			system-ui,
+			-apple-system,
+			sans-serif;
+	}
+</style>
