@@ -10,11 +10,11 @@ interface Props {
 const { link, description, title, image, imageAlt } = Astro.props;
 ---
 
-<a href={link ?? ""}>
-	{image && <img src={image} alt={imageAlt ?? ""} />}
+<a href={link ?? ''}>
+	{image && <img src={image} alt={imageAlt ?? ''} />}
 	<div>
-		<h3 class="font-mono">{title}</h3>
-		<p class="font-mono">{description}</p>
+		<h3 class='font-mono'>{title}</h3>
+		<p class='font-mono'>{description}</p>
 	</div>
 </a>
 
@@ -30,6 +30,9 @@ const { link, description, title, image, imageAlt } = Astro.props;
 		&:hover {
 			background-color: var(--secondary);
 			color: white;
+			> div > p {
+				color: white !important;
+			}
 		}
 		> img {
 			width: 4rem;
@@ -46,6 +49,7 @@ const { link, description, title, image, imageAlt } = Astro.props;
 		p {
 			font-size: 0.75rem;
 			line-height: 1rem;
+			transition: all 0.3s ease-in-out;
 		}
 	}
 </style>
