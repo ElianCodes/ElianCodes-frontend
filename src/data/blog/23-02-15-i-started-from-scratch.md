@@ -65,7 +65,7 @@ import { getCollection } from "astro:content";
 export async function getStaticPaths() {
   const blogEntries = await getCollection("blog");
   return blogEntries.map((blogpost) => ({
-    params: { slug: blogpost.slug },
+    params: { slug: blogpost.id },
     props: { blogpost },
   }));
 }
@@ -118,7 +118,7 @@ export async function get(context) {
       pubDate: post.data.pubDate,
       description: post.data.description,
       customData: post.data.customData,
-      link: `/blog/${post.slug}/`,
+      link: `/blog/${post.id}/`,
     })),
     customData: `<language>en-us</language>`,
   });

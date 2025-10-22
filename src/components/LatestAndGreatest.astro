@@ -20,7 +20,7 @@ const latest = await getCollection('blog')
 			latest.map((post) => (
 				<ListItem>
 					<a
-						href={`/blog/${post.slug}`}
+						href={`/blog/${post.id}`}
 						class='flex items-center gap-12 justify-between py-4 border-b border-primary-gray'
 					>
 						<p class='font-mono uppercase text-xs'>Article</p>
