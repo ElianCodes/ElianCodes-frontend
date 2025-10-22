@@ -20,7 +20,7 @@ const sidebarLinks = [
 	{ title: 'LinkedIn', href: 'https://www.linkedin.com/in/elianvancutsem/' },
 	{ title: 'Twitter', href: 'https://twitter.com/eliancodes' },
 	{ title: 'GitHub', href: 'https://github.com/eliancodes' },
-	{ title: 'RSS', href: '/rss.xml' },
+	{ title: 'RSS', href: '/blog.xml' },
 ];
 
 const mainHeaderLinks = [
@@ -37,7 +37,7 @@ const footerLinks = [
 	// { href: "/about", title: "About" },
 	{ href: 'https://x.com/eliancodes', title: 'Twitter' },
 	{ href: 'https://github.com/eliancodes', title: 'GitHub' },
-	{ href: '/rss.xml', title: 'RSS' },
+	{ href: '/blog.xml', title: 'RSS' },
 	// { href: "/cat", title: "Cat" },
 	// { href: "/photography", title: "Photography" },
 	// { href: "/uses", title: "Uses" },
@@ -46,7 +46,10 @@ const footerLinks = [
 ];
 ---
 
-<Layout title={title || frontmatter?.title} description={description || frontmatter?.description}>
+<Layout
+	title={title || frontmatter?.title}
+	description={description || frontmatter?.description}
+>
 	<BaseHeader links={mainHeaderLinks}>
 		<HeaderAvatar />
 		<HeaderAvatar slot='mobile-menu' />
