@@ -1,6 +1,7 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import LocalFont from "./LocalFont.astro";
+import { ClientRouter } from 'astro:transitions';
+import LocalFont from './LocalFont.astro';
+
 export interface Props {
 	title: string;
 	description: string;
@@ -10,7 +11,7 @@ export interface Props {
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 if (Astro.props.socialImg === undefined) {
-	Astro.props.socialImg = new URL("/v1/generate/og/default.png", Astro.url);
+	Astro.props.socialImg = new URL('/v1/generate/og/default.png', Astro.url);
 }
 
 const { title, description, socialImg } = Astro.props;
