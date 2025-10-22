@@ -13,16 +13,16 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.4",
+		"@astrojs/check": "^0.9.5",
 		"@astrojs/db": "^0.18.0",
 		"@astrojs/rss": "^4.0.12",
 		"@astrojs/sitemap": "^3.6.0",
-		"@astrojs/vercel": "^8.2.10",
+		"@astrojs/vercel": "^8.2.11",
 		"@eliancodes/brutal-ui": "^0.2.6",
 		"@resvg/resvg-js": "^2.6.2",
 		"@studiocms/web-vitals": "^4.5.3",
 		"@unocss/astro": "^66.5.2",
-		"astro": "^5.14.6",
+		"astro": "^5.14.8",
 		"astro-font": "^0.0.80",
 		"typescript": "^5.9.3",
 		"unocss": "^66.5.2"
