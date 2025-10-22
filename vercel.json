@@ -1,5 +1,6 @@
 {
 	"redirects": [
+		{ "source": "/blog/25-10-05-why-most-restaurant-websites-suck", "destination": "/blog/25-09-05-why-most-restaurant-websites-suck" },
 		{ "source": "/x", "destination": "https://x.com/eliancodes" },
 		{ "source": "/twitter", "destination": "https://x.com/eliancodes" },
 		{ "source": "/youtube", "destination": "https://youtube.com/@eliancodes" },
