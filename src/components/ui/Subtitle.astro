@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+interface Props extends HTMLAttributes<"p"> {}
+
+const { class: classes, ...rest } = Astro.props;
+---
+<p class:list={[classes, "font-mono"]} {...rest}>
+	<slot />
+</p>
+
+<style>
+	p {
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+		color: var(--off-white);
+	}
+	@media (min-width: 1280px) {
+		p {
+			font-size: 1.875rem; /* 30px */
+			line-height: 2.25rem; /* 36px */
+		}
+	}
+</style>

@@ -1,0 +1,144 @@
+---
+import Button from "../Button.astro";
+import BarsThree from "@components/icons/bars-3.astro";
+import XMark from "@components/icons/x-mark.astro";
+import Link from "../Link.astro";
+import List from "../List.astro";
+import ListItem from "../ListItem.astro";
+
+interface Props {
+	links: {
+		title: string;
+		href: string;
+	}[];
+	currentUrl: string;
+}
+
+const { links, currentUrl } = Astro.props;
+---
+
+<header id='mobileMenu'>
+	<div>
+		<slot />
+		<Button id='openMenuButton'>
+			<BarsThree />
+		</Button>
+		<Button id='closeMenuButton'>
+			<XMark />
+		</Button>
+	</div>
+	<nav>
+		<List>
+			{
+				links.map((link) => (
+					<ListItem>
+						<Link
+							class={link.href === currentUrl ? 'active' : ''}
+							href={link.href}
+						>
+							{link.title}
+						</Link>
+					</ListItem>
+				))
+			}
+		</List>
+	</nav>
+</header>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const openMenuButton = document.getElementById('openMenuButton');
+		const closeMenuButton = document.getElementById('closeMenuButton');
+		const menu = document.getElementById('mobileMenu');
+		const menuTarget = document.querySelector('#mobileMenu');
+
+		openMenuButton?.addEventListener('click', () => {
+			menu?.classList.add('open');
+		});
+		closeMenuButton?.addEventListener('click', () => {
+			menu?.classList.remove('open');
+		});
+		window.addEventListener('keydown', (e) => {
+			if (e.key === 'Escape') {
+				menu?.classList.remove('open');
+			}
+		});
+		if (menuTarget !== null) {
+			window.addEventListener('click', (e) => {
+				if (!e.composedPath().includes(menuTarget)) {
+					menu?.classList.remove('open');
+				}
+			});
+		}
+	});
+</script>
+
+<style>
+	header {
+		display: flex;
+		flex-direction: column;
+		/* justify-content: space-between; */
+		/* align-items: center; */
+		> div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			z-index: 100;
+		}
+		> nav {
+			display: none;
+			position: absolute;
+			background-color: var(--secondary);
+			top: 0;
+			padding-top: 6.5rem;
+			padding-bottom: 2rem;
+			left: 0;
+			right: 0;
+			padding-left: 2rem;
+			padding-right: 2rem;
+			z-index: 99;
+		}
+		#closeMenuButton {
+			display: none;
+			z-index: 100;
+		}
+	}
+	@media (min-width: 768px) {
+		header {
+			display: none;
+		}
+	}
+
+	header.open {
+		> nav {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			gap: 1rem;
+			> ul {
+				text-transform: uppercase;
+				text-align: center;
+				display: flex;
+				flex-direction: column;
+				gap: 1rem;
+				font-size: 1.5rem;
+				color: var(--primary);
+				font-weight: 600;
+				> li a {
+					&:hover {
+						text-decoration: underline;
+					}
+					&.active {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+		#openMenuButton {
+			display: none;
+		}
+		#closeMenuButton {
+			display: block;
+		}
+	}
+</style>

@@ -1,0 +1,120 @@
+---
+import reactBrussels from '@assets/react-bru.jpg';
+import type { HTMLAttributes } from 'astro/types';
+import LinkPrimary from '../LinkPrimary.astro';
+import List from '../List.astro';
+import ListItem from '../ListItem.astro';
+import type { SocialLink } from '../../../types';
+
+interface Props extends HTMLAttributes<'footer'> {
+	links: SocialLink[];
+}
+
+const { links, ...rest } = Astro.props;
+---
+
+<footer {...rest} transition:name='footer'>
+	<div>
+		<div>
+			<img src={reactBrussels.src} alt='facepic of Elian' />
+			<p class='poppins'>
+				Hi, I’m Elian, software engineer located in Belgium, currently CTO at
+				<a href='https://vulpo.be' class='underline' target='_blank'>Vulpo</a>
+				and Lead DevRel at
+				<a href='https://reactbricks.com' class='underline' target='_blank'
+					>React Bricks</a
+				>. My love for the web was first sparked in 2018 when I decided to build
+				a simple HTML page to display the photos I took at the time, there was
+				no way back! Since then and there, I was completely in love with
+				building on and for the web. I transitioned to a Wordpress drag-and-drop
+				to then learning JavaScript and JAMStack development. Today, I'm mainly
+				focussed on Full-Stack development with a love for front-end and
+				JavaScript.
+			</p>
+		</div>
+		<nav>
+			<List>
+				{
+					links.map((link) => (
+						<ListItem>
+							<LinkPrimary href={link.href}>{link.title}</LinkPrimary>
+						</ListItem>
+					))
+				}
+			</List>
+		</nav>
+		<div class='theme-text'>
+			<p>
+				☕️ + 🤦 + 🚀 = ✨ Astro Rockstar theme by <LinkPrimary href='/'
+					>Elian.codes</LinkPrimary
+				> and <LinkPrimary href='https://timetc.nl/'>Tim ect.</LinkPrimary>
+			</p>
+		</div>
+	</div>
+</footer>
+
+<style>
+	footer {
+		background-color: #2b2b2b;
+		color: white;
+		display: flex;
+		flex-direction: column;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		z-index: 20;
+		> div {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: start;
+			gap: 1rem;
+			> div {
+				grid-column: span 4;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				align-items: center;
+				gap: 1rem;
+				img {
+					border-radius: 100%;
+					width: 5rem;
+					height: 5rem;
+					flex-shrink: 0;
+					object-fit: cover;
+				}
+			}
+		}
+		div.theme-text p {
+			margin-top: 2rem;
+		}
+		nav {
+			padding-top: 2rem;
+			ul {
+				display: grid;
+				text-transform: uppercase;
+				gap: 0.5rem;
+				font-size: 0.875rem;
+				line-height: 1.5rem;
+			}
+		}
+	}
+	@media (min-width: 768px) {
+		footer {
+			/* margin-top: ; */
+			> div {
+				flex-direction: row;
+				align-items: center;
+				> div {
+					grid-column: span 3;
+					flex-direction: row;
+				}
+			}
+			ul {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+	}
+</style>

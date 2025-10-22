@@ -1,0 +1,34 @@
+---
+import Github from './github.astro';
+import Linkedin from './linkedin.astro';
+import Rss from './rss.astro';
+import Twitter from './twitter.astro';
+import Instagram from './instagram.astro';
+import Facebook from './facebook.astro';
+interface Props {
+	icon: string;
+	class?: string;
+}
+
+const { icon, class: classes } = Astro.props as Props;
+---
+
+<div>
+	{
+		icon === 'github' ? (
+			<Github class={classes} />
+		) : icon === 'twitter' ? (
+			<Twitter class={classes} />
+		) : icon === 'rss' ? (
+			<Rss class={classes} />
+		) : icon === 'linkedin' ? (
+			<Linkedin class={classes} />
+		) : icon === 'instagram' ? (
+			<Instagram class={classes} />
+		) : icon === 'facebook' ? (
+			<Facebook class={classes} />
+		) : (
+			<span>Icon not found</span>
+		)
+	}
+</div>

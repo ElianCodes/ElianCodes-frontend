@@ -1,0 +1,31 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"a"> {}
+
+const { ...rest } = Astro.props;
+---
+<a {...rest}>
+	<slot />
+</a>
+
+<style>
+	a {
+		text-decoration: none;
+		padding: 1rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-weight: 600;
+		color: var(--primary-gray);
+		text-align: center;
+		background-color: var(--primary);
+		border: 1px solid var(--primary-gray);
+		border-radius: 0.5rem;
+		text-transform: uppercase;
+		&:hover {
+			background-color: var(--primary-gray);
+			color: #fff;
+		}
+	}
+</style>

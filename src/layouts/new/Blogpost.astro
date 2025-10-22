@@ -1,0 +1,16 @@
+---
+import Layout from './Default.astro';
+import TitleSection from '@ui/TitleSection.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout {title} {description}>
+	<TitleSection {title} />
+	<slot />
+</Layout>

@@ -1,10 +1,7 @@
 ---
-import { ClientRouter } from 'astro:transitions';
-import LocalFont from './LocalFont.astro';
-
 export interface Props {
-	title: string;
-	description: string;
+	title?: string;
+	description?: string;
 	socialImg?: URL;
 }
 
@@ -14,14 +11,18 @@ if (Astro.props.socialImg === undefined) {
 	Astro.props.socialImg = new URL('/v1/generate/og/default.png', Astro.url);
 }
 
-const { title, description, socialImg } = Astro.props;
+const {
+	title = 'Elian Codes',
+	description = 'Elian Codes - Personal blog of Elian Van Cutsem',
+	socialImg,
+} = Astro.props;
 ---
 
 <head>
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<meta name='generator' content={Astro.generator} />
-	<LocalFont />
+	<meta name='author' content='Elian Van Cutsem' />
 
 	<link
 		rel='alternate'
@@ -124,9 +125,7 @@ const { title, description, socialImg } = Astro.props;
 	<meta name='theme-color' content='#ffffff' />
 	<meta name='theme-color' content='#6ee7b7' />
 
-	<title>Elian Codes | {title}</title>
-
-	<ClientRouter />
+	<title>Elian Codes{title ? ` | ${title}` : ''}</title>
 
 	<slot />
 
@@ -163,3 +162,35 @@ const { title, description, socialImg } = Astro.props;
 		})();
 	</script>
 </head>
+
+<script is:inline>
+	const theme = () => {
+		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+			return localStorage.getItem('theme');
+		}
+		if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+			return 'dark';
+		}
+		return 'light';
+	};
+
+	const applyTheme = () => {
+		if (theme() === 'light') {
+			document.documentElement.classList.remove('dark');
+		} else {
+			document.documentElement.classList.add('dark');
+		}
+	};
+
+	window
+		.matchMedia('(prefers-color-scheme: dark)')
+		.addEventListener('change', (event) => {
+			event.matches
+				? window.localStorage.setItem('theme', 'dark')
+				: window.localStorage.setItem('theme', 'light');
+			applyTheme();
+		});
+
+	window.localStorage.setItem('theme', theme());
+	applyTheme();
+</script>
