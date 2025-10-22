@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 0.9.87 (2025-10-22)
+
+
+### Features
+
+* update 404 page to new deign ([2f464db](https://github.com/ElianCodes/ElianCodes-frontend/commit/2f464db2cfff6f1fc1bb20c5bfdd77c0f0756653))
+
 ### 0.9.86 (2025-10-22)
 
 ### 0.9.85 (2025-10-22)
