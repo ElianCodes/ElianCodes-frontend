@@ -1,7 +1,7 @@
 ---
-import Github from '@components/icons/github.astro';
-import type { Social } from '../../types/Social';
+import type { Social } from '../../types';
 
+import RenderIcons from '@components/icons/RenderIcons.astro';
 import MobileNavigation from './MobileNavigation.astro';
 
 const navigationItems = [
@@ -60,14 +60,12 @@ const { pageTitle } = Astro.props;
 							target='_blank'
 							title={`See @ElianCodes on ${item.name}`}
 						>
-							{item.icon === 'github' && (
-								<Github
-									class={
-										'hover:text-green-400 w-6 h-6 transition-all duration-150 ease-in-out'
-									}
-								/>
-							)}
-							{/* add other icons here? Maybe switch case? */}
+							<RenderIcons
+								icon={item.icon}
+								class={
+									'hover:text-green-400 w-6 h-6 transition-all duration-150 ease-in-out'
+								}
+							/>
 						</a>
 					</li>
 				))

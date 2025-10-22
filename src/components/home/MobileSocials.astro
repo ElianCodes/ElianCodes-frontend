@@ -1,31 +1,32 @@
 ---
-import type { Social } from "../../types/Social";
+import RenderIcons from '@components/icons/RenderIcons.astro';
+import type { Social } from '../../types';
 
 const socials = [
 	{
-		name: "GitHub",
-		url: "https://github.com/eliancodes",
-		icon: "i-uil-github",
+		name: 'GitHub',
+		url: 'https://github.com/eliancodes',
+		icon: 'github',
 	},
 	{
-		name: "X",
-		url: "https://x.com/ElianCodes",
-		icon: "i-uil-twitter",
+		name: 'X',
+		url: 'https://x.com/ElianCodes',
+		icon: 'twitter',
 	},
 	{
-		name: "Mastodon",
-		url: "https://webtoo.ls/@eliancodes",
-		icon: "i-uil-mastodon",
+		name: 'Facebook',
+		url: 'https://www.facebook.com/profile.php?id=61575240867661',
+		icon: 'facebook',
 	},
 	{
-		name: "Instagram",
-		url: "https://www.instagram.com/eliancodes",
-		icon: "i-uil-instagram",
+		name: 'Instagram',
+		url: 'https://www.instagram.com/eliancodes',
+		icon: 'instagram',
 	},
 	{
-		name: "LinkedIn",
-		url: "https://www.linkedin.com/in/elianvancutsem",
-		icon: "i-uil-linkedin",
+		name: 'LinkedIn',
+		url: 'https://www.linkedin.com/in/elianvancutsem',
+		icon: 'linkedin',
 	},
 ] as Social[];
 ---
@@ -35,9 +36,14 @@ const socials = [
 	<ul class='flex justify-between'>
 		{
 			socials.map((item: Social) => (
-				<li class='bg-white px-4 py-2 text-green border-black border-2 rounded card-shadow'>
-					<a href={item.url} target='_blank' title={`Go to ${item.name}`}>
-						<div class:list={[item.icon, 'p-6']} />
+				<li class='bg-green-300 text-black border-black border-2 rounded card-shadow'>
+					<a
+						href={item.url}
+						class='flex p-4 items-center justify-center'
+						target='_blank'
+						title={`Go to ${item.name}`}
+					>
+						<RenderIcons icon={item.icon} />
 					</a>
 				</li>
 			))
