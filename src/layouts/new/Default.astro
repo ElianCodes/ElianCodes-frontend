@@ -5,7 +5,16 @@ import BaseFooter from '@ui/layout/BaseFooter.astro';
 import LinkSidebar from '@ui/layout/LinkSidebar.astro';
 import Layout from './Generic.astro';
 
-const { title, frontmatter } = Astro.props;
+interface Props {
+	title: string;
+	description: string;
+	frontmatter?: {
+		title: string;
+		description: string;
+	};
+}
+
+const { title, description, frontmatter } = Astro.props;
 
 const sidebarLinks = [
 	{ title: 'LinkedIn', href: 'https://www.linkedin.com/in/elianvancutsem/' },
@@ -37,7 +46,7 @@ const footerLinks = [
 ];
 ---
 
-<Layout title={title || frontmatter.title}>
+<Layout title={title || frontmatter?.title} description={description || frontmatter?.description}>
 	<BaseHeader links={mainHeaderLinks}>
 		<HeaderAvatar />
 		<HeaderAvatar slot='mobile-menu' />

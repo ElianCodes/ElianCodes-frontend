@@ -1,7 +1,7 @@
 ---
 export interface Props {
-	title: string;
-	description: string;
+	title?: string;
+	description?: string;
 	socialImg?: URL;
 }
 
@@ -11,7 +11,11 @@ if (Astro.props.socialImg === undefined) {
 	Astro.props.socialImg = new URL('/v1/generate/og/default.png', Astro.url);
 }
 
-const { title, description, socialImg } = Astro.props;
+const {
+	title = 'Elian Codes',
+	description = 'Elian Codes - Personal blog of Elian Van Cutsem',
+	socialImg,
+} = Astro.props;
 ---
 
 <head>
@@ -121,7 +125,7 @@ const { title, description, socialImg } = Astro.props;
 	<meta name='theme-color' content='#ffffff' />
 	<meta name='theme-color' content='#6ee7b7' />
 
-	<title>Elian Codes | {title}</title>
+	<title>Elian Codes{title ? ` | ${title}` : ''}</title>
 
 	<slot />
 
