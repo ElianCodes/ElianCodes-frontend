@@ -1,9 +1,9 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css';
 
-import BaseFooter from "@components/layout/BaseFooter.astro";
-import BaseHead from "@components/layout/BaseHead.astro";
-import BaseNavigation from "@components/layout/BaseNavigation.astro";
+import BaseFooter from '@components/ui/layout/BaseFooter.astro';
+import BaseHead from '@components/layout/BaseHead.astro';
+import BaseNavigation from '@components/layout/BaseNavigation.astro';
 
 export interface Props {
 	title: string;
@@ -13,6 +13,20 @@ export interface Props {
 	socialImg?: URL;
 }
 
+const footerLinks = [
+	{ href: '/', title: 'Home' },
+	{ href: '/blog', title: 'Articles' },
+	// { href: "/about", title: "About" },
+	{ href: 'https://x.com/eliancodes', title: 'Twitter' },
+	{ href: 'https://github.com/eliancodes', title: 'GitHub' },
+	{ href: '/blog.xml', title: 'RSS' },
+	// { href: "/cat", title: "Cat" },
+	// { href: "/photography", title: "Photography" },
+	// { href: "/uses", title: "Uses" },
+	// { href: "/ama", title: "AMA" },
+	{ href: '/links', title: 'Links' },
+];
+
 const { title, description, classList, pageTitle, socialImg } = Astro.props;
 ---
 
@@ -21,7 +35,7 @@ const { title, description, classList, pageTitle, socialImg } = Astro.props;
 	<body class:list={[classList]}>
 		<BaseNavigation pageTitle={pageTitle} />
 		<slot />
-		<BaseFooter />
+		<BaseFooter links={footerLinks} />
 	</body>
 </html>
 
