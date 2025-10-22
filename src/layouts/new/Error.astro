@@ -1,5 +1,5 @@
 ---
-import Layout from "./Generic.astro";
+import Layout from './Generic.astro';
 
 interface Props {
 	title: string;
@@ -12,3 +12,9 @@ const { title, description } = Astro.props;
 <Layout {title} {description}>
 	<slot />
 </Layout>
+
+<style>
+	html {
+		background-color: var(--secondary);
+	}
+</style>

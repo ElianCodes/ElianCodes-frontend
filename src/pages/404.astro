@@ -1,17 +1,19 @@
 ---
-import ErrorPage from "@components/errors/404.astro";
-import RecentBlogPosts from "@components/generic/RecentBlogPosts.astro";
-import Layout from "@layouts/Default.astro";
+import Section from '@ui/Section.astro';
+import Title from '@ui/Title.astro';
+import SubTitle from '@ui/Subtitle.astro';
+import Button from '@ui/Button.astro';
+import Layout from '@layouts/new/Error.astro';
+
+export const prerender = true;
 ---
 
-<Layout
-	title="Page Not Found"
-	description="Page not found"
-	classList="h-full"
-	pageTitle="Page Not Found!"
->
-	<main class="bg-red px-6 py-24">
-		<ErrorPage />
-		<RecentBlogPosts />
-	</main>
+<Layout title='Oops' description='Page Not Found!'>
+	<Section class='inset-0 absolute bg-secondary text-white'>
+		<div class='flex h-full flex-col justify-center gap-4 mx-auto max-w-2xl'>
+			<Title>404</Title>
+			<SubTitle>Oops, it looks like this page can't be found</SubTitle>
+			<Button class='z-10' href='/'>Back home</Button>
+		</div>
+	</Section>
 </Layout>
