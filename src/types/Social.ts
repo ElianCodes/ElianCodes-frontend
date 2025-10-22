@@ -5,8 +5,8 @@ export interface Social {
 }
 
 export interface SocialLink {
-	name: string;
-	url: string;
+	title: string;
+	href: string;
 }
 
 export enum SupportedIcon {

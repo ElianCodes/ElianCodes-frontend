@@ -21,6 +21,6 @@ a {
 	animation-timing-function: ease-in-out;
 }
 
-/* @view-transition {
+@view-transition {
   navigation: auto;
-} */
+}
