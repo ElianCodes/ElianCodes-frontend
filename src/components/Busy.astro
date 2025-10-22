@@ -1,0 +1,68 @@
+---
+import Section from '@ui/Section.astro';
+import Title from '@ui/Title.astro';
+import SubTitle from '@ui/Subtitle.astro';
+import YellowCard from '@ui/YellowCard.astro';
+---
+
+<Section class='grid sticky xl:grid-cols-2 !py-12 bg-white rounded-xl -mt-4'>
+	<div id='sticky-header' class='xl:sticky'>
+		<Title transition:name='section-2-title'>What's keeping me busy?</Title>
+		<SubTitle transition:name='section-2-subtitle'
+			>Apart from drinking beer...</SubTitle
+		>
+	</div>
+	<ul class='flex flex-col gap-4 md:gap-8 mt-12 md:mt-24 xl:-mt-24'>
+		<li>
+			<YellowCard
+				title='CTO'
+				description='I lead the tech team at Vulpo, a Belgian tech firm'
+				link='https://vulpo.be'
+				category='work'
+			/>
+		</li>
+		<li>
+			<YellowCard
+				title='Lead DevRel'
+				description="I'm the lead Developer Relations at React Bricks"
+				link='https://react-bricks.com'
+				category='work'
+			/>
+		</li>
+		<li>
+			<YellowCard
+				title='Astro Maintainer'
+				description='Working on Developer Experience & UI'
+				link='https://astro.build'
+				category='Work'
+			/>
+		</li>
+		<li>
+			<YellowCard
+				title='Organizer'
+				description='I organize meetups and conferences about webdevelopment'
+				link='https://devs.gent'
+				category='Community'
+			/>
+		</li>
+		<li>
+			<YellowCard
+				title='Conferences'
+				description='I help the BeJS team run conferences, such as React Brussels, React Paris and React Africa'
+				link='https://bejs.io'
+				category='Community'
+			/>
+		</li>
+	</ul>
+</Section>
+
+<style>
+	#sticky-header {
+		top: 2.5rem;
+		height: min-content;
+		h2,
+		p {
+			color: var(--primary-gray);
+		}
+	}
+</style>

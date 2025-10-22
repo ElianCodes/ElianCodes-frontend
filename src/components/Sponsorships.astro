@@ -1,0 +1,25 @@
+---
+import Section from '@ui/Section.astro';
+import Title from '@ui/Title.astro';
+import SubTitle from '@ui/Subtitle.astro';
+import List from './ui/List.astro';
+import ServerSponsorList from './ServerSponsorList.astro';
+---
+
+<Section id='sponsorships' class='flex flex-col !py-12 md:!py-24 relative z-20'>
+	<Title>Kudos for the community.</Title>
+	<SubTitle>People and projects I sponsor to support their great work.</SubTitle
+	>
+	<List class='pt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4'>
+		<ServerSponsorList server:defer />
+	</List>
+</Section>
+
+<style>
+	#sponsorships {
+		h2,
+		p {
+			color: var(--color-primary-gray);
+		}
+	}
+</style>

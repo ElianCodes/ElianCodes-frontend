@@ -1,0 +1,51 @@
+---
+interface Props {
+	link: string | null;
+	title: string;
+	description: string;
+	image: string | null;
+	imageAlt?: string;
+}
+
+const { link, description, title, image, imageAlt } = Astro.props;
+---
+
+<a href={link ?? ""}>
+	{image && <img src={image} alt={imageAlt ?? ""} />}
+	<div>
+		<h3 class="font-mono">{title}</h3>
+		<p class="font-mono">{description}</p>
+	</div>
+</a>
+
+<style>
+	a {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		padding: 0.5rem;
+		background-color: var(--light-gray);
+		border-radius: 0.5rem;
+		transition: all 0.3s ease-in-out;
+		&:hover {
+			background-color: var(--secondary);
+			color: white;
+		}
+		> img {
+			width: 4rem;
+			object-fit: cover;
+			object-position: center;
+			height: 4rem;
+			border-radius: 0.5rem;
+		}
+		h3 {
+			font-weight: 600;
+			font-size: 1.25rem;
+			line-height: 1.75rem;
+		}
+		p {
+			font-size: 0.75rem;
+			line-height: 1rem;
+		}
+	}
+</style>

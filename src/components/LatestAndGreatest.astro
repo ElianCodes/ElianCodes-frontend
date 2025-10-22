@@ -1,0 +1,48 @@
+---
+import { getCollection } from 'astro:content';
+import Section from '@ui/Section.astro';
+import Title from '@ui/Title.astro';
+import Button from '@ui/Button.astro';
+import ListItem from './ui/ListItem.astro';
+import List from './ui/List.astro';
+
+const latest = await getCollection('blog')
+	.then((a) =>
+		a.sort((b, c) => c.data.pubDate.getTime() - b.data.pubDate.getTime())
+	)
+	.then((a) => a.slice(0, 4));
+---
+
+<Section id='latest-greatest' class='flex flex-col !py-12 md:!py-24 rounded-xl'>
+	<Title>The latest<br />and greatest.</Title>
+	<List class='flex flex-col py-12'>
+		{
+			latest.map((post) => (
+				<ListItem>
+					<a
+						href={`/blog/${post.slug}`}
+						class='flex items-center gap-12 justify-between py-4 border-b border-primary-gray'
+					>
+						<p class='font-mono uppercase text-xs'>Article</p>
+						<h3 class='flex-1 text-xl'>{post.data.title}</h3>
+						<p>&rAarr;</p>
+					</a>
+				</ListItem>
+			))
+		}
+	</List>
+	<!-- <div class='grid grid-cols-3 gap-8'>
+		<Button href='/blog'>Articles</Button>
+		<Button href='/videos'>Videos</Button>
+		<Button href='/talks'>Talks</Button>
+	</div> -->
+</Section>
+
+<style>
+	#latest-greatest {
+		background-color: var(--primary);
+		h2 {
+			color: var(--secondary);
+		}
+	}
+</style>

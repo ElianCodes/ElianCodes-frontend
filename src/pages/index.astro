@@ -1,20 +1,21 @@
 ---
-import RecentBlogPosts from "@components/generic/RecentBlogPosts.astro";
-import AboutMe from "@components/home/AboutMe.astro";
-import Description from "@components/home/Description.astro";
-import MobileSocials from "@components/home/MobileSocials.astro";
-import Layout from "@layouts/Default.astro";
+import Layout from '@layouts/new/Default.astro';
+import Hero from '@components/Hero.astro';
+import Busy from '@components/Busy.astro';
+import LatestAndGreatest from '@components/LatestAndGreatest.astro';
+import Sponsorships from '@components/Sponsorships.astro';
+import SayHi from '@components/SayHi.astro';
+
+export const prerender = true;
 ---
 
 <Layout
-	title='Home'
-	pageTitle='Elian Codes'
+	title='home'
 	description='CTO @ Vulpo | Lead DevRel @ React Bricks | devs.gent meetup organizer | BeJS & React Brussels household figure | public speaker | Prev. Astro DX & vBridge'
 >
-	<main class='bg-green p-6'>
-		<MobileSocials />
-		<AboutMe />
-		<Description />
-		<RecentBlogPosts />
-	</main>
+	<Hero />
+	<Busy />
+	<LatestAndGreatest />
+	<Sponsorships />
+	<SayHi />
 </Layout>

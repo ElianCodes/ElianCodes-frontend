@@ -1,0 +1,43 @@
+---
+import Button from '@ui/Button.astro';
+import Section from '@ui/Section.astro';
+import Title from '@ui/Title.astro';
+---
+
+<div>
+	<div class='relative rounded-xl -mt-20 h-80 bg-white z-10'></div>
+	<div class='relative -mt-60 z-20'>
+		<Section
+			id='say-hi'
+			class='grid md:grid-cols-3 justify-between items-center border-primary-gray border-2 rounded-xl mx-6 md:px-12 md:py-24 py-12'
+		>
+			<Title class='col-span-2 pb-4 md:pb-0'
+				>Let's do<br /> great things<br /> together.</Title
+			>
+			<div class='flex flex-col gap-4'>
+				<p class='text-xl font-mono'>
+					Hit me up if you want to collaborate, do a podcast or need an
+					interesting talk/workshop!
+				</p>
+				<Button href='mailto:hello@elian.codes'>Say Hi!</Button>
+			</div>
+		</Section>
+	</div>
+	<div class='relative bg-primary-gray -mt-96 mb-8 h-80 z-0'></div>
+</div>
+
+<style>
+	#say-hi {
+		background: var(--color-light-gray);
+		padding: 3rem 2rem;
+		h2 {
+			color: var(--color-secondary);
+		}
+	}
+
+	@media (min-width: 768px) {
+		#say-hi {
+			padding: 6rem 3rem;
+		}
+	}
+</style>

@@ -1,0 +1,32 @@
+---
+import Section from '@ui/Section.astro';
+import Title from '@ui/Title.astro';
+import SubTitle from '@ui/Subtitle.astro';
+---
+
+<Section class='grid grid-cols-2 xl:grid-cols-3' id='hero'>
+	<div class='col-span-2'>
+		<Title transition:name='mainTitle'
+			>Hi, I'm Elian,<br /> creator of great dev experiences.</Title
+		>
+		<SubTitle transition:name='mainSubtitle'
+			>Loves engineering and doing talks & workshops about Astro.</SubTitle
+		>
+	</div>
+</Section>
+
+<style>
+	#hero {
+		background-image: url('/assets/img/hero-bg.jpg');
+		background-size: cover;
+		background-position: top center;
+		display: grid;
+		padding: 7rem 4rem;
+	}
+
+	@media (max-width: 768px) {
+		#hero {
+			padding: 6rem 2rem;
+		}
+	}
+</style>

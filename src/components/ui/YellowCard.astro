@@ -1,0 +1,86 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+	title: string;
+	description: string;
+	link: string;
+	category: string;
+}
+
+const { title, description, link, category, ...rest } = Astro.props;
+---
+
+<div class="card" {...rest}>
+	<h3 class="font-mono">{title}:</h3>
+	<p class="font-mono">{description}</p>
+	<div>
+		<p>{category}</p>
+		<a href={link}>Check it out &rAarr;</a>
+	</div>
+</div>
+
+<style>
+	div.card {
+		background-color: var(--primary);
+		border-width: 2px;
+		border-color: var(--primary-gray);
+		border-radius: 0.75rem;
+
+		transition: all 0.3s ease-in-out;
+
+		&:hover {
+			color: var(--secondary);
+			cursor: crosshair;
+			-webkit-box-shadow: 10px 10px 0px 0px var(--secondary);
+			-moz-box-shadow: 10px 10px 0px 0px var(--secondary);
+			box-shadow: 10px 10px 0px 0px var(--secondary);
+			margin-right: 10px;
+			margin-bottom: 10px;
+			margin-left: -10px;
+			margin-top: -10px;
+		}
+		> h3 {
+			padding: 1.5rem 1rem;
+			font-weight: 700;
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+		> p {
+			padding: 0 1rem;
+			font-size: 1.25rem;
+			font-weight: 500;
+			line-height: 2.25rem;
+			margin-bottom: 2rem;
+		}
+
+		> div {
+			border-top-width: 1px;
+			border-top-color: var(--primary-gray);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 1rem;
+			text-transform: uppercase;
+			font-size: 1rem;
+			line-height: 1.5rem;
+			a {
+				color: var(--secondary);
+				font-weight: 700;
+			}
+		}
+	}
+	@media (min-width: 768px) {
+		div.card {
+			> h3 {
+				font-size: 3rem;
+				line-height: 1;
+			}
+			> p {
+				font-size: 2rem;
+				line-height: 2.5rem;
+				font-weight: 600;
+			}
+		}
+	}
+</style>

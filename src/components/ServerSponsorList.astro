@@ -1,0 +1,28 @@
+---
+import { db, desc, Sponsorship } from "astro:db";
+import ListItem from "./ui/ListItem.astro";
+import ProjectCard from "@ui/ProjectCard.astro";
+import { format } from "date-fns";
+
+const sponsoring = await db
+	.select()
+	.from(Sponsorship)
+	.orderBy(desc(Sponsorship.since));
+---
+
+{
+	sponsoring.map((sponsor) => (
+		<ListItem>
+			<ProjectCard
+				link={sponsor.link}
+				image={sponsor.avatar}
+				title={sponsor.name}
+				description={`Sponsored from ${format(sponsor.since, "MMMM yyyy")} ${
+					sponsor.ended_at
+						? `until ${format(sponsor.ended_at, "MMMM yyyy")}`
+						: ""
+				} because ${sponsor.description}`}
+			/>
+		</ListItem>
+	))
+}
