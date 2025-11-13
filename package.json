@@ -24,7 +24,7 @@
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.1.14",
 		"@unocss/astro": "^66.5.2",
-		"astro": "^5.14.6",
+		"astro": "^5.15.6",
 		"astro-font": "^0.0.80",
 		"tailwindcss": "^4.1.14",
 		"typescript": "^5.9.3"
