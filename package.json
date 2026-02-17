@@ -17,7 +17,7 @@
 		"@astrojs/db": "^0.19.0",
 		"@astrojs/rss": "^4.0.12",
 		"@astrojs/sitemap": "^3.6.0",
-		"@astrojs/vercel": "^8.2.10",
+		"@astrojs/vercel": "^9.0.0",
 		"@eliancodes/brutal-ui": "^0.2.6",
 		"@resvg/resvg-js": "^2.6.2",
 		"@studiocms/web-vitals": "^4.5.3",
