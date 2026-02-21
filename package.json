@@ -30,7 +30,7 @@
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.0",
+		"@biomejs/biome": "2.4.4",
 		"satori": "^0.7.4",
 		"satori-html": "^0.3.2"
 	}
