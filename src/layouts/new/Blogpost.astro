@@ -10,9 +10,19 @@ interface Props {
 	post: CollectionEntry<"blog">["data"];
 	headings: { depth: number; slug?: string; id?: string; text: string }[];
 	socialImg?: URL;
+	socialImgAlt?: string;
+	socialImgWidth?: number;
+	socialImgHeight?: number;
 }
 
-const { post, headings, socialImg } = Astro.props;
+const {
+	post,
+	headings,
+	socialImg,
+	socialImgAlt,
+	socialImgWidth,
+	socialImgHeight,
+} = Astro.props;
 const articleUrl = new URL(Astro.url.pathname, Astro.site).toString();
 const articleSchema = {
 	"@context": "https://schema.org",
@@ -43,6 +53,9 @@ const articleSchema = {
 	title={post.title}
 	description={post.description}
 	socialImg={socialImg}
+	socialImgAlt={socialImgAlt}
+	socialImgWidth={socialImgWidth}
+	socialImgHeight={socialImgHeight}
 	schema={articleSchema}
 	pageType='article'
 	publishedTime={post.pubDate.toISOString()}

@@ -23,6 +23,13 @@ const socialImg = new URL(
 );
 ---
 
-<BlogPost post={blogpost.data} headings={headings} socialImg={socialImg}>
+<BlogPost
+	post={blogpost.data}
+	headings={headings}
+	socialImg={socialImg}
+	socialImgAlt={blogpost.data.title}
+	socialImgWidth={1200}
+	socialImgHeight={630}
+>
 	<Content />
 </BlogPost>

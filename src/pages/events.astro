@@ -6,6 +6,10 @@ import Section from "@ui/Section.astro";
 import TitleSection from "@ui/TitleSection.astro";
 
 const events = await getSortedEvents();
+const eventsImage = new URL(
+	"/v1/generate/og/default.png",
+	Astro.site,
+).toString();
 const eventsSchema = {
 	"@context": "https://schema.org",
 	"@type": "CollectionPage",
@@ -13,6 +17,7 @@ const eventsSchema = {
 	description:
 		"Conference talks, workshops, livestreams, and community events featuring Elian Van Cutsem.",
 	url: new URL("/events/", Astro.site).toString(),
+	image: eventsImage,
 	mainEntity: {
 		"@type": "ItemList",
 		itemListElement: events.map((event, index) => ({
@@ -43,6 +48,10 @@ const eventsSchema = {
 <Layout
 	title="Events"
 	description="See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript)."
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt='Social preview image for Elian Van Cutsem events and talks'
+	socialImgWidth={1200}
+	socialImgHeight={630}
 	schema={eventsSchema}
 >
 	<TitleSection

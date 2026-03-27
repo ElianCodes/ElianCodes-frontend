@@ -7,6 +7,7 @@ import Sponsorships from "@components/Sponsorships.astro";
 import Layout from "@layouts/new/Default.astro";
 
 export const prerender = true;
+const homeImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
 
 const homeSchema = [
 	{
@@ -21,6 +22,7 @@ const homeSchema = [
 			name: "Elian Van Cutsem",
 			url: new URL("/", Astro.site).toString(),
 			jobTitle: "CTO, DevRel leader, and public speaker",
+			image: homeImage,
 			description:
 				"Belgian web developer and consultant focused on developer experience, Astro, React, web engineering, and community building.",
 			sameAs: [
@@ -61,6 +63,10 @@ const homeSchema = [
 <Layout
 	title='Elian Van Cutsem'
 	description='Personal website of Elian Van Cutsem, a Belgian web developer, CTO, DevRel leader, speaker, and community organizer focused on developer experience, Astro, React, and the modern web.'
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt='Social preview card for Elian Van Cutsem'
+	socialImgWidth={1200}
+	socialImgHeight={630}
 	schema={homeSchema}
 	pageType='profile'
 >

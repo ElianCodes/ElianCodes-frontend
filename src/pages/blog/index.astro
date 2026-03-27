@@ -7,6 +7,7 @@ import TitleSection from "@ui/TitleSection.astro";
 
 const posts = await getSortedBlogPosts();
 const blogUrl = new URL("/blog/", Astro.site).toString();
+const blogImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
 const blogSchema = {
 	"@context": "https://schema.org",
 	"@type": "CollectionPage",
@@ -14,6 +15,7 @@ const blogSchema = {
 	description:
 		"Articles by Elian Van Cutsem about Astro, React, web engineering, developer experience, and tools.",
 	url: blogUrl,
+	image: blogImage,
 	mainEntity: {
 		"@type": "ItemList",
 		itemListElement: posts.map((post, index) => ({
@@ -29,6 +31,10 @@ const blogSchema = {
 <Layout
 	title="Blog"
 	description="Elian Codes Blog | On this page you can find a collection of my blogposts, related to web technologies and programming."
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt='Social preview image for the Elian Codes blog'
+	socialImgWidth={1200}
+	socialImgHeight={630}
 	schema={blogSchema}
 >
 	<TitleSection

@@ -5,6 +5,9 @@ export interface Props {
 	title?: string;
 	description?: string;
 	socialImg?: URL;
+	socialImgAlt?: string;
+	socialImgWidth?: number;
+	socialImgHeight?: number;
 	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 	pageType?: "website" | "article" | "profile";
 	publishedTime?: string;
@@ -16,6 +19,9 @@ const {
 	title = "Elian Codes",
 	description = "Elian Codes - Personal blog of Elian Van Cutsem",
 	socialImg,
+	socialImgAlt,
+	socialImgWidth,
+	socialImgHeight,
 	schema,
 	pageType,
 	publishedTime,
@@ -28,6 +34,9 @@ const {
 	title={title}
 	description={description}
 	socialImg={socialImg}
+	socialImgAlt={socialImgAlt}
+	socialImgWidth={socialImgWidth}
+	socialImgHeight={socialImgHeight}
 	schema={schema}
 	pageType={pageType}
 	publishedTime={publishedTime}

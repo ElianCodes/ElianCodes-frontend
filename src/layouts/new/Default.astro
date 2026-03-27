@@ -9,6 +9,9 @@ interface Props {
 	title: string;
 	description: string;
 	socialImg?: URL;
+	socialImgAlt?: string;
+	socialImgWidth?: number;
+	socialImgHeight?: number;
 	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 	pageType?: "website" | "article" | "profile";
 	publishedTime?: string;
@@ -24,6 +27,9 @@ const {
 	title,
 	description,
 	socialImg,
+	socialImgAlt,
+	socialImgWidth,
+	socialImgHeight,
 	schema,
 	pageType,
 	publishedTime,
@@ -60,6 +66,9 @@ const footerLinks = [
 	title={title || frontmatter?.title}
 	description={description || frontmatter?.description}
 	socialImg={socialImg}
+	socialImgAlt={socialImgAlt}
+	socialImgWidth={socialImgWidth}
+	socialImgHeight={socialImgHeight}
 	schema={schema}
 	pageType={pageType}
 	publishedTime={publishedTime}

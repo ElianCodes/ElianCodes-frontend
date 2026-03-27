@@ -3,9 +3,9 @@ import type { APIRoute } from "astro";
 
 export const GET: APIRoute = async () => {
 	return renderOgImage({
-		title: "Team DX @Astro",
+		title: "Elian Van Cutsem",
 		description:
-			"BeJS & React Brussels ambassador, meetup organizer, speaker and writer.",
+			"Belgian web developer, CTO, DevRel leader, speaker, and community organizer.",
 		linkText: "https://www.elian.codes",
 	});
 };

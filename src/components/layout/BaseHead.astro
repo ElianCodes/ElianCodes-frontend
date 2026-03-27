@@ -5,6 +5,9 @@ export interface Props {
 	title: string;
 	description: string;
 	socialImg?: URL;
+	socialImgAlt?: string;
+	socialImgWidth?: number;
+	socialImgHeight?: number;
 	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 	pageType?: "website" | "article" | "profile";
 	publishedTime?: string;
@@ -23,6 +26,9 @@ const {
 	title,
 	description,
 	socialImg,
+	socialImgAlt,
+	socialImgWidth,
+	socialImgHeight,
 	schema,
 	pageType = "website",
 	publishedTime,
@@ -31,6 +37,7 @@ const {
 } = Astro.props;
 
 const fullTitle = title === "Elian Codes" ? title : `Elian Codes | ${title}`;
+const imageAlt = socialImgAlt ?? `${fullTitle} social preview image`;
 const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
 const siteSchema = {
@@ -85,7 +92,9 @@ const siteSchema = {
 	<meta property='og:title' content={fullTitle} />
 	<meta property='og:description' content={description} />
 	<meta property='og:image' content={socialImg} />
-	<meta property='og:image:alt' content='The Elian Codes Social image' />
+	<meta property='og:image:alt' content={imageAlt} />
+	{socialImgWidth && <meta property='og:image:width' content={String(socialImgWidth)} />}
+	{socialImgHeight && <meta property='og:image:height' content={String(socialImgHeight)} />}
 	{publishedTime && <meta property='article:published_time' content={publishedTime} />}
 	{modifiedTime && <meta property='article:modified_time' content={modifiedTime} />}
 	{publishedTime && <meta property='og:updated_time' content={modifiedTime || publishedTime} />}
@@ -97,7 +106,7 @@ const siteSchema = {
 	<meta name='twitter:title' content={fullTitle} />
 	<meta name='twitter:description' content={description} />
 	<meta name='twitter:image' content={socialImg} />
-	<meta name='twitter:image:alt' content='The Elian Codes Social image' />
+	<meta name='twitter:image:alt' content={imageAlt} />
 
 	<link rel='canonical' href={canonicalURL} />
 	<link rel='icon' type='image/x-icon' href='/favicon.ico' />

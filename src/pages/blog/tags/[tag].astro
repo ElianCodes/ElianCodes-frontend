@@ -31,12 +31,14 @@ const tagUrl = new URL(
 	`/blog/tags/${Astro.params.tag ?? ""}/`,
 	Astro.site,
 ).toString();
+const tagImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
 const tagSchema = {
 	"@context": "https://schema.org",
 	"@type": "CollectionPage",
 	name: `Posts tagged ${tag}`,
 	description: `All Elian Codes posts tagged with ${tag}.`,
 	url: tagUrl,
+	image: tagImage,
 	mainEntity: {
 		"@type": "ItemList",
 		itemListElement: blogposts.map((post, index) => ({
@@ -52,6 +54,10 @@ const tagSchema = {
 <Layout
 	title={`Blog: ${tag}`}
 	description={`Elian Codes Blog | All posts tagged with ${tag}`}
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt={`Elian Codes posts tagged ${tag}`}
+	socialImgWidth={1200}
+	socialImgHeight={630}
 	schema={tagSchema}
 >
 	<TitleSection
