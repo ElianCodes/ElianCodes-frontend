@@ -27,11 +27,32 @@ export interface Props {
 }
 
 const { tag, blogposts } = Astro.props;
+const tagUrl = new URL(
+	`/blog/tags/${Astro.params.tag ?? ""}/`,
+	Astro.site,
+).toString();
+const tagSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: `Posts tagged ${tag}`,
+	description: `All Elian Codes posts tagged with ${tag}.`,
+	url: tagUrl,
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: blogposts.map((post, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			url: new URL(`/blog/${post.id}/`, Astro.site).toString(),
+			name: post.data.title,
+		})),
+	},
+};
 ---
 
 <Layout
 	title={`Blog: ${tag}`}
 	description={`Elian Codes Blog | All posts tagged with ${tag}`}
+	schema={tagSchema}
 >
 	<TitleSection
 		title={tag}

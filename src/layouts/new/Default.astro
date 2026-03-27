@@ -9,13 +9,28 @@ interface Props {
 	title: string;
 	description: string;
 	socialImg?: URL;
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+	pageType?: "website" | "article" | "profile";
+	publishedTime?: string;
+	modifiedTime?: string;
+	noindex?: boolean;
 	frontmatter?: {
 		title: string;
 		description: string;
 	};
 }
 
-const { title, description, socialImg, frontmatter } = Astro.props;
+const {
+	title,
+	description,
+	socialImg,
+	schema,
+	pageType,
+	publishedTime,
+	modifiedTime,
+	noindex,
+	frontmatter,
+} = Astro.props;
 
 const sidebarLinks = [
 	{ title: "LinkedIn", href: "https://www.linkedin.com/in/elianvancutsem/" },
@@ -45,6 +60,11 @@ const footerLinks = [
 	title={title || frontmatter?.title}
 	description={description || frontmatter?.description}
 	socialImg={socialImg}
+	schema={schema}
+	pageType={pageType}
+	publishedTime={publishedTime}
+	modifiedTime={modifiedTime}
+	noindex={noindex}
 >
 	<BaseHeader links={mainHeaderLinks}>
 		<HeaderAvatar />

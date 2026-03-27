@@ -5,15 +5,52 @@ export interface Props {
 	title: string;
 	description: string;
 	socialImg?: URL;
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+	pageType?: "website" | "article" | "profile";
+	publishedTime?: string;
+	modifiedTime?: string;
+	noindex?: boolean;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const siteUrl = new URL("/", Astro.site);
 
 if (Astro.props.socialImg === undefined) {
 	Astro.props.socialImg = new URL("/v1/generate/og/default.png", Astro.url);
 }
 
-const { title, description, socialImg } = Astro.props;
+const {
+	title,
+	description,
+	socialImg,
+	schema,
+	pageType = "website",
+	publishedTime,
+	modifiedTime,
+	noindex = false,
+} = Astro.props;
+
+const fullTitle = title === "Elian Codes" ? title : `Elian Codes | ${title}`;
+const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
+
+const siteSchema = {
+	"@context": "https://schema.org",
+	"@type": "WebSite",
+	name: "Elian Codes",
+	url: siteUrl.toString(),
+	description,
+	inLanguage: "en",
+	publisher: {
+		"@type": "Person",
+		name: "Elian Van Cutsem",
+		url: siteUrl.toString(),
+		sameAs: [
+			"https://github.com/eliancodes",
+			"https://www.linkedin.com/in/elianvancutsem/",
+			"https://x.com/eliancodes",
+		],
+	},
+};
 ---
 
 <head>
@@ -27,23 +64,40 @@ const { title, description, socialImg } = Astro.props;
 		href='https://www.elian.codes/blog.xml'
 		type='application/rss+xml'
 	/>
+	<link rel='alternate' href='https://www.elian.codes/llms.txt' type='text/plain' />
 
-	<meta name='title' content={`Elian Codes | ${title}`} />
+	<meta name='title' content={fullTitle} />
 	<meta name='description' content={description} />
+	<meta name='author' content='Elian Van Cutsem' />
+	<meta
+		name='robots'
+		content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+	/>
+	<meta
+		name='googlebot'
+		content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
+	/>
 
-	<meta property='og:type' content='website' />
+	<meta property='og:type' content={pageType} />
+	<meta property='og:site_name' content='Elian Codes' />
+	<meta property='og:locale' content='en_US' />
 	<meta property='og:url' content={canonicalURL} />
-	<meta property='og:title' content={title} />
+	<meta property='og:title' content={fullTitle} />
 	<meta property='og:description' content={description} />
 	<meta property='og:image' content={socialImg} />
 	<meta property='og:image:alt' content='The Elian Codes Social image' />
+	{publishedTime && <meta property='article:published_time' content={publishedTime} />}
+	{modifiedTime && <meta property='article:modified_time' content={modifiedTime} />}
+	{publishedTime && <meta property='og:updated_time' content={modifiedTime || publishedTime} />}
 
-	<meta property='twitter:card' content='summary_large_image' />
-	<meta property='twitter:url' content={canonicalURL} />
-	<meta property='twitter:title' content={title} />
-	<meta property='twitter:description' content={description} />
-	<meta property='twitter:image' content={socialImg} />
-	<meta property='twitter:image:alt' content='The Elian Codes Social image' />
+	<meta name='twitter:card' content='summary_large_image' />
+	<meta name='twitter:site' content='@eliancodes' />
+	<meta name='twitter:creator' content='@eliancodes' />
+	<meta name='twitter:url' content={canonicalURL} />
+	<meta name='twitter:title' content={fullTitle} />
+	<meta name='twitter:description' content={description} />
+	<meta name='twitter:image' content={socialImg} />
+	<meta name='twitter:image:alt' content='The Elian Codes Social image' />
 
 	<link rel='canonical' href={canonicalURL} />
 	<link rel='icon' type='image/x-icon' href='/favicon.ico' />
@@ -121,8 +175,24 @@ const { title, description, socialImg } = Astro.props;
 	<meta name='msapplication-TileColor' content='#ffffff' />
 	<meta name='msapplication-TileImage' content='/icons/ms-icon-144x144.png' />
 	<meta name='theme-color' content='#6ee7b7' />
+	<meta name='format-detection' content='telephone=no' />
 
-	<title>Elian Codes | {title}</title>
+	<title>{fullTitle}</title>
+
+	<script
+		is:inline
+		type='application/ld+json'
+		set:html={JSON.stringify(siteSchema)}
+	/>
+	{
+		schemaList.map((entry) => (
+			<script
+				is:inline
+				type='application/ld+json'
+				set:html={JSON.stringify(entry)}
+			/>
+		))
+	}
 
 	<slot />
 </head>

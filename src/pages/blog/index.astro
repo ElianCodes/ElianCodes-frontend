@@ -6,11 +6,30 @@ import Section from "@ui/Section.astro";
 import TitleSection from "@ui/TitleSection.astro";
 
 const posts = await getSortedBlogPosts();
+const blogUrl = new URL("/blog/", Astro.site).toString();
+const blogSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: "Elian Codes Blog",
+	description:
+		"Articles by Elian Van Cutsem about Astro, React, web engineering, developer experience, and tools.",
+	url: blogUrl,
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: posts.map((post, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			url: new URL(`/blog/${post.id}/`, Astro.site).toString(),
+			name: post.data.title,
+		})),
+	},
+};
 ---
 
 <Layout
 	title="Blog"
 	description="Elian Codes Blog | On this page you can find a collection of my blogposts, related to web technologies and programming."
+	schema={blogSchema}
 >
 	<TitleSection
 		title='Articles'

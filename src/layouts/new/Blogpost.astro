@@ -13,9 +13,41 @@ interface Props {
 }
 
 const { post, headings, socialImg } = Astro.props;
+const articleUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: post.title,
+	description: post.description,
+	datePublished: post.pubDate.toISOString(),
+	dateModified: post.pubDate.toISOString(),
+	author: {
+		"@type": "Person",
+		name: post.author,
+		url: new URL("/", Astro.site).toString(),
+	},
+	publisher: {
+		"@type": "Person",
+		name: "Elian Van Cutsem",
+		url: new URL("/", Astro.site).toString(),
+	},
+	mainEntityOfPage: articleUrl,
+	url: articleUrl,
+	image: socialImg?.toString(),
+	keywords: post.tags.join(", "),
+	inLanguage: "en",
+};
 ---
 
-<Layout title={post.title} description={post.description} socialImg={socialImg}>
+<Layout
+	title={post.title}
+	description={post.description}
+	socialImg={socialImg}
+	schema={articleSchema}
+	pageType='article'
+	publishedTime={post.pubDate.toISOString()}
+	modifiedTime={post.pubDate.toISOString()}
+>
 	<section class='blogpost-hero' transition:name='page-hero'>
 		<Section>
 			<div class='blogpost-hero__inner'>

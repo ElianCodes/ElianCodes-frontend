@@ -4,12 +4,13 @@ import Layout from "./Generic.astro";
 interface Props {
 	title: string;
 	description: string;
+	noindex?: boolean;
 }
 
-const { title, description } = Astro.props;
+const { title, description, noindex = true } = Astro.props;
 ---
 
-<Layout {title} {description}>
+<Layout {title} {description} {noindex}>
 	<slot />
 </Layout>
 

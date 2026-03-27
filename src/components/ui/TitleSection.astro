@@ -7,13 +7,14 @@ import Title from "./Title.astro";
 interface Props extends HTMLAttributes<"section"> {
 	title?: string;
 	subtitle?: string;
+	as?: "h1" | "h2";
 }
 
-const { title, subtitle, ...rest } = Astro.props;
+const { title, subtitle, as = "h1", ...rest } = Astro.props;
 ---
 
 <Section transition:name='page-hero' {...rest}>
-	{title && <Title transition:name='mainTitle'>{title}</Title>}
+	{title && <Title as={as} transition:name='mainTitle'>{title}</Title>}
 	{subtitle && <Subtitle transition:name='mainSubtitle'>{subtitle}</Subtitle>}
 	<slot />
 </Section>

@@ -7,11 +7,62 @@ import Sponsorships from "@components/Sponsorships.astro";
 import Layout from "@layouts/new/Default.astro";
 
 export const prerender = true;
+
+const homeSchema = [
+	{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		name: "Elian Van Cutsem",
+		description:
+			"Personal website of Elian Van Cutsem, a web developer, DevRel leader, CTO, speaker, and community organizer.",
+		url: new URL("/", Astro.site).toString(),
+		mainEntity: {
+			"@type": "Person",
+			name: "Elian Van Cutsem",
+			url: new URL("/", Astro.site).toString(),
+			jobTitle: "CTO, DevRel leader, and public speaker",
+			description:
+				"Belgian web developer and consultant focused on developer experience, Astro, React, web engineering, and community building.",
+			sameAs: [
+				"https://github.com/eliancodes",
+				"https://www.linkedin.com/in/elianvancutsem/",
+				"https://x.com/eliancodes",
+			],
+		},
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: "Main sections",
+		itemListElement: [
+			{
+				"@type": "ListItem",
+				position: 1,
+				name: "About",
+				url: new URL("/", Astro.site).toString(),
+			},
+			{
+				"@type": "ListItem",
+				position: 2,
+				name: "Blog",
+				url: new URL("/blog/", Astro.site).toString(),
+			},
+			{
+				"@type": "ListItem",
+				position: 3,
+				name: "Events",
+				url: new URL("/events/", Astro.site).toString(),
+			},
+		],
+	},
+];
 ---
 
 <Layout
-	title='home'
-	description='CTO @ Vulpo | Lead DevRel @ React Bricks | devs.gent meetup organizer | BeJS & React Brussels household figure | public speaker | Prev. Astro DX & vBridge'
+	title='Elian Van Cutsem'
+	description='Personal website of Elian Van Cutsem, a Belgian web developer, CTO, DevRel leader, speaker, and community organizer focused on developer experience, Astro, React, and the modern web.'
+	schema={homeSchema}
+	pageType='profile'
 >
 	<Hero />
 	<Busy />

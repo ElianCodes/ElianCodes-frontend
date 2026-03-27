@@ -6,11 +6,44 @@ import Section from "@ui/Section.astro";
 import TitleSection from "@ui/TitleSection.astro";
 
 const events = await getSortedEvents();
+const eventsSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: "Events and talks",
+	description:
+		"Conference talks, workshops, livestreams, and community events featuring Elian Van Cutsem.",
+	url: new URL("/events/", Astro.site).toString(),
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: events.map((event, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			item: {
+				"@type": "Event",
+				name: event.data.title,
+				description: event.data.abstract,
+				startDate: event.data.date.toISOString(),
+				eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
+				eventStatus: "https://schema.org/EventScheduled",
+				url: event.data.link,
+				organizer: {
+					"@type": "Organization",
+					name: event.data.name,
+				},
+				performer: {
+					"@type": "Person",
+					name: "Elian Van Cutsem",
+				},
+			},
+		})),
+	},
+};
 ---
 
 <Layout
 	title="Events"
 	description="See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript)."
+	schema={eventsSchema}
 >
 	<TitleSection
 		title='Events'

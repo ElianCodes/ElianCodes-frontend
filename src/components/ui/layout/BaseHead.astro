@@ -5,15 +5,32 @@ export interface Props {
 	title?: string;
 	description?: string;
 	socialImg?: URL;
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+	pageType?: "website" | "article" | "profile";
+	publishedTime?: string;
+	modifiedTime?: string;
+	noindex?: boolean;
 }
 
 const {
 	title = "Elian Codes",
 	description = "Elian Codes - Personal blog of Elian Van Cutsem",
 	socialImg,
+	schema,
+	pageType,
+	publishedTime,
+	modifiedTime,
+	noindex,
 } = Astro.props;
 ---
 
-<SharedBaseHead title={title} description={description} socialImg={socialImg}>
-	<meta name='author' content='Elian Van Cutsem' />
-</SharedBaseHead>
+<SharedBaseHead
+	title={title}
+	description={description}
+	socialImg={socialImg}
+	schema={schema}
+	pageType={pageType}
+	publishedTime={publishedTime}
+	modifiedTime={modifiedTime}
+	noindex={noindex}
+/>
