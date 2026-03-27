@@ -1,6 +1,6 @@
 ---
-import { getCollection } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
+import { getRecentBlogPosts } from "@lib/content";
 import { Button, Card } from "@eliancodes/brutal-ui";
 
 export interface Props {
@@ -9,11 +9,7 @@ export interface Props {
 
 const { count } = Astro.props;
 
-const posts = await getCollection("blog").then((collection) => {
-	return collection
-		.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime())
-		.slice(0, count ?? 3);
-});
+const posts = await getRecentBlogPosts(count ?? 3);
 ---
 
 <section class="mt-8">

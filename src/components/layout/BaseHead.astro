@@ -1,5 +1,4 @@
 ---
-import { ClientRouter } from 'astro:transitions';
 import LocalFont from './LocalFont.astro';
 
 export interface Props {
@@ -120,46 +119,10 @@ const { title, description, socialImg } = Astro.props;
 
 	<link rel='manifest' href='/manifest.json' />
 	<meta name='msapplication-TileColor' content='#ffffff' />
-	<meta name='msapplication-TileImage' content='/ms-icon-144x144.png' />
-	<meta name='theme-color' content='#ffffff' />
+	<meta name='msapplication-TileImage' content='/icons/ms-icon-144x144.png' />
 	<meta name='theme-color' content='#6ee7b7' />
 
 	<title>Elian Codes | {title}</title>
 
-	<ClientRouter />
-
 	<slot />
-
-	<!-- Plausible Analytics -->
-	<script
-		is:inline
-		defer
-		data-domain='elian.codes'
-		src='https://plausible.eliancodes.synology.me/js/script.file-downloads.outbound-links.js'
-	></script>
-	<!-- Google tag (gtag.js) -->
-	<script
-		is:inline
-		async
-		src='https://www.googletagmanager.com/gtag/js?id=G-13MBMB5GZJ'></script>
-	<script is:inline>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() {
-			dataLayer.push(arguments);
-		}
-		gtag('js', new Date());
-
-		gtag('config', 'G-13MBMB5GZJ');
-	</script>
-	<script is:inline>
-		(function () {
-			/** @type {any} */
-			var w = window;
-			w.plausible =
-				w.plausible ||
-				function () {
-					(w.plausible.q = w.plausible.q || []).push(arguments);
-				};
-		})();
-	</script>
 </head>

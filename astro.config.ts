@@ -3,7 +3,6 @@ import vercel from "@astrojs/vercel";
 import { defineConfig } from "astro/config";
 // import UnoCSS from "unocss/astro";
 import db from "@astrojs/db";
-import studiocmsWebVitals from "@studiocms/web-vitals";
 import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
@@ -15,12 +14,8 @@ export default defineConfig({
                 ? `https://${process.env.VERCEL_URL}/`
                 : "https://localhost:3000/",
     trailingSlash: "ignore",
-    integrations: [sitemap(), db(), studiocmsWebVitals()],
-    adapter: vercel({
-        webAnalytics: {
-            enabled: true,
-        },
-    }),
+    integrations: [sitemap(), db()],
+    adapter: vercel(),
     vite: {
       optimizeDeps: {
           exclude: ["@resvg/resvg-js"],

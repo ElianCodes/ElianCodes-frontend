@@ -6,19 +6,21 @@ import BaseHead from '@ui/layout/BaseHead.astro';
 interface Props {
 	title?: string;
 	description?: string;
+	socialImg?: URL;
 	frontmatter?: {
 		title: string;
 		description: string;
 	};
 }
 
-const { title, description, frontmatter } = Astro.props;
+const { title, description, socialImg, frontmatter } = Astro.props;
 ---
 
 <html lang='en'>
 	<BaseHead
 		title={title || frontmatter?.title}
 		description={description || frontmatter?.description}
+		socialImg={socialImg}
 	/>
 	<body>
 		<slot />

@@ -1,8 +1,8 @@
-import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
+import { getSortedBlogPosts } from "@lib/content";
 
 export async function GET(context) {
-	const blog = await getCollection("blog");
+	const blog = await getSortedBlogPosts();
 	return rss({
 		title: "Elian Van Cutsem",
 		description: "Programming and Frontend related articles and guides",

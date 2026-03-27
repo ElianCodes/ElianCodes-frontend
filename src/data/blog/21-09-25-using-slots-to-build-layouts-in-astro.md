@@ -6,7 +6,7 @@ tags:
   - Astro
   - JavaScript
   - Framework
-imgUrl: "../../assets/blog/backlog/astro_old.png"
+imgUrl: "../../assets/blog/backlog/astro_old.webp"
 description: Coming from frameworks like NuxtJS and NextJS, I always liked the layout feature. It's a quick way to reuse shared components without re-importing them in every page. When I started with Astro, I had no idea that this was also possible.
 ---
 

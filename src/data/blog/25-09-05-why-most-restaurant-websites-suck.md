@@ -8,7 +8,7 @@ tags:
   - ux
   - rant
   - restaurants
-imgUrl: "./images/restaurants-suck.png"
+imgUrl: "./images/restaurants-suck.webp"
 ---
 
 # Why Most Restaurant Websites Suck (and What To Do About It)

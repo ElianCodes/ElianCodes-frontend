@@ -1,11 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import EventSummaryCard from "@components/events/EventSummaryCard.astro";
+import { getSortedEvents } from "@lib/content";
 import Layout from "@layouts/Default.astro";
 
-const events = await getCollection("events").then((events) =>
-	events.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
-);
+const events = await getSortedEvents();
 ---
 
 <Layout

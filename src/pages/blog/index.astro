@@ -1,13 +1,9 @@
 ---
-import { getCollection } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
+import { getSortedBlogPosts } from "@lib/content";
 import Layout from "@layouts/Default.astro";
 
-const posts = await getCollection("blog").then((collection) => {
-	return collection.sort(
-		(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
-	);
-});
+const posts = await getSortedBlogPosts();
 ---
 
 <Layout

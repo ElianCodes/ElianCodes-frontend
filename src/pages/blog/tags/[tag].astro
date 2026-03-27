@@ -1,35 +1,19 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
+import { getBlogTagIndex } from "@lib/content";
 import { Button } from "@eliancodes/brutal-ui";
 import Layout from "@layouts/Default.astro";
 
 export async function getStaticPaths() {
-	const allPosts = await getCollection("blog").then((collection) => {
-		return collection.sort(
-			(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
-		);
-	});
+	const tags = await getBlogTagIndex();
 
-	const tags: string[] = [];
-
-	for (const post of allPosts) {
-		for (const tag of post.data.tags) {
-			tags.push(tag);
-		}
-	}
-
-	return Array.from(new Set(tags)).map((tag) => {
+	return tags.map((tag) => {
 		return {
-			params: { tag: tag.toLowerCase() },
+			params: { tag: tag.slug },
 			props: {
-				tag,
-				blogposts: allPosts.filter((post) =>
-					post.data.tags
-						.map((tag) => tag.toLowerCase())
-						.includes(tag.toLowerCase()),
-				),
+				tag: tag.label,
+				blogposts: tag.posts,
 			},
 		};
 	});

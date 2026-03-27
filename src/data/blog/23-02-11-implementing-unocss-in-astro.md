@@ -7,7 +7,7 @@ tags:
   - CSS
   - Astro
   - UnoCSS
-imgUrl: "../../assets/blog/backlog/astro_old.png"
+imgUrl: "../../assets/blog/backlog/astro_old.webp"
 ---
 
 # Implementing UnoCSS in Astro
