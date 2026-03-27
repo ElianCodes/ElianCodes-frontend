@@ -1,7 +1,9 @@
 ---
 import BlogList from "@components/blog/BlogList.astro";
-import Layout from "@layouts/Default.astro";
+import Layout from "@layouts/new/Default.astro";
 import { getSortedBlogPosts } from "@lib/content";
+import Section from "@ui/Section.astro";
+import TitleSection from "@ui/TitleSection.astro";
 
 const posts = await getSortedBlogPosts();
 ---
@@ -9,9 +11,19 @@ const posts = await getSortedBlogPosts();
 <Layout
 	title="Blog"
 	description="Elian Codes Blog | On this page you can find a collection of my blogposts, related to web technologies and programming."
-	pageTitle="Elian Codes | Blog"
 >
-	<main class="bg-blue p-6">
+	<TitleSection
+		title='Articles'
+		subtitle='Writing about Astro, the web, and developer experience.'
+	/>
+	<Section class='blog-index'>
 		<BlogList posts={posts} />
-	</main>
+	</Section>
 </Layout>
+
+<style>
+	.blog-index {
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+	}
+</style>

@@ -14,16 +14,14 @@ const mailtoUrl = `mailto:${emailAddress}`;
 
 <Layout title='Contact - Elian Codes' description='Get in touch via email'>
 	<TitleSection title='Contact' subtitle='Get in touch via email.' />
-	<Section class='my-24'>
-		<Subtitle class={'my-4 text-gray-700!'}
-			>Opening your email client...</Subtitle
-		>
+	<Section class='mail-page'>
+		<Subtitle class='mail-page__subtitle'>Opening your email client...</Subtitle>
 		<p>
 			<Button href={mailtoUrl} class='email-link'>
 				Email me: {emailAddress}
 			</Button>
 		</p>
-		<p class='my-2 text-center'>
+		<p class='mail-page__hint'>
 			<small
 				>If your email client didn't open automatically, click the button above.</small
 			>
@@ -37,3 +35,22 @@ const mailtoUrl = `mailto:${emailAddress}`;
 		window.location.href = 'mailto:hello@elian.codes';
 	});
 </script>
+
+<style>
+	.mail-page {
+		display: grid;
+		justify-items: center;
+		gap: 1rem;
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+		text-align: center;
+	}
+
+	.mail-page__subtitle {
+		color: var(--text-muted);
+	}
+
+	.mail-page__hint {
+		color: var(--text-muted);
+	}
+</style>

@@ -1,18 +1,23 @@
 ---
 import EventSummaryCard from "@components/events/EventSummaryCard.astro";
-import Layout from "@layouts/Default.astro";
+import Layout from "@layouts/new/Default.astro";
 import { getSortedEvents } from "@lib/content";
+import Section from "@ui/Section.astro";
+import TitleSection from "@ui/TitleSection.astro";
 
 const events = await getSortedEvents();
 ---
 
 <Layout
 	title="Events"
-	pageTitle="Elian Codes | Events"
 	description="See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript)."
 >
-	<main class="bg-yellow p-6">
-		<ul class="grid md:grid-cols-3 2xl:grid-cols-4 gap-8">
+	<TitleSection
+		title='Events'
+		subtitle='Talks, workshops, livestreams, and community events.'
+	/>
+	<Section class='events-page'>
+		<ul class='events-page__grid'>
 			{
 				events.map((event) => (
 					<li>
@@ -21,5 +26,30 @@ const events = await getSortedEvents();
 				))
 			}
 		</ul>
-	</main>
+	</Section>
 </Layout>
+
+<style>
+	.events-page {
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+	}
+
+	.events-page__grid {
+		display: grid;
+		gap: 1.75rem;
+		list-style: none;
+	}
+
+	@media (min-width: 768px) {
+		.events-page__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.events-page__grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>

@@ -1,21 +1,23 @@
 ---
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes } from 'astro/types';
 
-interface Props extends HTMLAttributes<"section"> {}
+interface Props extends HTMLAttributes<'section'> {}
 
 const { ...rest } = Astro.props;
 ---
+
 <section {...rest}>
 	<slot />
 </section>
 
 <style>
 	section {
-		padding: 0 2rem;
+		margin: 2rem 8rem;
+		padding: 0 clamp(1rem, 1.2vw + 0.75rem, 2rem);
 	}
-	@media (min-width: 768px) {
+	@media (max-width: 767px) {
 		section {
-			padding: 0 4rem;
+			margin: 2rem 1rem;
 		}
 	}
 </style>

@@ -1,32 +1,69 @@
 ---
-import Section from "@ui/Section.astro";
-import SubTitle from "@ui/Subtitle.astro";
-import Title from "@ui/Title.astro";
+import Section from '@ui/Section.astro';
+import SubTitle from '@ui/Subtitle.astro';
+import Title from '@ui/Title.astro';
 ---
 
-<Section class='grid grid-cols-2 xl:grid-cols-3' id='hero'>
-	<div class='col-span-2'>
-		<Title transition:name='mainTitle'
-			>Hi, I'm Elian,<br /> creator of great dev experiences.</Title
-		>
-		<SubTitle transition:name='mainSubtitle'
-			>Loves engineering and doing talks & workshops about Astro.</SubTitle
-		>
-	</div>
-</Section>
+<section class='hero' id='hero' transition:name='page-hero'>
+	<Section>
+		<div class='hero__content'>
+			<Title transition:name='mainTitle'
+				>Hi, I'm Elian,<br /> creator of great dev experiences.</Title
+			>
+			<SubTitle transition:name='mainSubtitle'
+				>Loves engineering and doing talks/workshops about Astro.</SubTitle
+			>
+		</div>
+	</Section>
+</section>
 
 <style>
-	#hero {
-		background-image: url('/assets/img/hero-bg.jpg');
-		background-size: cover;
-		background-position: top center;
-		display: grid;
-		padding: 7rem 4rem;
+	.hero {
+		position: relative;
+		padding-top: 3rem;
+		padding-bottom: 1rem;
+		border-bottom-left-radius: var(--radius-xl);
+		border-bottom-right-radius: var(--radius-xl);
+		background:
+			linear-gradient(90deg, rgb(165 0 255 / 0.96), rgb(255 0 217 / 0.72)),
+			url('/assets/img/hero-bg.jpg') center 15% / cover;
+		color: white;
+		overflow: hidden;
 	}
 
-	@media (max-width: 768px) {
-		#hero {
-			padding: 6rem 2rem;
+	.hero::after {
+		content: '';
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgb(0 0 0 / 0.18), transparent 30%);
+		pointer-events: none;
+	}
+
+	.hero :global(section) {
+		position: relative;
+		z-index: 1;
+	}
+
+	.hero__content {
+		display: grid;
+		gap: 1rem;
+		max-width: 48rem;
+		padding: 7rem 0 4rem;
+	}
+
+	.hero__content :global(h2) {
+		color: var(--primary);
+	}
+
+	@media (max-width: 767px) {
+		.hero {
+			padding-top: 6rem;
+			padding-bottom: 3rem;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		.hero__content {
+			padding: 0;
 		}
 	}
 </style>

@@ -8,13 +8,14 @@ import Layout from "./Generic.astro";
 interface Props {
 	title: string;
 	description: string;
+	socialImg?: URL;
 	frontmatter?: {
 		title: string;
 		description: string;
 	};
 }
 
-const { title, description, frontmatter } = Astro.props;
+const { title, description, socialImg, frontmatter } = Astro.props;
 
 const sidebarLinks = [
 	{ title: "LinkedIn", href: "https://www.linkedin.com/in/elianvancutsem/" },
@@ -26,22 +27,16 @@ const sidebarLinks = [
 const mainHeaderLinks = [
 	{ href: "/", title: "Home" },
 	{ href: "/blog", title: "Articles" },
-	// { href: '/videos', title: 'Videos' },
-	// { href: '/talks', title: 'Talks' },
-	// { href: '/about', title: 'About' },
+	{ href: "/events", title: "Events" },
 ];
 
 const footerLinks = [
 	{ href: "/", title: "Home" },
 	{ href: "/blog", title: "Articles" },
-	// { href: "/about", title: "About" },
+	{ href: "/events", title: "Events" },
 	{ href: "https://x.com/eliancodes", title: "Twitter" },
 	{ href: "https://github.com/eliancodes", title: "GitHub" },
 	{ href: "/blog.xml", title: "RSS" },
-	// { href: "/cat", title: "Cat" },
-	// { href: "/photography", title: "Photography" },
-	// { href: "/uses", title: "Uses" },
-	// { href: "/ama", title: "AMA" },
 	{ href: "/links", title: "Links" },
 ];
 ---
@@ -49,14 +44,21 @@ const footerLinks = [
 <Layout
 	title={title || frontmatter?.title}
 	description={description || frontmatter?.description}
+	socialImg={socialImg}
 >
 	<BaseHeader links={mainHeaderLinks}>
 		<HeaderAvatar />
 		<HeaderAvatar slot='mobile-menu' />
 	</BaseHeader>
-	<main>
+	<main class='site-main'>
 		<LinkSidebar links={sidebarLinks} />
 		<slot />
 	</main>
 	<BaseFooter links={footerLinks} />
 </Layout>
+
+<style>
+	.site-main {
+		position: relative;
+	}
+</style>

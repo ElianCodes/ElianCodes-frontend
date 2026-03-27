@@ -1,10 +1,10 @@
 ---
-import type { HTMLAttributes } from "astro/types";
-import Section from "./Section.astro";
-import Subtitle from "./Subtitle.astro";
-import Title from "./Title.astro";
+import type { HTMLAttributes } from 'astro/types';
+import Section from './Section.astro';
+import Subtitle from './Subtitle.astro';
+import Title from './Title.astro';
 
-interface Props extends HTMLAttributes<"section"> {
+interface Props extends HTMLAttributes<'section'> {
 	title?: string;
 	subtitle?: string;
 }
@@ -12,20 +12,27 @@ interface Props extends HTMLAttributes<"section"> {
 const { title, subtitle, ...rest } = Astro.props;
 ---
 
-<Section {...rest}>
-	{title && <Title transition:name="mainTitle">{title}</Title>}
-	{subtitle && <Subtitle transition:name="mainSubtitle">{subtitle}</Subtitle>}
+<Section transition:name='page-hero' {...rest}>
+	{title && <Title transition:name='mainTitle'>{title}</Title>}
+	{subtitle && <Subtitle transition:name='mainSubtitle'>{subtitle}</Subtitle>}
 	<slot />
 </Section>
 
 <style>
 	section {
-		padding: 6rem 2rem;
+		margin: 0 !important;
+		padding-top: 7.5rem;
+		padding-bottom: 4rem;
 		background-color: var(--secondary);
+		border-bottom-left-radius: var(--radius-xl);
+		border-bottom-right-radius: var(--radius-xl);
 	}
 	@media (min-width: 768px) {
 		section {
-			padding: 8rem 2rem;
+			padding-top: 9rem;
+			padding-bottom: 5rem;
+			padding-left: 10rem;
+			padding-right: 10rem;
 		}
 	}
 </style>

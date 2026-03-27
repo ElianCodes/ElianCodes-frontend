@@ -1,6 +1,6 @@
 ---
 export interface Props {
-	// biome-ignore lint/suspicious/noExplicitAny: any type
+	// biome-ignore lint/suspicious/noExplicitAny: content collection frontmatter shape is open here
 	content: any;
 }
 
@@ -10,24 +10,159 @@ const daysAgo =
 const oldPost = daysAgo <= -90;
 ---
 
-<article
-	class='prose prose-slate w-full md:w-prose mx-auto poppins prose-pre:overflow-x-auto prose-img:rounded-md prose-a:underline prose-a:underline-offset-2 prose-a:decoration-2'
->
-	<a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
+<article class='blog-article'>
+	<a class='blog-article__back' href='/blog/' title='Back to blog'>&larr; Back to blog</a>
 	{
 		oldPost ? (
-			<aside class='p-4 border-black border-3 rounded-md bg-white card-shadow mt-4 mb-8 text-black text-sm md:text-base'>
-				This blogpost was published more than 3 months ago. It's possible that
-				some of this data or concepts are outdated.
+			<aside class='blog-article__notice'>
+				This blogpost was published more than 3 months ago. Some examples or
+				recommendations may be outdated.
 			</aside>
 		) : (
-			<p class='text-slate text-sm md:text-base'>
-				Published on {new Date(content.pubDate).toLocaleDateString()} by{' '}
-				{content.author}
+			<p class='blog-article__meta'>
+				Published on {new Date(content.pubDate).toLocaleDateString()} by
+				{" "}{content.author}
 			</p>
 		)
 	}
-	<slot />
-	<p class='text-slate'>Written by {content.author}</p>
-	<a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
+	<div class='blog-article__prose'>
+		<slot />
+	</div>
+	<p class='blog-article__meta'>Written by {content.author}</p>
+	<a class='blog-article__back' href='/blog/' title='Back to blog'>&larr; Back to blog</a>
 </article>
+
+<style>
+	.blog-article {
+		display: grid;
+		gap: 1.5rem;
+		max-width: 60rem;
+		margin: 0 auto;
+		padding: 2rem;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-xl);
+		box-shadow: var(--shadow-md);
+	}
+
+	.blog-article__back {
+		font-family: "Outfit", sans-serif;
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+
+	.blog-article__meta {
+		color: var(--text-muted);
+		font-size: 0.95rem;
+	}
+
+	.blog-article__notice {
+		padding: 1rem 1.1rem;
+		background: var(--surface-muted);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-md);
+	}
+
+	.blog-article__prose {
+		display: grid;
+		gap: 1rem;
+	}
+
+	.blog-article__prose :global(h1),
+	.blog-article__prose :global(h2),
+	.blog-article__prose :global(h3),
+	.blog-article__prose :global(h4) {
+		margin-top: 1rem;
+		font-family: "Outfit", sans-serif;
+		line-height: 1.15;
+		scroll-margin-top: 8rem;
+	}
+
+	.blog-article__prose :global(h1) {
+		font-size: 2.2rem;
+	}
+
+	.blog-article__prose :global(h2) {
+		font-size: 1.8rem;
+	}
+
+	.blog-article__prose :global(h3) {
+		font-size: 1.4rem;
+	}
+
+	.blog-article__prose :global(p),
+	.blog-article__prose :global(li),
+	.blog-article__prose :global(blockquote) {
+		font-size: 1.05rem;
+		line-height: 1.85;
+	}
+
+	.blog-article__prose :global(a) {
+		color: var(--secondary);
+	}
+
+	.blog-article__prose :global(ul),
+	.blog-article__prose :global(ol) {
+		padding-left: 1.2rem;
+	}
+
+	.blog-article__prose :global(ul) {
+		list-style: disc;
+	}
+
+	.blog-article__prose :global(ol) {
+		list-style: decimal;
+	}
+
+	.blog-article__prose :global(blockquote) {
+		margin: 0;
+		padding: 1rem 1.25rem;
+		border-left: 4px solid var(--secondary);
+		background: var(--surface-muted);
+		border-radius: 0 var(--radius-md) var(--radius-md) 0;
+	}
+
+	.blog-article__prose :global(pre) {
+		overflow-x: auto;
+		padding: 1rem;
+		background: #181818;
+		color: #f8f8f2;
+		border-radius: var(--radius-md);
+	}
+
+	.blog-article__prose :global(code) {
+		font-family: ui-monospace, SFMono-Regular, SFMono-Regular, Menlo, monospace;
+		font-size: 0.92em;
+	}
+
+	.blog-article__prose :global(:not(pre) > code) {
+		padding: 0.15rem 0.35rem;
+		background: var(--surface-muted);
+		border-radius: 0.4rem;
+	}
+
+	.blog-article__prose :global(img) {
+		border-radius: var(--radius-md);
+	}
+
+	.blog-article__prose :global(table) {
+		width: 100%;
+		border-collapse: collapse;
+	}
+
+	.blog-article__prose :global(th),
+	.blog-article__prose :global(td) {
+		padding: 0.75rem;
+		border: 1px solid rgb(43 43 43 / 0.15);
+		text-align: left;
+	}
+
+	@media (max-width: 767px) {
+		.blog-article {
+			padding: 1.25rem;
+		}
+	}
+</style>

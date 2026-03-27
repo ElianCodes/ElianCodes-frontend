@@ -1,16 +1,113 @@
 ---
-import TitleSection from "@ui/TitleSection.astro";
+import type { CollectionEntry } from "astro:content";
+import BlogContent from "@components/blog/BlogContent.astro";
+import BlogSideBar from "@components/blog/BlogSideBar.astro";
+import RecentBlogPosts from "@components/generic/RecentBlogPosts.astro";
+import Section from "@ui/Section.astro";
 import Layout from "./Default.astro";
 
 interface Props {
-	title: string;
-	description: string;
+	post: CollectionEntry<"blog">["data"];
+	headings: { depth: number; slug?: string; id?: string; text: string }[];
+	socialImg?: URL;
 }
 
-const { title, description } = Astro.props;
+const { post, headings, socialImg } = Astro.props;
 ---
 
-<Layout {title} {description}>
-	<TitleSection {title} />
-	<slot />
+<Layout title={post.title} description={post.description} socialImg={socialImg}>
+	<section class='blogpost-hero' transition:name='page-hero'>
+		<Section>
+			<div class='blogpost-hero__inner'>
+				<p class='blogpost-hero__eyebrow'>Article</p>
+				<h1 class='blogpost-hero__title'>{post.title}</h1>
+				<p class='blogpost-hero__description'>{post.description}</p>
+				<p class='blogpost-hero__meta'>
+					<span>{new Date(post.pubDate).toLocaleDateString()}</span>
+					<span>{post.author}</span>
+				</p>
+			</div>
+		</Section>
+	</section>
+
+	<Section class='blogpost-layout'>
+		<BlogSideBar headings={headings} />
+		<BlogContent content={post}>
+			<slot />
+		</BlogContent>
+	</Section>
+
+	<Section class='blogpost-recent'>
+		<RecentBlogPosts count={6} />
+	</Section>
 </Layout>
+
+<style>
+	.blogpost-hero {
+		padding-top: 7rem;
+		padding-bottom: 2.5rem;
+		background:
+			linear-gradient(135deg, rgb(153 0 255 / 0.96), rgb(81 0 255 / 0.9)),
+			url("/assets/img/hero-bg.jpg") center / cover;
+		color: white;
+	}
+
+	.blogpost-hero__inner {
+		display: grid;
+		gap: 1rem;
+		max-width: 52rem;
+		padding-top: 2rem;
+	}
+
+	.blogpost-hero__eyebrow {
+		font-family: "Outfit", sans-serif;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--primary);
+	}
+
+	.blogpost-hero__title {
+		font-family: "Outfit", sans-serif;
+		font-size: clamp(2.4rem, 7vw, 5.5rem);
+		line-height: 0.95;
+		text-transform: uppercase;
+	}
+
+	.blogpost-hero__description {
+		max-width: 42rem;
+		font-family: "Sanchez", serif;
+		font-size: clamp(1.05rem, 2.2vw, 1.45rem);
+	}
+
+	.blogpost-hero__meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.8rem 1.2rem;
+		font-family: "Outfit", sans-serif;
+		font-size: 0.85rem;
+		font-weight: 700;
+		letter-spacing: 0.06em;
+		text-transform: uppercase;
+	}
+
+	.blogpost-layout {
+		display: block;
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	.blogpost-recent {
+		padding-bottom: 4rem;
+	}
+
+	@media (min-width: 1100px) {
+		.blogpost-layout {
+			display: grid;
+			grid-template-columns: minmax(13rem, 16rem) minmax(0, 1fr);
+			gap: 2.5rem;
+			align-items: start;
+		}
+	}
+</style>

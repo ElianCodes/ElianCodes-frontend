@@ -1,7 +1,7 @@
 ---
 import BlogList from "@components/blog/BlogList.astro";
-import { Button, Card } from "@eliancodes/brutal-ui";
 import { getRecentBlogPosts } from "@lib/content";
+import Button from "@ui/Button.astro";
 
 export interface Props {
 	count?: number;
@@ -12,19 +12,44 @@ const { count } = Astro.props;
 const posts = await getRecentBlogPosts(count ?? 3);
 ---
 
-<section class="mt-8">
-	<Card>
-		<div class="flex justify-between items-start">
-			<h2 class="text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif">
-				Recent Blogposts
-			</h2>
-			<div class="hidden md:block">
-				<Button href="/blog/">Go to blog &rarr;</Button>
-			</div>
-			<div class="block md:hidden">
-				<Button href="/blog/">to blog</Button>
-			</div>
+<section class='recent-blog-posts'>
+	<div class='recent-blog-posts__header'>
+		<div>
+			<p class='recent-blog-posts__eyebrow'>Fresh writing</p>
+			<h2 class='recent-blog-posts__title'>Recent blogposts</h2>
 		</div>
-		<BlogList posts={posts} />
-	</Card>
+		<Button href='/blog/'>Go to blog</Button>
+	</div>
+	<BlogList posts={posts} />
 </section>
+
+<style>
+	.recent-blog-posts {
+		display: grid;
+		gap: 1.75rem;
+	}
+
+	.recent-blog-posts__header {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: end;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	.recent-blog-posts__eyebrow {
+		font-family: "Outfit", sans-serif;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--text-muted);
+	}
+
+	.recent-blog-posts__title {
+		font-family: "Outfit", sans-serif;
+		font-size: clamp(2rem, 5vw, 4rem);
+		line-height: 0.95;
+		text-transform: uppercase;
+	}
+</style>

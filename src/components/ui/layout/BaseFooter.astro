@@ -1,12 +1,12 @@
 ---
-import reactBrussels from "@assets/react-bru.webp";
-import type { HTMLAttributes } from "astro/types";
-import type { SocialLink } from "../../../types";
-import LinkPrimary from "../LinkPrimary.astro";
-import List from "../List.astro";
-import ListItem from "../ListItem.astro";
+import reactBrussels from '@assets/react-bru.webp';
+import type { HTMLAttributes } from 'astro/types';
+import type { SocialLink } from '../../../types';
+import LinkPrimary from '../LinkPrimary.astro';
+import List from '../List.astro';
+import ListItem from '../ListItem.astro';
 
-interface Props extends HTMLAttributes<"footer"> {
+interface Props extends HTMLAttributes<'footer'> {
 	links: SocialLink[];
 }
 
@@ -19,10 +19,14 @@ const { links, ...rest } = Astro.props;
 			<img src={reactBrussels.src} alt='facepic of Elian' />
 			<p class='poppins'>
 				Hi, I’m Elian, software engineer located in Belgium, currently CTO at
-				<a href='https://vulpo.be' class='underline' target='_blank'>Vulpo</a>
+				<LinkPrimary href='https://vulpo.be' class='underline' target='_blank'
+					>Vulpo</LinkPrimary
+				>
 				and Lead DevRel at
-				<a href='https://reactbricks.com' class='underline' target='_blank'
-					>React Bricks</a
+				<LinkPrimary
+					href='https://reactbricks.com'
+					class='underline'
+					target='_blank'>React Bricks</LinkPrimary
 				>. My love for the web was first sparked in 2018 when I decided to build
 				a simple HTML page to display the photos I took at the time, there was
 				no way back! Since then and there, I was completely in love with
@@ -45,9 +49,10 @@ const { links, ...rest } = Astro.props;
 		</nav>
 		<div class='theme-text'>
 			<p>
-				☕️ + 🤦 + 🚀 = ✨ Astro Rockstar theme by <LinkPrimary href='/'
-					>Elian.codes</LinkPrimary
-				> and <LinkPrimary href='https://timetc.nl/'>Tim ect.</LinkPrimary>
+				Astro Rockstar by <LinkPrimary href='/'>Elian.codes</LinkPrimary> & <LinkPrimary
+					href='https://timetc.nl'
+					target='_blank'>tim.etc</LinkPrimary
+				>
 			</p>
 		</div>
 	</div>

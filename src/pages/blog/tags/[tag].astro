@@ -1,9 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
-import { Button } from "@eliancodes/brutal-ui";
-import Layout from "@layouts/Default.astro";
+import Layout from "@layouts/new/Default.astro";
 import { getBlogTagIndex } from "@lib/content";
+import Button from "@ui/Button.astro";
+import Section from "@ui/Section.astro";
+import TitleSection from "@ui/TitleSection.astro";
 
 export async function getStaticPaths() {
 	const tags = await getBlogTagIndex();
@@ -30,12 +32,24 @@ const { tag, blogposts } = Astro.props;
 <Layout
 	title={`Blog: ${tag}`}
 	description={`Elian Codes Blog | All posts tagged with ${tag}`}
-	pageTitle={`Elian Codes | Blogposts tagged with ${tag}`}
 >
-	<main class="p-6 bg-purple grid gap-4">
-		<div>
-			<Button href="/blog/">&larr; Back to blog</Button>
+	<TitleSection
+		title={tag}
+		subtitle={`All blog posts tagged with ${tag}.`}
+	/>
+	<Section class='tag-index'>
+		<div class='tag-index__back'>
+			<Button variant='ghost' href='/blog/'>&larr; Back to blog</Button>
 		</div>
 		<BlogList posts={blogposts} />
-	</main>
+	</Section>
 </Layout>
+
+<style>
+	.tag-index {
+		display: grid;
+		gap: 1.5rem;
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+	}
+</style>

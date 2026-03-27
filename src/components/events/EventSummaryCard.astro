@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import SummaryCard from "@components/generic/SummaryCard.astro";
-import { Button } from "@eliancodes/brutal-ui";
+import Button from "@ui/Button.astro";
 
 export interface Props {
 	event: CollectionEntry<"events">;
@@ -17,21 +17,41 @@ const { data } = event;
 	imgAlt={data.title}
 	description={data.abstract}
 >
-	<p class="mt-2">
-		<a
-			href={data.link}
-			title={data.title}
-			class="hover:text-yellow transition-color duration-150 ease-in-out"
-			>{data.name}</a
-		> - {
-			data.date.toLocaleDateString("en-BE", {
-				year: "numeric",
-				month: "long",
-				day: "numeric",
-			})
-		}
+	<p class='event-summary-card__meta'>
+		<a href={data.link} title={data.title}>{data.name}</a>
+		<span>
+			{
+				data.date.toLocaleDateString("en-BE", {
+					year: "numeric",
+					month: "long",
+					day: "numeric",
+				})
+			}
+		</span>
 	</p>
-	<div class="md:flex justify-end gap-4 mt-4 hidden">
-		<Button target="_blank" href={data.link}>See event</Button>
+	<div class='event-summary-card__actions'>
+		<Button target='_blank' href={data.link}>See event</Button>
 	</div>
 </SummaryCard>
+
+<style>
+	.event-summary-card__meta {
+		display: grid;
+		gap: 0.35rem;
+		color: var(--text-muted);
+	}
+
+	.event-summary-card__meta a {
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.event-summary-card__meta a:hover {
+		color: var(--secondary);
+	}
+
+	.event-summary-card__actions {
+		margin-top: auto;
+		padding-top: 0.5rem;
+	}
+</style>

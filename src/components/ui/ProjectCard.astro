@@ -10,46 +10,58 @@ interface Props {
 const { link, description, title, image, imageAlt } = Astro.props;
 ---
 
-<a href={link ?? ''}>
-	{image && <img src={image} alt={imageAlt ?? ''} />}
-	<div>
-		<h3 class='font-mono'>{title}</h3>
-		<p class='font-mono'>{description}</p>
+<a href={link ?? ""} class='project-card'>
+	{image && <img src={image} alt={imageAlt ?? ""} />}
+	<div class='project-card__content'>
+		<h3>{title}</h3>
+		<p>{description}</p>
 	</div>
 </a>
 
 <style>
-	a {
+	.project-card {
 		display: flex;
 		align-items: center;
 		gap: 1rem;
-		padding: 0.5rem;
-		background-color: var(--light-gray);
-		border-radius: 0.5rem;
-		transition: all 0.3s ease-in-out;
-		&:hover {
-			background-color: var(--secondary);
-			color: white;
-			> div > p {
-				color: white !important;
-			}
-		}
-		> img {
-			width: 4rem;
-			object-fit: cover;
-			object-position: center;
-			height: 4rem;
-			border-radius: 0.5rem;
-		}
-		h3 {
-			font-weight: 600;
-			font-size: 1.25rem;
-			line-height: 1.75rem;
-		}
-		p {
-			font-size: 0.75rem;
-			line-height: 1rem;
-			transition: all 0.3s ease-in-out;
-		}
+		padding: 1rem;
+		background-color: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius-lg);
+		text-decoration: none;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.project-card:hover {
+		transform: translate(2px, 2px);
+		box-shadow: none;
+		background-color: var(--secondary);
+		color: white;
+	}
+
+	.project-card > img {
+		width: 4rem;
+		height: 4rem;
+		flex-shrink: 0;
+		object-fit: cover;
+		object-position: center;
+		border-radius: 0.75rem;
+	}
+
+	.project-card__content {
+		display: grid;
+		gap: 0.2rem;
+	}
+
+	.project-card h3 {
+		font-family: "Outfit", sans-serif;
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1.2;
+	}
+
+	.project-card p {
+		font-size: 0.85rem;
+		line-height: 1.45;
+		color: inherit;
 	}
 </style>

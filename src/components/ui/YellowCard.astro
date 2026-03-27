@@ -11,76 +11,71 @@ interface Props extends HTMLAttributes<"div"> {
 const { title, description, link, category, ...rest } = Astro.props;
 ---
 
-<div class="card" {...rest}>
-	<h3 class="font-mono">{title}:</h3>
-	<p class="font-mono">{description}</p>
-	<div>
+<div class='card' {...rest}>
+	<h3>{title}</h3>
+	<p>{description}</p>
+	<div class='card__footer'>
 		<p>{category}</p>
 		<a href={link}>Check it out &rAarr;</a>
 	</div>
 </div>
 
 <style>
-	div.card {
+	.card {
 		background-color: var(--primary);
-		border-width: 2px;
-		border-color: var(--primary-gray);
-		border-radius: 0.75rem;
-
-		transition: all 0.3s ease-in-out;
-
-		&:hover {
-			color: var(--secondary);
-			cursor: crosshair;
-			-webkit-box-shadow: 10px 10px 0px 0px var(--secondary);
-			-moz-box-shadow: 10px 10px 0px 0px var(--secondary);
-			box-shadow: 10px 10px 0px 0px var(--secondary);
-			margin-right: 10px;
-			margin-bottom: 10px;
-			margin-left: -10px;
-			margin-top: -10px;
-		}
-		> h3 {
-			padding: 1.5rem 1rem;
-			font-weight: 700;
-			font-size: 1.5rem;
-			line-height: 2rem;
-		}
-		> p {
-			padding: 0 1rem;
-			font-size: 1.25rem;
-			font-weight: 500;
-			line-height: 2.25rem;
-			margin-bottom: 2rem;
-		}
-
-		> div {
-			border-top-width: 1px;
-			border-top-color: var(--primary-gray);
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 1rem;
-			text-transform: uppercase;
-			font-size: 1rem;
-			line-height: 1.5rem;
-			a {
-				color: var(--secondary);
-				font-weight: 700;
-			}
-		}
+		border: 1px solid var(--primary-gray);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-sm);
+		transition:
+			transform 180ms ease,
+			box-shadow 180ms ease;
 	}
+
+	.card:hover {
+		transform: translate(3px, 3px);
+		box-shadow: none;
+	}
+
+	.card > h3 {
+		padding: 1.5rem 1.25rem 0.5rem;
+		font-family: "Outfit", sans-serif;
+		font-size: 1.4rem;
+		line-height: 1.15;
+		text-transform: uppercase;
+	}
+
+	.card > p {
+		padding: 0 1.25rem 1.5rem;
+		font-size: 1.05rem;
+		line-height: 1.7;
+	}
+
+	.card__footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 1.25rem;
+		border-top: 1px solid var(--primary-gray);
+		font-family: "Outfit", sans-serif;
+		font-size: 0.9rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.card__footer a {
+		color: var(--secondary);
+		text-decoration: none;
+	}
+
 	@media (min-width: 768px) {
-		div.card {
-			> h3 {
-				font-size: 3rem;
-				line-height: 1;
-			}
-			> p {
-				font-size: 2rem;
-				line-height: 2.5rem;
-				font-weight: 600;
-			}
+		.card > h3 {
+			font-size: 2.2rem;
+		}
+
+		.card > p {
+			font-size: 1.25rem;
 		}
 	}
 </style>

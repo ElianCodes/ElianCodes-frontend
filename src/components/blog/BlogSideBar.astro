@@ -1,30 +1,80 @@
 ---
 export interface Props {
-	// biome-ignore lint/suspicious/noExplicitAny: any
+	// biome-ignore lint/suspicious/noExplicitAny: Astro heading entries are dynamic here
 	headings: any;
 }
 
 const { headings } = Astro.props;
 ---
 
-<aside class="hidden lg:block">
-	<nav class="sticky top-6">
-		<ul>
-			{
-				headings.map((heading: any) => (
-					<li class="py-1">
-						{[...Array(heading.depth - 1)].map(() => (
-							<span class="inline-block w-4" />
-						))}
-						<a
-							class="hover:text-stone transition-all duration-150 ease-in-out text-dark poppins"
-							href={`#${heading.id ?? ""}`}
-						>
-							{heading.text}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-	</nav>
-</aside>
+{
+	headings.length > 0 && (
+		<aside class='blog-sidebar'>
+			<nav class='blog-sidebar__nav'>
+				<p class='blog-sidebar__label'>On this page</p>
+				<ul class='blog-sidebar__list'>
+					{
+						headings.map((heading: any) => (
+							<li class='blog-sidebar__item' style={`--depth:${heading.depth}`}>
+								<a class='blog-sidebar__link' href={`#${heading.id ?? ""}`}>
+									{heading.text}
+								</a>
+							</li>
+						))
+					}
+				</ul>
+			</nav>
+		</aside>
+	)
+}
+
+<style>
+	.blog-sidebar {
+		display: none;
+	}
+
+	.blog-sidebar__nav {
+		position: sticky;
+		top: 7rem;
+		display: grid;
+		gap: 1rem;
+		padding: 1.5rem;
+		background: rgb(255 255 255 / 0.55);
+		border: 1px solid rgb(255 255 255 / 0.35);
+		border-radius: var(--radius-xl);
+		backdrop-filter: blur(16px);
+	}
+
+	.blog-sidebar__label {
+		font-family: "Outfit", sans-serif;
+		font-size: 0.82rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.blog-sidebar__list {
+		display: grid;
+		gap: 0.7rem;
+		list-style: none;
+	}
+
+	.blog-sidebar__item {
+		padding-left: calc((var(--depth) - 1) * 0.75rem);
+	}
+
+	.blog-sidebar__link {
+		text-decoration: none;
+		color: var(--text);
+	}
+
+	.blog-sidebar__link:hover {
+		color: var(--secondary);
+	}
+
+	@media (min-width: 1100px) {
+		.blog-sidebar {
+			display: block;
+		}
+	}
+</style>
