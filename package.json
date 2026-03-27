@@ -22,12 +22,12 @@
 		"@resvg/resvg-js": "^2.6.2",
 		"@studiocms/web-vitals": "^4.5.3",
 		"@tailwindcss/typography": "^0.5.19",
-		"@tailwindcss/vite": "^4.1.14",
-		"@unocss/astro": "^66.5.2",
+		"@tailwindcss/vite": "^4.2.2",
+		"@unocss/astro": "^66.6.7",
 		"astro": "^6.1.1",
 		"astro-font": "^0.0.80",
 		"date-fns": "^4.1.0",
-		"tailwindcss": "^4.1.14",
+		"tailwindcss": "^4.2.2",
 		"typescript": "^5.9.3"
 	},
 	"devDependencies": {
