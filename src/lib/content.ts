@@ -1,4 +1,4 @@
-import { getCollection, type CollectionEntry } from "astro:content";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 export type BlogEntry = CollectionEntry<"blog">;
 export type EventEntry = CollectionEntry<"events">;
@@ -10,7 +10,9 @@ export function normalizeTag(tag: string) {
 export async function getSortedBlogPosts() {
 	const posts = await getCollection("blog");
 
-	return posts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+	return posts.sort(
+		(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
+	);
 }
 
 export async function getRecentBlogPosts(count = 3) {

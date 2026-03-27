@@ -1,27 +1,26 @@
 ---
-import type { Social } from '../../types';
-
-import RenderIcons from '@components/icons/RenderIcons.astro';
-import MobileNavigation from './MobileNavigation.astro';
+import RenderIcons from "@components/icons/RenderIcons.astro";
+import type { Social } from "../../types";
+import MobileNavigation from "./MobileNavigation.astro";
 
 const navigationItems = [
-	{ name: 'Home', url: '/' },
-	{ name: 'Blog', url: '/blog/' },
-	{ name: 'Events', url: '/events/' },
+	{ name: "Home", url: "/" },
+	{ name: "Blog", url: "/blog/" },
+	{ name: "Events", url: "/events/" },
 ];
 
 const socialIcons = [
 	{
-		name: 'GitHub',
-		url: 'https://www.elian.codes/github',
-		icon: 'github',
+		name: "GitHub",
+		url: "https://www.elian.codes/github",
+		icon: "github",
 	},
 	{
-		name: 'Twitter',
-		url: 'https://www.elian.codes/twitter',
-		icon: 'twitter',
+		name: "Twitter",
+		url: "https://www.elian.codes/twitter",
+		icon: "twitter",
 	},
-	{ name: 'RSS', url: '/blog.xml', icon: 'rss' },
+	{ name: "RSS", url: "/blog.xml", icon: "rss" },
 ] as Social[];
 
 export interface Props {

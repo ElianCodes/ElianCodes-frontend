@@ -1,7 +1,7 @@
 ---
-import { type CollectionEntry, render } from 'astro:content';
-import { getSortedBlogPosts } from '@lib/content';
-import BlogPost from '@layouts/BlogPost.astro';
+import { type CollectionEntry, render } from "astro:content";
+import BlogPost from "@layouts/BlogPost.astro";
+import { getSortedBlogPosts } from "@lib/content";
 
 export async function getStaticPaths() {
 	const blogEntries = await getSortedBlogPosts();
@@ -12,7 +12,7 @@ export async function getStaticPaths() {
 }
 
 export interface Props {
-	blogpost: CollectionEntry<'blog'>;
+	blogpost: CollectionEntry<"blog">;
 }
 
 const { blogpost } = Astro.props;

@@ -10,10 +10,10 @@ export interface SocialLink {
 }
 
 export enum SupportedIcon {
-	'GITHUB' = 'github',
-	'TWITTER' = 'twitter',
-	'RSS' = 'rss',
-	'FACEBOOK' = 'facebook',
-	'INSTAGRAM' = 'instagram',
-	'LINKEDIN' = 'linkedin',
+	GITHUB = "github",
+	TWITTER = "twitter",
+	RSS = "rss",
+	FACEBOOK = "facebook",
+	INSTAGRAM = "instagram",
+	LINKEDIN = "linkedin",
 }

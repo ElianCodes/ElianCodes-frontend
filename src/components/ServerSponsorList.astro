@@ -1,8 +1,8 @@
 ---
 import { db, desc, Sponsorship } from "astro:db";
-import ListItem from "./ui/ListItem.astro";
 import ProjectCard from "@ui/ProjectCard.astro";
 import { format } from "date-fns";
+import ListItem from "./ui/ListItem.astro";
 
 const sponsoring = await db
 	.select()

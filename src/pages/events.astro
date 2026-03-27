@@ -1,7 +1,7 @@
 ---
 import EventSummaryCard from "@components/events/EventSummaryCard.astro";
-import { getSortedEvents } from "@lib/content";
 import Layout from "@layouts/Default.astro";
+import { getSortedEvents } from "@lib/content";
 
 const events = await getSortedEvents();
 ---

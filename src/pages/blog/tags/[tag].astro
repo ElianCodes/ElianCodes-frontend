@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
-import { getBlogTagIndex } from "@lib/content";
 import { Button } from "@eliancodes/brutal-ui";
 import Layout from "@layouts/Default.astro";
+import { getBlogTagIndex } from "@lib/content";
 
 export async function getStaticPaths() {
 	const tags = await getBlogTagIndex();

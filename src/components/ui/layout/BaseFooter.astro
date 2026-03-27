@@ -1,12 +1,12 @@
 ---
-import reactBrussels from '@assets/react-bru.webp';
-import type { HTMLAttributes } from 'astro/types';
-import LinkPrimary from '../LinkPrimary.astro';
-import List from '../List.astro';
-import ListItem from '../ListItem.astro';
-import type { SocialLink } from '../../../types';
+import reactBrussels from "@assets/react-bru.webp";
+import type { HTMLAttributes } from "astro/types";
+import type { SocialLink } from "../../../types";
+import LinkPrimary from "../LinkPrimary.astro";
+import List from "../List.astro";
+import ListItem from "../ListItem.astro";
 
-interface Props extends HTMLAttributes<'footer'> {
+interface Props extends HTMLAttributes<"footer"> {
 	links: SocialLink[];
 }
 

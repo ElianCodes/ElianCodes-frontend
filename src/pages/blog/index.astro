@@ -1,7 +1,7 @@
 ---
 import BlogList from "@components/blog/BlogList.astro";
-import { getSortedBlogPosts } from "@lib/content";
 import Layout from "@layouts/Default.astro";
+import { getSortedBlogPosts } from "@lib/content";
 
 const posts = await getSortedBlogPosts();
 ---

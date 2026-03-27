@@ -1,6 +1,6 @@
-import type { APIRoute } from "astro";
 import { getSortedBlogPosts } from "@lib/content";
 import { renderOgImage } from "@lib/og";
+import type { APIRoute } from "astro";
 
 const posts = await getSortedBlogPosts();
 

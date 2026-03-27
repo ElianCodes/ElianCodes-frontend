@@ -1,11 +1,11 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import SummaryCard from '@components/generic/SummaryCard.astro';
-import { normalizeTag } from '@lib/content';
-import { Button, Pill } from '@eliancodes/brutal-ui';
+import type { CollectionEntry } from "astro:content";
+import SummaryCard from "@components/generic/SummaryCard.astro";
+import { Button, Pill } from "@eliancodes/brutal-ui";
+import { normalizeTag } from "@lib/content";
 
 export interface Props {
-	post: CollectionEntry<'blog'>;
+	post: CollectionEntry<"blog">;
 }
 
 const { post } = Astro.props;

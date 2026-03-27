@@ -1,9 +1,9 @@
 ---
-import Section from '@ui/Section.astro';
-import Title from '@ui/Title.astro';
-import { getRecentBlogPosts } from '@lib/content';
-import ListItem from './ui/ListItem.astro';
-import List from './ui/List.astro';
+import { getRecentBlogPosts } from "@lib/content";
+import Section from "@ui/Section.astro";
+import Title from "@ui/Title.astro";
+import List from "./ui/List.astro";
+import ListItem from "./ui/ListItem.astro";
 
 const latest = await getRecentBlogPosts(4);
 ---

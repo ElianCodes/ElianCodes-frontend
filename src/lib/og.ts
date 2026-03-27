@@ -33,11 +33,7 @@ function buildMarkup({ title, description, linkText }: OgImageOptions) {
 							? `<p style="font-size: 24px; line-height: 1.35;">${description}</p>`
 							: ""
 					}
-          ${
-						linkText
-							? `<p style="font-size: 28px;">${linkText}</p>`
-							: ""
-					}
+          ${linkText ? `<p style="font-size: 28px;">${linkText}</p>` : ""}
         </div>
       </div>
     </div>
