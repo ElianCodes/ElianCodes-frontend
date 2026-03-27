@@ -7,9 +7,9 @@
 		"dev": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"format": "biome format ./src --write",
-		"lint": "biome lint ./src",
-		"check": "biome check ./src",
+		"format": "biome format . --write",
+		"lint": "biome lint .",
+		"check": "biome check .",
 		"astro": "astro"
 	},
 	"dependencies": {
