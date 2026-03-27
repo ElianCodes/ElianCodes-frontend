@@ -36,6 +36,8 @@ const oldPost = daysAgo <= -90;
 	.blog-article {
 		display: grid;
 		gap: 1.5rem;
+		width: 100%;
+		min-width: 0;
 		max-width: 60rem;
 		margin: 0 auto;
 		padding: 2rem;
@@ -69,6 +71,7 @@ const oldPost = daysAgo <= -90;
 	.blog-article__prose {
 		display: grid;
 		gap: 1rem;
+		min-width: 0;
 	}
 
 	.blog-article__prose :global(h1),
@@ -102,6 +105,7 @@ const oldPost = daysAgo <= -90;
 
 	.blog-article__prose :global(a) {
 		color: var(--secondary);
+		overflow-wrap: anywhere;
 	}
 
 	.blog-article__prose :global(ul),
@@ -126,6 +130,7 @@ const oldPost = daysAgo <= -90;
 	}
 
 	.blog-article__prose :global(pre) {
+		max-width: 100%;
 		overflow-x: auto;
 		padding: 1rem;
 		background: #181818;
@@ -145,11 +150,15 @@ const oldPost = daysAgo <= -90;
 	}
 
 	.blog-article__prose :global(img) {
+		max-width: 100%;
 		border-radius: var(--radius-md);
 	}
 
 	.blog-article__prose :global(table) {
+		display: block;
 		width: 100%;
+		max-width: 100%;
+		overflow-x: auto;
 		border-collapse: collapse;
 	}
 

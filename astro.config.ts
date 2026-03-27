@@ -1,7 +1,6 @@
 import sitemap from "@astrojs/sitemap";
 import vercel from "@astrojs/vercel";
 import { defineConfig } from "astro/config";
-import db from "@astrojs/db";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,7 +11,7 @@ export default defineConfig({
 				? `https://${process.env.VERCEL_URL}/`
 				: "https://localhost:3000/",
 	trailingSlash: "ignore",
-	integrations: [sitemap(), db()],
+	integrations: [sitemap()],
 	adapter: vercel(),
 	vite: {
 		optimizeDeps: {

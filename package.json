@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "astro dev",
-		"build": "astro check && astro build --remote",
+		"build": "astro check && astro build",
 		"preview": "astro preview",
 		"format": "biome format ./src --write",
 		"lint": "biome lint ./src",
@@ -14,7 +14,6 @@
 	},
 	"dependencies": {
 		"@astrojs/check": "^0.9.8",
-		"@astrojs/db": "^0.20.1",
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.7.2",
 		"@astrojs/vercel": "^10.0.3",
