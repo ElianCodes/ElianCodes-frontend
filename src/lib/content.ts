@@ -10,9 +10,9 @@ export function normalizeTag(tag: string) {
 export async function getSortedBlogPosts() {
 	const posts = await getCollection("blog");
 
-	return posts.sort(
-		(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
-	);
+	return posts
+		.filter((post) => !post.data.draft)
+		.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 }
 
 export async function getRecentBlogPosts(count = 3) {
