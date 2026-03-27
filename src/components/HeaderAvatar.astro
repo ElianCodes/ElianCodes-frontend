@@ -3,9 +3,9 @@ import Avatar from "@assets/avatar.webp";
 ---
 
 <div>
-	<img src={Avatar.src} alt="small icon of Elian" />
+	<img src={Avatar.src} alt='small icon of Elian' />
 	<h1>
-		<a href="/"><strong>Elian</strong>.codes</a>
+		<a href='/'><strong>Elian</strong>.codes</a>
 	</h1>
 </div>
 
@@ -18,6 +18,13 @@ import Avatar from "@assets/avatar.webp";
 			border-radius: 100%;
 			width: 2.5rem;
 			height: 2.5rem;
+		}
+		a,
+		a {
+			text-decoration: none;
+			&:hover {
+				text-decoration: none;
+			}
 		}
 	}
 </style>

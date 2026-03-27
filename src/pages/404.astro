@@ -8,12 +8,28 @@ import Title from "@ui/Title.astro";
 export const prerender = true;
 ---
 
-<Layout title='Oops' description='Page Not Found!'>
-	<Section class='inset-0 absolute bg-secondary text-white'>
-		<div class='flex h-full flex-col justify-center gap-4 mx-auto max-w-2xl'>
+<Layout title='Oops' description='Page Not Found!' noindex>
+	<section class='not-found'>
+		<Section class='not-found__inner'>
 			<Title>404</Title>
 			<SubTitle>Oops, it looks like this page can't be found</SubTitle>
-			<Button class='z-10' href='/'>Back home</Button>
-		</div>
-	</Section>
+			<Button href='/'>Back home</Button>
+		</Section>
+	</section>
 </Layout>
+
+<style>
+	.not-found {
+		display: flex;
+		min-height: 100vh;
+		align-items: center;
+		background: var(--secondary);
+		color: white;
+	}
+
+	.not-found__inner {
+		display: grid;
+		gap: 1rem;
+		max-width: 42rem;
+	}
+</style>

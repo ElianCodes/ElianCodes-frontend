@@ -27,17 +27,17 @@ const links = [
 ];
 ---
 
-<Layout title='links' description='Links on where to find @ElianCodes online'>
+<Layout title='Links' description='Links on where to find @ElianCodes online'>
 	<TitleSection
 		title='Links'
 		subtitle='Here are some links to my profiles on other platforms.'
 	/>
-	<Section class='my-12 flex justify-center items-center mx-auto max-w-xl'>
-		<List class='flex flex-col justify-center items-center gap-4 w-full'>
+	<Section class='links-page'>
+		<List class='links-page__list'>
 			{
 				links.map((link) => (
-					<ListItem class='w-full'>
-						<Button target='_blank' class='w-full' href={link.url}>
+					<ListItem class='links-page__item'>
+						<Button target='_blank' fullWidth href={link.url}>
 							{link.title}
 						</Button>
 					</ListItem>
@@ -46,3 +46,19 @@ const links = [
 		</List>
 	</Section>
 </Layout>
+
+<style>
+	.links-page {
+		width: min(100%, 40rem);
+		margin: 0 auto;
+		padding-top: 3rem;
+		padding-bottom: 4rem;
+	}
+
+	.links-page__list {
+		display: grid;
+		gap: 1rem;
+		width: 100%;
+		list-style: none;
+	}
+</style>

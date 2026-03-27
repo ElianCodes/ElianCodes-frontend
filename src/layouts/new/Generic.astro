@@ -7,13 +7,34 @@ interface Props {
 	title?: string;
 	description?: string;
 	socialImg?: URL;
+	socialImgAlt?: string;
+	socialImgWidth?: number;
+	socialImgHeight?: number;
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+	pageType?: "website" | "article" | "profile";
+	publishedTime?: string;
+	modifiedTime?: string;
+	noindex?: boolean;
 	frontmatter?: {
 		title: string;
 		description: string;
 	};
 }
 
-const { title, description, socialImg, frontmatter } = Astro.props;
+const {
+	title,
+	description,
+	socialImg,
+	socialImgAlt,
+	socialImgWidth,
+	socialImgHeight,
+	schema,
+	pageType,
+	publishedTime,
+	modifiedTime,
+	noindex,
+	frontmatter,
+} = Astro.props;
 ---
 
 <html lang='en'>
@@ -21,6 +42,14 @@ const { title, description, socialImg, frontmatter } = Astro.props;
 		title={title || frontmatter?.title}
 		description={description || frontmatter?.description}
 		socialImg={socialImg}
+		socialImgAlt={socialImgAlt}
+		socialImgWidth={socialImgWidth}
+		socialImgHeight={socialImgHeight}
+		schema={schema}
+		pageType={pageType}
+		publishedTime={publishedTime}
+		modifiedTime={modifiedTime}
+		noindex={noindex}
 	/>
 	<body>
 		<slot />

@@ -1,9 +1,11 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
-import { Button } from "@eliancodes/brutal-ui";
-import Layout from "@layouts/Default.astro";
+import Layout from "@layouts/new/Default.astro";
 import { getBlogTagIndex } from "@lib/content";
+import Button from "@ui/Button.astro";
+import Section from "@ui/Section.astro";
+import TitleSection from "@ui/TitleSection.astro";
 
 export async function getStaticPaths() {
 	const tags = await getBlogTagIndex();
@@ -25,17 +27,56 @@ export interface Props {
 }
 
 const { tag, blogposts } = Astro.props;
+const tagUrl = new URL(
+	`/blog/tags/${Astro.params.tag ?? ""}/`,
+	Astro.site,
+).toString();
+const tagImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
+const tagSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: `Posts tagged ${tag}`,
+	description: `All Elian Codes posts tagged with ${tag}.`,
+	url: tagUrl,
+	image: tagImage,
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: blogposts.map((post, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			url: new URL(`/blog/${post.id}/`, Astro.site).toString(),
+			name: post.data.title,
+		})),
+	},
+};
 ---
 
 <Layout
 	title={`Blog: ${tag}`}
 	description={`Elian Codes Blog | All posts tagged with ${tag}`}
-	pageTitle={`Elian Codes | Blogposts tagged with ${tag}`}
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt={`Elian Codes posts tagged ${tag}`}
+	socialImgWidth={1200}
+	socialImgHeight={630}
+	schema={tagSchema}
 >
-	<main class="p-6 bg-purple grid gap-4">
-		<div>
-			<Button href="/blog/">&larr; Back to blog</Button>
+	<TitleSection
+		title={tag}
+		subtitle={`All blog posts tagged with ${tag}.`}
+	/>
+	<Section class='tag-index'>
+		<div class='tag-index__back'>
+			<Button variant='ghost' href='/blog/'>&larr; Back to blog</Button>
 		</div>
 		<BlogList posts={blogposts} />
-	</main>
+	</Section>
 </Layout>
+
+<style>
+	.tag-index {
+		display: grid;
+		gap: 1.5rem;
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+	}
+</style>

@@ -1,31 +1,96 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 
-interface Props extends HTMLAttributes<"a"> {}
+interface BaseProps {
+	variant?: "primary" | "secondary" | "ghost";
+	fullWidth?: boolean;
+}
 
-const { ...rest } = Astro.props;
+type AnchorProps = BaseProps & HTMLAttributes<"a"> & { href: string };
+type NativeButtonProps = BaseProps &
+	HTMLAttributes<"button"> & { href?: never };
+
+type Props = AnchorProps | NativeButtonProps;
+
+const {
+	variant = "primary",
+	fullWidth = false,
+	class: className,
+	href,
+	type: buttonType,
+	...rest
+} = Astro.props as Props;
+
+const classes = [
+	"button",
+	`button--${variant}`,
+	fullWidth && "button--full",
+	className,
+]
+	.filter(Boolean)
+	.join(" ");
+const anchorProps = rest as HTMLAttributes<"a">;
+const buttonProps = rest as HTMLAttributes<"button">;
+const resolvedButtonType =
+	(buttonType as "button" | "submit" | "reset" | undefined) ?? "button";
 ---
-<a {...rest}>
-	<slot />
-</a>
+
+{
+	href ? (
+		<a class={classes} href={href} {...anchorProps}>
+			<slot />
+		</a>
+	) : (
+		<button class={classes} {...buttonProps} type={resolvedButtonType}>
+			<slot />
+		</button>
+	)
+}
 
 <style>
-	a {
-		text-decoration: none;
-		padding: 1rem;
-		display: flex;
-		justify-content: center;
+	.button {
+		display: inline-flex;
 		align-items: center;
-		font-weight: 600;
+		justify-content: center;
+		gap: 0.6rem;
+		width: fit-content;
+		padding: 0.95rem 1.25rem;
+		border: 1px solid var(--border);
+		border-radius: 999px;
+		background: var(--primary);
 		color: var(--primary-gray);
-		text-align: center;
-		background-color: var(--primary);
-		border: 1px solid var(--primary-gray);
-		border-radius: 0.5rem;
+		font-family: "Outfit", sans-serif;
+		font-size: 0.95rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		line-height: 1;
+		text-decoration: none;
 		text-transform: uppercase;
-		&:hover {
-			background-color: var(--primary-gray);
-			color: #fff;
-		}
+		cursor: pointer;
+		box-shadow: var(--shadow-sm);
+	}
+
+	.button:hover {
+		transform: translate(2px, 2px);
+		box-shadow: none;
+	}
+
+	.button--secondary {
+		background: var(--secondary);
+		color: white;
+	}
+
+	.button--ghost {
+		background: transparent;
+		color: inherit;
+		box-shadow: none;
+	}
+
+	.button--ghost:hover {
+		background: rgb(43 43 43 / 0.06);
+	}
+
+	.button--full {
+		width: 100%;
 	}
 </style>

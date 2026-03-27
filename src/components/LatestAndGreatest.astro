@@ -8,36 +8,66 @@ import ListItem from "./ui/ListItem.astro";
 const latest = await getRecentBlogPosts(4);
 ---
 
-<Section id='latest-greatest' class='flex flex-col !py-12 md:!py-24 rounded-xl'>
-	<Title>The latest<br />and greatest.</Title>
-	<List class='flex flex-col py-12'>
-		{
-			latest.map((post) => (
-				<ListItem>
-					<a
-						href={`/blog/${post.id}`}
-						class='flex items-center gap-12 justify-between py-4 border-b border-primary-gray'
-					>
-						<p class='font-mono uppercase text-xs'>Article</p>
-						<h3 class='flex-1 text-xl'>{post.data.title}</h3>
-						<p>&rAarr;</p>
-					</a>
-				</ListItem>
-			))
-		}
-	</List>
-	<!-- <div class='grid grid-cols-3 gap-8'>
-		<Button href='/blog'>Articles</Button>
-		<Button href='/videos'>Videos</Button>
-		<Button href='/talks'>Talks</Button>
-	</div> -->
-</Section>
+<section id='latest-greatest' class='latest'>
+	<Section>
+		<Title>The latest<br />and greatest.</Title>
+		<List class='latest__list'>
+			{
+				latest.map((post) => (
+					<ListItem>
+						<a href={`/blog/${post.id}`} class='latest__link'>
+							<p class='latest__type'>Article</p>
+							<h3 class='latest__title'>{post.data.title}</h3>
+							<p class='latest__arrow'>&rAarr;</p>
+						</a>
+					</ListItem>
+				))
+			}
+		</List>
+	</Section>
+</section>
 
 <style>
-	#latest-greatest {
+	.latest {
+		padding: 4rem 0;
 		background-color: var(--primary);
-		h2 {
-			color: var(--secondary);
-		}
+	}
+
+	.latest :global(h2) {
+		color: var(--secondary);
+	}
+
+	.latest__list {
+		display: grid;
+		gap: 0.5rem;
+		padding-top: 3rem;
+		list-style: none;
+	}
+
+	.latest__link {
+		display: grid;
+		grid-template-columns: auto minmax(0, 1fr) auto;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 0;
+		border-bottom: 1px solid rgb(43 43 43 / 0.2);
+		text-decoration: none;
+	}
+
+	.latest__type {
+		font-family: "Outfit", sans-serif;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.latest__title {
+		font-family: "Outfit", sans-serif;
+		font-size: 1.35rem;
+	}
+
+	.latest__arrow {
+		font-size: 1.2rem;
 	}
 </style>

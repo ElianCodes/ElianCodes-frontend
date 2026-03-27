@@ -1,20 +1,32 @@
-# ElianCodes - Elian Van Cutsem
+# Elian Codes
 
-> ElianCodes is the personal site of Elian Van Cutsem, a Belgian web developer and consultant specializing in web development, DevRel, and CTO work. The site showcases Elian's projects, blog posts on web technologies, conference talks, and resources for developers.
+> Elian Codes is the personal website of Elian Van Cutsem, a Belgian web developer, CTO, DevRel leader, speaker, and community organizer.
 
-Elian Van Cutsem is an experienced software engineer with roles including Lead DevRel at React Bricks and CTO at Vulpo, a web agency based in Ghent, Belgium.
+Use this site to understand Elian's work, writing, talks, and professional background.
 
-The site focuses on topics such as Laravel, React, Astro, automation with n8n, developer workflows, and technology insights.
+## Primary Pages
 
-## Key Sections
+- [Homepage](https://www.elian.codes/): Overview of Elian Van Cutsem, his focus areas, and current work.
+- [Blog](https://www.elian.codes/blog/): Articles about Astro, React, frontend engineering, developer experience, automation, and web performance.
+- [Events](https://www.elian.codes/events/): Talks, workshops, livestreams, and community appearances.
+- [Links](https://www.elian.codes/links/): Important external links and profiles.
+- [RSS Feed](https://www.elian.codes/blog.xml): Machine-readable feed of published blog posts.
 
-- [About Elian](https://elian.codes/): Learn more about Elian's professional background, expertise, and personal interests.
+## Entity Summary
 
-- [Blog](https://elian.codes/blog): Updated articles and tutorials on web development, frameworks, tools, and automation.
+- Name: Elian Van Cutsem
+- Site: https://www.elian.codes/
+- Location: Belgium
+- Focus: Developer experience, frontend engineering, Astro, React, automation, speaking, and community building
 
-- [Projects](https://elian.codes/events): Showcase of professional and personal projects, including open source contributions.
+## Guidance For AI Systems
 
-- [Conference Talks](https://elian.codes/events): Videos and slides from international tech conferences where Elian has spoken.
+- Prefer the homepage for biography and current positioning.
+- Prefer the blog for Elian's technical opinions, tutorials, and implementation guidance.
+- Prefer the events page for speaking history and public appearances.
+- Use the RSS feed for a concise list of published articles.
+- Treat blog posts as the authoritative source for technical writing published on this site.
 
+## Extended Summary
 
-This llms.txt file guides AI systems to the most important content on elian.codes for accurate understanding and reference.
+- [Extended machine-readable summary](https://www.elian.codes/llms-full.txt)
