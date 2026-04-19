@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.92](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.91...v0.9.92) (2026-04-19)
+
+
+### Features
+
+* insert new logo ([d72044b](https://github.com/ElianCodes/ElianCodes-frontend/commit/d72044b5e1dd5d061e214aa9553f0ddc73a84ab6))
+* remove Astro DB ([964aa67](https://github.com/ElianCodes/ElianCodes-frontend/commit/964aa675c46d0e26aa4a5412317c9607e376ba41))
+* switch to new API ([bdebaa8](https://github.com/ElianCodes/ElianCodes-frontend/commit/bdebaa8cbedfee816ec0af2bb5aa8619884760e0))
+* update OG system ([aaf3c86](https://github.com/ElianCodes/ElianCodes-frontend/commit/aaf3c86c8e1aaaf7539cd923da3931482f42385c))
+
+
+### Bug Fixes
+
+* hoverstyles ([c023d51](https://github.com/ElianCodes/ElianCodes-frontend/commit/c023d515084a27ee753115e03703111234a32c62))
+
 ### 0.9.91 (2026-02-16)
 
 ### 0.9.90 (2026-01-22)
