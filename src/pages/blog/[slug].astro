@@ -1,12 +1,12 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
-import BlogPost from "@layouts/BlogPost.astro";
+import { type CollectionEntry, render } from "astro:content";
+import BlogPost from "@layouts/new/Blogpost.astro";
+import { getSortedBlogPosts } from "@lib/content";
 
 export async function getStaticPaths() {
-	const blogEntries = await getCollection("blog");
+	const blogEntries = await getSortedBlogPosts();
 	return blogEntries.map((blogpost) => ({
-		params: { slug: blogpost.slug },
+		params: { slug: blogpost.id },
 		props: { blogpost },
 	}));
 }
@@ -16,9 +16,20 @@ export interface Props {
 }
 
 const { blogpost } = Astro.props;
-const { Content, headings } = await blogpost.render();
+const { Content, headings } = await render(blogpost);
+const socialImg = new URL(
+	`/v1/generate/og/${Astro.params.slug ?? "default"}.png`,
+	Astro.url,
+);
 ---
 
-<BlogPost content={blogpost.data} headings={headings}>
+<BlogPost
+	post={blogpost.data}
+	headings={headings}
+	socialImg={socialImg}
+	socialImgAlt={blogpost.data.title}
+	socialImgWidth={1200}
+	socialImgHeight={630}
+>
 	<Content />
 </BlogPost>

@@ -13,7 +13,7 @@ interface Props {
 const { links } = Astro.props;
 ---
 
-<div>
+<div transition:name='site-sidebar'>
 	<nav>
 		<List>
 			{
@@ -33,12 +33,13 @@ const { links } = Astro.props;
 	div {
 		display: none;
 		position: absolute;
+		z-index: 35;
 		border-left: 0.5px solid white;
-		right: 0;
-		top: 0;
-		bottom: 0;
+		right: var(--page-gutter);
+		top: var(--page-gutter);
+		bottom: var(--page-gutter);
 		width: 3.5rem;
-		padding-top: 3.5rem;
+		padding-top: 2.5rem;
 		text-transform: uppercase;
 		color: white;
 		font-size: smaller;
@@ -47,15 +48,12 @@ const { links } = Astro.props;
 				display: flex;
 				flex-direction: column;
 				gap: 3.8rem;
-				text-decoration: underline 1px white;
-				text-underline-offset: 0.2rem;
 				font-weight: 600;
 
 				li {
 					transform: rotate(90deg);
 					&:hover {
 						color: var(--primary);
-						text-decoration: underline 1px var(--primary);
 					}
 				}
 			}

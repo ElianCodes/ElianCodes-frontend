@@ -1,54 +1,32 @@
-# The ElianCodes site
+# The Elian.codes site
 
-The full sourcecode for my personal website.
+The full source code for Elian's personal website and blog.
 
-## Current technologies
+## Current stack
 
-(currently) written in [Astro](https://astro.build) and [UnoCSS](https://unocss.dev), deployed to [Vercel](https://vercel.com).
+The site is built with [Astro](https://astro.build), plain CSS, and an internal component/design system. It is deployed on [Vercel](https://vercel.com).
 
-### Previous technologies
+## Previous technologies
 
-This website is a representation of technologies I'm playing with. Here is a list of technologies that have powered this site before:
+This website has gone through a few iterations over time. Earlier versions used:
 
 - [Nuxt](https://nuxtjs.org)
 - [Vue](https://vuejs.org)
-- [TypeScript](https://www.typescript-lang.com)
-- [TailwindCSS](https://tailwindcss.com)
-- [UnoCSS](https://unocss.dev)
-- [Firebase functions](https://firebase.google.com/docs/functions)
+- [TypeScript](https://www.typescriptlang.org)
+- [Firebase Functions](https://firebase.google.com/docs/functions)
 
-## Deployment and Hosting
+## Deployment and hosting
 
-At the moment, this website is hosted on Vercel. The DNS is controlled by [CloudFlare](https://www.cloudflare.com).
-
-The website was previously hosted on [Google Cloud Storage](https://cloud.google.com/storage) as a static folder in a public bucket. Then I transitioned to Firebase, since it was easier to manage, cheaper and you get some handy features like preview deploys and such.
-
-Currently, it's deployed as a static Vercel website using the [Astro Vercel adapter](https://docs.astro.build/en/guides/integrations-guide/vercel/). Vercel offers some features I love, like analytics, web vitals info, feature and preview deploys.
-
-## Development setup
-
-To install and manage dependencies, I use [PNPM](https://pnpm.io/).
+The website is currently hosted on Vercel, with DNS managed through [Cloudflare](https://www.cloudflare.com).
 
 ```bash
-# for development
 pnpm dev
-
-# for local preview
-pnpm build && pnpm preview
+pnpm build
+pnpm preview
 ```
 
-## Technologies and packages
+## Notes
 
-The base of the website uses [Astro](https://astro.build) to generate and build the (static) site.
-
-### Frontend
-
-At the moment, the UI of the website is built and generated using [Astro](https://astro.build). [Astro](https://astro.build) is an amazing technology to generate static sites (but also supports SSR). If you want to know more about it, feel free to read [their documentation](https://docs.astro.build/getting-started).
-
-#### Components
-
-Most of my templates are written in pure Astro, since I don't need to much interactivity. Components that do require interactivity, are written in vanilla JS.
-
-#### UnoCSS
-
-To define the style of the website, [UnoCSS](https://unocss.dev), with some presets are used. [You can read more about my transition and use here.](https://www.elian.codes/blog/23-02-11-implementing-unocss-in-astro)
+- Most UI is built in Astro components with component-scoped CSS.
+- Interactive pieces use small amounts of vanilla JavaScript.
+- Content is powered by Astro content collections.

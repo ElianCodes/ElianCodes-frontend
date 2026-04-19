@@ -1,62 +1,93 @@
 ---
-import HeaderAvatar from '@components/HeaderAvatar.astro';
-import BaseHeader from '@ui/layout/BaseHeader.astro';
-import BaseFooter from '@ui/layout/BaseFooter.astro';
-import LinkSidebar from '@ui/layout/LinkSidebar.astro';
-import Layout from './Generic.astro';
+import HeaderAvatar from "@components/HeaderAvatar.astro";
+import BaseFooter from "@ui/layout/BaseFooter.astro";
+import BaseHeader from "@ui/layout/BaseHeader.astro";
+import LinkSidebar from "@ui/layout/LinkSidebar.astro";
+import Layout from "./Generic.astro";
 
 interface Props {
 	title: string;
 	description: string;
+	socialImg?: URL;
+	socialImgAlt?: string;
+	socialImgWidth?: number;
+	socialImgHeight?: number;
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+	pageType?: "website" | "article" | "profile";
+	publishedTime?: string;
+	modifiedTime?: string;
+	noindex?: boolean;
 	frontmatter?: {
 		title: string;
 		description: string;
 	};
 }
 
-const { title, description, frontmatter } = Astro.props;
+const {
+	title,
+	description,
+	socialImg,
+	socialImgAlt,
+	socialImgWidth,
+	socialImgHeight,
+	schema,
+	pageType,
+	publishedTime,
+	modifiedTime,
+	noindex,
+	frontmatter,
+} = Astro.props;
 
 const sidebarLinks = [
-	{ title: 'LinkedIn', href: 'https://www.linkedin.com/in/elianvancutsem/' },
-	{ title: 'Twitter', href: 'https://twitter.com/eliancodes' },
-	{ title: 'GitHub', href: 'https://github.com/eliancodes' },
-	{ title: 'RSS', href: '/blog.xml' },
+	{ title: "LinkedIn", href: "https://www.linkedin.com/in/elianvancutsem/" },
+	{ title: "Twitter", href: "https://twitter.com/eliancodes" },
+	{ title: "GitHub", href: "https://github.com/eliancodes" },
+	{ title: "RSS", href: "/blog.xml" },
 ];
 
 const mainHeaderLinks = [
-	{ href: '/', title: 'Home' },
-	{ href: '/blog', title: 'Articles' },
-	// { href: '/videos', title: 'Videos' },
-	// { href: '/talks', title: 'Talks' },
-	// { href: '/about', title: 'About' },
+	{ href: "/", title: "Home" },
+	{ href: "/blog", title: "Articles" },
+	{ href: "/events", title: "Events" },
 ];
 
 const footerLinks = [
-	{ href: '/', title: 'Home' },
-	{ href: '/blog', title: 'Articles' },
-	// { href: "/about", title: "About" },
-	{ href: 'https://x.com/eliancodes', title: 'Twitter' },
-	{ href: 'https://github.com/eliancodes', title: 'GitHub' },
-	{ href: '/blog.xml', title: 'RSS' },
-	// { href: "/cat", title: "Cat" },
-	// { href: "/photography", title: "Photography" },
-	// { href: "/uses", title: "Uses" },
-	// { href: "/ama", title: "AMA" },
-	{ href: '/links', title: 'Links' },
+	{ href: "/", title: "Home" },
+	{ href: "/blog", title: "Articles" },
+	{ href: "/events", title: "Events" },
+	{ href: "https://x.com/eliancodes", title: "Twitter" },
+	{ href: "https://github.com/eliancodes", title: "GitHub" },
+	{ href: "/blog.xml", title: "RSS" },
+	{ href: "/links", title: "Links" },
 ];
 ---
 
 <Layout
 	title={title || frontmatter?.title}
 	description={description || frontmatter?.description}
+	socialImg={socialImg}
+	socialImgAlt={socialImgAlt}
+	socialImgWidth={socialImgWidth}
+	socialImgHeight={socialImgHeight}
+	schema={schema}
+	pageType={pageType}
+	publishedTime={publishedTime}
+	modifiedTime={modifiedTime}
+	noindex={noindex}
 >
 	<BaseHeader links={mainHeaderLinks}>
 		<HeaderAvatar />
 		<HeaderAvatar slot='mobile-menu' />
 	</BaseHeader>
-	<main>
+	<main class='site-main'>
 		<LinkSidebar links={sidebarLinks} />
 		<slot />
 	</main>
 	<BaseFooter links={footerLinks} />
 </Layout>
+
+<style>
+	.site-main {
+		position: relative;
+	}
+</style>

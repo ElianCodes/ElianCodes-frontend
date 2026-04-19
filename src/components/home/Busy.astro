@@ -1,0 +1,116 @@
+---
+import Section from "@ui/Section.astro";
+import SubTitle from "@ui/Subtitle.astro";
+import Title from "@ui/Title.astro";
+import YellowCard from "@ui/YellowCard.astro";
+---
+
+<section class='busy'>
+	<Section class='busy__section'>
+		<div id='sticky-header' class='busy__intro'>
+			<Title transition:name='section-2-title'>What's keeping me busy?</Title>
+			<SubTitle transition:name='section-2-subtitle'
+				>Apart from drinking beer...</SubTitle
+			>
+		</div>
+		<ul class='busy__list'>
+			<li>
+				<YellowCard
+					title='CTO'
+					description='I lead the tech team at Vulpo, a Belgian tech firm'
+					link='https://vulpo.be'
+					category='Work'
+				/>
+			</li>
+			<li>
+				<YellowCard
+					title='Lead DevRel'
+					description="I'm the lead Developer Relations at React Bricks"
+					link='https://react-bricks.com'
+					category='Work'
+				/>
+			</li>
+			<li>
+				<YellowCard
+					title='Astro Maintainer'
+					description='Working on Developer Experience & UI'
+					link='https://astro.build'
+					category='Work'
+				/>
+			</li>
+			<li>
+				<YellowCard
+					title='Organizer'
+					description='I organize meetups and conferences about webdevelopment'
+					link='https://devs.gent'
+					category='Community'
+				/>
+			</li>
+			<li>
+				<YellowCard
+					title='Conferences'
+					description='I help the BeJS team run conferences like React Brussels, React Paris and React Africa'
+					link='https://bejs.io'
+					category='Community'
+				/>
+			</li>
+		</ul>
+	</Section>
+</section>
+
+<style>
+	.busy {
+		margin-top: -2rem;
+		padding-bottom: 4rem;
+	}
+
+	.busy__section {
+		display: grid;
+		gap: 2.5rem;
+		padding-top: 3.5rem;
+		padding-bottom: 0;
+		background: var(--off-white);
+		border-top-left-radius: 2rem;
+		border-top-right-radius: 2rem;
+	}
+
+	@media (max-width: 767px) {
+		.busy {
+			margin-top: -1rem;
+		}
+
+		.busy__section {
+			padding-top: 2rem;
+		}
+	}
+
+	.busy__intro :global(h2),
+	.busy__intro :global(.subtitle) {
+		color: var(--primary-gray);
+	}
+
+	.busy__list {
+		display: grid;
+		gap: 1rem;
+		list-style: none;
+		align-content: start;
+	}
+
+	@media (min-width: 1100px) {
+		.busy__section {
+			grid-template-columns: minmax(20rem, 0.8fr) minmax(0, 1.2fr);
+			align-items: start;
+			column-gap: clamp(2rem, 4vw, 4rem);
+		}
+
+		.busy__intro {
+			position: sticky;
+			top: 6rem;
+			max-width: 26rem;
+		}
+
+		.busy__list {
+			max-width: 88rem;
+		}
+	}
+</style>

@@ -10,14 +10,34 @@ export interface Props {
 const { posts } = Astro.props;
 ---
 
-<ul class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+<ul class='blog-list'>
 	{
 		posts.map((post) => {
 			return (
-				<li>
+				<li class='blog-list__item'>
 					<BlogSummaryCard post={post} />
 				</li>
 			);
 		})
 	}
 </ul>
+
+<style>
+	.blog-list {
+		display: grid;
+		gap: 1.75rem;
+		list-style: none;
+	}
+
+	@media (min-width: 768px) {
+		.blog-list {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.blog-list {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>

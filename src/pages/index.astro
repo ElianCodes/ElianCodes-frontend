@@ -1,20 +1,78 @@
 ---
-import RecentBlogPosts from "@components/generic/RecentBlogPosts.astro";
-import AboutMe from "@components/home/AboutMe.astro";
-import Description from "@components/home/Description.astro";
-import MobileSocials from "@components/home/MobileSocials.astro";
-import Layout from "@layouts/Default.astro";
+import Busy from "@components/home/Busy.astro";
+import Hero from "@components/home/Hero.astro";
+import LatestAndGreatest from "@components/home/LatestAndGreatest.astro";
+import SayHi from "@components/home/SayHi.astro";
+import Sponsorships from "@components/home/Sponsorships.astro";
+import Layout from "@layouts/new/Default.astro";
+
+export const prerender = true;
+const homeImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
+
+const homeSchema = [
+	{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		name: "Elian Van Cutsem",
+		description:
+			"Personal website of Elian Van Cutsem, a web developer, DevRel leader, CTO, speaker, and community organizer.",
+		url: new URL("/", Astro.site).toString(),
+		mainEntity: {
+			"@type": "Person",
+			name: "Elian Van Cutsem",
+			url: new URL("/", Astro.site).toString(),
+			jobTitle: "CTO, DevRel leader, and public speaker",
+			image: homeImage,
+			description:
+				"Belgian web developer and consultant focused on developer experience, Astro, React, web engineering, and community building.",
+			sameAs: [
+				"https://github.com/eliancodes",
+				"https://www.linkedin.com/in/elianvancutsem/",
+				"https://x.com/eliancodes",
+			],
+		},
+	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: "Main sections",
+		itemListElement: [
+			{
+				"@type": "ListItem",
+				position: 1,
+				name: "About",
+				url: new URL("/", Astro.site).toString(),
+			},
+			{
+				"@type": "ListItem",
+				position: 2,
+				name: "Blog",
+				url: new URL("/blog/", Astro.site).toString(),
+			},
+			{
+				"@type": "ListItem",
+				position: 3,
+				name: "Events",
+				url: new URL("/events/", Astro.site).toString(),
+			},
+		],
+	},
+];
 ---
 
 <Layout
-	title='Home'
-	pageTitle='Elian Codes'
-	description='CTO @ Vulpo | Lead DevRel @ React Bricks | devs.gent meetup organizer | BeJS & React Brussels household figure | public speaker | Prev. Astro DX & vBridge'
+	title='Elian Van Cutsem'
+	description='Personal website of Elian Van Cutsem, a Belgian web developer, CTO, DevRel leader, speaker, and community organizer focused on developer experience, Astro, React, and the modern web.'
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt='Social preview card for Elian Van Cutsem'
+	socialImgWidth={1200}
+	socialImgHeight={630}
+	schema={homeSchema}
+	pageType='profile'
 >
-	<main class='bg-green p-6'>
-		<MobileSocials />
-		<AboutMe />
-		<Description />
-		<RecentBlogPosts />
-	</main>
+	<Hero />
+	<Busy />
+	<LatestAndGreatest />
+	<Sponsorships />
+	<SayHi />
 </Layout>

@@ -1,20 +1,65 @@
 ---
-import { getCollection } from "astro:content";
 import EventSummaryCard from "@components/events/EventSummaryCard.astro";
-import Layout from "@layouts/Default.astro";
+import Layout from "@layouts/new/Default.astro";
+import { getSortedEvents } from "@lib/content";
+import Section from "@ui/Section.astro";
+import TitleSection from "@ui/TitleSection.astro";
 
-const events = await getCollection("events").then((events) =>
-	events.sort((a, b) => b.data.date.getTime() - a.data.date.getTime()),
-);
+const events = await getSortedEvents();
+const eventsImage = new URL(
+	"/v1/generate/og/default.png",
+	Astro.site,
+).toString();
+const eventsSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: "Events and talks",
+	description:
+		"Conference talks, workshops, livestreams, and community events featuring Elian Van Cutsem.",
+	url: new URL("/events/", Astro.site).toString(),
+	image: eventsImage,
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: events.map((event, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			item: {
+				"@type": "Event",
+				name: event.data.title,
+				description: event.data.abstract,
+				startDate: event.data.date.toISOString(),
+				eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
+				eventStatus: "https://schema.org/EventScheduled",
+				url: event.data.link,
+				organizer: {
+					"@type": "Organization",
+					name: event.data.name,
+				},
+				performer: {
+					"@type": "Person",
+					name: "Elian Van Cutsem",
+				},
+			},
+		})),
+	},
+};
 ---
 
 <Layout
 	title="Events"
-	pageTitle="Elian Codes | Events"
 	description="See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript)."
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt='Social preview image for Elian Van Cutsem events and talks'
+	socialImgWidth={1200}
+	socialImgHeight={630}
+	schema={eventsSchema}
 >
-	<main class="bg-yellow p-6">
-		<ul class="grid md:grid-cols-3 2xl:grid-cols-4 gap-8">
+	<TitleSection
+		title='Events'
+		subtitle='Talks, workshops, livestreams, and community events.'
+	/>
+	<Section class='events-page'>
+		<ul class='events-page__grid'>
 			{
 				events.map((event) => (
 					<li>
@@ -23,5 +68,30 @@ const events = await getCollection("events").then((events) =>
 				))
 			}
 		</ul>
-	</main>
+	</Section>
 </Layout>
+
+<style>
+	.events-page {
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+	}
+
+	.events-page__grid {
+		display: grid;
+		gap: 1.75rem;
+		list-style: none;
+	}
+
+	@media (min-width: 768px) {
+		.events-page__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 1280px) {
+		.events-page__grid {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>

@@ -15,7 +15,7 @@ const { links } = Astro.props;
 const currentUrl = Astro.url.pathname;
 ---
 
-<header>
+<header transition:name='site-header'>
 	<nav>
 		<slot />
 		<List>
@@ -40,18 +40,25 @@ const currentUrl = Astro.url.pathname;
 
 <style>
 	header {
-		padding: 1.5rem 2rem;
+		padding: 1.5rem calc(var(--page-gutter) + 0.25rem) 0;
 		position: absolute;
 		top: 0;
 		left: 0;
 		right: 0;
+		z-index: 40;
 		color: white;
 		> nav {
 			display: none;
+			position: relative;
+			z-index: 40;
+			> :first-child {
+				position: relative;
+				z-index: 41;
+			}
 			> ul {
 				display: flex;
 				gap: 1.5rem;
-				padding: 1rem 2rem;
+				padding: 0.95rem 1.75rem;
 				text-transform: uppercase;
 				font-size: 0.8rem;
 				line-height: 1.25rem;
@@ -67,19 +74,21 @@ const currentUrl = Astro.url.pathname;
 				a:hover,
 				a.active {
 					color: var(--primary);
-					text-decoration: underline;
-					text-decoration-color: var(--primary);
 				}
 			}
 			h1 {
 				font-size: 2.25rem;
 				line-height: 2.5rem;
 			}
+			a {
+				color: inherit;
+			}
 		}
 	}
 	@media (min-width: 768px) {
 		header {
-			padding: 1.5rem 4rem;
+			padding-top: 2rem;
+			margin: 0 8rem;
 			> nav {
 				display: flex;
 				justify-content: space-between;

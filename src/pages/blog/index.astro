@@ -1,21 +1,54 @@
 ---
-import { getCollection } from "astro:content";
 import BlogList from "@components/blog/BlogList.astro";
-import Layout from "@layouts/Default.astro";
+import Layout from "@layouts/new/Default.astro";
+import { getSortedBlogPosts } from "@lib/content";
+import Section from "@ui/Section.astro";
+import TitleSection from "@ui/TitleSection.astro";
 
-const posts = await getCollection("blog").then((collection) => {
-	return collection.sort(
-		(a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime(),
-	);
-});
+const posts = await getSortedBlogPosts();
+const blogUrl = new URL("/blog/", Astro.site).toString();
+const blogImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
+const blogSchema = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	name: "Elian Codes Blog",
+	description:
+		"Articles by Elian Van Cutsem about Astro, React, web engineering, developer experience, and tools.",
+	url: blogUrl,
+	image: blogImage,
+	mainEntity: {
+		"@type": "ItemList",
+		itemListElement: posts.map((post, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			url: new URL(`/blog/${post.id}/`, Astro.site).toString(),
+			name: post.data.title,
+		})),
+	},
+};
 ---
 
 <Layout
 	title="Blog"
 	description="Elian Codes Blog | On this page you can find a collection of my blogposts, related to web technologies and programming."
-	pageTitle="Elian Codes | Blog"
+	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
+	socialImgAlt='Social preview image for the Elian Codes blog'
+	socialImgWidth={1200}
+	socialImgHeight={630}
+	schema={blogSchema}
 >
-	<main class="bg-blue p-6">
+	<TitleSection
+		title='Articles'
+		subtitle='Writing about Astro, the web, and developer experience.'
+	/>
+	<Section class='blog-index'>
 		<BlogList posts={posts} />
-	</main>
+	</Section>
 </Layout>
+
+<style>
+	.blog-index {
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+	}
+</style>

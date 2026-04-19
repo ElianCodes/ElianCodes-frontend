@@ -1,0 +1,47 @@
+---
+import List from "@ui/List.astro";
+import Section from "@ui/Section.astro";
+import SubTitle from "@ui/Subtitle.astro";
+import Title from "@ui/Title.astro";
+import SponsorList from "./SponsorList.astro";
+---
+
+<section id='sponsorships' class='sponsorships'>
+	<Section>
+		<Title>Kudos for the community.</Title>
+		<SubTitle>People and projects I sponsor to support their great work.</SubTitle>
+		<List class='sponsorships__list'>
+			<SponsorList />
+		</List>
+	</Section>
+</section>
+
+<style>
+	.sponsorships {
+		padding: 4rem 0;
+	}
+
+	.sponsorships :global(h2),
+	.sponsorships :global(.subtitle) {
+		color: var(--color-primary-gray);
+	}
+
+	.sponsorships__list {
+		display: grid;
+		gap: 1rem;
+		padding-top: 3rem;
+		list-style: none;
+	}
+
+	@media (min-width: 768px) {
+		.sponsorships__list {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (min-width: 1200px) {
+		.sponsorships__list {
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+</style>

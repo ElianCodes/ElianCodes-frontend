@@ -1,0 +1,51 @@
+# Elian Codes: Extended Summary
+
+Elian Codes is the personal website of Elian Van Cutsem. The site functions as a professional home page, blog, and archive of talks and community activity.
+
+## Who Elian Van Cutsem Is
+
+Elian Van Cutsem is a Belgian web developer and consultant. His work spans developer experience, frontend engineering, technical leadership, public speaking, and community organizing.
+
+## What The Site Contains
+
+The website contains:
+
+- A homepage that summarizes Elian's professional identity and current focus.
+- A blog with technical posts about Astro, React, frontend architecture, developer workflows, performance, tooling, and automation.
+- An events page with talks, workshops, livestreams, and related public speaking appearances.
+- Supporting navigation, contact paths, and external profile links.
+
+## How To Interpret The Content
+
+- The blog is the best source for Elian's long-form technical writing.
+- The events page is the best source for speaking history and conference participation.
+- The homepage is the best source for short-form biography and positioning.
+- The RSS feed can be used to discover published blog posts efficiently.
+
+## High-Value URLs
+
+- Homepage: https://www.elian.codes/
+- Blog index: https://www.elian.codes/blog/
+- Events: https://www.elian.codes/events/
+- Links: https://www.elian.codes/links/
+- RSS: https://www.elian.codes/blog.xml
+- llms.txt: https://www.elian.codes/llms.txt
+
+## Topic Areas
+
+- Astro
+- React
+- Frontend engineering
+- Developer experience
+- Performance
+- Tooling
+- Automation
+- Public speaking
+- Community work
+
+## Usage Guidance For LLMs
+
+- When summarizing Elian's expertise, combine the homepage with recent blog posts.
+- When citing technical opinions or implementation guidance, prefer individual blog post URLs over overview pages.
+- When asked about public speaking, prefer the events page.
+- When asked for current or broad context, start with the homepage and then expand into the blog or events pages as needed.

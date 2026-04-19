@@ -1,0 +1,81 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+	title: string;
+	description: string;
+	link: string;
+	category: string;
+}
+
+const { title, description, link, category, ...rest } = Astro.props;
+---
+
+<div class='card' {...rest}>
+	<h3>{title}</h3>
+	<p>{description}</p>
+	<div class='card__footer'>
+		<p>{category}</p>
+		<a href={link}>Check it out &rAarr;</a>
+	</div>
+</div>
+
+<style>
+	.card {
+		background-color: var(--primary);
+		border: 1px solid var(--primary-gray);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-sm);
+		transition:
+			transform 180ms ease,
+			box-shadow 180ms ease;
+	}
+
+	.card:hover {
+		transform: translate(3px, 3px);
+		box-shadow: none;
+	}
+
+	.card > h3 {
+		padding: 1.5rem 1.25rem 0.5rem;
+		font-family: "Outfit", sans-serif;
+		font-size: 1.4rem;
+		line-height: 1.15;
+		text-transform: uppercase;
+	}
+
+	.card > p {
+		padding: 0 1.25rem 1.5rem;
+		font-size: 1.05rem;
+		line-height: 1.7;
+	}
+
+	.card__footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+		padding: 1rem 1.25rem;
+		border-top: 1px solid var(--primary-gray);
+		font-family: "Outfit", sans-serif;
+		font-size: 0.9rem;
+		font-weight: 700;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+	}
+
+	.card__footer a {
+		color: var(--secondary);
+		text-decoration: none;
+	}
+
+	@media (min-width: 768px) {
+		.card > h3 {
+			font-size: 2.2rem;
+		}
+
+		.card > p {
+			font-size: 1.25rem;
+		}
+	}
+</style>

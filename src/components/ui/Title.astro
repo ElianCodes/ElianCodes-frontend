@@ -1,14 +1,18 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-interface Props extends HTMLAttributes<"h2"> {}
 
-const { ...rest } = Astro.props;
+export interface Props extends HTMLAttributes<"h1"> {
+	as?: "h1" | "h2";
+}
+
+const { as: Tag = "h2", ...rest } = Astro.props as Props;
 ---
-<h2 {...rest}>
+<Tag {...rest}>
 	<slot />
-</h2>
+</Tag>
 
 <style>
+	h1,
 	h2 {
 		text-transform: uppercase;
 		color: var(--primary);
@@ -17,12 +21,14 @@ const { ...rest } = Astro.props;
 		line-height: 2.25rem;
 	}
 	@media (min-width: 768px) {
+		h1,
 		h2 {
 			font-size: 3.75rem; /* 60px */
 			line-height: 1;
 		}
 	}
 	@media (min-width: 1280px) {
+		h1,
 		h2 {
 			font-size: 6rem; /* 96px */
 			line-height: 1;
