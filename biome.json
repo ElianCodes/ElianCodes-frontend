@@ -1,5 +1,14 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.4.9/schema.json",
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+	"files": {
+		"includes": ["**", "!.netlify"],
+		"ignoreUnknown": true
+	},
 	"formatter": {
 		"enabled": true
 	},
@@ -10,30 +19,16 @@
 		}
 	},
 	"overrides": [
-    {
-      "includes": ["**/*.astro"],
-      "linter": {
-        "rules": {
-          "style": {
-            "useConst": "off",
-            "useImportType": "off"
-          },
-          "correctness": {
-            "noUnusedVariables": "off",
-            "noUnusedImports": "off"
-          }
-        }
-      }
-    },
 		{
-			"includes": ["**/*.css"],
+			"includes": ["**/*.astro"],
 			"linter": {
 				"rules": {
-					"suspicious":{
-						"noUnknownAtRules": "off"
+					"correctness": {
+						"noUnusedVariables": "off",
+						"noUnusedImports": "off"
 					}
 				}
 			}
 		}
-  ]
+	]
 }
