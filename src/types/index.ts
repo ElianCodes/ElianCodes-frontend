@@ -1,3 +1,3 @@
-import type { Social, SocialLink, SupportedIcon } from "./social";
+import type { SocialLink } from "./social";
 
-export type { Social, SocialLink, SupportedIcon };
+export type { SocialLink };
