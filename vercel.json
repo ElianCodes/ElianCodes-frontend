@@ -1,4 +1,28 @@
 {
+	"headers": [
+		{
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "Link",
+					"value": "</.well-known/api-catalog>; rel=\"api-catalog\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </blog.xml>; rel=\"alternate\"; type=\"application/rss+xml\", </.well-known/agent-skills/index.json>; rel=\"https://agentskills.io/rels/skills-index\""
+				},
+				{
+					"key": "Vary",
+					"value": "Accept"
+				}
+			]
+		},
+		{
+			"source": "/.well-known/api-catalog",
+			"headers": [
+				{
+					"key": "Content-Type",
+					"value": "application/linkset+json; charset=utf-8"
+				}
+			]
+		}
+	],
 	"redirects": [
 		{ "source": "/rss.xml", "destination": "/blog.xml" },
 		{
