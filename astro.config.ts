@@ -11,7 +11,9 @@ export default defineConfig({
 				: "https://localhost:4321/",
 	trailingSlash: "ignore",
 	integrations: [sitemap()],
-	adapter: vercel(),
+	adapter: vercel({
+		edgeMiddleware: true,
+	}),
 	vite: {
 		optimizeDeps: {
 			exclude: ["@resvg/resvg-js"],

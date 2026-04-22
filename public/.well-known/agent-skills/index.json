@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0.json",
+  "skills": [
+    {
+      "name": "read-blog",
+      "type": "content",
+      "description": "Read blog posts by Elian Van Cutsem in markdown format. Send a request with Accept: text/markdown to any blog post URL to receive the raw markdown content.",
+      "url": "https://www.elian.codes/blog/",
+      "sha256": ""
+    },
+    {
+      "name": "site-overview",
+      "type": "content",
+      "description": "Machine-readable overview of Elian Van Cutsem's site. Available at /llms.txt (summary) and /llms-full.txt (extended).",
+      "url": "https://www.elian.codes/llms.txt",
+      "sha256": ""
+    }
+  ]
+}
