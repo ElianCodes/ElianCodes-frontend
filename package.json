@@ -13,12 +13,12 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.8",
+		"@astrojs/check": "^0.9.9",
 		"@astrojs/rss": "^4.0.18",
 		"@astrojs/sitemap": "^3.7.2",
-		"@astrojs/vercel": "^10.0.4",
+		"@astrojs/vercel": "^10.0.6",
 		"@resvg/resvg-js": "^2.6.2",
-		"astro": "^6.1.8",
+		"astro": "^6.2.1",
 		"astro-font": "^0.0.80",
 		"date-fns": "^4.1.0",
 		"typescript": "^5.9.3"
