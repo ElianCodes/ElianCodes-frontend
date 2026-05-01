@@ -1,0 +1,37 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://www.elian.codes/",
+      "describedby": [
+        {
+          "href": "https://www.elian.codes/llms.txt",
+          "type": "text/plain",
+          "title": "LLMs.txt — machine-readable site overview"
+        },
+        {
+          "href": "https://www.elian.codes/llms-full.txt",
+          "type": "text/plain",
+          "title": "LLMs-full.txt — extended machine-readable summary"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://www.elian.codes/blog/",
+          "title": "Blog — technical writing by Elian Van Cutsem"
+        }
+      ],
+      "alternate": [
+        {
+          "href": "https://www.elian.codes/blog.xml",
+          "type": "application/rss+xml",
+          "title": "RSS Feed"
+        },
+        {
+          "href": "https://www.elian.codes/sitemap-index.xml",
+          "type": "application/xml",
+          "title": "Sitemap"
+        }
+      ]
+    }
+  ]
+}
