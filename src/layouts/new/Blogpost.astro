@@ -24,23 +24,16 @@ const {
 	socialImgHeight,
 } = Astro.props;
 const articleUrl = new URL(Astro.url.pathname, Astro.site).toString();
+const personId = `${new URL("/", Astro.site).toString()}#person`;
 const articleSchema = {
 	"@context": "https://schema.org",
 	"@type": "BlogPosting",
 	headline: post.title,
 	description: post.description,
 	datePublished: post.pubDate.toISOString(),
-	dateModified: post.pubDate.toISOString(),
-	author: {
-		"@type": "Person",
-		name: post.author,
-		url: new URL("/", Astro.site).toString(),
-	},
-	publisher: {
-		"@type": "Person",
-		name: "Elian Van Cutsem",
-		url: new URL("/", Astro.site).toString(),
-	},
+	dateModified: (post.updatedDate ?? post.pubDate).toISOString(),
+	author: { "@id": personId },
+	publisher: { "@id": personId },
 	mainEntityOfPage: articleUrl,
 	url: articleUrl,
 	image: socialImg?.toString(),
