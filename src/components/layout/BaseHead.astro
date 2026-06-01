@@ -40,6 +40,8 @@ const fullTitle = title === "Elian Codes" ? title : `Elian Codes | ${title}`;
 const imageAlt = socialImgAlt ?? `${fullTitle} social preview image`;
 const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
+const personId = `${siteUrl.toString()}#person`;
+
 const siteSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
@@ -49,12 +51,14 @@ const siteSchema = {
 	inLanguage: "en",
 	publisher: {
 		"@type": "Person",
+		"@id": personId,
 		name: "Elian Van Cutsem",
 		url: siteUrl.toString(),
 		sameAs: [
-			"https://github.com/eliancodes",
-			"https://www.linkedin.com/in/elianvancutsem/",
+			"https://github.com/ElianCodes",
+			"https://www.linkedin.com/in/elianvancutsem",
 			"https://x.com/eliancodes",
+			"https://eliancodes.com",
 		],
 	},
 };
