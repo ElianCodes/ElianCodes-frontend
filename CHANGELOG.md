@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.98](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.97...v0.9.98) (2026-06-01)
+
+
+### Bug Fixes
+
+* **home:** real sponsor descriptions + alt text on sponsor logos ([70afde3](https://github.com/ElianCodes/ElianCodes-frontend/commit/70afde3093cc69bd2349988aad6d0580092b43a9))
+
 ### [0.9.97](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.96...v0.9.97) (2026-06-01)
 
 ### [0.9.96](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.95...v0.9.96) (2026-06-01)
