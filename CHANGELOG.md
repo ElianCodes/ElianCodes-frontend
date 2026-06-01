@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.96](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.95...v0.9.96) (2026-06-01)
+
+
+### Bug Fixes
+
+* **seo:** consolidate Person entity with shared [@id](https://github.com/id) and cross-link to eliancodes.com ([d649e80](https://github.com/ElianCodes/ElianCodes-frontend/commit/d649e80393ef177b68b378c7b495ebe2bf9be9c0))
+* **seo:** tie BlogPosting author/publisher to shared Person [@id](https://github.com/id) ([061f212](https://github.com/ElianCodes/ElianCodes-frontend/commit/061f2126bd5412d1b3b6cc4863417c64a294340a))
+
 ### [0.9.95](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.94...v0.9.95) (2026-05-27)
 
 ### [0.9.94](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.93...v0.9.94) (2026-05-01)
