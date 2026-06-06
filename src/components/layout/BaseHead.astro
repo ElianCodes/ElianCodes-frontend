@@ -46,6 +46,15 @@ const personId = `${siteUrl.toString()}#person`;
 const gaId = "G-13MBMB5GZJ";
 const analyticsEnabled = process.env.VERCEL_ENV === "production";
 
+// Blog posts have a raw-markdown twin at /blog/<slug>.md — advertise it so
+// agents/LLMs can discover the markdown representation instead of guessing.
+// Normalize the trailing slash (trailingSlash: "ignore" yields /blog/<slug>/).
+const blogPath = Astro.url.pathname.replace(/\/$/, "");
+const isBlogPost = pageType === "article" && /^\/blog\/[^/]+$/.test(blogPath);
+const markdownAlternate = isBlogPost
+	? new URL(`${blogPath}.md`, Astro.site).toString()
+	: null;
+
 const siteSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
@@ -101,6 +110,11 @@ const siteSchema = {
 		type='application/rss+xml'
 	/>
 	<link rel='alternate' href='https://www.elian.codes/llms.txt' type='text/plain' />
+	{
+		markdownAlternate && (
+			<link rel='alternate' href={markdownAlternate} type='text/markdown' />
+		)
+	}
 
 	<meta name='title' content={fullTitle} />
 	<meta name='description' content={description} />
