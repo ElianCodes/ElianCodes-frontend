@@ -5,7 +5,7 @@
 			"headers": [
 				{
 					"key": "Link",
-					"value": "</.well-known/api-catalog>; rel=\"api-catalog\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </blog.xml>; rel=\"alternate\"; type=\"application/rss+xml\", </.well-known/agent-skills/index.json>; rel=\"https://agentskills.io/rels/skills-index\""
+					"value": "</.well-known/api-catalog>; rel=\"api-catalog\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </blog.xml>; rel=\"alternate\"; type=\"application/rss+xml\""
 				},
 				{
 					"key": "Vary",
