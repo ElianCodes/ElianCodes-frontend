@@ -1,4 +1,9 @@
 User-agent: *
-Disallow: 
+Disallow:
 Host: https://www.elian.codes/
 Sitemap: https://www.elian.codes/sitemap-index.xml
+
+# Content Signals (https://contentsignals.org/)
+# Blog posts and public content are welcome for search and AI input.
+# Training on this content requires explicit permission.
+Content-Signal: ai-train=no, search=yes, ai-input=yes
