@@ -1,0 +1,5 @@
+# Force patched versions of transitive deps flagged by Dependabot/pnpm audit.
+# Both are pinned below their fix by parent packages (@astrojs/vercel, @astrojs/check).
+overrides:
+  path-to-regexp@6.1.0: 6.3.0
+  yaml@<2.8.3: ^2.8.3
