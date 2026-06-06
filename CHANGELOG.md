@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.101](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.100...v0.9.101) (2026-06-06)
+
 ### [0.9.100](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.99...v0.9.100) (2026-06-06)
 
 ### [0.9.99](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.98...v0.9.99) (2026-06-01)
