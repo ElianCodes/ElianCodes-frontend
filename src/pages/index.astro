@@ -26,6 +26,42 @@ const homeSchema = [
 			image: homeImage,
 			description:
 				"Belgian web developer and consultant focused on developer experience, Astro, React, web engineering, and community building.",
+			knowsAbout: [
+				"Astro",
+				"React",
+				"Developer Relations",
+				"Web Performance",
+				"TypeScript",
+				"JavaScript",
+				"Deno",
+				"Developer Experience",
+				"Web Development",
+			],
+			worksFor: [
+				{
+					"@type": "Organization",
+					name: "Vulpo",
+					url: "https://vulpo.be",
+				},
+				{
+					"@type": "Organization",
+					name: "React Bricks",
+					url: "https://reactbricks.com",
+				},
+			],
+			homeLocation: {
+				"@type": "Place",
+				address: {
+					"@type": "PostalAddress",
+					addressLocality: "Ghent",
+					addressRegion: "East Flanders",
+					addressCountry: "BE",
+				},
+			},
+			nationality: {
+				"@type": "Country",
+				name: "Belgium",
+			},
 			sameAs: [
 				"https://github.com/ElianCodes",
 				"https://www.linkedin.com/in/elianvancutsem",
