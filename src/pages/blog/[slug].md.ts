@@ -10,7 +10,11 @@ export async function getStaticPaths() {
 	}));
 }
 
-export async function GET({ props }: { props: { post: Awaited<ReturnType<typeof getSortedBlogPosts>>[number] } }) {
+export async function GET({
+	props,
+}: {
+	props: { post: Awaited<ReturnType<typeof getSortedBlogPosts>>[number] };
+}) {
 	const { post } = props;
 
 	const frontmatter = [

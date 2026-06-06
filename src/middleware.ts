@@ -18,7 +18,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 		return new Response(content, {
 			headers: {
 				"Content-Type": "text/markdown; charset=utf-8",
-				"Vary": "Accept",
+				Vary: "Accept",
 			},
 		});
 	}
@@ -34,7 +34,7 @@ export const onRequest = defineMiddleware(async (context, next) => {
 			return new Response(content, {
 				headers: {
 					"Content-Type": "text/markdown; charset=utf-8",
-					"Vary": "Accept",
+					Vary: "Accept",
 				},
 			});
 		}
