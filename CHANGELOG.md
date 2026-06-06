@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.102](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.101...v0.9.102) (2026-06-06)
+
+
+### Features
+
+* **analytics:** add production-gated GA4 (gtag) to BaseHead ([017ce22](https://github.com/ElianCodes/ElianCodes-frontend/commit/017ce2283863af775ebaf0a68e1df938300977dd))
+
 ### [0.9.101](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.100...v0.9.101) (2026-06-06)
 
 ### [0.9.100](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.99...v0.9.100) (2026-06-06)
