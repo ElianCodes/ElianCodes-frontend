@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.103](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.102...v0.9.103) (2026-06-06)
+
+
+### Features
+
+* **seo:** enrich Person schema with knowsAbout, worksFor, location ([e1ef450](https://github.com/ElianCodes/ElianCodes-frontend/commit/e1ef450a4c8b01a1088860ba5fe7de62b2680927))
+
 ### [0.9.102](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.101...v0.9.102) (2026-06-06)
 
 
