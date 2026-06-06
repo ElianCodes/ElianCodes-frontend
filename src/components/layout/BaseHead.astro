@@ -42,6 +42,10 @@ const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
 const personId = `${siteUrl.toString()}#person`;
 
+// Only load GA on the production domain — not on preview deploys or local builds.
+const gaId = "G-13MBMB5GZJ";
+const analyticsEnabled = process.env.VERCEL_ENV === "production";
+
 const siteSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
@@ -68,6 +72,27 @@ const siteSchema = {
 	<meta charset='utf-8' />
 	<meta name='viewport' content='width=device-width, initial-scale=1' />
 	<meta name='generator' content={Astro.generator} />
+
+	{
+		analyticsEnabled && (
+			<Fragment>
+				<script
+					is:inline
+					async
+					src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+				/>
+				<script is:inline define:vars={{ gaId }}>
+					window.dataLayer = window.dataLayer || [];
+					function gtag() {
+						dataLayer.push(arguments);
+					}
+					gtag("js", new Date());
+					gtag("config", gaId);
+				</script>
+			</Fragment>
+		)
+	}
+
 	<LocalFont />
 
 	<link
