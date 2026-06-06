@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.104](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.103...v0.9.104) (2026-06-06)
+
+
+### Features
+
+* add agentready ([6954630](https://github.com/ElianCodes/ElianCodes-frontend/commit/695463032c7508eb484a4f99fa1ded4e29525fad))
+* advertise per-post markdown via rel=alternate link ([1088df6](https://github.com/ElianCodes/ElianCodes-frontend/commit/1088df6cbc849a42977345f5429f1d5d0e07499b))
+
+
+### Bug Fixes
+
+* drop edge-middleware content negotiation (no-op on static site) ([e126c0e](https://github.com/ElianCodes/ElianCodes-frontend/commit/e126c0ed9322e5fa351be34d3306fe065c44a8a5))
+* remove fabricated agent-skills manifest ([641d49b](https://github.com/ElianCodes/ElianCodes-frontend/commit/641d49b7b82b8fb86624c4ed89bc0f7980ae651a))
+
 ### [0.9.103](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.102...v0.9.103) (2026-06-06)
 
 
