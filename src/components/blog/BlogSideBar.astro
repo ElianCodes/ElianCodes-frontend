@@ -16,7 +16,7 @@ const { headings } = Astro.props;
 					{
 						headings.map((heading: any) => (
 							<li class='blog-sidebar__item' style={`--depth:${heading.depth}`}>
-								<a class='blog-sidebar__link' href={`#${heading.id ?? ""}`}>
+								<a class='blog-sidebar__link' href={`#${heading.slug ?? ""}`}>
 									{heading.text}
 								</a>
 							</li>
