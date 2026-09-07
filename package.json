@@ -21,7 +21,7 @@
 		"astro": "^6.4.4",
 		"astro-font": "^0.0.80",
 		"date-fns": "^4.1.0",
-		"typescript": "^5.9.3"
+		"typescript": "^7.0.0"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.4.9",
