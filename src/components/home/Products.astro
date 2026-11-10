@@ -1,0 +1,87 @@
+---
+import { company, products } from "@lib/products";
+import Section from "@ui/Section.astro";
+import SubTitle from "@ui/Subtitle.astro";
+import Title from "@ui/Title.astro";
+import YellowCard from "@ui/YellowCard.astro";
+---
+
+<section class='products' id='products'>
+	<Section class='products__section'>
+		<div class='products__intro'>
+			<Title>Things I ship.</Title>
+			<SubTitle>
+				From <a href={company.url}>{company.name}</a>, the company I run.
+			</SubTitle>
+		</div>
+		<ul class='products__list'>
+			{
+				products.map((product) => (
+					<li>
+						<YellowCard
+							title={product.title}
+							description={product.description}
+							link={product.link}
+							linkLabel={product.linkLabel}
+							linkInTitle
+							category={product.category}
+						/>
+					</li>
+				))
+			}
+		</ul>
+	</Section>
+</section>
+
+<style>
+	.products {
+		padding-bottom: 4rem;
+		background: var(--light-gray);
+	}
+
+	.products__section {
+		display: grid;
+		gap: 2.5rem;
+		padding-top: 3.5rem;
+		padding-bottom: 1rem;
+	}
+
+	.products__intro :global(h2),
+	.products__intro :global(.subtitle) {
+		color: var(--primary-gray);
+	}
+
+	.products__intro :global(a) {
+		color: var(--secondary);
+		font-weight: 700;
+	}
+
+	.products__list {
+		display: grid;
+		gap: 1rem;
+		list-style: none;
+		align-content: start;
+	}
+
+	.products__list > li {
+		display: flex;
+	}
+
+	.products__list :global(.card) {
+		flex: 1;
+	}
+
+	@media (min-width: 1100px) {
+		.products__section {
+			grid-template-columns: minmax(20rem, 0.8fr) minmax(0, 1.2fr);
+			align-items: start;
+			column-gap: clamp(2rem, 4vw, 4rem);
+		}
+
+		.products__intro {
+			position: sticky;
+			top: 6rem;
+			max-width: 26rem;
+		}
+	}
+</style>
