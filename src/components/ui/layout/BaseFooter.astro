@@ -1,5 +1,6 @@
 ---
 import reactBrussels from "@assets/react-bru.webp";
+import { products } from "@lib/products";
 import type { HTMLAttributes } from "astro/types";
 import type { SocialLink } from "../../../types";
 import LinkPrimary from "../LinkPrimary.astro";
@@ -30,7 +31,19 @@ const { links, ...rest } = Astro.props;
 				>. I also run
 				<LinkPrimary href='https://eliancodes.com' class='underline'
 					>ElianCodes</LinkPrimary
-				>, my Laravel & Astro development agency. My love for the web was first
+				>, my Laravel & Astro development agency, where I ship {
+					products.map((product, index) => {
+						const prefix =
+							index === 0
+								? ""
+								: index === products.length - 1
+									? " and "
+									: ", ";
+						return (
+							<>{prefix}<LinkPrimary href={product.link} class='underline'>{product.title}</LinkPrimary></>
+						);
+					})
+				}. My love for the web was first
 				sparked in 2018 when I decided to build
 				a simple HTML page to display the photos I took at the time, there was
 				no way back! Since then and there, I was completely in love with

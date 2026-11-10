@@ -6,17 +6,38 @@ interface Props extends HTMLAttributes<"div"> {
 	description: string;
 	link: string;
 	category: string;
+	linkLabel?: string;
+	linkInTitle?: boolean;
 }
 
-const { title, description, link, category, ...rest } = Astro.props;
+const {
+	title,
+	description,
+	link,
+	category,
+	linkLabel,
+	linkInTitle = false,
+	class: className,
+	...rest
+} = Astro.props;
 ---
 
-<div class='card' {...rest}>
-	<h3>{title}</h3>
+<div class:list={["card", className]} {...rest}>
+	<h3>
+		{
+			linkInTitle ? (
+				<a class='card__title-link' href={link}>
+					{title}
+				</a>
+			) : (
+				title
+			)
+		}
+	</h3>
 	<p>{description}</p>
 	<div class='card__footer'>
 		<p>{category}</p>
-		<a href={link}>Check it out &rAarr;</a>
+		<a href={link}>{linkLabel ? linkLabel : "Check it out"} &rAarr;</a>
 	</div>
 </div>
 
@@ -42,6 +63,15 @@ const { title, description, link, category, ...rest } = Astro.props;
 		font-size: 1.4rem;
 		line-height: 1.15;
 		text-transform: uppercase;
+	}
+
+	.card__title-link {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.card__title-link:hover {
+		color: var(--secondary);
 	}
 
 	.card > p {

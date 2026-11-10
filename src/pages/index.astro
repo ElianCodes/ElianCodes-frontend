@@ -2,9 +2,11 @@
 import Busy from "@components/home/Busy.astro";
 import Hero from "@components/home/Hero.astro";
 import LatestAndGreatest from "@components/home/LatestAndGreatest.astro";
+import Products from "@components/home/Products.astro";
 import SayHi from "@components/home/SayHi.astro";
 import Sponsorships from "@components/home/Sponsorships.astro";
 import Layout from "@layouts/new/Default.astro";
+import { company, products } from "@lib/products";
 
 export const prerender = true;
 const homeImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
@@ -47,6 +49,11 @@ const homeSchema = [
 					"@type": "Organization",
 					name: "React Bricks",
 					url: "https://reactbricks.com",
+				},
+				{
+					"@type": "Organization",
+					name: company.name,
+					url: company.url,
 				},
 			],
 			homeLocation: {
@@ -95,6 +102,18 @@ const homeSchema = [
 			},
 		],
 	},
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		name: `Products from ${company.name}`,
+		itemListElement: products.map((product, index) => ({
+			"@type": "ListItem",
+			position: index + 1,
+			name: product.title,
+			url: product.link,
+			description: product.description,
+		})),
+	},
 ];
 ---
 
@@ -110,6 +129,7 @@ const homeSchema = [
 >
 	<Hero />
 	<Busy />
+	<Products />
 	<LatestAndGreatest />
 	<Sponsorships />
 	<SayHi />
