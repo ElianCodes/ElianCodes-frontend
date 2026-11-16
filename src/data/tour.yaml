@@ -209,6 +209,15 @@
   kind: talk
   talk: Make the Web Weird Again # react.brussels lists it as "The web can be weird"
   link: https://react.brussels/
+- id: fork-it-tunis-2024
+  # The first Fork It! community meetup in Tunis (and in Africa), hosted at CWCloud.
+  # Their recap dates it 24 September 2024; month kept until Elian confirms the day.
+  date: 2024-09
+  event: Fork It! Tunis
+  city: Tunis
+  country: TN
+  kind: talk # talk?
+  link: https://www.cwcloud.tech/blog/forkit-tn-meetup-2024
 - id: react-alicante-2024
   date: 2024-09-19
   event: React Alicante
