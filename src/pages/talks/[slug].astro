@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { bookMe, site } from "../../data/site";
+import { stopEvent } from "../../lib/schema";
 import { getTalks, type Talk, talkUrl } from "../../lib/talks";
 import { isOnline, monthYearLabel, placeLabel } from "../../lib/tour";
 
@@ -23,7 +24,13 @@ const description =
 const mailto = `mailto:${site.email}?subject=${encodeURIComponent(`Talk request: ${talk.title}`)}`;
 ---
 
-<BaseLayout title={talk.title} description={description}>
+<BaseLayout
+	title={talk.title}
+	description={description}
+	socialImg={`/v1/generate/og/talks/${talk.slug}.png`}
+	socialImgAlt={`${talk.title}: a talk by ${site.author}`}
+	schema={talk.stops.map((stop) => stopEvent(stop, Astro.site!))}
+>
 	<section class="plane-blue">
 		<div class="wrap hero">
 			<a href="/talks" class="mono back">← All talks</a>

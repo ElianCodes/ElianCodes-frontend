@@ -9,6 +9,7 @@ import Stat from "../components/ui/Stat.astro";
 import TourMap from "../components/ui/TourMap.astro";
 import { bio, organizedStages, sessionize, site } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { stopEvent } from "../lib/schema";
 import { getTalks, talkForStop, talkUrl } from "../lib/talks";
 import {
 	getBroadcasts,
@@ -28,6 +29,8 @@ const stages = getStages(tour);
 const broadcasts = getBroadcasts(tour);
 const stats = getStats(stages);
 const next = getNextStage(stages);
+// Future stages, for search engines (structured data). Same rule as "Up next".
+const upcoming = stages.filter((stop) => getNextStage([stop]) !== undefined);
 const years = groupByYear(stages);
 const allTalks = await getTalks();
 const talks = allTalks.filter((t) => t.bookable);
@@ -43,6 +46,7 @@ const kindLabel: Record<string, string> = {
 
 <BaseLayout
 	title="Events"
+	schema={upcoming.map((stop) => stopEvent(stop, Astro.site!))}
 	description={`Tour log: ${stats.stages} talks and panels in ${stats.countries} countries since ${stats.firstYear}, plus the speaker kit for organizers.`}
 >
 	<section class="hero plane-blue">

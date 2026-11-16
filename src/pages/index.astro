@@ -1,4 +1,5 @@
 ---
+import { personId } from "../lib/schema";
 import fullRoom from "../assets/events/reactbrussels.jpg";
 import stageGesture from "../assets/photos/stage-gesture.jpg";
 import rockstar from "../assets/photos/rockstar-react-brussels.jpg";
@@ -82,7 +83,14 @@ const timeline = [
 ];
 ---
 
-<BaseLayout>
+<BaseLayout
+	schema={{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		url: new URL("/", Astro.site).href,
+		mainEntity: { "@id": personId(Astro.site!) },
+	}}
+>
 	<!-- Hero -->
 	<section class="hero plane-blue">
 		<div class="hero__copy">

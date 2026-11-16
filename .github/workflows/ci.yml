@@ -5,6 +5,11 @@ on:
   push:
     branches:
       - main
+  # Daily rebuild: "Next on stage" and the yearly stats are computed at build time,
+  # so they go stale without a fresh build. Runs on the default branch.
+  schedule:
+    - cron: "17 4 * * *"
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -50,8 +55,8 @@ jobs:
 
   deploy:
     name: Deploy to Cloudflare
-    # Only pushes to main deploy; pull requests just validate.
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # Pushes, the daily schedule and manual runs on main deploy; pull requests just validate.
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
     needs: validate
     runs-on: ubuntu-latest
     environment:

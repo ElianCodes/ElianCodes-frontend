@@ -1,6 +1,7 @@
 ---
 import { Font } from "astro:assets";
-import { site } from "../../data/site";
+import avatar from "../../assets/elian.jpg";
+import { bio, lineup, site } from "../../data/site";
 
 export interface Props {
 	title?: string;
@@ -56,6 +57,14 @@ const siteSchema = {
 		"@id": `${siteUrl}#person`,
 		name: site.author,
 		url: siteUrl.toString(),
+		image: new URL(avatar.src, Astro.site).href,
+		description: bio,
+		jobTitle: lineup.map((job) => (job.at ? `${job.role} at ${job.at}` : job.role)).join(", "),
+		worksFor: lineup
+			.filter((job) => job.at)
+			.map((job) => ({ "@type": "Organization", name: job.at, url: job.href })),
+		knowsAbout: ["Astro", "Web development", "JavaScript", "Developer experience", "Public speaking"],
+		address: { "@type": "PostalAddress", addressCountry: "BE" },
 		sameAs: [
 			"https://github.com/ElianCodes",
 			"https://www.linkedin.com/in/elianvancutsem",
