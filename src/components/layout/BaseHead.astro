@@ -76,9 +76,11 @@ const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonicalURL} />
 
-<Font cssVariable="--font-display" preload />
-<Font cssVariable="--font-mono" preload />
-<Font cssVariable="--font-body" preload />
+<!-- Preload only the files needed for first paint (Latin, regular body/mono, display);
+     the other weights, italics and subsets still load on demand via @font-face. -->
+<Font cssVariable="--font-display" preload={[{ subset: "latin" }]} />
+<Font cssVariable="--font-mono" preload={[{ weight: 400, subset: "latin" }]} />
+<Font cssVariable="--font-body" preload={[{ weight: 400, style: "normal", subset: "latin" }]} />
 
 <link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Elian Codes · Articles" />
 <link rel="alternate" href="/llms.txt" type="text/plain" />

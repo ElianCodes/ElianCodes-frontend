@@ -1,8 +1,8 @@
 ---
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
-import avatar from "../assets/elian.jpg";
-import headset from "../assets/photos/headset.jpg";
+import headshot from "../assets/photos/headshot.jpg";
+import stageSmile from "../assets/photos/stage-smile.jpg";
 import reactBrussels from "../assets/events/reactbrussels.jpg";
 import Glitch from "../components/ui/Glitch.astro";
 import SignalPhoto from "../components/ui/SignalPhoto.astro";
@@ -49,13 +49,13 @@ const kindLabel: Record<string, string> = {
 				<span class="mono prompt">&gt; tail -f ./tour.log</span>
 				<h1 class="display hero__title"><Glitch text="Tour log" color="var(--paper)" /></h1>
 				<p class="hero__lede">
-					Every conference, meetup and panel since my first talk at {firstStage?.data.event} in {
+					Every conference, meetup, panel and workshop since my first talk at {firstStage?.data.event} in {
 						firstStage ? monthYearLabel(firstStage) : ""
 					}. Replays where they exist.
 				</p>
 			</div>
 			<div class="hero__stats">
-				<Stat value={stats.stages} label="Talks & panels" class="plane-pink" />
+				<Stat value={stats.stages} label="Talks, panels & workshops" class="plane-pink" />
 				<Stat value={stats.countries} label="Countries" class="stat--white" />
 				<Stat value={stats.continents} label="Continents" class="plane-ink" />
 			</div>
@@ -95,6 +95,7 @@ const kindLabel: Record<string, string> = {
 				<button type="button" class="filter" aria-pressed="false" data-filter="talk">Talks</button>
 				<button type="button" class="filter" aria-pressed="false" data-filter="keynote">Keynotes</button>
 				<button type="button" class="filter" aria-pressed="false" data-filter="panel">Panels</button>
+				<button type="button" class="filter" aria-pressed="false" data-filter="workshop">Workshops</button>
 				<button type="button" class="filter" aria-pressed="false" data-filter="replay">With replay</button>
 			</div>
 			<span class="mono log__source">
@@ -110,7 +111,7 @@ const kindLabel: Record<string, string> = {
 							{year}
 						</h3>
 						<span class="mono">
-							{stops.length} shows · {countries} {countries === 1 ? "country" : "countries"}
+							{stops.length} {stops.length === 1 ? "show" : "shows"} · {countries} {countries === 1 ? "country" : "countries"}
 						</span>
 					</div>
 					<ol class="rows" role="list">
@@ -221,14 +222,14 @@ const kindLabel: Record<string, string> = {
 			<div class="kit__cell">
 				<h3 class="mono kit__label">Headshots</h3>
 				<div class="kit__shots">
-					<a href={avatar.src} download="elian-van-cutsem-headshot.jpg">
-						<Image src={avatar} alt="Headshot of Elian Van Cutsem" width={392} height={392} />
+					<a href={headshot.src} download="elian-van-cutsem-headshot.jpg">
+						<Image src={headshot} alt="Headshot of Elian Van Cutsem on stage" width={600} height={600} />
 					</a>
-					<a href={headset.src} download="elian-van-cutsem-on-stage.jpg">
-						<Image src={headset} alt="Elian on stage with a headset mic" width={392} height={392} style="object-position: 75% 30%" />
+					<a href={stageSmile.src} download="elian-van-cutsem-on-stage.jpg">
+						<Image src={stageSmile} alt="Elian on stage, smiling at the audience" width={600} height={600} style="object-position: 30% 40%" />
 					</a>
 				</div>
-				<span class="mono kit__credit">Click to download · Photo credit: Laurent Meersman</span>
+				<span class="mono kit__credit">Click to download the full-size photo</span>
 			</div>
 
 			<div class="kit__cell kit__talks">
@@ -298,6 +299,11 @@ const kindLabel: Record<string, string> = {
 	.prompt {
 		color: var(--pink);
 		font-size: var(--step-nav);
+	}
+
+	/* Pink on blue is 1.5:1; prompts on the blue plane go white. */
+	.plane-blue .prompt {
+		color: var(--paper);
 	}
 
 	.blue {
@@ -524,7 +530,7 @@ const kindLabel: Record<string, string> = {
 	}
 
 	.row__talk--missing {
-		color: #8a8a8a;
+		color: var(--grey-500);
 		font-style: italic;
 	}
 
@@ -757,6 +763,7 @@ const kindLabel: Record<string, string> = {
 
 	.kit__shots img {
 		width: 100%;
+		height: auto;
 		aspect-ratio: 1;
 		object-fit: cover;
 		background: var(--blue);

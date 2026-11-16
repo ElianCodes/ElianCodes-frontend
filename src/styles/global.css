@@ -10,7 +10,7 @@
 	--ink: #111111;
 	--paper: #ffffff;
 	--grey-100: #eaeaea;
-	--grey-500: #777777;
+	--grey-500: #666666;
 	--grey-600: #555555;
 	--grey-700: #444444;
 	--note-bg: #eef5fb;
@@ -24,6 +24,13 @@
 	--step-body: 1.25rem; /* 20px article body */
 
 	--focus: 3px solid var(--pink);
+
+	/*
+	 * Left/right edge of the centred .wrap column, for full-bleed sections whose content
+	 * should still line up with it. Resolves against <main> (a size container), so the
+	 * scrollbar doesn't throw it off.
+	 */
+	--edge: max(var(--gutter), calc((100cqw - var(--max-width)) / 2 + var(--gutter)));
 }
 
 @media (max-width: 900px) {
@@ -58,6 +65,7 @@ body {
 
 main {
 	flex: 1;
+	container-type: inline-size;
 }
 
 img,
@@ -74,6 +82,11 @@ a {
 :focus-visible {
 	outline: var(--focus);
 	outline-offset: 3px;
+}
+
+/* Component styles set display (grid, flex) which would otherwise beat the hidden attribute. */
+[hidden] {
+	display: none !important;
 }
 
 .skip-link {

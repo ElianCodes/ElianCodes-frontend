@@ -40,7 +40,7 @@ const articleSchema = {
 	datePublished: data.pubDate.toISOString(),
 	dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
 	author: { "@type": "Person", name: data.author, url: Astro.site?.toString() },
-	mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+	mainEntityOfPage: new URL(`/blog/${post.id}`, Astro.site).toString(),
 	keywords: data.tags.join(", "),
 };
 ---
@@ -75,7 +75,7 @@ const articleSchema = {
 				<h1 class="display hero__title">{data.title}</h1>
 				<p class="hero__lede">{data.description}</p>
 				<div class="byline">
-					<Image src={avatar} alt="" width={48} height={48} class="byline__avatar" />
+					<Image src={avatar} alt="" width={48} height={48} densities={[1, 2]} class="byline__avatar" />
 					<span class="byline__text">
 						<span class="byline__name">{data.author}</span>
 						<span class="mono">CTO · Vulpo</span>

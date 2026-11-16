@@ -10,7 +10,7 @@
 		"check": "vp check",
 		"lint": "vp lint",
 		"fmt": "vp fmt",
-		"deploy": "astro build && void deploy --platform cloudflare --dir dist",
+		"deploy:cf": "astro build && void deploy --platform cloudflare --dir dist",
 		"astro": "astro"
 	},
 	"dependencies": {

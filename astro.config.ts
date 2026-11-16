@@ -8,7 +8,8 @@ export default defineConfig({
 	// /blog is served from blog.html, so Cloudflare doesn't redirect /blog → /blog/.
 	trailingSlash: "never",
 	build: { format: "file" },
-	integrations: [sitemap()],
+	// /mail only opens the mail client and is noindex, so keep it out of the sitemap.
+	integrations: [sitemap({ filter: (page) => !page.endsWith("/mail") })],
 	markdown: {
 		shikiConfig: { theme: "github-dark-default" },
 	},

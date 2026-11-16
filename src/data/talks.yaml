@@ -14,3 +14,8 @@
   title: Going full-stack with Astro
   abstract: "Astro, Actions and DB: building a real full-stack app, live."
   formats: [Talk, Workshop]
+- id: astro-universal-cms-frontend
+  order: 4
+  title: "Astro as a Universal CMS Frontend"
+  abstract: "Headless, hybrid or visual editor: how Astro's islands unify every CMS setup, the trade-offs that matter, and lessons from a real integration."
+  formats: [Talk]

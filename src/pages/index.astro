@@ -1,6 +1,6 @@
 ---
 import fullRoom from "../assets/events/reactbrussels.jpg";
-import headset from "../assets/photos/headset.jpg";
+import stageGesture from "../assets/photos/stage-gesture.jpg";
 import rockstar from "../assets/photos/rockstar-react-brussels.jpg";
 import PostRow from "../components/blog/PostRow.astro";
 import Glitch from "../components/ui/Glitch.astro";
@@ -27,16 +27,17 @@ const next = getNextStage(stages);
 const tourYears = groupByYear(stages);
 const firstPostYear = posts.at(-1)?.data.pubDate.getUTCFullYear();
 const year2024 = tourYears.find((y) => y.year === 2024);
+const year2026 = tourYears.find((y) => y.year === 2026);
 const continentWords =
 	["zero", "one", "two", "three", "four", "five", "six", "seven"][stats.continents] ?? stats.continents;
 
 // "Caught on stage": stops with a photo, in the order the grid lays them out.
 const caughtIds = [
 	"jsworld-2023",
-	"react-brussels-2023",
-	"bejs-on-tour-lille-2023",
+	"react-day-berlin-2023",
+	"kongres-nextjs-2024",
 	"qwik-paris-2023",
-	"cityjs-berlin-2023",
+	"bejs-on-tour-lille-2023",
 	"fsghent-2022-09",
 ];
 const caught = caughtIds
@@ -61,9 +62,18 @@ const timeline = [
 	{
 		year: "2024",
 		what: `${year2024?.stops.length ?? 0} stages across ${year2024?.countries ?? 0} countries.`,
-		note: "From Warsaw to Zadar.",
+		note: "From Warsaw to Casablanca.",
 	},
-	{ year: "2025", what: "Took Unethical AI to Asia.", note: "Singapore and Ho Chi Minh City." },
+	{
+		year: "2025",
+		what: "Took Unethical AI to Asia. First stages in the US.",
+		note: "Singapore, Kuala Lumpur, Mississippi, New York.",
+	},
+	{
+		year: "2026",
+		what: "Took Astro to the CMS crowd at CMS Conf in Gdynia.",
+		note: `${year2026?.stops.length ?? 0} stages so far this year.`,
+	},
 	{
 		year: "Now",
 		what: "CTO at Vulpo, Lead DevRel at React Bricks, still an Astro maintainer.",
@@ -100,7 +110,6 @@ const timeline = [
 			<SignalPhoto
 				src={rockstar}
 				alt="Elian striking a rockstar pose on the React Brussels stage"
-				treated={false}
 				loading="eager"
 				sizes="(max-width: 900px) 100vw, 600px"
 				position="center 30%"
@@ -142,7 +151,7 @@ const timeline = [
 			}
 		</div>
 		<div class="strip__stat">
-			<span class="display">{stats.stages}</span><span class="mono">Talks &amp; panels</span>
+			<span class="display">{stats.stages}</span><span class="mono">Talks, panels &amp; workshops</span>
 		</div>
 		<div class="strip__stat">
 			<span class="display">{stats.countries}</span><span class="mono">Countries</span>
@@ -206,7 +215,7 @@ const timeline = [
 					</h2>
 				</div>
 				<p>
-					{stats.countries} countries since my first talk in {stats.firstYear}, from Ghent to Ho Chi Minh City. Every one
+					{stats.countries} countries since my first talk in {stats.firstYear}, from Ghent to New York. Every one
 					of them is in the log.
 				</p>
 			</div>
@@ -216,7 +225,7 @@ const timeline = [
 						<li class="so-far__year">
 							<div class="so-far__year-head">
 								<span class="display so-far__year-num">{year}</span>
-								<span class="mono">{stops.length} shows</span>
+								<span class="mono">{stops.length} {stops.length === 1 ? "show" : "shows"}</span>
 							</div>
 							<ul role="list">
 								{places.map((place) => (
@@ -239,7 +248,7 @@ const timeline = [
 		<div class="headline__copy">
 			<div class="headline__tags">
 				<span class="tag headline__tag-ink">Headline act</span>
-				<span class="tag headline__tag-outline">On tour 2025</span>
+				<span class="tag headline__tag-outline">On tour since 2025</span>
 			</div>
 			<h2 id="headline-title" class="display headline__title">
 				Playing<br /><Glitch text="with fire" split="var(--paper)" />
@@ -255,12 +264,11 @@ const timeline = [
 		</div>
 		<div class="headline__visual">
 			<SignalPhoto
-				src={headset}
-				alt="Elian speaking with a headset mic"
+				src={stageGesture}
+				alt="Elian mid-talk, gesturing at the audience"
 				sizes="(max-width: 900px) 100vw, 560px"
 				position="75% 30%"
 			/>
-			<span class="mono credit">Photo · Laurent Meersman</span>
 		</div>
 	</section>
 
@@ -357,6 +365,11 @@ const timeline = [
 		font-size: var(--step-nav);
 	}
 
+	/* Pink on blue is 1.5:1; prompts on the blue plane go white. */
+	.plane-blue .prompt {
+		color: var(--paper);
+	}
+
 	.pink {
 		color: var(--pink);
 	}
@@ -419,9 +432,7 @@ const timeline = [
 		display: flex;
 		flex-direction: column;
 		gap: 28px;
-		padding: 72px 0 72px var(--gutter);
-		max-width: calc(var(--max-width) - 600px);
-		margin-left: auto;
+		padding: 72px 48px 72px var(--edge);
 		width: 100%;
 	}
 
@@ -569,7 +580,7 @@ const timeline = [
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
-		padding: 26px 32px 26px var(--gutter);
+		padding: 26px 32px 26px var(--edge);
 	}
 
 	.strip__label {
@@ -629,7 +640,7 @@ const timeline = [
 
 	.stages-banner__card {
 		position: absolute;
-		left: var(--gutter);
+		left: var(--edge);
 		bottom: 0;
 		display: flex;
 		flex-direction: column;
@@ -748,7 +759,9 @@ const timeline = [
 
 	.so-far__years {
 		display: grid;
-		grid-template-columns: repeat(4, minmax(0, 1fr));
+		/* One column per year, however many years the tour log spans. */
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(0, 1fr);
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -776,7 +789,9 @@ const timeline = [
 	.so-far__year-num {
 		font-size: 4.5rem;
 		line-height: 0.9;
-		color: var(--pink);
+		/* White with a pink offset keeps the Signal look and stays readable on blue. */
+		color: var(--paper);
+		text-shadow: 3px 3px 0 var(--pink);
 	}
 
 	.so-far__year ul {
@@ -816,7 +831,7 @@ const timeline = [
 		flex-direction: column;
 		justify-content: center;
 		gap: 22px;
-		padding: 80px var(--gutter);
+		padding: 80px var(--gutter) 80px var(--edge);
 	}
 
 	.headline__tags {
@@ -1091,6 +1106,7 @@ const timeline = [
 		}
 
 		.so-far__years {
+			grid-auto-flow: row;
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 

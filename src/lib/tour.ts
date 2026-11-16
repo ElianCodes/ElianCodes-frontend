@@ -10,16 +10,25 @@ const CONTINENT: Record<string, string> = {
 	BE: "Europe",
 	CH: "Europe",
 	DE: "Europe",
+	ES: "Europe",
 	FR: "Europe",
 	GB: "Europe",
+	GR: "Europe",
 	HR: "Europe",
 	IT: "Europe",
+	LT: "Europe",
 	NL: "Europe",
+	NO: "Europe",
 	PL: "Europe",
 	PT: "Europe",
+	RO: "Europe",
 	RS: "Europe",
+	MY: "Asia",
 	SG: "Asia",
 	VN: "Asia",
+	MA: "Africa",
+	TN: "Africa",
+	US: "North America",
 };
 
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -68,13 +77,17 @@ export function getBroadcasts(tour: Stop[]) {
 	return tour.filter((stop) => !isStage(stop));
 }
 
-/** The next stage in the future, if any. Partial dates count as the end of their month/year. */
+/**
+ * The next stage in the future, if any. Partial dates count as the start of their month/year,
+ * so a "2026-11" talk stops being "up next" once November starts. Give an exact day for
+ * upcoming shows. Evaluated at build time, so the site needs a rebuild after a show.
+ */
 export function getNextStage(stages: Stop[], now = new Date()) {
 	const upcoming = stages.filter((stop) => {
 		const d = stop.data.date;
 		if (!d) return false;
-		const end = new Date(Date.UTC(d.year, d.month ? d.month - 1 : 11, d.day ?? 28));
-		return end >= now;
+		const start = new Date(Date.UTC(d.year, d.month ? d.month - 1 : 0, d.day ?? 1));
+		return start >= now;
 	});
 	return upcoming.at(-1);
 }

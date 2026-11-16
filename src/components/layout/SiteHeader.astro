@@ -10,7 +10,7 @@ const isActive = (href: string) => current === href || current.startsWith(`${hre
 
 <header class="site-header wrap">
 	<a href="/" class="brand display" aria-label="Elian Codes, home">
-		<Image src={avatar} alt="" width={40} height={40} class="brand__avatar" loading="eager" />
+		<Image src={avatar} alt="" width={40} height={40} densities={[1, 2]} class="brand__avatar" loading="eager" />
 		<span aria-hidden="true">Elian.codes</span>
 	</a>
 

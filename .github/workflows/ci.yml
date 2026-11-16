@@ -41,3 +41,47 @@ jobs:
 
       - name: Build site
         run: pnpm build
+
+  deploy:
+    name: Deploy to Cloudflare
+    # Only pushes to main deploy; pull requests just validate.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.elian.codes
+    # Never cancel a deploy halfway; queue the next one instead.
+    concurrency:
+      group: deploy-production
+      cancel-in-progress: false
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v5
+        with:
+          version: 10
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Build site
+        run: pnpm exec astro build
+        env:
+          # Repository variable; set to "true" to load analytics in the production build.
+          ENABLE_ANALYTICS: ${{ vars.ENABLE_ANALYTICS }}
+
+      - name: Deploy with Void
+        run: pnpm exec void deploy --platform cloudflare --dir dist
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

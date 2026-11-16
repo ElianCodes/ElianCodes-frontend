@@ -55,7 +55,11 @@ const since = firstPost
 
 	{
 		latest && (
-			<section class="wrap featured" aria-labelledby="latest-title">
+			<section
+				class="wrap featured"
+				aria-labelledby="latest-title"
+				data-search={[latest.data.title, latest.data.description, ...latest.data.tags].join(" ").toLowerCase()}
+			>
 				<a href={postUrl(latest)} class="featured__card">
 					<div class="featured__visual plane-blue">
 						<span class="featured__blob" aria-hidden="true" />
@@ -123,7 +127,13 @@ const since = firstPost
 			for (const year of years) {
 				year.hidden = !year.querySelector("[data-post]:not([hidden])");
 			}
-			if (featured) featured.hidden = terms.length > 0;
+			// The newest post lives in the featured card, so it is searchable too.
+			if (featured) {
+				const featuredHaystack = featured.dataset.search ?? "";
+				const featuredMatch = terms.every((t) => featuredHaystack.includes(t));
+				featured.hidden = !featuredMatch;
+				if (featuredMatch) shown++;
+			}
 			if (empty) empty.hidden = shown > 0;
 		};
 
@@ -153,7 +163,7 @@ const since = firstPost
 	}
 
 	.hero__prompt {
-		color: var(--paper);
+		color: var(--ink);
 		font-size: var(--step-nav);
 	}
 
