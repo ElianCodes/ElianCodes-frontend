@@ -5,6 +5,16 @@
     "compatibility_date": "2026-11-01",
     "compatibility_flags": [
       "nodejs_als"
+    ],
+    "routes": [
+      {
+        "pattern": "www.elian.codes",
+        "custom_domain": true
+      },
+      {
+        "pattern": "elian.codes",
+        "custom_domain": true
+      }
     ]
   },
   "resolved": {
@@ -13,7 +23,17 @@
     "compatibility_flags": [
       "nodejs_als"
     ],
-    "account_id": "06cdee458565490e51fb913649735dc5"
+    "account_id": "06cdee458565490e51fb913649735dc5",
+    "routes": [
+      {
+        "pattern": "www.elian.codes",
+        "custom_domain": true
+      },
+      {
+        "pattern": "elian.codes",
+        "custom_domain": true
+      }
+    ]
   },
-  "text": "{\n  \"name\": \"elian-codes\",\n  \"compatibility_date\": \"2026-11-01\",\n  \"compatibility_flags\": [\n    \"nodejs_als\"\n  ],\n  \"account_id\": \"06cdee458565490e51fb913649735dc5\"\n}\n"
+  "text": "{\n  \"name\": \"elian-codes\",\n  \"compatibility_date\": \"2026-11-01\",\n  \"compatibility_flags\": [\n    \"nodejs_als\"\n  ],\n  \"account_id\": \"06cdee458565490e51fb913649735dc5\",\n  \"routes\": [\n    {\n      \"pattern\": \"www.elian.codes\",\n      \"custom_domain\": true\n    },\n    {\n      \"pattern\": \"elian.codes\",\n      \"custom_domain\": true\n    }\n  ]\n}\n"
 }
