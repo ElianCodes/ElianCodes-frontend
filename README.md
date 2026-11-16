@@ -11,7 +11,7 @@ The full source code for Elian's personal website and blog.
 
 ## Getting started
 
-Requires Node `^24.22.0 || >=26.12.0` (see `.node-version`) and pnpm 10.
+Requires Node 26 (`>=26.13.1`, see `.node-version`) and pnpm 12 (pinned via `packageManager`).
 
 ```bash
 pnpm install
