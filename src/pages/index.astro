@@ -1,29 +1,202 @@
 ---
 import { getCollection } from "astro:content";
+import Glitch from "../components/ui/Glitch.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-// Phase 1 placeholder: proves content collections load and the deploy pipeline works.
-// The V5 "Signal" design replaces this page in phase 3.
-const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const events = await getCollection("events");
+// Phase 2 placeholder: shows the shared V5 shell (ticker, header, footer, type, glitch)
+// with real content. The full V5 home replaces this in phase 3.
+const posts = (await getCollection("posts", ({ data }) => !data.draft))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 4);
+const dateFormat = new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric", year: "numeric" });
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="robots" content="noindex" />
-		<title>elian.codes · rebuild in progress</title>
-	</head>
-	<body>
-		<main>
-			<h1>elian.codes</h1>
-			<p>Rebuild in progress: Astro, Vite+ and Void on Cloudflare.</p>
-			<p>{posts.length} articles · {events.length} events loaded</p>
-			<ul>
-				{posts.slice(0, 5).map((post) => <li>{post.data.title}</li>)}
-			</ul>
-		</main>
-	</body>
-</html>
+<BaseLayout noindex>
+	<section class="hero plane-blue">
+		<div class="wrap hero__inner">
+			<span class="mono hero__prompt">&gt; whoami</span>
+			<h1 class="display hero__title">
+				Elian<br />
+				<Glitch text="Van Cutsem" color="var(--paper)" />
+			</h1>
+			<p class="hero__lede">
+				Full-stack developer, creative technologist and all-around
+				<mark>internet troublemaker</mark>.
+			</p>
+			<div class="hero__actions">
+				<a href="/events#kit" class="btn btn--pink btn--lg">Invite me to speak →</a>
+				<a href="/blog" class="btn btn--outline btn--lg">Read the articles</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="wrap latest">
+		<h2 class="mono latest__label">Latest articles</h2>
+		<ul role="list">
+			{
+				posts.map((post, i) => (
+					<li class:list={["row", { "row--first": i === 0 }]}>
+						<span class="mono row__date">{dateFormat.format(post.data.pubDate)}</span>
+						<span class="row__body">
+							<span class="display row__title">{post.data.title}</span>
+							<span class="row__desc">{post.data.description}</span>
+						</span>
+						<span class="row__tags">
+							{post.data.tags.slice(0, 2).map((tag) => (
+								<span class="tag">{tag}</span>
+							))}
+						</span>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="cta plane-ink">
+		<div class="wrap cta__inner">
+			<h2 class="display cta__title">
+				Let's do great<br />things{" "}
+				<Glitch text="together" color="var(--pink)" split="var(--blue)" />
+			</h2>
+			<a href="mailto:hello@elian.codes" class="btn btn--pink btn--lg">Say hi →</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+		padding-block: 72px;
+	}
+
+	.hero__prompt {
+		color: var(--pink);
+		font-size: var(--step-nav);
+	}
+
+	.hero__title {
+		font-size: clamp(4.5rem, 11.4vw, 10.25rem);
+		line-height: 0.8;
+	}
+
+	.hero__lede {
+		margin: 0;
+		max-width: 600px;
+		font-size: clamp(1.375rem, 2.2vw, 1.875rem);
+		line-height: 1.25;
+		font-weight: 500;
+	}
+
+	.hero__lede mark {
+		background: var(--pink);
+		color: var(--ink);
+		padding: 0 8px;
+		box-decoration-break: clone;
+		-webkit-box-decoration-break: clone;
+	}
+
+	.hero__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.latest {
+		padding-block: 96px;
+	}
+
+	.latest__label {
+		margin: 0 0 18px;
+		font-size: var(--step-nav);
+		font-weight: 400;
+	}
+
+	.latest ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 3px solid var(--ink);
+	}
+
+	.row {
+		display: grid;
+		grid-template-columns: 150px 1fr 220px;
+		align-items: start;
+		gap: 24px;
+		padding-block: 26px;
+		border-top: 2px solid var(--ink);
+	}
+
+	.row--first {
+		border-top-width: 3px;
+	}
+
+	.row__date {
+		padding-top: 8px;
+	}
+
+	.row__body {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.row__title {
+		font-size: 2.25rem;
+		line-height: 0.92;
+	}
+
+	.row__desc {
+		font-size: 1.0625rem;
+		color: var(--grey-700);
+	}
+
+	.row__tags {
+		justify-self: end;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 6px;
+		padding-top: 6px;
+	}
+
+	.cta__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: end;
+		gap: 32px;
+		padding-block: 96px;
+	}
+
+	.cta__title {
+		font-size: clamp(3.5rem, 10vw, 9rem);
+		line-height: 0.8;
+	}
+
+	@media (max-width: 900px) {
+		.hero__inner {
+			padding-block: 48px;
+		}
+
+		.row {
+			grid-template-columns: 1fr;
+			gap: 10px;
+		}
+
+		.row__date {
+			padding-top: 0;
+		}
+
+		.row__title {
+			font-size: 1.875rem;
+		}
+
+		.row__tags {
+			justify-self: start;
+			justify-content: flex-start;
+		}
+	}
+</style>

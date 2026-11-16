@@ -1,0 +1,54 @@
+---
+import { site, socials } from "../../data/site";
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer plane-blue">
+	<div class="wrap site-footer__inner mono">
+		<span>© {year} {site.author} · Made in Ghent</span>
+		<nav aria-label="Elsewhere">
+			<ul role="list">
+				{
+					socials.map((link) => (
+						<li>
+							<a href={link.href} rel={link.href.startsWith("http") ? "me noopener" : undefined}>
+								{link.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+</footer>
+
+<style>
+	.site-footer__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px 32px;
+		padding-block: 32px;
+	}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px 26px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	a {
+		display: inline-block;
+		padding-block: 6px;
+		text-decoration: none;
+	}
+
+	a:hover {
+		box-shadow: inset 0 -3px 0 var(--pink);
+	}
+</style>

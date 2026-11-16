@@ -1,0 +1,26 @@
+---
+import BaseHead, { type Props as HeadProps } from "../components/layout/BaseHead.astro";
+import SiteFooter from "../components/layout/SiteFooter.astro";
+import SiteHeader from "../components/layout/SiteHeader.astro";
+import Ticker from "../components/layout/Ticker.astro";
+import "../styles/global.css";
+
+export type Props = HeadProps;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead {...Astro.props} />
+		<slot name="head" />
+	</head>
+	<body>
+		<a class="skip-link" href="#main">Skip to content</a>
+		<Ticker />
+		<SiteHeader />
+		<main id="main">
+			<slot />
+		</main>
+		<SiteFooter />
+	</body>
+</html>

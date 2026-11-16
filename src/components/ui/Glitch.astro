@@ -1,0 +1,90 @@
+---
+/**
+ * Chromatic split: the word is printed twice, a coloured copy offset behind the real one,
+ * like an RGB channel slipping on a screen. Screen readers only get the real copy.
+ *
+ * <Glitch text="Van Cutsem" />                          white on pink (on a blue plane)
+ * <Glitch text="together" color="var(--pink)" split="var(--blue)" />
+ */
+export interface Props {
+	text: string;
+	/** Colour of the readable copy. Defaults to the surrounding text colour. */
+	color?: string;
+	/** Colour of the offset copy. */
+	split?: string;
+	/** Horizontal offset of the split copy, as a CSS length. */
+	offset?: string;
+	/** Jitter the split on hover (off for prefers-reduced-motion). */
+	interactive?: boolean;
+	class?: string;
+}
+
+const {
+	text,
+	color = "currentColor",
+	split = "var(--pink)",
+	offset = "0.05em",
+	interactive = true,
+	class: className,
+} = Astro.props;
+---
+
+<span
+	class:list={["glitch", { "glitch--interactive": interactive }, className]}
+	style={`--glitch-color: ${color}; --glitch-split: ${split}; --glitch-offset: ${offset}`}
+>
+	<span class="glitch__split" aria-hidden="true">{text}</span>
+	<span class="glitch__text">{text}</span>
+</span>
+
+<style>
+	.glitch {
+		position: relative;
+		display: inline-block;
+		white-space: nowrap;
+	}
+
+	.glitch__split {
+		position: absolute;
+		top: 0;
+		left: var(--glitch-offset);
+		color: var(--glitch-split);
+		white-space: nowrap;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.glitch__text {
+		position: relative;
+		color: var(--glitch-color);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.glitch--interactive:hover .glitch__split {
+			animation: glitch-jitter 0.35s steps(2, end) infinite;
+		}
+	}
+
+	@keyframes glitch-jitter {
+		0% {
+			transform: translate(0, 0);
+			clip-path: inset(0 0 0 0);
+		}
+		25% {
+			transform: translate(calc(var(--glitch-offset) * 0.6), -2px);
+			clip-path: inset(10% 0 55% 0);
+		}
+		50% {
+			transform: translate(calc(var(--glitch-offset) * -1), 2px);
+			clip-path: inset(55% 0 5% 0);
+		}
+		75% {
+			transform: translate(calc(var(--glitch-offset) * 0.4), 0);
+			clip-path: inset(30% 0 30% 0);
+		}
+		100% {
+			transform: translate(0, 0);
+			clip-path: inset(0 0 0 0);
+		}
+	}
+</style>

@@ -19,6 +19,7 @@ export default defineConfig({
 			"pnpm-lock.yaml",
 			".claude/**",
 			".void-wrangler.jsonc",
+			"void.lock.json",
 		],
 	},
 });

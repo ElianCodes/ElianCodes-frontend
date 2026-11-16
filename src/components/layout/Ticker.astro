@@ -1,0 +1,64 @@
+---
+import { tickerItems } from "../../data/site";
+---
+
+<div class="ticker plane-ink" role="region" aria-label="Announcements">
+	<div class="ticker__track mono">
+		{
+			[false, true].map((duplicate) => (
+				<span class="ticker__run" aria-hidden={duplicate ? "true" : undefined}>
+					{tickerItems.map((item) => (
+						<Fragment>
+							{item}
+							<span class="ticker__star" aria-hidden="true">
+								✦
+							</span>
+						</Fragment>
+					))}
+				</span>
+			))
+		}
+	</div>
+</div>
+
+<style>
+	.ticker {
+		overflow: hidden;
+	}
+
+	.ticker__track {
+		display: flex;
+		width: max-content;
+		letter-spacing: 0.06em;
+		white-space: nowrap;
+		animation: tick 40s linear infinite;
+	}
+
+	.ticker:hover .ticker__track {
+		animation-play-state: paused;
+	}
+
+	.ticker__run {
+		padding-block: 12px;
+	}
+
+	.ticker__star {
+		color: var(--pink);
+		padding-inline: 20px;
+	}
+
+	@keyframes tick {
+		from {
+			transform: translateX(0);
+		}
+		to {
+			transform: translateX(-50%);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.ticker__track {
+			animation: none;
+		}
+	}
+</style>

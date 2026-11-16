@@ -1,0 +1,192 @@
+---
+import { Image } from "astro:assets";
+import avatar from "../../assets/elian.jpg";
+import { bookMe, nav } from "../../data/site";
+
+const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+const isActive = (href: string) => current === href || current.startsWith(`${href}/`);
+---
+
+<header class="site-header wrap">
+	<a href="/" class="brand display" aria-label="Elian Codes, home">
+		<Image src={avatar} alt="" width={40} height={40} class="brand__avatar" loading="eager" />
+		<span aria-hidden="true">Elian.codes</span>
+	</a>
+
+	<button
+		type="button"
+		class="menu-toggle btn btn--pink"
+		popovertarget="site-menu"
+		aria-controls="site-menu"
+	>
+		Menu
+	</button>
+
+	<nav id="site-menu" class="site-nav mono" aria-label="Main" popover>
+		<ul role="list">
+			{
+				nav.map((link) => (
+					<li>
+						<a href={link.href} aria-current={isActive(link.href) ? "page" : undefined}>
+							{link.label}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+		<a href={bookMe.href} class="btn btn--pink">{bookMe.label} →</a>
+		<button type="button" class="menu-close btn btn--ink" popovertarget="site-menu" popovertargetaction="hide">
+			Close
+		</button>
+	</nav>
+</header>
+
+<style>
+	.site-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 24px;
+		padding-block: 18px;
+	}
+
+	.brand {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		font-size: 2rem;
+		line-height: 1;
+		text-decoration: none;
+	}
+
+	.brand__avatar {
+		width: 40px;
+		height: 40px;
+		object-fit: cover;
+		background: var(--blue);
+	}
+
+	.site-nav {
+		display: flex;
+		align-items: center;
+		gap: 34px;
+		font-size: var(--step-nav);
+	}
+
+	.site-nav ul {
+		display: flex;
+		gap: 34px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.site-nav ul a {
+		display: inline-block;
+		padding-block: 6px;
+		text-decoration: none;
+	}
+
+	.site-nav ul a:hover,
+	.site-nav ul a[aria-current="page"] {
+		box-shadow: inset 0 -4px 0 var(--pink);
+	}
+
+	.menu-toggle,
+	.menu-close {
+		display: none;
+	}
+
+	/* Desktop: the popover nav is just an inline nav. */
+	@media (min-width: 901px) {
+		.site-nav[popover] {
+			position: static;
+			inset: auto;
+			display: flex;
+			margin: 0;
+			padding: 0;
+			border: 0;
+			background: none;
+			color: inherit;
+			overflow: visible;
+		}
+	}
+
+	/* Mobile: "Menu" opens a full-screen pink sheet. */
+	@media (max-width: 900px) {
+		.site-header {
+			padding-block: 12px;
+		}
+
+		.brand {
+			font-size: 1.625rem;
+		}
+
+		.brand__avatar {
+			width: 34px;
+			height: 34px;
+		}
+
+		.menu-toggle {
+			display: inline-flex;
+			min-width: 52px;
+			padding: 0 14px;
+			font-size: 0.6875rem;
+		}
+
+		.site-nav[popover] {
+			position: fixed;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			max-width: none;
+			max-height: none;
+			margin: 0;
+			padding: 88px var(--gutter) 32px;
+			border: 0;
+			background: var(--pink);
+			color: var(--ink);
+			flex-direction: column;
+			align-items: stretch;
+			gap: 24px;
+		}
+
+		.site-nav[popover]:not(:popover-open) {
+			display: none;
+		}
+
+		.site-nav ul {
+			flex-direction: column;
+			gap: 0;
+		}
+
+		.site-nav ul a {
+			display: block;
+			padding-block: 14px;
+			border-bottom: 2px solid var(--ink);
+			font-family: var(--font-display);
+			font-weight: 900;
+			font-size: 3.5rem;
+			line-height: 0.9;
+		}
+
+		.site-nav ul a:hover,
+		.site-nav ul a[aria-current="page"] {
+			box-shadow: none;
+			color: var(--paper);
+		}
+
+		.site-nav .btn--pink {
+			background: var(--ink);
+			color: var(--paper);
+			min-height: 60px;
+		}
+
+		.menu-close {
+			display: inline-flex;
+			position: absolute;
+			top: 12px;
+			right: var(--gutter);
+		}
+	}
+</style>

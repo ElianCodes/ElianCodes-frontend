@@ -1,0 +1,242 @@
+/*
+ * V5 "Signal": flat fluo pink + process blue planes on clean white.
+ * No paper grain, no offset shadows, no rotation. The pink/blue offset is a
+ * screen glitch (chromatic split), used sparingly on a few headline words.
+ */
+
+:root {
+	--pink: #ff48b0;
+	--blue: #0078bf;
+	--ink: #111111;
+	--paper: #ffffff;
+	--grey-100: #eaeaea;
+	--grey-500: #777777;
+	--grey-600: #555555;
+	--grey-700: #444444;
+	--note-bg: #eef5fb;
+
+	--gutter: 64px;
+	--grid-gap: 24px;
+	--max-width: 1440px;
+
+	--step-label: 0.75rem; /* 12px mono labels */
+	--step-nav: 0.8125rem; /* 13px nav */
+	--step-body: 1.25rem; /* 20px article body */
+
+	--focus: 3px solid var(--pink);
+}
+
+@media (max-width: 900px) {
+	:root {
+		--gutter: 20px;
+		--grid-gap: 16px;
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: var(--font-body);
+	font-size: 1rem;
+	line-height: 1.5;
+}
+
+main {
+	flex: 1;
+}
+
+img,
+svg,
+video {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	color: inherit;
+}
+
+:focus-visible {
+	outline: var(--focus);
+	outline-offset: 3px;
+}
+
+.skip-link {
+	position: absolute;
+	left: var(--gutter);
+	top: -100px;
+	z-index: 100;
+	padding: 12px 18px;
+	background: var(--pink);
+	color: var(--ink);
+	font-family: var(--font-mono);
+	font-size: var(--step-label);
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.skip-link:focus {
+	top: 12px;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* ---- Type ---- */
+
+.display {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	line-height: 0.85;
+	text-wrap: balance;
+}
+
+.mono {
+	font-family: var(--font-mono);
+	text-transform: uppercase;
+	font-size: var(--step-label);
+	letter-spacing: 0.02em;
+}
+
+/* ---- Layout ---- */
+
+.wrap {
+	width: 100%;
+	max-width: var(--max-width);
+	margin-inline: auto;
+	padding-inline: var(--gutter);
+}
+
+.grid-12 {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--grid-gap);
+}
+
+.plane-blue {
+	background: var(--blue);
+	color: var(--paper);
+}
+
+.plane-pink {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.plane-ink {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+/* ---- Pieces ---- */
+
+.tag {
+	display: inline-flex;
+	align-items: center;
+	min-height: 30px;
+	padding: 0 12px;
+	font-family: var(--font-mono);
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: var(--blue);
+	color: var(--paper);
+}
+
+.tag--pink {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.tag--white {
+	background: var(--paper);
+	color: var(--ink);
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	min-height: 48px;
+	padding: 0 22px;
+	border: none;
+	font-family: var(--font-mono);
+	font-size: var(--step-nav);
+	font-weight: 600;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn--lg {
+	min-height: 60px;
+	padding: 0 26px;
+}
+
+.btn--pink {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.btn--ink {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.btn--outline {
+	background: transparent;
+	color: currentColor;
+	box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.btn--pink:hover {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.btn--ink:hover {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.btn--outline:hover {
+	box-shadow: inset 0 0 0 4px currentColor;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
