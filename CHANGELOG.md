@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.106](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.105...v0.9.106) (2026-11-16)
+
+
+### Features
+
+* add feeds, markdown twins, OG images and redirects ([0fa3536](https://github.com/ElianCodes/ElianCodes-frontend/commit/0fa3536bf40bf9a462606b68843416b9f9f69304))
+* add talk pages, tour map, tag merging and tests ([8b0502d](https://github.com/ElianCodes/ElianCodes-frontend/commit/8b0502d2839064cf34b86309916af950f1c7fdef))
+* add V5 "Signal" design foundation and site shell ([5e81319](https://github.com/ElianCodes/ElianCodes-frontend/commit/5e8131954a3d508eb826192b1828b83e15f1ab1b))
+* build V5 pages on a single tour-log data source ([e907f67](https://github.com/ElianCodes/ElianCodes-frontend/commit/e907f67eaec7977551e81602e866e64e936e09c8))
+* daily rebuild, talk share images and structured data ([66c852a](https://github.com/ElianCodes/ElianCodes-frontend/commit/66c852a25f2a2d8b68c1c8f0756a8671c82f8971))
+* deploy from CI, expand the tour log and polish V5 ([1ebcaa8](https://github.com/ElianCodes/ElianCodes-frontend/commit/1ebcaa81a623af84e34822a8cc0edaf45bf6920d))
+* expose site tools to AI agents via WebMCP ([ab2e561](https://github.com/ElianCodes/ElianCodes-frontend/commit/ab2e561e5e15dd87a560f30e0aa541fbb0479eec))
+* SEO and GEO pass ([a00393e](https://github.com/ElianCodes/ElianCodes-frontend/commit/a00393eb6bf801adfb97808dcb0e50097cd1a4f1))
+* start redesign from scratch on Astro 7, Vite+ and Void ([8148147](https://github.com/ElianCodes/ElianCodes-frontend/commit/8148147fd7c2a1e887fdfd8b2352de63e84ebb3d))
+
+
+### Bug Fixes
+
+* add Fork It! Tunis 2024 to the tour log ([af5bdfa](https://github.com/ElianCodes/ElianCodes-frontend/commit/af5bdfaedaf73864ba6ad593340aaae3cb5b4093))
+* CI type checks, spaced tag URLs in the sitemap, mobile menu anchors ([ba8afac](https://github.com/ElianCodes/ElianCodes-frontend/commit/ba8afac236d24587db07d4523bbc8ef8aaf17117))
+* restore talk descriptions, add found titles, correct the tour log ([4bf3533](https://github.com/ElianCodes/ElianCodes-frontend/commit/4bf353383dc6aa5bf66431395bf84a1f9fde0d94))
+* tour log only lists stages Elian spoke on ([d8891fb](https://github.com/ElianCodes/ElianCodes-frontend/commit/d8891fb3d8d241801ecb4a2b99000a5cb73db2d5))
+
 ### [0.9.105](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.104...v0.9.105) (2026-06-09)
 
 
