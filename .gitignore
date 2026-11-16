@@ -1,16 +1,11 @@
 # build output
 dist
-.firebase/
-.firebaserc
 
 # dependencies
 node_modules/
-.snowpack/
 
 # logs
 npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
 
 # environment variables
 .env
@@ -19,12 +14,8 @@ yarn-error.log*
 # macOS-specific files
 .DS_Store
 
-firebase-debug.log
-
 .vscode/
-/.vercel
 /.astro
-/playwright-report
 
 # void (generated)
 /.void
