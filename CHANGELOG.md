@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.105](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.104...v0.9.105) (2026-06-09)
+
+
+### Bug Fixes
+
+* **blog:** use heading slug for table-of-contents anchors ([8a43dc0](https://github.com/ElianCodes/ElianCodes-frontend/commit/8a43dc0fdf0162955493bfb3c523b3ef81d9a904))
+
 ### [0.9.104](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.103...v0.9.104) (2026-06-06)
 
 
