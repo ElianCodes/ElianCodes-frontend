@@ -10,8 +10,10 @@
 # photo:    file name in src/assets/events/
 #
 # Sources: elian.codes events, Sessionize, GitNation, FOSDEM, and the "Upcoming talks & events"
-# list in the history of github.com/ElianCodes/ElianCodes (README). Entries marked "# readme" are
-# only known from that list, so double-check they actually happened.
+# list in the history of github.com/ElianCodes/ElianCodes (README). Elian confirmed all of them.
+#
+# Only list stages Elian spoke on. Events he only organized (React Africa, React Paris, BeJS...)
+# live in organizedStages in src/data/site.ts.
 #
 # TODO (only Elian knows): talk titles marked "# talk?" and replay URLs for AgentCon Singapore
 # and React Brussels 2024.
@@ -31,7 +33,7 @@
   event: DevDays Europe
   city: Vilnius
   country: LT
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://devdays.lt/
 
 # ---- 2025 ----
@@ -48,14 +50,14 @@
   event: Infobip Shift Asia
   city: Kuala Lumpur
   country: MY
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://shift.infobip.com/asia/
 - id: magnoliajs-2025
   date: 2025-10-22
   event: MagnoliaJS
   city: Jackson, MS
   country: US
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://2025.magnoliaconf.com/
 - id: codemotion-milan-2025
   date: 2025-10-14
@@ -83,7 +85,7 @@
   event: React Alicante
   city: Alicante
   country: ES
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://reactalicante.es/
 - id: agentcon-hcmc-2025
   date: 2025-09-11
@@ -113,21 +115,21 @@
   event: Code Europe
   city: Krakow
   country: PL
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://www.codeeurope.pl/en/
 - id: react-norway-2025
   date: 2025-06-20
   event: React Norway
   city: Larvik
   country: "NO"
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://reactnorway.com/
 - id: devtalks-romania-2025
   date: 2025-06-04
   event: DevTalks Romania
   city: Bucharest
   country: RO
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://www.devtalks.ro/
 - id: jnation-2025
   date: 2025-05-28
@@ -150,27 +152,19 @@
   country: TN
   kind: talk # talk?
   link: https://www.forkit.community
-- id: react-paris-2025
-  # Sessionize listed this as React Paris "2024"; the README dates it 21 March 2025.
-  date: 2025-03-21
-  event: React Paris
-  city: Paris
-  country: FR
-  kind: talk # talk?
-  link: https://react.paris/
 - id: typescript-la-conf-2025
   date: 2025-02-28
   event: TypeScript la Conf'
   city: Paris
   country: FR
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://la-conf.typescript.paris/
 - id: fosdem-2025
   date: 2025-02-02
   event: FOSDEM
   city: Brussels
   country: BE
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://fosdem.org/2025/
 
 # ---- 2024 ----
@@ -199,14 +193,6 @@
   kind: talk
   talk: Going full-stack with Astro
   link: https://armada-js.com/speakers/2024/elian-van-cutsem
-- id: react-africa-2024
-  # Probably the "Fork it! 2024" entry on Sessionize: React Africa is run by the Fork It! community.
-  date: 2024-11-29
-  event: React Africa
-  city: Casablanca
-  country: MA
-  kind: talk # talk?
-  link: https://react-africa.com/
 - id: react-advanced-2024
   date: 2024-10-25
   event: React Advanced
@@ -228,7 +214,7 @@
   event: React Alicante
   city: Alicante
   country: ES
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://reactalicante.es/
 - id: infobip-shift-2024
   date: 2024-09-15
@@ -242,21 +228,21 @@
   event: CityJS Singapore
   city: Singapore
   country: SG
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://singapore.cityjsconf.org/
 - id: react-norway-2024
   date: 2024-06-14
   event: React Norway
   city: Larvik
   country: "NO"
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://reactnorway.com/
 - id: cityjs-athens-2024
   date: 2024-06-06
   event: CityJS Athens
   city: Athens
   country: GR
-  kind: talk # talk? readme
+  kind: talk # talk?
   link: https://greece.cityjsconf.org/
 - id: jnation-2024
   date: 2024-06-04
@@ -344,7 +330,7 @@
   date: 2023-10-12
   event: Stories on the Road (Storyblok)
   country: BE
-  kind: talk # talk? city? readme
+  kind: talk # talk? city?
   link: https://www.storyblok.com/ev/stories-on-the-road-belgium-2023
 - id: react-brussels-2023
   date: 2023-10-13
