@@ -16,7 +16,7 @@
       ],
       "service-doc": [
         {
-          "href": "https://www.elian.codes/blog/",
+          "href": "https://www.elian.codes/blog",
           "title": "Blog — technical writing by Elian Van Cutsem"
         }
       ],
@@ -30,6 +30,13 @@
           "href": "https://www.elian.codes/sitemap-index.xml",
           "type": "application/xml",
           "title": "Sitemap"
+        }
+      ],
+      "service-desc": [
+        {
+          "href": "https://www.elian.codes/site.json",
+          "type": "application/json",
+          "title": "Site index: articles, talks, stats and contact (also used by the WebMCP tools)"
         }
       ]
     }

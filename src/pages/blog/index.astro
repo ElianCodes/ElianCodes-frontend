@@ -1,54 +1,392 @@
 ---
-import BlogList from "@components/blog/BlogList.astro";
-import Layout from "@layouts/new/Default.astro";
-import { getSortedBlogPosts } from "@lib/content";
-import Section from "@ui/Section.astro";
-import TitleSection from "@ui/TitleSection.astro";
+import PostArchive from "../../components/blog/PostArchive.astro";
+import Glitch from "../../components/ui/Glitch.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { formatDate, getPosts, getTagIndex, plainTitle, postUrl, tagUrl } from "../../lib/posts";
+import { breadcrumbs, collectionPage } from "../../lib/schema";
 
-const posts = await getSortedBlogPosts();
-const blogUrl = new URL("/blog/", Astro.site).toString();
-const blogImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
-const blogSchema = {
-	"@context": "https://schema.org",
-	"@type": "CollectionPage",
-	name: "Elian Codes Blog",
-	description:
-		"Articles by Elian Van Cutsem about Astro, React, web engineering, developer experience, and tools.",
-	url: blogUrl,
-	image: blogImage,
-	mainEntity: {
-		"@type": "ItemList",
-		itemListElement: posts.map((post, index) => ({
-			"@type": "ListItem",
-			position: index + 1,
-			url: new URL(`/blog/${post.id}/`, Astro.site).toString(),
-			name: post.data.title,
-		})),
-	},
-};
+const posts = await getPosts();
+const [latest, ...rest] = posts;
+const topTags = getTagIndex(posts).slice(0, 8);
+const description = `${posts.length} articles on Astro, PHP, self-hosting, AI and the occasional rant.`;
+const firstPost = posts.at(-1);
+const since = firstPost
+	? firstPost.data.pubDate.toLocaleString("en-US", { month: "long", year: "numeric", timeZone: "UTC" })
+	: "";
 ---
 
-<Layout
-	title="Blog"
-	description="Elian Codes Blog | On this page you can find a collection of my blogposts, related to web technologies and programming."
-	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
-	socialImgAlt='Social preview image for the Elian Codes blog'
-	socialImgWidth={1200}
-	socialImgHeight={630}
-	schema={blogSchema}
+<BaseLayout
+	title="Articles"
+	description={description}
+	schema={[
+		collectionPage(
+			{ name: "Articles by Elian Van Cutsem", path: "/blog", description },
+			posts.map((post) => ({ name: plainTitle(post.data.title), path: postUrl(post) })),
+			Astro.site!,
+		),
+		breadcrumbs([["Home", "/"], ["Articles", "/blog"]], Astro.site!),
+	]}
 >
-	<TitleSection
-		title='Articles'
-		subtitle='Writing about Astro, the web, and developer experience.'
-	/>
-	<Section class='blog-index'>
-		<BlogList posts={posts} />
-	</Section>
-</Layout>
+	<section class="hero plane-pink">
+		<div class="wrap hero__inner">
+			<div class="hero__copy">
+				<span class="mono hero__prompt">&gt; ls ./articles | wc -l → {posts.length}</span>
+				<h1 class="display hero__title">
+					Hot takes &amp;<br />
+					<Glitch text="deep dives" split="var(--paper)" />
+				</h1>
+				<p class="hero__lede">
+					{posts.length} articles since {since}. Astro, PHP, self-hosting, AI, and a healthy number of rants.
+				</p>
+			</div>
+			<div class="hero__tools">
+				<label class="search" data-search-box hidden>
+					<span class="mono search__prompt" aria-hidden="true">&gt;</span>
+					<span class="visually-hidden">Search articles</span>
+					<input type="search" placeholder={`search ${posts.length} articles…`} data-search-input />
+					<kbd class="mono search__kbd" aria-hidden="true">⌘K</kbd>
+				</label>
+				<nav aria-label="Popular tags">
+					<ul class="chips" role="list">
+						{
+							topTags.map((tag) => (
+								<li>
+									<a class="tag tag--white" href={tagUrl(tag.label)}>
+										{tag.label}
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</section>
+
+	{
+		latest && (
+			<section
+				class="wrap featured"
+				aria-labelledby="latest-title"
+				data-search={[latest.data.title, latest.data.description, ...latest.data.tags].join(" ").toLowerCase()}
+			>
+				<a href={postUrl(latest)} class="featured__card">
+					<div class="featured__visual plane-blue">
+						<span class="featured__blob" aria-hidden="true" />
+						<span class="mono featured__path">elian.codes{postUrl(latest)}</span>
+						<span class="display featured__big" aria-hidden="true">
+							{latest.data.title}
+						</span>
+						<span class="featured__tags">
+							{latest.data.tags.slice(0, 3).map((tag, i) => (
+								<span class:list={["tag", i === 0 ? "tag--pink" : "tag--white"]}>{tag}</span>
+							))}
+						</span>
+					</div>
+					<div class="featured__text">
+						<span class="tag tag--pink">Latest</span>
+						<span class="mono">{formatDate(latest.data.pubDate)}</span>
+						<h2 id="latest-title" class="display featured__title">
+							{latest.data.title}
+						</h2>
+						<p class="featured__desc">{latest.data.description}</p>
+						<span class="mono featured__cta">Read it →</span>
+					</div>
+				</a>
+			</section>
+		)
+	}
+
+	<PostArchive posts={rest} />
+
+	<section class="subscribe plane-blue">
+		<div class="wrap subscribe__inner">
+			<div>
+				<h2 class="display subscribe__title">Get the next hot take</h2>
+				<p>RSS at elian.codes/blog.xml. There's even an llms.txt for your agents.</p>
+			</div>
+			<div class="subscribe__actions">
+				<a href="/blog.xml" class="btn btn--pink btn--lg">RSS feed</a>
+				<a href="/llms.txt" class="btn btn--outline btn--lg">llms.txt</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<script>
+	// Progressive enhancement: the archive works without JS; this adds instant search.
+	const box = document.querySelector<HTMLElement>("[data-search-box]");
+	const input = document.querySelector<HTMLInputElement>("[data-search-input]");
+	const featured = document.querySelector<HTMLElement>(".featured");
+	const rows = [...document.querySelectorAll<HTMLElement>("[data-post]")];
+	const years = [...document.querySelectorAll<HTMLElement>("[data-year]")];
+	const empty = document.querySelector<HTMLElement>("[data-empty]");
+
+	if (box && input) {
+		box.hidden = false;
+
+		const apply = () => {
+			const terms = input.value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+			let shown = 0;
+			for (const row of rows) {
+				const haystack = row.dataset.search ?? "";
+				const match = terms.every((t) => haystack.includes(t));
+				row.hidden = !match;
+				if (match) shown++;
+			}
+			for (const year of years) {
+				year.hidden = !year.querySelector("[data-post]:not([hidden])");
+			}
+			// The newest post lives in the featured card, so it is searchable too.
+			if (featured) {
+				const featuredHaystack = featured.dataset.search ?? "";
+				const featuredMatch = terms.every((t) => featuredHaystack.includes(t));
+				featured.hidden = !featuredMatch;
+				if (featuredMatch) shown++;
+			}
+			if (empty) empty.hidden = shown > 0;
+		};
+
+		input.addEventListener("input", apply);
+		document.addEventListener("keydown", (event) => {
+			if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+				event.preventDefault();
+				input.focus();
+			}
+		});
+	}
+</script>
 
 <style>
-	.blog-index {
-		padding-top: 2rem;
-		padding-bottom: 4rem;
+	.hero__inner {
+		display: grid;
+		grid-template-columns: 1fr minmax(0, 520px);
+		gap: 48px;
+		align-items: end;
+		padding-block: 72px 56px;
+	}
+
+	.hero__copy {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	.hero__prompt {
+		color: var(--ink);
+		font-size: var(--step-nav);
+	}
+
+	.hero__title {
+		font-size: clamp(4rem, 10.8vw, 9.75rem);
+		line-height: 0.8;
+	}
+
+	.hero__lede {
+		margin: 0;
+		max-width: 620px;
+		font-size: 1.3125rem;
+		font-weight: 500;
+	}
+
+	.hero__tools {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.search {
+		display: flex;
+		align-items: center;
+		gap: 12px;
+		min-height: 62px;
+		padding: 0 20px;
+		background: var(--paper);
+	}
+
+	.search[hidden] {
+		display: none;
+	}
+
+	.search:focus-within {
+		outline: 3px solid var(--ink);
+	}
+
+	.search__prompt {
+		color: var(--blue);
+		font-size: 0.875rem;
+	}
+
+	.search input {
+		flex: 1;
+		min-width: 0;
+		border: none;
+		background: transparent;
+		color: var(--ink);
+		font: 500 1.0625rem var(--font-body);
+		outline: none;
+	}
+
+	.search__kbd {
+		font-size: 0.6875rem;
+		padding: 3px 6px;
+		box-shadow: inset 0 0 0 1px var(--ink);
+	}
+
+	.chips {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.chips a:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.featured {
+		padding-top: 72px;
+	}
+
+	.featured__card {
+		display: grid;
+		grid-template-columns: 1.1fr 1fr;
+		text-decoration: none;
+	}
+
+	.featured__visual {
+		position: relative;
+		min-height: 480px;
+		overflow: hidden;
+		padding: 40px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 24px;
+	}
+
+	.featured__visual > :not(.featured__blob) {
+		position: relative;
+	}
+
+	.featured__blob {
+		position: absolute;
+		right: -120px;
+		top: -120px;
+		width: 420px;
+		height: 420px;
+		border-radius: 999px;
+		background: var(--pink);
+		mix-blend-mode: multiply;
+		transition: transform 0.6s ease;
+	}
+
+	.featured__card:hover .featured__blob {
+		transform: translate(-40px, 40px) scale(1.1);
+	}
+
+	.featured__path {
+		overflow-wrap: anywhere;
+	}
+
+	.featured__big {
+		font-size: clamp(3rem, 5.8vw, 5.25rem);
+		line-height: 0.84;
+	}
+
+	.featured__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.featured__text {
+		padding: 44px 48px;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+		gap: 18px;
+		box-shadow: inset 0 0 0 3px var(--ink);
+	}
+
+	.featured__title {
+		font-size: clamp(2.5rem, 4.4vw, 4rem);
+		line-height: 0.88;
+	}
+
+	.featured__desc {
+		margin: 0;
+		font-size: 1.1875rem;
+		line-height: 1.55;
+		color: #333;
+	}
+
+	.featured__cta {
+		color: var(--blue);
+		font-size: var(--step-nav);
+	}
+
+	.featured__card:hover .featured__cta {
+		box-shadow: inset 0 -3px 0 var(--pink);
+	}
+
+	.subscribe {
+		margin-top: 96px;
+	}
+
+	.subscribe__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 32px 40px;
+		padding-block: 56px;
+	}
+
+	.subscribe__title {
+		font-size: clamp(2.75rem, 5vw, 4.5rem);
+	}
+
+	.subscribe p {
+		margin: 8px 0 0;
+		font-size: 1.1875rem;
+	}
+
+	.subscribe__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	@media (max-width: 900px) {
+		.hero__inner {
+			grid-template-columns: 1fr;
+			padding-block: 48px;
+		}
+
+		.featured {
+			padding-top: 40px;
+		}
+
+		.featured__card {
+			grid-template-columns: 1fr;
+		}
+
+		.featured__visual {
+			min-height: 260px;
+			padding: 24px;
+		}
+
+		.featured__big {
+			display: none;
+		}
+
+		.featured__text {
+			padding: 28px 24px;
+		}
 	}
 </style>

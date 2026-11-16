@@ -1,97 +1,960 @@
 ---
-import EventSummaryCard from "@components/events/EventSummaryCard.astro";
-import Layout from "@layouts/new/Default.astro";
-import { getSortedEvents } from "@lib/content";
-import Section from "@ui/Section.astro";
-import TitleSection from "@ui/TitleSection.astro";
+import { Image } from "astro:assets";
+import headshot from "../assets/photos/headshot.jpg";
+import stageSmile from "../assets/photos/stage-smile.jpg";
+import reactBrussels from "../assets/events/reactbrussels.jpg";
+import Glitch from "../components/ui/Glitch.astro";
+import SignalPhoto from "../components/ui/SignalPhoto.astro";
+import Stat from "../components/ui/Stat.astro";
+import TourMap from "../components/ui/TourMap.astro";
+import { bio, organizedStages, sessionize, site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { breadcrumbs, personId, stopEvent } from "../lib/schema";
+import { getTalks, talkForStop, talkUrl } from "../lib/talks";
+import {
+	getBroadcasts,
+	getNextStage,
+	getStages,
+	getStats,
+	getTour,
+	groupByYear,
+	isOnline,
+	monthLabel,
+	monthYearLabel,
+	placeLabel,
+} from "../lib/tour";
 
-const events = await getSortedEvents();
-const eventsImage = new URL(
-	"/v1/generate/og/default.png",
-	Astro.site,
-).toString();
-const eventsSchema = {
-	"@context": "https://schema.org",
-	"@type": "CollectionPage",
-	name: "Events and talks",
-	description:
-		"Conference talks, workshops, livestreams, and community events featuring Elian Van Cutsem.",
-	url: new URL("/events/", Astro.site).toString(),
-	image: eventsImage,
-	mainEntity: {
-		"@type": "ItemList",
-		itemListElement: events.map((event, index) => ({
-			"@type": "ListItem",
-			position: index + 1,
-			item: {
-				"@type": "Event",
-				name: event.data.title,
-				description: event.data.abstract,
-				startDate: event.data.date.toISOString(),
-				eventAttendanceMode: "https://schema.org/MixedEventAttendanceMode",
-				eventStatus: "https://schema.org/EventScheduled",
-				url: event.data.link,
-				organizer: {
-					"@type": "Organization",
-					name: event.data.name,
-				},
-				performer: {
-					"@type": "Person",
-					name: "Elian Van Cutsem",
-				},
-			},
-		})),
-	},
+const tour = await getTour();
+const stages = getStages(tour);
+const broadcasts = getBroadcasts(tour);
+const stats = getStats(stages);
+const next = getNextStage(stages);
+// Future stages, for search engines (structured data). Same rule as "Up next".
+const upcoming = stages.filter((stop) => getNextStage([stop]) !== undefined);
+const years = groupByYear(stages);
+const allTalks = await getTalks();
+const talks = allTalks.filter((t) => t.bookable);
+
+const firstStage = stages.at(-1);
+const kindLabel: Record<string, string> = {
+	talk: "Talk",
+	keynote: "Keynote",
+	panel: "Panel",
+	workshop: "Workshop",
 };
 ---
 
-<Layout
+<BaseLayout
 	title="Events"
-	description="See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript)."
-	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
-	socialImgAlt='Social preview image for Elian Van Cutsem events and talks'
-	socialImgWidth={1200}
-	socialImgHeight={630}
-	schema={eventsSchema}
+	schema={[
+		{
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			name: "Tour log of Elian Van Cutsem",
+			url: new URL("/events", Astro.site).href,
+			about: { "@id": personId(Astro.site!) },
+			mainEntity: {
+				"@type": "ItemList",
+				numberOfItems: stages.length,
+				itemListElement: stages.map((stop, i) => ({
+					"@type": "ListItem",
+					position: i + 1,
+					item: stopEvent(stop, Astro.site!),
+				})),
+			},
+		},
+		...upcoming.map((stop) => stopEvent(stop, Astro.site!)),
+		breadcrumbs([["Home", "/"], ["Events", "/events"]], Astro.site!),
+	]}
+	description={`Tour log: ${stats.stages} talks and panels in ${stats.countries} countries since ${stats.firstYear}, plus the speaker kit for organizers.`}
 >
-	<TitleSection
-		title='Events'
-		subtitle='Talks, workshops, livestreams, and community events.'
-	/>
-	<Section class='events-page'>
-		<ul class='events-page__grid'>
-			{
-				events.map((event) => (
-					<li>
-						<EventSummaryCard event={event} />
-					</li>
-				))
-			}
-		</ul>
-	</Section>
-</Layout>
+	<section class="hero plane-blue">
+		<div class="wrap hero__inner">
+			<div class="hero__copy">
+				<span class="mono prompt">&gt; tail -f ./tour.log</span>
+				<h1 class="display hero__title"><Glitch text="Tour log" color="var(--paper)" /></h1>
+				<p class="hero__lede">
+					Every conference, meetup, panel and workshop since my first talk at {firstStage?.data.event} in {
+						firstStage ? monthYearLabel(firstStage) : ""
+					}. Replays where they exist.
+				</p>
+			</div>
+			<div class="hero__stats">
+				<Stat value={stats.stages} label="Talks, panels & workshops" class="plane-pink" />
+				<Stat value={stats.countries} label="Countries" class="stat--white" />
+				<Stat value={stats.continents} label="Continents" class="plane-ink" />
+			</div>
+		</div>
+		<div class="wrap hero__map">
+			<TourMap stages={stages} />
+		</div>
+	</section>
 
-<style>
-	.events-page {
-		padding-top: 2rem;
-		padding-bottom: 4rem;
+	{
+		next && (
+			<section class="next plane-ink" aria-labelledby="next-title">
+				<div class="next__copy">
+					<span class="mono next__label">● Up next</span>
+					<h2 id="next-title" class="display next__title">
+						{next.data.event} · {placeLabel(next)}
+					</h2>
+					<p>
+						{monthYearLabel(next)}
+						{next.data.talk && ` · ${next.data.talk}`}
+					</p>
+				</div>
+				<div class="next__visual">
+					<SignalPhoto src={reactBrussels} alt="" sizes="520px" />
+					{next.data.link && (
+						<a href={next.data.link} class="btn btn--pink btn--lg next__cta">
+							Get tickets →
+						</a>
+					)}
+				</div>
+			</section>
+		)
 	}
 
-	.events-page__grid {
-		display: grid;
-		gap: 1.75rem;
-		list-style: none;
-	}
+	<section class="wrap log" aria-labelledby="log-title">
+		<h2 id="log-title" class="visually-hidden">All stages</h2>
+		<div class="log__bar">
+			<div class="filters" role="group" aria-label="Filter the tour log" data-filters hidden>
+				<button type="button" class="filter" aria-pressed="true" data-filter="all">All</button>
+				<button type="button" class="filter" aria-pressed="false" data-filter="talk">Talks</button>
+				<button type="button" class="filter" aria-pressed="false" data-filter="keynote">Keynotes</button>
+				<button type="button" class="filter" aria-pressed="false" data-filter="panel">Panels</button>
+				<button type="button" class="filter" aria-pressed="false" data-filter="workshop">Workshops</button>
+				<button type="button" class="filter" aria-pressed="false" data-filter="replay">With replay</button>
+			</div>
+			<span class="mono log__source">
+				Sources: elian.codes/events + <a href={sessionize}>sessionize.com/eliancodes</a>
+			</span>
+		</div>
 
-	@media (min-width: 768px) {
-		.events-page__grid {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+		{
+			years.map(({ year, stops, countries }) => (
+				<section class="year" data-year aria-labelledby={`tour-${year}`}>
+					<div class="year__label">
+						<h3 id={`tour-${year}`} class="display year__heading">
+							{year}
+						</h3>
+						<span class="mono">
+							{stops.length} {stops.length === 1 ? "show" : "shows"} · {countries} {countries === 1 ? "country" : "countries"}
+						</span>
+					</div>
+					<ol class="rows" role="list">
+						{stops.map((stop) => (
+							<li class="row" data-kind={stop.data.kind} data-replay={stop.data.replay ? "true" : "false"}>
+								<span class="mono row__month">{monthLabel(stop)}</span>
+								<span class="row__place">
+									<span class="display row__city">{placeLabel(stop)}</span>
+									{stop.data.country && !isOnline(stop) && (
+										<span class="mono row__country">{stop.data.country}</span>
+									)}
+								</span>
+								<span class="row__event">
+									{stop.data.link ? <a href={stop.data.link}>{stop.data.event}</a> : stop.data.event}
+									{stop.data.kind !== "talk" && (
+										<span class="tag tag--pink row__kind">{kindLabel[stop.data.kind]}</span>
+									)}
+								</span>
+								<span class:list={["row__talk", { "row__talk--missing": !stop.data.talk }]}>
+									{(() => {
+										const talk = talkForStop(allTalks, stop);
+										return talk ? <a href={talkUrl(talk)}>{stop.data.talk}</a> : (stop.data.talk ?? "Talk title coming soon");
+									})()}
+								</span>
+								<span class="row__replay">
+									{stop.data.replay && (
+										<a href={stop.data.replay} class="mono">
+											▶ Watch<span class="visually-hidden"> {stop.data.event}</span>
+										</a>
+									)}
+								</span>
+							</li>
+						))}
+					</ol>
+				</section>
+			))
+		}
+		<p class="log__empty" data-empty hidden>No shows match that filter yet.</p>
+		<p class="mono log__note">Online events count as shows, not countries.</p>
+	</section>
+
+	<section class="air plane-ink" aria-labelledby="air-title">
+		<div class="wrap air__inner">
+			<div class="air__head">
+				<span class="mono prompt">&gt; on air</span>
+				<h2 id="air-title" class="display air__title">Streams &amp; podcasts</h2>
+			</div>
+			<ul class="air__list" role="list">
+				{
+					broadcasts.map((show) => (
+						<li class="air__row">
+							<span class="mono">{monthYearLabel(show)}</span>
+							<span class="display air__name">
+								{show.data.replay ? <a href={show.data.replay}>{show.data.event}</a> : show.data.event}
+							</span>
+							<span>{show.data.talk}</span>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section id="stages" class="build plane-blue" aria-labelledby="build-title">
+		<div class="wrap build__inner">
+			<div class="build__head">
+				<h2 id="build-title" class="display build__title">Stages I build</h2>
+				<p>Other speakers tour through these. I co-organize them.</p>
+			</div>
+			<ul class="build__grid" role="list">
+				{
+					organizedStages.map((stage, i) => {
+						const Tag = stage.href ? "a" : "div";
+						return (
+							<li>
+								<Tag
+									href={stage.href}
+									class:list={["build__card", { "build__card--pink": i === 1 }]}
+								>
+									<span class="mono">{stage.city ?? "On tour"}</span>
+									<span class="display build__name">{stage.name}</span>
+								</Tag>
+							</li>
+						);
+					})
+				}
+			</ul>
+		</div>
+	</section>
+
+	<section id="kit" class="wrap kit" aria-labelledby="kit-title">
+		<div class="kit__intro">
+			<h2 id="kit-title" class="display kit__title">Speaker<br /><span class="blue">kit</span></h2>
+			<p>Everything an organizer needs. {stats.stages} talks in, still guaranteed fun on stage.</p>
+			<span class="tag tag--pink">★ Sessionize most active speaker</span>
+			<div class="kit__actions">
+				<a href={`mailto:${site.email}`} class="btn btn--pink btn--lg">Invite me →</a>
+				<a href={sessionize} class="btn btn--outline btn--lg">Sessionize</a>
+			</div>
+		</div>
+
+		<div class="kit__panel">
+			<div class="kit__cell kit__bio">
+				<div class="kit__cell-head">
+					<h3 class="display">Bio</h3>
+					<button type="button" class="btn btn--pink kit__copy" data-copy="#bio-text" hidden>Copy</button>
+				</div>
+				<p id="bio-text">{bio}</p>
+			</div>
+
+			<div class="kit__cell">
+				<h3 class="mono kit__label">Headshots</h3>
+				<div class="kit__shots">
+					<a href={headshot.src} download="elian-van-cutsem-headshot.jpg">
+						<Image src={headshot} alt="Headshot of Elian Van Cutsem on stage" width={600} height={600} />
+					</a>
+					<a href={stageSmile.src} download="elian-van-cutsem-on-stage.jpg">
+						<Image src={stageSmile} alt="Elian on stage, smiling at the audience" width={600} height={600} style="object-position: 30% 40%" />
+					</a>
+				</div>
+				<span class="mono kit__credit">Click to download the full-size photo</span>
+			</div>
+
+			<div class="kit__cell kit__talks">
+				<h3 class="mono kit__label">Talks you can book</h3>
+				<ul role="list">
+					{
+						talks.map((talk) => (
+							<li class="kit__talk">
+								<span>
+									<a href={talkUrl(talk)} class="display kit__talk-title">{talk.title}</a>
+									<span class="kit__talk-abstract">{talk.abstract}</span>
+								</span>
+								<span class="tag">{talk.formats.join(" · ")}</span>
+							</li>
+						))
+					}
+				</ul>
+			</div>
+		</div>
+	</section>
+	<div class="spacer"></div>
+</BaseLayout>
+
+<script>
+	// Filters and the copy button are enhancements: without JS everything is still listed.
+	const filterGroup = document.querySelector<HTMLElement>("[data-filters]");
+	if (filterGroup) {
+		filterGroup.hidden = false;
+		const buttons = [...filterGroup.querySelectorAll<HTMLButtonElement>("[data-filter]")];
+		const rows = [...document.querySelectorAll<HTMLElement>(".row[data-kind]")];
+		const years = [...document.querySelectorAll<HTMLElement>("[data-year]")];
+		const empty = document.querySelector<HTMLElement>("[data-empty]");
+
+		for (const button of buttons) {
+			button.addEventListener("click", () => {
+				const filter = button.dataset.filter;
+				for (const b of buttons) b.setAttribute("aria-pressed", String(b === button));
+				let shown = 0;
+				for (const row of rows) {
+					const match =
+						filter === "all" ||
+						(filter === "replay" ? row.dataset.replay === "true" : row.dataset.kind === filter);
+					row.hidden = !match;
+					if (match) shown++;
+				}
+				for (const year of years) year.hidden = !year.querySelector(".row:not([hidden])");
+				if (empty) empty.hidden = shown > 0;
+			});
 		}
 	}
 
-	@media (min-width: 1280px) {
-		.events-page__grid {
+	for (const button of document.querySelectorAll<HTMLButtonElement>("[data-copy]")) {
+		const target = document.querySelector(button.dataset.copy ?? "");
+		if (!target || !navigator.clipboard) continue;
+		button.hidden = false;
+		button.addEventListener("click", async () => {
+			await navigator.clipboard.writeText(target.textContent?.trim() ?? "");
+			button.textContent = "Copied ✓";
+			setTimeout(() => {
+				button.textContent = "Copy";
+			}, 2000);
+		});
+	}
+</script>
+
+<style>
+	.prompt {
+		color: var(--pink);
+		font-size: var(--step-nav);
+	}
+
+	/* Pink on blue is 1.5:1; prompts on the blue plane go white. */
+	.plane-blue .prompt {
+		color: var(--paper);
+	}
+
+	.blue {
+		color: var(--blue);
+	}
+
+	/* Hero */
+	.hero__inner {
+		display: grid;
+		grid-template-columns: 1fr minmax(0, 520px);
+		gap: 48px;
+		align-items: end;
+		padding-block: 72px 64px;
+	}
+
+	.hero__copy {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+	}
+
+	.hero__title {
+		font-size: clamp(4.5rem, 12.8vw, 11.5rem);
+		line-height: 0.8;
+	}
+
+	.hero__lede {
+		margin: 0;
+		max-width: 620px;
+		font-size: 1.3125rem;
+	}
+
+	.hero__map {
+		padding-bottom: 56px;
+	}
+
+	.hero__stats {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	.hero__stats :global(.stat--white) {
+		background: var(--paper);
+		color: var(--ink);
+	}
+
+	/* Up next */
+	.next {
+		display: grid;
+		grid-template-columns: 1fr minmax(0, 520px);
+	}
+
+	.next__copy {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 36px var(--gutter);
+	}
+
+	.next__label {
+		color: var(--pink);
+	}
+
+	.next__title {
+		font-size: clamp(2.5rem, 4.5vw, 4rem);
+		line-height: 0.9;
+	}
+
+	.next p {
+		margin: 0;
+		font-size: 1.125rem;
+		color: #cccccc;
+	}
+
+	.next__visual {
+		position: relative;
+		min-height: 240px;
+	}
+
+	.next__visual :global(.photo) {
+		position: absolute;
+		inset: 0;
+	}
+
+	.next__cta {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+
+	/* Tour log */
+	.log {
+		padding-top: 72px;
+	}
+
+	.log__bar {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+		padding-bottom: 8px;
+	}
+
+	.filters {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+
+	.filters[hidden] {
+		display: none;
+	}
+
+	.filter {
+		display: inline-flex;
+		align-items: center;
+		min-height: 36px;
+		padding: 0 12px;
+		border: 2px solid var(--ink);
+		background: transparent;
+		color: var(--ink);
+		font-family: var(--font-mono);
+		font-size: 0.6875rem;
+		text-transform: uppercase;
+		cursor: pointer;
+	}
+
+	.filter:hover {
+		background: var(--pink);
+	}
+
+	.filter[aria-pressed="true"] {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.log__source {
+		font-size: 0.6875rem;
+		color: var(--grey-500);
+	}
+
+	.year {
+		display: grid;
+		grid-template-columns: 240px 1fr;
+		gap: 32px;
+		padding-top: 48px;
+	}
+
+	.year__label {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.year__heading {
+		font-size: 6.5rem;
+		line-height: 0.85;
+		color: var(--blue);
+	}
+
+	.rows {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 3px solid var(--ink);
+		border-bottom: 3px solid var(--ink);
+	}
+
+	.row {
+		display: grid;
+		grid-template-columns: 64px 210px 230px 1fr 104px;
+		align-items: center;
+		gap: 16px;
+		padding-block: 16px;
+	}
+
+	.row + .row {
+		border-top: 2px solid var(--ink);
+	}
+
+	.row__month {
+		color: var(--blue);
+	}
+
+	.row__place {
+		display: flex;
+		align-items: baseline;
+		gap: 8px;
+	}
+
+	.row__city {
+		font-size: 1.875rem;
+		line-height: 1;
+	}
+
+	.row__country {
+		font-size: 0.625rem;
+		color: var(--grey-500);
+	}
+
+	.row__event {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 8px;
+		font-size: 1.0625rem;
+		font-weight: 700;
+	}
+
+	.row__event a {
+		text-decoration: none;
+	}
+
+	.row__event a:hover {
+		box-shadow: inset 0 -3px 0 var(--pink);
+	}
+
+	.row__kind {
+		min-height: 24px;
+		padding: 0 8px;
+	}
+
+	.row__talk {
+		font-size: 1.0625rem;
+		line-height: 1.4;
+		color: var(--grey-700);
+	}
+
+	.row__talk a {
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+	}
+
+	.row__talk a:hover {
+		color: var(--blue);
+	}
+
+	.row__talk--missing {
+		color: var(--grey-500);
+		font-style: italic;
+	}
+
+	.row__replay {
+		justify-self: end;
+	}
+
+	.row__replay a {
+		display: inline-flex;
+		align-items: center;
+		min-height: 36px;
+		padding: 0 12px;
+		background: var(--blue);
+		color: var(--paper);
+		text-decoration: none;
+	}
+
+	.row__replay a:hover {
+		background: var(--pink);
+		color: var(--ink);
+	}
+
+	.log__empty {
+		padding-top: 32px;
+		font-size: 1.25rem;
+	}
+
+	.log__note {
+		padding-top: 18px;
+		color: var(--grey-500);
+		font-size: 0.6875rem;
+	}
+
+	/* On air */
+	.air {
+		margin-top: 112px;
+	}
+
+	.air__inner {
+		display: grid;
+		grid-template-columns: 420px 1fr;
+		gap: 40px;
+		padding-block: 72px;
+	}
+
+	.air__head {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.air__title {
+		font-size: clamp(3.5rem, 6.7vw, 6rem);
+		line-height: 0.82;
+	}
+
+	.air__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 2px solid rgb(255 255 255 / 0.35);
+	}
+
+	.air__row {
+		display: grid;
+		grid-template-columns: 100px 260px 1fr;
+		gap: 16px;
+		align-items: baseline;
+		padding-block: 16px;
+		border-top: 2px solid rgb(255 255 255 / 0.35);
+		font-size: 1.0625rem;
+	}
+
+	.air__name {
+		font-size: 1.75rem;
+		line-height: 1;
+	}
+
+	.air__name a {
+		text-decoration: none;
+	}
+
+	.air__name a:hover {
+		color: var(--pink);
+	}
+
+	/* Stages I build */
+	.build__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+		padding-block: 72px;
+	}
+
+	.build__head {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 16px 40px;
+	}
+
+	.build__title {
+		font-size: clamp(3.5rem, 7.8vw, 7rem);
+		line-height: 0.82;
+	}
+
+	.build__head p {
+		margin: 0;
+		max-width: 460px;
+		font-size: 1.1875rem;
+	}
+
+	.build__grid {
+		display: grid;
+		grid-template-columns: repeat(5, minmax(0, 1fr));
+		gap: 12px;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.build__card {
+		min-height: 190px;
+		height: 100%;
+		padding: 22px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background: var(--paper);
+		color: var(--ink);
+		text-decoration: none;
+	}
+
+	.build__card--pink {
+		background: var(--pink);
+	}
+
+	a.build__card:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.build__name {
+		font-size: 2.5rem;
+		line-height: 0.9;
+	}
+
+	/* Speaker kit */
+	.kit {
+		display: grid;
+		grid-template-columns: 420px 1fr;
+		gap: 40px;
+		padding-top: 112px;
+		scroll-margin-top: 24px;
+	}
+
+	.kit__intro {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 18px;
+	}
+
+	.kit__title {
+		font-size: clamp(4rem, 7.8vw, 7rem);
+		line-height: 0.82;
+	}
+
+	.kit__intro p {
+		margin: 0;
+		font-size: 1.1875rem;
+		color: var(--grey-700);
+	}
+
+	.kit__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.kit__panel {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		box-shadow: inset 0 0 0 3px var(--ink);
+	}
+
+	.kit__cell {
+		padding: 28px;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		box-shadow: inset -2px -2px 0 var(--ink);
+	}
+
+	.kit__cell-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.kit__cell-head h3 {
+		font-size: 2rem;
+	}
+
+	.kit__copy {
+		min-height: 36px;
+		padding: 0 14px;
+		font-size: 0.6875rem;
+	}
+
+	.kit__bio p {
+		margin: 0;
+		font-size: 1rem;
+		line-height: 1.6;
+		color: #222222;
+	}
+
+	.kit__label {
+		margin: 0;
+		font-weight: 400;
+		font-size: 0.6875rem;
+	}
+
+	.kit__shots {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 12px;
+	}
+
+	.kit__shots img {
+		width: 100%;
+		height: auto;
+		aspect-ratio: 1;
+		object-fit: cover;
+		background: var(--blue);
+	}
+
+	.kit__shots a:hover img {
+		outline: 4px solid var(--pink);
+		outline-offset: -4px;
+	}
+
+	.kit__credit {
+		font-size: 0.625rem;
+		color: var(--grey-500);
+	}
+
+	.kit__talks {
+		grid-column: 1 / -1;
+	}
+
+	.kit__talks ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.kit__talk {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		gap: 24px;
+		padding-block: 16px;
+		border-top: 2px solid var(--ink);
+	}
+
+	.kit__talk > span:first-child {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.kit__talk-title {
+		display: block;
+		font-size: 1.75rem;
+		line-height: 0.95;
+		text-decoration: none;
+	}
+
+	.kit__talk-title:hover {
+		color: var(--blue);
+	}
+
+	.kit__talk-abstract {
+		font-size: 1rem;
+		color: var(--grey-700);
+	}
+
+	.kit__talk .tag {
+		flex-shrink: 0;
+	}
+
+	.spacer {
+		height: 96px;
+	}
+
+	@media (max-width: 1100px) {
+		.row {
+			grid-template-columns: 56px 1fr 1fr;
+			grid-template-areas:
+				"month place replay"
+				"month event event"
+				"month talk talk";
+			gap: 6px 16px;
+		}
+
+		.row__month {
+			grid-area: month;
+		}
+		.row__place {
+			grid-area: place;
+		}
+		.row__event {
+			grid-area: event;
+		}
+		.row__talk {
+			grid-area: talk;
+		}
+		.row__replay {
+			grid-area: replay;
+		}
+
+		.build__grid {
 			grid-template-columns: repeat(3, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 900px) {
+		.hero__inner,
+		.next,
+		.air__inner,
+		.kit {
+			grid-template-columns: 1fr;
+		}
+
+		.hero__inner {
+			padding-block: 48px;
+		}
+
+		.year {
+			grid-template-columns: 1fr;
+			gap: 16px;
+			padding-top: 40px;
+		}
+
+		.year__label {
+			flex-direction: row;
+			align-items: baseline;
+			justify-content: space-between;
+		}
+
+		.year__heading {
+			font-size: 4rem;
+		}
+
+		.air__row {
+			grid-template-columns: 1fr;
+			gap: 4px;
+		}
+
+		.build__grid {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.build__card {
+			min-height: 140px;
+		}
+
+		.kit {
+			padding-top: 72px;
+		}
+
+		.kit__panel {
+			grid-template-columns: 1fr;
+		}
+
+		.kit__talk {
+			flex-direction: column;
+			gap: 10px;
 		}
 	}
 </style>

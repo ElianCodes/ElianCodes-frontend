@@ -1,116 +1,1275 @@
 ---
-import Busy from "@components/home/Busy.astro";
-import Hero from "@components/home/Hero.astro";
-import LatestAndGreatest from "@components/home/LatestAndGreatest.astro";
-import SayHi from "@components/home/SayHi.astro";
-import Sponsorships from "@components/home/Sponsorships.astro";
-import Layout from "@layouts/new/Default.astro";
+import { personId } from "../lib/schema";
+import fullRoom from "../assets/events/reactbrussels.jpg";
+import stageGesture from "../assets/photos/stage-gesture.jpg";
+import rockstar from "../assets/photos/rockstar-react-brussels.jpg";
+import PostRow from "../components/blog/PostRow.astro";
+import Glitch from "../components/ui/Glitch.astro";
+import SignalPhoto from "../components/ui/SignalPhoto.astro";
+import { lineup, organizedStages, site, sponsor } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPosts } from "../lib/posts";
+import {
+	getNextStage,
+	getStages,
+	getStats,
+	getTour,
+	groupByYear,
+	monthYearLabel,
+	placeLabel,
+	stopPhoto,
+} from "../lib/tour";
 
-export const prerender = true;
-const homeImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
+const posts = await getPosts();
+const tour = await getTour();
+const stages = getStages(tour);
+const stats = getStats(stages);
+const next = getNextStage(stages);
+const tourYears = groupByYear(stages);
+const firstPostYear = posts.at(-1)?.data.pubDate.getUTCFullYear();
+const year2024 = tourYears.find((y) => y.year === 2024);
+const year2026 = tourYears.find((y) => y.year === 2026);
+const continentWords =
+	["zero", "one", "two", "three", "four", "five", "six", "seven"][stats.continents] ?? stats.continents;
 
-const homeSchema = [
+// "Caught on stage": stops with a photo, in the order the grid lays them out.
+const caughtIds = [
+	"jsworld-2023",
+	"react-day-berlin-2023",
+	"kongres-nextjs-2024",
+	"qwik-paris-2023",
+	"bejs-on-tour-lille-2023",
+	"fsghent-2022-09",
+];
+const caught = caughtIds
+	.map((id) => stages.find((s) => s.id === id))
+	.filter((s) => s !== undefined)
+	.map((stop) => ({ stop, photo: stopPhoto(stop) }))
+	.filter((c) => c.photo !== undefined);
+
+const timeline = [
+	{ year: "2018", what: "Built a simple HTML page to show off my photos.", note: "There was no way back." },
+	{ year: "2021", what: "Started writing.", note: `${posts.length} articles and counting.` },
 	{
-		"@context": "https://schema.org",
-		"@type": "ProfilePage",
-		name: "Elian Van Cutsem",
-		description:
-			"Personal website of Elian Van Cutsem, a web developer, DevRel leader, CTO, speaker, and community organizer.",
-		url: new URL("/", Astro.site).toString(),
-		mainEntity: {
-			"@type": "Person",
-			"@id": `${new URL("/", Astro.site).toString()}#person`,
-			name: "Elian Van Cutsem",
-			url: new URL("/", Astro.site).toString(),
-			jobTitle: "CTO, DevRel leader, and public speaker",
-			image: homeImage,
-			description:
-				"Belgian web developer and consultant focused on developer experience, Astro, React, web engineering, and community building.",
-			knowsAbout: [
-				"Astro",
-				"React",
-				"Developer Relations",
-				"Web Performance",
-				"TypeScript",
-				"JavaScript",
-				"Deno",
-				"Developer Experience",
-				"Web Development",
-			],
-			worksFor: [
-				{
-					"@type": "Organization",
-					name: "Vulpo",
-					url: "https://vulpo.be",
-				},
-				{
-					"@type": "Organization",
-					name: "React Bricks",
-					url: "https://reactbricks.com",
-				},
-			],
-			homeLocation: {
-				"@type": "Place",
-				address: {
-					"@type": "PostalAddress",
-					addressLocality: "Ghent",
-					addressRegion: "East Flanders",
-					addressCountry: "BE",
-				},
-			},
-			nationality: {
-				"@type": "Country",
-				name: "Belgium",
-			},
-			sameAs: [
-				"https://github.com/ElianCodes",
-				"https://www.linkedin.com/in/elianvancutsem",
-				"https://x.com/eliancodes",
-				"https://eliancodes.com",
-			],
-		},
+		year: "2022",
+		what: "First talk at Full Stack Ghent. First conference at React Brussels.",
+		note: "Astro: less JavaScript, faster website.",
 	},
 	{
-		"@context": "https://schema.org",
-		"@type": "ItemList",
-		name: "Main sections",
-		itemListElement: [
-			{
-				"@type": "SiteNavigationElement",
-				position: 1,
-				name: "About",
-				url: new URL("/", Astro.site).toString(),
-			},
-			{
-				"@type": "SiteNavigationElement",
-				position: 2,
-				name: "Blog",
-				url: new URL("/blog/", Astro.site).toString(),
-			},
-			{
-				"@type": "SiteNavigationElement",
-				position: 3,
-				name: "Events",
-				url: new URL("/events/", Astro.site).toString(),
-			},
-		],
+		year: "2023",
+		what: "First international keynote at JSWorld. Became an Astro maintainer. Joined the Astro DX team full-time.",
+		note: "The year it got serious.",
+	},
+	{
+		year: "2024",
+		what: `${year2024?.stops.length ?? 0} stages across ${year2024?.countries ?? 0} countries.`,
+		note: "From Warsaw to Singapore.",
+	},
+	{
+		year: "2025",
+		what: "Took Unethical AI to Asia. First stages in the US.",
+		note: "Singapore, Kuala Lumpur, Mississippi, New York.",
+	},
+	{
+		year: "2026",
+		what: "Took Astro to the CMS crowd at CMS Conf in Gdynia.",
+		note: `${year2026?.stops.length ?? 0} stages so far this year.`,
+	},
+	{
+		year: "Now",
+		what: "CTO at Vulpo, Lead DevRel at React Bricks, still an Astro maintainer.",
+		note: `And co-running ${organizedStages.length} communities.`,
 	},
 ];
 ---
 
-<Layout
-	title='Elian Van Cutsem'
-	description='Personal website of Elian Van Cutsem, a Belgian web developer, CTO, DevRel leader, speaker, and community organizer focused on developer experience, Astro, React, and the modern web.'
-	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
-	socialImgAlt='Social preview card for Elian Van Cutsem'
-	socialImgWidth={1200}
-	socialImgHeight={630}
-	schema={homeSchema}
-	pageType='profile'
+<BaseLayout
+	schema={{
+		"@context": "https://schema.org",
+		"@type": "ProfilePage",
+		url: new URL("/", Astro.site).href,
+		mainEntity: { "@id": personId(Astro.site!) },
+	}}
 >
-	<Hero />
-	<Busy />
-	<LatestAndGreatest />
-	<Sponsorships />
-	<SayHi />
-</Layout>
+	<!-- Hero -->
+	<section class="hero plane-blue">
+		<div class="hero__copy">
+			<div class="hero__eyebrow">
+				<span class="mono prompt">&gt; whoami</span>
+				<span class="tag tag--white">★ Sessionize most active speaker</span>
+			</div>
+			<h1 class="display hero__title">
+				Elian<br />
+				<Glitch text="Van Cutsem" color="var(--paper)" />
+			</h1>
+			<p class="hero__lede">
+				Full-stack developer, creative technologist and all-around <mark>internet troublemaker</mark>.
+			</p>
+			<p class="hero__sub">
+				CTO at Vulpo, Lead DevRel at React Bricks, Astro maintainer. I build AI experiments that probably
+				shouldn't exist, and help run the conferences other speakers fly in for.
+			</p>
+			<div class="hero__actions">
+				<a href="/events#kit" class="btn btn--pink btn--lg">Invite me to speak →</a>
+				<a href="/events" class="btn btn--outline btn--lg">See the tour log</a>
+			</div>
+		</div>
+		<div class="hero__visual">
+			<SignalPhoto
+				src={rockstar}
+				alt="Elian striking a rockstar pose on the React Brussels stage"
+				loading="eager"
+				sizes="(max-width: 900px) 100vw, 600px"
+				position="center 30%"
+			/>
+			<div class="chat" aria-label="A joke chat with elian-gpt">
+				<div class="mono chat__bar">
+					<span>elian-gpt · not a real model</span>
+					<span class="chat__live">● streaming</span>
+				</div>
+				<div class="chat__body">
+					<span class="chat__q">Should I book Elian for my conference?</span>
+					<span class="chat__a">
+						{stats.stages} talks, {stats.countries} countries, zero boring slides. Expect technical depth, too many
+						puns and a strong dose of creative chaos<span class="chat__cursor" aria-hidden="true"></span>
+					</span>
+				</div>
+			</div>
+			<span class="display sticker" aria-hidden="true">Guaranteed<br />fun on<br />stage</span>
+		</div>
+	</section>
+
+	<!-- Stats strip -->
+	<section class="strip plane-ink" aria-label="At a glance">
+		<div class="strip__next">
+			{
+				next ? (
+					<Fragment>
+						<span class="mono strip__label">● Next on stage</span>
+						<span class="display strip__event">
+							{next.data.event} · {placeLabel(next)}
+						</span>
+					</Fragment>
+				) : (
+					<Fragment>
+						<span class="mono strip__label">● Now booking</span>
+						<span class="display strip__event">Talks &amp; workshops for 2027</span>
+					</Fragment>
+				)
+			}
+		</div>
+		<div class="strip__stat">
+			<span class="display">{stats.stages}</span><span class="mono">Talks, panels &amp; workshops</span>
+		</div>
+		<div class="strip__stat">
+			<span class="display">{stats.countries}</span><span class="mono">Countries</span>
+		</div>
+		<div class="strip__stat">
+			<span class="display">{posts.length}</span><span class="mono">Articles since {firstPostYear}</span>
+		</div>
+		<a href="/events" class="mono strip__cta">Tour log →</a>
+	</section>
+
+	<!-- I build the stages -->
+	<section class="stages-banner">
+		<SignalPhoto src={fullRoom} alt="Elian presenting at React Brussels in front of a full room" position="center 40%" />
+		<div class="stages-banner__card plane-pink">
+			<span class="mono">React Brussels · a stage I co-organize and speak on</span>
+			<h2 class="display stages-banner__title">
+				I build the stages.<br /><span class="white">Then I climb on them.</span>
+			</h2>
+		</div>
+	</section>
+
+	<!-- Lineup -->
+	<section class="wrap lineup" aria-labelledby="lineup-title">
+		<h2 id="lineup-title" class="mono section-label">What's keeping me busy · the lineup</h2>
+		<ol class="lineup__list" role="list">
+			{
+				lineup.map((item, i) => (
+					<li class:list={["lineup__row", `lineup__row--${i + 1}`]}>
+						<span class="mono lineup__num">0{i + 1}</span>
+						<a href={item.href} class="display lineup__name">
+							{item.role}
+							{item.at && (
+								<Fragment>
+									{" "}
+									<span class="pink">@</span> {item.at}
+								</Fragment>
+							)}
+						</a>
+						<span class="mono lineup__note">{item.note} ↗</span>
+					</li>
+				))
+			}
+			<li class="lineup__row lineup__row--4">
+				<span class="mono lineup__num">0{lineup.length + 1}</span>
+				<a href="/events#stages" class="display lineup__name">
+					Organizer · {organizedStages.map((s) => s.name).join(" · ")}
+				</a>
+				<span class="mono lineup__note">↗</span>
+			</li>
+		</ol>
+	</section>
+
+	<!-- The tour so far -->
+	<section class="so-far plane-blue" aria-labelledby="sofar-title">
+		<div class="wrap so-far__inner">
+			<div class="so-far__head">
+				<div>
+					<span class="mono prompt">&gt; the tour so far</span>
+					<h2 id="sofar-title" class="display so-far__title">
+						<Glitch text={`${stats.stages} stages`} color="var(--paper)" />
+					</h2>
+				</div>
+				<p>
+					{stats.countries} countries since my first talk in {stats.firstYear}, from Ghent to New York. Every one
+					of them is in the log.
+				</p>
+			</div>
+			<ol class="so-far__years" role="list">
+				{
+					tourYears.map(({ year, stops, places }) => (
+						<li class="so-far__year">
+							<div class="so-far__year-head">
+								<span class="display so-far__year-num">{year}</span>
+								<span class="mono">{stops.length} {stops.length === 1 ? "show" : "shows"}</span>
+							</div>
+							<ul role="list">
+								{places.map((place) => (
+									<li class="display so-far__place">{place}</li>
+								))}
+							</ul>
+						</li>
+					))
+				}
+			</ol>
+			<div class="so-far__foot">
+				<span class="mono">Data: elian.codes events + Sessionize. Online events not counted as countries.</span>
+				<a href="/events" class="btn btn--pink btn--lg">Open the full tour log →</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Headline act -->
+	<section class="headline plane-pink" aria-labelledby="headline-title">
+		<div class="headline__copy">
+			<div class="headline__tags">
+				<span class="tag headline__tag-ink">Headline act</span>
+				<span class="tag headline__tag-outline">On tour since 2025</span>
+			</div>
+			<h2 id="headline-title" class="display headline__title">
+				Playing<br /><Glitch text="with fire" split="var(--paper)" />
+			</h2>
+			<p class="headline__lede">
+				Unethical AI, live. An app that writes breakup texts with GPT. One that invents excuses to skip meetings.
+				Intentionally provocative experiments that show how easily AI quietly enables bad behavior.
+			</p>
+			<p class="mono headline__kicker">Not about solutions. About asking better questions.</p>
+			<div class="headline__actions">
+				<a href="/events#kit" class="btn btn--ink btn--lg">Book this talk →</a>
+			</div>
+		</div>
+		<div class="headline__visual">
+			<SignalPhoto
+				src={stageGesture}
+				alt="Elian mid-talk, gesturing at the audience"
+				sizes="(max-width: 900px) 100vw, 560px"
+				position="75% 30%"
+			/>
+		</div>
+	</section>
+
+	<!-- Caught on stage -->
+	<section class="wrap caught" aria-labelledby="caught-title">
+		<div class="section-head">
+			<h2 id="caught-title" class="display section-title">Caught<br /><span class="blue">on stage</span></h2>
+			<a href="/events" class="mono section-link">Full tour log →</a>
+		</div>
+		<div class="caught__grid">
+			{
+				caught.map(({ stop, photo }, i) => (
+					<figure class:list={["caught__item", `caught__item--${i + 1}`]}>
+						{photo && (
+							<SignalPhoto
+								src={photo}
+								alt={`Elian on stage at ${stop.data.event}${stop.data.city ? ` · ${stop.data.city}` : ""}`}
+								sizes={i === 0 ? "(max-width: 900px) 100vw, 860px" : "(max-width: 900px) 100vw, 420px"}
+							/>
+						)}
+						<figcaption>
+							<span class="display">
+								{stop.data.event.replace(/ ·.*$/, "")}
+								{stop.data.city && ` · ${stop.data.city}`}
+							</span>
+							<span class="mono">
+								{monthYearLabel(stop)}
+								{stop.data.talk && ` · ${stop.data.talk}`}
+							</span>
+						</figcaption>
+					</figure>
+				))
+			}
+		</div>
+	</section>
+
+	<!-- How I got here -->
+	<section class="wrap story" aria-labelledby="story-title">
+		<div class="section-head">
+			<h2 id="story-title" class="display section-title">How I<br /><span class="blue">got here</span></h2>
+			<p class="section-aside">From a photo page in 2018 to stages on {continentWords} continents.</p>
+		</div>
+		<ol class="story__list" role="list">
+			{
+				timeline.map((step) => (
+					<li class="story__row">
+						<span class:list={["display story__year", { "story__year--now": step.year === "Now" }]}>
+							{step.year}
+						</span>
+						<span class="story__what">{step.what}</span>
+						<span class="mono story__note">{step.note}</span>
+					</li>
+				))
+			}
+		</ol>
+	</section>
+
+	<!-- Latest articles -->
+	<section class="wrap latest" aria-labelledby="latest-title">
+		<div class="section-head">
+			<h2 id="latest-title" class="display section-title">Latest &amp;<br /><span class="blue">greatest</span></h2>
+			<a href="/blog" class="mono section-link">All {posts.length} articles →</a>
+		</div>
+		<ul class="post-list" role="list">
+			{posts.slice(0, 3).map((post) => <PostRow post={post} size="lg" />)}
+		</ul>
+	</section>
+
+	<!-- Closing CTA -->
+	<section class="closing plane-ink" aria-labelledby="closing-title">
+		<div class="wrap closing__inner">
+			<div class="closing__copy">
+				<h2 id="closing-title" class="display closing__title">
+					Let's do great<br />things{" "}
+					<Glitch text="together" color="var(--pink)" split="var(--blue)" />
+				</h2>
+				<p>A talk, a workshop, a podcast, a weird AI idea, or a Belgian beer and some shop talk.</p>
+			</div>
+			<div class="closing__actions">
+				<a href={`mailto:${site.email}`} class="closing__btn closing__btn--pink">
+					<span>Say hi</span><span aria-hidden="true">→</span>
+				</a>
+				<a href={sponsor} class="closing__btn closing__btn--outline">
+					<span>Sponsor my open source</span><span aria-hidden="true">♥</span>
+				</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.prompt {
+		color: var(--pink);
+		font-size: var(--step-nav);
+	}
+
+	/* Pink on blue is 1.5:1; prompts on the blue plane go white. */
+	.plane-blue .prompt {
+		color: var(--paper);
+	}
+
+	.pink {
+		color: var(--pink);
+	}
+
+	.blue {
+		color: var(--blue);
+	}
+
+	.white {
+		color: var(--paper);
+	}
+
+	.section-label {
+		margin: 0;
+		padding-bottom: 20px;
+		font-size: var(--step-nav);
+		font-weight: 400;
+	}
+
+	.section-head {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 16px 40px;
+		padding-bottom: 28px;
+	}
+
+	.section-title {
+		font-size: clamp(4rem, 8.4vw, 7.5rem);
+		line-height: 0.82;
+	}
+
+	.section-link {
+		font-size: var(--step-nav);
+	}
+
+	.section-link:hover {
+		background: var(--pink);
+	}
+
+	.section-aside {
+		margin: 0;
+		max-width: 420px;
+		font-size: 1.1875rem;
+		color: var(--grey-700);
+	}
+
+	/* ---- Hero ---- */
+	.hero {
+		display: grid;
+		grid-template-columns: 1fr minmax(0, 600px);
+		min-height: 860px;
+		overflow: hidden;
+	}
+
+	.hero__copy {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+		padding: 72px 48px 72px var(--edge);
+		width: 100%;
+	}
+
+	.hero__eyebrow {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+		align-items: center;
+	}
+
+	.hero__title {
+		font-size: clamp(4.5rem, 11.4vw, 10.25rem);
+		line-height: 0.8;
+	}
+
+	.hero__lede {
+		margin: 0;
+		max-width: 600px;
+		font-size: clamp(1.375rem, 2.1vw, 1.875rem);
+		line-height: 1.25;
+		font-weight: 500;
+	}
+
+	.hero__lede mark {
+		background: var(--pink);
+		color: var(--ink);
+		padding: 0 8px;
+		box-decoration-break: clone;
+		-webkit-box-decoration-break: clone;
+	}
+
+	.hero__sub {
+		margin: 0;
+		max-width: 560px;
+		font-size: 1.1875rem;
+		line-height: 1.55;
+		color: rgb(255 255 255 / 0.9);
+	}
+
+	.hero__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.hero__visual {
+		position: relative;
+		min-height: 520px;
+	}
+
+	.hero__visual > :global(.photo) {
+		position: absolute;
+		inset: 0;
+	}
+
+	.chat {
+		position: absolute;
+		left: -110px;
+		bottom: 56px;
+		width: 400px;
+		max-width: calc(100% - 32px);
+		background: var(--paper);
+		color: var(--ink);
+		box-shadow: 0 0 0 2px var(--ink);
+	}
+
+	.chat__bar {
+		display: flex;
+		justify-content: space-between;
+		gap: 12px;
+		padding: 10px 14px;
+		background: var(--ink);
+		color: var(--paper);
+		font-size: 0.625rem;
+	}
+
+	.chat__live {
+		color: var(--pink);
+	}
+
+	.chat__body {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding: 16px;
+		font-size: 0.9375rem;
+	}
+
+	.chat__q {
+		align-self: flex-end;
+		max-width: 82%;
+		padding: 10px 14px;
+		background: var(--blue);
+		color: var(--paper);
+	}
+
+	.chat__a {
+		max-width: 94%;
+		padding: 12px 14px;
+		background: #f1f1f1;
+		line-height: 1.5;
+	}
+
+	.chat__cursor {
+		display: inline-block;
+		width: 8px;
+		height: 17px;
+		margin-left: 3px;
+		vertical-align: -3px;
+		background: var(--pink);
+		animation: blink 1s steps(1) infinite;
+	}
+
+	@keyframes blink {
+		50% {
+			opacity: 0;
+		}
+	}
+
+	.sticker {
+		position: absolute;
+		right: 36px;
+		top: 40px;
+		width: 150px;
+		height: 150px;
+		border-radius: 999px;
+		background: var(--pink);
+		color: var(--ink);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		transform: rotate(-10deg);
+		font-size: 1.625rem;
+		line-height: 0.9;
+	}
+
+	/* ---- Stats strip ---- */
+	.strip {
+		display: grid;
+		grid-template-columns: 1.6fr 1fr 1fr 1fr 240px;
+	}
+
+	.strip__next {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		padding: 26px 32px 26px var(--edge);
+	}
+
+	.strip__label {
+		color: var(--pink);
+		font-size: 0.6875rem;
+	}
+
+	.strip__event {
+		font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+		line-height: 0.95;
+	}
+
+	.strip__stat {
+		display: flex;
+		flex-direction: column;
+		gap: 4px;
+		padding: 26px 28px;
+		box-shadow: inset 2px 0 0 #333333;
+	}
+
+	.strip__stat .display {
+		font-size: 3.5rem;
+		line-height: 0.9;
+	}
+
+	.strip__stat .mono {
+		font-size: 0.625rem;
+		color: #bbbbbb;
+	}
+
+	.strip__cta {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--pink);
+		color: var(--ink);
+		font-size: var(--step-nav);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.strip__cta:hover {
+		background: var(--paper);
+	}
+
+	/* ---- I build the stages ---- */
+	.stages-banner {
+		position: relative;
+		height: 600px;
+		overflow: hidden;
+	}
+
+	.stages-banner > :global(.photo) {
+		position: absolute;
+		inset: 0;
+	}
+
+	.stages-banner__card {
+		position: absolute;
+		left: var(--edge);
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		padding: 32px 40px 36px;
+		max-width: calc(100% - 2 * var(--gutter));
+	}
+
+	.stages-banner__title {
+		font-size: clamp(3rem, 6.7vw, 6rem);
+		line-height: 0.84;
+	}
+
+	/* ---- Lineup ---- */
+	.lineup {
+		padding-top: 128px;
+	}
+
+	.lineup__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 3px solid var(--ink);
+	}
+
+	.lineup__row {
+		display: grid;
+		grid-template-columns: 90px 1fr auto;
+		align-items: center;
+		gap: 16px;
+		padding-block: 20px;
+		border-top: 2px solid var(--ink);
+	}
+
+	.lineup__row--1 {
+		border-top-width: 3px;
+		padding-block: 26px;
+	}
+
+	.lineup__num {
+		color: var(--blue);
+		font-size: var(--step-nav);
+	}
+
+	.lineup__name {
+		text-decoration: none;
+		line-height: 0.85;
+	}
+
+	.lineup__name:hover {
+		color: var(--pink);
+	}
+
+	.lineup__row--1 .lineup__name {
+		font-size: clamp(3.5rem, 8.9vw, 8rem);
+	}
+
+	.lineup__row--2 .lineup__name {
+		font-size: clamp(2.75rem, 5.8vw, 5.25rem);
+		color: var(--blue);
+	}
+
+	.lineup__row--3 .lineup__name {
+		font-size: clamp(2.25rem, 4.2vw, 3.75rem);
+	}
+
+	.lineup__row--4 .lineup__name {
+		font-size: clamp(1.75rem, 3vw, 2.75rem);
+		line-height: 0.9;
+	}
+
+	.lineup__row--2 .lineup__name:hover {
+		color: var(--pink);
+	}
+
+	.lineup__note {
+		text-align: right;
+	}
+
+	/* ---- Tour so far ---- */
+	.so-far {
+		margin-top: 128px;
+	}
+
+	.so-far__inner {
+		display: flex;
+		flex-direction: column;
+		gap: 40px;
+		padding-block: 80px 64px;
+	}
+
+	.so-far__head {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: flex-end;
+		gap: 24px 40px;
+	}
+
+	.so-far__head > div {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.so-far__title {
+		font-size: clamp(4.5rem, 9.7vw, 8.75rem);
+		line-height: 0.8;
+	}
+
+	.so-far__head p {
+		margin: 0;
+		max-width: 440px;
+		font-size: 1.25rem;
+	}
+
+	.so-far__years {
+		display: grid;
+		/* One column per year, however many years the tour log spans. */
+		grid-auto-flow: column;
+		grid-auto-columns: minmax(0, 1fr);
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		box-shadow:
+			inset 0 2px 0 rgb(255 255 255 / 0.35),
+			inset 0 -2px 0 rgb(255 255 255 / 0.35);
+	}
+
+	.so-far__year {
+		padding: 28px 24px 32px;
+	}
+
+	.so-far__year + .so-far__year {
+		box-shadow: inset 2px 0 0 rgb(255 255 255 / 0.35);
+	}
+
+	.so-far__year-head {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 8px;
+		padding-bottom: 14px;
+	}
+
+	.so-far__year-num {
+		font-size: 4.5rem;
+		line-height: 0.9;
+		/* White with a pink offset keeps the Signal look and stays readable on blue. */
+		color: var(--paper);
+		text-shadow: 3px 3px 0 var(--pink);
+	}
+
+	.so-far__year ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.so-far__place {
+		font-size: 2.125rem;
+		line-height: 1;
+	}
+
+	.so-far__foot {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+	}
+
+	.so-far__foot .mono {
+		font-size: 0.6875rem;
+	}
+
+	/* ---- Headline act ---- */
+	.headline {
+		display: grid;
+		grid-template-columns: 1fr minmax(0, 560px);
+	}
+
+	.headline__copy {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		gap: 22px;
+		padding: 80px var(--gutter) 80px var(--edge);
+	}
+
+	.headline__tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 10px;
+	}
+
+	.headline__tag-ink {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.headline__tag-outline {
+		background: transparent;
+		color: var(--ink);
+		box-shadow: inset 0 0 0 2px var(--ink);
+	}
+
+	.headline__title {
+		font-size: clamp(5rem, 11.7vw, 10.5rem);
+		line-height: 0.8;
+	}
+
+	.headline__lede {
+		margin: 0;
+		max-width: 580px;
+		font-size: 1.3125rem;
+		font-weight: 500;
+	}
+
+	.headline__kicker {
+		margin: 0;
+		line-height: 1.7;
+	}
+
+	.headline__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.headline__visual {
+		position: relative;
+		min-height: 720px;
+	}
+
+	.headline__visual > :global(.photo) {
+		position: absolute;
+		inset: 0;
+	}
+
+	.credit {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		padding: 6px 12px;
+		background: var(--ink);
+		color: var(--paper);
+		font-size: 0.625rem;
+	}
+
+	/* ---- Caught on stage ---- */
+	.caught {
+		padding-top: 128px;
+	}
+
+	.caught__grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-areas:
+			"a a b"
+			"a a c"
+			"d e f";
+		gap: 40px 28px;
+	}
+
+	.caught__item {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.caught__item :global(.photo) {
+		height: 280px;
+	}
+
+	.caught__item--1 {
+		grid-area: a;
+	}
+	.caught__item--1 :global(.photo) {
+		height: auto;
+		flex: 1;
+		min-height: 400px;
+	}
+	.caught__item--2 {
+		grid-area: b;
+	}
+	.caught__item--2 :global(.photo),
+	.caught__item--3 :global(.photo) {
+		height: 240px;
+	}
+	.caught__item--3 {
+		grid-area: c;
+	}
+	.caught__item--4 {
+		grid-area: d;
+	}
+	.caught__item--5 {
+		grid-area: e;
+	}
+	.caught__item--6 {
+		grid-area: f;
+	}
+
+	figcaption {
+		display: flex;
+		justify-content: space-between;
+		align-items: baseline;
+		gap: 12px;
+		padding-block: 12px;
+		border-bottom: 2px solid var(--ink);
+	}
+
+	figcaption .display {
+		font-size: 1.625rem;
+	}
+
+	figcaption .mono {
+		font-size: 0.625rem;
+		text-align: right;
+	}
+
+	/* ---- How I got here ---- */
+	.story {
+		padding-top: 128px;
+	}
+
+	.story__list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 3px solid var(--ink);
+	}
+
+	.story__row {
+		display: grid;
+		grid-template-columns: 200px 1fr 380px;
+		gap: 32px;
+		align-items: baseline;
+		padding-block: 26px;
+		border-top: 2px solid var(--ink);
+	}
+
+	.story__year {
+		font-size: 4rem;
+		line-height: 0.9;
+		color: var(--blue);
+	}
+
+	.story__year--now {
+		color: var(--pink);
+	}
+
+	.story__what {
+		font-size: 1.5rem;
+		line-height: 1.35;
+		font-weight: 600;
+	}
+
+	.story__note {
+		color: var(--grey-600);
+	}
+
+	/* ---- Latest ---- */
+	.latest {
+		padding-top: 128px;
+	}
+
+	.latest .post-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 3px solid var(--ink);
+	}
+
+	/* ---- Closing ---- */
+	.closing {
+		margin-top: 128px;
+	}
+
+	.closing__inner {
+		display: grid;
+		grid-template-columns: 1.4fr 1fr;
+		gap: 48px;
+		align-items: end;
+		padding-block: 88px;
+	}
+
+	.closing__copy {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+	}
+
+	.closing__title {
+		font-size: clamp(3.5rem, 10vw, 9rem);
+		line-height: 0.8;
+	}
+
+	.closing__copy p {
+		margin: 0;
+		max-width: 580px;
+		font-size: 1.3125rem;
+		color: rgb(255 255 255 / 0.82);
+	}
+
+	.closing__actions {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.closing__btn {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		min-height: 66px;
+		padding: 0 24px;
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.closing__btn--pink {
+		background: var(--pink);
+		color: var(--ink);
+		font-weight: 600;
+	}
+
+	.closing__btn--outline {
+		box-shadow: inset 0 0 0 2px var(--paper);
+	}
+
+	.closing__btn--pink:hover {
+		background: var(--paper);
+	}
+
+	.closing__btn--outline:hover {
+		box-shadow: inset 0 0 0 4px var(--pink);
+	}
+
+	/* ---- Responsive ---- */
+	@media (max-width: 1100px) {
+		.strip {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.strip__next {
+			grid-column: 1 / -1;
+			padding-inline: var(--gutter);
+		}
+
+		.strip__stat:first-of-type {
+			box-shadow: none;
+		}
+
+		.strip__cta {
+			grid-column: 1 / -1;
+			min-height: 60px;
+		}
+
+		.so-far__years {
+			grid-auto-flow: row;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.story__row {
+			grid-template-columns: 140px 1fr;
+		}
+
+		.story__note {
+			grid-column: 2;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.hero {
+			grid-template-columns: 1fr;
+			min-height: 0;
+		}
+
+		.hero__copy {
+			padding: 48px var(--gutter);
+			gap: 22px;
+		}
+
+		.hero__visual {
+			min-height: 560px;
+		}
+
+		.chat {
+			left: var(--gutter);
+			bottom: 24px;
+		}
+
+		.sticker {
+			right: var(--gutter);
+			top: 24px;
+			width: 120px;
+			height: 120px;
+			font-size: 1.25rem;
+		}
+
+		.stages-banner {
+			height: auto;
+			display: flex;
+			flex-direction: column;
+		}
+
+		.stages-banner > :global(.photo) {
+			position: relative;
+			height: 320px;
+		}
+
+		.stages-banner__card {
+			position: static;
+			max-width: none;
+			padding: 28px var(--gutter) 32px;
+		}
+
+		.lineup,
+		.caught,
+		.story,
+		.latest {
+			padding-top: 88px;
+		}
+
+		.so-far,
+		.closing {
+			margin-top: 88px;
+		}
+
+		.lineup__row {
+			grid-template-columns: 1fr;
+			gap: 6px;
+		}
+
+		.lineup__note {
+			text-align: left;
+		}
+
+		.so-far__years {
+			grid-template-columns: 1fr;
+		}
+
+		.so-far__year + .so-far__year {
+			box-shadow: inset 0 2px 0 rgb(255 255 255 / 0.35);
+		}
+
+		.so-far__place {
+			display: inline;
+			font-size: 1.5rem;
+		}
+
+		.so-far__year ul {
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 4px 14px;
+		}
+
+		.headline {
+			grid-template-columns: 1fr;
+		}
+
+		.headline__copy {
+			padding: 56px var(--gutter);
+		}
+
+		.headline__visual {
+			min-height: 420px;
+		}
+
+		.caught__grid {
+			grid-template-columns: 1fr;
+			grid-template-areas: none;
+			gap: 28px;
+		}
+
+		.caught__item {
+			grid-area: auto !important;
+		}
+
+		.caught__item :global(.photo),
+		.caught__item--1 :global(.photo) {
+			height: 240px;
+			min-height: 0;
+			flex: none;
+		}
+
+		figcaption {
+			flex-direction: column;
+			gap: 4px;
+		}
+
+		figcaption .mono {
+			text-align: left;
+		}
+
+		.story__row {
+			grid-template-columns: 1fr;
+			gap: 6px;
+		}
+
+		.story__note {
+			grid-column: auto;
+		}
+
+		.story__year {
+			font-size: 3rem;
+		}
+
+		.story__what {
+			font-size: 1.25rem;
+		}
+
+		.closing__inner {
+			grid-template-columns: 1fr;
+			padding-block: 64px;
+		}
+	}
+</style>

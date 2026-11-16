@@ -1,0 +1,17 @@
+# Cloudflare static-asset headers (ported from the old vercel.json).
+/*
+  Link: </.well-known/api-catalog>; rel="api-catalog", </llms.txt>; rel="describedby"; type="text/plain", </blog.xml>; rel="alternate"; type="application/rss+xml"
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/.well-known/api-catalog
+  Content-Type: application/linkset+json; charset=utf-8
+
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/blog/*.md
+  Content-Type: text/markdown; charset=utf-8
+
+/talks/*.md
+  Content-Type: text/markdown; charset=utf-8

@@ -1,56 +1,42 @@
 ---
-// This page handles the mailto redirect client-side
-// since Vercel doesn't handle mailto: redirects properly in vercel.json
+// /mail is linked from talks and slides; it opens the visitor's mail client.
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-import Button from "@components/ui/Button.astro";
-import Section from "@components/ui/Section.astro";
-import Subtitle from "@components/ui/Subtitle.astro";
-import TitleSection from "@components/ui/TitleSection.astro";
-import Layout from "@layouts/new/Default.astro";
-
-const emailAddress = "hello@elian.codes";
-const mailtoUrl = `mailto:${emailAddress}`;
+const mailto = `mailto:${site.email}`;
 ---
 
-<Layout title='Contact' description='Get in touch via email' noindex>
-	<TitleSection title='Contact' subtitle='Get in touch via email.' />
-	<Section class='mail-page'>
-		<Subtitle class='mail-page__subtitle'>Opening your email client...</Subtitle>
-		<p>
-			<Button href={mailtoUrl} class='email-link'>
-				Email me: {emailAddress}
-			</Button>
-		</p>
-		<p class='mail-page__hint'>
-			<small
-				>If your email client didn't open automatically, click the button above.</small
-			>
-		</p>
-	</Section>
-</Layout>
+<BaseLayout title="Contact" description="Get in touch via email." noindex>
+	<section class="plane-pink">
+		<div class="wrap mail">
+			<span class="mono">&gt; open mailto:</span>
+			<h1 class="display mail__title">Say hi</h1>
+			<p>Opening your email client… If nothing happens, use the button.</p>
+			<a href={mailto} class="btn btn--ink btn--lg">{site.email} →</a>
+		</div>
+	</section>
+</BaseLayout>
 
-<script>
-	// Automatically redirect to email client when page loads
-	document.addEventListener('DOMContentLoaded', function () {
-		window.location.href = 'mailto:hello@elian.codes';
-	});
+<script is:inline define:vars={{ mailto }}>
+	window.location.href = mailto;
 </script>
 
 <style>
-	.mail-page {
-		display: grid;
-		justify-items: center;
-		gap: 1rem;
-		padding-top: 4rem;
-		padding-bottom: 4rem;
-		text-align: center;
+	.mail {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+		padding-block: 96px 120px;
 	}
 
-	.mail-page__subtitle {
-		color: var(--text-muted);
+	.mail__title {
+		font-size: clamp(5rem, 14vw, 12rem);
+		line-height: 0.8;
 	}
 
-	.mail-page__hint {
-		color: var(--text-muted);
+	.mail p {
+		margin: 0;
+		font-size: 1.25rem;
 	}
 </style>

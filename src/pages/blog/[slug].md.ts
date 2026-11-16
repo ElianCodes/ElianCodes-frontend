@@ -1,38 +1,15 @@
-import { getSortedBlogPosts } from "@lib/content";
+// Raw-markdown twin of every article at /blog/<slug>.md, for agents and LLMs.
+// Advertised from the article page with <link rel="alternate" type="text/markdown">.
+import type { APIRoute, GetStaticPaths } from "astro";
+import { postMarkdown } from "../../lib/markdown";
+import { getPosts, type Post } from "../../lib/posts";
 
-export const prerender = true;
+export const getStaticPaths = (async () => {
+	const posts = await getPosts();
+	return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}) satisfies GetStaticPaths;
 
-export async function getStaticPaths() {
-	const posts = await getSortedBlogPosts();
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: { post },
-	}));
-}
-
-export async function GET({
-	props,
-}: {
-	props: { post: Awaited<ReturnType<typeof getSortedBlogPosts>>[number] };
-}) {
-	const { post } = props;
-
-	const frontmatter = [
-		`# ${post.data.title}`,
-		``,
-		`**Author:** ${post.data.author}`,
-		`**Published:** ${post.data.pubDate.toISOString().split("T")[0]}`,
-		`**Tags:** ${post.data.tags.join(", ")}`,
-		`**Description:** ${post.data.description}`,
-		``,
-		`---`,
-		``,
-	].join("\n");
-
-	return new Response(`${frontmatter}${post.body ?? ""}`, {
-		headers: {
-			"Content-Type": "text/markdown; charset=utf-8",
-			"Cache-Control": "public, max-age=3600",
-		},
+export const GET: APIRoute<{ post: Post }> = ({ props }) =>
+	new Response(postMarkdown(props.post), {
+		headers: { "Content-Type": "text/markdown; charset=utf-8" },
 	});
-}

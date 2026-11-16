@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "source": {
+    "name": "elian-codes",
+    "compatibility_date": "2026-11-01",
+    "compatibility_flags": [
+      "nodejs_als"
+    ]
+  },
+  "resolved": {
+    "name": "elian-codes",
+    "compatibility_date": "2026-11-01",
+    "compatibility_flags": [
+      "nodejs_als"
+    ],
+    "account_id": "06cdee458565490e51fb913649735dc5"
+  },
+  "text": "{\n  \"name\": \"elian-codes\",\n  \"compatibility_date\": \"2026-11-01\",\n  \"compatibility_flags\": [\n    \"nodejs_als\"\n  ],\n  \"account_id\": \"06cdee458565490e51fb913649735dc5\"\n}\n"
+}

@@ -1,82 +1,82 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import BlogList from "@components/blog/BlogList.astro";
-import Layout from "@layouts/new/Default.astro";
-import { getBlogTagIndex } from "@lib/content";
-import Button from "@ui/Button.astro";
-import Section from "@ui/Section.astro";
-import TitleSection from "@ui/TitleSection.astro";
+import PostArchive from "../../../components/blog/PostArchive.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getPosts, getTagIndex, plainTitle, type Post, postUrl, tagUrl } from "../../../lib/posts";
+import { breadcrumbs, collectionPage } from "../../../lib/schema";
 
 export async function getStaticPaths() {
-	const tags = await getBlogTagIndex();
-
-	return tags.map((tag) => {
-		return {
-			params: { tag: tag.slug },
-			props: {
-				tag: tag.label,
-				blogposts: tag.posts,
-			},
-		};
-	});
+	const tags = getTagIndex(await getPosts());
+	return tags.map((tag) => ({
+		params: { tag: tag.slug },
+		props: { label: tag.label, posts: tag.posts },
+	}));
 }
 
-export interface Props {
-	tag: string;
-	blogposts: CollectionEntry<"blog">[];
+interface Props {
+	label: string;
+	posts: Post[];
 }
 
-const { tag, blogposts } = Astro.props;
-const tagUrl = new URL(
-	`/blog/tags/${Astro.params.tag ?? ""}/`,
-	Astro.site,
-).toString();
-const tagImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
-const tagSchema = {
-	"@context": "https://schema.org",
-	"@type": "CollectionPage",
-	name: `Posts tagged ${tag}`,
-	description: `All Elian Codes posts tagged with ${tag}.`,
-	url: tagUrl,
-	image: tagImage,
-	mainEntity: {
-		"@type": "ItemList",
-		itemListElement: blogposts.map((post, index) => ({
-			"@type": "ListItem",
-			position: index + 1,
-			url: new URL(`/blog/${post.id}/`, Astro.site).toString(),
-			name: post.data.title,
-		})),
-	},
-};
+const { label, posts } = Astro.props;
+const count = `${posts.length} ${posts.length === 1 ? "article" : "articles"}`;
+const titles = posts.slice(0, 3).map((post) => plainTitle(post.data.title));
+const description = `${count} by Elian Van Cutsem about ${label}: ${titles.join(", ")}.`;
+const path = tagUrl(label);
+// A tag with one article is a thin page: keep it for visitors, but out of search results.
+const noindex = posts.length < 2;
 ---
 
-<Layout
-	title={`Blog: ${tag}`}
-	description={`Elian Codes Blog | All posts tagged with ${tag}`}
-	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
-	socialImgAlt={`Elian Codes posts tagged ${tag}`}
-	socialImgWidth={1200}
-	socialImgHeight={630}
-	schema={tagSchema}
+<BaseLayout
+	title={`#${label}`}
+	description={description}
+	noindex={noindex}
+	schema={[
+		collectionPage(
+			{ name: `Articles about ${label}`, path, description },
+			posts.map((post) => ({ name: post.data.title, path: postUrl(post) })),
+			Astro.site!,
+		),
+		breadcrumbs([["Home", "/"], ["Articles", "/blog"], [`#${label}`, path]], Astro.site!),
+	]}
 >
-	<TitleSection
-		title={tag}
-		subtitle={`All blog posts tagged with ${tag}.`}
-	/>
-	<Section class='tag-index'>
-		<div class='tag-index__back'>
-			<Button variant='ghost' href='/blog/'>&larr; Back to blog</Button>
+	<section class="plane-pink">
+		<div class="wrap hero">
+			<a href="/blog" class="mono back">← All articles</a>
+			<h1 class="display hero__title">#{label}</h1>
+			<p class="mono">{posts.length} {posts.length === 1 ? "article" : "articles"}</p>
 		</div>
-		<BlogList posts={blogposts} />
-	</Section>
-</Layout>
+	</section>
+	<PostArchive posts={posts} />
+	<div class="wrap spacer"></div>
+</BaseLayout>
 
 <style>
-	.tag-index {
-		display: grid;
-		gap: 1.5rem;
-		padding-top: 2rem;
-		padding-bottom: 4rem;
+	.hero {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		padding-block: 72px 56px;
+	}
+
+	.back {
+		text-decoration: none;
+	}
+
+	.back:hover {
+		box-shadow: inset 0 -3px 0 var(--ink);
+	}
+
+	.hero__title {
+		font-size: clamp(3.5rem, 10vw, 9rem);
+		line-height: 0.8;
+		overflow-wrap: anywhere;
+	}
+
+	.hero p {
+		margin: 0;
+	}
+
+	.spacer {
+		height: 96px;
 	}
 </style>

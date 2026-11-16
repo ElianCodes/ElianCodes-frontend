@@ -1,0 +1,324 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { bookMe, site } from "../../data/site";
+import { breadcrumbs, stopEvent } from "../../lib/schema";
+import { getTalks, type Talk, talkUrl } from "../../lib/talks";
+import { isOnline, monthYearLabel, placeLabel } from "../../lib/tour";
+
+export async function getStaticPaths() {
+	const talks = await getTalks();
+	return talks.map((talk) => ({ params: { slug: talk.slug }, props: { talk, talks } }));
+}
+
+interface Props {
+	talk: Talk;
+	talks: Talk[];
+}
+
+const { talk, talks } = Astro.props;
+const replays = talk.stops.filter((s) => s.data.replay);
+const others = talks.filter((t) => t.bookable && t.slug !== talk.slug);
+const description =
+	talk.abstract ??
+	`"${talk.title}", a talk by ${site.author}, given ${talk.stops.length} ${talk.stops.length === 1 ? "time" : "times"}.`;
+const mailto = `mailto:${site.email}?subject=${encodeURIComponent(`Talk request: ${talk.title}`)}`;
+---
+
+<BaseLayout
+	title={talk.title}
+	description={description}
+	socialImg={`/v1/generate/og/talks/${talk.slug}.png`}
+	socialImgAlt={`${talk.title}: a talk by ${site.author}`}
+	schema={[
+		...talk.stops.map((stop) => stopEvent(stop, Astro.site!)),
+		breadcrumbs([["Home", "/"], ["Talks", "/talks"], [talk.title, talkUrl(talk)]], Astro.site!),
+	]}
+	markdownAlternate={`${talkUrl(talk)}.md`}
+>
+	<section class="plane-blue">
+		<div class="wrap hero">
+			<a href="/talks" class="mono back">← All talks</a>
+			<h1 class="display hero__title">{talk.title}</h1>
+			{talk.abstract && <p class="hero__lede">{talk.abstract}</p>}
+			<div class="hero__tags">
+				{talk.formats.map((format) => <span class="tag tag--white">{format}</span>)}
+				{
+					talk.stops.length > 0 && (
+						<span class="mono hero__meta">
+							Given {talk.stops.length} {talk.stops.length === 1 ? "time" : "times"}
+							{talk.countries > 0 && ` in ${talk.countries} ${talk.countries === 1 ? "country" : "countries"}`}
+						</span>
+					)
+				}
+			</div>
+		</div>
+	</section>
+
+	<div class="wrap body">
+		{
+			replays.length > 0 && (
+				<section aria-labelledby="watch-title" class="block">
+					<h2 id="watch-title" class="display section-title">Watch it</h2>
+					<ul class="watch" role="list">
+						{replays.map((stop) => (
+							<li>
+								<a href={stop.data.replay} class="watch__link">
+									<span class="display watch__play" aria-hidden="true">▶</span>
+									<span>
+										<span class="watch__event">{stop.data.event}</span>
+										<span class="mono watch__date">{monthYearLabel(stop)}</span>
+									</span>
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)
+		}
+
+		{
+			talk.stops.length > 0 && (
+				<section aria-labelledby="where-title" class="block">
+					<h2 id="where-title" class="display section-title">Where I gave it</h2>
+					<ol class="stops" role="list">
+						{talk.stops.map((stop) => (
+							<li class="stop">
+								<span class="mono stop__date">{monthYearLabel(stop)}</span>
+								<span class="display stop__place">
+									{placeLabel(stop)}
+									{stop.data.country && !isOnline(stop) && <span class="mono stop__country">{stop.data.country}</span>}
+								</span>
+								<span class="stop__event">
+									{stop.data.link ? <a href={stop.data.link}>{stop.data.event}</a> : stop.data.event}
+									{stop.data.kind !== "talk" && <span class="tag tag--pink">{stop.data.kind}</span>}
+								</span>
+							</li>
+						))}
+					</ol>
+				</section>
+			)
+		}
+
+		<section class="cta plane-pink" aria-labelledby="cta-title">
+			<h2 id="cta-title" class="display cta__title">
+				{talk.bookable ? "Want this on your stage?" : "Want something like this?"}
+			</h2>
+			<p>
+				{
+					talk.bookable
+						? "Send me your event, the date and the audience. I'll adapt the talk to fit."
+						: "This one is retired, but the talks below are ready for your stage."
+				}
+			</p>
+			<div class="cta__actions">
+				<a href={mailto} class="btn btn--ink btn--lg">Invite me →</a>
+				<a href={bookMe.href} class="btn btn--outline btn--lg">Speaker kit</a>
+			</div>
+		</section>
+
+		{
+			others.length > 0 && (
+				<section aria-labelledby="more-title" class="block">
+					<h2 id="more-title" class="display section-title">More talks</h2>
+					<ul class="more" role="list">
+						{others.map((other) => (
+							<li>
+								<a href={talkUrl(other)} class="display more__link">
+									{other.title} →
+								</a>
+							</li>
+						))}
+					</ul>
+				</section>
+			)
+		}
+	</div>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		gap: 22px;
+		padding-block: 72px 64px;
+	}
+
+	.back {
+		text-decoration: none;
+	}
+
+	.back:hover {
+		box-shadow: inset 0 -3px 0 var(--paper);
+	}
+
+	.hero__title {
+		max-width: 16ch;
+		font-size: clamp(3.25rem, 8vw, 7.5rem);
+		line-height: 0.85;
+		overflow-wrap: anywhere;
+	}
+
+	.hero__lede {
+		margin: 0;
+		max-width: 680px;
+		font-size: 1.3125rem;
+	}
+
+	.hero__tags {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.hero__meta {
+		font-size: 0.75rem;
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		gap: 88px;
+		padding-block: 88px 104px;
+	}
+
+	.block {
+		display: flex;
+		flex-direction: column;
+		gap: 28px;
+	}
+
+	.section-title {
+		font-size: clamp(2.75rem, 6vw, 4.5rem);
+		line-height: 0.85;
+	}
+
+	.watch,
+	.stops,
+	.more {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.watch {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+		gap: 16px;
+	}
+
+	.watch__link {
+		display: flex;
+		align-items: center;
+		gap: 18px;
+		padding: 20px;
+		border: 4px solid var(--ink);
+		text-decoration: none;
+	}
+
+	.watch__link:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.watch__play {
+		font-size: 2.5rem;
+		color: var(--pink);
+	}
+
+	.watch__event {
+		display: block;
+		font-weight: 700;
+		font-size: 1.125rem;
+	}
+
+	.watch__date {
+		font-size: 0.6875rem;
+	}
+
+	.stops {
+		border-top: 4px solid var(--ink);
+	}
+
+	.stop {
+		display: grid;
+		grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1.4fr);
+		align-items: baseline;
+		gap: 16px;
+		padding: 18px 0;
+		border-bottom: 1px solid var(--grey-100);
+	}
+
+	.stop__date {
+		font-size: 0.75rem;
+	}
+
+	.stop__place {
+		font-size: 1.75rem;
+		line-height: 1;
+	}
+
+	.stop__country {
+		margin-left: 8px;
+		font-size: 0.625rem;
+		color: var(--grey-500);
+	}
+
+	.stop__event {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px;
+	}
+
+	.cta {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		padding: 48px;
+	}
+
+	.cta__title {
+		font-size: clamp(2.5rem, 5vw, 4rem);
+		line-height: 0.9;
+	}
+
+	.cta p {
+		margin: 0;
+		max-width: 560px;
+		font-size: 1.125rem;
+	}
+
+	.cta__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+
+	.more {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.more__link {
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		line-height: 1;
+		text-decoration: none;
+	}
+
+	.more__link:hover {
+		color: var(--blue);
+	}
+
+	@media (max-width: 720px) {
+		.stop {
+			grid-template-columns: 1fr;
+			gap: 6px;
+		}
+
+		.cta {
+			padding: 32px 24px;
+		}
+	}
+</style>

@@ -1,11 +1,9 @@
-import { renderOgImage } from "@lib/og";
 import type { APIRoute } from "astro";
+import { renderOg } from "../../../../lib/og";
 
-export const GET: APIRoute = async () => {
-	return renderOgImage({
+export const GET: APIRoute = () =>
+	renderOg({
 		title: "Elian Van Cutsem",
-		description:
-			"Belgian web developer, CTO, DevRel leader, speaker, and community organizer.",
-		linkText: "https://www.elian.codes",
+		eyebrow: "whoami",
+		footer: "Speaker · engineer · internet troublemaker",
 	});
-};

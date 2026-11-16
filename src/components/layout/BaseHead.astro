@@ -1,250 +1,145 @@
 ---
-import LocalFont from "./LocalFont.astro";
+import { Font } from "astro:assets";
+import avatar from "../../assets/elian.jpg";
+import { allLinks, bio, lineup, site } from "../../data/site";
 
 export interface Props {
-	title: string;
-	description: string;
-	socialImg?: URL;
+	title?: string;
+	description?: string;
+	socialImg?: URL | string;
 	socialImgAlt?: string;
-	socialImgWidth?: number;
-	socialImgHeight?: number;
-	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
 	pageType?: "website" | "article" | "profile";
 	publishedTime?: string;
 	modifiedTime?: string;
 	noindex?: boolean;
-}
-
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const siteUrl = new URL("/", Astro.site);
-
-if (Astro.props.socialImg === undefined) {
-	Astro.props.socialImg = new URL("/v1/generate/og/default.png", Astro.url);
+	schema?: Record<string, unknown> | Array<Record<string, unknown>>;
+	/** Raw-markdown twin of this page, advertised for agents and LLMs. */
+	markdownAlternate?: string;
 }
 
 const {
 	title,
-	description,
-	socialImg,
+	description = site.description,
+	socialImg = "/v1/generate/og/default.png",
 	socialImgAlt,
-	socialImgWidth,
-	socialImgHeight,
-	schema,
 	pageType = "website",
 	publishedTime,
 	modifiedTime,
 	noindex = false,
+	schema,
+	markdownAlternate,
 } = Astro.props;
 
-const fullTitle = title === "Elian Codes" ? title : `Elian Codes | ${title}`;
+// build.format "file" gives pathnames like /blog.html; the public URL is /blog.
+const cleanPath = Astro.url.pathname.replace(/(\/index)?\.html$/, "").replace(/(.)\/$/, "$1") || "/";
+const canonicalURL = new URL(cleanPath, Astro.site);
+const siteUrl = new URL("/", Astro.site);
+const fullTitle = title ? `${title} · ${site.name}` : site.name;
+// Search results cut descriptions around 160 characters; clamp on a word boundary.
+const metaDescription =
+	description.length <= 160 ? description : `${description.slice(0, 157).replace(/\s+\S*$/, "")}…`;
+const imageUrl = new URL(socialImg, Astro.site);
 const imageAlt = socialImgAlt ?? `${fullTitle} social preview image`;
-const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
+const robots = noindex
+	? "noindex, nofollow"
+	: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 
-const personId = `${siteUrl.toString()}#person`;
-
-// Only load GA on the production domain — not on preview deploys or local builds.
+// Analytics stay off until the domain moves over; set ENABLE_ANALYTICS=true at build time to turn them on.
 const gaId = "G-13MBMB5GZJ";
-const analyticsEnabled = process.env.VERCEL_ENV === "production";
-
-// Blog posts have a raw-markdown twin at /blog/<slug>.md — advertise it so
-// agents/LLMs can discover the markdown representation instead of guessing.
-// Normalize the trailing slash (trailingSlash: "ignore" yields /blog/<slug>/).
-const blogPath = Astro.url.pathname.replace(/\/$/, "");
-const isBlogPost = pageType === "article" && /^\/blog\/[^/]+$/.test(blogPath);
-const markdownAlternate = isBlogPost
-	? new URL(`${blogPath}.md`, Astro.site).toString()
-	: null;
+const analyticsEnabled = import.meta.env.ENABLE_ANALYTICS === "true";
 
 const siteSchema = {
 	"@context": "https://schema.org",
 	"@type": "WebSite",
-	name: "Elian Codes",
+	name: site.name,
 	url: siteUrl.toString(),
-	description,
+	description: site.description,
 	inLanguage: "en",
 	publisher: {
 		"@type": "Person",
-		"@id": personId,
-		name: "Elian Van Cutsem",
+		"@id": `${siteUrl}#person`,
+		name: site.author,
 		url: siteUrl.toString(),
-		sameAs: [
-			"https://github.com/ElianCodes",
-			"https://www.linkedin.com/in/elianvancutsem",
-			"https://x.com/eliancodes",
-			"https://eliancodes.com",
-		],
+		image: new URL(avatar.src, Astro.site).href,
+		description: bio,
+		jobTitle: lineup.map((job) => (job.at ? `${job.role} at ${job.at}` : job.role)).join(", "),
+		worksFor: lineup
+			.filter((job) => job.at)
+			.map((job) => ({ "@type": "Organization", name: job.at, url: job.href })),
+		knowsAbout: ["Astro", "Web development", "JavaScript", "Developer experience", "Public speaking"],
+		address: { "@type": "PostalAddress", addressCountry: "BE" },
+		// Every profile from /links (GitHub, LinkedIn, Bluesky, YouTube, Mastodon, Sessionize...).
+		sameAs: allLinks.map((link) => link.href).filter((href) => href.startsWith("https://")),
 	},
 };
+const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 ---
 
-<head>
-	<meta charset='utf-8' />
-	<meta name='viewport' content='width=device-width, initial-scale=1' />
-	<meta name='generator' content={Astro.generator} />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>{fullTitle}</title>
+<meta name="description" content={metaDescription} />
+<meta name="author" content={site.author} />
+<meta name="robots" content={robots} />
+<link rel="canonical" href={canonicalURL} />
 
-	{
-		analyticsEnabled && (
-			<Fragment>
-				<script
-					is:inline
-					async
-					src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-				/>
-				<script is:inline define:vars={{ gaId }}>
-					window.dataLayer = window.dataLayer || [];
-					function gtag() {
-						dataLayer.push(arguments);
-					}
-					gtag("js", new Date());
-					gtag("config", gaId);
-				</script>
-			</Fragment>
-		)
-	}
+<!-- Preload only the files needed for first paint (Latin, regular body/mono, display);
+     the other weights, italics and subsets still load on demand via @font-face. -->
+<Font cssVariable="--font-display" preload={[{ subset: "latin" }]} />
+<Font cssVariable="--font-mono" preload={[{ weight: 400, subset: "latin" }]} />
+<Font cssVariable="--font-body" preload={[{ weight: 400, style: "normal", subset: "latin" }]} />
 
-	<LocalFont />
+<link rel="alternate" href="/blog.xml" type="application/rss+xml" title="Elian Codes · Articles" />
+<link rel="alternate" href="/llms.txt" type="text/plain" />
+{markdownAlternate && <link rel="alternate" href={markdownAlternate} type="text/markdown" />}
 
-	<link
-		rel='alternate'
-		href='https://www.elian.codes/blog.xml'
-		type='application/rss+xml'
-	/>
-	<link rel='alternate' href='https://www.elian.codes/llms.txt' type='text/plain' />
-	{
-		markdownAlternate && (
-			<link rel='alternate' href={markdownAlternate} type='text/markdown' />
-		)
-	}
+<meta property="og:type" content={pageType} />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={metaDescription} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:image:alt" content={imageAlt} />
+{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
-	<meta name='title' content={fullTitle} />
-	<meta name='description' content={description} />
-	<meta name='author' content='Elian Van Cutsem' />
-	<meta
-		name='robots'
-		content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
-	/>
-	<meta
-		name='googlebot'
-		content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"}
-	/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@eliancodes" />
+<meta name="twitter:creator" content="@eliancodes" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={metaDescription} />
+<meta name="twitter:image" content={imageUrl} />
+<meta name="twitter:image:alt" content={imageAlt} />
 
-	<meta property='og:type' content={pageType} />
-	<meta property='og:site_name' content='Elian Codes' />
-	<meta property='og:locale' content='en_US' />
-	<meta property='og:url' content={canonicalURL} />
-	<meta property='og:title' content={fullTitle} />
-	<meta property='og:description' content={description} />
-	<meta property='og:image' content={socialImg} />
-	<meta property='og:image:alt' content={imageAlt} />
-	{socialImgWidth && <meta property='og:image:width' content={String(socialImgWidth)} />}
-	{socialImgHeight && <meta property='og:image:height' content={String(socialImgHeight)} />}
-	{publishedTime && <meta property='article:published_time' content={publishedTime} />}
-	{modifiedTime && <meta property='article:modified_time' content={modifiedTime} />}
-	{publishedTime && <meta property='og:updated_time' content={modifiedTime || publishedTime} />}
+<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180x180.png" />
+<link rel="manifest" href="/manifest.json" />
+<meta name="theme-color" content="#0078BF" />
+<meta name="format-detection" content="telephone=no" />
 
-	<meta name='twitter:card' content='summary_large_image' />
-	<meta name='twitter:site' content='@eliancodes' />
-	<meta name='twitter:creator' content='@eliancodes' />
-	<meta name='twitter:url' content={canonicalURL} />
-	<meta name='twitter:title' content={fullTitle} />
-	<meta name='twitter:description' content={description} />
-	<meta name='twitter:image' content={socialImg} />
-	<meta name='twitter:image:alt' content={imageAlt} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(siteSchema)} />
+{
+	schemaList.map((entry) => (
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(entry)} />
+	))
+}
 
-	<link rel='canonical' href={canonicalURL} />
-	<link rel='icon' type='image/x-icon' href='/favicon.ico' />
-	<link
-		rel='apple-touch-icon'
-		sizes='57x57'
-		href='/icons/apple-icon-57x57.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='60x60'
-		href='/icons/apple-icon-60x60.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='72x72'
-		href='/icons/apple-icon-72x72.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='76x76'
-		href='/icons/apple-icon-76x76.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='114x114'
-		href='/icons/apple-icon-114x114.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='120x120'
-		href='/icons/apple-icon-120x120.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='144x144'
-		href='/icons/apple-icon-144x144.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='152x152'
-		href='/icons/apple-icon-152x152.png'
-	/>
-	<link
-		rel='apple-touch-icon'
-		sizes='180x180'
-		href='/icons/apple-icon-180x180.png'
-	/>
-	<link
-		rel='icon'
-		type='image/png'
-		sizes='192x192'
-		href='/icons/android-icon-192x192.png'
-	/>
-	<link
-		rel='icon'
-		type='image/png'
-		sizes='32x32'
-		href='/icons/favicon-32x32.png'
-	/>
-	<link
-		rel='icon'
-		type='image/png'
-		sizes='96x96'
-		href='/icons/favicon-96x96.png'
-	/>
-	<link
-		rel='icon'
-		type='image/png'
-		sizes='16x16'
-		href='/icons/favicon-16x16.png'
-	/>
-
-	<link rel='manifest' href='/manifest.json' />
-	<meta name='msapplication-TileColor' content='#ffffff' />
-	<meta name='msapplication-TileImage' content='/icons/ms-icon-144x144.png' />
-	<meta name='theme-color' content='#6ee7b7' />
-	<meta name='format-detection' content='telephone=no' />
-
-	<title>{fullTitle}</title>
-
-	<script
-		is:inline
-		type='application/ld+json'
-		set:html={JSON.stringify(siteSchema)}
-	/>
-	{
-		schemaList.map((entry) => (
-			<script
-				is:inline
-				type='application/ld+json'
-				set:html={JSON.stringify(entry)}
-			/>
-		))
-	}
-
-	<slot />
-</head>
+{
+	analyticsEnabled && (
+		<Fragment>
+			<script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} />
+			<script is:inline define:vars={{ gaId }}>
+				window.dataLayer = window.dataLayer || [];
+				function gtag() {
+					dataLayer.push(arguments);
+				}
+				gtag("js", new Date());
+				gtag("config", gaId);
+			</script>
+		</Fragment>
+	)
+}

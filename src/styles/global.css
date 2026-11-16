@@ -1,32 +1,43 @@
+/*
+ * V5 "Signal": flat fluo pink + process blue planes on clean white.
+ * No paper grain, no offset shadows, no rotation. The pink/blue offset is a
+ * screen glitch (chromatic split), used sparingly on a few headline words.
+ */
+
 :root {
-	--primary: #ebff00;
-	--secondary: #9e00ff;
-	--primary-gray: #2b2b2b;
-	--off-white: #f7f5ef;
-	--light-gray: #efede7;
-	--surface: #ffffff;
-	--surface-muted: #f4f2ec;
-	--border: #2b2b2b;
-	--text: #2b2b2b;
-	--text-muted: #5f5a52;
-	--hero-overlay: rgb(15 15 15 / 0.45);
-	--shadow-lg: 10px 10px 0 0 rgb(43 43 43 / 1);
-	--shadow-md: 6px 6px 0 0 rgb(43 43 43 / 1);
-	--shadow-sm: 3px 3px 0 0 rgb(43 43 43 / 1);
-	--radius-xl: 1.5rem;
-	--radius-lg: 1rem;
-	--radius-md: 0.75rem;
-	--content-width: 72rem;
-	--content-narrow: 60rem;
-	--space-2xs: 0.25rem;
-	--space-xs: 0.5rem;
-	--space-sm: 0.75rem;
-	--space-md: 1rem;
-	--space-lg: 1.5rem;
-	--space-xl: 2rem;
-	--space-2xl: 3rem;
-	--space-3xl: 4rem;
-	--page-gutter: 1rem;
+	--pink: #ff48b0;
+	--blue: #0078bf;
+	--ink: #111111;
+	--paper: #ffffff;
+	--grey-100: #eaeaea;
+	--grey-500: #666666;
+	--grey-600: #555555;
+	--grey-700: #444444;
+	--note-bg: #eef5fb;
+
+	--gutter: 64px;
+	--grid-gap: 24px;
+	--max-width: 1440px;
+
+	--step-label: 0.75rem; /* 12px mono labels */
+	--step-nav: 0.8125rem; /* 13px nav */
+	--step-body: 1.25rem; /* 20px article body */
+
+	--focus: 3px solid var(--pink);
+
+	/*
+	 * Left/right edge of the centred .wrap column, for full-bleed sections whose content
+	 * should still line up with it. Resolves against <main> (a size container), so the
+	 * scrollbar doesn't throw it off.
+	 */
+	--edge: max(var(--gutter), calc((100cqw - var(--max-width)) / 2 + var(--gutter)));
+}
+
+@media (max-width: 900px) {
+	:root {
+		--gutter: 20px;
+		--grid-gap: 16px;
+	}
 }
 
 *,
@@ -36,77 +47,64 @@
 }
 
 html {
-	scroll-behavior: smooth;
-	background: var(--off-white);
-	color: var(--text);
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 body {
 	margin: 0;
 	min-height: 100vh;
-	background: var(--off-white);
-	color: var(--text);
-	font-family: "Poppins", sans-serif;
-	line-height: 1.6;
-}
-
-@media (min-width: 768px) {
-	:root {
-		--page-gutter: 2rem;
-	}
-}
-
-@media (min-width: 1280px) {
-	:root {
-		--page-gutter: 2.25rem;
-	}
+	display: flex;
+	flex-direction: column;
+	background: var(--paper);
+	color: var(--ink);
+	font-family: var(--font-body);
+	font-size: 1rem;
+	line-height: 1.5;
 }
 
 main {
-	display: block;
+	flex: 1;
+	container-type: inline-size;
 }
 
 img,
-picture,
-svg {
+svg,
+video {
 	display: block;
 	max-width: 100%;
 }
 
 a {
 	color: inherit;
-	text-decoration-thickness: 1.5px;
-	text-underline-offset: 0.22em;
-	transition:
-		color 180ms ease,
-		background-color 180ms ease,
-		border-color 180ms ease,
-		box-shadow 180ms ease,
-		transform 180ms ease;
 }
 
-button,
-input,
-textarea,
-select {
-	font: inherit;
+:focus-visible {
+	outline: var(--focus);
+	outline-offset: 3px;
 }
 
-ul,
-ol {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+/* Component styles set display (grid, flex) which would otherwise beat the hidden attribute. */
+[hidden] {
+	display: none !important;
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	margin: 0;
+.skip-link {
+	position: absolute;
+	left: var(--gutter);
+	top: -100px;
+	z-index: 100;
+	padding: 12px 18px;
+	background: var(--pink);
+	color: var(--ink);
+	font-family: var(--font-mono);
+	font-size: var(--step-label);
+	text-transform: uppercase;
+	text-decoration: none;
+}
+
+.skip-link:focus {
+	top: 12px;
 }
 
 .visually-hidden {
@@ -116,23 +114,359 @@ h6 {
 	padding: 0;
 	margin: -1px;
 	overflow: hidden;
-	clip: rect(0, 0, 0, 0);
+	clip: rect(0 0 0 0);
 	white-space: nowrap;
 	border: 0;
 }
 
-.card-shadow {
-	box-shadow: var(--shadow-lg);
-	transition:
-		box-shadow 180ms ease,
-		transform 180ms ease;
+/* ---- Type ---- */
+
+.display {
+	margin: 0;
+	font-family: var(--font-display);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	line-height: 0.85;
+	text-wrap: balance;
 }
 
-.card-shadow:hover {
-	box-shadow: var(--shadow-md);
-	transform: translate(4px, 4px);
+.mono {
+	font-family: var(--font-mono);
+	text-transform: uppercase;
+	font-size: var(--step-label);
+	letter-spacing: 0.02em;
 }
 
-@view-transition {
-	navigation: auto;
+/* ---- Layout ---- */
+
+.wrap {
+	width: 100%;
+	max-width: var(--max-width);
+	margin-inline: auto;
+	padding-inline: var(--gutter);
+}
+
+.grid-12 {
+	display: grid;
+	grid-template-columns: repeat(12, minmax(0, 1fr));
+	column-gap: var(--grid-gap);
+}
+
+.plane-blue {
+	background: var(--blue);
+	color: var(--paper);
+}
+
+.plane-pink {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.plane-ink {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+/* ---- Pieces ---- */
+
+.tag {
+	display: inline-flex;
+	align-items: center;
+	min-height: 30px;
+	padding: 0 12px;
+	font-family: var(--font-mono);
+	font-size: 0.6875rem;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: var(--blue);
+	color: var(--paper);
+}
+
+.tag--pink {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.tag--white {
+	background: var(--paper);
+	color: var(--ink);
+}
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	min-height: 48px;
+	padding: 0 22px;
+	border: none;
+	font-family: var(--font-mono);
+	font-size: var(--step-nav);
+	font-weight: 600;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.btn--lg {
+	min-height: 60px;
+	padding: 0 26px;
+}
+
+.btn--pink {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.btn--ink {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.btn--outline {
+	background: transparent;
+	color: currentColor;
+	box-shadow: inset 0 0 0 2px currentColor;
+}
+
+.btn--pink:hover {
+	background: var(--ink);
+	color: var(--paper);
+}
+
+.btn--ink:hover {
+	background: var(--pink);
+	color: var(--ink);
+}
+
+.btn--outline:hover {
+	box-shadow: inset 0 0 0 4px currentColor;
+}
+
+/* ---- Article prose (rendered markdown) ---- */
+
+.prose {
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+	font-size: var(--step-body);
+	line-height: 1.7;
+	color: #222222;
+}
+
+.prose > * {
+	margin: 0;
+}
+
+/* Posts open with "# Title", which duplicates the page's own <h1>. */
+.prose > p:first-child {
+	font-size: 1.4375rem;
+	font-weight: 500;
+	color: var(--ink);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	font-family: var(--font-display);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	color: var(--ink);
+	scroll-margin-top: 24px;
+	text-wrap: balance;
+}
+
+.prose h1,
+.prose h2 {
+	margin-top: 16px;
+	font-size: clamp(2.5rem, 4vw, 3.5rem);
+	line-height: 0.9;
+}
+
+.prose h3 {
+	margin-top: 8px;
+	font-size: 2.25rem;
+	line-height: 0.95;
+}
+
+.prose h4 {
+	font-size: 1.625rem;
+	line-height: 1;
+}
+
+.prose a {
+	color: var(--blue);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+}
+
+.prose a:hover {
+	background: var(--pink);
+	color: var(--ink);
+	text-decoration: none;
+}
+
+.prose strong {
+	font-weight: 700;
+	color: var(--ink);
+}
+
+.prose ul,
+.prose ol {
+	padding-left: 1.4em;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.prose li::marker {
+	color: var(--pink);
+	font-weight: 700;
+}
+
+.prose blockquote {
+	padding: 36px;
+	background: var(--pink);
+	color: var(--ink);
+	font-family: var(--font-display);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	font-size: clamp(2rem, 3.6vw, 3.25rem);
+	line-height: 0.95;
+}
+
+.prose blockquote p {
+	margin: 0;
+}
+
+.prose blockquote p + p {
+	margin-top: 0.5em;
+}
+
+.prose :not(pre) > code {
+	padding: 0.1em 0.35em;
+	background: var(--note-bg);
+	color: var(--blue);
+	font-family: var(--font-mono);
+	font-size: 0.8em;
+}
+
+.prose pre {
+	padding: 20px 16px;
+	background: var(--ink) !important;
+	overflow-x: auto;
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
+	line-height: 1.7;
+	box-shadow: inset 0 6px 0 var(--blue);
+}
+
+.prose pre code {
+	font-family: inherit;
+}
+
+.prose img {
+	width: 100%;
+	height: auto;
+}
+
+.prose hr {
+	width: 100%;
+	border: 0;
+	border-top: 3px solid var(--ink);
+}
+
+.prose table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 1rem;
+	display: block;
+	overflow-x: auto;
+}
+
+.prose th,
+.prose td {
+	padding: 10px 12px;
+	border-bottom: 2px solid var(--ink);
+	text-align: left;
+}
+
+.prose th {
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+	.prose {
+		font-size: 1.125rem;
+	}
+
+	.prose > p:first-child {
+		font-size: 1.25rem;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+	}
+}
+
+/* ---- Easter egg: weird mode (Konami code, see BaseLayout) ---- */
+.weird-toast {
+	position: fixed;
+	left: 50%;
+	bottom: 24px;
+	z-index: 100;
+	margin: 0;
+	padding: 12px 18px;
+	background: var(--ink);
+	color: var(--paper);
+	box-shadow: 6px 6px 0 var(--pink);
+	font-size: 0.75rem;
+	transform: translate(-50%, 200%);
+	transition: transform 0.25s ease;
+	pointer-events: none;
+}
+
+.weird-toast--show {
+	transform: translate(-50%, 0);
+}
+
+.weird .display {
+	text-shadow:
+		4px 0 0 var(--pink),
+		-4px 0 0 var(--blue);
+}
+
+.weird img {
+	filter: hue-rotate(160deg) saturate(2);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.weird .display {
+		animation: weird-wobble 0.6s steps(3) infinite alternate;
+	}
+
+	.weird .btn {
+		animation: weird-wobble 0.9s steps(2) infinite alternate-reverse;
+	}
+}
+
+@keyframes weird-wobble {
+	from {
+		transform: rotate(-1.5deg) translateX(-2px);
+	}
+	to {
+		transform: rotate(1.5deg) translateX(2px);
+	}
 }

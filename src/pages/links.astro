@@ -1,64 +1,146 @@
 ---
-import Layout from "@layouts/new/Default.astro";
-import Button from "@ui/Button.astro";
-import List from "@ui/List.astro";
-import ListItem from "@ui/ListItem.astro";
-import Section from "@ui/Section.astro";
-import TitleSection from "@ui/TitleSection.astro";
+import { Image } from "astro:assets";
+import avatar from "../assets/elian.jpg";
+import Glitch from "../components/ui/Glitch.astro";
+import { allLinks, bookMe, site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPosts, postUrl } from "../lib/posts";
+import { breadcrumbs } from "../lib/schema";
 
-export const prerender = true;
-
-const links = [
-	{ title: "X (Formerly Twitter)", url: "https://x.com/eliancodes" },
-	{ title: "GitHub", url: "https://github.com/eliancodes" },
-	{ title: "LinkedIn", url: "https://linkedin.com/in/elianvancutsem" },
-	{ title: "Threads", url: "https://threads.net/eliancodes" },
-	{ title: "Dev.to", url: "https://dev.to/eliancodes" },
-	{ title: "Bluesky", url: "https://bsky.app/profile/elian.codes" },
-	{ title: "Mastodon", url: "https://webtoo.ls/@eliancodes" },
-	{ title: "Instagram", url: "https://instagram.com/eliancodes" },
-	{
-		title: "Facebook",
-		url: "https://www.facebook.com/profile.php?id=61575240867661",
-	},
-	{ title: "Twitch", url: "https://twitch.tv/eliancodes" },
-	{ title: "YouTube", url: "https://youtube.com/@eliancodes" },
-	{ title: "TikTok", url: "https://tiktok.com/@eliancodes" },
-];
+const [latest] = await getPosts();
 ---
 
-<Layout title='Links' description='Links on where to find @ElianCodes online'>
-	<TitleSection
-		title='Links'
-		subtitle='Here are some links to my profiles on other platforms.'
-	/>
-	<Section class='links-page'>
-		<List class='links-page__list'>
+<BaseLayout
+	title="Links"
+	description="Where to find Elian Van Cutsem (@eliancodes) online: GitHub, LinkedIn, Bluesky, YouTube, Mastodon, Sessionize and more."
+	schema={breadcrumbs([["Home", "/"], ["Links", "/links"]], Astro.site!)}
+>
+	<section class="plane-blue">
+		<div class="wrap hero">
+			<Image src={avatar} alt="" width={96} height={96} densities={[1, 2]} class="hero__avatar" loading="eager" />
+			<h1 class="display hero__title"><Glitch text="@eliancodes" color="var(--paper)" /></h1>
+			<p>Speaker, engineer, internet troublemaker. Pick a channel.</p>
+		</div>
+	</section>
+
+	<div class="wrap links">
+		<ul role="list" class="links__primary">
+			<li><a href={bookMe.href} class="link link--pink"><span>Book me for a talk</span><span aria-hidden="true">→</span></a></li>
 			{
-				links.map((link) => (
-					<ListItem class='links-page__item'>
-						<Button target='_blank' fullWidth href={link.url}>
-							{link.title}
-						</Button>
-					</ListItem>
+				latest && (
+					<li>
+						<a href={postUrl(latest)} class="link link--ink">
+							<span>Latest: {latest.data.title}</span>
+							<span aria-hidden="true">→</span>
+						</a>
+					</li>
+				)
+			}
+			<li><a href={`mailto:${site.email}`} class="link"><span>{site.email}</span><span aria-hidden="true">✉</span></a></li>
+		</ul>
+		<ul role="list" class="links__grid">
+			{
+				allLinks.map((link) => (
+					<li>
+						<a href={link.href} class="link" rel="me noopener">
+							<span>{link.label}</span>
+							<span aria-hidden="true">↗</span>
+						</a>
+					</li>
 				))
 			}
-		</List>
-	</Section>
-</Layout>
+		</ul>
+	</div>
+</BaseLayout>
 
 <style>
-	.links-page {
-		width: min(100%, 40rem);
-		margin: 0 auto;
-		padding-top: 3rem;
-		padding-bottom: 4rem;
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+		padding-block: 56px;
 	}
 
-	.links-page__list {
-		display: grid;
-		gap: 1rem;
-		width: 100%;
+	.hero__avatar {
+		width: 96px;
+		height: 96px;
+		object-fit: cover;
+		background: var(--pink);
+	}
+
+	.hero__title {
+		font-size: clamp(3.5rem, 9vw, 8rem);
+		line-height: 0.85;
+	}
+
+	.hero p {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+
+	.links {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding-block: 56px 96px;
+	}
+
+	.links ul {
+		margin: 0;
+		padding: 0;
 		list-style: none;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 12px;
+	}
+
+	.links__grid {
+		grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+	}
+
+	.link {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+		min-height: 66px;
+		padding: 0 24px;
+		box-shadow: inset 0 0 0 2px var(--ink);
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.link span:first-child {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.link:hover {
+		background: var(--pink);
+	}
+
+	.link--pink {
+		background: var(--pink);
+		box-shadow: none;
+		font-weight: 600;
+	}
+
+	.link--pink:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.link--ink {
+		background: var(--ink);
+		color: var(--paper);
+		box-shadow: none;
+	}
+
+	.link--ink:hover {
+		background: var(--blue);
 	}
 </style>

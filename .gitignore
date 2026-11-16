@@ -25,3 +25,8 @@ firebase-debug.log
 /.vercel
 /.astro
 /playwright-report
+
+# void (generated)
+/.void
+/.void-wrangler.jsonc
+.wrangler/

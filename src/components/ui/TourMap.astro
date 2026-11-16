@@ -1,0 +1,111 @@
+---
+/**
+ * Every city from the tour log on a flat world map. Rendered to static SVG at build time
+ * (d3-geo + Natural Earth 110m land), so it ships no JavaScript.
+ */
+import { geoNaturalEarth1, geoPath } from "d3-geo";
+import { feature } from "topojson-client";
+import type { GeometryCollection, Topology } from "topojson-specification";
+import land110 from "world-atlas/land-110m.json";
+import { cityCoordinates } from "../../lib/geo";
+import { isOnline, type Stop } from "../../lib/tour";
+
+interface Props {
+	stages: Stop[];
+}
+
+const { stages } = Astro.props;
+
+const WIDTH = 1200;
+const topology = land110 as unknown as Topology<{ land: GeometryCollection }>;
+const land = feature(topology, topology.objects.land);
+const projection = geoNaturalEarth1().fitWidth(WIDTH, { type: "Sphere" });
+const path = geoPath(projection);
+
+// Crop the poles: nothing on tour sits above 72°N or below 45°S.
+const [, top] = projection([0, 72])!;
+const [, bottom] = projection([0, -45])!;
+const height = bottom - top;
+
+// One dot per city, sized by how many times I've been there.
+const cities = new Map<string, { city: string; country: string; count: number; xy: [number, number] }>();
+const missing = new Set<string>();
+for (const stop of stages) {
+	if (isOnline(stop) || !stop.data.city || !stop.data.country) continue;
+	const key = `${stop.data.city}|${stop.data.country}`;
+	const existing = cities.get(key);
+	if (existing) {
+		existing.count++;
+		continue;
+	}
+	const coords = cityCoordinates(stop.data.city, stop.data.country);
+	if (!coords) {
+		missing.add(stop.data.city);
+		continue;
+	}
+	const xy = projection(coords)!;
+	cities.set(key, { city: stop.data.city, country: stop.data.country, count: 1, xy: [xy[0], xy[1] - top] });
+}
+if (missing.size > 0) {
+	throw new Error(`TourMap: add coordinates for ${[...missing].join(", ")} in src/lib/geo.ts`);
+}
+
+const dots = [...cities.values()].sort((a, b) => b.count - a.count);
+const label = `Map of ${dots.length} cities I've spoken in: ${dots.map((d) => d.city).join(", ")}.`;
+---
+
+<figure class="tour-map">
+	<svg viewBox={`0 ${top} ${WIDTH} ${height}`} role="img" aria-label={label}>
+		<path d={path(land) ?? ""} class="tour-map__land"></path>
+		<g transform={`translate(0 ${top})`}>
+			{
+				dots.map((dot) => (
+					<circle cx={dot.xy[0]} cy={dot.xy[1]} r={4 + Math.sqrt(dot.count) * 3} class="tour-map__dot">
+						<title>
+							{dot.city} · {dot.count} {dot.count === 1 ? "show" : "shows"}
+						</title>
+					</circle>
+				))
+			}
+		</g>
+	</svg>
+	<figcaption class="mono tour-map__caption">
+		{dots.length} cities · bigger dot, more shows
+	</figcaption>
+</figure>
+
+<style>
+	.tour-map {
+		margin: 0;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	svg {
+		display: block;
+		width: 100%;
+		height: auto;
+		overflow: visible;
+	}
+
+	.tour-map__land {
+		fill: color-mix(in srgb, var(--paper) 22%, var(--blue));
+	}
+
+	.tour-map__dot {
+		fill: var(--pink);
+		stroke: var(--ink);
+		stroke-width: 2;
+		mix-blend-mode: normal;
+		transition: fill 0.15s ease;
+	}
+
+	.tour-map__dot:hover {
+		fill: var(--paper);
+	}
+
+	.tour-map__caption {
+		font-size: 0.6875rem;
+	}
+</style>
