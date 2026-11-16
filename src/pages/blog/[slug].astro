@@ -48,12 +48,13 @@ const articleSchema = {
 <BaseLayout
 	title={data.title}
 	description={data.description}
-	socialImg={data.imgUrl.src}
+	socialImg={`/v1/generate/og/${post.id}.png`}
 	socialImgAlt={data.title}
 	pageType="article"
 	publishedTime={data.pubDate.toISOString()}
 	modifiedTime={data.updatedDate?.toISOString()}
 	schema={articleSchema}
+	markdownAlternate={`/blog/${post.id}.md`}
 >
 	<header class="hero plane-blue">
 		<div class="wrap grid-12">

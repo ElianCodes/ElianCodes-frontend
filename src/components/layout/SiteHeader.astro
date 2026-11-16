@@ -3,7 +3,8 @@ import { Image } from "astro:assets";
 import avatar from "../../assets/elian.jpg";
 import { bookMe, nav } from "../../data/site";
 
-const current = Astro.url.pathname.replace(/\/$/, "") || "/";
+const current =
+	Astro.url.pathname.replace(/(\/index)?\.html$/, "").replace(/(.)\/$/, "$1") || "/";
 const isActive = (href: string) => current === href || current.startsWith(`${href}/`);
 ---
 

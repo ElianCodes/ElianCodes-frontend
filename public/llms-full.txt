@@ -25,9 +25,9 @@ The website contains:
 ## High-Value URLs
 
 - Homepage: https://www.elian.codes/
-- Blog index: https://www.elian.codes/blog/
-- Events: https://www.elian.codes/events/
-- Links: https://www.elian.codes/links/
+- Blog index: https://www.elian.codes/blog
+- Events: https://www.elian.codes/events
+- Links: https://www.elian.codes/links
 - RSS: https://www.elian.codes/blog.xml
 - llms.txt: https://www.elian.codes/llms.txt
 

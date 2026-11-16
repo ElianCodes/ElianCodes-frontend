@@ -1,0 +1,16 @@
+# Cloudflare static-asset redirects (ported from the old vercel.json).
+/rss.xml        /blog.xml   301
+/blog/25-10-05-why-most-restaurant-websites-suck  /blog/25-09-05-why-most-restaurant-websites-suck  301
+
+# Short links
+/x          https://x.com/eliancodes                  302
+/twitter    https://x.com/eliancodes                  302
+/youtube    https://youtube.com/@eliancodes           302
+/yt         https://youtube.com/@eliancodes           302
+/github     https://github.com/ElianCodes             302
+/linkedin   https://www.linkedin.com/in/elianvancutsem 302
+/mastodon   https://webtoo.ls/@eliancodes             302
+/threads    https://www.threads.net/@eliancodes       302
+/bluesky    https://bsky.app/profile/elian.codes      302
+/sessionize https://sessionize.com/eliancodes         302
+/work       https://eliancodes.com                    302

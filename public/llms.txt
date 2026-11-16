@@ -7,10 +7,11 @@ Use this site to understand Elian's work, writing, talks, and professional backg
 ## Primary Pages
 
 - [Homepage](https://www.elian.codes/): Overview of Elian Van Cutsem, his focus areas, and current work.
-- [Blog](https://www.elian.codes/blog/): Articles about Astro, React, frontend engineering, developer experience, automation, and web performance.
-- [Events](https://www.elian.codes/events/): Talks, workshops, livestreams, and community appearances.
-- [Links](https://www.elian.codes/links/): Important external links and profiles.
+- [Blog](https://www.elian.codes/blog): Articles about Astro, React, frontend engineering, developer experience, automation, and web performance.
+- [Events](https://www.elian.codes/events): Talks, workshops, livestreams, and community appearances.
+- [Links](https://www.elian.codes/links): Important external links and profiles.
 - [RSS Feed](https://www.elian.codes/blog.xml): Machine-readable feed of published blog posts.
+- Every article also exists as plain markdown: append `.md` to its URL, e.g. https://www.elian.codes/blog/25-10-18-astro-docs-gets-an-mcp-server.md
 
 ## Entity Summary
 

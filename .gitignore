@@ -30,4 +30,3 @@ firebase-debug.log
 /.void
 /.void-wrangler.jsonc
 .wrangler/
-src/middleware.ts

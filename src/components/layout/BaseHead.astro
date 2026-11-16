@@ -19,7 +19,7 @@ export interface Props {
 const {
 	title,
 	description = site.description,
-	socialImg = new URL("/assets/img/social.jpg", Astro.site),
+	socialImg = "/v1/generate/og/default.png",
 	socialImgAlt,
 	pageType = "website",
 	publishedTime,
@@ -29,7 +29,9 @@ const {
 	markdownAlternate,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// build.format "file" gives pathnames like /blog.html; the public URL is /blog.
+const cleanPath = Astro.url.pathname.replace(/(\/index)?\.html$/, "").replace(/(.)\/$/, "$1") || "/";
+const canonicalURL = new URL(cleanPath, Astro.site);
 const siteUrl = new URL("/", Astro.site);
 const fullTitle = title ? `${title} · ${site.name}` : site.name;
 const imageUrl = new URL(socialImg, Astro.site);

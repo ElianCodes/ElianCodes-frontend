@@ -1,11 +1,13 @@
-import cloudflare from "@astrojs/cloudflare";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig, fontProviders } from "astro/config";
-import { voidPlugin } from "void";
 
+// Fully static: `void deploy --dir dist` uploads the build to Cloudflare as static assets.
+// No adapter, so build-time pages (OG images, feeds) render in Node.
 export default defineConfig({
-	site: "https://www.elian.codes/",
-	trailingSlash: "ignore",
+	site: "https://www.elian.codes",
+	// /blog is served from blog.html, so Cloudflare doesn't redirect /blog → /blog/.
+	trailingSlash: "never",
+	build: { format: "file" },
 	integrations: [sitemap()],
 	markdown: {
 		shikiConfig: { theme: "github-dark-default" },
@@ -38,14 +40,4 @@ export default defineConfig({
 			fallbacks: ["system-ui", "sans-serif"],
 		},
 	],
-	// Static site: optimise images at build time and skip the KV session store,
-	// so no Images or KV bindings get provisioned on Cloudflare.
-	session: false,
-	adapter: cloudflare({
-		configPath: "./.void-wrangler.jsonc",
-		imageService: "compile",
-	}),
-	vite: {
-		plugins: [voidPlugin()],
-	},
 });
