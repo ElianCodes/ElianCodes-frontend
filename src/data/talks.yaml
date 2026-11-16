@@ -1,4 +1,5 @@
-# Talks organizers can book. Shown in the speaker kit on /events.
+# Talks organizers can book. Shown in the speaker kit on /events and on /talks.
+# aliases: other titles the same talk ran under in tour.yaml.
 - id: playing-with-fire
   order: 1
   title: "Playing with Fire: Unethical AI"
@@ -17,5 +18,6 @@
 - id: astro-universal-cms-frontend
   order: 4
   title: "Astro as a Universal CMS Frontend"
+  aliases: ["Astro as a Universal CMS Frontend: Patterns, Trade-Offs and a Real-World Case"]
   abstract: "Headless, hybrid or visual editor: how Astro's islands unify every CMS setup, the trade-offs that matter, and lessons from a real integration."
   formats: [Talk]

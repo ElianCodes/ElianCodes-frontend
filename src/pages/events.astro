@@ -1,5 +1,4 @@
 ---
-import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
 import headshot from "../assets/photos/headshot.jpg";
 import stageSmile from "../assets/photos/stage-smile.jpg";
@@ -7,8 +6,10 @@ import reactBrussels from "../assets/events/reactbrussels.jpg";
 import Glitch from "../components/ui/Glitch.astro";
 import SignalPhoto from "../components/ui/SignalPhoto.astro";
 import Stat from "../components/ui/Stat.astro";
+import TourMap from "../components/ui/TourMap.astro";
 import { bio, organizedStages, sessionize, site } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { getTalks, talkForStop, talkUrl } from "../lib/talks";
 import {
 	getBroadcasts,
 	getNextStage,
@@ -28,7 +29,8 @@ const broadcasts = getBroadcasts(tour);
 const stats = getStats(stages);
 const next = getNextStage(stages);
 const years = groupByYear(stages);
-const talks = (await getCollection("talks")).sort((a, b) => a.data.order - b.data.order);
+const allTalks = await getTalks();
+const talks = allTalks.filter((t) => t.bookable);
 
 const firstStage = stages.at(-1);
 const kindLabel: Record<string, string> = {
@@ -59,6 +61,9 @@ const kindLabel: Record<string, string> = {
 				<Stat value={stats.countries} label="Countries" class="stat--white" />
 				<Stat value={stats.continents} label="Continents" class="plane-ink" />
 			</div>
+		</div>
+		<div class="wrap hero__map">
+			<TourMap stages={stages} />
 		</div>
 	</section>
 
@@ -131,7 +136,10 @@ const kindLabel: Record<string, string> = {
 									)}
 								</span>
 								<span class:list={["row__talk", { "row__talk--missing": !stop.data.talk }]}>
-									{stop.data.talk ?? "Talk title coming soon"}
+									{(() => {
+										const talk = talkForStop(allTalks, stop);
+										return talk ? <a href={talkUrl(talk)}>{stop.data.talk}</a> : (stop.data.talk ?? "Talk title coming soon");
+									})()}
 								</span>
 								<span class="row__replay">
 									{stop.data.replay && (
@@ -239,10 +247,10 @@ const kindLabel: Record<string, string> = {
 						talks.map((talk) => (
 							<li class="kit__talk">
 								<span>
-									<span class="display kit__talk-title">{talk.data.title}</span>
-									<span class="kit__talk-abstract">{talk.data.abstract}</span>
+									<a href={talkUrl(talk)} class="display kit__talk-title">{talk.title}</a>
+									<span class="kit__talk-abstract">{talk.abstract}</span>
 								</span>
-								<span class="tag">{talk.data.formats.join(" · ")}</span>
+								<span class="tag">{talk.formats.join(" · ")}</span>
 							</li>
 						))
 					}
@@ -334,6 +342,10 @@ const kindLabel: Record<string, string> = {
 		margin: 0;
 		max-width: 620px;
 		font-size: 1.3125rem;
+	}
+
+	.hero__map {
+		padding-bottom: 56px;
 	}
 
 	.hero__stats {
@@ -527,6 +539,15 @@ const kindLabel: Record<string, string> = {
 		font-size: 1.0625rem;
 		line-height: 1.4;
 		color: var(--grey-700);
+	}
+
+	.row__talk a {
+		text-decoration-thickness: 1px;
+		text-underline-offset: 3px;
+	}
+
+	.row__talk a:hover {
+		color: var(--blue);
 	}
 
 	.row__talk--missing {
@@ -805,8 +826,14 @@ const kindLabel: Record<string, string> = {
 	}
 
 	.kit__talk-title {
+		display: block;
 		font-size: 1.75rem;
 		line-height: 0.95;
+		text-decoration: none;
+	}
+
+	.kit__talk-title:hover {
+		color: var(--blue);
 	}
 
 	.kit__talk-abstract {

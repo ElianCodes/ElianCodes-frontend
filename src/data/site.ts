@@ -16,6 +16,7 @@ export const site = {
 export const nav: NavLink[] = [
 	{ label: "Articles", href: "/blog" },
 	{ label: "Events", href: "/events" },
+	{ label: "Talks", href: "/talks" },
 	{ label: "Links", href: "/links" },
 ];
 

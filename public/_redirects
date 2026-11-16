@@ -14,3 +14,7 @@
 /bluesky    https://bsky.app/profile/elian.codes      302
 /sessionize https://sessionize.com/eliancodes         302
 /work       https://eliancodes.com                    302
+
+# Merged tags
+/blog/tags/webdevelopment /blog/tags/web%20development 301
+/blog/tags/reactnative /blog/tags/react%20native 301

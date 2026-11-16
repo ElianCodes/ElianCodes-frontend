@@ -1,0 +1,195 @@
+---
+import Glitch from "../../components/ui/Glitch.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { getTalks, talkUrl } from "../../lib/talks";
+import { monthYearLabel } from "../../lib/tour";
+
+const talks = await getTalks();
+const bookable = talks.filter((t) => t.bookable);
+// Past talks, most-given first, then most recent.
+const archive = talks
+	.filter((t) => !t.bookable)
+	.sort((a, b) => b.stops.length - a.stops.length);
+const replays = talks.reduce((n, t) => n + t.stops.filter((s) => s.data.replay).length, 0);
+---
+
+<BaseLayout
+	title="Talks"
+	description={`${talks.length} talks and workshops by Elian Van Cutsem, with every stage they were given on and the recordings.`}
+>
+	<section class="plane-blue">
+		<div class="wrap hero">
+			<span class="mono prompt">&gt; ls ./talks</span>
+			<h1 class="display hero__title"><Glitch text="Talks" color="var(--paper)" /></h1>
+			<p class="hero__lede">
+				{talks.length} talks and workshops, where I gave them, and {replays}
+				{replays === 1 ? " recording" : " recordings"} you can still watch.
+			</p>
+		</div>
+	</section>
+
+	<section class="wrap block" aria-labelledby="bookable-title">
+		<h2 id="bookable-title" class="display section-title">Book one of these</h2>
+		<ul class="cards" role="list">
+			{
+				bookable.map((talk) => (
+					<li class="card">
+						<a href={talkUrl(talk)} class="card__link">
+							<span class="display card__title">{talk.title}</span>
+						</a>
+						<p class="card__abstract">{talk.abstract}</p>
+						<span class="mono card__meta">
+							{talk.formats.join(" · ")}
+							{talk.stops.length > 0 && ` · given ${talk.stops.length}×`}
+						</span>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section class="wrap block" aria-labelledby="archive-title">
+		<h2 id="archive-title" class="display section-title">The archive</h2>
+		<ol class="archive" role="list">
+			{
+				archive.map((talk) => (
+					<li class="archive__row">
+						<a href={talkUrl(talk)} class="archive__title">
+							{talk.title}
+						</a>
+						<span class="mono archive__meta">
+							{talk.stops.length > 1 ? `${talk.stops.length}× · ` : ""}
+							{monthYearLabel(talk.stops[0]!)}
+							{talk.stops.some((s) => s.data.replay) && <span class="tag tag--pink">▶ Replay</span>}
+						</span>
+					</li>
+				))
+			}
+		</ol>
+		<p class="mono note">
+			Looking for every stage, including panels and streams? <a href="/events">Open the tour log →</a>
+		</p>
+	</section>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		padding-block: 72px 64px;
+	}
+
+	.prompt {
+		color: var(--paper);
+		font-size: var(--step-nav);
+	}
+
+	.hero__title {
+		font-size: clamp(4.5rem, 12.8vw, 11.5rem);
+		line-height: 0.8;
+	}
+
+	.hero__lede {
+		margin: 0;
+		max-width: 620px;
+		font-size: 1.3125rem;
+	}
+
+	.block {
+		display: flex;
+		flex-direction: column;
+		gap: 32px;
+		padding-block: 88px 0;
+	}
+
+	.block:last-child {
+		padding-bottom: 104px;
+	}
+
+	.section-title {
+		font-size: clamp(3rem, 7vw, 5.5rem);
+		line-height: 0.85;
+	}
+
+	.cards {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+		gap: 0;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 4px solid var(--ink);
+		border-left: 4px solid var(--ink);
+	}
+
+	.card {
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		padding: 28px;
+		border-right: 4px solid var(--ink);
+		border-bottom: 4px solid var(--ink);
+	}
+
+	.card__link {
+		text-decoration: none;
+	}
+
+	.card__link:hover .card__title {
+		color: var(--blue);
+	}
+
+	.card__title {
+		font-size: 2.25rem;
+		line-height: 0.95;
+	}
+
+	.card__abstract {
+		margin: 0;
+		flex: 1;
+	}
+
+	.card__meta,
+	.archive__meta {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 10px;
+		color: var(--grey-500);
+		font-size: 0.6875rem;
+	}
+
+	.archive {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-top: 4px solid var(--ink);
+	}
+
+	.archive__row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: space-between;
+		gap: 8px 24px;
+		padding: 18px 0;
+		border-bottom: 1px solid var(--grey-100);
+	}
+
+	.archive__title {
+		font-size: 1.25rem;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.archive__title:hover {
+		box-shadow: inset 0 -3px 0 var(--pink);
+	}
+
+	.note {
+		margin: 0;
+		color: var(--grey-500);
+		font-size: 0.75rem;
+	}
+</style>

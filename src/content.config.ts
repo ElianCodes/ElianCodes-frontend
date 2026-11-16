@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { file, glob } from "astro/loaders";
 import { z } from "astro/zod";
+import { parsePartialDate } from "./lib/dates";
 
 const dateish = z.date().or(z.string().transform((str) => new Date(str)));
 
@@ -22,21 +23,15 @@ const posts = defineCollection({
 // Tour log: every stage, panel, stream and podcast (src/data/tour.yaml).
 // Dates may be partial ("2025", "2025-10") when the exact day isn't known.
 const partialDate = z.union([z.string(), z.number(), z.date()]).transform((value, ctx) => {
-	const raw = value instanceof Date ? value.toISOString().slice(0, 10) : String(value);
-	const match = raw.match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/);
-	if (!match) {
+	const parsed = parsePartialDate(value);
+	if (!parsed) {
 		ctx.addIssue({
 			code: "custom",
-			message: `Invalid date "${raw}", use YYYY, YYYY-MM or YYYY-MM-DD`,
+			message: `Invalid date "${String(value)}", use YYYY, YYYY-MM or YYYY-MM-DD`,
 		});
 		return z.NEVER;
 	}
-	const [, year, month, day] = match;
-	return {
-		year: Number(year),
-		month: month ? Number(month) : undefined,
-		day: day ? Number(day) : undefined,
-	};
+	return parsed;
 });
 
 const tour = defineCollection({
@@ -55,7 +50,8 @@ const tour = defineCollection({
 	}),
 });
 
-// Talks organizers can book (src/data/talks.yaml).
+// Talks organizers can book (src/data/talks.yaml). Tour entries whose `talk` matches the title
+// or one of the aliases (case and punctuation ignored) show up on that talk's page.
 const talks = defineCollection({
 	loader: file("./src/data/talks.yaml"),
 	schema: z.object({
@@ -63,6 +59,7 @@ const talks = defineCollection({
 		title: z.string(),
 		abstract: z.string(),
 		formats: z.array(z.string()),
+		aliases: z.array(z.string()).optional().default([]),
 	}),
 });
 

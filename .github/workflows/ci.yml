@@ -39,8 +39,14 @@ jobs:
       - name: Run Vite+ checks
         run: pnpm check
 
+      - name: Run unit tests
+        run: pnpm test
+
       - name: Build site
         run: pnpm build
+
+      - name: Check internal links
+        run: pnpm check:links
 
   deploy:
     name: Deploy to Cloudflare

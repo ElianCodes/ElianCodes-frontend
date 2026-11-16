@@ -22,5 +22,28 @@ export type Props = HeadProps;
 			<slot />
 		</main>
 		<SiteFooter />
+		<p class="weird-toast mono" role="status" aria-live="polite" data-weird-toast></p>
+		<script>
+			// Easter egg: the Konami code makes the web weird again. Press it again to undo.
+			const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
+			let progress = 0;
+			const toast = document.querySelector<HTMLElement>("[data-weird-toast]");
+			document.addEventListener("keydown", (event) => {
+				progress = event.key === code[progress] ? progress + 1 : event.key === code[0] ? 1 : 0;
+				if (progress < code.length) return;
+				progress = 0;
+				const on = document.documentElement.classList.toggle("weird");
+				if (toast) {
+					toast.textContent = on ? "Weird mode on. The web is weird again." : "Back to normal. Boring.";
+					toast.classList.add("weird-toast--show");
+					setTimeout(() => toast.classList.remove("weird-toast--show"), 2600);
+				}
+			});
+			console.log(
+				"%c> whoami%c\nCurious? The source is on GitHub: https://github.com/ElianCodes/ElianCodes-frontend\nAlso try the Konami code.",
+				"color:#ff48b0;font:700 16px monospace",
+				"font:12px monospace",
+			);
+		</script>
 	</body>
 </html>

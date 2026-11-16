@@ -17,9 +17,19 @@ export function postUrl(post: Post) {
 	return `/blog/${post.id}`;
 }
 
-/** Same slug scheme as the old site, so /blog/tags/<tag> URLs keep working. */
+/**
+ * Tags written two ways that mean the same thing. The old slugs redirect to the merged tag
+ * page in public/_redirects.
+ */
+const TAG_ALIASES: Record<string, string> = {
+	webdevelopment: "web development",
+	reactnative: "react native",
+};
+
+/** Same slug scheme as the old site (lowercased), so /blog/tags/<tag> URLs keep working. */
 export function tagSlug(tag: string) {
-	return tag.trim().toLowerCase();
+	const slug = tag.trim().toLowerCase();
+	return TAG_ALIASES[slug] ?? slug;
 }
 
 export function tagUrl(tag: string) {
@@ -49,18 +59,27 @@ export function groupByYear(posts: Post[]) {
 }
 
 export function getTagIndex(posts: Post[]) {
-	const tags = new Map<string, { label: string; posts: Post[] }>();
+	const tags = new Map<string, { spellings: Map<string, number>; posts: Post[] }>();
 	for (const post of posts) {
-		for (const raw of post.data.tags) {
+		for (const raw of new Set(post.data.tags.map((t) => t.trim()))) {
 			const slug = tagSlug(raw);
-			const entry = tags.get(slug) ?? { label: raw.trim(), posts: [] };
-			entry.posts.push(post);
+			const entry = tags.get(slug) ?? { spellings: new Map<string, number>(), posts: [] as Post[] };
+			if (!entry.posts.includes(post)) entry.posts.push(post);
+			entry.spellings.set(raw, (entry.spellings.get(raw) ?? 0) + 1);
 			tags.set(slug, entry);
 		}
 	}
 	return [...tags.entries()]
-		.map(([slug, value]) => ({ slug, ...value }))
+		.map(([slug, { spellings, posts }]) => ({ slug, label: tagLabel(spellings), posts }))
 		.sort((a, b) => b.posts.length - a.posts.length);
+}
+
+/** The most used spelling wins ("JavaScript" over "Javascript"); capitalised breaks ties. */
+function tagLabel(spellings: Map<string, number>) {
+	return [...spellings.entries()].sort(
+		([a, countA], [b, countB]) =>
+			countB - countA || a.localeCompare(b, "en", { caseFirst: "upper" }),
+	)[0]![0];
 }
 
 /** Posts sharing the most tags with `post`, newest first on ties. */
