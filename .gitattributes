@@ -1,0 +1,3 @@
+# Always use LF in the working tree, whatever core.autocrlf says.
+# The formatter (vp fmt) expects LF, and CRLF checkouts on Windows make `pnpm check` fail.
+* text=auto eol=lf

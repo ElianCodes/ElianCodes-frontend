@@ -1,0 +1,6 @@
+# force pnpm to hoist
+shamefullyHoist: true
+
+allowBuilds:
+  esbuild: true
+  workerd: true
