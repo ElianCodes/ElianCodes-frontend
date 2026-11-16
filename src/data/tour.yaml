@@ -44,6 +44,7 @@
   country: US
   kind: talk
   talk: "Beyond Boring: Unlocking the Web's Wild Side"
+  abstract: "A fresh spin on frontend creativity: cutting-edge web APIs in live demos, from playful experiments to features you can ship today. Let's make the web weirder and more fun."
   link: https://gitnation.com/contents/shaping-framework-futures-with-modern-tooling-3175
 - id: infobip-shift-asia-2025
   date: 2025-11-04
@@ -92,7 +93,8 @@
   event: AgentCon Ho Chi Minh
   city: Ho Chi Minh City
   country: VN
-  kind: talk # talk?
+  kind: talk
+  talk: "Playing with Fire: Unethical AI" # agenda: 11 Sep, 14:10
   link: https://globalai.community/chapters/ho-chi-minh/events/agentcon-2025-ho-chi-minh/
 - id: agentcon-singapore-2025
   date: 2025-09-09
@@ -129,14 +131,15 @@
   event: DevTalks Romania
   city: Bucharest
   country: RO
-  kind: talk # talk?
+  kind: talk
+  talk: "The Web Can Be Weird" # devtalks.ro speaker page, Web Stage
   link: https://www.devtalks.ro/
 - id: jnation-2025
   date: 2025-05-28
   event: JNation
   city: Coimbra
   country: PT
-  kind: talk # talk?
+  kind: workshop # title? Astro + React Bricks workshop, Wednesday 2 PM
   link: https://jnation.pt/
 - id: codemotion-rome-2025
   date: 2025-04-14
@@ -150,8 +153,9 @@
   event: Fork It! Tunis
   city: Tunis
   country: TN
-  kind: talk # talk?
-  link: https://www.forkit.community
+  kind: talk
+  talk: "Insane fast to production using Astro"
+  link: https://www.forkit.community/events/2025-tunisia-tunis/talks/insane-fast-to-production-using-astro
 - id: typescript-la-conf-2025
   date: 2025-02-28
   event: TypeScript la Conf'
@@ -159,15 +163,6 @@
   country: FR
   kind: talk # talk?
   link: https://la-conf.typescript.paris/
-- id: fosdem-2025
-  date: 2025-02-02
-  event: FOSDEM
-  city: Brussels
-  country: BE
-  kind: talk # talk?
-  link: https://fosdem.org/2025/
-
-# ---- 2024 ----
 - id: react-day-berlin-2024-talk
   date: 2024-12-13
   event: React Day Berlin
@@ -193,6 +188,15 @@
   kind: talk
   talk: Going full-stack with Astro
   link: https://armada-js.com/speakers/2024/elian-van-cutsem
+- id: fork-it-casablanca-2024
+  # Fork It! community meetup. Sessionize lists this as "Fork it! 2024".
+  date: 2024-11-28
+  event: Fork It! Casablanca
+  city: Casablanca
+  country: MA
+  kind: talk
+  talk: The Web Can Be Weird
+  link: https://www.forkit.community/events/2024-morocco-casablanca/talks/the-web-can-be-weird
 - id: react-advanced-2024
   date: 2024-10-25
   event: React Advanced
@@ -200,6 +204,7 @@
   country: GB
   kind: talk
   talk: Diving Into Server Islands
+  abstract: "Building full-stack web apps with Astro and Astro DB: hybrid rendering for API routes and SSR, Astro DB as an ORM for LibSQL, and what's new in Astro 5, with demos and upgrade tips."
   link: https://gitnation.com/contents/diving-into-server-islands
 - id: react-brussels-2024
   date: 2024-10-18
@@ -209,22 +214,15 @@
   kind: talk
   talk: Make the Web Weird Again # react.brussels lists it as "The web can be weird"
   link: https://react.brussels/
-- id: fork-it-tunis-2024
-  # The first Fork It! community meetup in Tunis (and in Africa), hosted at CWCloud.
-  # Their recap dates it 24 September 2024; month kept until Elian confirms the day.
-  date: 2024-09
-  event: Fork It! Tunis
-  city: Tunis
-  country: TN
-  kind: talk # talk?
-  link: https://www.cwcloud.tech/blog/forkit-tn-meetup-2024
 - id: react-alicante-2024
-  date: 2024-09-19
+  date: 2024-09-20
   event: React Alicante
   city: Alicante
   country: ES
-  kind: talk # talk?
+  kind: talk
+  talk: "Astro Studio: All Secrets Revealed"
   link: https://reactalicante.es/
+  replay: https://youtu.be/TsA6xankPHU
 - id: infobip-shift-2024
   date: 2024-09-15
   event: Infobip Shift
@@ -244,7 +242,8 @@
   event: React Norway
   city: Larvik
   country: "NO"
-  kind: talk # talk?
+  kind: talk
+  talk: "All Things Astro"
   link: https://reactnorway.com/
 - id: cityjs-athens-2024
   date: 2024-06-06
@@ -266,6 +265,7 @@
   country: online
   kind: talk
   talk: "Astro Studio: All Secrets Revealed"
+  abstract: "Astro's latest features, from Astro Studio and Astro DB to islands and view transitions, with live coding and how to get involved in the community."
   link: https://frontendnation.com/
 - id: cityjs-london-2024
   date: 2024-04-05
@@ -281,13 +281,15 @@
   country: BE
   kind: talk
   talk: PandaCSS + Astro (with Sybren)
+  abstract: "A safari through Panda CSS with Sybren: building a UI live with Panda's tools, from the basics to advanced features, and using it in Astro."
 - id: devworld-2024
   # Devworld and JSWorld shared one edition in 2024 (the README calls it JSWorld, 1 March 2024).
   date: 2024-03-01
   event: Devworld · JSWorld
   city: Amsterdam
   country: NL
-  kind: talk # talk?
+  kind: talk
+  talk: "All Things Astro" # recording: "All Things Astro - DevWorld 2024"
   link: https://jsworldconference.com/
 - id: fosdem-2024
   date: 2024-02-03
@@ -362,13 +364,6 @@
   abstract: Web performance is way more complicated these days than it used to be. A look at tools that help optimise performance, accessibility and developer experience.
   link: https://www.meetup.com/bejs-belgian-javascript-community/events/295676802/
   photo: lille.jpg
-- id: beqwik-2023
-  date: 2023-09-26
-  event: BeQwik
-  city: Brussels
-  country: BE
-  kind: talk # talk?
-  link: https://www.meetup.com/beqwik/events/295732754/
 - id: qwik-paris-2023
   date: 2023-09-13
   event: Qwik Paris
@@ -376,6 +371,7 @@
   country: FR
   kind: talk
   talk: "Qwik vs Astro: a DX comparison"
+  abstract: "A comparison between Qwik and Astro from a developer experience perspective."
   link: https://www.meetup.com/qwik-paris/events/295786958/
   photo: qwikparis.jpeg
 - id: react-summit-2023
@@ -383,6 +379,7 @@
   event: React Summit
   kind: talk # city? Amsterdam or the remote day
   talk: Extending React Using Astro
+  abstract: "What is Astro, why does it exist and what problems does it solve? How can Astro optimise your React application and components? Live coding with Astro and React."
   link: https://gitnation.com/contents/extending-react-using-astro
 - id: react-global-summit-2023
   date: 2023-04-18
@@ -390,6 +387,7 @@
   country: online
   kind: talk
   talk: An intro into island architecture with Astro
+  abstract: "We all know React, Vue or Svelte and we've built more than a million components, but what if we didn't ship any JavaScript where it isn't needed? Astro is a meta framework that publishes as little JavaScript as possible while keeping the developer experience high. Let's dig deeper into this framework."
   link: https://events.geekle.us/react23/
 - id: jsworld-2023
   date: 2023-02-08
@@ -398,7 +396,8 @@
   country: NL
   kind: keynote
   talk: "Astro: less JavaScript, faster website"
-  abstract: My first international keynote.
+  # My first international keynote.
+  abstract: "Astro is a meta framework that focuses on publishing as little JavaScript as possible, while keeping the developer experience high. Let's dig deeper into the Astro JavaScript framework."
   link: https://jsworldconference.com/
   photo: jsworld.jpeg
 
@@ -409,6 +408,7 @@
   country: online
   kind: talk
   talk: Optimizing React using Astro
+  abstract: "An intro into cloud native development using React (and Astro) and Google Cloud Platform: what cloud native development means, and how to build and deploy a serverless web application with Docker, Cloud Run or a static bucket. No upfront knowledge required!"
   link: https://events.geekle.us/react3/
 - id: react-brussels-2022
   date: 2022-10-14
@@ -417,6 +417,7 @@
   country: BE
   kind: talk
   talk: "Astro: less JavaScript, faster website"
+  abstract: "Astro is a static site generator which focuses on publishing as little JavaScript as possible, while keeping the developer experience high. Let's dig deeper into the Astro JavaScript framework."
   link: https://react.brussels/
   photo: reactbrussels.jpg
 - id: fsghent-2022-09
@@ -426,6 +427,7 @@
   country: BE
   kind: talk
   talk: "Between clouds & stars: fun with Astro & Google Cloud"
+  abstract: "In this talk we'll go a little deeper in exploring the atmosphere from back- to front-end: developing web applications without a backend using cloud native solutions like Cloud Functions, containerising your applications and deploying them with pipelines. Of course we also take a look at scalability and autoscaling."
   link: https://www.meetup.com/fullstackghent/events/286280324/
   photo: fsghent.jpg
 - id: fsghent-2022-04
@@ -446,6 +448,7 @@
   country: online
   kind: stream
   talk: Livestream with Tim Benniks
+  abstract: "Tim Benniks and I dive a little deeper into building sites and applications with Astro."
   replay: https://www.youtube.com/watch?v=wmaCANHmRsI
 - id: marc-backes-2023
   date: 2023-04-13
@@ -453,6 +456,7 @@
   country: online
   kind: stream
   talk: Figuring out Astro Content Collections
+  abstract: "Marc and I fix his website's problems with Astro's Content Collections."
   replay: https://www.youtube.com/watch?v=WabB7iQtRQM
 - id: code-and-coffee-2023
   date: 2023-04-19
@@ -460,6 +464,7 @@
   country: online
   kind: stream
   talk: Learn how to build themes in Astro (with Palmiak)
+  abstract: "Palmiak and I dive a little deeper into building themes for Astro."
   replay: https://www.youtube.com/watch?v=w_BekkTiJoM
 - id: bejs-podcast
   event: BeJS Podcast
