@@ -260,12 +260,7 @@ a {
 }
 
 /* Posts open with "# Title", which duplicates the page's own <h1>. */
-.prose > h1:first-child {
-	display: none;
-}
-
-.prose > p:first-child,
-.prose > h1:first-child + p {
+.prose > p:first-child {
 	font-size: 1.4375rem;
 	font-weight: 500;
 	color: var(--ink);
@@ -411,8 +406,7 @@ a {
 		font-size: 1.125rem;
 	}
 
-	.prose > p:first-child,
-	.prose > h1:first-child + p {
+	.prose > p:first-child {
 		font-size: 1.25rem;
 	}
 }

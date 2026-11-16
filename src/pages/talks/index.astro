@@ -2,6 +2,7 @@
 import Glitch from "../../components/ui/Glitch.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getTalks, talkUrl } from "../../lib/talks";
+import { breadcrumbs, collectionPage } from "../../lib/schema";
 import { monthYearLabel } from "../../lib/tour";
 
 const talks = await getTalks();
@@ -10,12 +11,21 @@ const bookable = talks.filter((t) => t.bookable);
 const archive = talks
 	.filter((t) => !t.bookable)
 	.sort((a, b) => b.stops.length - a.stops.length);
+const description = `${talks.length} talks and workshops by Elian Van Cutsem, with every stage they were given on and the recordings.`;
 const replays = talks.reduce((n, t) => n + t.stops.filter((s) => s.data.replay).length, 0);
 ---
 
 <BaseLayout
 	title="Talks"
-	description={`${talks.length} talks and workshops by Elian Van Cutsem, with every stage they were given on and the recordings.`}
+	description={description}
+	schema={[
+		collectionPage(
+			{ name: "Talks by Elian Van Cutsem", path: "/talks", description },
+			talks.map((talk) => ({ name: talk.title, path: talkUrl(talk) })),
+			Astro.site!,
+		),
+		breadcrumbs([["Home", "/"], ["Talks", "/talks"]], Astro.site!),
+	]}
 >
 	<section class="plane-blue">
 		<div class="wrap hero">

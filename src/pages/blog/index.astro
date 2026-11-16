@@ -2,11 +2,13 @@
 import PostArchive from "../../components/blog/PostArchive.astro";
 import Glitch from "../../components/ui/Glitch.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { formatDate, getPosts, getTagIndex, postUrl, tagUrl } from "../../lib/posts";
+import { formatDate, getPosts, getTagIndex, plainTitle, postUrl, tagUrl } from "../../lib/posts";
+import { breadcrumbs, collectionPage } from "../../lib/schema";
 
 const posts = await getPosts();
 const [latest, ...rest] = posts;
 const topTags = getTagIndex(posts).slice(0, 8);
+const description = `${posts.length} articles on Astro, PHP, self-hosting, AI and the occasional rant.`;
 const firstPost = posts.at(-1);
 const since = firstPost
 	? firstPost.data.pubDate.toLocaleString("en-US", { month: "long", year: "numeric", timeZone: "UTC" })
@@ -15,7 +17,15 @@ const since = firstPost
 
 <BaseLayout
 	title="Articles"
-	description={`${posts.length} articles on Astro, PHP, self-hosting, AI and the occasional rant.`}
+	description={description}
+	schema={[
+		collectionPage(
+			{ name: "Articles by Elian Van Cutsem", path: "/blog", description },
+			posts.map((post) => ({ name: plainTitle(post.data.title), path: postUrl(post) })),
+			Astro.site!,
+		),
+		breadcrumbs([["Home", "/"], ["Articles", "/blog"]], Astro.site!),
+	]}
 >
 	<section class="hero plane-pink">
 		<div class="wrap hero__inner">

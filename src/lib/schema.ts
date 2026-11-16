@@ -48,3 +48,43 @@ export function stopEvent(stop: Stop, origin: URL) {
 		}),
 	};
 }
+
+/** Breadcrumb trail, e.g. Home › Articles › Post. Pass [name, path] pairs from the top down. */
+export function breadcrumbs(trail: [string, string][], origin: URL) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "BreadcrumbList",
+		itemListElement: trail.map(([name, path], i) => ({
+			"@type": "ListItem",
+			position: i + 1,
+			name,
+			item: new URL(path, origin).href,
+		})),
+	};
+}
+
+/** A listing page (blog, tag, talks) and the pages it links to, in order. */
+export function collectionPage(
+	{ name, path, description }: { name: string; path: string; description: string },
+	items: { name: string; path: string }[],
+	origin: URL,
+) {
+	return {
+		"@context": "https://schema.org",
+		"@type": "CollectionPage",
+		name,
+		description,
+		url: new URL(path, origin).href,
+		isPartOf: { "@type": "WebSite", url: new URL("/", origin).href },
+		mainEntity: {
+			"@type": "ItemList",
+			numberOfItems: items.length,
+			itemListElement: items.map((item, i) => ({
+				"@type": "ListItem",
+				position: i + 1,
+				name: item.name,
+				url: new URL(item.path, origin).href,
+			})),
+		},
+	};
+}

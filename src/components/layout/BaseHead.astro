@@ -1,7 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import avatar from "../../assets/elian.jpg";
-import { bio, lineup, site } from "../../data/site";
+import { allLinks, bio, lineup, site } from "../../data/site";
 
 export interface Props {
 	title?: string;
@@ -35,6 +35,9 @@ const cleanPath = Astro.url.pathname.replace(/(\/index)?\.html$/, "").replace(/(
 const canonicalURL = new URL(cleanPath, Astro.site);
 const siteUrl = new URL("/", Astro.site);
 const fullTitle = title ? `${title} · ${site.name}` : site.name;
+// Search results cut descriptions around 160 characters; clamp on a word boundary.
+const metaDescription =
+	description.length <= 160 ? description : `${description.slice(0, 157).replace(/\s+\S*$/, "")}…`;
 const imageUrl = new URL(socialImg, Astro.site);
 const imageAlt = socialImgAlt ?? `${fullTitle} social preview image`;
 const robots = noindex
@@ -50,7 +53,7 @@ const siteSchema = {
 	"@type": "WebSite",
 	name: site.name,
 	url: siteUrl.toString(),
-	description,
+	description: site.description,
 	inLanguage: "en",
 	publisher: {
 		"@type": "Person",
@@ -65,12 +68,8 @@ const siteSchema = {
 			.map((job) => ({ "@type": "Organization", name: job.at, url: job.href })),
 		knowsAbout: ["Astro", "Web development", "JavaScript", "Developer experience", "Public speaking"],
 		address: { "@type": "PostalAddress", addressCountry: "BE" },
-		sameAs: [
-			"https://github.com/ElianCodes",
-			"https://www.linkedin.com/in/elianvancutsem",
-			"https://bsky.app/profile/elian.codes",
-			"https://x.com/eliancodes",
-		],
+		// Every profile from /links (GitHub, LinkedIn, Bluesky, YouTube, Mastodon, Sessionize...).
+		sameAs: allLinks.map((link) => link.href).filter((href) => href.startsWith("https://")),
 	},
 };
 const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
@@ -80,7 +79,7 @@ const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="generator" content={Astro.generator} />
 <title>{fullTitle}</title>
-<meta name="description" content={description} />
+<meta name="description" content={metaDescription} />
 <meta name="author" content={site.author} />
 <meta name="robots" content={robots} />
 <link rel="canonical" href={canonicalURL} />
@@ -100,7 +99,7 @@ const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 <meta property="og:locale" content="en_US" />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={fullTitle} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={imageUrl} />
 <meta property="og:image:alt" content={imageAlt} />
 {publishedTime && <meta property="article:published_time" content={publishedTime} />}
@@ -110,7 +109,7 @@ const schemaList = Array.isArray(schema) ? schema : schema ? [schema] : [];
 <meta name="twitter:site" content="@eliancodes" />
 <meta name="twitter:creator" content="@eliancodes" />
 <meta name="twitter:title" content={fullTitle} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={imageUrl} />
 <meta name="twitter:image:alt" content={imageAlt} />
 

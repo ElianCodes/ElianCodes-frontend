@@ -13,6 +13,14 @@ export function formatDate(date: Date) {
 	return dateFormat.format(date);
 }
 
+/** Post titles often start with an emoji ("💄 Tailwind CSS in Astro"); strip it for metadata. */
+export function plainTitle(title: string) {
+	return title
+		.replace(/[\p{Extended_Pictographic}️‍]/gu, "")
+		.replace(/\s+/g, " ")
+		.trim();
+}
+
 export function postUrl(post: Post) {
 	return `/blog/${post.id}`;
 }

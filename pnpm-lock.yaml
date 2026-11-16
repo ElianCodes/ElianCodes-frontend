@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@astrojs/markdown-satteri':
+        specifier: 0.4.10
+        version: 0.4.10
       '@astrojs/rss':
         specifier: ^4.0.19
         version: 4.0.19

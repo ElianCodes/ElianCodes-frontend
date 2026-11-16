@@ -7,11 +7,13 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import {
 	formatDate,
 	getPosts,
+	plainTitle,
 	type Post,
 	readingTime,
 	relatedPosts,
 	tagUrl,
 } from "../../lib/posts";
+import { breadcrumbs, personId } from "../../lib/schema";
 
 export async function getStaticPaths() {
 	const posts = await getPosts();
@@ -32,17 +34,36 @@ const toc = headings.filter((h) => h.depth === 2);
 const minutes = readingTime(post.body);
 const { data } = post;
 
-const articleSchema = {
-	"@context": "https://schema.org",
-	"@type": "BlogPosting",
-	headline: data.title,
-	description: data.description,
-	datePublished: data.pubDate.toISOString(),
-	dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
-	author: { "@type": "Person", name: data.author, url: Astro.site?.toString() },
-	mainEntityOfPage: new URL(`/blog/${post.id}`, Astro.site).toString(),
-	keywords: data.tags.join(", "),
-};
+const url = new URL(`/blog/${post.id}`, Astro.site).href;
+const author = { "@type": "Person", "@id": personId(Astro.site!), name: data.author, url: Astro.site?.href };
+const articleSchema = [
+	{
+		"@context": "https://schema.org",
+		"@type": "BlogPosting",
+		headline: plainTitle(data.title),
+		description: data.description,
+		url,
+		mainEntityOfPage: url,
+		image: new URL(`/v1/generate/og/${post.id}.png`, Astro.site).href,
+		datePublished: data.pubDate.toISOString(),
+		dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+		author,
+		publisher: author,
+		inLanguage: "en",
+		keywords: data.tags.join(", "),
+		wordCount: (post.body ?? "").split(/\s+/).filter(Boolean).length,
+		timeRequired: `PT${minutes}M`,
+		encoding: { "@type": "MediaObject", encodingFormat: "text/markdown", contentUrl: `${url}.md` },
+	},
+	breadcrumbs(
+		[
+			["Home", "/"],
+			["Articles", "/blog"],
+			[plainTitle(data.title), `/blog/${post.id}`],
+		],
+		Astro.site!,
+	),
+];
 ---
 
 <BaseLayout

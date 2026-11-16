@@ -12,3 +12,6 @@
 
 /blog/*.md
   Content-Type: text/markdown; charset=utf-8
+
+/talks/*.md
+  Content-Type: text/markdown; charset=utf-8

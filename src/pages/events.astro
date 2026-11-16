@@ -9,7 +9,7 @@ import Stat from "../components/ui/Stat.astro";
 import TourMap from "../components/ui/TourMap.astro";
 import { bio, organizedStages, sessionize, site } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { stopEvent } from "../lib/schema";
+import { breadcrumbs, personId, stopEvent } from "../lib/schema";
 import { getTalks, talkForStop, talkUrl } from "../lib/talks";
 import {
 	getBroadcasts,
@@ -46,7 +46,26 @@ const kindLabel: Record<string, string> = {
 
 <BaseLayout
 	title="Events"
-	schema={upcoming.map((stop) => stopEvent(stop, Astro.site!))}
+	schema={[
+		{
+			"@context": "https://schema.org",
+			"@type": "CollectionPage",
+			name: "Tour log of Elian Van Cutsem",
+			url: new URL("/events", Astro.site).href,
+			about: { "@id": personId(Astro.site!) },
+			mainEntity: {
+				"@type": "ItemList",
+				numberOfItems: stages.length,
+				itemListElement: stages.map((stop, i) => ({
+					"@type": "ListItem",
+					position: i + 1,
+					item: stopEvent(stop, Astro.site!),
+				})),
+			},
+		},
+		...upcoming.map((stop) => stopEvent(stop, Astro.site!)),
+		breadcrumbs([["Home", "/"], ["Events", "/events"]], Astro.site!),
+	]}
 	description={`Tour log: ${stats.stages} talks and panels in ${stats.countries} countries since ${stats.firstYear}, plus the speaker kit for organizers.`}
 >
 	<section class="hero plane-blue">

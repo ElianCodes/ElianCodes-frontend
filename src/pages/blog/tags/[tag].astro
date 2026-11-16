@@ -1,7 +1,8 @@
 ---
 import PostArchive from "../../../components/blog/PostArchive.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { getPosts, getTagIndex, type Post } from "../../../lib/posts";
+import { getPosts, getTagIndex, plainTitle, type Post, postUrl, tagUrl } from "../../../lib/posts";
+import { breadcrumbs, collectionPage } from "../../../lib/schema";
 
 export async function getStaticPaths() {
 	const tags = getTagIndex(await getPosts());
@@ -17,9 +18,27 @@ interface Props {
 }
 
 const { label, posts } = Astro.props;
+const count = `${posts.length} ${posts.length === 1 ? "article" : "articles"}`;
+const titles = posts.slice(0, 3).map((post) => plainTitle(post.data.title));
+const description = `${count} by Elian Van Cutsem about ${label}: ${titles.join(", ")}.`;
+const path = tagUrl(label);
+// A tag with one article is a thin page: keep it for visitors, but out of search results.
+const noindex = posts.length < 2;
 ---
 
-<BaseLayout title={`#${label}`} description={`${posts.length} articles about ${label}.`}>
+<BaseLayout
+	title={`#${label}`}
+	description={description}
+	noindex={noindex}
+	schema={[
+		collectionPage(
+			{ name: `Articles about ${label}`, path, description },
+			posts.map((post) => ({ name: post.data.title, path: postUrl(post) })),
+			Astro.site!,
+		),
+		breadcrumbs([["Home", "/"], ["Articles", "/blog"], [`#${label}`, path]], Astro.site!),
+	]}
+>
 	<section class="plane-pink">
 		<div class="wrap hero">
 			<a href="/blog" class="mono back">← All articles</a>

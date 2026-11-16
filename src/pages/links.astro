@@ -5,11 +5,16 @@ import Glitch from "../components/ui/Glitch.astro";
 import { allLinks, bookMe, site } from "../data/site";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import { getPosts, postUrl } from "../lib/posts";
+import { breadcrumbs } from "../lib/schema";
 
 const [latest] = await getPosts();
 ---
 
-<BaseLayout title="Links" description="Where to find @ElianCodes online.">
+<BaseLayout
+	title="Links"
+	description="Where to find Elian Van Cutsem (@eliancodes) online: GitHub, LinkedIn, Bluesky, YouTube, Mastodon, Sessionize and more."
+	schema={breadcrumbs([["Home", "/"], ["Links", "/links"]], Astro.site!)}
+>
 	<section class="plane-blue">
 		<div class="wrap hero">
 			<Image src={avatar} alt="" width={96} height={96} densities={[1, 2]} class="hero__avatar" loading="eager" />
