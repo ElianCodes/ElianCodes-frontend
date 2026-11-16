@@ -1,116 +1,29 @@
 ---
-import Busy from "@components/home/Busy.astro";
-import Hero from "@components/home/Hero.astro";
-import LatestAndGreatest from "@components/home/LatestAndGreatest.astro";
-import SayHi from "@components/home/SayHi.astro";
-import Sponsorships from "@components/home/Sponsorships.astro";
-import Layout from "@layouts/new/Default.astro";
+import { getCollection } from "astro:content";
 
-export const prerender = true;
-const homeImage = new URL("/v1/generate/og/default.png", Astro.site).toString();
-
-const homeSchema = [
-	{
-		"@context": "https://schema.org",
-		"@type": "ProfilePage",
-		name: "Elian Van Cutsem",
-		description:
-			"Personal website of Elian Van Cutsem, a web developer, DevRel leader, CTO, speaker, and community organizer.",
-		url: new URL("/", Astro.site).toString(),
-		mainEntity: {
-			"@type": "Person",
-			"@id": `${new URL("/", Astro.site).toString()}#person`,
-			name: "Elian Van Cutsem",
-			url: new URL("/", Astro.site).toString(),
-			jobTitle: "CTO, DevRel leader, and public speaker",
-			image: homeImage,
-			description:
-				"Belgian web developer and consultant focused on developer experience, Astro, React, web engineering, and community building.",
-			knowsAbout: [
-				"Astro",
-				"React",
-				"Developer Relations",
-				"Web Performance",
-				"TypeScript",
-				"JavaScript",
-				"Deno",
-				"Developer Experience",
-				"Web Development",
-			],
-			worksFor: [
-				{
-					"@type": "Organization",
-					name: "Vulpo",
-					url: "https://vulpo.be",
-				},
-				{
-					"@type": "Organization",
-					name: "React Bricks",
-					url: "https://reactbricks.com",
-				},
-			],
-			homeLocation: {
-				"@type": "Place",
-				address: {
-					"@type": "PostalAddress",
-					addressLocality: "Ghent",
-					addressRegion: "East Flanders",
-					addressCountry: "BE",
-				},
-			},
-			nationality: {
-				"@type": "Country",
-				name: "Belgium",
-			},
-			sameAs: [
-				"https://github.com/ElianCodes",
-				"https://www.linkedin.com/in/elianvancutsem",
-				"https://x.com/eliancodes",
-				"https://eliancodes.com",
-			],
-		},
-	},
-	{
-		"@context": "https://schema.org",
-		"@type": "ItemList",
-		name: "Main sections",
-		itemListElement: [
-			{
-				"@type": "SiteNavigationElement",
-				position: 1,
-				name: "About",
-				url: new URL("/", Astro.site).toString(),
-			},
-			{
-				"@type": "SiteNavigationElement",
-				position: 2,
-				name: "Blog",
-				url: new URL("/blog/", Astro.site).toString(),
-			},
-			{
-				"@type": "SiteNavigationElement",
-				position: 3,
-				name: "Events",
-				url: new URL("/events/", Astro.site).toString(),
-			},
-		],
-	},
-];
+// Phase 1 placeholder: proves content collections load and the deploy pipeline works.
+// The V5 "Signal" design replaces this page in phase 3.
+const posts = (await getCollection("posts", ({ data }) => !data.draft)).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const events = await getCollection("events");
 ---
 
-<Layout
-	title='Elian Van Cutsem'
-	description='Personal website of Elian Van Cutsem, a Belgian web developer, CTO, DevRel leader, speaker, and community organizer focused on developer experience, Astro, React, and the modern web.'
-	socialImg={new URL("/v1/generate/og/default.png", Astro.url)}
-	socialImgAlt='Social preview card for Elian Van Cutsem'
-	socialImgWidth={1200}
-	socialImgHeight={630}
-	schema={homeSchema}
-	pageType='profile'
->
-	<Hero />
-	<Busy />
-	<LatestAndGreatest />
-	<Sponsorships />
-	<SayHi />
-</Layout>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="robots" content="noindex" />
+		<title>elian.codes · rebuild in progress</title>
+	</head>
+	<body>
+		<main>
+			<h1>elian.codes</h1>
+			<p>Rebuild in progress: Astro, Vite+ and Void on Cloudflare.</p>
+			<p>{posts.length} articles · {events.length} events loaded</p>
+			<ul>
+				{posts.slice(0, 5).map((post) => <li>{post.data.title}</li>)}
+			</ul>
+		</main>
+	</body>
+</html>

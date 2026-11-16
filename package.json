@@ -7,25 +7,33 @@
 		"dev": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"format": "biome format . --write",
-		"lint": "biome lint .",
-		"check": "biome check .",
+		"check": "vp check",
+		"lint": "vp lint",
+		"fmt": "vp fmt",
+		"deploy": "astro build && void deploy --platform cloudflare --dir dist/client",
 		"astro": "astro"
 	},
 	"dependencies": {
-		"@astrojs/check": "^0.9.9",
-		"@astrojs/rss": "^4.0.18",
-		"@astrojs/sitemap": "^3.7.3",
-		"@astrojs/vercel": "^10.0.8",
-		"@resvg/resvg-js": "^2.6.2",
-		"astro": "^6.4.4",
-		"astro-font": "^0.0.80",
-		"date-fns": "^4.1.0",
-		"typescript": "^5.9.3"
+		"@astrojs/rss": "^4.0.19",
+		"@astrojs/sitemap": "^3.7.5",
+		"astro": "^7.4.12"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.4.9",
-		"satori": "^0.7.4",
-		"satori-html": "^0.3.2"
+		"@astrojs/check": "latest",
+		"@astrojs/cloudflare": "^14.4.8",
+		"typescript": "^5.9.3",
+		"vite-plus": "^1.6.0",
+		"void": "^1.9.1",
+		"wrangler": "^4.125.0"
+	},
+	"engines": {
+		"node": "^24.22.0 || >=26.12.0"
+	},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"better-sqlite3",
+			"esbuild",
+			"workerd"
+		]
 	}
 }

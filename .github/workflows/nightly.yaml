@@ -32,7 +32,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
-          node-version: 22
+          node-version-file: .node-version
           cache: pnpm
 
       - name: Install dependencies
@@ -44,7 +44,7 @@ jobs:
       - name: Refresh dependencies after upgrade
         run: pnpm install --no-frozen-lockfile
 
-      - name: Run Biome checks
+      - name: Run Vite+ checks
         run: pnpm check
 
       - name: Build site
