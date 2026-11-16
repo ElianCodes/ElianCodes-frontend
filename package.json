@@ -7,7 +7,7 @@
 		"dev": "astro dev",
 		"build": "astro check && astro build",
 		"preview": "astro preview",
-		"check": "vp check",
+		"check": "astro sync && vp check",
 		"test": "vp test run",
 		"check:links": "node scripts/check-links.mjs",
 		"lint": "vp lint",

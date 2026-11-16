@@ -42,6 +42,16 @@ const isActive = (href: string) => current === href || current.startsWith(`${hre
 	</nav>
 </header>
 
+<script>
+	// Same-page links (like "Book me" → /events#kit) don't dismiss a popover, so close the
+	// mobile menu whenever one of its links is followed.
+	const menu = document.getElementById("site-menu");
+	menu?.addEventListener("click", (event) => {
+		if (!(event.target instanceof Element) || !event.target.closest("a")) return;
+		if (menu.matches(":popover-open")) menu.hidePopover();
+	});
+</script>
+
 <style>
 	.site-header {
 		display: flex;
