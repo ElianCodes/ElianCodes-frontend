@@ -1,0 +1,141 @@
+---
+import { Image } from "astro:assets";
+import avatar from "../assets/elian.jpg";
+import Glitch from "../components/ui/Glitch.astro";
+import { allLinks, bookMe, site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { getPosts, postUrl } from "../lib/posts";
+
+const [latest] = await getPosts();
+---
+
+<BaseLayout title="Links" description="Where to find @ElianCodes online.">
+	<section class="plane-blue">
+		<div class="wrap hero">
+			<Image src={avatar} alt="" width={96} height={96} class="hero__avatar" loading="eager" />
+			<h1 class="display hero__title"><Glitch text="@eliancodes" color="var(--paper)" /></h1>
+			<p>Speaker, engineer, internet troublemaker. Pick a channel.</p>
+		</div>
+	</section>
+
+	<div class="wrap links">
+		<ul role="list" class="links__primary">
+			<li><a href={bookMe.href} class="link link--pink"><span>Book me for a talk</span><span aria-hidden="true">→</span></a></li>
+			{
+				latest && (
+					<li>
+						<a href={postUrl(latest)} class="link link--ink">
+							<span>Latest: {latest.data.title}</span>
+							<span aria-hidden="true">→</span>
+						</a>
+					</li>
+				)
+			}
+			<li><a href={`mailto:${site.email}`} class="link"><span>{site.email}</span><span aria-hidden="true">✉</span></a></li>
+		</ul>
+		<ul role="list" class="links__grid">
+			{
+				allLinks.map((link) => (
+					<li>
+						<a href={link.href} class="link" rel="me noopener">
+							<span>{link.label}</span>
+							<span aria-hidden="true">↗</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</div>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+		padding-block: 56px;
+	}
+
+	.hero__avatar {
+		width: 96px;
+		height: 96px;
+		object-fit: cover;
+		background: var(--pink);
+	}
+
+	.hero__title {
+		font-size: clamp(3.5rem, 9vw, 8rem);
+		line-height: 0.85;
+	}
+
+	.hero p {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+
+	.links {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		padding-block: 56px 96px;
+	}
+
+	.links ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: 12px;
+	}
+
+	.links__grid {
+		grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr));
+	}
+
+	.link {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 16px;
+		min-height: 66px;
+		padding: 0 24px;
+		box-shadow: inset 0 0 0 2px var(--ink);
+		font-family: var(--font-mono);
+		font-size: 0.875rem;
+		text-transform: uppercase;
+		text-decoration: none;
+	}
+
+	.link span:first-child {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.link:hover {
+		background: var(--pink);
+	}
+
+	.link--pink {
+		background: var(--pink);
+		box-shadow: none;
+		font-weight: 600;
+	}
+
+	.link--pink:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.link--ink {
+		background: var(--ink);
+		color: var(--paper);
+		box-shadow: none;
+	}
+
+	.link--ink:hover {
+		background: var(--blue);
+	}
+</style>

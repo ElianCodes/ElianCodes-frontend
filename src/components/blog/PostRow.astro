@@ -1,0 +1,139 @@
+---
+import { formatDate, type Post, postUrl } from "../../lib/posts";
+
+export interface Props {
+	post: Post;
+	size?: "md" | "lg";
+	/** Heading level for the title, so lists sit correctly in the page outline. */
+	as?: "h2" | "h3" | "h4";
+	[key: `data-${string}`]: string | boolean | undefined;
+}
+
+const { post, size = "md", as: Heading = "h3", ...rest } = Astro.props;
+---
+
+<li class:list={["post-row", `post-row--${size}`]} {...rest}>
+	<span class="mono post-row__date">{formatDate(post.data.pubDate)}</span>
+	<div class="post-row__body">
+		<Heading class="display post-row__title">
+			<a href={postUrl(post)} class="post-row__link">{post.data.title}</a>
+		</Heading>
+		<p class="post-row__desc">{post.data.description}</p>
+	</div>
+	<span class="post-row__tags">
+		{post.data.tags.slice(0, 2).map((tag) => <span class="tag">{tag}</span>)}
+	</span>
+	<span class="post-row__arrow" aria-hidden="true">↗</span>
+</li>
+
+<style>
+	.post-row {
+		position: relative;
+		display: grid;
+		grid-template-columns: 150px 1fr 220px 40px;
+		align-items: start;
+		gap: 24px;
+		padding-block: 26px;
+		border-top: 2px solid var(--ink);
+	}
+
+	.post-row--lg {
+		grid-template-columns: 170px 1fr 200px 40px;
+		padding-block: 30px;
+	}
+
+	:global(.post-list) > .post-row:first-child {
+		border-top-width: 3px;
+	}
+
+	.post-row__date {
+		padding-top: 8px;
+	}
+
+	.post-row__body {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.post-row__title {
+		font-size: 2.5rem;
+		line-height: 0.92;
+	}
+
+	.post-row--lg .post-row__title {
+		font-size: 3rem;
+	}
+
+	/* The whole row is clickable through the title link. */
+	.post-row__link {
+		text-decoration: none;
+	}
+
+	.post-row__link::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+	}
+
+	.post-row:hover .post-row__title {
+		color: var(--blue);
+	}
+
+	.post-row__desc {
+		margin: 0;
+		font-size: 1.0625rem;
+		color: var(--grey-700);
+	}
+
+	.post-row--lg .post-row__desc {
+		font-size: 1.125rem;
+	}
+
+	.post-row__tags {
+		justify-self: end;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-end;
+		gap: 6px;
+		padding-top: 6px;
+	}
+
+	.post-row__arrow {
+		justify-self: end;
+		font-size: 1.75rem;
+		color: var(--pink);
+		transition: transform 0.2s ease;
+	}
+
+	.post-row:hover .post-row__arrow {
+		transform: translate(3px, -3px);
+	}
+
+	@media (max-width: 900px) {
+		.post-row,
+		.post-row--lg {
+			grid-template-columns: 1fr;
+			gap: 10px;
+			padding-block: 22px;
+		}
+
+		.post-row__date {
+			padding-top: 0;
+		}
+
+		.post-row__title,
+		.post-row--lg .post-row__title {
+			font-size: 1.875rem;
+		}
+
+		.post-row__tags {
+			justify-self: start;
+			justify-content: flex-start;
+		}
+
+		.post-row__arrow {
+			display: none;
+		}
+	}
+</style>

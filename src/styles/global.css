@@ -231,6 +231,179 @@ a {
 	box-shadow: inset 0 0 0 4px currentColor;
 }
 
+/* ---- Article prose (rendered markdown) ---- */
+
+.prose {
+	display: flex;
+	flex-direction: column;
+	gap: 26px;
+	font-size: var(--step-body);
+	line-height: 1.7;
+	color: #222222;
+}
+
+.prose > * {
+	margin: 0;
+}
+
+/* Posts open with "# Title", which duplicates the page's own <h1>. */
+.prose > h1:first-child {
+	display: none;
+}
+
+.prose > p:first-child,
+.prose > h1:first-child + p {
+	font-size: 1.4375rem;
+	font-weight: 500;
+	color: var(--ink);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+	font-family: var(--font-display);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	color: var(--ink);
+	scroll-margin-top: 24px;
+	text-wrap: balance;
+}
+
+.prose h1,
+.prose h2 {
+	margin-top: 16px;
+	font-size: clamp(2.5rem, 4vw, 3.5rem);
+	line-height: 0.9;
+}
+
+.prose h3 {
+	margin-top: 8px;
+	font-size: 2.25rem;
+	line-height: 0.95;
+}
+
+.prose h4 {
+	font-size: 1.625rem;
+	line-height: 1;
+}
+
+.prose a {
+	color: var(--blue);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 4px;
+}
+
+.prose a:hover {
+	background: var(--pink);
+	color: var(--ink);
+	text-decoration: none;
+}
+
+.prose strong {
+	font-weight: 700;
+	color: var(--ink);
+}
+
+.prose ul,
+.prose ol {
+	padding-left: 1.4em;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.prose li::marker {
+	color: var(--pink);
+	font-weight: 700;
+}
+
+.prose blockquote {
+	padding: 36px;
+	background: var(--pink);
+	color: var(--ink);
+	font-family: var(--font-display);
+	font-weight: 900;
+	text-transform: uppercase;
+	letter-spacing: -0.01em;
+	font-size: clamp(2rem, 3.6vw, 3.25rem);
+	line-height: 0.95;
+}
+
+.prose blockquote p {
+	margin: 0;
+}
+
+.prose blockquote p + p {
+	margin-top: 0.5em;
+}
+
+.prose :not(pre) > code {
+	padding: 0.1em 0.35em;
+	background: var(--note-bg);
+	color: var(--blue);
+	font-family: var(--font-mono);
+	font-size: 0.8em;
+}
+
+.prose pre {
+	padding: 20px 16px;
+	background: var(--ink) !important;
+	overflow-x: auto;
+	font-family: var(--font-mono);
+	font-size: 0.875rem;
+	line-height: 1.7;
+	box-shadow: inset 0 6px 0 var(--blue);
+}
+
+.prose pre code {
+	font-family: inherit;
+}
+
+.prose img {
+	width: 100%;
+	height: auto;
+}
+
+.prose hr {
+	width: 100%;
+	border: 0;
+	border-top: 3px solid var(--ink);
+}
+
+.prose table {
+	width: 100%;
+	border-collapse: collapse;
+	font-size: 1rem;
+	display: block;
+	overflow-x: auto;
+}
+
+.prose th,
+.prose td {
+	padding: 10px 12px;
+	border-bottom: 2px solid var(--ink);
+	text-align: left;
+}
+
+.prose th {
+	font-family: var(--font-mono);
+	font-size: 0.75rem;
+	text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+	.prose {
+		font-size: 1.125rem;
+	}
+
+	.prose > p:first-child,
+	.prose > h1:first-child + p {
+		font-size: 1.25rem;
+	}
+}
+
 @media (prefers-reduced-motion: reduce) {
 	*,
 	*::before,

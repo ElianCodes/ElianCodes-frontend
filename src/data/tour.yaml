@@ -1,0 +1,288 @@
+# The tour log: every stage, panel, stream and podcast.
+# Home, Events and every stat on the site are computed from this file.
+#
+# date:     YYYY-MM-DD, YYYY-MM, or YYYY when the month isn't known yet
+# kind:     talk | keynote | panel | workshop | stream | podcast
+# country:  ISO 3166 alpha-2 code, or "online"
+# city:     omit when unknown
+# talk:     omit when the title isn't filled in yet
+# link:     event page; replay: recording URL
+# photo:    file name in src/assets/events/
+#
+# TODO (only Elian knows): talk titles marked with "# talk?", the two Fork it! cities,
+# the ZurichJS / Frontend Nation / Armada JS months, and replay URLs for AgentCon Singapore,
+# React Brussels 2024, Frontend Nation, Armada JS and React Day Berlin.
+
+# ---- 2025 ----
+- id: codemotion-milan-2025
+  date: 2025-10
+  event: Codemotion Milan
+  city: Milan
+  country: IT
+  kind: talk # talk?
+- id: devfest-milano-2025
+  date: 2025-10
+  event: DevFest Milano
+  city: Milan
+  country: IT
+  kind: talk # talk?
+- id: porto-tech-hub-2025
+  date: 2025-10
+  event: Porto Tech Hub
+  city: Porto
+  country: PT
+  kind: talk # talk?
+- id: agentcon-hcmc-2025
+  date: 2025-09
+  event: AgentCon Ho Chi Minh
+  city: Ho Chi Minh City
+  country: VN
+  kind: talk # talk?
+- id: agentcon-singapore-2025
+  date: 2025-09
+  event: AgentCon Singapore
+  city: Singapore
+  country: SG
+  kind: talk
+  talk: "Playing with Fire: Unethical AI"
+- id: zurichjs-2025
+  date: "2025"
+  event: ZurichJS
+  city: Zurich
+  country: CH
+  kind: talk
+  talk: Going full-stack with Astro
+- id: jnation-2025
+  date: 2025-05
+  event: JNation
+  city: Coimbra
+  country: PT
+  kind: talk # talk?
+- id: codemotion-rome-2025
+  date: 2025-04
+  event: Codemotion Rome
+  city: Rome
+  country: IT
+  kind: talk # talk?
+- id: fork-it-2025
+  date: 2025-04
+  event: Fork it!
+  kind: talk # talk? city?
+
+# ---- 2024 ----
+- id: fork-it-2024
+  date: 2024-11
+  event: Fork it!
+  kind: talk # talk? city?
+- id: react-brussels-2024
+  date: 2024-10
+  event: React Brussels
+  city: Brussels
+  country: BE
+  kind: talk
+  talk: Make the Web Weird Again
+  link: https://react.brussels/
+- id: infobip-shift-2024
+  date: 2024-09
+  event: Infobip Shift
+  city: Zadar
+  country: HR
+  kind: talk # talk?
+- id: jnation-2024
+  date: 2024-06
+  event: JNation
+  city: Coimbra
+  country: PT
+  kind: talk # talk?
+- id: frontend-nation-2024
+  date: "2024"
+  event: Frontend Nation
+  country: online
+  kind: talk
+  talk: "Astro Studio: All Secrets Revealed"
+- id: armada-js-2024
+  date: "2024"
+  event: Armada JS
+  city: Novi Sad
+  country: RS
+  kind: talk
+  talk: Going full-stack with Astro
+- id: cityjs-london-2024
+  date: 2024-04
+  event: CityJS London
+  city: London
+  country: GB
+  kind: talk # talk?
+- id: fronteers-2024
+  date: 2024-03
+  event: Fronteers
+  city: Ghent
+  country: BE
+  kind: talk
+  talk: PandaCSS + Astro (with Sybren)
+- id: react-paris-2024
+  date: 2024-03
+  event: React Paris
+  city: Paris
+  country: FR
+  kind: talk # talk?
+- id: devworld-2024
+  date: 2024-02
+  event: Devworld
+  city: Amsterdam
+  country: NL
+  kind: talk # talk?
+- id: fosdem-2024
+  date: 2024-02
+  event: FOSDEM
+  city: Brussels
+  country: BE
+  kind: talk # talk?
+- id: kongres-nextjs-2024
+  date: 2024-02
+  event: Kongres NextJS
+  city: Warsaw
+  country: PL
+  kind: talk # talk?
+
+# ---- 2023 ----
+- id: react-day-berlin-2023
+  date: 2023-12
+  event: React Day Berlin
+  city: Berlin
+  country: DE
+  kind: talk # talk?
+- id: cityjs-berlin-2023
+  date: 2023-11-03
+  event: CityJS Berlin
+  city: Berlin
+  country: DE
+  kind: talk
+  talk: All things Astro
+  abstract: Astro 3 was released a while ago and brought some amazing new features with it. A look at what's new, some live coding and some fun.
+  replay: https://youtu.be/jOZonLbLfsE?t=28359
+  photo: cityjs-berlin.jpeg
+- id: react-brussels-2023
+  date: 2023-10-13
+  event: React Brussels
+  city: Brussels
+  country: BE
+  kind: panel
+  talk: Docs panel w/ Rachel Nabors, Atila Fassina & Tejas Kumar
+  abstract: A panel on documentation, why, how and React.
+  link: https://react.brussels/
+  replay: https://www.youtube.com/watch?v=3bOlbBdBdCU&list=PL53Z0yyYnpWh85KeMomUoVz8_brrmh_aC&index=8
+  photo: react-bxl.jpg
+- id: bejs-on-tour-lille-2023
+  date: 2023-09-26
+  event: BeJS on Tour
+  city: Lille
+  country: FR
+  kind: talk
+  talk: Tools for performance, accessibility & DX
+  abstract: Web performance is way more complicated these days than it used to be. A look at tools that help optimise performance, accessibility and developer experience.
+  link: https://www.meetup.com/bejs-belgian-javascript-community/events/295676802/
+  photo: lille.jpg
+- id: beqwik-2023
+  date: 2023-09-26
+  event: BeQwik
+  city: Brussels
+  country: BE
+  kind: talk # talk?
+  link: https://www.meetup.com/beqwik/events/295732754/
+- id: qwik-paris-2023
+  date: 2023-09-13
+  event: Qwik Paris
+  city: Paris
+  country: FR
+  kind: talk
+  talk: "Qwik vs Astro: a DX comparison"
+  link: https://www.meetup.com/qwik-paris/events/295786958/
+  photo: qwikparis.jpeg
+- id: react-global-summit-2023
+  date: 2023-04-18
+  event: React Global Online Summit
+  country: online
+  kind: talk
+  talk: An intro into island architecture with Astro
+  link: https://events.geekle.us/react23/
+- id: jsworld-2023
+  date: 2023-02-08
+  event: JSWorld · Vue.js Amsterdam
+  city: Amsterdam
+  country: NL
+  kind: keynote
+  talk: "Astro: less JavaScript, faster website"
+  abstract: My first international keynote.
+  link: https://jsworldconference.com/
+  photo: jsworld.jpeg
+
+# ---- 2022 ----
+- id: react-global-summit-2022
+  date: 2022-11-09
+  event: React Global Online Summit
+  country: online
+  kind: talk
+  talk: Optimizing React using Astro
+  link: https://events.geekle.us/react3/
+- id: react-brussels-2022
+  date: 2022-10-14
+  event: React Brussels
+  city: Brussels
+  country: BE
+  kind: talk
+  talk: "Astro: less JavaScript, faster website"
+  link: https://react.brussels/
+  photo: reactbrussels.jpg
+- id: fsghent-2022-09
+  date: 2022-09-14
+  event: Full Stack Ghent
+  city: Ghent
+  country: BE
+  kind: talk
+  talk: "Between clouds & stars: fun with Astro & Google Cloud"
+  link: https://www.meetup.com/fullstackghent/events/286280324/
+  photo: fsghent2.jpg
+- id: fsghent-2022-04
+  date: 2022-04-20
+  event: Full Stack Ghent
+  city: Ghent
+  country: BE
+  kind: talk
+  talk: "Astro: less JavaScript, faster website"
+  abstract: My first talk.
+  link: https://www.meetup.com/fullstackghent/events/284612742/
+  photo: fsghent.jpg
+
+# ---- Streams & podcasts ----
+- id: unpack-the-stack-2023
+  date: 2023-03-23
+  event: Unpack the Stack
+  country: online
+  kind: stream
+  talk: Livestream with Tim Benniks
+  replay: https://www.youtube.com/watch?v=wmaCANHmRsI
+- id: marc-backes-2023
+  date: 2023-04-13
+  event: Marc Backes
+  country: online
+  kind: stream
+  talk: Figuring out Astro Content Collections
+  replay: https://www.youtube.com/watch?v=WabB7iQtRQM
+- id: code-and-coffee-2023
+  date: 2023-04-19
+  event: Code & Coffee
+  country: online
+  kind: stream
+  talk: Learn how to build themes in Astro (with Palmiak)
+  replay: https://www.youtube.com/watch?v=w_BekkTiJoM
+- id: guilde-30
+  event: Guilde ep. 30
+  country: online
+  kind: podcast
+  talk: Astro, public speaking and the journey
+- id: podrocket
+  event: PodRocket
+  country: online
+  kind: podcast
+  talk: Two episodes

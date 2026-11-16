@@ -1,0 +1,97 @@
+---
+import { groupByYear, type Post } from "../../lib/posts";
+import PostRow from "./PostRow.astro";
+
+export interface Props {
+	posts: Post[];
+}
+
+const { posts } = Astro.props;
+const years = groupByYear(posts);
+---
+
+<div class="archive wrap" data-archive>
+	{
+		years.map(({ year, posts: yearPosts }) => (
+			<section class="archive__year" data-year aria-labelledby={`year-${year}`}>
+				<div class="archive__label">
+					<h2 id={`year-${year}`} class="display archive__heading">
+						{year}
+					</h2>
+					<span class="mono" data-year-count>
+						{yearPosts.length} {yearPosts.length === 1 ? "post" : "posts"}
+					</span>
+				</div>
+				<ul class="post-list" role="list">
+					{yearPosts.map((post) => (
+						<PostRow
+							post={post}
+							data-post
+							data-search={[post.data.title, post.data.description, ...post.data.tags]
+								.join(" ")
+								.toLowerCase()}
+						/>
+					))}
+				</ul>
+			</section>
+		))
+	}
+	<p class="archive__empty" data-empty hidden>
+		Nothing matches that. Try a shorter word, or <a href="/blog">see everything</a>.
+	</p>
+</div>
+
+<style>
+	.archive {
+		padding-top: 16px;
+	}
+
+	.archive__year {
+		display: grid;
+		grid-template-columns: 220px 1fr;
+		gap: 32px;
+		padding-top: 56px;
+	}
+
+	.archive__label {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	.archive__heading {
+		font-size: 6rem;
+		line-height: 0.85;
+		color: var(--blue);
+	}
+
+	.archive .post-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 3px solid var(--ink);
+	}
+
+	.archive__empty {
+		padding-top: 56px;
+		font-size: 1.25rem;
+	}
+
+	@media (max-width: 900px) {
+		.archive__year {
+			grid-template-columns: 1fr;
+			gap: 16px;
+			padding-top: 40px;
+		}
+
+		.archive__label {
+			flex-direction: row;
+			align-items: baseline;
+			justify-content: space-between;
+		}
+
+		.archive__heading {
+			font-size: 4rem;
+		}
+	}
+</style>

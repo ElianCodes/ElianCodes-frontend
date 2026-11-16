@@ -1,0 +1,63 @@
+---
+import PostArchive from "../../../components/blog/PostArchive.astro";
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { getPosts, getTagIndex, type Post } from "../../../lib/posts";
+
+export async function getStaticPaths() {
+	const tags = getTagIndex(await getPosts());
+	return tags.map((tag) => ({
+		params: { tag: tag.slug },
+		props: { label: tag.label, posts: tag.posts },
+	}));
+}
+
+interface Props {
+	label: string;
+	posts: Post[];
+}
+
+const { label, posts } = Astro.props;
+---
+
+<BaseLayout title={`#${label}`} description={`${posts.length} articles about ${label}.`}>
+	<section class="plane-pink">
+		<div class="wrap hero">
+			<a href="/blog" class="mono back">← All articles</a>
+			<h1 class="display hero__title">#{label}</h1>
+			<p class="mono">{posts.length} {posts.length === 1 ? "article" : "articles"}</p>
+		</div>
+	</section>
+	<PostArchive posts={posts} />
+	<div class="wrap spacer"></div>
+</BaseLayout>
+
+<style>
+	.hero {
+		display: flex;
+		flex-direction: column;
+		gap: 18px;
+		padding-block: 72px 56px;
+	}
+
+	.back {
+		text-decoration: none;
+	}
+
+	.back:hover {
+		box-shadow: inset 0 -3px 0 var(--ink);
+	}
+
+	.hero__title {
+		font-size: clamp(3.5rem, 10vw, 9rem);
+		line-height: 0.8;
+		overflow-wrap: anywhere;
+	}
+
+	.hero p {
+		margin: 0;
+	}
+
+	.spacer {
+		height: 96px;
+	}
+</style>

@@ -1,0 +1,32 @@
+---
+export interface Props {
+	value: string | number;
+	label: string;
+	class?: string;
+}
+
+const { value, label, class: className } = Astro.props;
+---
+
+<div class:list={["stat", className]}>
+	<span class="display stat__value">{value}</span>
+	<span class="mono stat__label">{label}</span>
+</div>
+
+<style>
+	.stat {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+		padding: 24px;
+	}
+
+	.stat__value {
+		font-size: clamp(3rem, 5vw, 4.75rem);
+		line-height: 0.85;
+	}
+
+	.stat__label {
+		font-size: 0.625rem;
+	}
+</style>

@@ -1,0 +1,16 @@
+# Talks organizers can book. Shown in the speaker kit on /events.
+- id: playing-with-fire
+  order: 1
+  title: "Playing with Fire: Unethical AI"
+  abstract: "Breakup texts by GPT, AI-generated excuses to skip meetings: provocative projects that expose how easily AI enables unethical behavior."
+  formats: [Keynote, Talk]
+- id: make-the-web-weird-again
+  order: 2
+  title: Make the Web Weird Again
+  abstract: "Eel slapping, the Battery Status API and WebHID: the fun, unconventional side of web tech."
+  formats: [Talk]
+- id: full-stack-astro
+  order: 3
+  title: Going full-stack with Astro
+  abstract: "Astro, Actions and DB: building a real full-stack app, live."
+  formats: [Talk, Workshop]

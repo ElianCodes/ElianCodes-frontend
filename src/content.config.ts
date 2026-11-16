@@ -19,43 +19,51 @@ const posts = defineCollection({
 			draft: z.boolean().optional().default(false),
 		}),
 });
-
-// Events: every stage, meetup or stream, past and upcoming.
-const events = defineCollection({
-	loader: glob({ pattern: "**/*.md", base: "./src/data/events" }),
-	schema: ({ image }) =>
-		z.object({
-			title: z.string(),
-			abstract: z.string(),
-			date: dateish,
-			link: z.string(),
-			name: z.string(),
-			img: image(),
-		}),
+// Tour log: every stage, panel, stream and podcast (src/data/tour.yaml).
+// Dates may be partial ("2025", "2025-10") when the exact day isn't known.
+const partialDate = z.union([z.string(), z.number(), z.date()]).transform((value, ctx) => {
+	const raw = value instanceof Date ? value.toISOString().slice(0, 10) : String(value);
+	const match = raw.match(/^(\d{4})(?:-(\d{2}))?(?:-(\d{2}))?$/);
+	if (!match) {
+		ctx.addIssue({
+			code: "custom",
+			message: `Invalid date "${raw}", use YYYY, YYYY-MM or YYYY-MM-DD`,
+		});
+		return z.NEVER;
+	}
+	const [, year, month, day] = match;
+	return {
+		year: Number(year),
+		month: month ? Number(month) : undefined,
+		day: day ? Number(day) : undefined,
+	};
 });
 
-// Talks: the talks themselves, referenced by events where they were given.
-const talks = defineCollection({
-	loader: file("./src/data/talks.json"),
+const tour = defineCollection({
+	loader: file("./src/data/tour.yaml"),
 	schema: z.object({
-		id: z.string(),
-		title: z.string(),
+		date: partialDate.optional(),
+		event: z.string(),
+		city: z.string().optional(),
+		country: z.union([z.literal("online"), z.string().length(2)]).optional(),
+		kind: z.enum(["talk", "keynote", "panel", "workshop", "stream", "podcast"]),
+		talk: z.string().optional(),
 		abstract: z.string().optional(),
-		recording: z.url().optional(),
-		slides: z.url().optional(),
-	}),
-});
-
-// Quotes: things people actually said about a talk or event.
-const quotes = defineCollection({
-	loader: file("./src/data/quotes.json"),
-	schema: z.object({
-		id: z.string(),
-		quote: z.string(),
-		author: z.string(),
-		role: z.string().optional(),
 		link: z.url().optional(),
+		replay: z.url().optional(),
+		photo: z.string().optional(),
 	}),
 });
 
-export const collections = { posts, events, talks, quotes };
+// Talks organizers can book (src/data/talks.yaml).
+const talks = defineCollection({
+	loader: file("./src/data/talks.yaml"),
+	schema: z.object({
+		order: z.number(),
+		title: z.string(),
+		abstract: z.string(),
+		formats: z.array(z.string()),
+	}),
+});
+
+export const collections = { posts, tour, talks };

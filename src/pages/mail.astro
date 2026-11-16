@@ -1,0 +1,42 @@
+---
+// /mail is linked from talks and slides; it opens the visitor's mail client.
+import { site } from "../data/site";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const mailto = `mailto:${site.email}`;
+---
+
+<BaseLayout title="Contact" description="Get in touch via email." noindex>
+	<section class="plane-pink">
+		<div class="wrap mail">
+			<span class="mono">&gt; open mailto:</span>
+			<h1 class="display mail__title">Say hi</h1>
+			<p>Opening your email client… If nothing happens, use the button.</p>
+			<a href={mailto} class="btn btn--ink btn--lg">{site.email} →</a>
+		</div>
+	</section>
+</BaseLayout>
+
+<script is:inline define:vars={{ mailto }}>
+	window.location.href = mailto;
+</script>
+
+<style>
+	.mail {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 20px;
+		padding-block: 96px 120px;
+	}
+
+	.mail__title {
+		font-size: clamp(5rem, 14vw, 12rem);
+		line-height: 0.8;
+	}
+
+	.mail p {
+		margin: 0;
+		font-size: 1.25rem;
+	}
+</style>

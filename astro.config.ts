@@ -7,6 +7,9 @@ export default defineConfig({
 	site: "https://www.elian.codes/",
 	trailingSlash: "ignore",
 	integrations: [sitemap()],
+	markdown: {
+		shikiConfig: { theme: "github-dark-default" },
+	},
 	// V5 "Signal" type: condensed display, mono labels, grotesk body.
 	// Downloaded at build time and self-hosted, no Google Fonts requests at runtime.
 	fonts: [

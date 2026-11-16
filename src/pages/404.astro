@@ -1,0 +1,49 @@
+---
+import Glitch from "../components/ui/Glitch.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Not found" description="This page can't be found." noindex>
+	<section class="plane-blue">
+		<div class="wrap lost">
+			<span class="mono prompt">&gt; cat ./this-page → No such file or directory</span>
+			<h1 class="display lost__title"><Glitch text="404" color="var(--paper)" offset="0.04em" /></h1>
+			<p>This page wandered off stage. Probably to grab a Belgian beer.</p>
+			<div class="lost__actions">
+				<a href="/" class="btn btn--pink btn--lg">Back home →</a>
+				<a href="/blog" class="btn btn--outline btn--lg">Read the articles</a>
+			</div>
+		</div>
+	</section>
+</BaseLayout>
+
+<style>
+	.lost {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 24px;
+		padding-block: 96px 120px;
+	}
+
+	.prompt {
+		color: var(--pink);
+		overflow-wrap: anywhere;
+	}
+
+	.lost__title {
+		font-size: clamp(8rem, 30vw, 22rem);
+		line-height: 0.8;
+	}
+
+	.lost p {
+		margin: 0;
+		font-size: 1.375rem;
+	}
+
+	.lost__actions {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 12px;
+	}
+</style>

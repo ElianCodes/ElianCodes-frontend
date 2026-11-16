@@ -1,0 +1,354 @@
+---
+import { Image } from "astro:assets";
+import { render } from "astro:content";
+import avatar from "../../assets/elian.jpg";
+import PostRow from "../../components/blog/PostRow.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import {
+	formatDate,
+	getPosts,
+	type Post,
+	readingTime,
+	relatedPosts,
+	tagUrl,
+} from "../../lib/posts";
+
+export async function getStaticPaths() {
+	const posts = await getPosts();
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: { post, related: relatedPosts(post, posts) },
+	}));
+}
+
+interface Props {
+	post: Post;
+	related: Post[];
+}
+
+const { post, related } = Astro.props;
+const { Content, headings } = await render(post);
+const toc = headings.filter((h) => h.depth === 2);
+const minutes = readingTime(post.body);
+const { data } = post;
+
+const articleSchema = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	headline: data.title,
+	description: data.description,
+	datePublished: data.pubDate.toISOString(),
+	dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
+	author: { "@type": "Person", name: data.author, url: Astro.site?.toString() },
+	mainEntityOfPage: new URL(Astro.url.pathname, Astro.site).toString(),
+	keywords: data.tags.join(", "),
+};
+---
+
+<BaseLayout
+	title={data.title}
+	description={data.description}
+	socialImg={data.imgUrl.src}
+	socialImgAlt={data.title}
+	pageType="article"
+	publishedTime={data.pubDate.toISOString()}
+	modifiedTime={data.updatedDate?.toISOString()}
+	schema={articleSchema}
+>
+	<header class="hero plane-blue">
+		<div class="wrap grid-12">
+			<div class="hero__inner">
+				<a href="/blog" class="mono back">← All articles</a>
+				<div class="hero__meta">
+					{
+						data.tags.map((tag, i) => (
+							<a href={tagUrl(tag)} class:list={["tag", i === 0 ? "tag--pink" : "tag--white"]}>
+								{tag}
+							</a>
+						))
+					}
+					<span class="mono hero__date">
+						<time datetime={data.pubDate.toISOString()}>{formatDate(data.pubDate)}</time> · {minutes} min read
+					</span>
+				</div>
+				<h1 class="display hero__title">{data.title}</h1>
+				<p class="hero__lede">{data.description}</p>
+				<div class="byline">
+					<Image src={avatar} alt="" width={48} height={48} class="byline__avatar" />
+					<span class="byline__text">
+						<span class="byline__name">{data.author}</span>
+						<span class="mono">CTO · Vulpo</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="progress" aria-hidden="true"><span class="progress__bar"></span></div>
+
+	<div class="wrap grid-12 body">
+		{
+			toc.length > 1 && (
+				<aside class="toc" aria-labelledby="toc-title">
+					<span id="toc-title" class="mono toc__title">
+						On this page
+					</span>
+					<ol role="list">
+						{toc.map((h) => (
+							<li>
+								<a href={`#${h.slug}`}>{h.text}</a>
+							</li>
+						))}
+					</ol>
+				</aside>
+			)
+		}
+		<article class="prose">
+			<Content />
+		</article>
+	</div>
+
+	<section class="cta plane-pink">
+		<div class="wrap cta__inner">
+			<div>
+				<span class="mono">Want this rant on your stage?</span>
+				<p class="display cta__title">I talk about this stuff live.</p>
+			</div>
+			<a href="/events#kit" class="btn btn--ink btn--lg">See the speaker kit →</a>
+		</div>
+	</section>
+
+	{
+		related.length > 0 && (
+			<section class="wrap related" aria-labelledby="related-title">
+				<h2 id="related-title" class="mono related__title">
+					Keep reading · more on {data.tags.slice(0, 2).join(" & ")}
+				</h2>
+				<ul class="post-list" role="list">
+					{related.map((other) => (
+						<PostRow post={other} />
+					))}
+				</ul>
+			</section>
+		)
+	}
+	<div class="spacer"></div>
+</BaseLayout>
+
+<style>
+	.hero .grid-12 {
+		padding-block: 64px 56px;
+	}
+
+	.hero__inner {
+		grid-column: 2 / span 10;
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+	}
+
+	.back {
+		align-self: flex-start;
+		text-decoration: none;
+	}
+
+	.back:hover {
+		box-shadow: inset 0 -3px 0 var(--pink);
+	}
+
+	.hero__meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		align-items: center;
+	}
+
+	.hero__meta .tag:hover {
+		background: var(--ink);
+		color: var(--paper);
+	}
+
+	.hero__date {
+		padding-left: 8px;
+	}
+
+	.hero__title {
+		font-size: clamp(3.25rem, 9.4vw, 8.5rem);
+		line-height: 0.82;
+	}
+
+	.hero__lede {
+		margin: 0;
+		max-width: 860px;
+		font-size: clamp(1.25rem, 1.8vw, 1.625rem);
+		line-height: 1.4;
+		font-weight: 500;
+	}
+
+	.byline {
+		display: flex;
+		align-items: center;
+		gap: 14px;
+		padding-top: 20px;
+		border-top: 2px solid rgb(255 255 255 / 0.4);
+	}
+
+	.byline__avatar {
+		width: 48px;
+		height: 48px;
+		object-fit: cover;
+		background: var(--pink);
+	}
+
+	.byline__text {
+		display: flex;
+		flex-direction: column;
+		gap: 2px;
+	}
+
+	.byline__name {
+		font-weight: 600;
+	}
+
+	/* Reading progress, driven by scroll position in CSS (no JS). */
+	.progress {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		height: 8px;
+		background: var(--grey-100);
+	}
+
+	.progress__bar {
+		display: block;
+		height: 100%;
+		background: var(--pink);
+		transform-origin: left;
+		transform: scaleX(0);
+	}
+
+	@supports (animation-timeline: scroll()) {
+		.progress__bar {
+			animation: read-progress linear both;
+			animation-timeline: scroll(root);
+		}
+	}
+
+	@keyframes read-progress {
+		to {
+			transform: scaleX(1);
+		}
+	}
+
+	.body {
+		padding-top: 72px;
+		align-items: start;
+	}
+
+	.toc {
+		grid-column: 1 / span 3;
+		position: sticky;
+		top: 40px;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.toc__title {
+		color: var(--grey-500);
+		font-size: 0.6875rem;
+	}
+
+	.toc ol {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.toc a {
+		display: block;
+		padding-left: 14px;
+		color: var(--grey-600);
+		text-decoration: none;
+		line-height: 1.35;
+	}
+
+	.toc a:hover {
+		color: var(--ink);
+		box-shadow: inset 4px 0 0 var(--pink);
+	}
+
+	.prose {
+		grid-column: 4 / span 6;
+		min-width: 0;
+	}
+
+	.cta {
+		margin-top: 96px;
+	}
+
+	.cta__inner {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 24px;
+		padding-block: 44px;
+	}
+
+	.cta__title {
+		margin-top: 8px;
+		font-size: clamp(2.75rem, 5vw, 4.5rem);
+		line-height: 0.88;
+	}
+
+	.related {
+		padding-top: 96px;
+	}
+
+	.related__title {
+		margin: 0;
+		padding-bottom: 18px;
+		font-size: var(--step-nav);
+		font-weight: 400;
+	}
+
+	.related .post-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		border-bottom: 3px solid var(--ink);
+	}
+
+	.spacer {
+		height: 96px;
+	}
+
+	@media (max-width: 1100px) {
+		.toc {
+			display: none;
+		}
+
+		.prose {
+			grid-column: 2 / span 10;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.hero__inner,
+		.prose {
+			grid-column: 1 / -1;
+		}
+
+		.hero .grid-12 {
+			padding-block: 40px;
+		}
+
+		.body {
+			padding-top: 40px;
+		}
+	}
+</style>
