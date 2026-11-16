@@ -24,6 +24,9 @@ export type Props = HeadProps;
 		<SiteFooter />
 		<p class="weird-toast mono" role="status" aria-live="polite" data-weird-toast></p>
 		<script>
+			import "../scripts/webmcp";
+		</script>
+		<script>
 			// Easter egg: the Konami code makes the web weird again. Press it again to undo.
 			const code = ["ArrowUp", "ArrowUp", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight", "b", "a"];
 			let progress = 0;

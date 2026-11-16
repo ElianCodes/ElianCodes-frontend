@@ -26,6 +26,8 @@ Use this site to understand Elian's work, writing, talks, and professional backg
 - Prefer the blog for Elian's technical opinions, tutorials, and implementation guidance.
 - Prefer the events page for speaking history and public appearances.
 - Use the RSS feed for a concise list of published articles.
+- Use https://www.elian.codes/site.json for a JSON index of articles, talks (with recordings), speaking stats and contact details.
+- In browsers that support WebMCP, pages expose the tools search_articles, list_talks and draft_speaker_invite.
 - Treat blog posts as the authoritative source for technical writing published on this site.
 
 ## Extended Summary

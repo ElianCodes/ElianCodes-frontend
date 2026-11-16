@@ -31,6 +31,13 @@
           "type": "application/xml",
           "title": "Sitemap"
         }
+      ],
+      "service-desc": [
+        {
+          "href": "https://www.elian.codes/site.json",
+          "type": "application/json",
+          "title": "Site index: articles, talks, stats and contact (also used by the WebMCP tools)"
+        }
       ]
     }
   ]
