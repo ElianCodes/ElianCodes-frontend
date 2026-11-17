@@ -21,8 +21,35 @@ import { tickerItems } from "../../data/site";
 	</div>
 </div>
 
+<script is:inline>
+	// Every navigation is a full page load, so the marquee would restart at 0%.
+	// Save its progress on leave and resume from there (plus time spent navigating)
+	// before first paint. Inline + synchronous on purpose, so it can't flash at 0%.
+	(() => {
+		const key = "ticker";
+		const track = document.currentScript?.previousElementSibling?.firstElementChild;
+		if (!track) return;
+		try {
+			const duration = parseFloat(getComputedStyle(track).getPropertyValue("--ticker-duration")) * 1000;
+			const saved = JSON.parse(sessionStorage.getItem(key) ?? "null");
+			if (duration > 0 && saved && Number.isFinite(saved.p) && Number.isFinite(saved.t)) {
+				const offset = (saved.p * duration + Math.max(0, Date.now() - saved.t)) % duration;
+				track.style.setProperty("--ticker-offset", `${offset}ms`);
+			}
+		} catch {}
+		addEventListener("pagehide", () => {
+			const progress = track.getAnimations()[0]?.effect?.getComputedTiming().progress;
+			if (progress == null) return;
+			try {
+				sessionStorage.setItem(key, JSON.stringify({ p: progress, t: Date.now() }));
+			} catch {}
+		});
+	})();
+</script>
+
 <style>
 	.ticker {
+		--ticker-duration: 40s;
 		overflow: hidden;
 	}
 
@@ -31,7 +58,8 @@ import { tickerItems } from "../../data/site";
 		width: max-content;
 		letter-spacing: 0.06em;
 		white-space: nowrap;
-		animation: tick 40s linear infinite;
+		animation: tick var(--ticker-duration) linear infinite;
+		animation-delay: calc(var(--ticker-offset, 0s) * -1);
 	}
 
 	.ticker:hover .ticker__track {
