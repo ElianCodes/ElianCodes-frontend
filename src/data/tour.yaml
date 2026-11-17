@@ -15,8 +15,7 @@
 # Only list stages Elian spoke on. Events he only organized (React Africa, React Paris, BeJS...)
 # live in organizedStages in src/data/site.ts.
 #
-# TODO (only Elian knows): talk titles marked "# talk?" and replay URLs for AgentCon Singapore
-# and React Brussels 2024.
+# TODO (only Elian knows): replay URLs for AgentCon Singapore and React Brussels 2024.
 
 # ---- 2026 ----
 - id: cms-conf-2026
@@ -33,7 +32,9 @@
   event: DevDays Europe
   city: Vilnius
   country: LT
-  kind: talk # talk?
+  kind: talk
+  talk: Insane Fast to Production Using Astro
+  abstract: "Building full-stack web apps with Astro: hybrid rendering for API routes and SSR, Astro Actions, Astro DB as an ORM for LibSQL, and tying it all together in Astro 5 with a headless CMS like React Bricks."
   link: https://devdays.lt/
 
 # ---- 2025 ----
@@ -51,43 +52,47 @@
   event: Infobip Shift Asia
   city: Kuala Lumpur
   country: MY
-  kind: talk # talk?
+  kind: talk
+  talk: "Playing with Fire: Unethical AI"
+  abstract: "Intentionally provocative AI projects, like an app that writes breakup texts or one that invents excuses to skip meetings, exposing how easily AI enables unethical behaviour and the ethical grey zones we tend to ignore."
   link: https://shift.infobip.com/asia/
 - id: magnoliajs-2025
   date: 2025-10-22
   event: MagnoliaJS
   city: Jackson, MS
   country: US
-  kind: talk # talk?
+  kind: talk
+  talk: The Web Can Be Weird
+  abstract: "No build tools, no React: native browser APIs like WebHID, WebMIDI and WebSerial that talk to hardware, instruments and gamepads, with chaotic live demos and maybe some music made with the audience."
   link: https://2025.magnoliaconf.com/
 - id: codemotion-milan-2025
-  date: 2025-10-14
+  date: 2025-10-15
   event: Codemotion Milan
   city: Milan
   country: IT
-  kind: talk # talk?
+  kind: talk
+  talk: "Astro: less JavaScript, faster website"
+  abstract: "We all know React, Vue or Svelte and we've built more than a million components, but what if we didn't ship any JavaScript where it isn't needed? Astro is a meta framework that publishes as little JavaScript as possible while keeping the developer experience high. Let's dig deeper into this framework."
   link: https://conferences.codemotion.com/milan2025/
 - id: devfest-milano-2025
   date: 2025-10-11
   event: DevFest Milano
   city: Milan
   country: IT
-  kind: talk # talk?
+  kind: talk
+  talk: "Playing with Fire: Unethical AI"
+  abstract: "Intentionally provocative AI projects, like an app that writes breakup texts or one that invents excuses to skip meetings, exposing how easily AI enables unethical behaviour and the ethical grey zones we tend to ignore."
   link: https://devfestmilano.it/
 - id: porto-tech-hub-2025
   date: 2025-10-07
   event: Porto Tech Hub
   city: Porto
   country: PT
-  kind: talk # talk?
+  kind: talk
+  talk: Going Full-Stack with Astro
+  abstract: "Building full-stack web apps with Astro: hybrid rendering for API routes and SSR, Astro Actions, Astro DB as a first-party ORM for LibSQL, and what's new in Astro 5."
   link: https://portotechhub.com/conference-2025/
-- id: react-alicante-2025
-  date: 2025-10-03
-  event: React Alicante
-  city: Alicante
-  country: ES
-  kind: talk # talk?
-  link: https://reactalicante.es/
+  replay: https://www.youtube.com/watch?v=SB6Tc5LfIvE
 - id: agentcon-hcmc-2025
   date: 2025-09-11
   event: AgentCon Ho Chi Minh
@@ -95,6 +100,7 @@
   country: VN
   kind: talk
   talk: "Playing with Fire: Unethical AI" # agenda: 11 Sep, 14:10
+  abstract: "Intentionally provocative AI projects, like an app that writes breakup texts or one that invents excuses to skip meetings, exposing how easily AI enables unethical behaviour and the ethical grey zones we tend to ignore."
   link: https://globalai.community/chapters/ho-chi-minh/events/agentcon-2025-ho-chi-minh/
 - id: agentcon-singapore-2025
   date: 2025-09-09
@@ -103,6 +109,7 @@
   country: SG
   kind: talk
   talk: "Playing with Fire: Unethical AI"
+  abstract: "Intentionally provocative AI projects, like an app that writes breakup texts or one that invents excuses to skip meetings, exposing how easily AI enables unethical behaviour and the ethical grey zones we tend to ignore."
   link: https://globalai.community/chapters/singapore/events/agentcon-2025-singapore/
 - id: zurichjs-2025
   date: 2025-07-24
@@ -110,22 +117,18 @@
   city: Zurich
   country: CH
   kind: talk
-  talk: Going full-stack with Astro
-  link: https://zurichjs.com/
+  talk: Insanely Fast to Production Using Astro
+  abstract: "Building full-stack web apps with Astro: hybrid rendering for API routes and SSR, Astro Actions, Astro DB as an ORM for LibSQL, and tying it all together in Astro 5 with a headless CMS like React Bricks."
+  link: https://zurichjs.com/events/zurich-js-meetup-7-sizzling-hot-java-script
 - id: code-europe-2025
-  date: 2025-06-30
+  date: 2025-07-01
   event: Code Europe
   city: Krakow
   country: PL
-  kind: talk # talk?
+  kind: talk
+  talk: Going Full-Stack with Astro # title from his title-slide photo on Bluesky; no 2025 agenda survives
+  abstract: "Building full-stack web apps with Astro: hybrid rendering for API routes and SSR, Astro Actions, Astro DB as a first-party ORM for LibSQL, and what's new in Astro 5."
   link: https://www.codeeurope.pl/en/
-- id: react-norway-2025
-  date: 2025-06-20
-  event: React Norway
-  city: Larvik
-  country: "NO"
-  kind: talk # talk?
-  link: https://reactnorway.com/
 - id: devtalks-romania-2025
   date: 2025-06-04
   event: DevTalks Romania
@@ -133,20 +136,25 @@
   country: RO
   kind: talk
   talk: "The Web Can Be Weird" # devtalks.ro speaker page, Web Stage
+  abstract: "No build tools, no React: native browser APIs like WebHID, WebMIDI and WebSerial that talk to hardware, instruments and gamepads, with chaotic live demos and maybe some music made with the audience."
   link: https://www.devtalks.ro/
 - id: jnation-2025
   date: 2025-05-28
   event: JNation
   city: Coimbra
   country: PT
-  kind: workshop # title? Astro + React Bricks workshop, Wednesday 2 PM
+  kind: workshop
+  talk: Going Full-Stack with Astro
+  abstract: "Building full-stack web apps with Astro: hybrid rendering for API routes and SSR, Astro Actions, Astro DB as a first-party ORM for LibSQL, and what's new in Astro 5."
   link: https://jnation.pt/
 - id: codemotion-rome-2025
   date: 2025-04-14
   event: Codemotion Rome
   city: Rome
   country: IT
-  kind: talk # talk?
+  kind: talk
+  talk: The Web Can Be Weird
+  abstract: "No build tools, no React: native browser APIs like WebHID, WebMIDI and WebSerial that talk to hardware, instruments and gamepads, with chaotic live demos and maybe some music made with the audience."
   link: https://conferences.codemotion.com/rome2025/
 - id: fork-it-tunis-2025
   date: 2025-04-05
@@ -154,15 +162,10 @@
   city: Tunis
   country: TN
   kind: talk
-  talk: "Insane fast to production using Astro"
+  talk: Insane Fast to Production Using Astro
+  abstract: "Building full-stack web apps with Astro: hybrid rendering for API routes and SSR, Astro Actions, Astro DB as an ORM for LibSQL, and tying it all together in Astro 5 with a headless CMS like React Bricks."
   link: https://www.forkit.community/events/2025-tunisia-tunis/talks/insane-fast-to-production-using-astro
-- id: typescript-la-conf-2025
-  date: 2025-02-28
-  event: TypeScript la Conf'
-  city: Paris
-  country: FR
-  kind: talk # talk?
-  link: https://la-conf.typescript.paris/
+  replay: https://www.youtube.com/watch?v=zUZHI6UX8LE
 - id: react-day-berlin-2024-talk
   date: 2024-12-13
   event: React Day Berlin
@@ -170,6 +173,7 @@
   country: DE
   kind: talk
   talk: Make the Web Weird Again
+  abstract: "No build tools, no React: native browser APIs like WebHID, WebMIDI and WebSerial that talk to hardware, instruments and gamepads, with chaotic live demos and maybe some music made with the audience."
   link: https://gitnation.com/contents/make-the-web-weird-again-astro
 - id: react-day-berlin-2024-workshop
   date: 2024-12-09
@@ -186,7 +190,8 @@
   city: Novi Sad
   country: RS
   kind: talk
-  talk: Going full-stack with Astro
+  talk: Going Full-Stack with Astro
+  abstract: "Building full-stack web apps with Astro and Astro DB: hybrid rendering for API routes and SSR, Astro DB as an ORM for your database, and a look at the newly announced Astro 5."
   link: https://armada-js.com/speakers/2024/elian-van-cutsem
 - id: fork-it-casablanca-2024
   # Fork It! community meetup. Sessionize lists this as "Fork it! 2024".
@@ -196,6 +201,7 @@
   country: MA
   kind: talk
   talk: The Web Can Be Weird
+  abstract: "No build tools, no React: native browser APIs like WebHID, WebMIDI and WebSerial that talk to hardware, instruments and gamepads, with chaotic live demos and maybe some music made with the audience."
   link: https://www.forkit.community/events/2024-morocco-casablanca/talks/the-web-can-be-weird
 - id: react-advanced-2024
   date: 2024-10-25
@@ -213,6 +219,7 @@
   country: BE
   kind: talk
   talk: Make the Web Weird Again # react.brussels lists it as "The web can be weird"
+  abstract: "No build tools, no React: native browser APIs like WebHID, WebMIDI and WebSerial that talk to hardware, instruments and gamepads, with chaotic live demos and maybe some music made with the audience."
   link: https://react.brussels/
 - id: react-alicante-2024
   date: 2024-09-20
@@ -224,19 +231,32 @@
   link: https://reactalicante.es/
   replay: https://youtu.be/TsA6xankPHU
 - id: infobip-shift-2024
-  date: 2024-09-15
+  date: 2024-09-16
   event: Infobip Shift
   city: Zadar
   country: HR
-  kind: talk # talk?
+  kind: talk
+  talk: "Astro Studio: All Secrets Revealed"
+  abstract: "Astro Studio and Astro DB, the new database platform for content-first sites, for building and deploying full-stack Astro apps, plus newer features like Astro Actions and Server Islands."
   link: https://shift.infobip.com/
 - id: cityjs-singapore-2024
-  date: 2024-06-24
+  date: 2024-07-26
   event: CityJS Singapore
   city: Singapore
   country: SG
-  kind: talk # talk?
+  kind: talk
+  talk: The Web Can Be Weird
+  abstract: "No build tools, no React: native browser APIs like WebHID, WebMIDI and WebSerial that talk to hardware, instruments and gamepads, with chaotic live demos and maybe some music made with the audience."
   link: https://singapore.cityjsconf.org/
+- id: cityjs-singapore-2024-workshop
+  date: 2024-07-25
+  event: CityJS Singapore
+  city: Singapore
+  country: SG
+  kind: workshop
+  talk: "NodeJS Masterclass (bonus: learn how to use Astro)"
+  abstract: "Building a complete Web API in Node.js without frameworks: debugging, the native test runner, error handling and streams, with a bonus round of Astro."
+  link: https://singapore.cityjsconf.org/talk/2q87Kr5BIgFNYeBjbOk8bu
 - id: react-norway-2024
   date: 2024-06-14
   event: React Norway
@@ -244,20 +264,46 @@
   country: "NO"
   kind: talk
   talk: "All Things Astro"
+  abstract: "What's new in Astro 4 after a wild 2023 for Astro: islands architecture and view transitions, some live coding, and a look at what's coming next."
   link: https://reactnorway.com/
+  replay: https://www.youtube.com/watch?v=w5WhcX0Q5NU&t=16470s
 - id: cityjs-athens-2024
-  date: 2024-06-06
+  date: 2024-06-08
   event: CityJS Athens
   city: Athens
   country: GR
-  kind: talk # talk?
+  kind: talk
+  talk: "Astro Studio: All Secrets Revealed"
+  abstract: "Astro Studio and Astro DB, the new database platform for content-first sites, and how to build and deploy full-stack Astro apps with them."
   link: https://greece.cityjsconf.org/
+  replay: https://www.youtube.com/watch?v=zSFsiywoqW4
+- id: jnation-2024-workshop
+  date: 2024-06-05
+  event: JNation
+  city: Coimbra
+  country: PT
+  kind: workshop
+  talk: "A Journey through Space: Exploring the Astroverse"
+  abstract: "A hands-on tour of Astro for content-first sites: islands architecture, content collections and a sneak peek at the then-unreleased Astro Studio."
+  link: https://jnation.pt/
 - id: jnation-2024
   date: 2024-06-04
   event: JNation
   city: Coimbra
   country: PT
-  kind: talk # talk?
+  kind: talk
+  talk: All Things Astro
+  abstract: "What's new in Astro 4 after a wild 2023 for Astro: islands architecture and view transitions, some live coding, and a look at what's coming next."
+  link: https://jnation.pt/
+  replay: https://www.youtube.com/watch?v=hdf5hgaLmAo
+- id: jnation-2024-panel
+  date: 2024-06-04
+  event: JNation
+  city: Coimbra
+  country: PT
+  kind: panel
+  talk: The Future of JS Frameworks
+  abstract: A panel on the future of JavaScript frameworks with Atila Fassina, Matheus Albuquerque and Tejas Kumar.
   link: https://jnation.pt/
 - id: frontend-nation-2024
   date: 2024-06-04
@@ -267,12 +313,15 @@
   talk: "Astro Studio: All Secrets Revealed"
   abstract: "Astro's latest features, from Astro Studio and Astro DB to islands and view transitions, with live coding and how to get involved in the community."
   link: https://frontendnation.com/
+  replay: https://www.youtube.com/watch?v=SszN-3s8RvI
 - id: cityjs-london-2024
   date: 2024-04-05
   event: CityJS London
   city: London
   country: GB
-  kind: talk # talk?
+  kind: talk
+  talk: All Things Astro
+  abstract: "What's new in Astro 4 after a wild 2023 for Astro: islands architecture and view transitions, some live coding, and a look at what's coming next."
   link: https://london.cityjsconf.org/
 - id: fronteers-2024
   date: 2024-03
@@ -289,8 +338,10 @@
   city: Amsterdam
   country: NL
   kind: talk
-  talk: "All Things Astro" # recording: "All Things Astro - DevWorld 2024"
+  talk: All Things Astro
+  abstract: "What's new in Astro 4 after a wild 2023 for Astro: islands architecture and view transitions, some live coding, and a look at what's coming next."
   link: https://jsworldconference.com/
+  replay: https://www.youtube.com/watch?v=uiDjm5xgQkg
 - id: fosdem-2024
   date: 2024-02-03
   event: FOSDEM
@@ -298,6 +349,7 @@
   country: BE
   kind: talk
   talk: All Things Astro
+  abstract: "What's new in Astro 4 after a wild 2023 for Astro: islands architecture and view transitions, some live coding, and a look at what's coming next."
   link: https://archive.fosdem.org/2024/schedule/event/fosdem-2024-2649-all-things-astro/
   replay: https://video.fosdem.org/2024/h1301/fosdem-2024-2649-all-things-astro.mp4
 - id: kongres-nextjs-2024
@@ -305,8 +357,11 @@
   event: Kongres NextJS
   city: Warsaw
   country: PL
-  kind: talk # talk?
-  link: https://kongresnextjs.pl/
+  kind: talk
+  talk: All Things Astro
+  abstract: "What's new in Astro 4 after a wild 2023 for Astro: islands architecture and view transitions, some live coding, and a look at what's coming next."
+  link: https://kongresjs.pl/
+  replay: https://www.youtube.com/watch?v=Uiujzebl0qs
   photo: kongres-nextjs.jpg
 
 # ---- 2023 ----
@@ -317,6 +372,7 @@
   country: DE
   kind: talk
   talk: All Things Astro
+  abstract: Astro 3 was released a while ago and brought some amazing new features with it. A look at what's new, some live coding and some fun.
   link: https://gitnation.com/contents/all-things-astro
   photo: react-day-berlin.jpg
 - id: react-day-berlin-2023-panel
@@ -326,6 +382,8 @@
   country: DE
   kind: panel
   talk: "Panel discussion: Innovation in React"
+  # The event lists no description; this sums up the recording.
+  abstract: "A panel with Tejas Kumar, Mark Erikson, Miguel Ángel Durán and Sylwia Vargas on React's future: wishlists for the next versions, innovation versus stability, accessibility, bundle size and the role of meta-frameworks."
   link: https://gitnation.com/contents/panel-discussion-innovation-in-react
 - id: cityjs-berlin-2023
   date: 2023-11-03
@@ -340,8 +398,13 @@
 - id: stories-on-the-road-2023
   date: 2023-10-12
   event: Stories on the Road (Storyblok)
+  # At the Mirahi offices, co-hosted with React Brussels.
+  city: Brussels
   country: BE
-  kind: talk # talk? city?
+  kind: talk
+  talk: All Things Astro
+  # The event page lists titles only; this is the Astro 3 abstract from the same talk at React Day Berlin 2023.
+  abstract: Astro 3 was released a while ago and brought some amazing new features with it. A look at what's new, some live coding and some fun.
   link: https://www.storyblok.com/ev/stories-on-the-road-belgium-2023
 - id: react-brussels-2023
   date: 2023-10-13
