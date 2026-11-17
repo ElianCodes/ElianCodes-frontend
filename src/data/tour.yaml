@@ -382,6 +382,8 @@
   country: DE
   kind: panel
   talk: "Panel discussion: Innovation in React"
+  # The event lists no description; this sums up the recording.
+  abstract: "A panel with Tejas Kumar, Mark Erikson, Miguel Ángel Durán and Sylwia Vargas on React's future: wishlists for the next versions, innovation versus stability, accessibility, bundle size and the role of meta-frameworks."
   link: https://gitnation.com/contents/panel-discussion-innovation-in-react
 - id: cityjs-berlin-2023
   date: 2023-11-03
@@ -396,10 +398,13 @@
 - id: stories-on-the-road-2023
   date: 2023-10-12
   event: Stories on the Road (Storyblok)
+  # At the Mirahi offices, co-hosted with React Brussels.
   city: Brussels
   country: BE
   kind: talk
   talk: All Things Astro
+  # The event page lists titles only; this is the Astro 3 abstract from the same talk at React Day Berlin 2023.
+  abstract: Astro 3 was released a while ago and brought some amazing new features with it. A look at what's new, some live coding and some fun.
   link: https://www.storyblok.com/ev/stories-on-the-road-belgium-2023
 - id: react-brussels-2023
   date: 2023-10-13
