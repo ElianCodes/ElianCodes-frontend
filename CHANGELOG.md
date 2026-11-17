@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.112](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.111...v0.9.112) (2026-11-17)
+
+
+### Bug Fixes
+
+* add abstracts for the React Day Berlin 2023 panel and Stories on the Road ([1dff494](https://github.com/ElianCodes/ElianCodes-frontend/commit/1dff494d46d65282e24f68a85428addd685469ea))
+* fill in missing talk titles and abstracts on the tour log ([0217d92](https://github.com/ElianCodes/ElianCodes-frontend/commit/0217d92022d37e94bb81579f2f431c2aa828b118))
+* keep ticker marquee position across page navigations ([5771c3d](https://github.com/ElianCodes/ElianCodes-frontend/commit/5771c3da6880584f35b0c86f83017b62416ef63d))
+
 ### [0.9.111](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.110...v0.9.111) (2026-11-16)
 
 ### [0.9.110](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.109...v0.9.110) (2026-11-16)
