@@ -1,6 +1,6 @@
 {
 	"name": "eliancodes-frontend",
-	"version": "0.9.114",
+	"version": "0.9.115",
 	"private": true,
 	"type": "module",
 	"scripts": {
