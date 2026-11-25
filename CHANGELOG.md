@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.9.118](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.117...v0.9.118) (2026-11-25)
+
+
+### Features
+
+* **blog:** publish website rewrite with Astro, Vite+ and Void ([96cd171](https://github.com/ElianCodes/ElianCodes-frontend/commit/96cd1710b5c02a6477b2785d146680471b335669))
+
 ### [0.9.117](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.116...v0.9.117) (2026-11-23)
 
 ### [0.9.116](https://github.com/ElianCodes/ElianCodes-frontend/compare/v0.9.115...v0.9.116) (2026-11-23)
